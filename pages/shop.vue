@@ -1,7 +1,7 @@
 <template>
     <div class="shop-page-wrapper">
-        <HeaderWithTopbar containerClass="container" />
-        <Breadcrumb pageTitle="shop grid standard" />
+        <HeaderWithTopbar containerClass="container" :msg="dataShare" @father="onShopSidebar" />
+        <Breadcrumb pageTitle="todos los productos" />
         <!-- product items wrapper -->
         <div class="shop-area pt-100 pb-100">
             <div class="container">
@@ -17,7 +17,7 @@
                                         <option value="high2low">Precio de mayor a menor</option>
                                     </select>
                                 </div>
-                                <p>Showing 1 result</p>
+                                <p>Mostrando {{ products.length }} resultados por página</p>
                             </div>
                             <div class="shop-tab">
                                 <button @click="layout = 'twoColumn'" :class="{ active : layout === 'twoColumn' }">
@@ -36,20 +36,29 @@
                         <!-- shop product -->
                         <div class="shop-bottom-area mt-35">
                             <div class="row product-layout" :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
-                                <div class="col-xl-4 col-sm-6" v-for="product in products" :key="product.id" >
-                                    <ProductGridItem :product="product" :layout="layout"  /> 
+                                <div class="col-xl-4 col-sm-6" v-for="product in products" :key="'product-' + product.id" >
+                                    <ProductGridItem :product="product" :layout="layout"/> 
                                 </div>
                             </div>
                         </div>
                         <!-- end shop product -->
 
-                        <!-- <div v-if="getPaginateCount > 1">
-                            <pagination class="pro-pagination-style shop-pagination mt-30" v-model="currentPage" :per-page="perPage" :records="filterItems.length" @paginate="paginateClickCallback" :page-count="getPaginateCount" />
-                        </div> -->
+                        <div class="d-flex justify-content-center">
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                    <li v-for="pagination_link in pagination.links" :key=" 'pagination_link-' + pagination_link.label " class="page-item"
+                                    :class="{
+                                        'disabled' : pagination_link.url == null,
+                                        'active' : pagination_link.active == true
+                                    }">
+                                        <a class="page-link" v-html="pagination_link.label" style="cursor: pointer;" @click.prevent="changePage(pagination_link.url)"></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
-
                     <div class="col-lg-3">
-                        <ShopSidebar classes="mr-30" />
+                        <ShopSidebar classes="mr-30" :msg="dataShare" @father="onShopSidebar" />
                     </div>
                 </div>
             </div>
@@ -61,6 +70,7 @@
 </template>
 
 <script>
+
     export default {
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
@@ -73,140 +83,115 @@
         data() {
             return {
                 products: [],
-                layout: "threeColumn",
+                layout: "list",
                 selectedPrice: 'default',
+                categories: [],
+                pagination: {},
+                dataShare: '',
+                msgOfShopSidebar: '',
+                resCategory: [],
              }
         },
 
         mounted() {
-            this.getProducts()
+            this.getProducts();
+            this.getCategories();
         },
 
         computed: {
-            // products() {
-            //     return this.$store.getters.getProducts
-            // },
+            page() {
+                let page = this.$route.query.page ?? 1;
 
-            // getItems() {
-            //     let start = (this.currentPage - 1) * this.perPage;
-            //     let end = this.currentPage * this.perPage;
-            //     return this.filterItems.slice(start, end);
-            // },
-            // getPaginateCount() {
-            //     return Math.ceil(this.filterItems.length / this.perPage);
-            // },
+                if(page > this.pagination.last_page){
+                    this.$router.replace({
+                        query: {
+                            page: this.pagination.last_page
+                        }
+                    })
+                    this.$router.push();
+                    return this.pagination.last_page;
+                }
+
+                return page;
+            },
+
         },
 
         methods: {
-            // paginateClickCallback(page) {
-            //     this.currentPage = Number(page);
-            // },
+
             async getProducts() {
-                const response = await this.$axios.get('http://api.trivicare.test/v1/products')
-                this.products = response.data.data
+                const response = await this.$axios.get('http://api.trivicare.test/v1/products?perPage=5&page=' + this.page + '&included=category&filter[name]=' + this.msgOfShopSidebar + '&filter[category_id]=' + this.resCategory)
+                this.products = response.data.data;
+                this.pagination = {
+                    links: response.data.meta.links,
+                    last_page: response.data.meta.last_page,
+                    current_page: response.data.meta.current_page
+                };
             },
 
-            updateProductData(){
-                this.paginateClickCallback(1);
 
-                // const categoryName = this.$route.query.category;
-                // const sizeName = this.$route.query.size;
-                // const colorName = this.$route.query.color;
-                // const tagName = this.$route.query.tag;
-                
-                if( Object.keys(this.$route.query).length === 0){
-                    this.filterItems = [...this.products]
-                }
-                
-                if(categoryName && this.prevSelectedCategoryName !== categoryName){
-                    if(Boolean(categoryName) === false || categoryName === this.slugify("all categories")){
-                        this.filterItems = [...this.products]
-                    }
-                    else {
-                        const resultData = this.products.filter((item) => this.slugify(item.category).includes(categoryName));
-                        this.filterItems = [];
-                        this.filterItems.push(...resultData);
-                    }
-                }
-        
-                // if(colorName && this.prevSelectedColorName !== colorName){
-                //     if(Boolean(colorName) === false || colorName === this.slugify("all colors")){
-                //         this.filterItems = [...this.products]
-                //     }
-                //     else {
-                //         const resultData = this.products.filter((item) => item.variation?.color.includes(colorName));
-                //         this.filterItems = [];
-                //         this.filterItems.push(...resultData);
-                //     }
-                // }
+            onShopSidebar(msg) {
+                this.msgOfShopSidebar = msg;
+            },
 
-                // if(sizeName && this.prevSelectedSizeName !== sizeName){
-                //     if(Boolean(sizeName) === false || sizeName === this.slugify("all sizes")){
-                //         this.filterItems = [...this.products]
-                //     }
-                //     else {
-                //         const resultData = this.products.filter((item) => item.variation?.sizes.includes(sizeName));
-                //         this.filterItems = [];
-                //         this.filterItems.push(...resultData);
-                //     }
-                // }
-            
-                // if(tagName && this.prevSelectedTagName !== tagName){
-                //     if(tagName){
-                //         const resultData = this.products.filter((item) => this.slugify(item.tag).includes(tagName));
-                //         this.filterItems = [];
-                //         this.filterItems.push(...resultData);
-                //     }
-                //     else {
-                //         this.filterItems = [...this.products]
-                //     } 
-                // }
-                
-                //this.prevSelectedCategoryName = categoryName;
-                // this.prevSelectedColorName = colorName;
-                // this.prevSelectedSizeName = sizeName;
-                // this.prevSelectedTagName = tagName;
+            async getCategories() {
+                const response = await this.$axios.get('http://api.trivicare.test/v1/categories')
+                this.categories = response.data.data
+            },
+
+            changePage(url) {
+                this.$router.replace({
+                    query: {
+                        page : url.split('page=')[1]
+                    }
+                });
             },
 
             discountedPrice(product) {
                 return product.price - (product.price * product.discount / 100)
             },
 
-            // slugify(text) {
-            //     return text
-            //         .toString()
-            //         .toLowerCase()
-            //         .replace(/\s+/g, "-") // Replace spaces with -
-            //         .replace(/[^\w-]+/g, "") // Remove all non-word chars
-            //         .replace(/--+/g, "-") // Replace multiple - with single -
-            //         .replace(/^-+/, "") // Trim - from start of text
-            //         .replace(/-+$/, ""); // Trim - from end of text
-            // }
         },
 
         watch: {
-            $route(){
-                this.updateProductData()
+            page() {
+                this.getProducts();
+            },
+
+            msgOfShopSidebar() {
+                this.getProducts();
+            },
+
+            resCategory() {
+                this.getProducts();
             },
 
             selectedPrice(){
                 switch (this.selectedPrice) {
                     case "low2high":
-                        this.filterItems =  this.filterItems.sort((a, b)=> this.discountedPrice(a) - this.discountedPrice(b))
+                        this.products = this.products.sort((a, b)=> this.discountedPrice(a) - this.discountedPrice(b))
                         break;
                     case "high2low":
-                        this.filterItems =  this.filterItems.sort((a, b)=> this.discountedPrice(b) -  this.discountedPrice(a))
+                        this.products = this.products.sort((a, b)=> this.discountedPrice(b) - this.discountedPrice(a))
                         break;
                     default:
-                        this.filterItems = [...this.products]
+                        this.getProducts();
                 }
             }
         },
 
+        beforeMount(){
+            this.$root.$on('send', data => {
+                this.resCategory = data;
+            })
+        },
+
         head() {
             return {
-                title: "Shop",
+                title: "Todos los productos",
             }
         },
+
     };
+    
 </script>

@@ -13,6 +13,7 @@
                                     <div class="panel-heading my-account-title">
                                         <h3 class="panel-title"><span>1 .</span> <a data-bs-toggle="collapse" href="#my-account-1">Edit your account information </a></h3>
                                     </div>
+                                    {{ this.$store.state.auth }}
                                     <div id="my-account-1" class="panel-collapse collapse show" data-bs-parent="#faq">
                                         <div class="panel-body">
                                             <div class="myaccount-info-wrapper">
@@ -21,18 +22,13 @@
                                                     <h5>Your Personal Details</h5>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-lg-6 col-md-6">
+                                                    <div class="col-lg-12 col-md-12">
                                                         <div class="billing-info">
                                                             <label>First Name</label>
                                                             <input type="text">
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="billing-info">
-                                                            <label>Last Name</label>
-                                                            <input type="text">
-                                                        </div>
-                                                    </div>
+
                                                     <div class="col-lg-12 col-md-12">
                                                         <div class="billing-info">
                                                             <label>Email Address</label>
@@ -151,12 +147,24 @@
 </template>
 
 <script>
+
+    import { mapState} from 'vuex';
     export default {
+        middleware: 'auth',
+        
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             Breadcrumb: () => import("@/components/Breadcrumb"),
             TheFooter: () => import("@/components/TheFooter"),
         },
+
+        computed: {
+            ...mapState(['auth']),
+        },
+        
+        methods: {
+        },
+
         head() {
             return {
                 title: "My Account"

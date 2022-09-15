@@ -10,8 +10,8 @@
                                 <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
                             </div>
                             <swiper :options="swiperOptionTop">
-                                <div class="large-img swiper-slide" v-for="(image, index) in product.images" :key="index">
-                                    <img class="img-fluid" :src="image" :alt="product.title">
+                                <div class="large-img swiper-slide">
+                                    <img class="img-fluid" src="../static/img/product/cosmetics/1.jpg" :alt="product.name">
                                 </div>
                                 <div class="quickview-nav swiper-button-prev">
                                     <i class="pe-7s-angle-left"></i>
@@ -31,10 +31,10 @@
                                 <i class="fa fa-times"></i>
                             </button>
                         </div>
-                        <h2>{{ product.title }}</h2>
+                        <h2>{{ product.name }}</h2>
                         <div class="product-details-price">
-                            <span>${{ discountedPrice(product).toFixed(2) }}</span>
-                            <span class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</span>
+                            <span>{{ discountedPrice(product).toFixed(2) }} &euro;</span>
+                            <span class="old" v-if="product.discount > 0">{{ product.price}} &euro;</span>
                         </div>
                         <div class="pro-details-rating-wrap">
                             <div class="pro-details-rating" v-if="product.rating == 5">
@@ -102,21 +102,24 @@
                                 <button @click="increaseQuantity()" class="inc qtybutton">+</button>
                             </div>
                             <div class="pro-details-cart btn-hover">
-                                <button @click="addToCart(product)">Add To Cart</button>
+                                <button @click="addToCart(product)">Añadir al carrito</button>
                             </div>
                             <div class="pro-details-wishlist">
                                 <button @click="addToWishlist(product)"><i class="fa fa-heart-o"></i></button>
                             </div>
-                            <div class="pro-details-compare">
+                            <!-- <div class="pro-details-compare">
                                 <button @click="addToCompare(product)"><i class="pe-7s-shuffle"></i></button>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="pro-details-meta">
-                            <span class="label">Categories:</span>
-                            <ul>
-                                <li v-for="(category, index) in product.category" :key="index">
-                                    <n-link :to="`/shop?category=${category}`">{{ category }},</n-link>
-                                </li>
+                            <span class="label">Categoría:</span>
+                            <ul v-for="category in categories" :key="category.id">
+                                <div v-if="category.id == product.category_id">
+                                    <li>
+                                        <n-link :to="`/shop?category=${category.slug}`">{{category.name}}</n-link>
+                                
+                                    </li>
+                                </div>
                             </ul>
                         </div>
                         <div class="pro-details-meta">
@@ -169,6 +172,7 @@
             return {
                 item: '',
                 singleQuantity: 1,
+                categories: [],
 
                 swiperOptionTop: {
                     loop: true,
@@ -189,18 +193,27 @@
             }
         },
 
+        mounted() {
+            this.getCategories();
+        },
+
         methods: {
             beforeOpen ({params: product}) {
                 this.item = product
+            },
+
+            async getCategories() {
+                const response = await this.$axios.get('http://api.trivicare.test/v1/categories')
+                this.categories = Object(response.data.data)
             },
 
             addToCart(product) {
                 const prod = {...product, cartQuantity: this.singleQuantity}
                 // for notification
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to cart update with one' })
+                    this.$notify({ title: 'Se ha actualizado la cantidad de producto' })
                 } else {
-                    this.$notify({ title: 'Add to cart successfully!'})
+                    this.$notify({ title: 'Añadido al carrito!'})
                 }
                 
                 this.$store.dispatch('addToCartItem', prod)
@@ -221,24 +234,24 @@
             addToWishlist(product) {
                 // for notification
                 if (this.$store.state.wishlist.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to wishlist!' })
+                    this.$notify({ title: 'Ya esta en tu lista de deseos!' })
                 } else {
-                    this.$notify({ title: 'Add to wishlist successfully!'})
+                    this.$notify({ title: 'Añadido a la lista de deseos!'})
                 }
 
                 this.$store.dispatch('addToWishlist', product)
             },
 
-            addToCompare(product) {
-                // for notification
-                if (this.$store.state.compare.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to compare!' })
-                } else {
-                    this.$notify({ title: 'Add to compare successfully!'})
-                }
+            // addToCompare(product) {
+            //     // for notification
+            //     if (this.$store.state.compare.find(el => product.id === el.id)) {
+            //         this.$notify({ title: 'Already added to compare!' })
+            //     } else {
+            //         this.$notify({ title: 'Add to compare successfully!'})
+            //     }
 
-                this.$store.dispatch('addToCompare', product)
-            }
+            //     this.$store.dispatch('addToCompare', product)
+            // }
         }
     };
 </script>

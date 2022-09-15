@@ -44,6 +44,7 @@
 }
 .logo {
 	margin-top: 15px;
+    width: 10rem;
     @media #{$md-layout, $xs-layout}{
         margin-top: 0px;
         width: 8rem;

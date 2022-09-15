@@ -9,20 +9,20 @@
                                 <img src="/img/logo/logo-footer.png" alt="logo">
                             </n-link>
                         </div>
-                        <p>© 2022 <a href="#" target="_blank">Flone</a>.<br> All Rights Reserved</p>
+                        <p>© 2022 <a href="#" target="_blank">TriviCare</a><br> Todos los derechos reservados.</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-sm-4">
                     <div class="footer-widget mb-30 ml-30">
                         <div class="footer-title">
-                            <h3>ABOUT US</h3>
+                            <h3>SOBRE NOSOTROS</h3>
                         </div>
                         <div class="footer-list">
                             <ul>
-                                <li><n-link to="/about">About us</n-link></li>
-                                <li><n-link to="/shop">Store location</n-link></li>
-                                <li><n-link to="/contact">Contact</n-link></li>
-                                <li><n-link to="/contact">Orders tracking</n-link></li>
+                                <li><n-link to="/about">Sobre nosotros</n-link></li>
+                                <li><n-link to="/shop">Puntos de venta</n-link></li>
+                                <li><n-link to="/contact">Contacto</n-link></li>
+                                <li><n-link to="/contact">Seguimiento de envío</n-link></li>
                             </ul>
                         </div>
                     </div>
@@ -30,14 +30,14 @@
                 <div class="col-lg-2 col-sm-4">
                     <div class="footer-widget mb-30 ml-50">
                         <div class="footer-title">
-                            <h3>USEFUL LINKS</h3>
+                            <h3>LINKS PARA EL COMPRADOR</h3>
                         </div>
                         <div class="footer-list">
                             <ul>
-                                <li><n-link to="/about">Returns</n-link></li>
-                                <li><n-link to="/about">Support Policy</n-link></li>
-                                <li><n-link to="/about">Size guide</n-link></li>
-                                <li><n-link to="/about">FAQs</n-link></li>
+                                <li><n-link to="/about">Devoluciones</n-link></li>
+                                <li><n-link to="/about">Politica de envío</n-link></li>
+                                <li><n-link to="/about">Alérgenos</n-link></li>
+                                <li><n-link to="/about">Preguntas Frecuentes</n-link></li>
                             </ul>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                 <div class="col-lg-2 col-sm-6">
                     <div class="footer-widget mb-30 ml-75">
                         <div class="footer-title">
-                            <h3>FOLLOW US</h3>
+                            <h3>SIGUENOS</h3>
                         </div>
                         <div class="footer-list">
                             <ul>
@@ -60,14 +60,14 @@
                 <div class="col-lg-4 col-sm-6">
                     <div class="footer-widget mb-30 ml-70">
                         <div class="footer-title">
-                            <h3>SUBSCRIBE</h3>
+                            <h3>SUSCRÍBETE</h3>
                         </div>
                         <div class="subscribe-style">
-                            <p>Get E-mail updates about our latest shop and special offers.</p>
+                            <p>Recibe por email ofertas y nuestras últimas novedades'.</p>
                             <div class="subscribe-form">
                                 <form class="mc-form">
-                                    <input class="email" type="email" required="" placeholder="Enter your email here.." name="email" >
-                                    <button class="button" name="subscribe">Subscribe</button>
+                                    <input class="email" type="email" required="" placeholder="Introduce tu email..." name="email" >
+                                    <button class="button" name="subscribe">Suscribirse</button>
                                 </form>
                             </div>
                         </div>

@@ -36,77 +36,30 @@
                     },
                     {
                         url: '/shop',
-                        title: 'Shop',
+                        title: 'Ver Todo',
 
                     },
                     {
-                        url: '',
-                        title: 'Pages',
-                        submenu: [
-                            {
-                                url: '/cart',
-                                title: 'Cart',
-                            },
-                            {
-                                url: '/checkout',
-                                title: 'Checkout',
-                            },
-                            {
-                                url: '/wishlist',
-                                title: 'Wishlist',
-                            },
-                            {
-                                url: '/compare',
-                                title: 'Compare',
-                            },
-                            {
-                                url: '/about',
-                                title: 'About us',
-                            },
-                            {
-                                url: '/my-account',
-                                title: 'My Account',
-                            },
-                            {
-                                url: '/login-register',
-                                title: 'Login / Register',
-                            },
-                            {
-                                url: '/contact',
-                                title: 'Contact us',
-                            },
-                            {
-                                url: '/privacy-policy',
-                                title: 'Privacy Policy',
-                            },
-                            {
-                                url: '/terms-conditions',
-                                title: 'Terms & Conditions',
-                            },
-                        ]
+                        url: '/shop',
+                        title: 'Facial',
+
                     },
                     {
-                        url: '/blog',
-                        title: 'Blog',
-                        submenu: [
-                            {
-                                url: '/blog',
-                                title: 'blog standard',
-                            },
-                            {
-                                url: '/blog/blog-right-sidebar',
-                                title: 'blog right sidebar',
-                            },
-                            {
-                                url: '/blog/blog-without-sidebar',
-                                title: 'blog no sidebar',
-                            },
-                            {
-                                url: '/blog/a-guide-to-latest-trends-product',
-                                title: 'blog details',
-                            }
-                        ]
+                        url: '/shop',
+                        title: 'Hidratante',
+
                     },
+                    {
+                        url: '/shop',
+                        title: 'Corporal',
+
+                    },
+                    {
+                        url: '/shop',
+                        title: 'Accesorios',
+
+                    },
+
                     {
                         url: '/contact',
                         title: 'Contacto',

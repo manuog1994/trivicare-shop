@@ -1,7 +1,7 @@
 {
-    "name": "flone",
+    "name": "trivicare",
     "version": "1.0.0",
-    "author": "Uzzal",
+    "author": "Manuel Ortega",
     "private": true,
     "scripts": {
         "dev": "nuxt",
@@ -10,6 +10,7 @@
         "generate": "nuxt generate"
     },
     "dependencies": {
+        "@nuxtjs/auth-next": "^5.0.0-1648802546.c9880dc",
         "@nuxtjs/axios": "^5.13.6",
         "@nuxtjs/style-resources": "^1.2.1",
         "@popperjs/core": "^2.11.4",

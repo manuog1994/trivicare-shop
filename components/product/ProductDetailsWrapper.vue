@@ -32,8 +32,8 @@
                     <div class="product-details-content ml-70">
                         <h2>{{ product.name }}</h2>
                         <div class="product-details-price">
-                            <span>${{ discountedPrice(product).toFixed(2) }}</span>
-                            <span class="old" v-if="product.discount > 0">${{ product.price}}</span>
+                            <span>{{ discountedPrice(product).toFixed(2) }} &euro;</span>
+                            <span class="old" v-if="product.discount > 0">{{ product.price}} &euro;</span>
                         </div>
                         <div class="pro-details-rating-wrap">
                             <div class="pro-details-rating" v-if="product.rating == 5">
@@ -111,10 +111,12 @@
                             </div>
                         </div> -->
                         <div class="pro-details-meta">
-                            <span class="label">Categories:</span>
+                            <span class="label">Categoría: </span>
                             <ul>
-                                <li v-for="category in product.category" :key="category.id">
-                                    <n-link :to="`/shop?category=${category.slug}`">{{ category }},</n-link>
+                                <li v-for="category in categories" :key="category.id">
+                                    <div v-if="category.id == product.category_id">
+                                        <n-link :to="`/shop?category=${category.slug}`">{{ category.name  }}</n-link>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -169,6 +171,7 @@
         data() {
             return {
                 singleQuantity: 1,
+                categories: [],
 
                 swiperOptionTop: {
                     loop: true,
@@ -202,10 +205,17 @@
                 const swiperThumbs = this.$refs.swiperThumbs.$swiper
                 swiperTop.controller.control = swiperThumbs
                 swiperThumbs.controller.control = swiperTop
-            })
+            });
+
+            this.getCategories();
         },
 
         methods: {
+            async getCategories() {
+                const response = await this.$axios.get('http://api.trivicare.test/v1/categories')
+                this.categories = response.data.data
+            },
+
             addToCart(product) {
                 const prod = {...product, cartQuantity: this.singleQuantity}
                 // for notification

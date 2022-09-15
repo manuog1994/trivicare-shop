@@ -3,8 +3,8 @@
         <div class="container">
             <div class="description-review-wrapper">
                 <div class="description-review-topbar nav">
-                    <a data-bs-toggle="tab" href="#des-details1">Additional information</a>
-                    <a class="active" data-bs-toggle="tab" href="#des-details2">Description</a>
+                    <a data-bs-toggle="tab" href="#des-details1">Información adicional</a>
+                    <a class="active" data-bs-toggle="tab" href="#des-details2">Descripción</a>
                     <a data-bs-toggle="tab" href="#des-details3">Reviews (2)</a>
                 </div>
                 <div class="tab-content description-review-bottom">

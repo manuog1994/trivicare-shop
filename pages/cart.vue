@@ -70,7 +70,7 @@
                                     <div class="tax-wrapper">
                                         <p>Introduce el destino para calcularlo.</p>
                                         <div class="tax-select-wrapper">
-                                            <div class="tax-select">
+                                            <!-- <div class="tax-select">
                                                 <label>
                                                     * País
                                                 </label>
@@ -81,7 +81,7 @@
                                                     <option>Italia</option>
                                                     <option>Portugal</option>
                                                 </select>
-                                            </div>
+                                            </div> -->
                                             <div class="tax-select">
                                                 <label>
                                                     * Provincia
@@ -96,7 +96,7 @@
                                                 </label>
                                                 <input type="text">
                                             </div>
-                                            <button class="cart-btn-2" type="submit">Get A Quote</button>
+                                            <button class="cart-btn-2" type="submit">Calcular</button>
                                         </div>
                                     </div>
                                 </div>
@@ -104,13 +104,13 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="discount-code-wrapper">
                                     <div class="title-wrap">
-                                    <h4 class="cart-bottom-title section-bg-gray"></h4> 
+                                    <h4 class="cart-bottom-title section-bg-gray">Código Descuento</h4> 
                                     </div>
                                     <div class="discount-code">
-                                        <p>Enter your coupon code if you have one.</p>
+                                        <p>Introduce el código descuento.</p>
                                         <form>
                                             <input type="text" required="" name="name">
-                                            <button class="cart-btn-2" type="submit">Apply Coupon</button>
+                                            <button class="cart-btn-2" type="submit">Aplicar cupón</button>
                                         </form>
                                     </div>
                                 </div>
@@ -120,8 +120,8 @@
                                     <div class="title-wrap">
                                         <h4 class="cart-bottom-title section-bg-gary-cart">Total del Carrito</h4>
                                     </div>
-                                    <h5>Total <span>${{ total.toFixed(2) }}</span></h5>
-                                    <h4 class="grand-total-title">Total  <span>${{ total.toFixed(2) }}</span></h4>
+                                    <h5>Total <span>{{ total.toFixed(2) }} &euro;</span></h5>
+                                    <h4 class="grand-total-title">Total  <span>{{ total.toFixed(2) }} &euro;</span></h4>
                                     <n-link to="/checkout">Tramitar pedido</n-link>
                                 </div>
                             </div>
@@ -190,8 +190,10 @@
 
             incrementProduct(product) {
                 const prod = { ...product, cartQuantity: 1 }
-                if (product.cartQuantity < product.quantity) {
+                if (product.cartQuantity < product.stock) {
                     this.$store.dispatch('addToCartItem', prod)
+                }else{
+                    this.$notify({ title: 'No hay más stock disponible' })
                 }
             },
 

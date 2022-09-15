@@ -57,24 +57,9 @@ export default {
     modules: [
         '@nuxtjs/style-resources',
         '@nuxtjs/axios',
+        '@nuxtjs/auth-next',
     ],
 
-
-    // axios: {
-    //     baseURL: 'http://localhost:51597', // Used as fallback if no runtime config is provided
-    // },
-
-    // publicRuntimeConfig: {
-    //     axios: {
-    //     browserBaseURL: process.env.BROWSER_BASE_URL
-    //     }
-    // },
-
-    // privateRuntimeConfig: {
-    //     axios: {
-    //     baseURL: process.env.BASE_URL
-    //     }
-    // },
 
     styleResources: {
         scss: [
@@ -91,4 +76,20 @@ export default {
             compact: true,
         },
     },
+
+    auth: {
+        strategies: {
+          'laravelPassport': {
+            provider: 'laravel/passport',
+            endpoints: {
+              userInfo: '...'
+            },
+            url: 'http://api.trivicare.test',
+            clientId: '973bd2ef-601d-435b-a5b2-666435d949e4',
+            clientSecret: '00jpvr483TqPio35jg1u5GybsDzgKK7k13aHnmUc'
+          },
+        }
+      }
+      
+      
 }

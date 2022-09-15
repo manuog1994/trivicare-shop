@@ -48,22 +48,30 @@
                         </div>
                         <div class="col-lg-2 col-md-6 col-8">
                             <div class="header-right-wrap">
+                                <div class="same-style d-none d-lg-block">
+                                    <n-link to="/">
+                                        <i class="fa fa-home"></i>
+                                    </n-link>
+                                </div>
                                 <div class="same-style header-search d-none d-lg-block">
                                     <button class="search-active" @click="isOpenSearch = !isOpenSearch"><i class="pe-7s-search"></i></button>
                                     <div class="search-content" :class="{ active:isOpenSearch }">
-                                        <form>
-                                            <input type="text" placeholder="Search" />
-                                            <button class="button-search"><i class="pe-7s-search"></i></button>
-                                        </form>
+                                        <input @click.prevent="redirectToShop" v-model="father" type="text" placeholder="Buscar..." />
                                     </div> 
                                 </div>
                                 <div class="same-style account-setting d-none d-lg-block">
                                     <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings"><i class="pe-7s-user-female"></i></button>
                                     <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
-                                        <ul>
-                                            <li><n-link to="/login-register">Login</n-link></li>
-                                            <li><n-link to="/login-register">Register</n-link></li>
-                                            <li><n-link to="/my-account">my account</n-link></li>
+                                        <ul v-if="auth">
+                                            <li>
+                                                <n-link to="/my-account">Mi Perfil</n-link>
+                                            </li>
+                                            <li>
+                                                <a @click="logout">Cerrar sesión</a>
+                                            </li>
+                                        </ul>
+                                        <ul v-else>
+                                            <li><n-link to="/login-register">Iniciar sesión/Registrar</n-link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -100,13 +108,14 @@
 </template>
 
 <script>
+    import { mapState, mapActions} from 'vuex';
     export default {
         components: {
             Navigation: () => import("@/components/Navigation"),
             MiniCart: () => import("@/components/MiniCart"),
         },
 
-        props: ['containerClass'],
+        props: ['containerClass', 'msg'],
 
         computed: {
             cartItemCount() {
@@ -117,7 +126,10 @@
             },
             compareItemCount() {
                 return this.$store.getters.compareItemCount
-            }
+            },
+            ...mapState({
+                'auth': state => state.auth,
+            }),
         },
 
         data() {
@@ -126,7 +138,8 @@
                 isOpenSearch: false,
                 isOpenAccountSettings: false,
                 openCart: false,
-                navOpen: false
+                navOpen: false,
+                father: '',
             }
         },
 
@@ -140,5 +153,20 @@
                 }
             })
         },
+        
+        watch: {
+            father() {
+                this.$emit("father", this.father)
+            }
+        },
+
+        methods: {
+            ...mapActions({
+                'logout': 'logout',
+            }),
+            redirectToShop() {
+                this.$router.push('/shop')
+            }
+        }
     };
 </script>

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
-import axios from "axios";
+import { createStore } from 'vuex'
 
 
 Vue.use(Vuex);
@@ -10,8 +9,9 @@ export const state = () => ({
     products: [],
     cart: [],
     wishlist: [],
-    compare: []
+    compare: [],
 })
+
 
 // your root getters
 export const getters = {
@@ -87,6 +87,7 @@ export const getters = {
 
 // contains your mutations
 export const mutations = {
+
     SET_PRODUCT(state, product) {
         state.products = product
     },
@@ -154,6 +155,7 @@ export const mutations = {
 
 // contains your actions
 export const actions = {
+
     addToCartItem({commit}, payload) {
         commit('UPDATE_CART', payload)
     },
@@ -183,3 +185,26 @@ export const actions = {
     },
 }
 
+// const store = createStore({
+//     state() {
+//         return {
+//             auth: null
+//         }
+//     },
+
+//     mutations: {
+//         setAuth(state, auth) {
+//             state.auth = auth
+//         },
+//     },
+
+//     actions: {
+//         setAuth({ commit }) {
+//             commit('setAuth')
+//         },
+
+//         logout() {
+//             localStorage.removeItem('auth');
+//         }
+//     },
+// })

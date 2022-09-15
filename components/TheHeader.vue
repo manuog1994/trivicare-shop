@@ -19,22 +19,21 @@
                     </div>
                     <div class="col-lg-2 col-md-6 col-8">
                         <div class="header-right-wrap">
-                            <div class="same-style header-search d-none d-lg-block">
+                            <!-- <div class="same-style header-search d-none d-lg-block">
                                 <button class="search-active" @click="isOpenSearch = !isOpenSearch"><i class="pe-7s-search"></i></button>
                                 <div class="search-content" :class="{ active:isOpenSearch }">
-                                    <form>
-                                        <input type="text" placeholder="Buscar..." />
-                                        <button class="button-search"><i class="pe-7s-search"></i></button>
-                                    </form>
+                                    <input v-model="msg" type="text" placeholder="Buscar..." />
                                 </div> 
-                            </div>
+                            </div> -->
                             <div class="same-style account-setting d-none d-lg-block">
                                 <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings"><i class="pe-7s-user-female"></i></button>
                                 <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
-                                    <ul>
-                                        <li><n-link to="/login-register">Iniciar Sesión</n-link></li>
-                                        <li><n-link to="/login-register">Registrar</n-link></li>
+                                    <ul v-if="auth">
                                         <li><n-link to="/my-account">Mi Perfil</n-link></li>
+                                        <li><n-link to="/logout">Cerrar sesión</n-link></li>
+                                    </ul>
+                                    <ul v-else>
+                                        <li><n-link to="/login-register">Iniciar sesión/Registrar</n-link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -68,6 +67,7 @@
 </template>
 
 <script>
+    import { mapState} from 'vuex';
     export default {
         components: {
             Navigation: () => import("@/components/Navigation"),
@@ -83,7 +83,10 @@
             },
             compareItemCount() {
                 return this.$store.getters.compareItemCount
-            }
+            },
+            ...mapState({
+                'auth': state => state.auth
+            }),
         },
 
         data() {
@@ -92,7 +95,8 @@
                 isOpenSearch: false,
                 isOpenAccountSettings: false,
                 openCart: false,
-                navOpen: false
+                navOpen: false,
+                msg: '',
             }
         },
 
@@ -105,6 +109,8 @@
                     this.isSticky = false
                 }
             }) 
-        }
+        }, 
+
+
     };
 </script>

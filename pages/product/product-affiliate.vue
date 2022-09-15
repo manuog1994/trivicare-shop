@@ -82,21 +82,21 @@
                                 <a class="empty-cart__button" href="https://www.amazon.com/" target="_blank">Buy Now</a>
                             </div>
                             <div class="pro-details-meta">
-                                <span class="label">Categories:</span>
+                                <span class="label">Categoría:</span>
                                 <ul>
-                                    <li v-for="category in product.category" :key="category">
-                                        <n-link :to="`/shop?category=${category}`">{{ category }},</n-link>
+                                    <li>
+                                        <n-link :to="`/shop?category=${category}`">{{ product.category }}</n-link>
                                     </li>
                                 </ul>
                             </div>
-                            <!-- <div class="pro-details-meta">
+                            <div class="pro-details-meta">
                                 <span class="label">Tag:</span>
                                 <ul>
                                     <li v-for="(tag, index) in product.tag" :key="index">
                                         <n-link :to="`/shop?tag=${tag}`">{{ tag }},</n-link>
                                     </li>
                                 </ul>
-                            </div> -->
+                            </div>
                             <div class="pro-details-social">
                                 <ul>
                                     <li>

@@ -1,7 +1,7 @@
 <template>
     <div class="cart-page-wrapper">
         <HeaderWithTopbar containerClass="container" />
-        <Breadcrumb pageTitle="wishlist" />
+        <Breadcrumb pageTitle="lista de deseos" />
         
         <!-- wishlist section start -->
         <div class="cart-main-area pt-90 pb-100">
@@ -35,7 +35,7 @@
                                             <del class="old" v-if="product.discount > 0">${{ product.price }}</del>
                                         </td>
                                         <td class="product-wishlist-cart">
-                                            <button @click="addToCart(product)">add to cart</button>
+                                            <button @click="addToCart(product)">añadir al carrito</button>
                                         </td>
                                         <td class="product-remove">
                                             <button @click="removeProductFromWishlist(product)"><i class="fa fa-times"></i></button>
@@ -53,7 +53,7 @@
                                 <i class="pe-7s-like"></i>
                             </div>
                             <h4>No hay productos en tu lista de deseos</h4>
-                            <n-link to="/shop" class="empty-cart__button">Add Item</n-link>
+                            <n-link to="/shop" class="empty-cart__button">Añadir producto</n-link>
                         </div>
                     </div>
                 </div>
@@ -83,9 +83,9 @@
                 const prod = {...product, cartQuantity: 1}
                 // for notification
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to cart update with one' })
+                    this.$notify({ title: 'Se ha actualizado la cantidad de producto' })
                 } else {
-                    this.$notify({ title: 'Add to cart successfully!'})
+                    this.$notify({ title: 'Añadido al carrito!'})
                 }
 
                 this.$store.dispatch('addToCartItem', prod)
@@ -93,7 +93,7 @@
 
             removeProductFromWishlist(product) {
                 // for notification
-                this.$notify({ title: 'Remove item from wishlist!'})
+                this.$notify({ title: 'Eliminado de la lista de deseos!'})
                 
                 this.$store.dispatch('removeProductFromWishlist', product)
             },
@@ -116,7 +116,7 @@
 
         head() {
             return {
-                title: "Wishlist"
+                title: "Lista de Deseos"
             }
         },
     };

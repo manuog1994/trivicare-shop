@@ -17,11 +17,11 @@
                 </div>
                 <div class="pro-same-action pro-cart">
                     <n-link :to="`/product/${product.slug}`" class="btn" v-if="product.variation">
-                        select option
+                        selecciona una opción
                     </n-link>
-                    <button class="btn" title="Añadir al carrito" @click="addToCart(product)" v-else>
+                    <button class="btn" title="Add to cart" @click="addToCart(product)" v-else>
                         <i class="pe-7s-cart"></i> 
-                        Add to cart
+                        Añadir al carrito
                     </button>
                 </div>
                 <div class="pro-same-action pro-quickview">
@@ -33,7 +33,7 @@
         </div>
         <div class="product-content text-center">
             <h3>
-                <n-link :to="`/product/${product.id}`">{{ product.name }}</n-link>
+                <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
             </h3>
             <div class="product-rating" v-if="product.rating == 5">
                 <i class="fa fa-star-o yellow"></i>
@@ -72,13 +72,13 @@
             </div>
             <div class="product-price">
                 <span>{{ discountedPrice(product).toFixed(2) }} &euro;</span>
-                <span class="old" v-if="product.discount > 0">${{ product.price}}</span>
+                <span class="old" v-if="product.discount > 0">{{ product.price}} &euro;</span>
             </div>
             <div class="product-content__list-view" v-if="layout === 'list'">
                 <p>{{ product.description }}</p>
                 <div class="pro-action d-flex align-items-center" >
                     <div class="pro-cart btn-hover">
-                        <n-link :to="`/product/${slugify(product.name)}`" class="btn" v-if="product.variation">
+                        <n-link :to="`/product/${product.slug}`" class="btn" v-if="product.variation">
                             Selecciona opción
                         </n-link>
                         <button class="btn" title="Add To Cart" @click="addToCart(product)" v-else>
@@ -91,11 +91,11 @@
                             <i class="fa fa-heart-o"></i>
                         </button>
                     </div>
-                    <div class="pro-compare">
+                    <!-- <div class="pro-compare">
                         <button @click="addToCompare(product)">
                             <i class="pe-7s-shuffle"></i>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -111,7 +111,7 @@
                 const prod = {...product, cartQuantity: 1}
                 // for notification
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Se ha actualizado la cantidad de producto' })
+                    this.$notify({ title: 'Se ha actualizado la cantidad del producto' })
                 } else {
                     this.$notify({ title: 'Añadido al carrito!' })
                 }
@@ -149,17 +149,6 @@
                 this.$modal.show('quickview', product);
             },
 
-            // slugify(text) {
-            //     return text
-            //         .toString()
-            //         .toLowerCase()
-            //         .replace(/\s+/g, "-") // Replace spaces with -
-            //         .replace(/[^\w-]+/g, "") // Remove all non-word chars
-            //         .replace(/--+/g, "-") // Replace multiple - with single -
-            //         .replace(/^-+/, "") // Trim - from start of text
-            //         .replace(/-+$/, ""); // Trim - from end of text
-                    
-            // }
         },
     };
 </script>
