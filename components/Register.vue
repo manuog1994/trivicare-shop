@@ -1,12 +1,51 @@
 <template>
     <div class="register-form">
-        <form>
-            <input type="text" name="user-name" placeholder="Username">
-            <input type="password" name="user-password" placeholder="Password">
-            <input name="user-email" placeholder="Email" type="email">
+        <div>
+            <div class="alert alert-danger" role="alert" v-for="error in errors" :key="error.id">
+                {{ error }}
+            </div>
+        </div>
+        <form ref="registerform" @submit.prevent="register">
+            <input name="email" placeholder="Email" type="email">
+            <input type="password" name="password" placeholder="Contraseña">
+            <input type="password" name="password_confirmation" placeholder="Confirma tu contraseña">
             <div class="button-box">
-                <button type="submit">Register</button>
+                <button type="submit">Registrar</button>
             </div>
         </form>
     </div>
 </template>
+
+<script>
+    export default {
+        middleware: 'guest',
+        data() {
+            return {
+                errors: []
+            }
+        },
+
+        mounted() {
+            this.$axios.$get('/sanctum/csrf-cookie');
+        },
+
+        methods: {
+            register() {
+                const formData = new FormData(this.$refs.registerform);
+                this.$axios.post('/register', formData)
+                .then(() => {
+                    this.$auth.loginWith('laravelSanctum', { data: formData });
+                    this.errors = [];
+                    this.$router.push({
+                        path: '/'
+                    });
+                    this.$notify({ title: 'Te has registrado correctamente, Bienvenid@!'})
+
+                }).catch((error) => {
+                    this.errors = Object.values(error.response.data.errors).flat();
+                })
+
+            }
+        }
+    }
+</script>

@@ -28,12 +28,12 @@
                             <div class="same-style account-setting d-none d-lg-block">
                                 <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings"><i class="pe-7s-user-female"></i></button>
                                 <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
-                                    <ul v-if="auth">
+                                    <ul v-if="$auth.user">
                                         <li><n-link to="/my-account">Mi Perfil</n-link></li>
-                                        <li><n-link to="/logout">Cerrar sesión</n-link></li>
+                                        <li><a @click="logout">Cerrar sesión</a></li>
                                     </ul>
                                     <ul v-else>
-                                        <li><n-link to="/login-register">Iniciar sesión/Registrar</n-link></li>
+                                        <li><n-link to="/login">Iniciar sesión/Registrar</n-link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -67,8 +67,9 @@
 </template>
 
 <script>
-    import { mapState} from 'vuex';
     export default {
+        auth: false,
+
         components: {
             Navigation: () => import("@/components/Navigation"),
             MiniCart: () => import("@/components/MiniCart"),
@@ -84,9 +85,7 @@
             compareItemCount() {
                 return this.$store.getters.compareItemCount
             },
-            ...mapState({
-                'auth': state => state.auth
-            }),
+
         },
 
         data() {
@@ -108,9 +107,17 @@
                 } else {
                     this.isSticky = false
                 }
-            }) 
+            });
+             
         }, 
 
+        methods: {
+            async logout() {
+                await this.$auth.logout();
+                this.$router.push('/');
+                this.$notify({ title: 'Has cerrado sesión!'})
 
+            }
+        }
     };
 </script>

@@ -2,134 +2,134 @@
   {
     "name": "about",
     "path": "/about",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/about.vue",
+    "component": "/Users/manuel/wa/flone/pages/about.vue",
     "chunkName": "pages/about",
-    "_name": "_b50bada0"
+    "_name": "_1a7609da"
   },
   {
     "name": "blog",
     "path": "/blog",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/blog/index.vue",
+    "component": "/Users/manuel/wa/flone/pages/blog/index.vue",
     "chunkName": "pages/blog/index",
-    "_name": "_b39a5cdc"
+    "_name": "_3f5eb58f"
   },
   {
     "name": "cart",
     "path": "/cart",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/cart.vue",
+    "component": "/Users/manuel/wa/flone/pages/cart.vue",
     "chunkName": "pages/cart",
-    "_name": "_6b55decd"
+    "_name": "_3c47c48a"
   },
   {
     "name": "checkout",
     "path": "/checkout",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/checkout.vue",
+    "component": "/Users/manuel/wa/flone/pages/checkout.vue",
     "chunkName": "pages/checkout",
-    "_name": "_1dc09b73"
+    "_name": "_98c14aa0"
   },
   {
     "name": "compare",
     "path": "/compare",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/compare.vue",
+    "component": "/Users/manuel/wa/flone/pages/compare.vue",
     "chunkName": "pages/compare",
-    "_name": "_170d9fc8"
+    "_name": "_3ceb84eb"
   },
   {
     "name": "contact",
     "path": "/contact",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/contact.vue",
+    "component": "/Users/manuel/wa/flone/pages/contact.vue",
     "chunkName": "pages/contact",
-    "_name": "_32117183"
+    "_name": "_57ef56a6"
   },
   {
-    "name": "login-register",
-    "path": "/login-register",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/login-register.vue",
-    "chunkName": "pages/login-register",
-    "_name": "_23c3ca74"
+    "name": "login",
+    "path": "/login",
+    "component": "/Users/manuel/wa/flone/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_47b70e22"
   },
   {
     "name": "my-account",
     "path": "/my-account",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/my-account.vue",
+    "component": "/Users/manuel/wa/flone/pages/my-account.vue",
     "chunkName": "pages/my-account",
-    "_name": "_1dd7b8f9"
+    "_name": "_91f8c614"
   },
   {
     "name": "privacy-policy",
     "path": "/privacy-policy",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/privacy-policy.vue",
+    "component": "/Users/manuel/wa/flone/pages/privacy-policy.vue",
     "chunkName": "pages/privacy-policy",
-    "_name": "_32bd45f8"
+    "_name": "_7f10fa81"
   },
   {
     "name": "shop",
     "path": "/shop",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/shop.vue",
+    "component": "/Users/manuel/wa/flone/pages/shop.vue",
     "chunkName": "pages/shop",
-    "_name": "_565d63a3"
+    "_name": "_274f4960"
   },
   {
     "name": "terms-conditions",
     "path": "/terms-conditions",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/terms-conditions.vue",
+    "component": "/Users/manuel/wa/flone/pages/terms-conditions.vue",
     "chunkName": "pages/terms-conditions",
-    "_name": "_4eeb482a"
+    "_name": "_13888e28"
   },
   {
     "name": "wishlist",
     "path": "/wishlist",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/wishlist.vue",
+    "component": "/Users/manuel/wa/flone/pages/wishlist.vue",
     "chunkName": "pages/wishlist",
-    "_name": "_961aa71c"
+    "_name": "_4ad16baf"
   },
   {
     "name": "blog-blog-right-sidebar",
     "path": "/blog/blog-right-sidebar",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/blog/blog-right-sidebar.vue",
+    "component": "/Users/manuel/wa/flone/pages/blog/blog-right-sidebar.vue",
     "chunkName": "pages/blog/blog-right-sidebar",
-    "_name": "_cf9713a0"
+    "_name": "_5ee1b553"
   },
   {
     "name": "blog-blog-without-sidebar",
     "path": "/blog/blog-without-sidebar",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/blog/blog-without-sidebar.vue",
+    "component": "/Users/manuel/wa/flone/pages/blog/blog-without-sidebar.vue",
     "chunkName": "pages/blog/blog-without-sidebar",
-    "_name": "_8a7ea8c8"
+    "_name": "_e9caa402"
   },
   {
     "name": "product-product-affiliate",
     "path": "/product/product-affiliate",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/product/product-affiliate.vue",
+    "component": "/Users/manuel/wa/flone/pages/product/product-affiliate.vue",
     "chunkName": "pages/product/product-affiliate",
-    "_name": "_65efec1c"
+    "_name": "_c53be756"
   },
   {
     "name": "blog-slug",
     "path": "/blog/:slug",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/blog/_slug.vue",
+    "component": "/Users/manuel/wa/flone/pages/blog/_slug.vue",
     "chunkName": "pages/blog/_slug",
-    "_name": "_b7079f6c"
+    "_name": "_3da81447"
   },
   {
     "name": "categories-slug",
     "path": "/categories/:slug?",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/categories/_slug.vue",
+    "component": "/Users/manuel/wa/flone/pages/categories/_slug.vue",
     "chunkName": "pages/categories/_slug",
-    "_name": "_24323af8"
+    "_name": "_28e514c1"
   },
   {
     "name": "product-slug",
     "path": "/product/:slug?",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/product/_slug.vue",
+    "component": "/Users/manuel/wa/flone/pages/product/_slug.vue",
     "chunkName": "pages/product/_slug",
-    "_name": "_00f01a8d"
+    "_name": "_88ef4d20"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/index.vue",
+    "component": "/Users/manuel/wa/flone/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_759bf816"
+    "_name": "_127cd5d8"
   }
 ]

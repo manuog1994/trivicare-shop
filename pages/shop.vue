@@ -72,6 +72,7 @@
 <script>
 
     export default {
+        auth: false,
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             Breadcrumb: () => import('@/components/Breadcrumb'),
@@ -94,6 +95,10 @@
         },
 
         mounted() {
+            this.$nextTick(() => {
+                this.$nuxt.$loading.start()
+                setTimeout(() => this.$nuxt.$loading.finish(), 2000)
+            })
             this.getProducts();
             this.getCategories();
         },
@@ -120,7 +125,7 @@
         methods: {
 
             async getProducts() {
-                const response = await this.$axios.get('http://api.trivicare.test/v1/products?perPage=5&page=' + this.page + '&included=category&filter[name]=' + this.msgOfShopSidebar + '&filter[category_id]=' + this.resCategory)
+                const response = await this.$axios.get('/api/products?perPage=5&page=' + this.page + '&included=category&filter[name]=' + this.msgOfShopSidebar + '&filter[category_id]=' + this.resCategory)
                 this.products = response.data.data;
                 this.pagination = {
                     links: response.data.meta.links,
@@ -135,7 +140,7 @@
             },
 
             async getCategories() {
-                const response = await this.$axios.get('http://api.trivicare.test/v1/categories')
+                const response = await this.$axios.get('/api/categories')
                 this.categories = response.data.data
             },
 

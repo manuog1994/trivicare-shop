@@ -31,8 +31,8 @@
                                             <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
                                         </td>
                                         <td class="product-price-cart">
-                                            <span class="amount">{{ product.price  }} &euro;</span>
-                                            <del class="old"></del>
+                                            <span class="amount">{{ discountedPrice(product).toFixed(2) }} &euro;</span>
+                                            <del class="old">{{ product.price }} &euro;</del>
                                         </td>
                                         <td class="product-quantity">
                                             <div class="cart-plus-minus">
@@ -41,9 +41,9 @@
                                                 <button @click="incrementProduct(product)" class="inc qtybutton">+</button>
                                             </div>
                                         </td>
-                                        <td class="product-subtotal"></td>
+                                        <td class="product-subtotal">{{ discountedPrice(product).toFixed(2) * product.cartQuantity }} &euro;</td>
                                         <td class="product-remove">
-                                            <button @click="removeProduct(product)"><i class="fa fa-times"></i></button>
+                                            <button @click="removeProduct(product)">Eliminar</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -145,6 +145,7 @@
 
 <script>
     export default {
+        auth: false,
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             Breadcrumb: () => import('@/components/Breadcrumb'),
@@ -184,7 +185,7 @@
             },
 
             // async getProducts() {
-            //     const products = await this.$axios.$get('http://api.trivicare.test/v1/products')
+            //     const products = await this.$axios.$get('http://api.trivicare.test/api/products')
             //     this.productsApi = products;
             // },
 

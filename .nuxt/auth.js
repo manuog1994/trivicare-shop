@@ -2,7 +2,7 @@ import Middleware from './middleware'
 import { Auth, authMiddleware, ExpiredAuthSessionError } from '~auth/runtime'
 
 // Active schemes
-import { Oauth2Scheme } from '~auth/runtime'
+import { CookieScheme } from '~auth/runtime'
 
 Middleware.auth = authMiddleware
 
@@ -33,41 +33,61 @@ export default function (ctx, inject) {
   "localStorage": {
     "prefix": "auth."
   },
-  "defaultStrategy": "laravelPassport"
+  "defaultStrategy": "laravelSanctum"
 }
 
   // Create a new Auth instance
   const $auth = new Auth(ctx, options)
 
   // Register strategies
-  // laravelPassport
-  $auth.registerStrategy('laravelPassport', new Oauth2Scheme($auth, {
+  // laravelSanctum
+  $auth.registerStrategy('laravelSanctum', new CookieScheme($auth, {
+  "url": "http://localhost:8000",
   "endpoints": {
-    "authorization": "http://api.trivicare.test/oauth/authorize",
-    "token": "/_auth/oauth/laravelPassport/authorize",
-    "userInfo": "http://api.trivicare.test...",
-    "logout": false
+    "csrf": {
+      "withCredentials": true,
+      "headers": {
+        "X-Requested-With": "XMLHttpRequest",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "url": "http://localhost:8000/sanctum/csrf-cookie"
+    },
+    "login": {
+      "withCredentials": true,
+      "headers": {
+        "X-Requested-With": "XMLHttpRequest",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "url": "http://localhost:8000/login"
+    },
+    "logout": {
+      "withCredentials": true,
+      "headers": {
+        "X-Requested-With": "XMLHttpRequest",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "url": "http://localhost:8000/logout"
+    },
+    "user": {
+      "withCredentials": true,
+      "headers": {
+        "X-Requested-With": "XMLHttpRequest",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "url": "http://localhost:8000/api/user"
+    }
   },
-  "url": "http://api.trivicare.test",
-  "clientId": "973bd2ef-601d-435b-a5b2-666435d949e4",
-  "name": "laravelPassport",
-  "token": {
-    "property": "access_token",
-    "type": "Bearer",
-    "name": "Authorization",
-    "maxAge": 31536000
-  },
-  "refreshToken": {
-    "property": "refresh_token",
-    "data": "refresh_token",
-    "maxAge": 2592000
+  "name": "laravelSanctum",
+  "cookie": {
+    "name": "XSRF-TOKEN"
   },
   "user": {
     "property": false
-  },
-  "responseType": "code",
-  "grantType": "authorization_code",
-  "scope": "*"
+  }
 }))
 
   // Inject it to nuxt context as $auth

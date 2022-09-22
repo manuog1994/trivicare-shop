@@ -10,6 +10,7 @@
 
 <script>
     export default {
+        auth: false,
         data() {
             return {
                 slug: this.$route.params.slug,
@@ -34,7 +35,7 @@
 
         methods: {
             async getProductbySlug() {
-                const response = await this.$axios.get('http://api.trivicare.test/v1/products?filter[slug]=' + this.slug);
+                const response = await this.$axios.get('/api/products?filter[slug]=' + this.slug);
                 return this.product = Object(response.data.data[0]);
             }, 
 

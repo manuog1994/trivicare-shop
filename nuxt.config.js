@@ -3,7 +3,7 @@ export default {
         fallback: true
     },
 
-    target: 'static', // default is 'server'
+    target: 'server', // default is 'server'
     
     // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {
@@ -32,6 +32,10 @@ export default {
         '~/plugins/vuejs-pagiante.js',
         '~/plugins/observe-visibility.js',
         '~/plugins/persistedState.client.js',
+        {
+            src: '~/plugins/vue-star-rating.js', // <--- file name
+            mode: 'client'
+        },
         { 
             src: '~/plugins/bootstrap.js', 
             mode: 'client'
@@ -60,6 +64,30 @@ export default {
         '@nuxtjs/auth-next',
     ],
 
+    auth: {
+        strategies: {
+          laravelSanctum: {
+            provider: 'laravel/sanctum',
+            url: 'http://localhost:8000',
+            endpoints: {
+                login: {
+                    url: '/login',
+                }
+            },
+          },
+        }
+    },
+
+    axios: {
+        baseURL: 'http://localhost:8000',
+        credentials:true,
+    },
+
+    router: {
+        middleware: ['auth'],
+    },
+      
+
 
     styleResources: {
         scss: [
@@ -77,19 +105,7 @@ export default {
         },
     },
 
-    auth: {
-        strategies: {
-          'laravelPassport': {
-            provider: 'laravel/passport',
-            endpoints: {
-              userInfo: '...'
-            },
-            url: 'http://api.trivicare.test',
-            clientId: '973bd2ef-601d-435b-a5b2-666435d949e4',
-            clientSecret: '00jpvr483TqPio35jg1u5GybsDzgKK7k13aHnmUc'
-          },
-        }
-      }
+
       
       
 }

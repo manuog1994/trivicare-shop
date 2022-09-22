@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { createStore } from 'vuex'
 
 
 Vue.use(Vuex);
@@ -87,7 +86,6 @@ export const getters = {
 
 // contains your mutations
 export const mutations = {
-
     SET_PRODUCT(state, product) {
         state.products = product
     },

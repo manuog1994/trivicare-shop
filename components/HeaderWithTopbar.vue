@@ -4,7 +4,7 @@
             <div class="header-top-area header-padding-2 d-none d-lg-block">
                 <div :class="containerClass">
                     <div class="header-top-inner">
-                        <div class="language-currency-wrap">
+                        <!-- <div class="language-currency-wrap">
                             <div class="same-language-currency language-style">
                                 <select name="language">
                                     <option value="spanish" selected>Español</option>
@@ -19,11 +19,8 @@
                                     <option value="rup">Rup</option>
                                 </select>
                             </div>
-                            <!-- <div class="same-language-currency">
-                                <p>Call: <a href="callto:3965410">3965410</a></p>
-                            </div> -->
-                        </div>
-                        <div class="header-offer">
+                        </div> -->
+                        <div class="header-offer m-auto">
                             <p>Envío gratis a partir de <span>50 &euro;</span></p>
                         </div>
                     </div>
@@ -62,7 +59,7 @@
                                 <div class="same-style account-setting d-none d-lg-block">
                                     <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings"><i class="pe-7s-user-female"></i></button>
                                     <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
-                                        <ul v-if="auth">
+                                        <ul v-if="$auth.user">
                                             <li>
                                                 <n-link to="/my-account">Mi Perfil</n-link>
                                             </li>
@@ -70,8 +67,8 @@
                                                 <a @click="logout">Cerrar sesión</a>
                                             </li>
                                         </ul>
-                                        <ul v-else>
-                                            <li><n-link to="/login-register">Iniciar sesión/Registrar</n-link></li>
+                                        <ul v-if="!$auth.user">
+                                            <li><n-link to="/login">Iniciar sesión/Registrar</n-link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -108,7 +105,6 @@
 </template>
 
 <script>
-    import { mapState, mapActions} from 'vuex';
     export default {
         components: {
             Navigation: () => import("@/components/Navigation"),
@@ -127,9 +123,6 @@
             compareItemCount() {
                 return this.$store.getters.compareItemCount
             },
-            ...mapState({
-                'auth': state => state.auth,
-            }),
         },
 
         data() {
@@ -161,9 +154,13 @@
         },
 
         methods: {
-            ...mapActions({
-                'logout': 'logout',
-            }),
+            async logout() {
+                await this.$auth.logout();
+                this.$router.push('/');
+                this.$notify({ title: 'Has cerrado sesión!'})
+
+            },
+
             redirectToShop() {
                 this.$router.push('/shop')
             }

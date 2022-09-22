@@ -9,6 +9,7 @@
 
 <script>
     export default {
+        auth: false,
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             ContactInfo: () => import('@/components/ContactInfo'),

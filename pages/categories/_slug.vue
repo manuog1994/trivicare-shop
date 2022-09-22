@@ -76,6 +76,7 @@
 <script>
 
     export default {
+        auth: false,
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             Breadcrumb: () => import('@/components/Breadcrumb'),
@@ -129,7 +130,7 @@
             },
 
             async getCategories() {
-                const response = await this.$axios.get('http://api.trivicare.test/v1/categories?perPage=5&page=' + this.page + '&included=products&filter[slug]=' + this.categorySlug + '&filter[name]=' + this.msgOfShopSidebar)
+                const response = await this.$axios.get('/api/categories?perPage=5&page=' + this.page + '&included=products&filter[slug]=' + this.categorySlug + '&filter[name]=' + this.msgOfShopSidebar)
                 this.categories = response.data.data
             },
 

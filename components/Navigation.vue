@@ -29,7 +29,7 @@
 
         methods: {
             async getCategories() {
-                const response = await this.$axios.get('http://api.trivicare.test/v1/categories')
+                const response = await this.$axios.get('/api/categories')
                 this.categories = response.data.data
             }
         }

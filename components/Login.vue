@@ -1,8 +1,14 @@
 <template>
     <div class="login-form">
-        <form @submit.prevent="login">
-            <input v-model="email" type="email" name="email" placeholder="Email">
-            <input v-model="password" type="password" name="password" placeholder="Password">
+        <div>
+            <div class="alert alert-danger" role="alert" v-for="error in errors" :key="error.id">
+                {{ error }}
+            </div>
+        </div>
+        <form ref="loginform" @submit.prevent="login">
+            <!-- @csrf -->
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
             <div class="button-box">
                 <div class="login-toggle-btn">
                     <input type="checkbox">
@@ -18,40 +24,44 @@
 </template>
 
 <script>
-    import { mapMutations, mapState } from 'vuex';
+
     export default {
+        middleware: 'guest',
+        
         data() {
             return {
-                email: '',
-                password: '',
                 disabled: false,
+                errors: []
             }
         },
 
         computed: {
-            ...mapState({
-                'auth': state => state.auth
-            }),
+     
+        },
+
+        mounted() {
+            this.$axios.$get('/sanctum/csrf-cookie');
         },
 
         methods: {
-            ...mapMutations(['SET_AUTH']),
-            login() {
-                this.disabled = true;
-                this.$auth.loginWith('laravelPassport', {
-                    data: {
-                        username: this.email,
-                        password: this.password,
-                    }
-                }).then(response => {
-                    this.$router.push({ name: 'home' });
-                    this.disabled = false;
-                }).catch(error => {
-                    this.disabled = false;
-                    console.log(error);
-                });
+            async login() {
+                try {
+                    const formData = new FormData(this.$refs.loginform);
+                    await this.$auth.loginWith('laravelSanctum', {
+                        data: formData
+                    });
 
+                    this.$router.push({
+                        path: '/my-account'
+                    });
+                    this.errors = [];
+                    this.$notify({ title: 'Bienvenid@ de nuevo!'})
+                } catch (error) {
+                    this.errors = ['El correo electrónico o la contraseña son incorrectos.'];              
+                }
             }
-        }
+            
+
+        },
     }
 </script>

@@ -83,7 +83,7 @@
 
         methods: {
             async getCategories() {
-                const categories = await this.$axios.$get('http://api.trivicare.test/v1/categories?filter[slug]=' + this.slugCategory);
+                const categories = await this.$axios.$get('/api/categories?filter[slug]=' + this.slugCategory);
                 this.categories = categories.data;
 
             },
