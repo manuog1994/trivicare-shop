@@ -1,11 +1,11 @@
 <template>
-    <div class="description-review-area pb-90">
+    <div v-if="product" class="description-review-area pb-90">
         <div class="container">
             <div class="description-review-wrapper">
                 <div class="description-review-topbar nav">
                     <a data-bs-toggle="tab" href="#des-details1">Información adicional</a>
                     <a class="active" data-bs-toggle="tab" href="#des-details2">Descripción</a>
-                    <a data-bs-toggle="tab" href="#des-details3">Reviews (2)</a>
+                    <a data-bs-toggle="tab" href="#des-details3">Reviews ( {{ product.reviews.length }} )</a>
                 </div>
                 <div class="tab-content description-review-bottom">
                     <div id="des-details2" class="tab-pane active">
@@ -17,10 +17,9 @@
                     <div id="des-details1" class="tab-pane ">
                         <div class="product-anotherinfo-wrapper">
                             <ul>
-                                <li><span>Peso</span> 400 g</li>
-                                <li><span>Dimensiones</span>10 x 10 x 15 cm </li>
-                                <li><span>Materiales</span> 60% cotton, 40% polyester</li>
-                                <li><span>Otra Info</span> American heirloom jean shorts pug seitan letterpress</li>
+                                <li><span>Peso</span>{{ product.weight  }}</li>
+                                <li><span>Dimensiones</span>{{ product.size  }}</li>
+                                <li><span>Materiales</span>{{ product.specifications }}</li>
                             </ul>
                         </div>
                     </div>
@@ -36,20 +35,23 @@
                                             <div class="review-top-wrap">
                                                 <div class="review-left">
                                                     <div class="review-name">
-                                                        <h4>{{ review.id }}</h4>
+                                                        <h4>{{ review.user_name }} {{ review.user_lastname  }}</h4>
                                                     </div>
                                                     <div class="review-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
+                                                        <client-only>
+                                                            <vue-star-rating :star-size="20" :read-only="true" :show-rating="false" :rating="review.rating"></vue-star-rating>
+                                                        </client-only>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="review-bottom">
                                                 <p>{{ review.message }}</p>
                                             </div>
+                                            <form v-if="$auth.user && $auth.user.id == review.user_id" @submit="deleteReview(review.id)">
+                                                <div class="review-delete">
+                                                    <button class="btn">Eliminar</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -68,8 +70,20 @@
                                                 </div>
                                             </div>
                                             <div class="row">
+                                                <div v-if="$auth.user.user_profile.length <= 0" class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="rating-form-style mb-10">
+                                                            <input v-model="user_name" placeholder="Nombre" type="text" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="rating-form-style mb-10">
+                                                            <input v-model="user_lastname" placeholder="Apellidos" type="text" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="col-md-12">
-                                                    <form @submit.prevent="createReview">
+                                                    <form @submit="createReview">
                                                         <div class="rating-form-style form-submit">
                                                             <textarea v-model="message" name="Your Review" placeholder="Escribe aquí tu valoración..."></textarea>
                                                             <button class="btn btn-light" type="submit">Enviar</button>
@@ -89,27 +103,28 @@
     </div>
 </template>
 
+<style>
+    .review-delete {
+        text-align: right;
+    }
+</style>
+
+
 <script>
 
     export default {
-        props: ['product'],
+        props: ['product', 'reviews'],
 
 
         data() {
             return {
                 message: '',
                 rating: 0,
-                reviews: [],
+                user_name: '',
+                user_lastname: '',
             }
         },
 
-        mounted() {
-            this.$nextTick(() => {
-                this.$nuxt.$loading.start()
-                setTimeout(() => this.$nuxt.$loading.finish(), 2000)
-            })
-            this.getReviews();
-        },
 
         methods: {
             async createReview() {
@@ -118,32 +133,27 @@
                         user_id: this.$auth.user.id,
                         product_id: this.product.id,
                         message: this.message,
-                        rating: this.rating
+                        rating: this.rating,
+                        user_name: this.user_name,
+                        user_lastname: this.user_lastname,
                     })
                     this.message = ''
                     this.rating = 0
                     this.$notify({ text: 'Valoración creada correctamente', type: 'success' })
+
                 } catch (error) {
                     console.log(error)
                 }
             },
 
-            async getReviews() {
+            async deleteReview(review) {
                 try {
-                    this.$nuxt.$loading.start()
-                    const response = await new Promise(resolve => {
-                        setTimeout(() => {
-                            resolve(this.$axios.get('/api/reviews/' + this.product.id))
-                        }, 2000)
-                    })
-                    this.reviews = response.data.data
-                    this.getReviews();
-                    this.$nuxt.$loading.finish()
+                    const response = await this.$axios.delete('/api/reviews/' + review)
+                    this.$notify({ text: 'Valoración eliminada correctamente', type: 'success' })
                 } catch (error) {
                     console.log(error)
-                    this.$nuxt.$loading.finish()
                 }
             }
-        }
+        },
     };
 </script>

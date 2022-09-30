@@ -55,13 +55,23 @@ export default {
 
     // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
     buildModules: [
+        '@nuxtjs/fontawesome', 
     ],
+
+    fontawesome: {
+        component: 'fa',
+        suffix: true,
+        icons: {
+            brands: [ 'faTiktok', 'faFacebookF', 'faInstagram' ],
+        }
+    },
 
     // Modules (https://go.nuxtjs.dev/config-modules)
     modules: [
         '@nuxtjs/style-resources',
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
+    
     ],
 
     auth: {

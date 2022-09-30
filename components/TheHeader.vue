@@ -85,7 +85,6 @@
             compareItemCount() {
                 return this.$store.getters.compareItemCount
             },
-
         },
 
         data() {
@@ -95,8 +94,13 @@
                 isOpenAccountSettings: false,
                 openCart: false,
                 navOpen: false,
-                msg: '',
-            }
+             }
+        },
+
+        beforeMount() {
+            this.$root.$on('message', data => {
+                this.msg = data;
+            });
         },
 
         mounted(){
@@ -107,8 +111,7 @@
                 } else {
                     this.isSticky = false
                 }
-            });
-             
+            });             
         }, 
 
         methods: {
@@ -117,7 +120,7 @@
                 this.$router.push('/');
                 this.$notify({ title: 'Has cerrado sesión!'})
 
-            }
+            },
         }
     };
 </script>

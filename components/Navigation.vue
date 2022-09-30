@@ -1,25 +1,39 @@
 <template>
     <ul>
         <li>
-            <n-link to="/shop">Ver Todo</n-link>
+             <n-link :to="{ path: '/shop' }">Ver Todo</n-link>
          </li>
         <li v-for="category in categories" :key="category.id">
-            <n-link :to="`/categories/${category.slug}`">{{ category.name  }}</n-link>
+            <a class="link-nav" @click.prevent="categoryId = category.slug">{{ category.name  }}</a>
         </li>
         <li>
             <n-link to="/contact">Contacto</n-link>
         </li>
-    </ul>
+     </ul>
 </template>
+
+<style>
+    a.link-nav{
+        color: #666666;
+    }
+</style>
 
 <script>
     export default {
 
         data() {
             return {
-                categoryNumber: [],
-                categories: [],
+                categoryId : '',
+            }
+        },
 
+        computed: {
+            categories() {
+                return this.$store.getters.getCategories
+            },
+
+            query() {
+                this.$route.query
             }
         },
 
@@ -28,10 +42,24 @@
         },
 
         methods: {
-            async getCategories() {
-                const response = await this.$axios.get('/api/categories')
-                this.categories = response.data.data
+            getCategories() {
+                this.$store.dispatch('getCategories')
+            },
+        },
+
+        watch: {
+            categoryId() {
+                this.$router.push({ path: '/shop', query: { category: this.categoryId } })
+            },
+
+            query() {
+                if(!this.query.category) {
+                    this.categoryId = '';
+                    this.$router.push({ path: '/shop' })
+                }
             }
         }
+        
+
     }
 </script>

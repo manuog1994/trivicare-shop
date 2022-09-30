@@ -4,7 +4,7 @@
             <div class="breadcrumb-content text-center">
                 <ul>
                     <li>
-                        <n-link to="/">Home</n-link>
+                        <n-link to="/">Inicio</n-link>
                     </li>
                     <li class="active">{{ pageTitle }}</li>
                 </ul>

@@ -1,15 +1,15 @@
 <template>
     <div class="slider-area nav-style-1 nav-style-3">
         <swiper :options="swiperOption">
-            <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="slider-height-5 d-flex align-items-center bg-img" :style="{ backgroundImage:`url(${slider.backgroundImage})` }">
+            <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="slider-height-5 d-flex align-items-center bg-img" :style="{ backgroundImage:`url(${slider.backgroundImage})`}">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="slider-content-4 slider-content-6 slider-animation-1 text-center">
-                                <h1>{{ slider.title }}</h1>
-                                <p>{{ slider.desc }}</p>
+                                <h1 class="text-primary">{{ slider.title }}</h1>
+                                <p class="text-primary">{{ slider.desc }}</p>
                                 <div class="slider-btn btn-hover">
-                                    <n-link to="/shop">SHOP NOW</n-link>
+                                    <n-link to="/shop">COMPRAR AHORA</n-link>
                                 </div>
                             </div>
                         </div>
@@ -51,14 +51,14 @@
 
                 sliderData: [
                     {
-                        title: "Welcome to Flone",
-                        desc: "30% off Winter Vacation",
-                        backgroundImage: "/img/slider/slider-6-1.jpg"
+                        title: "Bienvenid@ a TriviCare",
+                        desc: "10% de descuento en todos los accesorios",
+                        backgroundImage: "/img/banners/ban-2.jpeg"
                     },
                     {
-                        title: "Welcome to Flone",
-                        desc: "40% off Winter Vacation",
-                        backgroundImage: "/img/slider/slider-6-2.jpg"
+                        title: "Oferta de Inauguración",
+                        desc: "20% con el código de descuento: TRIVICARE20",
+                        backgroundImage: "/img/banners/pack-set-natura-bisse.jpeg"
                     }
                 ]
             }

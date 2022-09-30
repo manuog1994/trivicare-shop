@@ -5,8 +5,8 @@
         
         <div class="checkout-area pt-95 pb-100">
             <div class="container">
-                <div class="row" v-if="products.length > 0">
-                    <div v-if="profiles.length > 0" class="col-lg-7">
+                 <div class="row" v-if="products.length > 0">
+                    <div v-if="$auth.user.user_profile" class="col-lg-7">
                         <h3 class="text-center mb-2">¿Donde se lo enviamos?</h3>
                         <p class="text-center">Para continuar seleccione una de sus direcciones de envio, y pulse el botón "Realizar Pedido"</p>
                         <h4 class="mt-3">Datos de envío</h4>
@@ -14,7 +14,8 @@
                             <div class="form-group">
                                 <label>Seleccione la dirección de envío</label>
                                 <select class="form-select" v-model="selectedProfile" required>
-                                    <option v-for="profile in profiles" :key="profile.id" :value="profile">{{ profile.name }} {{ profile.address }} {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option>
+                                    <!-- <option v-for="profile in profiles" :key="profile.id" :value="profile">{{ profile.name }} {{ profile.address }} {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option> -->
+                                    <option v-for="profile in $auth.user.user_profile" :key="profile.id" :value="profile">{{ profile.name }} {{ profile.address }} {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option>
                                 </select>
                             </div>
                             <div v-if="selectedProfile" class="card mt-4">
@@ -105,7 +106,7 @@
                             </div>
                         </div>
                     </div>
-                    <div v-if="profiles.length <= 0" class="col-lg-7">
+                    <div v-if="!$auth.user.user_profile" class="col-lg-7">
                         <div class="billing-info-wrap">
                             <h3>Datos de envío y facturación</h3>
                             <form @submit.prevent="createProfile" class="row">
@@ -245,7 +246,6 @@
 
         data() {
             return {
-                profiles: {},
                 shipping: 7.50,
                 selectedProfile: null,
 
@@ -258,6 +258,8 @@
                 zipcode: '',
                 phone: '',
                 country: '',
+
+
                 
             }
         },
@@ -277,14 +279,9 @@
         },
 
         mounted() {
-            this.getProfiles();
         },
 
         methods: {
-            async getProfiles() {
-                const response = await this.$axios.get('/api/show-profile/' + this.$auth.user.id)
-                this.profiles = response.data.data
-            },
 
             async createProfile() {
                 const response = await this.$axios.post('/api/register-profile', {
@@ -308,10 +305,10 @@
                 this.zipcode = '';
                 this.phone = '';
                 this.country = '';
-                this.getProfiles();
-
-
+                this.$auth.fetchUser()
+                this.$notify({ type: 'success', text: 'Dirección creada correctamente' })
             },
+
             
         },
 

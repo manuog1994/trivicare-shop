@@ -37,42 +37,10 @@
                             <span class="old" v-if="product.discount > 0">{{ product.price}} &euro;</span>
                         </div>
                         <div class="pro-details-rating-wrap">
-                            <div class="pro-details-rating" v-if="product.rating == 5">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 4">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 3">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 2">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 1">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <span><a href="#">{{ product.rating }} Reviews</a></span>
+                            <client-only>
+                                <vue-star-rating :read-only="true" :rating="product.rating" :star-size="20" :show-rating="false" :increment="0.5"></vue-star-rating>
+                            </client-only>
+                            <span><a class="ms-1" href="#">{{ product.total_reviews }} Reviews</a></span>
                         </div>
                         <p>{{ product.description }}</p>
                         <div class="pro-details-size-color" v-if="product.variation">
@@ -113,11 +81,10 @@
                         </div>
                         <div class="pro-details-meta">
                             <span class="label">Categoría:</span>
-                            <ul v-for="category in categories" :key="category.id">
-                                <div v-if="category.id == product.category_id">
-                                    <li>
-                                        <n-link :to="`/shop?category=${category.slug}`">{{category.name}}</n-link>
-                                
+                            <ul>
+                                <div v-for="category in categories" :key="category.id">
+                                    <li v-if="category.id == product.category_id">
+                                        <a @click.prevent="changePage(category.slug)">{{category.name}}</a>                                
                                     </li>
                                 </div>
                             </ul>
@@ -133,28 +100,18 @@
                         <div class="pro-details-social">
                             <ul>
                                 <li>
-                                    <a href="https://www.facebook.com/" target="_blank">
-                                        <i class="fa fa-facebook"></i>
+                                    <a href="https://www.facebook.com/trivicare" target="_blank">
+                                        <fa-icon icon="fa-brands fa-facebook-f" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://dribbble.com/" target="_blank">
-                                        <i class="fa fa-dribbble"></i>
+                                    <a href="https://www.instagram.com/trivicare" target="_blank">
+                                        <fa-icon icon="fa-brands fa-instagram" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.pinterest.com/" target="_blank">
-                                        <i class="fa fa-pinterest-p"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="fa fa-linkedin"></i>
+                                    <a href="https://www.tiktok.com/@trivicare" target="_blank">
+                                        <fa-icon icon="fa-brands fa-tiktok" />
                                     </a>
                                 </li>
                             </ul>
@@ -172,8 +129,6 @@
             return {
                 item: '',
                 singleQuantity: 1,
-                categories: [],
-
                 swiperOptionTop: {
                     loop: true,
                     slidesPerView : 1,
@@ -190,7 +145,11 @@
         computed: {
             product() {
                 return this.item;
-            }
+            },
+
+            categories() {
+                return this.$store.getters.getCategories;
+            },
         },
 
         mounted() {
@@ -202,9 +161,9 @@
                 this.item = product
             },
 
-            async getCategories() {
-                const response = await this.$axios.get('/api/categories')
-                this.categories = Object(response.data.data)
+            changePage(slug) {
+                this.$modal.hide('quickview');
+                this.$router.push({ name: 'shop', query: { category: slug } });
             },
 
             addToCart(product) {
@@ -224,7 +183,11 @@
             },
 
             increaseQuantity(){
-                if(this.product.quantity > this.singleQuantity) this.singleQuantity++
+                if(this.product.stock > this.singleQuantity){
+                    this.singleQuantity++
+                } else {
+                    this.$notify({ title: 'No hay más stock' })
+                }
             },
 
             decreaseQuantity() {
@@ -242,6 +205,10 @@
                 this.$store.dispatch('addToWishlist', product)
             },
 
+            async getCategories() {
+                await this.$store.dispatch('getCategories')
+            },
+
             // addToCompare(product) {
             //     // for notification
             //     if (this.$store.state.compare.find(el => product.id === el.id)) {
@@ -251,6 +218,11 @@
             //     }
 
             //     this.$store.dispatch('addToCompare', product)
+            // }
+        }, 
+        watch: {
+            // categorySlug() {
+            //     this.$router.push({ path: `/shop?category=${this.categorySlug}` })
             // }
         }
     };

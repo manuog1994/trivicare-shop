@@ -1,14 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 
 Vue.use(Vuex);
 
+
 export const state = () => ({
     products: [],
+    categories: [],
     cart: [],
     wishlist: [],
     compare: [],
+    pagination: [],
+    tags: [],
 })
 
 
@@ -18,6 +23,17 @@ export const getters = {
         return state.products
     },
 
+    getCategories(state) {
+        return state.categories
+    },
+
+    getTags(state) {
+        return state.tags
+    },
+
+    getPagination(state) {
+        return state.pagination
+    },
 
     getCart: state => {
         return state.cart
@@ -69,9 +85,9 @@ export const getters = {
     //     })
     // },
 
-    categoryList: state => {
-        return ["all categories",...new Set(state.products.map((list) => list.category).flat())]
-    },
+    // categoryList: state => {
+    //     return ["all categories",...new Set(state.products.map((list) => list.category).flat())]
+    // },
     // tagList: state => {
     //     return [...new Set(state.products.map((list) => list.tag).flat())]
     // },
@@ -88,6 +104,18 @@ export const getters = {
 export const mutations = {
     SET_PRODUCT(state, product) {
         state.products = product
+    },
+
+    SET_CATEGORY(state, category) {
+        state.categories = category
+    },
+
+    SET_PAGINATION(state, pagination) {
+        state.pagination = pagination
+    },
+
+    SET_TAG(state, tag) {
+        state.tags = tag
     },
 
     UPDATE_CART(state, payload) {
@@ -181,28 +209,29 @@ export const actions = {
     removeFromCompare({commit}, product) {
         commit('REMOVE_FROM_COMPARE', product)
     },
+
+    async getProducts(context, {page, category, search, slug, sort, tag}) {
+        const { data } = await axios.get(
+          'http://localhost:8000/api/products?perPage=5&page=' + page + '&filter[category_id]=' + category + '&filter[name]=' + search + '&filter[slug]=' + slug + '&sort=' + sort + '&tags=' + tag
+        );
+        context.commit("SET_PRODUCT", data);
+        context.commit("SET_PAGINATION", data.meta);
+    },
+
+    async getCategories(context) {
+        const { data } = await axios.get(
+          'http://localhost:8000/api/categories'
+        );
+        context.commit("SET_CATEGORY", data.data);
+    },
+
+    async getTags(context) {
+        const { data } = await axios.get(
+          'http://localhost:8000/api/tags'
+        );
+        context.commit("SET_TAG", data.data);
+    }
+
+
 }
 
-// const store = createStore({
-//     state() {
-//         return {
-//             auth: null
-//         }
-//     },
-
-//     mutations: {
-//         setAuth(state, auth) {
-//             state.auth = auth
-//         },
-//     },
-
-//     actions: {
-//         setAuth({ commit }) {
-//             commit('setAuth')
-//         },
-
-//         logout() {
-//             localStorage.removeItem('auth');
-//         }
-//     },
-// })

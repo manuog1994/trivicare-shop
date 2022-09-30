@@ -2,8 +2,8 @@
     <div class="product-wrap mb-30">
         <div class="product-img">
             <n-link :to="`/product/${product.slug}`">
-                <img class="default-img" src="../../static/img/product/cosmetics/1.jpg" :alt="product.name">
-                <img class="hover-img" src="../../static/img/product/cosmetics/1.jpg" :alt="product.name">
+                <img class="default-img" src="../../static/img/list/list.jpeg" :alt="product.name">
+                <img class="hover-img" src="../../static/img/list/list.jpeg" :alt="product.name">
             </n-link>
             <div class="product-badges">
                 <span class="product-label pink" v-if="product.new">New</span>
@@ -32,43 +32,13 @@
             </div>
         </div>
         <div class="product-content text-center">
-            <h3>
+            <h3 class="mb-1">
                 <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
             </h3>
-            <div class="product-rating" v-if="product.rating == 5">
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-            </div>
-            <div class="product-rating" v-if="product.rating == 4">
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <div class="product-rating" v-if="product.rating == 3">
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <div class="product-rating" v-if="product.rating == 2">
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <div class="product-rating" v-if="product.rating == 1">
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
+            <div :class="{ 'product-grid-change': layout === 'list' ? false : true }">
+                <client-only>
+                    <vue-star-rating :star-size="20" :read-only="true" :show-rating="false" :rating="product.rating"></vue-star-rating>
+                </client-only>
             </div>
             <div class="product-price">
                 <span>{{ discountedPrice(product).toFixed(2) }} &euro;</span>
@@ -102,10 +72,24 @@
     </div>
 </template>
 
+<style>
+    .product-grid-change{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+</style>
+
 <script>
     export default {
         auth: false,
         props: ["layout", "product"],
+
+        data() {
+            return {
+                tag: Object.values(this.product.tags).flat(),
+            }
+        },
 
         methods: {
             addToCart(product) {

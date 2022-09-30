@@ -1,7 +1,8 @@
 <template>
     <div class="shop-page-wrapper">
-        <HeaderWithTopbar containerClass="container" :msg="dataShare" @father="onShopSidebar" />
-        <Breadcrumb pageTitle="todos los productos" />
+        <Loading v-if="showHideSpinner" />
+        <HeaderWithTopbar containerClass="container" />
+        <Breadcrumb :pageTitle="this.$route.query.category ?? 'todos los productos' " />
         <!-- product items wrapper -->
         <div class="shop-area pt-100 pb-100">
             <div class="container">
@@ -46,7 +47,7 @@
                         <div class="d-flex justify-content-center">
                             <nav aria-label="...">
                                 <ul class="pagination">
-                                    <li v-for="pagination_link in pagination.links" :key=" 'pagination_link-' + pagination_link.label " class="page-item"
+                                    <li v-for="pagination_link in pagination.links" :key=" 'pagination_link-' + pagination_link.label" class="page-item"
                                     :class="{
                                         'disabled' : pagination_link.url == null,
                                         'active' : pagination_link.active == true
@@ -58,7 +59,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <ShopSidebar classes="mr-30" :msg="dataShare" @father="onShopSidebar" />
+                        <ShopSidebar classes="mr-30" @search="searchFilter"/>
                     </div>
                 </div>
             </div>
@@ -70,37 +71,40 @@
 </template>
 
 <script>
-
     export default {
         auth: false,
         components: {
-            HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
-            Breadcrumb: () => import('@/components/Breadcrumb'),
-            ProductGridItem: () => import('@/components/product/ProductGridItem'),
-            QuickView: () => import('@/components/QuickView'),
-            TheFooter: () => import('@/components/TheFooter'),
+            HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
+            Breadcrumb: () => import("@/components/Breadcrumb"),
+            ProductGridItem: () => import("@/components/product/ProductGridItem"),
+            QuickView: () => import("@/components/QuickView"),
+            TheFooter: () => import("@/components/TheFooter"),
+            Loading: () => import("@/components/Loading"),
         },
 
         data() {
             return {
-                products: [],
                 layout: "list",
                 selectedPrice: 'default',
-                categories: [],
                 pagination: {},
-                dataShare: '',
-                msgOfShopSidebar: '',
-                resCategory: [],
-             }
+                showHideSpinner: true,
+                products: [],
+                searchResult: '',
+                sortFilter: '',
+                category_slug: '',
+                category_id: '',
+                tag_slug: '',
+                tag_id: '',
+            }
+        },
+
+        beforeCreate() {
+            this.showHideSpinner = true;
         },
 
         mounted() {
-            this.$nextTick(() => {
-                this.$nuxt.$loading.start()
-                setTimeout(() => this.$nuxt.$loading.finish(), 2000)
-            })
             this.getProducts();
-            this.getCategories();
+            this.showHideSpinner = false;
         },
 
         computed: {
@@ -120,28 +124,78 @@
                 return page;
             },
 
+            categories() {
+                return this.$store.getters.getCategories;
+            },
+
+            tags() {
+                return this.$store.getters.getTags;
+            },
+
+            tag() {
+                let tagSlug = this.$route.query.tag;
+
+                this.tags.forEach(tag => {
+                    if(tag.slug == tagSlug){
+                        this.tag_slug = tag.slug;
+                        this.tag_id = tag.id;
+                    }
+                });
+                
+                if(tagSlug == this.tag_slug){
+                    return this.tag_id;
+                }
+                
+                return this.$route.query.tag ?? '';
+                
+            },
+
+            category() {
+                let categorySlug = this.$route.query.category;
+
+                this.categories.forEach(category => {
+                    if(category.slug == categorySlug){
+                        this.category_slug = category.slug;
+                        this.category_id = category.id;
+                    }
+                });
+                
+                if(categorySlug == this.category_slug){
+                    return this.category_id;
+                }
+                
+                return this.$route.query.category ?? '';
+                
+            },
+
         },
 
         methods: {
-
             async getProducts() {
-                const response = await this.$axios.get('/api/products?perPage=5&page=' + this.page + '&included=category&filter[name]=' + this.msgOfShopSidebar + '&filter[category_id]=' + this.resCategory)
-                this.products = response.data.data;
+                await this.$store.dispatch('getProducts', {
+                    page: this.page,
+                    category: this.category,
+                    search: this.searchResult,
+                    slug: '',
+                    sort: this.sortFilter,
+                    tag: this.tag,
+                })
+                const products = this.$store.getters.getProducts
+                this.products = products.data
+                const paginations = this.$store.getters.getProducts
                 this.pagination = {
-                    links: response.data.meta.links,
-                    last_page: response.data.meta.last_page,
-                    current_page: response.data.meta.current_page
-                };
-            },
-
-
-            onShopSidebar(msg) {
-                this.msgOfShopSidebar = msg;
+                    links: paginations['meta'].links,
+                    current_page: paginations['meta'].current_page,
+                    last_page: paginations['meta'].last_page,
+                }
             },
 
             async getCategories() {
-                const response = await this.$axios.get('/api/categories')
-                this.categories = response.data.data
+                await this.$store.dispatch('getCategories')
+            },
+
+            async getTags() {
+                await this.$store.dispatch('getTags')
             },
 
             changePage(url) {
@@ -156,6 +210,12 @@
                 return product.price - (product.price * product.discount / 100)
             },
 
+            searchFilter(value) {
+                this.searchResult = value;
+                this.getProducts();
+            },
+
+
         },
 
         watch: {
@@ -163,37 +223,34 @@
                 this.getProducts();
             },
 
-            msgOfShopSidebar() {
+            category() {
                 this.getProducts();
             },
 
-            resCategory() {
+            tag() {
                 this.getProducts();
             },
 
             selectedPrice(){
                 switch (this.selectedPrice) {
                     case "low2high":
-                        this.products = this.products.sort((a, b)=> this.discountedPrice(a) - this.discountedPrice(b))
+                        this.sortFilter = 'price_discount';
+                        this.getProducts();
                         break;
                     case "high2low":
-                        this.products = this.products.sort((a, b)=> this.discountedPrice(b) - this.discountedPrice(a))
+                        this.sortFilter = '-price_discount';
+                        this.getProducts();
                         break;
                     default:
+                        this.sortFilter = ''
                         this.getProducts();
                 }
             }
         },
 
-        beforeMount(){
-            this.$root.$on('send', data => {
-                this.resCategory = data;
-            })
-        },
-
         head() {
             return {
-                title: "Todos los productos",
+                title: this.category ? this.$route.query.category.charAt(0).toUpperCase()+ this.$route.query.category.slice(1) : 'Todos los Productos',
             }
         },
 

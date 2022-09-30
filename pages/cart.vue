@@ -63,43 +63,6 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-4 col-md-6">
-                                <div class="cart-tax">
-                                    <div class="title-wrap">
-                                        <h4 class="cart-bottom-title section-bg-gray">Calcular Gastos De Envío</h4>
-                                    </div>
-                                    <div class="tax-wrapper">
-                                        <p>Introduce el destino para calcularlo.</p>
-                                        <div class="tax-select-wrapper">
-                                            <!-- <div class="tax-select">
-                                                <label>
-                                                    * País
-                                                </label>
-                                                <select class="email s-email s-wid">
-                                                    <option>Alemania</option>
-                                                    <option selected>España</option>
-                                                    <option>Francia</option>
-                                                    <option>Italia</option>
-                                                    <option>Portugal</option>
-                                                </select>
-                                            </div> -->
-                                            <div class="tax-select">
-                                                <label>
-                                                    * Provincia
-                                                </label>
-                                                <select class="email s-email s-wid">
-                                                    <option v-for="state in states" :key="state.name">{{ state.name  }}</option>
-                                                </select>
-                                            </div>
-                                            <div class="tax-select">
-                                                <label>
-                                                    * Código Postal
-                                                </label>
-                                                <input type="text">
-                                            </div>
-                                            <button class="cart-btn-2" type="submit">Calcular</button>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="discount-code-wrapper">
@@ -153,19 +116,11 @@
         },
         data() {
             return {
-                states: {},
-                // productsApi: {},
                 singleQuantity: 1,
             }
         },
 
-        beforeMount() {
-            //this.getStates();
-        },
-
         created() {
-            this.getStates();
-            // this.getProducts();
         },
 
         computed: {
@@ -179,15 +134,6 @@
         },
 
         methods: {
-            async getStates() {
-                const states = await this.$axios.$get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=provincias-espanolas&q=&sort=provincia&facet=ccaa&facet=provincia')
-                this.states = states.facet_groups[1].facets;
-            },
-
-            // async getProducts() {
-            //     const products = await this.$axios.$get('http://api.trivicare.test/api/products')
-            //     this.productsApi = products;
-            // },
 
             incrementProduct(product) {
                 const prod = { ...product, cartQuantity: 1 }

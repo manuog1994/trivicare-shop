@@ -11,7 +11,7 @@
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
                                 <div class="large-img swiper-slide">
-                                    <img class="img-fluid" src="../../static/img/product/cosmetics/1.jpg" :alt="product.name">
+                                    <img class="img-fluid" src="../../static/img/slider/single-slide-2.png" :alt="product.name">
                                 </div>
                                 <div class="quickview-nav swiper-button-prev">
                                     <i class="pe-7s-angle-left"></i>
@@ -22,13 +22,13 @@
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
                                 <div class="thumb-img swiper-slide">
-                                    <img class="img-fluid" src="../../static/img/product/cosmetics/1.jpg" :alt="product.name">
+                                    <img class="img-fluid" src="../../static/img/slider/single-slide-2.png" :alt="product.name">
                                 </div>
                             </swiper>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
+                <div v-if="product" class="col-lg-6 col-md-6">
                     <div class="product-details-content ml-70">
                         <h2>{{ product.name }}</h2>
                         <div class="product-details-price">
@@ -36,42 +36,10 @@
                             <span class="old" v-if="product.discount > 0">{{ product.price}} &euro;</span>
                         </div>
                         <div class="pro-details-rating-wrap">
-                            <div class="pro-details-rating" v-if="product.rating == 5">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 4">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 3">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 2">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 1">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <span><a href="#">{{ product.rating }} Reviews</a></span>
+                            <client-only>
+                                <vue-star-rating :star-size="30" :read-only="true" :show-rating="false" :rating="product.rating"></vue-star-rating>
+                            </client-only> 
+                            <span><a class="ms-2" href="#des-details3">{{ product.total_reviews }} Reviews</a></span>
                         </div>
                         <p>{{ product.description }}</p>
                         <!-- <div class="pro-details-size-color" v-if="product.variation">
@@ -113,46 +81,36 @@
                         <div class="pro-details-meta">
                             <span class="label">Categoría: </span>
                             <ul>
-                                <li v-for="category in categories" :key="category.id">
-                                    <div v-if="category.id == product.category_id">
-                                        <n-link :to="`/shop?category=${category.slug}`">{{ category.name  }}</n-link>
+                                <li>
+                                    <div>
+                                        <a href="">{{ product.category.name  }}</a>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                        <!-- <div class="pro-details-meta">
-                            <span class="label">Tag:</span>
+                        <div class="pro-details-meta">
+                            <span class="label me-2">Tag:</span>
                             <ul>
-                                <li v-for="(tag, index) in product.tag" :key="index">
-                                    <n-link :to="`/shop?tag=${slugify(tag)}`">{{ tag }},</n-link>
+                                <li v-for="tag in product.tags" :key="tag.id">
+                                    <n-link class="tag-block" :style="`background-color:${tag.color}`" :to="`/shop?tag=${tag.slug}`">#{{ tag.name }}  </n-link>
                                 </li>
                             </ul>
-                        </div> -->
+                        </div>
                         <div class="pro-details-social">
                             <ul>
                                 <li>
-                                    <a href="https://www.facebook.com/" target="_blank">
-                                        <i class="fa fa-facebook"></i>
+                                    <a href="https://www.facebook.com/trivicare" target="_blank">
+                                        <fa-icon icon="fa-brands fa-facebook-f" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://dribbble.com/" target="_blank">
-                                        <i class="fa fa-dribbble"></i>
+                                    <a href="https://www.instagram.com/trivicare" target="_blank">
+                                        <fa-icon icon="fa-brands fa-instagram" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.pinterest.com/" target="_blank">
-                                        <i class="fa fa-pinterest-p"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="fa fa-linkedin"></i>
+                                    <a href="https://www.tiktok.com/@trivicare" target="_blank">
+                                        <fa-icon icon="fa-brands fa-tiktok" />
                                     </a>
                                 </li>
                             </ul>
@@ -164,6 +122,17 @@
     </div>
 </template>
 
+<style>
+    .tag-block {
+        display: flex;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid #a8a8a8;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+
 <script>
     export default {
         auth: false,
@@ -173,6 +142,7 @@
             return {
                 singleQuantity: 1,
                 categories: [],
+                tags: [],
 
                 swiperOptionTop: {
                     loop: true,
@@ -200,6 +170,10 @@
             }
         },
 
+        computed: {
+            
+        },
+
         mounted() {
             this.$nextTick(() => {
                 const swiperTop = this.$refs.swiperTop.$swiper
@@ -207,16 +181,9 @@
                 swiperTop.controller.control = swiperThumbs
                 swiperThumbs.controller.control = swiperTop
             });
-
-            this.getCategories();
         },
 
         methods: {
-            async getCategories() {
-                const response = await this.$axios.get('/api/categories')
-                this.categories = response.data.data
-            },
-
             addToCart(product) {
                 const prod = {...product, cartQuantity: this.singleQuantity}
                 // for notification
@@ -260,17 +227,6 @@
                 this.$store.dispatch('addToCompare', product)
             },
 
-            slugify(text) {
-                return text
-                    .toString()
-                    .toLowerCase()
-                    .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
-                    .replace(/--+/g, "-") // Replace multiple - with single -
-                    .replace(/^-+/, "") // Trim - from start of text
-                    .replace(/-+$/, ""); // Trim - from end of text
-                    
-            }
         },
     };
 </script>

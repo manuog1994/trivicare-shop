@@ -1,30 +1,27 @@
 <template>
     <div class="product-details-page-wrapper">
-        <HeaderWithTopbar containerClass="container" />
-        <Breadcrumb :pageTitle="product.name" />
-        <ProductDetailsWrapper :product="product" />
-        <ProductDetailsDescriptionReview :product="product" />
+        <HeaderWithTopbar containerClass="container"/>
+        <Breadcrumb :pageTitle="product.name" v-if="product" />
+        <ProductDetailsWrapper :product="product" v-if="product" />
+        <ProductDetailsDescriptionReview :product="product" :reviews="reviews" v-if="product" />
         <TheFooter />
     </div>
 </template>
 
 <script>
+
     export default {
         auth: false,
         data() {
             return {
                 slug: this.$route.params.slug,
-                product: [],
+                product: '',
+                reviews: [],
             }
         },
 
 
         computed: {
-
-        },
-
-        mounted() {
-            this.getProductbySlug();
         },
 
         head() {
@@ -33,22 +30,26 @@
             }
         },
 
-        methods: {
-            async getProductbySlug() {
-                const response = await this.$axios.get('/api/products?filter[slug]=' + this.slug);
-                return this.product = Object(response.data.data[0]);
-            }, 
-
-            // slugify(text) {
-            //     return text
-            //         .toString()
-            //         .toLowerCase()
-            //         .replace(/\s+/g, "-") // Replace spaces with -
-            //         .replace(/[^\w-]+/g, "") // Remove all non-word chars
-            //         .replace(/--+/g, "-") // Replace multiple - with single -
-            //         .replace(/^-+/, "") // Trim - from start of text
-            //         .replace(/-+$/, ""); // Trim - from end of text
-            // }
+        mounted() {
+            this.getProducts()
         },
+
+        methods: {
+            async getProducts() {
+                await this.$store.dispatch('getProducts', {
+                    page: '',
+                    category: '',
+                    search: '',
+                    slug: this.slug,
+                    sort: '',
+                    tag: '',
+                })
+                const products = this.$store.getters.getProducts
+                this.product = products.data[0]
+                this.reviews = products.data[0].reviews
+            },
+        },
+
+
     };
 </script>

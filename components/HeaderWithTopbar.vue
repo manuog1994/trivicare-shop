@@ -45,16 +45,10 @@
                         </div>
                         <div class="col-lg-2 col-md-6 col-8">
                             <div class="header-right-wrap">
-                                <div class="same-style d-none d-lg-block">
+                                <div class="same-style d-none d-lg-block me-2">
                                     <n-link to="/">
                                         <i class="fa fa-home"></i>
                                     </n-link>
-                                </div>
-                                <div class="same-style header-search d-none d-lg-block">
-                                    <button class="search-active" @click="isOpenSearch = !isOpenSearch"><i class="pe-7s-search"></i></button>
-                                    <div class="search-content" :class="{ active:isOpenSearch }">
-                                        <input @click.prevent="redirectToShop" v-model="father" type="text" placeholder="Buscar..." />
-                                    </div> 
                                 </div>
                                 <div class="same-style account-setting d-none d-lg-block">
                                     <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings"><i class="pe-7s-user-female"></i></button>
@@ -132,7 +126,8 @@
                 isOpenAccountSettings: false,
                 openCart: false,
                 navOpen: false,
-                father: '',
+                categories: [],
+                categoryFilter: '',
             }
         },
 
@@ -144,12 +139,18 @@
                 } else {
                     this.isSticky = false
                 }
-            })
+            });
+
+            this.getCategories();
         },
         
         watch: {
             father() {
                 this.$emit("father", this.father)
+            },
+
+            categoryFilter() {
+                this.$emit("categoryFilter", this.categoryFilter)
             }
         },
 
@@ -161,8 +162,17 @@
 
             },
 
+            async getCategories() {
+                const response = await this.$axios.get('/api/categories')
+                this.categories = response.data.data
+            },
+
             redirectToShop() {
                 this.$router.push('/shop')
+            },
+
+            categoryId(value) {
+                this.$emit("categoryFilter", value)
             }
         }
     };
