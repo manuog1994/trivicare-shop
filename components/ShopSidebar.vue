@@ -12,7 +12,7 @@
             <h4 class="pro-sidebar-title">Categorías</h4>
             <ul class="sidebar-widget-list mt-20">
                 <li class="sidebar-widget-list-left" v-for="category in categories" :key="category.id">
-                    <a :class="{ 'nuxt-link-exact-active': category.slug == categorySlug && query == categorySlug}" @click.prevent="categorySlug = category.slug">
+                    <a :class="{ 'nuxt-link-exact-active': category.slug == categorySlug}" @click.prevent="categorySlug = category.slug">
                         <span class="check-mark"></span>
                         {{ category.name }}
                     </a>
@@ -20,28 +20,26 @@
             </ul>
         </div>
 
-        <div class="pro-action d-flex justify-content-center mt-4">
-            <div class="pro-cart btn-hover">
-                <n-link class="clear_filters" :to="{ path: '/shop' }">
-                    <i class="fa fa-trash"></i> 
-                        LIMPIAR FILTROS
-                </n-link>
-            </div>
-        </div>
-
         <!-- tag widget  -->
         <div class="sidebar-widget sidebar-widget__tag mt-60">
             <h4 class="pro-sidebar-title">Tags</h4>
             <div class="mt-2">
                 <div class="col-auto">
-                    <div v-for="tag in tags" :key="tag.id" class="d-flex">
-                        <a @click.prevent="tagSlug = tag.slug" class="tag-block m-1" :style="`background-color:${tag.color}`" v-if="tag.color || hidden">#{{ tag.name }}</a>
-                    </div>
-                    <div class="d-flex justify-content-center mt-4">
-                        <a style="background: #343538; padding: 0.5rem 1.5rem; color: white;" v-if="hidden == false" @click.prevent="hidden = true ">VER MÁS</a>
-                        <a style="background: #343538; padding: 0.5rem 1.5rem; color: white;" v-if="hidden == true" @click.prevent="hidden = false ">VER MENOS</a>
+                    <div v-for="tag in tags" :key="tag.id" class=" d-inline-block me-2 mt-2" >
+                        <a @click.prevent="tagSlug = tag.slug" class="tag-block" :style="`background-color:${tag.color}`">
+                            #{{ tag.name }}
+                        </a>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="pro-action d-flex justify-content-center mt-4">
+            <div class="pro-cart btn-hover">
+                <a class="clear_filters" @click.prevent="clearFilters">
+                    <i class="fa fa-trash"></i> 
+                        LIMPIAR FILTROS
+                </a>
             </div>
         </div>
     </div>
@@ -65,7 +63,7 @@
                 categoryFilter: '',
                 search: '',
                 categorySlug: '',
-                tagSlug: '',
+                tagSlug: [],
             }
         },
         mounted() {
@@ -77,9 +75,7 @@
             categories() {
                 return this.$store.getters.getCategories
             },
-            query() {
-                return this.$route.query.category
-            },
+
             tags() {
                 return this.$store.getters.getTags
             },
@@ -92,11 +88,13 @@
             },
 
             categorySlug() {
-                this.$router.push({ path: '/shop', query: { category: this.categorySlug } })
+                //this.tagSlug = '';
+                this.$router.push({ path: '/shop', query: { category: this.categorySlug, tag: this.tagSlug } })
             },
 
             tagSlug() {
-                this.$router.push({ path: '/shop', query: { tag: this.tagSlug } })
+                //this.categorySlug = '';
+                this.$router.push({ path: '/shop', query: { category: this.categorySlug, tag: this.tagSlug } })
             },
 
             
@@ -110,6 +108,12 @@
             async getCategories() {
                 await this.$store.dispatch('getCategories')
             },
+
+            clearFilters() {
+                this.categorySlug = '';
+                this.tagSlug = '';
+                this.$router.push({ path: '/shop'})
+            }
         },
 
     };

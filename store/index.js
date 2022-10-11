@@ -230,7 +230,7 @@ export const actions = {
           'http://localhost:8000/api/tags'
         );
         context.commit("SET_TAG", data.data);
-    }
+    },
 
 
 }

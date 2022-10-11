@@ -71,8 +71,8 @@
                                     </div>
                                     <div class="discount-code">
                                         <p>Introduce el código descuento.</p>
-                                        <form>
-                                            <input type="text" required="" name="name">
+                                        <form @submit.prevent="validationCupon">
+                                            <input v-model="inputCupons" type="text" name="name" required>
                                             <button class="cart-btn-2" type="submit">Aplicar cupón</button>
                                         </form>
                                     </div>
@@ -84,7 +84,8 @@
                                         <h4 class="cart-bottom-title section-bg-gary-cart">Total del Carrito</h4>
                                     </div>
                                     <h5>Total <span>{{ total.toFixed(2) }} &euro;</span></h5>
-                                    <h4 class="grand-total-title">Total  <span>{{ total.toFixed(2) }} &euro;</span></h4>
+                                    <h5 v-if="inputCupons == valueCupon">Código descuento<span class="text-danger"> - {{ ((total * discountCupon / 100)).toFixed(2)  }} &euro;</span></h5>
+                                    <h4 class="grand-total-title">Total  <span>{{ (total - (total * discountCupon / 100)).toFixed(2) }} &euro;</span></h4>
                                     <n-link to="/checkout">Tramitar pedido</n-link>
                                 </div>
                             </div>
@@ -99,6 +100,7 @@
                             <n-link to="/shop" class="empty-cart__button">Comprar ahora</n-link>
                         </div>
                     </div>
+                    {{ cupons  }}
                 </div>
             </div>
         </div>
@@ -117,10 +119,11 @@
         data() {
             return {
                 singleQuantity: 1,
+                inputCupons: '',
+                valueCupon: 'PROMO10',
+                discountCupon: 10,
+                cupons: [],
             }
-        },
-
-        created() {
         },
 
         computed: {
@@ -131,6 +134,10 @@
             total() {
                 return this.$store.getters.getTotal
             },
+        },
+
+        mounted() {
+            this.getCupons();
         },
 
         methods: {
@@ -163,16 +170,26 @@
             },
 
             clearCart() {
-                if (confirm("Are you sure you want to clear cart")) {
+                if (confirm("¿Estás seguro de que quieres vaciar el carrito?")) {
                     // for notification
-                    this.$notify({ title: 'Item remove from cart!'})
+                    this.$notify({ title: 'Carrito vaciado!'})
                     
                     this.$store.commit('CLEAR_CART')
                 }
             },
 
+            async getCupons() {
+                await this.$axios.get('/api/cupons')
+                    .then(response => {
+                        this.cupons = response.data.data
+                    }).catch(error => {
+                        console.log(error)
+                    })
+            },
 
-
+            validationCupon() {
+                
+            },
         },
 
         head() {

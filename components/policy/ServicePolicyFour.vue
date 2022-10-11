@@ -25,20 +25,20 @@
         data() {
             return {
                 policies: [
-                    {
+                {
                         icon: "/img/icon-img/support-1.png",
-                        title: "Free Shipping",
-                        subTitle: "Free shipping on all order"
+                        title: "Envío gratis",
+                        subTitle: "Envío gratis en pedidos superiores a 50€"
                     },
                     {
                         icon: "/img/icon-img/support-2.png",
-                        title: "Support 24/7",
-                        subTitle: "Support 24 hours a day"
+                        title: "Atención al cliente",
+                        subTitle: "Atención al cliente personal y profesional"
                     },
                     {
-                        icon: "/img/icon-img/support-3.png",
-                        title: "Money Return",
-                        subTitle: "30 days for free return"
+                        icon: "/img/icon-img/support-4.png",
+                        title: "10% de descuento",
+                        subTitle: "10% de descuento en tu primera compra"
                     },
                 ]
             }

@@ -1,7 +1,8 @@
 <template>
     <ul>
         <li>
-             <n-link :to="{ path: '/shop' }">Ver Todo</n-link>
+             <!-- <n-link to="/shop">Ver Todo</n-link> -->
+             <a class="link-nav" @click.prevent="redirectHome">Ver Todo</a>
          </li>
         <li v-for="category in categories" :key="category.id">
             <a class="link-nav" @click.prevent="categoryId = category.slug">{{ category.name  }}</a>
@@ -31,10 +32,6 @@
             categories() {
                 return this.$store.getters.getCategories
             },
-
-            query() {
-                this.$route.query
-            }
         },
 
         created() {
@@ -45,6 +42,11 @@
             getCategories() {
                 this.$store.dispatch('getCategories')
             },
+        
+            redirectHome() {
+                this.categoryId = '';
+                this.$router.push({ path: '/shop' })
+            },
         },
 
         watch: {
@@ -52,12 +54,6 @@
                 this.$router.push({ path: '/shop', query: { category: this.categoryId } })
             },
 
-            query() {
-                if(!this.query.category) {
-                    this.categoryId = '';
-                    this.$router.push({ path: '/shop' })
-                }
-            }
         }
         
 

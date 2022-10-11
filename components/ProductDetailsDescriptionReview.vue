@@ -70,7 +70,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div v-if="$auth.user.user_profile.length <= 0" class="row">
+                                                <div v-if="$auth.user.user_profile" class="row">
                                                     <div class="col-md-6">
                                                         <div class="rating-form-style mb-10">
                                                             <input v-model="user_name" placeholder="Nombre" type="text" required>

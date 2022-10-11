@@ -124,12 +124,10 @@
 
 <style>
     .tag-block {
-        display: flex;
-        padding: 5px 10px;
+        display: block;
+        padding: 0.5rem, 0.5rem;
         border-radius: 5px;
-        border: 1px solid #a8a8a8;
-        margin-right: 5px;
-        margin-bottom: 5px;
+        border: 1px solid #a8a8a8;    
     }
 </style>
 
@@ -175,12 +173,12 @@
         },
 
         mounted() {
-            this.$nextTick(() => {
-                const swiperTop = this.$refs.swiperTop.$swiper
-                const swiperThumbs = this.$refs.swiperThumbs.$swiper
-                swiperTop.controller.control = swiperThumbs
-                swiperThumbs.controller.control = swiperTop
-            });
+            // this.$nextTick(() => {
+            //     const swiperTop = this.$refs.swiperTop.$swiper
+            //     const swiperThumbs = this.$refs.swiperThumbs.$swiper
+            //     swiperTop.controller.control = swiperThumbs
+            //     swiperThumbs.controller.control = swiperTop
+            // });
         },
 
         methods: {

@@ -2,7 +2,7 @@
     <div class="shop-page-wrapper">
         <Loading v-if="showHideSpinner" />
         <HeaderWithTopbar containerClass="container" />
-        <Breadcrumb :pageTitle="this.$route.query.category ?? 'todos los productos' " />
+        <Breadcrumb :pageTitle="this.$route.query.category || this.$route.query.tag ? 'Resultados de la filtración' : 'Todos los productos' "/>
         <!-- product items wrapper -->
         <div class="shop-area pt-100 pb-100">
             <div class="container">
@@ -44,7 +44,7 @@
                         </div>
                         <!-- end shop product -->
 
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center" v-if="products.length >= 5 || page >= 2">
                             <nav aria-label="...">
                                 <ul class="pagination">
                                     <li v-for="pagination_link in pagination.links" :key=" 'pagination_link-' + pagination_link.label" class="page-item"
@@ -146,7 +146,7 @@
                     return this.tag_id;
                 }
                 
-                return this.$route.query.tag ?? '';
+                return '';
                 
             },
 
@@ -164,7 +164,7 @@
                     return this.category_id;
                 }
                 
-                return this.$route.query.category ?? '';
+                return '';
                 
             },
 
@@ -245,12 +245,32 @@
                         this.sortFilter = ''
                         this.getProducts();
                 }
-            }
+            },
+
+            '$route.query.category'() {
+                this.category_slug = '';
+                this.category_id = '';
+            },
+
+            '$route.query.tag'() {
+                this.tag_slug = '';
+                this.tag_id = '';
+            },
         },
 
         head() {
-            return {
-                title: this.category ? this.$route.query.category.charAt(0).toUpperCase()+ this.$route.query.category.slice(1) : 'Todos los Productos',
+            if (this.category) {
+                return {
+                    title: this.$route.query.category.charAt(0).toUpperCase()+ this.$route.query.category.slice(1),
+                }
+            } else if (this.tag) {
+                return {
+                    title: this.$route.query.tag.charAt(0).toUpperCase()+ this.$route.query.tag.slice(1),
+                }
+            } else {
+                return {
+                    title: 'Todos los Productos',
+                }
             }
         },
 

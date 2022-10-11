@@ -21,11 +21,6 @@ export { default as TestimonialOne } from '../../components/TestimonialOne.vue'
 export { default as TheFooter } from '../../components/TheFooter.vue'
 export { default as TheHeader } from '../../components/TheHeader.vue'
 export { default as WelcomeMessage } from '../../components/WelcomeMessage.vue'
-export { default as PolicyServicePolicy } from '../../components/policy/ServicePolicy.vue'
-export { default as PolicyServicePolicyFive } from '../../components/policy/ServicePolicyFive.vue'
-export { default as PolicyServicePolicyFour } from '../../components/policy/ServicePolicyFour.vue'
-export { default as PolicyServicePolicyThree } from '../../components/policy/ServicePolicyThree.vue'
-export { default as PolicyServicePolicyTwo } from '../../components/policy/ServicePolicyTwo.vue'
 export { default as ProductDetailsWrapper } from '../../components/product/ProductDetailsWrapper.vue'
 export { default as ProductGridItem } from '../../components/product/ProductGridItem.vue'
 export { default as ProductGridItemTwo } from '../../components/product/ProductGridItemTwo.vue'
@@ -35,6 +30,11 @@ export { default as HeroSliderSix } from '../../components/hero/HeroSliderSix.vu
 export { default as BannerItem } from '../../components/banner/BannerItem.vue'
 export { default as BannerStyleFour } from '../../components/banner/BannerStyleFour.vue'
 export { default as BannerStyleOne } from '../../components/banner/BannerStyleOne.vue'
+export { default as PolicyServicePolicy } from '../../components/policy/ServicePolicy.vue'
+export { default as PolicyServicePolicyFive } from '../../components/policy/ServicePolicyFive.vue'
+export { default as PolicyServicePolicyFour } from '../../components/policy/ServicePolicyFour.vue'
+export { default as PolicyServicePolicyThree } from '../../components/policy/ServicePolicyThree.vue'
+export { default as PolicyServicePolicyTwo } from '../../components/policy/ServicePolicyTwo.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {
