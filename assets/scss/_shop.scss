@@ -35,6 +35,23 @@
                 cursor: pointer;
             }
         }
+        .shop-select-2 {
+            margin-right: 50px;
+            @media #{$xs-layout}{
+                margin-right: 0;
+            }
+            @media #{$sm-layout}{
+                margin-right: 30px;
+            }
+            select {
+                font-size: 14px;
+                color: #606060;
+                min-width: 1rem;
+                padding: 5px;
+                border: 1px solid #e6e6e6;
+                cursor: pointer;
+            }
+        }
         p {
             color: #606060;
             margin: 0;

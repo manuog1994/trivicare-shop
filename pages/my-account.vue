@@ -370,6 +370,17 @@
             return {
                 title: "Mi Cuenta",
             }
+        },
+
+        mounted() {
+            var tituloOriginal = document.title; // Lo guardamos para restablecerlo
+            window.onblur = function(){ // Si el usuario se va a otro lado...
+            document.title = "Ey, vuelve aquí!";// Cambiamos el título
+            }
+
+            window.onfocus = function(){
+            document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
+            }
         }
     }
 </script>

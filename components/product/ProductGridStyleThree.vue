@@ -5,7 +5,7 @@
                 <img class="default-img" :src="product.images[0]" :alt="product.title">
             </n-link>
             <div class="product-badges">
-                <span class="product-label pink" v-if="product.new">New</span>
+                <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
                 <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
             </div>
             <div class="product-content-3-wrap">

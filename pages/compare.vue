@@ -16,11 +16,11 @@
                                         <tr>
                                             <td class="first-column">Product</td>
                                             <td class="product-image-title" v-for="(product, index) in products" :key="index">
-                                                <n-link :to="`/product/${slugify(product.title)}`" class="image">
-                                                    <img class="img-fluid" :src="product.images[0]" :alt="product.title">
+                                                <n-link :to="`/product/${product.slug}`" class="image">
+                                                    <img class="img-fluid" :src="product.images[0]" :alt="product.name">
                                                 </n-link>
                                                 <h4 class="title">
-                                                    <n-link :to="`/product/${slugify(product.title)}`">{{ product.title }}</n-link>
+                                                    <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
                                                 </h4>
                                             </td>
                                         </tr>
@@ -43,7 +43,7 @@
                                                 <button @click="addToCart(product)" class="btn">Add to Cart</button>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td class="first-column">Rating</td>
                                             <td class="pro-ratting" v-for="(product, index) in products" :key="index">
                                                 <i class="fa fa-star"></i>
@@ -52,7 +52,7 @@
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star-o"></i>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                         <tr>
                                             <td class="first-column">Remove</td>
                                             <td class="pro-remove" v-for="(product, index) in products" :key="index">
@@ -94,6 +94,17 @@
             },
         },
 
+        mounted() {
+            var tituloOriginal = document.title; // Lo guardamos para restablecerlo
+            window.onblur = function(){ // Si el usuario se va a otro lado...
+            document.title = "Ey, vuelve aquí!";// Cambiamos el título
+            }
+
+            window.onfocus = function(){
+            document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
+            }
+        },
+
         methods: {
             addToCart(product) {
                 const prod = {...product, cartQuantity: 1}
@@ -115,17 +126,6 @@
             discountedPrice(product) {
                 return product.price - (product.price *(product.discount)/100)
             },
-
-            slugify(text) {
-                return text
-                    .toString()
-                    .toLowerCase()
-                    .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
-                    .replace(/--+/g, "-") // Replace multiple - with single -
-                    .replace(/^-+/, "") // Trim - from start of text
-                    .replace(/-+$/, ""); // Trim - from end of text
-            }
         },
 
         head() {

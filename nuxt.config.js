@@ -1,5 +1,6 @@
 export default {
-    generate: {
+    loading: '~/components/Loading.vue',
+     generate: {
         fallback: true
     },
 
@@ -32,6 +33,11 @@ export default {
         '~/plugins/vuejs-pagiante.js',
         '~/plugins/observe-visibility.js',
         '~/plugins/persistedState.client.js',
+        '~/plugins/vue-progress-path.js',
+        {
+            src: '~/plugins/vue-type.js',
+            mode: 'client'
+        },
         {
             src: '~/plugins/vue-star-rating.js', // <--- file name
             mode: 'client'

@@ -1,31 +1,6 @@
 <template>
     <div>
         <header class="header-area">
-            <div class="header-top-area header-padding-2 d-none d-lg-block">
-                <div :class="containerClass">
-                    <div class="header-top-inner">
-                        <!-- <div class="language-currency-wrap">
-                            <div class="same-language-currency language-style">
-                                <select name="language">
-                                    <option value="spanish" selected>Español</option>
-                                    <option value="english">English</option>
-                                    <option value="hindi">Hindi</option>
-                                </select>
-                            </div>
-                            <div class="same-language-currency use-style">
-                                <select name="currency">
-                                    <option value="eur" selected>EUR</option>
-                                    <option value="usd">USD</option>
-                                    <option value="rup">Rup</option>
-                                </select>
-                            </div>
-                        </div> -->
-                        <div class="header-offer m-auto">
-                            <p>Envío gratis a partir de <span>50 &euro;</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="header-padding-1 sticky-bar header-res-padding clearfix" :class="{'is-sticky': isSticky}">
                 <div :class="containerClass">
                     <div class="row">
@@ -93,10 +68,31 @@
                     </div>
                 </div>
             </div>
+            <div class="header-top-area header-padding-2 d-none d-lg-block background-color-banner">
+                <div :class="containerClass">
+                    <div class="header-top-inner">
+                        <div class="header-offer m-auto">
+                            <vue-typer class="custom-two" text="Envío gratis a partir de 50 €"></vue-typer>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </header>
         <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" />
     </div>
 </template>
+
+<style scoped>
+.custom-two{
+    font-size: 14px;
+    color: #ff0000;
+}
+
+.background-color-banner {
+    background-color: #ffb1b1;
+}
+    
+</style>
 
 <script>
     export default {

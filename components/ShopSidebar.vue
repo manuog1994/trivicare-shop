@@ -21,19 +21,21 @@
         </div>
 
         <!-- tag widget  -->
-        <div class="sidebar-widget sidebar-widget__tag mt-60">
+        <div class="sidebar-widget mt-5">
             <h4 class="pro-sidebar-title">Tags</h4>
-            <div class="mt-2">
-                <div class="col-auto">
-                    <div v-for="tag in tags" :key="tag.id" class=" d-inline-block me-2 mt-2" >
-                        <a @click.prevent="tagSlug = tag.slug" class="tag-block" :style="`background-color:${tag.color}`">
-                            #{{ tag.name }}
-                        </a>
-                    </div>
-                </div>
+            <ul class="sidebar-widget-list mt-20">
+                <li class="sidebar-widget-list-left" v-for="tag in tags" :key="tag.id">
+                    <a :class="{ 'nuxt-link-exact-active': tag.slug == tagSlug}" @click.prevent="tagSlug = tag.slug">
+                        <span class="check-mark"></span>
+                        {{ tag.name }}
+                    </a>
+                </li>
+            </ul>
+            <div class="d-flex justify-content-center mt-2">
+                <a @click.prevent="tagShow = 20" class="btn p-2" v-if="tagShow == 4">Ver más</a>
+                <a @click.prevent="tagShow = 4" class="btn p-2" v-if="tagShow > 4">Ver menos</a>
             </div>
         </div>
-
         <div class="pro-action d-flex justify-content-center mt-4">
             <div class="pro-cart btn-hover">
                 <a class="clear_filters" @click.prevent="clearFilters">
@@ -64,6 +66,8 @@
                 search: '',
                 categorySlug: '',
                 tagSlug: [],
+                tags: [],
+                tagShow: 4,
             }
         },
         mounted() {
@@ -74,10 +78,6 @@
         computed: {
             categories() {
                 return this.$store.getters.getCategories
-            },
-
-            tags() {
-                return this.$store.getters.getTags
             },
         },
 
@@ -97,12 +97,22 @@
                 this.$router.push({ path: '/shop', query: { category: this.categorySlug, tag: this.tagSlug } })
             },
 
-            
+            tagShow() {
+                this.getTags();
+            }
         },
 
         methods: {
             async getTags() {
                 await this.$store.dispatch('getTags')
+                const tags = this.$store.getters.getTags
+                const filter = tags.filter(item => {
+                    if (item.id <= this.tagShow) {
+                        return item
+                    }
+                })
+                console.log(filter);
+                this.tags = filter
             },
 
             async getCategories() {
@@ -113,7 +123,7 @@
                 this.categorySlug = '';
                 this.tagSlug = '';
                 this.$router.push({ path: '/shop'})
-            }
+            },
         },
 
     };

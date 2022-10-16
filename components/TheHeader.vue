@@ -61,10 +61,25 @@
                     </div>
                 </div>
             </div>
+            <div class="header-top-area header-padding-2 d-none d-lg-block background-color-banner">
+                <div :class="containerClass">
+                    <div class="header-top-inner">
+                        <div class="header-offer m-auto">
+                            <vue-typer class="custom-two" text="Envío gratis a partir de 50 €"></vue-typer>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </header>
         <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" />
     </div>
 </template>
+
+<style scoped>
+.background-color-banner {
+    background-color: #ffb1b1;
+}
+</style>
 
 <script>
     export default {

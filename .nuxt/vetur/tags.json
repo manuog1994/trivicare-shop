@@ -20,8 +20,14 @@
   "InstagramPostWrapper": {
     "description": "Auto imported from components/InstagramPostWrapper.vue"
   },
+  "Intro": {
+    "description": "Auto imported from components/Intro.vue"
+  },
   "Loading": {
     "description": "Auto imported from components/Loading.vue"
+  },
+  "Location": {
+    "description": "Auto imported from components/Location.vue"
   },
   "Login": {
     "description": "Auto imported from components/Login.vue"
@@ -68,32 +74,8 @@
   "WelcomeMessage": {
     "description": "Auto imported from components/WelcomeMessage.vue"
   },
-  "ProductDetailsWrapper": {
-    "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
-  },
-  "ProductGridItem": {
-    "description": "Auto imported from components/product/ProductGridItem.vue"
-  },
-  "ProductGridItemTwo": {
-    "description": "Auto imported from components/product/ProductGridItemTwo.vue"
-  },
-  "ProductGridStyleThree": {
-    "description": "Auto imported from components/product/ProductGridStyleThree.vue"
-  },
-  "ProductWrapperCosmetics": {
-    "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
-  },
   "HeroSliderSix": {
     "description": "Auto imported from components/hero/HeroSliderSix.vue"
-  },
-  "BannerItem": {
-    "description": "Auto imported from components/banner/BannerItem.vue"
-  },
-  "BannerStyleFour": {
-    "description": "Auto imported from components/banner/BannerStyleFour.vue"
-  },
-  "BannerStyleOne": {
-    "description": "Auto imported from components/banner/BannerStyleOne.vue"
   },
   "PolicyServicePolicy": {
     "description": "Auto imported from components/policy/ServicePolicy.vue"
@@ -109,5 +91,29 @@
   },
   "PolicyServicePolicyTwo": {
     "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
+  },
+  "ProductDetailsWrapper": {
+    "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
+  },
+  "ProductGridItem": {
+    "description": "Auto imported from components/product/ProductGridItem.vue"
+  },
+  "ProductGridItemTwo": {
+    "description": "Auto imported from components/product/ProductGridItemTwo.vue"
+  },
+  "ProductGridStyleThree": {
+    "description": "Auto imported from components/product/ProductGridStyleThree.vue"
+  },
+  "ProductWrapperCosmetics": {
+    "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
+  },
+  "BannerItem": {
+    "description": "Auto imported from components/banner/BannerItem.vue"
+  },
+  "BannerStyleFour": {
+    "description": "Auto imported from components/banner/BannerStyleFour.vue"
+  },
+  "BannerStyleOne": {
+    "description": "Auto imported from components/banner/BannerStyleOne.vue"
   }
 }

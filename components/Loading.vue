@@ -1,57 +1,42 @@
 <template>
-  <div class="splash-screen">
-    <div class="spinner-wrapper">
-      <div class="spinner"></div>
-    </div>
+  <div v-if="loading" class="loading-page m-5">
+    <loading-progress
+      indeterminate="indeterminate"
+      size="64"
+      rotate
+      fillDuration="2"
+      rotationDuration="1"
+    />
   </div>
 </template>
 
+<script>
+   export default {
+    data: () => ({
+      loading: false
+    }),
+    methods: {
+      start() {
+        this.loading = true
+      },
+      finish() {
+        this.loading = false
+      }
+    }
+  }
+</script>
+
 <style scoped>
-.splash-screen {
-   background: #f2f0ee;
-    width: 100vw;
-    height: 100vh;
-  position: fixed;
-  z-index: 50;    
-}
-
-.spinner-wrapper {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
-}
-.spinner {
-  width: 80px;
-  height: 80px;
-  margin: 100px auto;
-  background-color: #e45447;
-
-  border-radius: 100%;
-  -webkit-animation: sk-scaleout 1s infinite ease-in-out;
-  animation: sk-scaleout 1s infinite ease-in-out;
-}
-
-@-webkit-keyframes sk-scaleout {
-  0% {
-    -webkit-transform: scale(0);
+  .loading-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8) !important;
+    text-align: center;
+    padding-top: 200px;
+    font-size: 30px;
+    font-family: sans-serif;
   }
-  100% {
-    -webkit-transform: scale(1);
-    opacity: 0;
-  }
-}
-
-@keyframes sk-scaleout {
-  0% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 0;
-  }
-}
 </style>

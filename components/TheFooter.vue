@@ -9,7 +9,7 @@
                                 <img src="/img/logo/logo-footer.png" alt="logo">
                             </n-link>
                         </div>
-                        <p>© 2022 <a href="#" target="_blank">TriviCare</a><br> Todos los derechos reservados.</p>
+                        <p>© 2022 <a href="#" target="_blank">TriviCare Natural Cosmetics.</a><br> Todos los derechos reservados.</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-sm-4">
@@ -20,7 +20,7 @@
                         <div class="footer-list">
                             <ul>
                                 <li><n-link to="/about">Sobre nosotros</n-link></li>
-                                <li><n-link to="/shop">Puntos de venta</n-link></li>
+                                <li><n-link to="/contact">Puntos de venta</n-link></li>
                                 <li><n-link to="/contact">Contacto</n-link></li>
                                 <li><n-link to="/contact">Seguimiento de envío</n-link></li>
                             </ul>
@@ -63,7 +63,7 @@
                             <h3>SUSCRÍBETE</h3>
                         </div>
                         <div class="subscribe-style">
-                            <p>Recibe por email ofertas y nuestras últimas novedades'.</p>
+                            <p>Recibe por email ofertas y nuestras últimas novedades.</p>
                             <div class="subscribe-form">
                                 <form class="mc-form">
                                     <input class="email" type="email" required="" placeholder="Introduce tu email..." name="email" >

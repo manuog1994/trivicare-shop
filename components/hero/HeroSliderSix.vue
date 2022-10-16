@@ -6,8 +6,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="slider-content-4 slider-content-6 slider-animation-1 text-center">
-                                <h1 class="text-primary">{{ slider.title }}</h1>
-                                <p class="text-primary">{{ slider.desc }}</p>
+                                <h1 class="text-dark">{{ slider.title }}</h1>
+                                <p class="text-dark">{{ slider.desc }}</p>
                                 <div class="slider-btn btn-hover">
                                     <n-link to="/shop">COMPRAR AHORA</n-link>
                                 </div>
@@ -53,12 +53,12 @@
                     {
                         title: "Bienvenid@ a TriviCare",
                         desc: "10% de descuento en todos los accesorios",
-                        backgroundImage: "/img/banners/ban-2.jpeg"
+                        backgroundImage: "/img/slider/slider1-1.png"
                     },
                     {
                         title: "Oferta de Inauguración",
                         desc: "20% con el código de descuento: TRIVICARE20",
-                        backgroundImage: "/img/banners/pack-set-natura-bisse.jpeg"
+                        backgroundImage: "/img/slider/slider1-2.png"
                     }
                 ]
             }

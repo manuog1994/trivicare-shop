@@ -6,7 +6,7 @@
                 <img class="hover-img" src="../../static/img/list/list.jpeg" :alt="product.name">
             </n-link>
             <div class="product-badges">
-                <span class="product-label pink" v-if="product.new">New</span>
+                <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
                 <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
             </div>
             <div class="product-action" v-if="layout === 'twoColumn' || layout === 'threeColumn'">

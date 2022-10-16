@@ -190,6 +190,12 @@
                                             </li>
                                         </ul>
                                     </div>
+                                    <div>
+                                        <ul class="d-flex justify-content-between mb-2">
+                                            <li v-if="cuponStore" class="your-order-shipping">Código descuento</li>
+                                            <li v-if="cuponStore" class="text-danger">-{{ (subTotal * (cuponStore.discount / 100)).toFixed(2)  }} &euro;</li>
+                                        </ul>
+                                    </div>
                                     <div class="your-order-bottom">
                                         <ul>
                                             <li class="your-order-shipping">Gastos de envío</li>
@@ -200,7 +206,8 @@
                                     <div class="your-order-total">
                                         <ul>
                                             <li class="order-total">Total</li>
-                                            <li>{{ (total + shipping).toFixed(2) }} &euro;</li>
+                                            <li v-if="total.toFixed(2) <= 50">{{ (total + shipping).toFixed(2) }} &euro;</li>
+                                            <li v-else>{{ total.toFixed(2) }} &euro;</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -273,12 +280,28 @@
                 return this.$store.getters.getCart
             },
 
+            subTotal() {
+                return this.$store.getters.getSubTotal
+            },
+
             total() {
                 return this.$store.getters.getTotal
+            },
+
+            cuponStore() {
+                return this.$store.getters.getCupon
             },
         },
 
         mounted() {
+            var tituloOriginal = document.title; // Lo guardamos para restablecerlo
+            window.onblur = function(){ // Si el usuario se va a otro lado...
+            document.title = "Ey, vuelve aquí!";// Cambiamos el título
+            }
+
+            window.onfocus = function(){
+            document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
+            }
         },
 
         methods: {

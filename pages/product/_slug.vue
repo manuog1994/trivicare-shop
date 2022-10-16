@@ -20,10 +20,6 @@
             }
         },
 
-
-        computed: {
-        },
-
         head() {
             return {
                 title: this.product.name

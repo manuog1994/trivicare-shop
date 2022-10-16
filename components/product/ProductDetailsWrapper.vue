@@ -6,7 +6,7 @@
                     <div class="product-details-slider">
                         <div class="product-details-img">
                             <div class="product-badges">
-                                <span class="product-label pink" v-if="product.new">New</span>
+                                <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
                                 <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
@@ -92,7 +92,7 @@
                             <span class="label me-2">Tag:</span>
                             <ul>
                                 <li v-for="tag in product.tags" :key="tag.id">
-                                    <n-link class="tag-block" :style="`background-color:${tag.color}`" :to="`/shop?tag=${tag.slug}`">#{{ tag.name }}  </n-link>
+                                    <n-link class="tag-block" :style="`background-color:${tag.color}`" :to="`/shop?tag=${tag.slug}`">#{{ tag.tag }}  </n-link>
                                 </li>
                             </ul>
                         </div>
@@ -124,8 +124,8 @@
 
 <style>
     .tag-block {
-        display: block;
-        padding: 0.5rem, 0.5rem;
+        display: inline-flex;
+        padding: 1rem, 1rem;
         border-radius: 5px;
         border: 1px solid #a8a8a8;    
     }
@@ -170,15 +170,6 @@
 
         computed: {
             
-        },
-
-        mounted() {
-            // this.$nextTick(() => {
-            //     const swiperTop = this.$refs.swiperTop.$swiper
-            //     const swiperThumbs = this.$refs.swiperThumbs.$swiper
-            //     swiperTop.controller.control = swiperThumbs
-            //     swiperThumbs.controller.control = swiperTop
-            // });
         },
 
         methods: {

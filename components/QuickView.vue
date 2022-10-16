@@ -90,10 +90,10 @@
                             </ul>
                         </div>
                         <div class="pro-details-meta">
-                            <span class="label">Tag:</span>
+                            <span class="label me-2">Tag:</span>
                             <ul>
-                                <li v-for="(tag, index) in product.tag" :key="index">
-                                    <n-link :to="`/shop?tag=${tag}`">{{ tag }},</n-link>
+                                <li v-for="tag in product.tags" :key="tag.id">
+                                    <n-link class="tag-block" :style="`background-color:${tag.color}`" :to="`/shop?tag=${tag.slug}`">#{{ tag.tag }}  </n-link>
                                 </li>
                             </ul>
                         </div>

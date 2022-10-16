@@ -1,8 +1,7 @@
 <template>
     <div class="shop-page-wrapper">
-        <Loading v-if="showHideSpinner" />
         <HeaderWithTopbar containerClass="container" />
-        <Breadcrumb :pageTitle="this.$route.query.category || this.$route.query.tag ? 'Resultados de la filtración' : 'Todos los productos' "/>
+        <Breadcrumb :pageTitle="this.$route.query.category || this.$route.query.tag ? 'Resultados de la búsqueda' : 'Todos los productos' "/>
         <!-- product items wrapper -->
         <div class="shop-area pt-100 pb-100">
             <div class="container">
@@ -18,7 +17,15 @@
                                         <option value="high2low">Precio de mayor a menor</option>
                                     </select>
                                 </div>
-                                <p>Mostrando {{ products.length }} resultados por página</p>
+                                <div class="shop-select-2">
+                                    <p>Mostrando
+                                    <select class="ms-2 me-2 w-auto" v-model="selectedQuantity">
+                                        <option value="default">5</option>
+                                        <option value="teen">10</option>
+                                        <option value="fiveteen">15</option>
+                                    </select>
+                                    resultados por página</p>
+                                </div>
                             </div>
                             <div class="shop-tab">
                                 <button @click="layout = 'twoColumn'" :class="{ active : layout === 'twoColumn' }">
@@ -44,10 +51,10 @@
                         </div>
                         <!-- end shop product -->
 
-                        <div class="d-flex justify-content-center" v-if="products.length >= 5 || page >= 2">
+                        <div class="d-flex justify-content-center" v-if="products.length >= perPage || page >= 2">
                             <nav aria-label="...">
-                                <ul class="pagination">
-                                    <li v-for="pagination_link in pagination.links" :key=" 'pagination_link-' + pagination_link.label" class="page-item"
+                                <ul class="pagination-custom">
+                                    <li v-for="pagination_link in pagination.links" :key=" 'pagination_link-' + pagination_link.label" class="page-link-custom"
                                     :class="{
                                         'disabled' : pagination_link.url == null,
                                         'active' : pagination_link.active == true
@@ -70,6 +77,49 @@
     </div>
 </template>
 
+<style>
+    .w-10 {
+        width: 10px;
+    }
+
+    .pagination-custom {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    }
+
+    .page-link-custom {
+    position: relative;
+    font-size: 18px;
+    display: flex;
+    padding: 0 .75rem;
+    color: #686868;
+    text-decoration: none;
+    background-color: #fff;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    @media (prefers-reduced-motion: reduce) {
+    .page-link-custom {
+        transition: none;
+    }
+    }
+    .page-link-custom:hover {
+    z-index: 2;
+    color: orange;
+    }
+    .page-link-custom:focus {
+    z-index: 3;
+    color: orange;
+    outline: 0;
+    }
+    .page-link-custom.active {
+        color: orange;
+    }
+    .page-link-custom.disabled {
+    color: #a0a0a0;
+    }
+</style>
+
 <script>
     export default {
         auth: false,
@@ -79,15 +129,14 @@
             ProductGridItem: () => import("@/components/product/ProductGridItem"),
             QuickView: () => import("@/components/QuickView"),
             TheFooter: () => import("@/components/TheFooter"),
-            Loading: () => import("@/components/Loading"),
         },
 
         data() {
             return {
                 layout: "list",
                 selectedPrice: 'default',
+                selectedQuantity: 'default',
                 pagination: {},
-                showHideSpinner: true,
                 products: [],
                 searchResult: '',
                 sortFilter: '',
@@ -95,16 +144,28 @@
                 category_id: '',
                 tag_slug: '',
                 tag_id: '',
+                perPage: 5,
             }
         },
 
-        beforeCreate() {
-            this.showHideSpinner = true;
-        },
-
         mounted() {
-            this.getProducts();
-            this.showHideSpinner = false;
+            this.$nextTick(() => {
+                this.$nuxt.$loading.start()
+                setTimeout(() => {
+                    this.$nuxt.$loading.finish()
+                }, 1000);
+            });
+            setTimeout(() => {
+                this.getProducts();
+            }, 1000);
+            var tituloOriginal = document.title; // Lo guardamos para restablecerlo
+            window.onblur = function(){ // Si el usuario se va a otro lado...
+            document.title = "Ey, vuelve aquí!";// Cambiamos el título
+            }
+
+            window.onfocus = function(){
+            document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
+            }
         },
 
         computed: {
@@ -173,6 +234,7 @@
         methods: {
             async getProducts() {
                 await this.$store.dispatch('getProducts', {
+                    perPage: this.perPage,
                     page: this.page,
                     category: this.category,
                     search: this.searchResult,
@@ -220,15 +282,39 @@
 
         watch: {
             page() {
-                this.getProducts();
+                this.$nextTick(() => {
+                    this.$nuxt.$loading.start()
+                    setTimeout(() => {
+                        this.$nuxt.$loading.finish()
+                    }, 500);
+                });
+                setTimeout(() => {
+                    this.getProducts();
+                }, 500);
             },
 
             category() {
-                this.getProducts();
+                this.$nextTick(() => {
+                    this.$nuxt.$loading.start()
+                    setTimeout(() => {
+                        this.$nuxt.$loading.finish()
+                    }, 500);
+                });
+                setTimeout(() => {
+                    this.getProducts();
+                }, 500);
             },
 
             tag() {
-                this.getProducts();
+                this.$nextTick(() => {
+                    this.$nuxt.$loading.start()
+                    setTimeout(() => {
+                        this.$nuxt.$loading.finish()
+                    }, 500);
+                });
+                setTimeout(() => {
+                    this.getProducts();
+                }, 500);
             },
 
             selectedPrice(){
@@ -244,6 +330,46 @@
                     default:
                         this.sortFilter = ''
                         this.getProducts();
+                }
+            },
+
+            selectedQuantity(){
+                switch (this.selectedQuantity) {
+                    case "fiveteen":
+                        this.perPage = 15;
+                        this.$nextTick(() => {
+                            this.$nuxt.$loading.start()
+                            setTimeout(() => {
+                                this.$nuxt.$loading.finish()
+                            }, 500);
+                        });
+                        setTimeout(() => {
+                            this.getProducts();
+                        }, 500);
+                        break;
+                    case "teen":
+                        this.perPage = 10;
+                        this.$nextTick(() => {
+                            this.$nuxt.$loading.start()
+                            setTimeout(() => {
+                                this.$nuxt.$loading.finish()
+                            }, 500);
+                        });
+                        setTimeout(() => {
+                            this.getProducts();
+                        }, 500);
+                        break;
+                    default:
+                    this.perPage = 5;
+                    this.$nextTick(() => {
+                            this.$nuxt.$loading.start()
+                            setTimeout(() => {
+                                this.$nuxt.$loading.finish()
+                            }, 500);
+                        });
+                        setTimeout(() => {
+                            this.getProducts();
+                        }, 500);
                 }
             },
 

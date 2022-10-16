@@ -14,6 +14,7 @@ export const state = () => ({
     compare: [],
     pagination: [],
     tags: [],
+    cupon: [],
 })
 
 
@@ -29,6 +30,10 @@ export const getters = {
 
     getTags(state) {
         return state.tags
+    },
+
+    getCupon(state) {
+        return state.cupon
     },
 
     getPagination(state) {
@@ -59,46 +64,27 @@ export const getters = {
         return state.compare.length
     },
 
+    getSubTotal: state => {
+        let subTotal = 0;
+        state.cart.forEach(item => {
+            let price = item.discount ? item.price - (item.price *(item.discount)/100) : item.price;
+            subTotal += price * item.cartQuantity
+        })
+        return subTotal;
+    },
+
     getTotal: state => {
         let total = 0;
         state.cart.forEach(item => {
             let price = item.discount ? item.price - (item.price *(item.discount)/100) : item.price;
             total += price * item.cartQuantity
         })
-
+        if (state.cupon) {
+            total = total - (total * (state.cupon.discount / 100))
+        }
         return total;
-    },
-
-    // getNewProducts: state => {
-    //     return state.products.filter(item => {
-    //         return item.new
-    //     })
-    // },
-    // getBestProducts: state => {
-    //     return state.products.filter(item => {
-    //         return item.best
-    //     })
-    // },
-    // getSaleProducts: state => {
-    //     return state.products.filter(item => {
-    //         return item.discount
-    //     })
-    // },
-
-    // categoryList: state => {
-    //     return ["all categories",...new Set(state.products.map((list) => list.category).flat())]
-    // },
-    // tagList: state => {
-    //     return [...new Set(state.products.map((list) => list.tag).flat())]
-    // },
-    // sizeList: state => {
-    //     return ["all sizes",...new Set(state.products.map((list) => list.variation?.sizes).flat())].filter(Boolean)
-    // },
-    // colorList: state => {
-    //     return ["all colors",...new Set(state.products.map((list) => list.variation?.color).flat())].filter(Boolean)
-    // },
+    }
 }
-
 
 // contains your mutations
 export const mutations = {
@@ -116,6 +102,10 @@ export const mutations = {
 
     SET_TAG(state, tag) {
         state.tags = tag
+    },
+
+    SET_CUPON(state, cupon) {
+        state.cupon = cupon
     },
 
     UPDATE_CART(state, payload) {
@@ -210,9 +200,9 @@ export const actions = {
         commit('REMOVE_FROM_COMPARE', product)
     },
 
-    async getProducts(context, {page, category, search, slug, sort, tag}) {
+    async getProducts(context, {perPage, page, category, search, slug, sort, tag}) {
         const { data } = await axios.get(
-          'http://localhost:8000/api/products?perPage=5&page=' + page + '&filter[category_id]=' + category + '&filter[name]=' + search + '&filter[slug]=' + slug + '&sort=' + sort + '&tags=' + tag
+          'http://localhost:8000/api/products?perPage=' + perPage + '&page=' + page + '&filter[category_id]=' + category + '&filter[name]=' + search + '&filter[slug]=' + slug + '&sort=' + sort + '&tags=' + tag
         );
         context.commit("SET_PRODUCT", data);
         context.commit("SET_PAGINATION", data.meta);
