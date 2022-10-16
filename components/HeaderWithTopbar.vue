@@ -72,7 +72,7 @@
                 <div :class="containerClass">
                     <div class="header-top-inner">
                         <div class="header-offer m-auto">
-                            <vue-typer class="custom-two" text="Envío gratis a partir de 50 €"></vue-typer>
+                            <vue-typer class="custom-two" text="Envío gratis a partir de 50 €" repeat="0"></vue-typer>
                         </div>
                     </div>
                 </div>

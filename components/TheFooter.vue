@@ -21,7 +21,7 @@
                             <ul>
                                 <li><n-link to="/about">Sobre nosotros</n-link></li>
                                 <li><n-link to="/contact">Puntos de venta</n-link></li>
-                                <li><n-link to="/contact">Contacto</n-link></li>
+                                <li><n-link :to="{ name: 'contact', ref:'contact'}">Contacto</n-link></li>
                                 <li><n-link to="/contact">Seguimiento de envío</n-link></li>
                             </ul>
                         </div>
@@ -81,5 +81,5 @@
 <script>
     export default {
 
-    };
+    }
 </script>

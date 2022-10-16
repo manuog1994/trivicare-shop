@@ -23,7 +23,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div id="des-details3" class="tab-pane">
+                    <div id="des-details3" ref="review-div" class="tab-pane">
                         <div class="row">
                             <div class="col-lg-7">
                                 <div v-for="review in reviews" :key="review.id" class="review-wrapper">

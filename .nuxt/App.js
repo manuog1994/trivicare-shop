@@ -12,6 +12,8 @@ import '../assets/scss/style.scss'
 
 import '../assets/css/animation.css'
 
+import '../assets/css/my-layout.css'
+
 import _6f6c098b from '../layouts/default.vue'
 import _602e6cb4 from '../layouts/HomeSidebarMenu.vue'
 

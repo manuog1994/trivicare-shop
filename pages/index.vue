@@ -2,7 +2,7 @@
     <div class="home-cosmetics">
         <TheHeader />
         <HeroSliderSix />
-        <Intro />
+        <transition name="intro" mode="out-in"><Intro /></transition>
         <ServicePolicyFour />
         <!-- <TestimonialOne /> -->
         <ProductWrapperCosmetics />
@@ -14,9 +14,12 @@
 </template>
 
 <script>
-
     export default {
         auth: false,
+        transition: {
+            name: 'fade',
+            mode: 'out-in'
+        },
 
         components: {
             TheHeader: () => import("@/components/TheHeader"),
@@ -28,6 +31,12 @@
             // BlogWrapper: () => import('@/components/BlogWrapper'),
             TheFooter: () => import("@/components/TheFooter"),
             Intro: () => import("@/components/Intro"),
+        },
+
+        data() {
+            return {
+                show: false,
+            }
         },
 
         mounted() {
@@ -54,5 +63,15 @@
         },
     };
 </script>
+
+<style>
+.intro-enter-active, .intro-leave-active {
+    transition: opacity 5s ease;
+    transition-delay: 3s;
+}
+.intro-enter, .intro-leave-active {
+    opacity: 0
+}
+</style>
 
 

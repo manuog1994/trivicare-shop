@@ -1,0 +1,8 @@
+.my-lauouts-enter-active,
+.my-lauouts-leave-active {
+  transition: opacity 0.2s;
+}
+.my-lauouts-enter,
+.my-lauouts-leave-active {
+  opacity: 0;
+}

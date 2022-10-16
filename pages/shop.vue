@@ -118,11 +118,22 @@
     .page-link-custom.disabled {
     color: #a0a0a0;
     }
+    .fade-enter-active, .fade-leave-active {
+    transition: opacity 1.5s ease;
+}
+    .fade-enter, .fade-leave-active {
+        opacity: 0
+    }
 </style>
 
 <script>
     export default {
         auth: false,
+        transition: {
+            name: 'fade',
+            mode: 'out-in'
+        },
+
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             Breadcrumb: () => import("@/components/Breadcrumb"),

@@ -6,25 +6,25 @@
         <div class="checkout-area pt-95 pb-100">
             <div class="container">
                  <div class="row" v-if="products.length > 0">
-                    <div v-if="$auth.user.user_profile" class="col-lg-7">
+                    <div v-if="$auth.user.user_profile.length > 0" class="col-lg-7">
                         <h3 class="text-center mb-2">¿Donde se lo enviamos?</h3>
                         <p class="text-center">Para continuar seleccione una de sus direcciones de envio, y pulse el botón "Realizar Pedido"</p>
                         <h4 class="mt-3">Datos de envío</h4>
                         <div class="row">
                             <div class="form-group">
-                                <label>Seleccione la dirección de envío</label>
-                                <select class="form-select" v-model="selectedProfile" required>
-                                    <!-- <option v-for="profile in profiles" :key="profile.id" :value="profile">{{ profile.name }} {{ profile.address }} {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option> -->
-                                    <option v-for="profile in $auth.user.user_profile" :key="profile.id" :value="profile">{{ profile.name }} {{ profile.address }} {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option>
+                                <select class="form-select" v-model="selected" required>
+                                    <option v-if=" selected == 'Seleccione una dirección' " selected disabled>{{ selected }}</option>
+                                    <option v-else selected disabled>Seleccione una dirección</option>
+                                    <option v-for="profile in $auth.user.user_profile" :key="profile.id" :value="profile">{{ profile.name }} {{ profile.lastname }}, {{ profile.address }}, {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option>
                                 </select>
                             </div>
-                            <div v-if="selectedProfile" class="card mt-4">
+                            <div v-if="selected.name" class="card mt-4">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ selectedProfile.name }} {{ selectedProfile.lastname }}</h5>
-                                    <p class="card-title">{{ selectedProfile.address }}</p>
-                                    <p class="card-title">{{ selectedProfile.zipcode }} {{ selectedProfile.city }} ({{ selectedProfile.state }})</p>
-                                    <p class="card-title">{{ selectedProfile.country }}</p>
-                                    <p class="card-title">{{ selectedProfile.phone }}</p>
+                                    <h5 class="card-title">{{ selected.name }} {{ selected.lastname }}</h5>
+                                    <p class="card-title">{{ selected.address }}</p>
+                                    <p class="card-title">{{ selected.zipcode }} {{ selected.city }} ({{ selected.state }})</p>
+                                    <p class="card-title">{{ selected.country }}</p>
+                                    <p class="card-title">{{ selected.phone }}</p>
                                     <p class="card-title">{{ $auth.user.email }}</p>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                     </div>
-                    <div v-if="!$auth.user.user_profile" class="col-lg-7">
+                    <div v-else class="col-lg-7">
                         <div class="billing-info-wrap">
                             <h3>Datos de envío y facturación</h3>
                             <form @submit.prevent="createProfile" class="row">
@@ -254,7 +254,7 @@
         data() {
             return {
                 shipping: 7.50,
-                selectedProfile: null,
+                selected: 'Seleccione una dirección',
 
                 name: '',
                 lastname: '',
@@ -294,6 +294,12 @@
         },
 
         mounted() {
+            this.$nextTick(() => {
+                this.$nuxt.$loading.start()
+                setTimeout(() => {
+                    this.$nuxt.$loading.finish()
+                }, 1000);
+            });
             var tituloOriginal = document.title; // Lo guardamos para restablecerlo
             window.onblur = function(){ // Si el usuario se va a otro lado...
             document.title = "Ey, vuelve aquí!";// Cambiamos el título

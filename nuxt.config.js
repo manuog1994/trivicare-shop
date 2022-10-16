@@ -25,6 +25,7 @@ export default {
     css: [
         '~/assets/scss/style.scss',
         '~/assets/css/animation.css',
+        '~/assets/css/my-layout.css',
     ],
 
     // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -103,6 +104,10 @@ export default {
         middleware: ['auth'],
     },
       
+    transition: {
+        name: 'my-layout',
+        mode: 'out-in'
+    },
 
 
     styleResources: {
