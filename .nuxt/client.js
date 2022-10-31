@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import fetch from 'unfetch'
+
 import middleware from './middleware.js'
 import {
   applyAsyncData,
@@ -31,8 +31,6 @@ if (!Vue.__nuxt__fetch__mixin__) {
 // Component: <NuxtLink>
 Vue.component(NuxtLink.name, NuxtLink)
 Vue.component('NLink', NuxtLink)
-
-if (!global.fetch) { global.fetch = fetch }
 
 // Global shared references
 let _lastPaths = []
@@ -636,6 +634,13 @@ function hotReloadAPI(_app) {
   let $components = getNuxtChildComponents(_app.$nuxt, [])
 
   $components.forEach(addHotReload.bind(_app))
+
+  if (_app.context.isHMR) {
+    const Components = getMatchedComponents(router.currentRoute)
+    Components.forEach((Component) => {
+      Component.prototype.constructor = Component
+    })
+  }
 }
 
 function addHotReload ($component, depth) {

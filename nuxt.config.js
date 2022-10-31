@@ -1,4 +1,6 @@
-export default {
+import { defineNuxtConfig } from '@nuxt/bridge'
+
+export default defineNuxtConfig({
     loading: '~/components/Loading.vue',
      generate: {
         fallback: true
@@ -118,6 +120,7 @@ export default {
 
     // Build Configuration (https://go.nuxtjs.dev/config-build)
     build: {
+        nitro: false,
         extractCSS: true,
         extend (config, ctx) {
         },
@@ -129,4 +132,5 @@ export default {
 
       
       
-}
+})
+

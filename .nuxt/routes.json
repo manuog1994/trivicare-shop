@@ -2,85 +2,99 @@
   {
     "name": "about",
     "path": "/about",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/about.vue",
-    "chunkName": "pages/about"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/about.vue",
+    "chunkName": "pages/about",
+    "_name": "_f59fda28"
   },
   {
     "name": "cart",
     "path": "/cart",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/cart.vue",
-    "chunkName": "pages/cart"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/cart.vue",
+    "chunkName": "pages/cart",
+    "_name": "_96c464de"
   },
   {
     "name": "checkout",
     "path": "/checkout",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/checkout.vue",
-    "chunkName": "pages/checkout"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/checkout.vue",
+    "chunkName": "pages/checkout",
+    "_name": "_dfa8ef92"
   },
   {
     "name": "compare",
     "path": "/compare",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/compare.vue",
-    "chunkName": "pages/compare"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/compare.vue",
+    "chunkName": "pages/compare",
+    "_name": "_3e1feaf8"
   },
   {
     "name": "contact",
     "path": "/contact",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/contact.vue",
-    "chunkName": "pages/contact"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/contact.vue",
+    "chunkName": "pages/contact",
+    "_name": "_08184782"
   },
   {
     "name": "login",
     "path": "/login",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/login.vue",
-    "chunkName": "pages/login"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_6e8f90c8"
   },
   {
     "name": "my-account",
     "path": "/my-account",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/my-account.vue",
-    "chunkName": "pages/my-account"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/my-account.vue",
+    "chunkName": "pages/my-account",
+    "_name": "_bd8af686"
   },
   {
     "name": "privacy-policy",
     "path": "/privacy-policy",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/privacy-policy.vue",
-    "chunkName": "pages/privacy-policy"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/privacy-policy.vue",
+    "chunkName": "pages/privacy-policy",
+    "_name": "_2070a6c8"
   },
   {
     "name": "shop",
     "path": "/shop",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/shop.vue",
-    "chunkName": "pages/shop"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/shop.vue",
+    "chunkName": "pages/shop",
+    "_name": "_c0b55b32"
   },
   {
     "name": "terms-conditions",
     "path": "/terms-conditions",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/terms-conditions.vue",
-    "chunkName": "pages/terms-conditions"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/terms-conditions.vue",
+    "chunkName": "pages/terms-conditions",
+    "_name": "_48a376a2"
   },
   {
     "name": "wishlist",
     "path": "/wishlist",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/wishlist.vue",
-    "chunkName": "pages/wishlist"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/wishlist.vue",
+    "chunkName": "pages/wishlist",
+    "_name": "_275d9936"
   },
   {
     "name": "product-product-affiliate",
     "path": "/product/product-affiliate",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/product/product-affiliate.vue",
-    "chunkName": "pages/product/product-affiliate"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/product/product-affiliate.vue",
+    "chunkName": "pages/product/product-affiliate",
+    "_name": "_3803bdae"
   },
   {
     "name": "product-slug",
     "path": "/product/:slug?",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/product/_slug.vue",
-    "chunkName": "pages/product/_slug"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/product/_slug.vue",
+    "chunkName": "pages/product/_slug",
+    "_name": "_f222ef6e"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/index.vue",
-    "chunkName": "pages/index"
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop copia/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_b630249e"
   }
 ]
