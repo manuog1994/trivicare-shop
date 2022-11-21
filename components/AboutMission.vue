@@ -2,12 +2,14 @@
     <div class="about-mission-area pb-70">
         <div class="container">
             <div class="row">
-                <div class="col-md-4" v-for="(item, index) in items" :key="index">
-                    <div class="single-mission mb-30">
-                        <h3>{{ item.title }}</h3>
-                        <p>{{ item.desc }}</p>
+                <client-only>
+                    <div class="col-md-4" v-for="(item, index) in items" :key="index">
+                        <div class="single-mission mb-30">
+                            <h3>{{ item.title }}</h3>
+                            <p>{{ item.desc }}</p>
+                        </div>
                     </div>
-                </div>
+                </client-only>
             </div>
         </div>
     </div>

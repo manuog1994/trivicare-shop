@@ -10,7 +10,7 @@
                 <div class="menu-navigation">
                     <ResponsiveMobileMenu />
                 </div>
-                <div class="offcanvas-tools">
+                <!-- <div class="offcanvas-tools">
                     <div class="same-language-currency">
                         <span>Selecciona el Lenguaje</span>
                         <select name="language">
@@ -39,7 +39,7 @@
                             <a href="mailto:info@trivicare.com">info@trivicare.com</a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             </div>
         </div>

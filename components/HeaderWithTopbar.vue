@@ -28,15 +28,16 @@
                                 <div class="same-style account-setting d-none d-lg-block">
                                     <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings"><i class="pe-7s-user-female"></i></button>
                                     <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
-                                        <ul v-if="$auth.user">
-                                            <li>
-                                                <n-link to="/my-account">Mi Perfil</n-link>
-                                            </li>
-                                            <li>
-                                                <a @click="logout">Cerrar sesión</a>
-                                            </li>
+                                        <ul v-if="role == 'admin'">
+                                            <li><n-link to="/crud">PCD</n-link></li>
+                                            <li><n-link to="/my-account">Mi Perfil</n-link></li>
+                                            <li><a @click="logout">Cerrar sesión</a></li>
                                         </ul>
-                                        <ul v-if="!$auth.user">
+                                        <ul v-else-if="$auth.user">
+                                            <li><n-link to="/my-account">Mi Perfil</n-link></li>
+                                            <li><a @click="logout">Cerrar sesión</a></li>
+                                        </ul>
+                                        <ul v-else>
                                             <li><n-link to="/login">Iniciar sesión/Registrar</n-link></li>
                                         </ul>
                                     </div>
@@ -72,7 +73,7 @@
                 <div :class="containerClass">
                     <div class="header-top-inner">
                         <div class="header-offer m-auto">
-                            <vue-typer class="custom-two" text="Envío gratis a partir de 50 €" repeat="0"></vue-typer>
+                            <vue-typer class="custom-two" text="Envío gratis a partir de 50 €" :repeat="0"></vue-typer>
                         </div>
                     </div>
                 </div>
@@ -124,6 +125,7 @@
                 navOpen: false,
                 categories: [],
                 categoryFilter: '',
+                role: '',
             }
         },
 
@@ -138,6 +140,7 @@
             });
 
             this.getCategories();
+            this.getRoles();
         },
         
         watch: {
@@ -169,6 +172,20 @@
 
             categoryId(value) {
                 this.$emit("categoryFilter", value)
+            },
+
+            getRoles() {
+                if(this.$auth.user) {
+                    const roles = this.$auth.user.roles;
+                    if(roles != null) {
+                        roles.map(role => {
+                            this.role = role.name;
+                        });
+                    }else {
+                        this.role = '';
+                    }
+                }
+
             }
         }
     };

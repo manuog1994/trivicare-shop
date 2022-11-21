@@ -21,26 +21,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="product in products" :key="product.id">
-                                        <td class="product-thumbnail">
-                                            <n-link :to="`/product/${product.slug}`">
-                                                <img src="../static/img/product/cosmetics/1.jpg" :alt="product.name">
-                                            </n-link>
-                                        </td>
-                                        <td class="product-name">
-                                            <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
-                                        </td>
-                                        <td class="product-price-cart">
-                                            <span class="amount">${{ discountedPrice(product).toFixed(2) }}</span>
-                                            <del class="old" v-if="product.discount > 0">${{ product.price }}</del>
-                                        </td>
-                                        <td class="product-wishlist-cart">
-                                            <button @click="addToCart(product)">añadir al carrito</button>
-                                        </td>
-                                        <td class="product-remove">
-                                            <button @click="removeProductFromWishlist(product)"><i class="fa fa-times"></i></button>
-                                        </td>
-                                    </tr>
+                                    <client-only>
+                                        <tr v-for="product in products" :key="product.id">
+                                            <td class="product-thumbnail">
+                                                <n-link :to="`/product/${product.slug}`">
+                                                    <img v-if="product.images.length > 0" :src="`http://localhost:8000/${product.images[0].path}`" :alt="product.name">
+                                                    <img v-else src="~/static/img/product/cosmetics/default.png" :alt="product.name"> 
+                                                </n-link>
+                                            </td>
+                                            <td class="product-name">
+                                                <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
+                                            </td>
+                                            <td class="product-price-cart">
+                                                <span class="amount">{{ discountedPrice(product).toFixed(2) }} &euro;</span>
+                                                <del class="old" v-if="product.discount > 0">{{ product.price }} &euro;</del>
+                                            </td>
+                                            <td class="product-wishlist-cart">
+                                                <button @click="addToCart(product)">añadir al carrito</button>
+                                            </td>
+                                            <td class="product-remove">
+                                                <button @click="removeProductFromWishlist(product)"><i class="fa fa-times"></i></button>
+                                            </td>
+                                        </tr>
+                                    </client-only>
                                 </tbody>
                             </table>
                         </div>

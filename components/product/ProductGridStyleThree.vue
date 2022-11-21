@@ -1,8 +1,15 @@
 <template>
-    <div class="product-wrap-3 mb-20">
+    <div v-if="product.status == 'Publicado'" class="product-wrap-3 mb-20">
         <div class="product-img">
             <n-link :to="`/product/${slugify(product.title)}`">
-                <img class="default-img" :src="product.images[0]" :alt="product.title">
+                <div v-if="product.images.lenght == 0">
+                    <img class="default-img" src="~/static/img/product/cosmetics/default.png" :alt="product.title">
+                    <img class="hover-img" src="~/static/img/product/cosmetics/default.png" :alt="product.title">
+                </div>
+                <div v-else>
+                    <img class="default-img" :src="`http://localhost:8000/${product.images[0].path}`" :alt="product.title">
+                    <img class="hover-img" :src="`http://localhost:8000/${product.images[0].path}`" :alt="product.title">
+                </div>
             </n-link>
             <div class="product-badges">
                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
@@ -20,9 +27,9 @@
                         <span class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</span>
                     </div>
                     <div class="product-action-3">
-                        <button class="btn" title="Compare" @click="addToCompare(product)"> 
+                        <!-- <button class="btn" title="Compare" @click="addToCompare(product)"> 
                             <i class="pe-7s-shuffle"></i>
-                        </button>
+                        </button> -->
                         <button class="btn" title="Add To Cart" @click="addToCart(product)">
                             <i class="pe-7s-cart"></i>
                         </button>

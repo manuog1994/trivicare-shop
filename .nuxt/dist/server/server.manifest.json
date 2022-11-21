@@ -1,0 +1,23 @@
+{
+  "entry": "server.js",
+  "files": {
+    "pages/about.js": "pages/about.js",
+    "pages/cart.js": "pages/cart.js",
+    "pages/checkout.js": "pages/checkout.js",
+    "pages/compare.js": "pages/compare.js",
+    "pages/contact.js": "pages/contact.js",
+    "pages/crud.js": "pages/crud.js",
+    "pages/index.js": "pages/index.js",
+    "pages/login.js": "pages/login.js",
+    "pages/my-account.js": "pages/my-account.js",
+    "pages/payment.js": "pages/payment.js",
+    "pages/privacy-policy.js": "pages/privacy-policy.js",
+    "pages/product/_slug.js": "pages/product/_slug.js",
+    "pages/product/product-affiliate.js": "pages/product/product-affiliate.js",
+    "pages/shop.js": "pages/shop.js",
+    "pages/terms-conditions.js": "pages/terms-conditions.js",
+    "pages/wishlist.js": "pages/wishlist.js",
+    "server.js": "server.js"
+  },
+  "maps": {}
+}

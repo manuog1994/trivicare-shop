@@ -1,0 +1,9 @@
+
+.intro-enter-active, .intro-leave-active {
+    transition: opacity 5s ease;
+    transition-delay: 3s;
+}
+.intro-enter, .intro-leave-active {
+    opacity: 0
+}
+

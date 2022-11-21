@@ -1,26 +1,32 @@
 <template>
     <ul class='mobile-menu'>
-        <li v-for='(link, i) in menus' :key='i'>
-            <n-link :to="link.url">
-                {{ link.title }}
-            </n-link>
-            <span class='submenu-toggle' v-if="link.submenu">
-                <i class="pe-7s-angle-down"></i>
-            </span>
-            <ul class="submenu" v-if="link.submenu">
-                <li v-for='(link, i) in link.submenu' :key='i' class="title">
-                    <n-link :to="link.url"> {{ link.title }} </n-link>
-                    <span class='submenu-toggle' v-if="link.submenu">
-                        <i class="pe-7s-angle-down"></i>
-                    </span> 
-                    <ul class="submenu" v-if="link.submenu">
-                        <li v-for='(link, i) in link.submenu' :key='i'>
+        <client-only>
+            <li v-for='(link, i) in menus' :key='i'>
+                <n-link :to="link.url">
+                    {{ link.title }}
+                </n-link>
+                <span class='submenu-toggle' v-if="link.submenu">
+                    <i class="pe-7s-angle-down"></i>
+                </span>
+                <ul class="submenu" v-if="link.submenu">
+                    <client-only>
+                        <li v-for='(link, i) in link.submenu' :key='i' class="title">
                             <n-link :to="link.url"> {{ link.title }} </n-link>
+                            <span class='submenu-toggle' v-if="link.submenu">
+                                <i class="pe-7s-angle-down"></i>
+                            </span> 
+                            <ul class="submenu" v-if="link.submenu">
+                                <client-only>
+                                    <li v-for='(link, i) in link.submenu' :key='i'>
+                                        <n-link :to="link.url"> {{ link.title }} </n-link>
+                                    </li>
+                                </client-only>
+                            </ul>
                         </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
+                    </client-only>
+                </ul>
+            </li>
+        </client-only>
     </ul>
 </template>
 

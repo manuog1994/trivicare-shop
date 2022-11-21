@@ -4,15 +4,17 @@
             <div class="row">
                 <div class="col-lg-10 ms-auto me-auto">
                     <swiper :options="testimonialOption">
-                        <div class="swiper-slide single-testimonial text-center" v-for="(testimonial, index) in testimonialData" :key="index">
-                            <img :src="testimonial.imgSrc" :alt="testimonial.name">
-                            <p>{{ testimonial.desc }}</p>
-                            <div class="client-info">
-                                <i class="fa fa-map-signs"></i>
-                                <h5>{{ testimonial.name }}</h5>
-                                <span>{{ testimonial.position }}</span>
+                        <client-only>
+                            <div class="swiper-slide single-testimonial text-center" v-for="(testimonial, index) in testimonialData" :key="index">
+                                <img :src="testimonial.imgSrc" :alt="testimonial.name">
+                                <p>{{ testimonial.desc }}</p>
+                                <div class="client-info">
+                                    <i class="fa fa-map-signs"></i>
+                                    <h5>{{ testimonial.name }}</h5>
+                                    <span>{{ testimonial.position }}</span>
+                                </div>
                             </div>
-                        </div>
+                        </client-only>
                     </swiper>
                 </div>
             </div>

@@ -74,6 +74,24 @@
   "WelcomeMessage": {
     "description": "Auto imported from components/WelcomeMessage.vue"
   },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
+  "PolicyServicePolicy": {
+    "description": "Auto imported from components/policy/ServicePolicy.vue"
+  },
+  "PolicyServicePolicyFive": {
+    "description": "Auto imported from components/policy/ServicePolicyFive.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
+  "PolicyServicePolicyThree": {
+    "description": "Auto imported from components/policy/ServicePolicyThree.vue"
+  },
+  "PolicyServicePolicyTwo": {
+    "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
+  },
   "BannerItem": {
     "description": "Auto imported from components/banner/BannerItem.vue"
   },
@@ -98,22 +116,22 @@
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
   },
-  "PolicyServicePolicy": {
-    "description": "Auto imported from components/policy/ServicePolicy.vue"
+  "CrudAll": {
+    "description": "Auto imported from components/crud/All.vue"
   },
-  "PolicyServicePolicyFive": {
-    "description": "Auto imported from components/policy/ServicePolicyFive.vue"
+  "CrudCreate": {
+    "description": "Auto imported from components/crud/Create.vue"
   },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  "CrudEdit": {
+    "description": "Auto imported from components/crud/Edit.vue"
   },
-  "PolicyServicePolicyThree": {
-    "description": "Auto imported from components/policy/ServicePolicyThree.vue"
+  "CrudNav": {
+    "description": "Auto imported from components/crud/Nav.vue"
   },
-  "PolicyServicePolicyTwo": {
-    "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
+  "CrudOrders": {
+    "description": "Auto imported from components/crud/Orders.vue"
   },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  "CrudOrdersHistory": {
+    "description": "Auto imported from components/crud/OrdersHistory.vue"
   }
 }

@@ -1,9 +1,15 @@
 <template>
-    <div class="product-wrap-2 mb-25">
+    <div v-if="product.status == 'Publicado'" class="product-wrap-2 mb-25">
         <div class="product-img">
             <n-link :to="`/product/${product.slug}`">
-                <img class="default-img" src="../../static/img/list/list.jpeg" :alt="product.name">
-                <img class="hover-img" src="../../static/img/list/list.jpeg" :alt="product.name">
+                <div v-if="product.images.length == 0 || product.images.length == 1">
+                    <img class="default-img" src="~/static/img/product/cosmetics/default.png" :alt="product.name">
+                    <img class="hover-img" src="~/static/img/product/cosmetics/default.png" :alt="product.name">
+                </div>
+                <div v-else>
+                    <img class="default-img" :src="`http://localhost:8000/${product.images[0].path}`" :alt="product.name">
+                    <img class="hover-img" :src="`http://localhost:8000/${product.images[1].path}`" :alt="product.name">
+                </div>
             </n-link>
             <div class="product-badges">
                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
@@ -47,9 +53,9 @@
                 const prod = {...product, cartQuantity: 1}
                 // for notification
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to cart update with one' })
+                    this.$notify({ title: 'Se ha actualizado la cantidad del producto' })
                 } else {
-                    this.$notify({ title: 'Add to cart successfully!'})
+                    this.$notify({ title: 'Añadido al carrito!'})
                 }
 
                 this.$store.dispatch('addToCartItem', prod)
@@ -62,24 +68,24 @@
             addToWishlist(product) {
                 // for notification
                 if (this.$store.state.wishlist.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to wishlist!' })
+                    this.$notify({ title: 'Ya estaba añadido a la lista de deseos!' })
                 } else {
-                    this.$notify({ title: 'Add to wishlist successfully!'})
+                    this.$notify({ title: 'Añadido a la lista de deseos!'})
                 }
 
                 this.$store.dispatch('addToWishlist', product)
             },
 
-            addToCompare(product) {
-                // for notification
-                if (this.$store.state.compare.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to compare!' })
-                } else {
-                    this.$notify({ title: 'Add to compare successfully!'})
-                }
+            // addToCompare(product) {
+            //     // for notification
+            //     if (this.$store.state.compare.find(el => product.id === el.id)) {
+            //         this.$notify({ title: 'Already added to compare!' })
+            //     } else {
+            //         this.$notify({ title: 'Add to compare successfully!'})
+            //     }
 
-                this.$store.dispatch('addToCompare', product)
-            },
+            //     this.$store.dispatch('addToCompare', product)
+            // },
 
             onClick(product) {
                 this.$modal.show('quickview', product);

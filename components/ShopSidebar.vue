@@ -10,27 +10,31 @@
         <!-- category widget  -->
         <div class="sidebar-widget">
             <h4 class="pro-sidebar-title">Categorías</h4>
-            <ul class="sidebar-widget-list mt-20">
-                <li class="sidebar-widget-list-left" v-for="category in categories" :key="category.id">
-                    <a :class="{ 'nuxt-link-exact-active': category.slug == categorySlug}" @click.prevent="categorySlug = category.slug">
-                        <span class="check-mark"></span>
-                        {{ category.name }}
-                    </a>
-                </li>
-            </ul>
+            <client-only>
+                <ul class="sidebar-widget-list mt-20">
+                    <li class="sidebar-widget-list-left" v-for="category in categories" :key="category.id">
+                        <a :class="{ 'nuxt-link-exact-active': category.slug == categorySlug}" @click.prevent="categorySlug = category.slug">
+                            <span class="check-mark"></span>
+                            {{ category.name }}
+                        </a>
+                    </li>
+                </ul>
+            </client-only>
         </div>
 
         <!-- tag widget  -->
         <div class="sidebar-widget mt-5">
-            <h4 class="pro-sidebar-title">Tags</h4>
-            <ul class="sidebar-widget-list mt-20">
-                <li class="sidebar-widget-list-left" v-for="tag in tags" :key="tag.id">
-                    <a :class="{ 'nuxt-link-exact-active': tag.slug == tagSlug}" @click.prevent="tagSlug = tag.slug">
-                        <span class="check-mark"></span>
-                        {{ tag.name }}
-                    </a>
-                </li>
-            </ul>
+            <h4 class="pro-sidebar-title">Activos</h4>
+            <client-only>
+                <ul class="sidebar-widget-list mt-20">
+                    <li class="sidebar-widget-list-left" v-for="tag in tags" :key="tag.id">
+                        <a :class="{ 'nuxt-link-exact-active': tag.slug == tagSlug}" @click.prevent="tagSlug = tag.slug">
+                            <span class="check-mark"></span>
+                            {{ tag.name }}
+                        </a>
+                    </li>
+                </ul>
+            </client-only>
             <div class="d-flex justify-content-center mt-2">
                 <a @click.prevent="tagShow = 20" class="btn p-2" v-if="tagShow == 4">Ver más</a>
                 <a @click.prevent="tagShow = 4" class="btn p-2" v-if="tagShow > 4">Ver menos</a>
@@ -111,8 +115,7 @@
                         return item
                     }
                 })
-                console.log(filter);
-                this.tags = filter
+                 this.tags = filter
             },
 
             async getCategories() {

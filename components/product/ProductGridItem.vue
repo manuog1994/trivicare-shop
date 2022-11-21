@@ -1,15 +1,21 @@
 <template>
-    <div class="product-wrap mb-30">
-        <div class="product-img">
+    <div v-if="product.status == 'Publicado'" class="product-wrap mb-30">
+         <div class="product-img">
             <n-link :to="`/product/${product.slug}`">
-                <img class="default-img" src="../../static/img/list/list.jpeg" :alt="product.name">
-                <img class="hover-img" src="../../static/img/list/list.jpeg" :alt="product.name">
+                <div v-if="product.images.length == 0 || product.images.length == 1">
+                    <img class="default-img" src="~/static/img/product/cosmetics/default.png" :alt="product.name">
+                    <img class="hover-img" src="~/static/img/product/cosmetics/default.png" :alt="product.name">
+                </div>
+                <div v-else>
+                    <img class="default-img" :src="`http://localhost:8000/${product.images[0].path}`" :alt="product.name">
+                    <img class="hover-img" :src="`http://localhost:8000/${product.images[1].path}`" :alt="product.name">
+                </div>
             </n-link>
             <div class="product-badges">
                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
                 <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
             </div>
-            <div class="product-action" v-if="layout === 'twoColumn' || layout === 'threeColumn'">
+             <div class="product-action" v-if="layout === 'twoColumn' || layout === 'threeColumn'">
                 <div class="pro-same-action pro-wishlist">
                     <button class="btn" title="Wishlist" @click="addToWishlist(product)"> 
                         <i class="pe-7s-like"></i>

@@ -1,0 +1,22 @@
+.terms-conditions-inner[data-v-42815c37] {
+  padding: 96px 0 95px;
+}
+@media only screen and (max-width: 767px) {
+.terms-conditions-inner[data-v-42815c37] {
+    padding: 60px 0;
+}
+}
+.terms-condition .terms-condition-title[data-v-42815c37] {
+  margin-bottom: 15px;
+}
+.terms-condition h5[data-v-42815c37] {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+.terms-condition p[data-v-42815c37]:not(:last-child) {
+  margin-bottom: 20px;
+}
+.policy-title[data-v-42815c37] {
+  font-weight: 500;
+}

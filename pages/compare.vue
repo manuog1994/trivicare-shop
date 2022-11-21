@@ -15,33 +15,41 @@
                                     <tbody>
                                         <tr>
                                             <td class="first-column">Product</td>
-                                            <td class="product-image-title" v-for="(product, index) in products" :key="index">
-                                                <n-link :to="`/product/${product.slug}`" class="image">
-                                                    <img class="img-fluid" :src="product.images[0]" :alt="product.name">
-                                                </n-link>
-                                                <h4 class="title">
-                                                    <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
-                                                </h4>
-                                            </td>
+                                            <client-only>
+                                                <td class="product-image-title" v-for="(product, index) in products" :key="index">
+                                                    <n-link :to="`/product/${product.slug}`" class="image">
+                                                        <img class="img-fluid" :src="product.images[0]" :alt="product.name">
+                                                    </n-link>
+                                                    <h4 class="title">
+                                                        <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
+                                                    </h4>
+                                                </td>
+                                            </client-only>
                                         </tr>
                                         <tr>
                                             <td class="first-column">Description</td>
-                                            <td class="pro-desc" v-for="(product, index) in products" :key="index">
-                                                <p>{{ product.description }}</p>
-                                            </td>
+                                            <client-only>
+                                                <td class="pro-desc" v-for="(product, index) in products" :key="index">
+                                                    <p>{{ product.description }}</p>
+                                                </td>
+                                            </client-only>
                                         </tr>
                                         <tr>
                                             <td class="first-column">Price</td>
-                                            <td class="pro-price" v-for="(product, index) in products" :key="index">
-                                                <span>${{ discountedPrice(product).toFixed(2) }}</span>
-                                                <del class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</del>
-                                            </td>
+                                            <client-only>
+                                                <td class="pro-price" v-for="(product, index) in products" :key="index">
+                                                    <span>${{ discountedPrice(product).toFixed(2) }}</span>
+                                                    <del class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</del>
+                                                </td>
+                                            </client-only>
                                         </tr>
                                         <tr>
                                             <td class="first-column">Add to cart</td>
-                                            <td v-for="(product, index) in products" :key="index">
-                                                <button @click="addToCart(product)" class="btn">Add to Cart</button>
-                                            </td>
+                                            <client-only>
+                                                <td v-for="(product, index) in products" :key="index">
+                                                    <button @click="addToCart(product)" class="btn">Add to Cart</button>
+                                                </td>
+                                            </client-only>
                                         </tr>
                                         <!-- <tr>
                                             <td class="first-column">Rating</td>
@@ -55,9 +63,11 @@
                                         </tr> -->
                                         <tr>
                                             <td class="first-column">Remove</td>
-                                            <td class="pro-remove" v-for="(product, index) in products" :key="index">
-                                                <button @click="removeFromCompare(product)"><i class="fa fa-trash-o"></i></button>
-                                            </td>
+                                            <client-only>
+                                                <td class="pro-remove" v-for="(product, index) in products" :key="index">
+                                                    <button @click="removeFromCompare(product)"><i class="fa fa-trash-o"></i></button>
+                                                </td>
+                                            </client-only>
                                         </tr>
                                     </tbody>
                                 </table>

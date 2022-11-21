@@ -79,9 +79,10 @@ export const getters = {
             let price = item.discount ? item.price - (item.price *(item.discount)/100) : item.price;
             total += price * item.cartQuantity
         })
-        if (state.cupon) {
+        if (state.cupon.id) {
             total = total - (total * (state.cupon.discount / 100))
         }
+
         return total;
     }
 }

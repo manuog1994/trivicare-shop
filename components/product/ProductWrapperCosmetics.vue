@@ -18,7 +18,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade show active" id="sale-product" role="tabpanel">
+                    <div class="tab-pane fade active show" id="sale-product" role="tabpanel">
                         <div class="row">
                             <div class="col-xl-3 col-lg-4 col-sm-6" v-for="(product, index) in bestSold" :key="index">
                                 <ProductGridItemTwo :product="product" />
@@ -73,8 +73,31 @@
                 })
                 const products = this.$store.getters.getProducts
                 this.products = products.data
-                this.bestSales();
                 this.lastProducts();
+                this.bestSales();
+            },
+
+
+            lastProducts() {
+                const allProducts = this.products.map((item) => {
+                    return item;
+                });
+                const idProducts = this.products.map((item) => {
+                    if (item.status === 'Publicado'){
+                        return item.id;
+                    }
+                });
+                idProducts.sort((a, b) => b - a);
+
+                const lastIdProducts = idProducts.slice(0, 4);
+
+                const lastFourProducts = allProducts.filter((item) => {
+                    return lastIdProducts.includes(item.id);
+                });
+
+                lastFourProducts.sort((a, b) => b.id - a.id);
+                this.newsProducts = lastFourProducts;
+
             },
 
             bestSales() {
@@ -91,30 +114,14 @@
                 const bestProducts = allProducts.filter((item) => {
                     return bestSold.includes(item.sold);
                 });
-
+                
                 bestProducts.sort((a, b) => b.sold - a.sold);
-
-                this.bestSold = bestProducts;
-            },
-
-            lastProducts() {
-                const allProducts = this.products.map((item) => {
-                    return item;
-                });
-                const idProducts = this.products.map((item) => {
-                    return item.id;
-                });
-                idProducts.sort((a, b) => b - a);
-
-                const lastIdProducts = idProducts.slice(0, 4);
-
-                const lastFourProducts = allProducts.filter((item) => {
-                    return lastIdProducts.includes(item.id);
-                });
-
-                lastFourProducts.sort((a, b) => b.id - a.id);
-                this.newsProducts = lastFourProducts;
-
+                
+                if(bestProducts.length > 4) {
+                    this.bestSold = this.newsProducts;
+                } else {
+                    this.bestSold = bestProducts;
+                }
             }
         }
     };

@@ -28,7 +28,12 @@
                             <div class="same-style account-setting d-none d-lg-block">
                                 <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings"><i class="pe-7s-user-female"></i></button>
                                 <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
-                                    <ul v-if="$auth.user">
+                                    <ul v-if="role == 'admin'">
+                                        <li><n-link to="/crud">PCD</n-link></li>
+                                        <li><n-link to="/my-account">Mi Perfil</n-link></li>
+                                        <li><a @click="logout">Cerrar sesión</a></li>
+                                    </ul>
+                                    <ul v-else-if="$auth.user">
                                         <li><n-link to="/my-account">Mi Perfil</n-link></li>
                                         <li><a @click="logout">Cerrar sesión</a></li>
                                     </ul>
@@ -109,6 +114,7 @@
                 isOpenAccountSettings: false,
                 openCart: false,
                 navOpen: false,
+                role: '',
              }
         },
 
@@ -126,7 +132,8 @@
                 } else {
                     this.isSticky = false
                 }
-            });             
+            });
+            this.getRoles();             
         }, 
 
         methods: {
@@ -136,6 +143,18 @@
                 this.$notify({ title: 'Has cerrado sesión!'})
 
             },
+            getRoles() {
+                if(this.$auth.user) {
+                    const roles = this.$auth.user.roles;
+                    if(roles != null) {
+                        roles.map(role => {
+                            this.role = role.name;
+                        });
+                    }else {
+                        this.role = '';
+                    }
+                }
+            }
         }
     };
 </script>

@@ -1,11 +1,13 @@
 <template>
-    <div class="product-details-page-wrapper">
-        <HeaderWithTopbar containerClass="container"/>
-        <Breadcrumb :pageTitle="product.name" v-if="product" />
-        <ProductDetailsWrapper :product="product" v-if="product" />
-        <ProductDetailsDescriptionReview :product="product" :reviews="reviews" v-if="product" />
-        <TheFooter />
-    </div>
+    <client-only>
+        <div class="product-details-page-wrapper">
+            <HeaderWithTopbar containerClass="container"/>
+            <Breadcrumb :pageTitle="product.name" v-if="product" />
+            <ProductDetailsWrapper :product="product" v-if="product" />
+            <ProductDetailsDescriptionReview :product="product" :reviews="reviews" v-if="product" />
+            <TheFooter />
+        </div>
+    </client-only>
 </template>
 
 <script>

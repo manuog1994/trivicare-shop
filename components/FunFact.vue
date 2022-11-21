@@ -2,15 +2,17 @@
     <div class="funfact-area bg-gray-3 pt-100 pb-70">
         <div class="container">
             <div class="row" v-observe-visibility="{callback: visibilityChanged, once: true}">
-                <div class="col-lg-3 col-sm-6" v-for="(item, index) in funFacts" :key="index">
-                    <div class="single-count text-center mb-30" v-if="isVisible">
-                        <div class="count-icon">
-                            <i :class="item.icon"></i>
+                <client-only>
+                    <div class="col-lg-3 col-sm-6" v-for="(item, index) in funFacts" :key="index">
+                        <div class="single-count text-center mb-30" v-if="isVisible">
+                            <div class="count-icon">
+                                <i :class="item.icon"></i>
+                            </div>
+                            <countTo :startVal='startVal' :endVal='item.endVal' :duration='4000'></countTo>
+                            <h5 class="title">{{ item.title }}</h5>
                         </div>
-                        <countTo :startVal='startVal' :endVal='item.endVal' :duration='4000'></countTo>
-                        <h5 class="title">{{ item.title }}</h5>
                     </div>
-                </div>
+                </client-only>
             </div>
         </div>
     </div>

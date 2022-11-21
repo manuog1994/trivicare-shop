@@ -92,9 +92,11 @@
                             <div class="pro-details-meta">
                                 <span class="label">Tag:</span>
                                 <ul>
-                                    <li v-for="(tag, index) in product.tag" :key="index">
-                                        <n-link :to="`/shop?tag=${tag}`">{{ tag }},</n-link>
-                                    </li>
+                                    <client-only>
+                                        <li v-for="(tag, index) in product.tag" :key="index">
+                                            <n-link :to="`/shop?tag=${tag}`">{{ tag }},</n-link>
+                                        </li>
+                                    </client-only>
                                 </ul>
                             </div>
                             <div class="pro-details-social">

@@ -1,9 +1,11 @@
 <template>
     <div class="register-form">
         <div>
-            <div class="alert alert-danger" role="alert" v-for="error in errors" :key="error.id">
-                {{ error }}
-            </div>
+            <client-only>
+                <div class="alert alert-danger" role="alert" v-for="error in errors" :key="error.id">
+                    {{ error }}
+                </div>
+            </client-only>
         </div>
         <form ref="registerform" @submit.prevent="register">
             <input name="email" placeholder="Email" type="email">

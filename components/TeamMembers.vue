@@ -6,22 +6,26 @@
                 <p>There are few team members for our company</p>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-sm-6" v-for="(member, index) in teamMemberData" :key="index">
-                    <div class="team-wrapper mb-30">
-                        <div class="team-img">
-                            <img :src="member.imgSrc" :alt="member.name">
-                            <div class="team-action">
-                                <a :href="social.url" v-for="(social, index) in member.socialLink" :key="index">
-                                    <i :class="social.icon"></i>
-                                </a>
+                <client-only>
+                    <div class="col-lg-3 col-sm-6" v-for="(member, index) in teamMemberData" :key="index">
+                        <div class="team-wrapper mb-30">
+                            <div class="team-img">
+                                <img :src="member.imgSrc" :alt="member.name">
+                                <div class="team-action">
+                                    <client-only>
+                                        <a :href="social.url" v-for="(social, index) in member.socialLink" :key="index">
+                                            <i :class="social.icon"></i>
+                                        </a>
+                                    </client-only>
+                                </div>
+                            </div>
+                            <div class="team-content text-center">
+                                <h4>{{ member.name }}</h4>
+                                <span>{{ member.designation }}</span>
                             </div>
                         </div>
-                        <div class="team-content text-center">
-                            <h4>{{ member.name }}</h4>
-                            <span>{{ member.designation }}</span>
-                        </div>
                     </div>
-                </div>
+                </client-only>
             </div>
         </div>
     </div>

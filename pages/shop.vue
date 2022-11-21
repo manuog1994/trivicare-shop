@@ -1,130 +1,87 @@
 <template>
-    <div class="shop-page-wrapper">
-        <HeaderWithTopbar containerClass="container" />
-        <Breadcrumb :pageTitle="this.$route.query.category || this.$route.query.tag ? 'Resultados de la búsqueda' : 'Todos los productos' "/>
-        <!-- product items wrapper -->
-        <div class="shop-area pt-100 pb-100">
-            <div class="container">
-                <div class="row flex-row-reverse">
-                    <div class="col-lg-9">
-                        <!-- shop top bar -->
-                        <div class="shop-top-bar">
-                            <div class="select-showing-wrap">
-                                <div class="shop-select">
-                                    <select v-model="selectedPrice">
-                                        <option value="default">Por defecto</option>
-                                        <option value="low2high">Precio de menor a mayor</option>
-                                        <option value="high2low">Precio de mayor a menor</option>
-                                    </select>
+    <client-only>
+        <div class="shop-page-wrapper">
+            <HeaderWithTopbar containerClass="container" />
+            <Breadcrumb :pageTitle="this.$route.query.category || this.$route.query.tag ? 'Resultados de la búsqueda' : 'Todos los productos' "/>
+            <!-- product items wrapper -->
+            <div class="shop-area pt-100 pb-100">
+                <div class="container">
+                     <div class="row flex-row-reverse">
+                        <div class="col-lg-9">
+                            <!-- shop top bar -->
+                            <div class="shop-top-bar">
+                                <div class="select-showing-wrap">
+                                    <div class="shop-select">
+                                        <select v-model="selectedPrice">
+                                            <option value="default">Por defecto</option>
+                                            <option value="low2high">Precio de menor a mayor</option>
+                                            <option value="high2low">Precio de mayor a menor</option>
+                                        </select>
+                                    </div>
+                                    <div class="shop-select-2">
+                                        <p>Mostrando
+                                        <select class="ms-2 me-2 w-auto" v-model="selectedQuantity">
+                                            <option value="default">5</option>
+                                            <option value="teen">10</option>
+                                            <option value="fiveteen">15</option>
+                                        </select>
+                                        resultados por página</p>
+                                    </div>
                                 </div>
-                                <div class="shop-select-2">
-                                    <p>Mostrando
-                                    <select class="ms-2 me-2 w-auto" v-model="selectedQuantity">
-                                        <option value="default">5</option>
-                                        <option value="teen">10</option>
-                                        <option value="fiveteen">15</option>
-                                    </select>
-                                    resultados por página</p>
-                                </div>
-                            </div>
-                            <div class="shop-tab">
-                                <button @click="layout = 'twoColumn'" :class="{ active : layout === 'twoColumn' }">
-                                    <i class="fa fa-th-large"></i>
-                                </button>
-                                <button @click="layout = 'threeColumn'" :class="{ active : layout === 'threeColumn' }">
-                                    <i class="fa fa-th"></i>
-                                </button>
-                                <button @click="layout = 'list'" :class="{ active : layout === 'list' }">
-                                    <i class="fa fa-list-ul"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- end shop top bar -->
-
-                        <!-- shop product -->
-                        <div class="shop-bottom-area mt-35">
-                            <div class="row product-layout" :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
-                                <div class="col-xl-4 col-sm-6" v-for="product in products" :key="'product-' + product.id" >
-                                    <ProductGridItem :product="product" :layout="layout"/> 
+                                <div class="shop-tab">
+                                    <button @click="layout = 'twoColumn'" :class="{ active : layout === 'twoColumn' }">
+                                        <i class="fa fa-th-large"></i>
+                                    </button>
+                                    <button @click="layout = 'threeColumn'" :class="{ active : layout === 'threeColumn' }">
+                                        <i class="fa fa-th"></i>
+                                    </button>
+                                    <button @click="layout = 'list'" :class="{ active : layout === 'list' }">
+                                        <i class="fa fa-list-ul"></i>
+                                    </button>
                                 </div>
                             </div>
+                            <!-- end shop top bar -->
+    
+                            <!-- shop product -->
+                            <div class="shop-bottom-area mt-35">
+                                <div class="row product-layout" :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
+                                    <client-only>
+                                        <div class="col-xl-4 col-sm-6" v-for="product in products" :key="'product-' + product.id" >
+                                            <ProductGridItem :product="product" :layout="layout"/> 
+                                        </div>
+                                    </client-only>
+                                </div>
+                            </div>
+                            <!-- end shop product -->
+    
+                            <div class="d-flex justify-content-center" v-if="products.length >= perPage || page >= 2">
+                                <nav aria-label="...">
+                                    <ul class="pagination-custom">
+                                        <client-only>
+                                            <li v-for="pagination_link in pagination.links" :key=" 'pagination_link-' + pagination_link.label" class="page-link-custom"
+                                            :class="{
+                                                'disabled' : pagination_link.url == null,
+                                                'active' : pagination_link.active == true
+                                            }">
+                                                <a class="page-link" v-html="pagination_link.label" style="cursor: pointer;" @click.prevent="changePage(pagination_link.url)"></a>
+                                            </li>
+                                        </client-only>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
-                        <!-- end shop product -->
-
-                        <div class="d-flex justify-content-center" v-if="products.length >= perPage || page >= 2">
-                            <nav aria-label="...">
-                                <ul class="pagination-custom">
-                                    <li v-for="pagination_link in pagination.links" :key=" 'pagination_link-' + pagination_link.label" class="page-link-custom"
-                                    :class="{
-                                        'disabled' : pagination_link.url == null,
-                                        'active' : pagination_link.active == true
-                                    }">
-                                        <a class="page-link" v-html="pagination_link.label" style="cursor: pointer;" @click.prevent="changePage(pagination_link.url)"></a>
-                                    </li>
-                                </ul>
-                            </nav>
+                        <div class="col-lg-3">
+                            <ShopSidebar classes="mr-30" @search="searchFilter"/>
                         </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <ShopSidebar classes="mr-30" @search="searchFilter"/>
                     </div>
                 </div>
             </div>
+            <!-- end product items wrapper -->
+             <QuickView />
+            <TheFooter />
         </div>
-        <!-- end product items wrapper -->
-         <QuickView />
-        <TheFooter />
-    </div>
+    </client-only>
 </template>
-
-<style>
-    .w-10 {
-        width: 10px;
-    }
-
-    .pagination-custom {
-    display: flex;
-    padding-left: 0;
-    list-style: none;
-    }
-
-    .page-link-custom {
-    position: relative;
-    font-size: 18px;
-    display: flex;
-    padding: 0 .75rem;
-    color: #686868;
-    text-decoration: none;
-    background-color: #fff;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
-    @media (prefers-reduced-motion: reduce) {
-    .page-link-custom {
-        transition: none;
-    }
-    }
-    .page-link-custom:hover {
-    z-index: 2;
-    color: orange;
-    }
-    .page-link-custom:focus {
-    z-index: 3;
-    color: orange;
-    outline: 0;
-    }
-    .page-link-custom.active {
-        color: orange;
-    }
-    .page-link-custom.disabled {
-    color: #a0a0a0;
-    }
-    .fade-enter-active, .fade-leave-active {
-    transition: opacity 1.5s ease;
-}
-    .fade-enter, .fade-leave-active {
-        opacity: 0
-    }
-</style>
 
 <script>
     export default {
@@ -414,3 +371,52 @@
     };
     
 </script>
+
+<style>
+    .w-10 {
+        width: 10px;
+    }
+
+    .pagination-custom {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    }
+
+    .page-link-custom {
+    position: relative;
+    font-size: 18px;
+    display: flex;
+    padding: 0 .75rem;
+    color: #686868;
+    text-decoration: none;
+    background-color: #fff;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    @media (prefers-reduced-motion: reduce) {
+    .page-link-custom {
+        transition: none;
+    }
+    }
+    .page-link-custom:hover {
+    z-index: 2;
+    color: orange;
+    }
+    .page-link-custom:focus {
+    z-index: 3;
+    color: orange;
+    outline: 0;
+    }
+    .page-link-custom.active {
+        color: orange;
+    }
+    .page-link-custom.disabled {
+    color: #a0a0a0;
+    }
+    .fade-enter-active, .fade-leave-active {
+    transition: opacity 1.5s ease;
+}
+    .fade-enter, .fade-leave-active {
+        opacity: 0
+    }
+</style>

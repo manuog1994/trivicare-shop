@@ -1,16 +1,18 @@
 <template>
-    <ul>
-        <li>
-             <!-- <n-link to="/shop">Ver Todo</n-link> -->
-             <a class="link-nav" @click.prevent="redirectHome">Ver Todo</a>
-         </li>
-        <li v-for="category in categories" :key="category.id">
-            <a class="link-nav" @click.prevent="categoryId = category.slug">{{ category.name  }}</a>
-        </li>
-        <li>
-            <n-link to="/contact">Contacto</n-link>
-        </li>
-     </ul>
+    <client-only>
+        <ul>
+            <li>
+                 <!-- <n-link to="/shop">Ver Todo</n-link> -->
+                 <a class="link-nav" @click.prevent="redirectHome">Ver Todo</a>
+             </li>
+                <li v-for="category in categories" :key="category.id">
+                    <a class="link-nav" @click.prevent="categoryId = category.slug">{{ category.name  }}</a>
+                </li>
+             <li>
+                <n-link to="/contact">Contacto</n-link>
+            </li>
+         </ul>
+    </client-only>
 </template>
 
 <style>

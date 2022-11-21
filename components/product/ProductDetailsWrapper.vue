@@ -1,5 +1,5 @@
 <template>
-    <div class="shop-area pt-100 pb-100">
+    <div v-if="product.status == 'Publicado'" class="shop-area pt-100 pb-100">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -10,8 +10,11 @@
                                 <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
-                                <div class="large-img swiper-slide">
-                                    <img class="img-fluid" src="../../static/img/slider/single-slide-2.png" :alt="product.name">
+                                <div v-if="product.images.length == 0" class="large-img swiper-slide">
+                                    <img class="img-fluid" src="~/static/img/product/cosmetics/default.png" :alt="product.name">
+                                </div>
+                                <div v-else class="large-img swiper-slide" v-for="image in product.images" :key="'image-' + image.id">
+                                    <img class="img-fluid" :src="`http://localhost:8000/${image.path}`" :alt="product.name">
                                 </div>
                                 <div class="quickview-nav swiper-button-prev">
                                     <i class="pe-7s-angle-left"></i>
@@ -21,8 +24,11 @@
                                 </div>
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
-                                <div class="thumb-img swiper-slide">
-                                    <img class="img-fluid" src="../../static/img/slider/single-slide-2.png" :alt="product.name">
+                                <div v-if="product.images.length == 0" class="thumb-img swiper-slide">
+                                    <img class="img-fluid" src="~/static/img/product/cosmetics/default.png" :alt="product.name">
+                                </div>
+                                <div v-else class="thumb-img swiper-slide" v-for="image in product.images" :key="'imagetwo-' + image.id">
+                                    <img class="img-fluid" :src="`http://localhost:8000/${image.path}`" :alt="product.name">
                                 </div>
                             </swiper>
                         </div>
@@ -61,23 +67,26 @@
                                     </label>
                                 </div>
                             </div>
+                        </div> -->
+                        <div v-if="product.stock == 0">
+                            <p class="text-danger fst-italic">En estos momento no tenemos stock del producto.</p>
                         </div>
-                        <div class="pro-details-quality">
+                        <div v-else class="pro-details-quality">
                             <div class="cart-plus-minus">
                                 <button @click="decreaseQuantity()" class="dec qtybutton">-</button>
                                 <input class="cart-plus-minus-box" type="text" :value="singleQuantity" readonly>
                                 <button @click="increaseQuantity()" class="inc qtybutton">+</button>
                             </div>
                             <div class="pro-details-cart btn-hover">
-                                <button @click="addToCart(product)">Add To Cart</button>
+                                <button @click="addToCart(product)">Añadir al Carrito</button>
                             </div>
                             <div class="pro-details-wishlist">
                                 <button @click="addToWishlist(product)" title="wishlist"><i class="fa fa-heart-o"></i></button>
                             </div>
-                            <div class="pro-details-compare">
+                            <!-- <div class="pro-details-compare">
                                 <button @click="addToCompare(product)" title="compare"><i class="pe-7s-shuffle"></i></button>
-                            </div>
-                        </div> -->
+                            </div> -->
+                        </div>
                         <div class="pro-details-meta">
                             <span class="label">Categoría: </span>
                             <ul>
@@ -91,8 +100,8 @@
                         <div class="pro-details-meta">
                             <span class="label me-2">Tag:</span>
                             <ul>
-                                <li v-for="tag in product.tags" :key="tag.id">
-                                    <n-link class="tag-block" :style="`background-color:${tag.color}`" :to="`/shop?tag=${tag.slug}`">#{{ tag.tag }}  </n-link>
+                                <li v-for="taggy in product.tags" :key="'tag-' +  taggy.id">
+                                    <n-link class="tag-block" :style="`background-color:${taggy.color}`" :to="`/shop?tag=${taggy.slug}`">#{{ taggy.tag }}</n-link>
                                 </li>
                             </ul>
                         </div>
@@ -168,8 +177,13 @@
             }
         },
 
-        computed: {
-            
+        mounted() {
+            this.$nextTick(() => {
+                const swiperTop = this.$refs.swiperTop.$swiper
+                const swiperThumbs = this.$refs.swiperThumbs.$swiper
+                swiperTop.controller.control = swiperThumbs
+                swiperThumbs.controller.control = swiperTop
+            })
         },
 
         methods: {
@@ -177,9 +191,9 @@
                 const prod = {...product, cartQuantity: this.singleQuantity}
                 // for notification
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to cart update with one' })
+                    this.$notify({ title: 'Se ha actualizado la cantidad del producto' })
                 } else {
-                    this.$notify({ title: 'Add to cart successfully!'})
+                    this.$notify({ title: 'Añadido al carrito!'})
                 }
                 this.$store.dispatch('addToCartItem', prod)
             },
@@ -189,7 +203,11 @@
             },
 
             increaseQuantity(){
-                if(this.product.quantity > this.singleQuantity) this.singleQuantity++
+                if(this.product.stock > this.singleQuantity){
+                    this.singleQuantity++
+                } else {
+                    this.$notify({ title: 'No hay más stock' })
+                }
             },
 
             decreaseQuantity() {
@@ -199,9 +217,9 @@
             addToWishlist(product) {
                 // for notification
                 if (this.$store.state.wishlist.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to wishlist!' })
+                    this.$notify({ title: 'Ya está en la lista de deseos!' })
                 } else {
-                    this.$notify({ title: 'Add to wishlist successfully!'})
+                    this.$notify({ title: 'Añadido a la lista de deseos!'})
                 }
                 this.$store.dispatch('addToWishlist', product)
             },

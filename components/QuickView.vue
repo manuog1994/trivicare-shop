@@ -47,19 +47,23 @@
                             <div class="pro-details-color-wrap">
                                 <h6 class="label">Color</h6>
                                 <div class="pro-details-color-content">
-                                    <label :class="item" class="radio" v-for="(item, index) in product.variation.color" :key="index" >
-                                        <input type="radio" name="colorGroup"/>
-                                        <span class="check-mark"></span>
-                                    </label>
+                                    <client-only>
+                                        <label :class="item" class="radio" v-for="(item, index) in product.variation.color" :key="index" >
+                                            <input type="radio" name="colorGroup"/>
+                                            <span class="check-mark"></span>
+                                        </label>
+                                    </client-only>
                                 </div>
                             </div>
                             <div class="pro-details-size-wrap">
                                 <h6 class="label">Size</h6>
                                 <div class="pro-details-size-content">
-                                    <label class="radio" v-for="(item, index) in product.variation.sizes" :key="index">
-                                        <input type="radio" name="sizeGroup" />
-                                        <span class="check-mark">{{ item }}</span>
-                                    </label>
+                                    <client-only>
+                                        <label class="radio" v-for="(item, index) in product.variation.sizes" :key="index">
+                                            <input type="radio" name="sizeGroup" />
+                                            <span class="check-mark">{{ item }}</span>
+                                        </label>
+                                    </client-only>
                                 </div>
                             </div>
                         </div>
@@ -82,19 +86,23 @@
                         <div class="pro-details-meta">
                             <span class="label">Categoría:</span>
                             <ul>
-                                <div v-for="category in categories" :key="category.id">
-                                    <li v-if="category.id == product.category_id">
-                                        <a @click.prevent="changePage(category.slug)">{{category.name}}</a>                                
-                                    </li>
-                                </div>
+                                <client-only>
+                                    <div v-for="category in categories" :key="category.id">
+                                        <li v-if="category.id == product.category_id">
+                                            <a @click.prevent="changePage(category.slug)">{{category.name}}</a>                                
+                                        </li>
+                                    </div>
+                                </client-only>
                             </ul>
                         </div>
                         <div class="pro-details-meta">
                             <span class="label me-2">Tag:</span>
                             <ul>
-                                <li v-for="tag in product.tags" :key="tag.id">
-                                    <n-link class="tag-block" :style="`background-color:${tag.color}`" :to="`/shop?tag=${tag.slug}`">#{{ tag.tag }}  </n-link>
-                                </li>
+                                <client-only>
+                                    <li v-for="tag in product.tags" :key="tag.id">
+                                        <n-link class="tag-block" :style="`background-color:${tag.color}`" :to="`/shop?tag=${tag.slug}`">#{{ tag.tag }}  </n-link>
+                                    </li>
+                                </client-only>
                             </ul>
                         </div>
                         <div class="pro-details-social">

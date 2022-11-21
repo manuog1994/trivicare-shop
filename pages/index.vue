@@ -1,16 +1,18 @@
 <template>
-    <div class="home-cosmetics">
-        <TheHeader />
-        <HeroSliderSix />
-        <transition name="intro" mode="out-in"><Intro /></transition>
-        <ServicePolicyFour />
-        <!-- <TestimonialOne /> -->
-        <ProductWrapperCosmetics />
-        <!-- <BannerStyleFour /> -->
-        <!-- <InstagramPostWrapper /> -->
-        <!-- <BlogWrapper /> -->
-        <TheFooter />
-    </div>
+    <client-only>
+        <div class="home-cosmetics">
+            <TheHeader />
+            <HeroSliderSix />
+            <transition name="intro" mode="out-in"><Intro /></transition>
+            <ServicePolicyFour />
+            <!-- <TestimonialOne /> -->
+            <ProductWrapperCosmetics />
+            <!-- <BannerStyleFour /> -->
+            <!-- <InstagramPostWrapper /> -->
+            <!-- <BlogWrapper /> -->
+            <TheFooter />
+        </div>
+    </client-only>
 </template>
 
 <script>
