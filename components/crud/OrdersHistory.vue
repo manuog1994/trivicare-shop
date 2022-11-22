@@ -31,6 +31,21 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center">
+                    <nav aria-label="...">
+                        <ul class="pagination-custom">
+                            <client-only>
+                                <li v-for="pagination_link in pagination.links" :key=" 'pagination_link-' + pagination_link.label" class="page-link-custom"
+                                :class="{
+                                    'disabled' : pagination_link.url == null,
+                                    'active' : pagination_link.active == true
+                                }">
+                                    <a class="page-link" v-html="pagination_link.label" style="cursor: pointer;" @click.prevent="changePage(pagination_link.url)"></a>
+                                </li>
+                            </client-only>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
@@ -44,6 +59,7 @@ export default {
             users: [],
             order: {},
             user: {},
+            pagination: {},
         }
     },
 
@@ -52,19 +68,49 @@ export default {
         this.getUserName();
     },
 
+    computed: {
+            page() {
+                let page = this.$route.query.page ?? 1;
+
+                if(page > this.pagination.last_page){
+                    this.$router.replace({
+                        query: {
+                            page: this.pagination.last_page
+                        }
+                    })
+                    this.$router.push();
+                    return this.pagination.last_page;
+                }
+
+                return page;
+            },
+    },
+
+    watch: {
+            page() {
+                this.$nextTick(() => {
+                    this.$nuxt.$loading.start()
+                    setTimeout(() => {
+                        this.$nuxt.$loading.finish()
+                    }, 500);
+                });
+                setTimeout(() => {
+                    this.getOrders();
+                }, 500);
+            },
+    },
+
 
     methods: {
         async getOrders() {
-            const response = await this.$axios.get('/api/orders');
-
-            
-            const data = response.data.data;
-
-            data.filter((order) => {
-                if(order.status == 4) {
-                    this.orders.push(order);
-                }
-            });
+            const response = await this.$axios.get('/api/orders?perPage=10&sort=-id&page=' + this.page + '&filter[status]=4' );
+            this.orders = response.data.data;
+            const paginations = response.data;
+            this.pagination = {
+                    links: paginations['meta'].links,
+                    current_page: paginations['meta'].current_page,
+                    last_page: paginations['meta'].last_page,
+            }
         },
 
         async getUserName() {
@@ -97,7 +143,15 @@ export default {
             await this.$axios.put('/api/orders/status/' + this.order.id, {
                 status: status
             }).then(() => this.$notify({ title: 'El estado del pedido ha sido actualizado'}));
-        }
+        },
+
+        changePage(url) {
+            this.$router.replace({
+                query: {
+                    page : url.split('page=')[1]
+                }
+            });
+        },
     },
 }
 </script>

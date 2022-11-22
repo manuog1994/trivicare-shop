@@ -70,6 +70,7 @@
                     slug: '',
                     sort: '',
                     tag: '',
+                    status: 2
                 })
                 const products = this.$store.getters.getProducts
                 this.products = products.data

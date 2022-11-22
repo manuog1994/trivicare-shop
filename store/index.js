@@ -201,9 +201,9 @@ export const actions = {
         commit('REMOVE_FROM_COMPARE', product)
     },
 
-    async getProducts(context, {perPage, page, category, search, slug, sort, tag}) {
+    async getProducts(context, {perPage, page, category, search, slug, sort, tag, status}) {
         const { data } = await axios.get(
-          'http://localhost:8000/api/products?perPage=' + perPage + '&page=' + page + '&filter[category_id]=' + category + '&filter[name]=' + search + '&filter[slug]=' + slug + '&sort=' + sort + '&tags=' + tag
+          'http://localhost:8000/api/products?perPage=' + perPage + '&page=' + page + '&filter[category_id]=' + category + '&filter[name]=' + search + '&filter[slug]=' + slug + '&filter[status]=' + status +'&sort=' + sort + '&tags=' + tag
         );
         context.commit("SET_PRODUCT", data);
         context.commit("SET_PAGINATION", data.meta);

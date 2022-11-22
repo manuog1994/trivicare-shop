@@ -71,17 +71,10 @@ export default {
 
     methods: {
         async getProducts() {
-            await this.$store.dispatch('getProducts', {
-                perPage: '',
-                page: '',
-                category: '',
-                search: '',
-                slug: '',
-                sort: '',
-                tag: '',
-            })
-            const products = this.$store.getters.getProducts
-            this.products = products.data
+            await this.$axios.get('/api/products')
+                .then(response => {
+                    this.products = response.data.data;
+                })
         },
 
         onClick(product) {

@@ -159,21 +159,17 @@ export default {
         },
 
         async getProducts() {
-            await this.$store.dispatch('getProducts', {
-                    perPage: '',
-                    page: '',
-                    category: '',
-                    search: '',
-                    slug: '',
-                    sort: '',
-                    tag: '',
+            await this.$axios.get('/api/products')
+                .then(response => {
+                    const data = response.data.data;
+                    data.filter(product => {
+                        if (product.id === this.singleProduct.id) {
+                            this.item = product
+                        }
+                    })
                 })
-                const products = this.$store.getters.getProducts
-                const data = products.data
-                data.filter(product => {
-                     if (product.id === this.singleProduct.id) {
-                        this.item = product
-                    }
+                .catch(error => {
+                    console.log(error);
                 })
         },
 
@@ -189,7 +185,7 @@ export default {
         },
 
         async updateProduct() {
-            await this.$axios.put('http://localhost:8000/api/products/' + this.item.id, {
+            await this.$axios.put('/api/products/' + this.item.id, {
                 name: this.$refs.name.value,
                 description: this.$refs.description.value,
                 specifications: this.$refs.specifications.value,
@@ -216,7 +212,7 @@ export default {
         deleteTag(tag) {
             const tag_id = tag.id;
             const product_id = this.item.id;
-            this.$axios.delete('http://localhost:8000/api/products/' + product_id + '/tags/' + tag_id)
+            this.$axios.delete('/api/products/' + product_id + '/tags/' + tag_id)
                 .then((response) => {
                     this.getProducts();
                     this.$notify({ title: 'El tag se ha eliminado correctamente', type: 'success' });
@@ -231,7 +227,7 @@ export default {
 
         deleteImage(image) {
             const image_id = image.id;
-            this.$axios.delete('http://localhost:8000/api/images/' + image_id)
+            this.$axios.delete('/api/images/' + image_id)
                 .then((response) => {
                     this.getProducts();
                     this.$notify({ title: 'La imagen se ha eliminado correctamente', type: 'success' });
@@ -251,7 +247,7 @@ export default {
                 formData.append('images[]', images[i]);
             }
             formData.append('product_id', this.item.id);
-            await this.$axios.post('http://localhost:8000/api/images', formData, {
+            await this.$axios.post('/api/images', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
