@@ -18,6 +18,9 @@ const _565d63a3 = () => interopDefault(import('../pages/shop.vue' /* webpackChun
 const _4eeb482a = () => interopDefault(import('../pages/terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
 const _961aa71c = () => interopDefault(import('../pages/wishlist.vue' /* webpackChunkName: "pages/wishlist" */))
 const _65efec1c = () => interopDefault(import('../pages/product/product-affiliate.vue' /* webpackChunkName: "pages/product/product-affiliate" */))
+const _6f13daf4 = () => interopDefault(import('../pages/my-orders/_id.vue' /* webpackChunkName: "pages/my-orders/_id" */))
+const _5151db40 = () => interopDefault(import('../pages/orders-profiles/_id.vue' /* webpackChunkName: "pages/orders-profiles/_id" */))
+const _5dd1ff7d = () => interopDefault(import('../pages/orders/_id.vue' /* webpackChunkName: "pages/orders/_id" */))
 const _00f01a8d = () => interopDefault(import('../pages/product/_slug.vue' /* webpackChunkName: "pages/product/_slug" */))
 const _759bf816 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -88,6 +91,18 @@ export const routerOptions = {
     path: "/product/product-affiliate",
     component: _65efec1c,
     name: "product-product-affiliate"
+  }, {
+    path: "/my-orders/:id?",
+    component: _6f13daf4,
+    name: "my-orders-id"
+  }, {
+    path: "/orders-profiles/:id?",
+    component: _5151db40,
+    name: "orders-profiles-id"
+  }, {
+    path: "/orders/:id?",
+    component: _5dd1ff7d,
+    name: "orders-id"
   }, {
     path: "/product/:slug?",
     component: _00f01a8d,

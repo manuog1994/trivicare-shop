@@ -89,6 +89,9 @@
   "CrudCreate": {
     "description": "Auto imported from components/crud/Create.vue"
   },
+  "CrudCupons": {
+    "description": "Auto imported from components/crud/Cupons.vue"
+  },
   "CrudEdit": {
     "description": "Auto imported from components/crud/Edit.vue"
   },
@@ -100,6 +103,9 @@
   },
   "CrudOrdersHistory": {
     "description": "Auto imported from components/crud/OrdersHistory.vue"
+  },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
@@ -130,8 +136,5 @@
   },
   "PolicyServicePolicyTwo": {
     "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   }
 }

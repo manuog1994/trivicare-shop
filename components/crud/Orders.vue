@@ -10,26 +10,33 @@
                         <th scope="col">Estado Pago</th>
                         <th scope="col">Estado Pedido</th>
                         <th scope="col">Fecha</th>
-                        <th scope="col">Factura</th>
+                        <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody v-if="orders.length > 0">
                         <tr v-for="order in orders" :key="order.id">
                             <th scope="row">{{ order.id }}</th>
-                            <td>{{ getName(order) }}</td>
+                            <td>
+                                <n-link :to="`/orders-profiles/${order.user_id}`">{{ getName(order) }}</n-link>
+                            </td>
                             <td v-if="order.paid == 1">Pendiente</td>
                             <td v-if="order.paid == 2">En Proceso</td>
                             <td v-if="order.paid == 3">Pagado</td>
                             <td>
                                 <select class="form-select" :value="order.status" @change="updateStatus" @click="loadOrder(order)">
-                                    <option value="1">Pendiente</option>
-                                    <option value="2">En Proceso</option>
+                                    <option value="1">Recibido</option>
+                                    <option value="2">Preparando</option>
                                     <option value="3">Enviado</option>
                                     <option value="4">Entregado</option>
+                                    <option value="5">Cancelado</option>
                                 </select>
                             </td>
                             <td>{{ order.order_date }}</td>
-                            <td>-</td>
+                            <td>
+                                <n-link :to="`/orders/${order.id}`" class="btn btn-primary">
+                                    <i class="pe-7s-look"></i>
+                                </n-link>
+                            </td>
                         </tr>
                     </tbody>
                     <tbody v-else>

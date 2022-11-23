@@ -205,7 +205,7 @@
                                             <ul>
                                                 <li class="your-order-shipping">Gastos de envío</li>
                                                 <li v-if="total.toFixed(2) >= 50">Envio Gratis</li>
-                                                <li v-else>{{ shipping }} &euro;</li>
+                                                <li v-else>{{ getShipping(total) }} &euro;</li>
                                             </ul>
                                         </div>
                                         <div class="your-order-total">
@@ -237,7 +237,7 @@
 
         data() {
             return {
-                shipping: 7.50,
+                shipping: 0,
                 selected: 'Seleccione una dirección',
                 name: '',
                 lastname: '',
@@ -258,9 +258,6 @@
             TheFooter: () => import("@/components/TheFooter"),
         },
 
-        watch: {
-
-        },
 
         computed: {
             products() {
@@ -341,9 +338,20 @@
                     user_profile_id: this.userIdProfile,
                     products: products,
                     total: this.$store.getters.getTotal,
-                    coupon: cupon.code
+                    coupon: cupon.code,
+                    shipping: this.shipping
                 }).then(() => this.$router.push('/payment'));
  
+            },
+
+            getShipping(total) {
+                if (total < 50) {
+                    this.shipping = 5.99;
+                    return this.shipping;
+                } else {
+                    this.shipping = 0;
+                    return this.shipping;
+                }
             }
         },
 

@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "6bf8af243e69c9d17416";
+/******/ 	var hotCurrentHash = "d656cf716349709a0ba8";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -835,7 +835,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/index":"pages/index","pages/login":"pages/login","pages/my-account":"pages/my-account","pages/payment":"pages/payment","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/terms-conditions":"pages/terms-conditions","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/index":"pages/index","pages/login":"pages/login","pages/my-account":"pages/my-account","pages/my-orders/_id":"pages/my-orders/_id","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/payment":"pages/payment","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/terms-conditions":"pages/terms-conditions","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -873,11 +873,11 @@
 /******/
 /******/ 		// extract-css-chunks-webpack-plugin CSS loading
 /******/ 		var supportsPreload = (function() { try { return document.createElement("link").relList.supports("preload"); } catch(e) { return false; }}());
-/******/ 		var cssChunks = {"pages/cart":1,"pages/checkout":1,"pages/index":1,"pages/privacy-policy":1,"pages/shop":1,"pages/terms-conditions":1};
+/******/ 		var cssChunks = {"pages/cart":1,"pages/checkout":1,"pages/index":1,"pages/orders/_id":1,"pages/privacy-policy":1,"pages/shop":1,"pages/terms-conditions":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/index":"pages/index","pages/login":"pages/login","pages/my-account":"pages/my-account","pages/payment":"pages/payment","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/terms-conditions":"pages/terms-conditions","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
+/******/ 				var href = "" + ({"pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/index":"pages/index","pages/login":"pages/login","pages/my-account":"pages/my-account","pages/my-orders/_id":"pages/my-orders/_id","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/payment":"pages/payment","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/terms-conditions":"pages/terms-conditions","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -911,7 +911,7 @@
 /******/ 				installedCssChunks[chunkId] = 0;
 /******/ 				if(supportsPreload) {
 /******/ 					var execLinkTag = document.createElement("link");
-/******/ 					execLinkTag.href =  __webpack_require__.p + "" + ({"pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/index":"pages/index","pages/login":"pages/login","pages/my-account":"pages/my-account","pages/payment":"pages/payment","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/terms-conditions":"pages/terms-conditions","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
+/******/ 					execLinkTag.href =  __webpack_require__.p + "" + ({"pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/index":"pages/index","pages/login":"pages/login","pages/my-account":"pages/my-account","pages/my-orders/_id":"pages/my-orders/_id","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/payment":"pages/payment","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/terms-conditions":"pages/terms-conditions","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
 /******/ 					execLinkTag.rel = "stylesheet";
 /******/ 					execLinkTag.type = "text/css";
 /******/ 					document.body.appendChild(execLinkTag);

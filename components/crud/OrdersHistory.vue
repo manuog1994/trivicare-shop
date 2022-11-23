@@ -10,17 +10,20 @@
                         <th scope="col">Estado Pago</th>
                         <th scope="col">Estado Pedido</th>
                         <th scope="col">Fecha</th>
-                        <th scope="col">Factura</th>
+                        <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody v-if="orders.length > 0">
                         <tr v-for="order in orders" :key="order.id">
                             <th scope="row">{{ order.id }}</th>
-                            <td>{{ getName(order) }}</td>
+                            <td>
+                                <n-link :to="`/orders-profiles/${order.user_id}`">{{ getName(order) }}</n-link>
+                            </td>
                             <td v-if="order.paid == 1">Pendiente</td>
                             <td v-if="order.paid == 2">En Proceso</td>
                             <td v-if="order.paid == 3">Pagado</td>
                             <td v-if="order.status == 4">Entregado</td>
+                            <td v-else>Cancelado</td>
                             <td>{{ order.order_date }}</td>
                             <td>-</td>
                         </tr>
@@ -69,35 +72,35 @@ export default {
     },
 
     computed: {
-            page() {
-                let page = this.$route.query.page ?? 1;
+        page() {
+            let page = this.$route.query.page ?? 1;
 
-                if(page > this.pagination.last_page){
-                    this.$router.replace({
-                        query: {
-                            page: this.pagination.last_page
-                        }
-                    })
-                    this.$router.push();
-                    return this.pagination.last_page;
-                }
+            if(page > this.pagination.last_page){
+                this.$router.replace({
+                    query: {
+                        page: this.pagination.last_page
+                    }
+                })
+                this.$router.push();
+                return this.pagination.last_page;
+            }
 
-                return page;
-            },
+            return page;
+        },
     },
 
     watch: {
-            page() {
-                this.$nextTick(() => {
-                    this.$nuxt.$loading.start()
-                    setTimeout(() => {
-                        this.$nuxt.$loading.finish()
-                    }, 500);
-                });
+        page() {
+            this.$nextTick(() => {
+                this.$nuxt.$loading.start()
                 setTimeout(() => {
-                    this.getOrders();
+                    this.$nuxt.$loading.finish()
                 }, 500);
-            },
+            });
+            setTimeout(() => {
+                this.getOrders();
+            }, 500);
+        },
     },
 
 
@@ -134,16 +137,6 @@ export default {
             }).toString();
         },
 
-        loadOrder(order) {
-            this.order = order;
-        },
-
-        async updateStatus(e) {
-            const status = e.target.value;
-            await this.$axios.put('/api/orders/status/' + this.order.id, {
-                status: status
-            }).then(() => this.$notify({ title: 'El estado del pedido ha sido actualizado'}));
-        },
 
         changePage(url) {
             this.$router.replace({

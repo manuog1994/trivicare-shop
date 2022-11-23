@@ -28,10 +28,12 @@ export { default as BannerStyleFour } from '../../components/banner/BannerStyleF
 export { default as BannerStyleOne } from '../../components/banner/BannerStyleOne.vue'
 export { default as CrudAll } from '../../components/crud/All.vue'
 export { default as CrudCreate } from '../../components/crud/Create.vue'
+export { default as CrudCupons } from '../../components/crud/Cupons.vue'
 export { default as CrudEdit } from '../../components/crud/Edit.vue'
 export { default as CrudNav } from '../../components/crud/Nav.vue'
 export { default as CrudOrders } from '../../components/crud/Orders.vue'
 export { default as CrudOrdersHistory } from '../../components/crud/OrdersHistory.vue'
+export { default as HeroSliderSix } from '../../components/hero/HeroSliderSix.vue'
 export { default as ProductDetailsWrapper } from '../../components/product/ProductDetailsWrapper.vue'
 export { default as ProductGridItem } from '../../components/product/ProductGridItem.vue'
 export { default as ProductGridItemTwo } from '../../components/product/ProductGridItemTwo.vue'
@@ -42,7 +44,6 @@ export { default as PolicyServicePolicyFive } from '../../components/policy/Serv
 export { default as PolicyServicePolicyFour } from '../../components/policy/ServicePolicyFour.vue'
 export { default as PolicyServicePolicyThree } from '../../components/policy/ServicePolicyThree.vue'
 export { default as PolicyServicePolicyTwo } from '../../components/policy/ServicePolicyTwo.vue'
-export { default as HeroSliderSix } from '../../components/hero/HeroSliderSix.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

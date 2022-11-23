@@ -31,10 +31,13 @@
                                         <ul v-if="role == 'admin'">
                                             <li><n-link to="/crud">PCD</n-link></li>
                                             <li><n-link to="/my-account">Mi Perfil</n-link></li>
+                                            <li><n-link to="/my-orders">Mis pedidos</n-link></li>
+
                                             <li><a @click="logout">Cerrar sesión</a></li>
                                         </ul>
                                         <ul v-else-if="$auth.user">
                                             <li><n-link to="/my-account">Mi Perfil</n-link></li>
+                                            <li><n-link to="/my-orders">Mis pedidos</n-link></li>
                                             <li><a @click="logout">Cerrar sesión</a></li>
                                         </ul>
                                         <ul v-else>

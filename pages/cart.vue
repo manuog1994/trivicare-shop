@@ -241,7 +241,7 @@
 
                 const expires = new Date(this.cupon.validity).toLocaleDateString().replace(/\//g, '-');
                 const today = new Date().toLocaleDateString().replace(/\//g, '-');
-                
+                 
                 if (this.cupon) {
                     if (expires < today) {
                         this.error = 'El cupón ha caducado';
