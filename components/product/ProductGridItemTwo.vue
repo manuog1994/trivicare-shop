@@ -33,8 +33,8 @@
                     <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
                 </h3>
                 <div class="price-2">
-                    <span>{{ discountedPrice(product).toFixed(2) }} &euro;</span>
-                    <span class="old" v-if="product.discount > 0">{{ product.price }} &euro;</span>
+                    <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                    <span class="old" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
                 </div>
             </div>
             <div class="pro-wishlist-2">
@@ -62,7 +62,7 @@
             },
 
             discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
+                return product.price_base - (product.price_base * product.discount / 100)
             },
 
             addToWishlist(product) {

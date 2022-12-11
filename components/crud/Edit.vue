@@ -106,6 +106,8 @@
 
 <script>
 export default {
+    auth: true,
+
     name: 'Edit',
 
     data() {

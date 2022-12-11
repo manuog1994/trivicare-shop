@@ -12,7 +12,7 @@ exports.modules = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",{staticClass:"product-details-page-wrapper"},[_c("HeaderWithTopbar",{attrs:{containerClass:"container"}}),_vm._ssrNode(" "),_c("Breadcrumb",{attrs:{pageTitle:"Pasarela de Pago"}}),_vm._ssrNode(' <div class="container"><div class="row"><div class="col-8 mt-3"><div class="card m-2 p-3"><h2>Resumen de tu Pedido</h2></div> <div></div></div> <div class="col-4 mt-3"><div class="card m-2 p-3"><h3>Métodos de Pago</h3></div></div></div></div> '),_c("TheFooter")],2);};var staticRenderFns=[];render._withStripped=true;
+var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only",[_c("div",{staticClass:"product-details-page-wrapper"},[_c("HeaderWithTopbar",{attrs:{containerClass:"container"}}),_vm._v(" "),_c("Breadcrumb",{attrs:{pageTitle:"Pasarela de Pago"}}),_vm._v(" "),_c("div",{staticClass:"container"},[_c("div",{staticClass:"row"},[_c("div",{staticClass:"col-8 mt-3"},[_c("div",{staticClass:"card m-2 p-3"},[_c("h2",[_vm._v("Resumen de tu Pedido")])]),_vm._v(" "),_c("div")]),_vm._v(" "),_c("div",{staticClass:"col-4 mt-3"},[_c("div",{staticClass:"card m-2 p-3"},[_c("h3",[_vm._v("Métodos de Pago")])]),_vm._v(" "),_c("div")])])]),_vm._v(" "),_c("TheFooter")],1)]);};var staticRenderFns=[];render._withStripped=true;
 
 /***/ }),
 
@@ -25,7 +25,7 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",{stati
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({components:{HeaderWithTopbar:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/HeaderWithTopbar */ "./components/HeaderWithTopbar.vue")),Breadcrumb:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/Breadcrumb */ "./components/Breadcrumb.vue")),TheFooter:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/TheFooter */ "./components/TheFooter.vue"))}});
+/* harmony default export */ __webpack_exports__["default"] = ({auth:true,components:{HeaderWithTopbar:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/HeaderWithTopbar */ "./components/HeaderWithTopbar.vue")),Breadcrumb:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/Breadcrumb */ "./components/Breadcrumb.vue")),TheFooter:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/TheFooter */ "./components/TheFooter.vue"))},mounted(){},methods:{}});
 
 /***/ }),
 

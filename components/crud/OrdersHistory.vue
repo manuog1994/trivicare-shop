@@ -22,10 +22,18 @@
                             <td v-if="order.paid == 1">Pendiente</td>
                             <td v-if="order.paid == 2">En Proceso</td>
                             <td v-if="order.paid == 3">Pagado</td>
+                            <td v-if="order.paid == 4">Rechazado</td>
                             <td v-if="order.status == 4">Entregado</td>
                             <td v-else>Cancelado</td>
                             <td>{{ order.order_date }}</td>
-                            <td>-</td>
+                            <td>
+                                <n-link :to="`/orders/${order.id}`" class="btn btn-primary">
+                                    <i class="pe-7s-look"></i>
+                                </n-link>
+                                <a v-if="order.paid == 3 && order.invoice != null" @click.prevent="getUrl(order)" class="btn btn-warning">
+                                    <i class="pe-7s-download"></i>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                     <tbody v-else>
@@ -34,7 +42,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center mt-5">
                     <nav aria-label="...">
                         <ul class="pagination-custom">
                             <client-only>
@@ -56,6 +64,8 @@
 
 <script>
 export default {
+    auth: true,
+
     data() {
         return {
             orders: [],
@@ -106,7 +116,7 @@ export default {
 
     methods: {
         async getOrders() {
-            const response = await this.$axios.get('/api/orders?perPage=10&sort=-id&page=' + this.page + '&filter[status]=4' );
+            const response = await this.$axios.get('/api/orders?perPage=10&sort=-id&page=' + this.page + '&history[status]=' );
             this.orders = response.data.data;
             const paginations = response.data;
             this.pagination = {
@@ -143,6 +153,15 @@ export default {
                 query: {
                     page : url.split('page=')[1]
                 }
+            });
+        },
+
+        async getUrl(order){
+            let FileDownload = require('js-file-download');
+            await this.$axios.get('/api/invoices/' + order.invoice.id, {
+                responseType: 'blob'
+            }).then(response => {
+                FileDownload(response.data, order.invoice.filename);
             });
         },
     },

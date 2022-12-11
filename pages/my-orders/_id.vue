@@ -1,6 +1,6 @@
 <template>
     <client-only>
-        <div class="shop-page-wrapper">
+        <div class="shop-page-wrapper" >
             <HeaderWithTopbar containerClass="container" />
             <Breadcrumb pageTitle="Mis Pedidos" />
     
@@ -15,7 +15,7 @@
                                     <th scope="col">Estado Pago</th>
                                     <th scope="col">Estado Pedido</th>
                                     <th scope="col">Fecha</th>
-                                    <th scope="col">Factura</th>
+                                    <th scope="col">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody v-if="orders.length > 0">
@@ -25,9 +25,20 @@
                                         <td v-if="order.paid == 1">Pendiente</td>
                                         <td v-if="order.paid == 2">En Proceso</td>
                                         <td v-if="order.paid == 3">Pagado</td>
+                                        <td v-if="order.paid == 4">Rechazado</td>
                                         <td>{{ getState(order) }}</td>
                                         <td>{{ order.order_date }}</td>
-                                        <td>-</td>
+                                        <td>
+                                            <n-link :to="`/orders/${order.id}`" class="btn btn-primary">
+                                                <i class="pe-7s-look"></i>
+                                            </n-link>
+                                            <a v-if="order.paid != 3 && order.token_id != null" class="btn btn-info" :href="`http://localhost:8000/stripe/${order.token_id}`">
+                                                <i class="pe-7s-cash"></i>
+                                            </a>
+                                            <a v-if="order.paid == 3 && order.invoice != null" @click.prevent="getUrl(order)" class="btn btn-warning">
+                                                <i class="pe-7s-download"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 </tbody>
                                 <tbody v-else>
@@ -64,7 +75,11 @@
 
 <script>
     export default {
-        middleware: 'auth',
+        auth: true,
+        transition: {
+            name: 'fade',
+            mode: 'out-in'
+        },
 
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
@@ -76,6 +91,7 @@
             return {
                 orders: '',
                 pagination: {},
+                user: {}
             }
         },
 
@@ -148,13 +164,15 @@
 
             getState(order) {
                 if(order.status == 1) {
-                    return 'Pendiente'
+                    return 'Recibido'
                 } else if(order.status == 2) {
-                    return 'En Proceso'
+                    return 'Preparando'
                 } else if(order.status == 3) {
                     return 'Enviado'
-                } else {
+                } else if(order.status == 4) {
                     return 'Entregado'
+                } else if(order.status == 5) {
+                    return 'Cancelado'
                 }
             },
 
@@ -163,10 +181,19 @@
                 return profiles.filter((profile) => {
                     return profile
                 }).map((profile) => {
-                    console.log(profile.name)
+                    this.user = profile
                     return profile.name + ' ' + profile.lastname
                 }).toString();
-            }
+            },
+            
+            async getUrl(order){
+                let FileDownload = require('js-file-download');
+                await this.$axios.get('/api/invoices/' + order.invoice.id, {
+                    responseType: 'blob'
+                }).then(response => {
+                    FileDownload(response.data, order.invoice.filename);
+                });
+            },
         },
 
     }

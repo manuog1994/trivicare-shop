@@ -1,5 +1,8 @@
 <template>
   <div v-if="loading" class="loading-page m-5">
+    <div style="display:flex;justify-content:center;opacity:50%;">
+      <img src="/img/logo/TriviCare_byn Positivo.png" alt="logo" width="50%">
+    </div>
     <loading-progress
       indeterminate="indeterminate"
       size="64"

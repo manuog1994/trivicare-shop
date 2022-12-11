@@ -159,7 +159,7 @@
         methods: {
             async logout() {
                 await this.$auth.logout();
-                this.$router.push('/');
+                window.location.reload();
                 this.$notify({ title: 'Has cerrado sesión!'})
 
             },

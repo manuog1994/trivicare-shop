@@ -23,8 +23,8 @@
                         </h3>
                     </div>
                     <div class="price-3">
-                        <span>${{ discountedPrice(product).toFixed(2) }}</span>
-                        <span class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</span>
+                        <span>${{ (discountedPrice(product) * 1.21).toFixed(2) }}</span>
+                        <span class="old" v-if="product.discount > 0">${{ (product.price_base * 1.21).toFixed(2) }}</span>
                     </div>
                     <div class="product-action-3">
                         <!-- <button class="btn" title="Compare" @click="addToCompare(product)"> 
@@ -64,7 +64,7 @@
             },
 
             discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
+                return product.price_base - (product.price_base * product.discount / 100)
             },
 
             addToWishlist(product) {

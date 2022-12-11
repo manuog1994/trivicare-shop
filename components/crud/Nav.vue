@@ -33,6 +33,8 @@
 
 <script>
     export default {
+        auth: true,
+
         methods: {
             async logout() {
                 await this.$auth.logout();

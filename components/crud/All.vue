@@ -54,6 +54,8 @@ import Edit  from './Edit.vue'
 import Swal from 'sweetalert2'
 
 export default {
+    auth: true,
+
     components: {
         Edit,
     },

@@ -4,7 +4,7 @@
             <HeaderWithTopbar containerClass="container" />
             <Breadcrumb pageTitle="Dirección de Envío" />
             
-            <div class="checkout-area pt-95 pb-100">
+            <div v-if="$auth.user.email_verified_at != null" class="checkout-area pt-95 pb-100">
                 <div class="container">
                      <div class="row" v-if="products.length > 0">
                         <div v-if="$auth.user.user_profile.length > 0" class="col-lg-7">
@@ -94,14 +94,14 @@
                                                         <input v-model="phone" type="number" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-7 col-md-7">
-                                                    <div class="billing-info">
-                                                        <label>Email</label>
-                                                        <input :value="$auth.user.email" type="email" disabled>
-                                                    </div>
+                                                <div class="form-check ms-3 mb-4">
+                                                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        He leído y acepto la <a href="#">política de privacidad</a>.
+                                                    </label>
                                                 </div>
                                                 <div class="billing-btn">
-                                                    <button class="btn-form" type="submit">Guardar</button>
+                                                    <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit">Guardar</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -158,18 +158,18 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="billing-info mb-20">
-                                            <label>Email</label>
-                                            <input v-model="$auth.user.email" type="text" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="billing-info mb-20">
                                             <label>País</label>
                                             <input v-model="country" type="text" required>
                                         </div>
                                     </div>
+                                    <div class="form-check ms-4">
+                                        <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            He leído y acepto la <a href="#">política de privacidad</a>.
+                                        </label>
+                                    </div>
                                     <div class="billing-btn mt-5">
-                                        <button class="btn-form" type="submit">Guardar</button>
+                                        <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit">Guardar</button>
                                     </div>
                                 </form>
                             </div>
@@ -190,29 +190,35 @@
                                             <ul>
                                                 <client-only>
                                                     <li v-for="(product, index) in products" :key="index">
-                                                        <span class="order-middle-left">{{ product.name }}  x {{ product.cartQuantity }} unid(s)</span> <span class="order-price">{{ (discountedPrice(product) * product.cartQuantity).toFixed(2) }} &euro;</span>
+                                                        <span class="order-middle-left">{{ product.name }}  x {{ product.cartQuantity }} unid(s)</span> <span class="order-price">{{ ((discountedPrice(product) * product.cartQuantity) * 1.21).toFixed(2) }} &euro;</span>
                                                     </li>
                                                 </client-only>
                                             </ul>
                                         </div>
                                         <div>
                                             <ul class="d-flex justify-content-between mb-2">
-                                                <li v-if="cuponStore" class="your-order-shipping">Código descuento</li>
-                                                <li v-if="cuponStore" class="text-danger">-{{ (subTotal * (cuponStore.discount / 100)).toFixed(2)  }} &euro;</li>
+                                                <li v-if="cuponStore.discount > 0" class="your-order-shipping">Código descuento</li>
+                                                <li v-if="cuponStore.discount > 0" class="text-danger">-{{ (subTotal * (cuponStore.discount / 100)).toFixed(2)  }} &euro;</li>
                                             </ul>
                                         </div>
+                                        <!-- <div>
+                                            <ul class="d-flex justify-content-between mb-2">
+                                                <li class="your-order-shipping">IVA 21 %</li>
+                                                <li>{{ (total * 0.21).toFixed(2)  }} &euro;</li>
+                                            </ul>
+                                        </div> -->
                                         <div class="your-order-bottom">
                                             <ul>
                                                 <li class="your-order-shipping">Gastos de envío</li>
-                                                <li v-if="total.toFixed(2) >= 50">Envio Gratis</li>
+                                                <li v-if="(total * 1.21).toFixed(2) >= 50">Envio Gratis</li>
                                                 <li v-else>{{ getShipping(total) }} &euro;</li>
                                             </ul>
                                         </div>
                                         <div class="your-order-total">
                                             <ul>
                                                 <li class="order-total">Total</li>
-                                                <li v-if="total.toFixed(2) <= 50">{{ (total + shipping).toFixed(2) }} &euro;</li>
-                                                <li v-else>{{ total.toFixed(2) }} &euro;</li>
+                                                <li v-if="(total * 1.21).toFixed(2) <= 50">{{ ((total * 1.21) + shipping).toFixed(2) }} &euro;</li>
+                                                <li v-else>{{ (total * 1.21).toFixed(2) }} &euro;</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -225,6 +231,11 @@
                     </div>
                 </div>
             </div>
+            <div v-if="$auth.user.email_verified_at == null" class="my-account-area pb-80 pt-100 text-center">
+                <h1 class="mb-5">Su cuenta no está verificada</h1>
+                <p>Por favor, para realizar está y otras acciones debe ir a su cuenta de email y buscar el correo electrónico "Trivicare.com | Verificación de correo electrónico".</p>
+                <p>Si no lo encuentra, revise su carpeta de spam o <a @click.prevent="resendEmail">pulse aquí</a> para generar un nuevo correo.</p>
+            </div>
     
             <TheFooter />
         </div>
@@ -234,6 +245,10 @@
 <script>
     export default {
         middleware: 'auth',
+        transition: {
+            name: 'fade',
+            mode: 'out-in'
+        },
 
         data() {
             return {
@@ -250,6 +265,8 @@
                 country: '',
                 disabled: true,
                 userIdProfile: '',
+                token_id: '',
+                checked: false,
             }
         },
         components: {
@@ -273,7 +290,21 @@
             },
 
             cuponStore() {
-                return this.$store.getters.getCupon
+                const cupon = this.$store.getters.getCupon;
+
+                const today = new Date();
+                const expires = new Date(cupon.validity);
+
+                if (expires.getDate() <= today.getDate() && expires.getMonth() <= today.getMonth() && expires.getFullYear() <= today.getFullYear()) {
+                    return this.$notify({
+                        group: 'foo',
+                        title: 'Cupón caducado',
+                        text: 'El cupón que has introducido ha caducado',
+                        type: 'error'
+                    });
+                } else {
+                    return cupon;
+                }
             },
         },
 
@@ -292,6 +323,7 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
+            this.$auth.fetchUser();
         },
 
         methods: {
@@ -322,7 +354,7 @@
             },
 
             discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
+                return product.price_base - (product.price_base * product.discount / 100)
             },
 
             enableButton(e) {
@@ -330,17 +362,34 @@
                 this.userIdProfile = e.target.value;
             },
 
+            makeid(length) {
+                let result = '';
+                let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let charactersLength = characters.length;
+                for ( var i = 0; i < length; i++ ) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                this.token_id = result;
+            },
+
             async createOrder() {
+                this.makeid(24);
                 const products = JSON.stringify(this.$store.getters.getCart);
                 const cupon = this.$store.getters.getCupon;
                 await this.$axios.post('/api/orders', {
                     user_id: this.$auth.user.id,
                     user_profile_id: this.userIdProfile,
                     products: products,
+                    subTotal: this.$store.getters.getSubTotal,
                     total: this.$store.getters.getTotal,
                     coupon: cupon.code,
-                    shipping: this.shipping
-                }).then(() => this.$router.push('/payment'));
+                    shipping: this.shipping,
+                    token_id: this.token_id,
+                }).then(() => {
+                    this.$store.commit('CLEAR_CART');
+                    this.$store.commit('CLEAR_CUPON');
+                    window.location.href = 'http://localhost:8000/stripe/' + this.token_id;
+                });
  
             },
 
@@ -352,6 +401,16 @@
                     this.shipping = 0;
                     return this.shipping;
                 }
+            },
+
+            async resendEmail() {
+                await this.$axios.post('/api/resend-email/' + this.$auth.user.id)
+                .then(res => {
+                    console.log(res);
+                    this.$notify({ title: 'Email reenviado'});
+                }).catch((error) => {
+                    this.errors = Object.values(error.response.data).flat();
+                })
             }
         },
 

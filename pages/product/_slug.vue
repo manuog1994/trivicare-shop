@@ -14,6 +14,10 @@
 
     export default {
         auth: false,
+        transition: {
+            name: 'fade',
+            mode: 'out-in'
+        },
         data() {
             return {
                 slug: this.$route.params.slug,

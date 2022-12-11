@@ -1,16 +1,16 @@
 <template>
     <div class="shop-page-wrapper">
         <HeaderWithTopbar containerClass="container" />
-        <Breadcrumb pageTitle="login-register" />
+        <Breadcrumb pageTitle="Autentificación" />
         
         <div class="login-register-area pt-100 pb-100">
             <div class="container">
                 <div class="login-register-tab-list nav">
                     <button @click="comA('Login')" :class="{ active: isActive === 'Login' }" >
-                        Login
+                        Iniciar Sessión
                     </button>
                     <button @click="comA('Register')" :class="{ active: isActive === 'Register' }" >
-                        Register
+                        Regístrate
                     </button>
                 </div>
                 <div class="row">
@@ -38,6 +38,10 @@
             Breadcrumb,
             TheFooter
         },
+        transition: {
+            name: 'fade',
+            mode: 'out-in'
+        },
 
         data() {
             return {
@@ -63,7 +67,7 @@
         },
         head() {
             return {
-                title: "Login / Register"
+                title: "Iniciar Sessión / Regístrate"
             }
         }
     };

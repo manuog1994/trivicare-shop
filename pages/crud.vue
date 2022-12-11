@@ -16,6 +16,9 @@
                     <button @click="comA('OrdersHistory')" :class="{ active: isActive === 'OrdersHistory' }" >
                         Historial de Pedidos
                     </button>
+                    <button @click="comA('Coupons')" :class="{ active: isActive === 'Coupons' }" >
+                        Cupones
+                    </button>
                 </div>
                 <div class="row">
                     <div class="">
@@ -41,6 +44,7 @@ export default {
         Create: () => import("@/components/crud/Create"),
         Orders: () => import("@/components/crud/Orders"),
         OrdersHistory: () => import("@/components/crud/OrdersHistory"),
+        Coupons: () => import("@/components/crud/Coupons"),
      },
 
     data() {

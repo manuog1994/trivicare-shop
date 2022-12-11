@@ -16,7 +16,7 @@
                                     <n-link :to="`/product/${product.slug}`">{{ product.name}}</n-link>
                                 </h4>
                                 <h6>Cant: {{ product.cartQuantity }}</h6>
-                                <span>{{ discountedPrice(product).toFixed(2) }} &euro;</span>
+                                <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
                             </div>
                             <div class="shopping-cart-delete">
                                 <button @click="removeProduct(product)">
@@ -27,7 +27,7 @@
                     </client-only>
                 </ul>
                 <div class="shopping-cart-total">
-                    <h4>Total : <span class="shop-total">{{ total.toFixed(2) }} &euro;</span></h4>
+                    <h4>Total : <span class="shop-total">{{ (total * 1.21).toFixed(2) }} &euro;</span></h4>
                 </div>
                 <div class="shopping-cart-btn btn-hover text-center" @click="$emit('minicartClose')">
                     <n-link to="/cart" class="default-btn">ver carrito</n-link>
@@ -62,7 +62,7 @@
             },
 
             discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
+                return product.price_base - (product.price_base * product.discount / 100)
             },
         },
     };

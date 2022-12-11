@@ -11,8 +11,12 @@
             <input name="email" placeholder="Email" type="email">
             <input type="password" name="password" placeholder="Contraseña">
             <input type="password" name="password_confirmation" placeholder="Confirma tu contraseña">
-            <div class="button-box">
-                <button type="submit">Registrar</button>
+            <div class="mb-2">
+                <input type="checkbox" name="terms" id="terms" v-model="checked" value="true">
+                <label for="terms"><a href="#">Acepto los términos y condiciones</a></label>
+            </div>
+            <div class="button-box mt-4">
+                <button class="btn" :class="{'disabled': checked ? false : true}" type="submit">Registrar</button>
             </div>
         </form>
     </div>
@@ -23,7 +27,8 @@
         middleware: 'guest',
         data() {
             return {
-                errors: []
+                errors: [],
+                checked: false
             }
         },
 
@@ -35,8 +40,9 @@
             register() {
                 const formData = new FormData(this.$refs.registerform);
                 this.$axios.post('/register', formData)
-                .then(() => {
+                .then(res => {
                     this.$auth.loginWith('laravelSanctum', { data: formData });
+                    console.log(res);
                     this.errors = [];
                     this.$router.push({
                         path: '/'

@@ -47,7 +47,7 @@ TheFooter:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(nul
 window.onblur=function(){// Si el usuario se va a otro lado...
 document.title="Ey, vuelve aquí!";// Cambiamos el título
 };window.onfocus=function(){document.title=tituloOriginal;// Si el usuario vuelve restablecemos el título
-};},head(){return{title:'Tienda de cosmética natural y ecológica | Cosmética natural y ecológica'};}});
+};this.$auth.fetchUser();},head(){return{title:'Tienda de cosmética natural y ecológica | Cosmética natural y ecológica'};}});
 
 /***/ }),
 

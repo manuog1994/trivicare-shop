@@ -47,19 +47,20 @@
                 </client-only>
             </div>
             <div class="product-price">
-                <span>{{ discountedPrice(product).toFixed(2) }} &euro;</span>
-                <span class="old" v-if="product.discount > 0">{{ product.price}} &euro;</span>
+                <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                <span class="old" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
             </div>
             <div class="product-content__list-view" v-if="layout === 'list'">
                 <p>{{ product.description }}</p>
                 <div class="pro-action d-flex align-items-center" >
                     <div class="pro-cart btn-hover">
-                        <n-link :to="`/product/${product.slug}`" class="btn" v-if="product.variation">
-                            Selecciona opción
-                        </n-link>
-                        <button class="btn" title="Add To Cart" @click="addToCart(product)" v-else>
+                        <button class="btn" title="Add To Cart" @click="addToCart(product)" v-if="product.stock > 0">
                             <i class="pe-7s-cart"></i> 
                             Añadir al carrito
+                        </button>
+                        <button v-else class="btn disabled">
+                            <i class="pe-7s-attention"></i>
+                             No hay Stock
                         </button>
                     </div>
                     <div class="pro-wishlist">
@@ -111,7 +112,7 @@
             },
 
             discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
+                return product.price_base - (product.price_base * product.discount / 100)
             },
 
             addToWishlist(product) {

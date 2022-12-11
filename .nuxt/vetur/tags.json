@@ -86,11 +86,11 @@
   "CrudAll": {
     "description": "Auto imported from components/crud/All.vue"
   },
+  "CrudCoupons": {
+    "description": "Auto imported from components/crud/Coupons.vue"
+  },
   "CrudCreate": {
     "description": "Auto imported from components/crud/Create.vue"
-  },
-  "CrudCupons": {
-    "description": "Auto imported from components/crud/Cupons.vue"
   },
   "CrudEdit": {
     "description": "Auto imported from components/crud/Edit.vue"

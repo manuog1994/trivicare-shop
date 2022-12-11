@@ -21,8 +21,8 @@
                             <ul>
                                 <li><n-link to="/about">Sobre nosotros</n-link></li>
                                 <li><n-link to="/contact">Puntos de venta</n-link></li>
-                                <li><n-link :to="{ name: 'contact', ref:'contact'}">Contacto</n-link></li>
-                                <li><n-link to="/contact">Seguimiento de envío</n-link></li>
+                                <li><n-link to="/contact">Contacto</n-link></li>
+                                <li><n-link to="/my-orders">Seguimiento de envío</n-link></li>
                             </ul>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                         <div class="footer-list">
                             <ul>
                                 <li><n-link to="/about">Devoluciones</n-link></li>
-                                <li><n-link to="/about">Politica de envío</n-link></li>
+                                <li><n-link to="/about">Política de envío</n-link></li>
                                 <li><n-link to="/about">Alérgenos</n-link></li>
                                 <li><n-link to="/about">Preguntas Frecuentes</n-link></li>
                             </ul>
@@ -49,10 +49,9 @@
                         </div>
                         <div class="footer-list">
                             <ul>
-                                <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
-                                <li><a href="https://twitter.com/" target="_blank">Twitter</a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
-                                <li><a href="https://www.youtube.com/" target="_blank">Youtube</a></li>
+                                <li><a href="https://www.facebook.com/trivicare" target="_blank">Facebook</a></li>
+                                <li><a href="https://www.instagram.com/trivicare" target="_blank">Instagram</a></li>
+                                <li><a href="https://www.tiktok.com/@trivicare" target="_blank">TikTok</a></li>
                             </ul>
                         </div>
                     </div>
@@ -65,9 +64,9 @@
                         <div class="subscribe-style">
                             <p>Recibe por email ofertas y nuestras últimas novedades.</p>
                             <div class="subscribe-form">
-                                <form class="mc-form">
-                                    <input class="email" type="email" required="" placeholder="Introduce tu email..." name="email" >
-                                    <button class="button" name="subscribe">Suscribirse</button>
+                                <form class="mc-form" @submit.prevent="subscribeForm" ref="form">
+                                    <input class="email" type="email" required placeholder="Introduce tu email..." name="email" >
+                                    <button type="submit" class="button" name="subscribe">Suscribirse</button>
                                 </form>
                             </div>
                         </div>
@@ -80,6 +79,20 @@
 
 <script>
     export default {
+
+        methods: {
+            async subscribeForm() {
+                const formData = new FormData(this.$refs.form);
+                await this.$axios.post('/api/newsletter', formData)
+                    .then(response => {
+                        //console.log(response);
+                        this.$notify({title: 'Gracias por suscribirte, pronto recibirás nuestras novedades.'});
+                    })
+                    .catch(error => {
+                        //console.log(error);
+                    });
+            }
+        }
 
     }
 </script>

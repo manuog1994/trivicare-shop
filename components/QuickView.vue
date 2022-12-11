@@ -34,7 +34,7 @@
                         <h2>{{ product.name }}</h2>
                         <div class="product-details-price">
                             <span>{{ discountedPrice(product).toFixed(2) }} &euro;</span>
-                            <span class="old" v-if="product.discount > 0">{{ product.price}} &euro;</span>
+                            <span class="old" v-if="product.discount > 0">{{ product.price_base}} &euro;</span>
                         </div>
                         <div class="pro-details-rating-wrap">
                             <client-only>
@@ -187,7 +187,7 @@
             },
 
             discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
+                return product.price_base - (product.price_base * product.discount / 100)
             },
 
             increaseQuantity(){

@@ -134,6 +134,7 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
+            this.$auth.fetchUser();
         },
 
         computed: {
@@ -238,7 +239,7 @@
             },
 
             discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
+                return product.price_base - (product.price_base * product.discount / 100)
             },
 
             searchFilter(value) {

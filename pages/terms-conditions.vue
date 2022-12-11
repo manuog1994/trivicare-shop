@@ -34,6 +34,10 @@
 
 <script>
     export default {
+        transition: {
+            name: 'fade',
+            mode: 'out-in'
+        },
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             Breadcrumb: () => import('@/components/Breadcrumb'),

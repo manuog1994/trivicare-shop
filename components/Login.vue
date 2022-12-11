@@ -15,7 +15,7 @@
                 <div class="login-toggle-btn">
                     <input type="checkbox">
                     <label>Recuérdame</label>
-                    <a href="#">Olvidaste la contraseña?</a>
+                    <n-link to="/forgot-password">¿Olvidaste tu contraseña?</n-link>
                 </div>
                 <button :class="{
                     'disabled': true
@@ -33,7 +33,7 @@
         data() {
             return {
                 disabled: false,
-                errors: []
+                errors: [],
             }
         },
 
@@ -51,19 +51,16 @@
                     const formData = new FormData(this.$refs.loginform);
                     await this.$auth.loginWith('laravelSanctum', {
                         data: formData
+                    }).then(res => {
+                        console.log(res);
                     });
-
-                    this.$router.push({
-                        path: '/my-account'
-                    });
+                    window.location.reload();
                     this.errors = [];
                     this.$notify({ title: 'Bienvenid@ de nuevo!'})
                 } catch (error) {
                     this.errors = ['El correo electrónico o la contraseña son incorrectos.'];              
                 }
-            }
-            
-
+            }, 
         },
     }
 </script>

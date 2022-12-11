@@ -25,7 +25,11 @@
                                         <div class="col-9 mt-3">
                                             <div class="d-flex justify-content-between">
                                                 <n-link class="fs-5" :to="`/product/${product.slug}`">{{ product.name }}</n-link>
-                                                <p class="text-price"><span class=" fw-semibold">{{ discountedPrice(product).toFixed(2) }} €</span></p>
+                                                <div class="d-flex justify-content-end price-div">
+                                                    <span style="font-size:14px;color:#cfcfcf;margin-right:5px;padding-right:5px;text-decoration:line-through;" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
+                                                    <p class="text-price"><span class=" fw-semibold">{{ (discountedPrice(product) * 1.21).toFixed(2) }} €</span></p>
+                                                </div>
+
                                             </div>
                                             <div class="d-flex justify-content-start mb-2 mt-1">
                                                 <p v-if="product.stock == 2 || product.stock == 1" class="p-0 text-danger fst-italic ms-2">{{ product.stock }} unidades disponibles en stock.</p>
@@ -62,8 +66,7 @@
                                     <div class="title-wrap">
                                         <h4 class="cart-bottom-title section-bg-gary-cart">Total del Carrito</h4>
                                     </div>
-                                    <h5 v-if="cuponStore">Subtotal <span>{{ subTotal.toFixed(2) }} &euro;</span></h5>
-                                    <h5 v-else>Subtotal <span>{{ total.toFixed(2) }} &euro;</span></h5>
+                                    <h5>Subtotal <span>{{ (subTotal * 1.21).toFixed(2) }} &euro;</span></h5>
                                     <h5 v-if="cuponStore.id"><span @click.prevent="deleteCupon" class="ms-2 pointer-main">
                                         <i class="fa fa-close"></i>
                                         </span>
@@ -72,7 +75,8 @@
                                              -{{ (subTotal * (cuponStore.discount / 100)).toFixed(2) }} &euro; 
                                         </span>
                                     </h5>
-                                    <h4 class="grand-total-title">Total  <span>{{ total.toFixed(2) }} &euro;</span></h4>
+                                    <!-- <h5>IVA 21% <span>{{ (total * 0.21).toFixed(2) }} &euro;</span></h5> -->
+                                    <h4 class="grand-total-title">Total  <span>{{ (total * 1.21).toFixed(2) }} &euro;</span></h4>
                                     <n-link to="/checkout">Tramitar pedido</n-link>
                                 </div>
                             </div>
@@ -130,6 +134,10 @@
 <script>
     export default {
         auth: false,
+        transition: {
+            name: 'fade',
+            mode: 'out-in'
+        },
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             Breadcrumb: () => import('@/components/Breadcrumb'),
@@ -161,8 +169,10 @@
 
             cuponStore() {
                 return this.$store.getters.getCupon
-            }
+            },
+
         },
+
 
         mounted() {
             this.$nextTick(() => {
@@ -183,6 +193,7 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
+            this.$auth.fetchUser();
         },
 
         methods: {
@@ -211,7 +222,7 @@
             },
 
             discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
+                return product.price_base - (product.price_base * product.discount / 100)
             },
 
             clearCart() {
@@ -239,9 +250,8 @@
                     }
                 });
 
-                const expires = new Date(this.cupon.validity).toLocaleDateString().replace(/\//g, '-');
-                const today = new Date().toLocaleDateString().replace(/\//g, '-');
-                 
+                const expires = new Date(this.cupon.validity);
+                const today = new Date();
                 if (this.cupon) {
                     if (expires < today) {
                         this.error = 'El cupón ha caducado';

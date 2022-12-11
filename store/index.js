@@ -67,7 +67,7 @@ export const getters = {
     getSubTotal: state => {
         let subTotal = 0;
         state.cart.forEach(item => {
-            let price = item.discount ? item.price - (item.price *(item.discount)/100) : item.price;
+            let price = item.discount ? item.price_base - (item.price_base *(item.discount)/100) : item.price_base;
             subTotal += price * item.cartQuantity
         })
         return subTotal;
@@ -76,7 +76,7 @@ export const getters = {
     getTotal: state => {
         let total = 0;
         state.cart.forEach(item => {
-            let price = item.discount ? item.price - (item.price *(item.discount)/100) : item.price;
+            let price = item.discount ? item.price_base - (item.price_base *(item.discount)/100) : item.price_base;
             total += price * item.cartQuantity
         })
         if (state.cupon.id) {
@@ -112,11 +112,11 @@ export const mutations = {
     UPDATE_CART(state, payload) {
         const item = state.cart.find(el => payload.id === el.id)
         if (item) {
-            const price = item.discount ? item.price - (item.price *(item.discount)/100) : item.price;
+            const price = item.discount ? item.price_base - (item.price_base *(item.discount)/100) : item.price_base;
             item.cartQuantity = item.cartQuantity + payload.cartQuantity
             item.total = item.cartQuantity * price
         } else {
-            const price = payload.discount ? payload.price - (payload.price *(payload.discount)/100) : payload.price;
+            const price = payload.discount ? payload.price_base - (payload.price_base *(payload.discount)/100) : payload.price_base;
             state.cart.push({...payload, cartQuantity: payload.cartQuantity, total: price })
         }
     },
@@ -129,7 +129,7 @@ export const mutations = {
 
     DECREASE_PRODUCT(state, payload) {
         const found = state.cart.find(el => payload.id === el.id)
-        const price = found.discount ? found.price - (found.price *(found.discount)/100) : found.price;
+        const price = found.discount ? found.price_base - (found.price_base *(found.discount)/100) : found.price_base;
         found.cartQuantity = found.cartQuantity - payload.cartQuantity
         found.total = found.cartQuantity * price
     },
@@ -138,6 +138,10 @@ export const mutations = {
         state.cart = []
     },
 
+    CLEAR_CUPON(state) {
+        state.cupon = []
+    },
+    
     ADD_TO_WISHLIST(state, product) {
         const item = state.wishlist.find(el => product.id === el.id)
         if(item) {

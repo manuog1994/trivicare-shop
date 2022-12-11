@@ -11,13 +11,17 @@
 <script>
     export default {
         auth: false,
+        transition: {
+            name: 'fade',
+            mode: 'out-in'
+        },
         components: {
-    HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
-    ContactInfo: () => import("@/components/ContactInfo"),
-    Breadcrumb: () => import("@/components/Breadcrumb"),
-    TheFooter: () => import("@/components/TheFooter"),
-    Location: () => import("@/components/Location"),
-},
+            HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
+            ContactInfo: () => import("@/components/ContactInfo"),
+            Breadcrumb: () => import("@/components/Breadcrumb"),
+            TheFooter: () => import("@/components/TheFooter"),
+            Location: () => import("@/components/Location"),
+        },
         head() {
             return {
                 title: "Contacto"

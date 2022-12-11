@@ -10,7 +10,7 @@
                     </div>
                     <!-- Datos del pedido -->
                     <div>
-                        <div class="d-flex justify-content-around mb-5">
+                        <div class="d-flex justify-content-between mb-5">
                             <div class="mr-5">
                                 <h4>Datos del pedido</h4>
                                 <p>Fecha: {{ order.order_date }}</p>
@@ -60,7 +60,7 @@
                                             {{ product.price }} &euro;
                                         </span>
                                     </td>
-                                    <td>{{ (product.total).toFixed(2) }} &euro;</td>
+                                    <td>{{ product.total }} &euro;</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -91,7 +91,7 @@
                                 <div class="d-flex justify-content-between mt-2">
                                     <div class="me-2 fs-4 fw-bold">Total:</div>
                                     <div v-if="order.shipping == 0" style="font-size:20px;">{{ order.total }} &euro;</div>
-                                    <div v-else style="font-size:20px;">{{ parseFloat(order.total) + parseFloat(order.shipping) }} &euro;</div>
+                                    <div v-else style="font-size:20px;">{{ (parseFloat(order.total) + parseFloat(order.shipping)).toFixed(2) }} &euro;</div>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +104,14 @@
 </template>
 
 <script>
+import { join } from 'path';
+
 export default {
+    auth: true,
+    transition: {
+        name: 'fade',
+        mode: 'out-in'
+    },
 
     components: {
         TheHeader: () => import('@/components/TheHeader'),
@@ -161,6 +168,20 @@ export default {
                 }
             }).map(user => {
                 this.user = user;
+
+                const data = this.$auth.user.roles;
+                const role = data.filter(role => {
+                    if (role.name == 'admin') {
+                        return role;
+                    }
+                }).map(role => {
+                    return role.name;
+                }).toString();
+
+                if(role != 'admin' && user.user_id != this.$auth.user.id) {
+                    return this.$router.push('/error');
+                }
+
                 return user.name + ' ' + user.lastname;
             }).toString();
         },

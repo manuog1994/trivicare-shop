@@ -2,7 +2,7 @@
     <div class="slider-area nav-style-1 nav-style-3">
         <swiper :options="swiperOption">
             <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="slider-height-5 d-flex align-items-center bg-img" :style="{ backgroundImage:`url(${slider.backgroundImage})`}">
-                <div class="container">
+                <div class="container bg-slider-img">
                     <div class="row">
                         <div class="col-12">
                             <div class="slider-content-4 slider-content-6 slider-animation-1 text-center">
@@ -28,6 +28,13 @@
         </swiper>
     </div>
 </template>
+
+<style>
+    .bg-slider-img {
+        background-color: #f5f5f5a3;
+        padding: 8rem 5rem;
+    }
+</style>
 
 <script>
     export default {

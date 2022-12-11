@@ -25,11 +25,11 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",{stati
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({auth:false,components:{HeaderWithTopbar:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/HeaderWithTopbar */ "./components/HeaderWithTopbar.vue")),Breadcrumb:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/Breadcrumb */ "./components/Breadcrumb.vue")),TheFooter:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/TheFooter */ "./components/TheFooter.vue"))},computed:{products(){return this.$store.getters.getWishlist;}},mounted(){var tituloOriginal=document.title;// Lo guardamos para restablecerlo
+/* harmony default export */ __webpack_exports__["default"] = ({auth:false,transition:{name:'fade',mode:'out-in'},components:{HeaderWithTopbar:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/HeaderWithTopbar */ "./components/HeaderWithTopbar.vue")),Breadcrumb:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/Breadcrumb */ "./components/Breadcrumb.vue")),TheFooter:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/TheFooter */ "./components/TheFooter.vue"))},computed:{products(){return this.$store.getters.getWishlist;}},mounted(){var tituloOriginal=document.title;// Lo guardamos para restablecerlo
 window.onblur=function(){// Si el usuario se va a otro lado...
 document.title="Ey, vuelve aquí!";// Cambiamos el título
 };window.onfocus=function(){document.title=tituloOriginal;// Si el usuario vuelve restablecemos el título
-};},methods:{addToCart(product){const prod={...product,cartQuantity:1};// for notification
+};this.$auth.fetchUser();},methods:{addToCart(product){const prod={...product,cartQuantity:1};// for notification
 if(this.$store.state.cart.find(el=>product.id===el.id)){this.$notify({title:'Se ha actualizado la cantidad de producto'});}else{this.$notify({title:'Añadido al carrito!'});}this.$store.dispatch('addToCartItem',prod);},removeProductFromWishlist(product){// for notification
 this.$notify({title:'Eliminado de la lista de deseos!'});this.$store.dispatch('removeProductFromWishlist',product);},discountedPrice(product){return product.price-product.price*product.discount/100;}},head(){return{title:"Lista de Deseos"};}});
 

@@ -22560,6 +22560,12 @@ a.link-nav{
 }
 
 
+.bg-slider-img {
+    background-color: #f5f5f5a3;
+    padding: 8rem 5rem;
+}
+
+
 .tag-block {
     display: inline-flex;
     padding: 1rem, 1rem;

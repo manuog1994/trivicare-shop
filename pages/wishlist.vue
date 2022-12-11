@@ -70,6 +70,10 @@
 <script>
     export default {
         auth: false,
+        transition: {
+            name: 'fade',
+            mode: 'out-in'
+        },
         
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
@@ -92,6 +96,7 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
+            this.$auth.fetchUser();
         },
 
         methods: {

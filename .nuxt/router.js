@@ -10,12 +10,14 @@ const _1dc09b73 = () => interopDefault(import('../pages/checkout.vue' /* webpack
 const _170d9fc8 = () => interopDefault(import('../pages/compare.vue' /* webpackChunkName: "pages/compare" */))
 const _32117183 = () => interopDefault(import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */))
 const _1a46402a = () => interopDefault(import('../pages/crud.vue' /* webpackChunkName: "pages/crud" */))
+const _cce7ec30 = () => interopDefault(import('../pages/forgot-password.vue' /* webpackChunkName: "pages/forgot-password" */))
 const _e24cb1e8 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
 const _1dd7b8f9 = () => interopDefault(import('../pages/my-account.vue' /* webpackChunkName: "pages/my-account" */))
 const _585dc72e = () => interopDefault(import('../pages/payment.vue' /* webpackChunkName: "pages/payment" */))
 const _32bd45f8 = () => interopDefault(import('../pages/privacy-policy.vue' /* webpackChunkName: "pages/privacy-policy" */))
 const _565d63a3 = () => interopDefault(import('../pages/shop.vue' /* webpackChunkName: "pages/shop" */))
 const _4eeb482a = () => interopDefault(import('../pages/terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
+const _2c9d4b98 = () => interopDefault(import('../pages/unsubscribe.vue' /* webpackChunkName: "pages/unsubscribe" */))
 const _961aa71c = () => interopDefault(import('../pages/wishlist.vue' /* webpackChunkName: "pages/wishlist" */))
 const _65efec1c = () => interopDefault(import('../pages/product/product-affiliate.vue' /* webpackChunkName: "pages/product/product-affiliate" */))
 const _6f13daf4 = () => interopDefault(import('../pages/my-orders/_id.vue' /* webpackChunkName: "pages/my-orders/_id" */))
@@ -60,6 +62,10 @@ export const routerOptions = {
     component: _1a46402a,
     name: "crud"
   }, {
+    path: "/forgot-password",
+    component: _cce7ec30,
+    name: "forgot-password"
+  }, {
     path: "/login",
     component: _e24cb1e8,
     name: "login"
@@ -83,6 +89,10 @@ export const routerOptions = {
     path: "/terms-conditions",
     component: _4eeb482a,
     name: "terms-conditions"
+  }, {
+    path: "/unsubscribe",
+    component: _2c9d4b98,
+    name: "unsubscribe"
   }, {
     path: "/wishlist",
     component: _961aa71c,

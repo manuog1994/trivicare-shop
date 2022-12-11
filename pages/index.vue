@@ -56,6 +56,7 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
+            this.$auth.fetchUser();
         },
 
         head() {

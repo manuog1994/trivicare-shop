@@ -15,7 +15,7 @@
                                     <th scope="col">Estado Pago</th>
                                     <th scope="col">Estado Pedido</th>
                                     <th scope="col">Fecha</th>
-                                    <th scope="col">Factura</th>
+                                    <th scope="col">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody v-if="orders.length > 0">
@@ -25,9 +25,17 @@
                                         <td v-if="order.paid == 1">Pendiente</td>
                                         <td v-if="order.paid == 2">En Proceso</td>
                                         <td v-if="order.paid == 3">Pagado</td>
+                                        <td v-if="order.paid == 4">Rechazado</td>
                                         <td>{{ getState(order) }}</td>
                                         <td>{{ order.order_date }}</td>
-                                        <td>-</td>
+                                        <td>
+                                            <n-link :to="`/orders/${order.id}`" class="btn btn-primary">
+                                                <i class="pe-7s-look"></i>
+                                            </n-link>
+                                            <a v-if="order.paid == 3 && order.invoice != null" @click.prevent="getUrl(order)" class="btn btn-warning">
+                                                <i class="pe-7s-download"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 </tbody>
                                 <tbody v-else>
@@ -64,8 +72,11 @@
 
 <script>
     export default {
-        middleware: 'auth',
-
+        auth: true,
+        transition: {
+            name: 'fade',
+            mode: 'out-in'
+        },
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             Breadcrumb: () => import('@/components/Breadcrumb'),
@@ -151,13 +162,15 @@
 
             getState(order) {
                 if(order.status == 1) {
-                    return 'Pendiente'
+                    return 'Recibido';
                 } else if(order.status == 2) {
-                    return 'En Proceso'
+                    return 'Preparando';
                 } else if(order.status == 3) {
                     return 'Enviado'
-                } else {
+                } else if(order.status == 4) {
                     return 'Entregado'
+                } else if(order.status == 5) {
+                    return 'Cancelado'
                 }
             },
 
@@ -180,6 +193,15 @@
                 if (this.role != 'admin') {
                     this.$router.push('/error');
                 }
+            },
+
+            async getUrl(order){
+                let FileDownload = require('js-file-download');
+                await this.$axios.get('/api/invoices/' + order.invoice.id, {
+                    responseType: 'blob'
+                }).then(response => {
+                    FileDownload(response.data, order.invoice.filename);
+                });
             },
         },
 
