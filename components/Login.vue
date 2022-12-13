@@ -52,14 +52,14 @@
                     await this.$auth.loginWith('laravelSanctum', {
                         data: formData
                     }).then(res => {
-                        console.log(res);
+                        //console.log(res);
                         window.location.reload();
                         this.errors = [];
                         this.$notify({ title: 'Bienvenid@ de nuevo!'})
                     });
                 } catch (error) {
                     this.errors = ['El correo electrónico o la contraseña son incorrectos.']; 
-                    console.log(error.response.data)             
+                    //console.log(error.response.data)             
                 }
             }, 
         },
