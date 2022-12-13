@@ -388,7 +388,7 @@
                 }).then(() => {
                     this.$store.commit('CLEAR_CART');
                     this.$store.commit('CLEAR_CUPON');
-                    window.location.href = 'http://localhost:8000/stripe/' + this.token_id;
+                    window.location.href = 'https://api.trivicare.com/stripe/' + this.token_id;
                 });
  
             },
