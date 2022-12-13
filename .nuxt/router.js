@@ -13,7 +13,6 @@ const _1a46402a = () => interopDefault(import('../pages/crud.vue' /* webpackChun
 const _cce7ec30 = () => interopDefault(import('../pages/forgot-password.vue' /* webpackChunkName: "pages/forgot-password" */))
 const _e24cb1e8 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
 const _1dd7b8f9 = () => interopDefault(import('../pages/my-account.vue' /* webpackChunkName: "pages/my-account" */))
-const _585dc72e = () => interopDefault(import('../pages/payment.vue' /* webpackChunkName: "pages/payment" */))
 const _32bd45f8 = () => interopDefault(import('../pages/privacy-policy.vue' /* webpackChunkName: "pages/privacy-policy" */))
 const _565d63a3 = () => interopDefault(import('../pages/shop.vue' /* webpackChunkName: "pages/shop" */))
 const _4eeb482a = () => interopDefault(import('../pages/terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
@@ -73,10 +72,6 @@ export const routerOptions = {
     path: "/my-account",
     component: _1dd7b8f9,
     name: "my-account"
-  }, {
-    path: "/payment",
-    component: _585dc72e,
-    name: "payment"
   }, {
     path: "/privacy-policy",
     component: _32bd45f8,

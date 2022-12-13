@@ -15,7 +15,11 @@ export default {
 </script>
 
 <style scope>
-.p-30 {
-    padding: 0 10rem;
+
+@media screen and (min-width: 420px) {
+    .p-30 {
+        padding: 0 10rem;
+    }
 }
+
 </style>

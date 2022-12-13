@@ -7,38 +7,46 @@
             <div class="cart-main-area pt-90 pb-100">
                 <div class="container">
                     <div class="row" v-if="products.length > 0">
-                        <div class="col-8">
-                            <h3 class="cart-page-title">Productos añadidos al carrito</h3>
+                        <div class="col-12 col-md-8">
+                            <div>
+                                <h3 class="cart-page-title">Productos añadidos al carrito</h3>
+                            </div>
                             <div class="card-cart">
-                                <h2 class="mt-4 ms-5 text-muted">Cesta</h2>
-                                <div class="line-cart mb-4">
-                                    <h4 class="me-3">Precio</h4>
+                                <div class="row line-cart mt-4">
+                                    <div class="col-6">
+                                        <h3 class="text-muted pb-md-2">Cesta</h3>
+                                    </div>
+                                    <div class="col-6" style="text-align:right;">
+                                        <h4 class="d-none d-md-block me-md-4">Precio</h4>
+                                    </div>
                                 </div>
                                 <client-only>
-                                    <div class="row d-flex line-cart mt-4" v-for="product in products" :key="product.id">
-                                        <div class="col-2 p-2 ms-4">
+                                    <div class="row d-md-flex line-cart mt-md-4 mt-2" v-for="product in products" :key="product.id">
+                                        <div class="col-4 col-md-2 p-2 ms-4">
                                             <n-link :to="`/product/${product.slug}`">
-                                                <img v-if="product.images.length > 0" :src="`http://localhost:8000/${product.images[0].path}`" :alt="product.name">
+                                                <img v-if="product.images.length > 0" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.name">
                                                 <img v-else src="~/static/img/product/cosmetics/default.png" :alt="product.name">
                                             </n-link>
                                         </div>
-                                        <div class="col-9 mt-3">
-                                            <div class="d-flex justify-content-between">
-                                                <n-link class="fs-5" :to="`/product/${product.slug}`">{{ product.name }}</n-link>
-                                                <div class="d-flex justify-content-end price-div">
-                                                    <span style="font-size:14px;color:#cfcfcf;margin-right:5px;padding-right:5px;text-decoration:line-through;" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
-                                                    <p class="text-price"><span class=" fw-semibold">{{ (discountedPrice(product) * 1.21).toFixed(2) }} €</span></p>
+                                        <div class="col-7 col-md-9 mt-md-3 mt-1">
+                                            <div class="d-md-flex justify-content-md-between">
+                                                <div class="d-flex">
+                                                    <n-link class="fs-5" :to="`/product/${product.slug}`">{{ product.name }}</n-link>
+                                                </div>
+                                                <div class="d-md-flex justify-content-md-end">
+                                                    <span class="d-none d-md-block" style="font-size:14px;color:#cfcfcf;margin-right:5px;padding-right:5px;text-decoration:line-through;" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
+                                                    <p class="d-md-none">Precio: <span class=" fw-semibold">{{ (discountedPrice(product) * 1.21).toFixed(2) }} €</span></p>
                                                 </div>
 
                                             </div>
-                                            <div class="d-flex justify-content-start mb-2 mt-1">
+                                            <div class="d-md-flex justify-content-md-start mb-2 mt-1">
                                                 <p v-if="product.stock == 2 || product.stock == 1" class="p-0 text-danger fst-italic ms-2">{{ product.stock }} unidades disponibles en stock.</p>
                                                 <p v-else-if="product.stock === 0" class="p-0 text-danger fst-italic ms-2">No hay stock</p>
                                                 <p v-else class="p-0 text-green ms-2">En stock</p>
                                             </div>
                                             <div class="product-quantity">
                                                 <div class="row">
-                                                    <div class="col-12 d-flex align-items-center">
+                                                    <div class="col-12 d-md-flex align-items-md-center">
                                                         <div class="me-3">
                                                             <h5>Cantidad: </h5>
                                                         </div>
@@ -60,7 +68,8 @@
                                 </client-only>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <!-- Bloque Total Carrito -->
+                        <div class="col-12 col-md-4">
                             <div class="mt-5">
                                 <div class="grand-total">
                                     <div class="title-wrap">
@@ -80,7 +89,7 @@
                                     <n-link to="/checkout">Tramitar pedido</n-link>
                                 </div>
                             </div>
-    
+                            <!-- Bloque Código Descuento -->
                             <div class="mt-3">
                                 <div class="discount-code-wrapper">
                                     <div class="title-wrap">
@@ -113,6 +122,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Carrito vacío -->
                     <div class="row" v-else>
                         <div class="col-12">
                             <div class="empty-cart text-center">
@@ -127,11 +137,26 @@
                 </div>
             </div>
             <TheFooter />
+            <VueIfBot>
+                <CookieConsent>
+                    <template slot="message">
+                        <span>
+                            Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
+                            <a class="text-info" href="/politica-de-cookies">Política de Cookies</a>.
+                        </span>
+                    </template>
+                    <template slot="button">
+                        <button class="btn border-1">Aceptar</button>
+                    </template>
+                </CookieConsent>
+            </VueIfBot>
         </div>
     </client-only>
 </template>
 
 <script>
+    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
+    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
         transition: {
@@ -142,6 +167,8 @@
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             Breadcrumb: () => import('@/components/Breadcrumb'),
             TheFooter: () => import('@/components/TheFooter'),
+            CookieConsent,
+            VueIfBot,
         },
         data() {
             return {
@@ -307,7 +334,6 @@
         width: 95%;
         border-bottom: 1px solid #EAEAEA;
         margin: auto;
-        text-align: right;
     }
 
     .text-price {

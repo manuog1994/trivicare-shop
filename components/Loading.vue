@@ -1,7 +1,7 @@
 <template>
   <div v-if="loading" class="loading-page m-5">
-    <div style="display:flex;justify-content:center;opacity:50%;">
-      <img src="/img/logo/TriviCare_byn Positivo.png" alt="logo" width="50%">
+    <div class="d-flex justify-content-center opacity-50">
+      <img class="m-auto" src="/img/logo/TriviCare_byn Positivo.png" alt="logo" width="60%">
     </div>
     <loading-progress
       indeterminate="indeterminate"
@@ -34,8 +34,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     background: rgba(255, 255, 255, 0.8) !important;
     text-align: center;
     padding-top: 200px;

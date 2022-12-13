@@ -1,0 +1,19 @@
+.policy-section[data-v-0ab40050] {
+  padding: 96px 0 95px;
+}
+@media only screen and (max-width: 767px) {
+.policy-section[data-v-0ab40050] {
+    padding: 60px 0;
+}
+}
+.policy-list[data-v-0ab40050]:not(:last-child) {
+  margin-bottom: 40px;
+}
+@media only screen and (max-width: 767px) {
+.policy-list[data-v-0ab40050]:not(:last-child) {
+    margin-bottom: 30px;
+}
+}
+.policy-title[data-v-0ab40050] {
+  font-weight: 500;
+}

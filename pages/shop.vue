@@ -2,7 +2,7 @@
     <client-only>
         <div class="shop-page-wrapper">
             <HeaderWithTopbar containerClass="container" />
-            <Breadcrumb :pageTitle="this.$route.query.category || this.$route.query.tag ? 'Resultados de la búsqueda' : 'Todos los productos' "/>
+            <Breadcrumb class="d-none d-md-block" :pageTitle="this.$route.query.category || this.$route.query.tag ? 'Resultados de la búsqueda' : 'Todos los productos' "/>
             <!-- product items wrapper -->
             <div class="shop-area pt-100 pb-100">
                 <div class="container">
@@ -28,7 +28,7 @@
                                         resultados por página</p>
                                     </div>
                                 </div>
-                                <div class="shop-tab">
+                                <div class="shop-tab d-none d-md-block">
                                     <button @click="layout = 'twoColumn'" :class="{ active : layout === 'twoColumn' }">
                                         <i class="fa fa-th-large"></i>
                                     </button>
@@ -70,7 +70,7 @@
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 d-none d-md-block">
                             <ShopSidebar classes="mr-30" @search="searchFilter"/>
                         </div>
                     </div>
@@ -79,11 +79,26 @@
             <!-- end product items wrapper -->
              <QuickView />
             <TheFooter />
+            <VueIfBot>
+                <CookieConsent>
+                    <template slot="message">
+                        <span>
+                            Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
+                            <a class="text-info" href="/politica-de-cookies">Política de Cookies</a>.
+                        </span>
+                    </template>
+                    <template slot="button">
+                        <button class="btn border-1">Aceptar</button>
+                    </template>
+                </CookieConsent>
+            </VueIfBot>
         </div>
     </client-only>
 </template>
 
 <script>
+    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
+    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
         transition: {
@@ -97,6 +112,8 @@
             ProductGridItem: () => import("@/components/product/ProductGridItem"),
             QuickView: () => import("@/components/QuickView"),
             TheFooter: () => import("@/components/TheFooter"),
+            CookieConsent,
+            VueIfBot,
         },
 
         data() {

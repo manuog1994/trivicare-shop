@@ -99,7 +99,7 @@ export default defineNuxtConfig({
         strategies: {
           laravelSanctum: {
             provider: 'laravel/sanctum',
-            url: 'https://api.trivicare.com',
+            url: 'http://localhost:8000',
             endpoints: {
                 login: {
                     url: '/login', method: 'post'

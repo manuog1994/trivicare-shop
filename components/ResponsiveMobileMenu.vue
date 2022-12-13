@@ -37,7 +37,7 @@
                 menus: [
                     {
                         url: '/',
-                        title: 'Home',
+                        title: 'Inicio',
 
                     },
                     {

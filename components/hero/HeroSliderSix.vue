@@ -59,12 +59,12 @@
                 sliderData: [
                     {
                         title: "Bienvenid@ a TriviCare",
-                        desc: "10% de descuento en todos los accesorios",
+                        desc: "Queremos cuidar de tu piel, con toda nuestra gama de productos",
                         backgroundImage: "/img/slider/slider1-1.png"
                     },
                     {
                         title: "Oferta de Inauguración",
-                        desc: "20% con el código de descuento: TRIVICARE20",
+                        desc: "10% de descuento en tu compra con el cupón 'TRIVICARE10' solo hasta el 31 de Diciembre",
                         backgroundImage: "/img/slider/slider1-2.png"
                     }
                 ]

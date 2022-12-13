@@ -63,13 +63,6 @@
     "_name": "_1dd7b8f9"
   },
   {
-    "name": "payment",
-    "path": "/payment",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/payment.vue",
-    "chunkName": "pages/payment",
-    "_name": "_585dc72e"
-  },
-  {
     "name": "privacy-policy",
     "path": "/privacy-policy",
     "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/privacy-policy.vue",

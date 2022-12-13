@@ -7,8 +7,8 @@
                     <img class="hover-img" src="~/static/img/product/cosmetics/default.png" :alt="product.title">
                 </div>
                 <div v-else>
-                    <img class="default-img" :src="`http://localhost:8000/${product.images[0].path}`" :alt="product.title">
-                    <img class="hover-img" :src="`http://localhost:8000/${product.images[0].path}`" :alt="product.title">
+                    <img class="default-img" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.title">
+                    <img class="hover-img" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.title">
                 </div>
             </n-link>
             <div class="product-badges">

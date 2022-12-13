@@ -10,12 +10,31 @@
             <!-- <BannerStyleFour /> -->
             <!-- <InstagramPostWrapper /> -->
             <!-- <BlogWrapper /> -->
+
+            
             <TheFooter />
+            <VueIfBot>
+                <CookieConsent>
+                    <template slot="message">
+                        <span>
+                            Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
+                            <a class="text-info" href="/politica-de-cookies">Política de Cookies</a>.
+                        </span>
+                    </template>
+                    <template slot="button">
+                        <button class="btn border-1">Aceptar</button>
+                    </template>
+                </CookieConsent>
+            </VueIfBot>
         </div>
     </client-only>
 </template>
 
 <script>
+    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
+    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
+
+
     export default {
         auth: false,
         transition: {
@@ -33,6 +52,8 @@
             // BlogWrapper: () => import('@/components/BlogWrapper'),
             TheFooter: () => import("@/components/TheFooter"),
             Intro: () => import("@/components/Intro"),
+            CookieConsent,
+            VueIfBot
         },
 
         data() {
@@ -74,6 +95,26 @@
 }
 .intro-enter, .intro-leave-active {
     opacity: 0
+}
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(255, 255, 255);
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    border-top: 1px solid rgb(69, 69, 69);
+    color: rgb(0, 0, 0);
+}
+.cookie-consent button {
+    border: 1px solid rgb(57, 57, 57);
+    padding: 10px;
+    margin-left: 20px;
+    min-width: 140px;
 }
 </style>
 

@@ -6,7 +6,7 @@
                     <div class="copyright mb-30">
                         <div class="footer-logo">
                             <n-link to="/">
-                                <img src="/img/logo/logo-footer.png" alt="logo">
+                                <img class="w-sm" src="/img/logo/logo-footer.png" alt="logo">
                             </n-link>
                         </div>
                         <p>© 2022 <a href="#" target="_blank">TriviCare Natural Cosmetics.</a><br> Todos los derechos reservados.</p>
@@ -76,7 +76,14 @@
         </div>
     </footer>
 </template>
+<style scoped>
 
+    .w-sm {
+        margin: auto;
+        width: 30rem;
+    }
+
+</style>
 <script>
     export default {
 

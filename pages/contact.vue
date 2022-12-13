@@ -5,10 +5,25 @@
         <Location />
         <ContactInfo />
         <TheFooter />
+        <VueIfBot>
+            <CookieConsent>
+                <template slot="message">
+                    <span>
+                        Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
+                        <a class="text-info" href="/politica-de-cookies">Política de Cookies</a>.
+                    </span>
+                </template>
+                <template slot="button">
+                    <button class="btn border-1">Aceptar</button>
+                </template>
+            </CookieConsent>
+        </VueIfBot>
     </div>
 </template>
 
 <script>
+    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
+    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
         transition: {
@@ -21,6 +36,8 @@
             Breadcrumb: () => import("@/components/Breadcrumb"),
             TheFooter: () => import("@/components/TheFooter"),
             Location: () => import("@/components/Location"),
+            CookieConsent,
+            VueIfBot
         },
         head() {
             return {

@@ -10,8 +10,13 @@
                                 <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
                             </div>
                             <swiper :options="swiperOptionTop">
-                                <div class="large-img swiper-slide">
-                                    <img class="img-fluid" src="../static/img/product/cosmetics/1.jpg" :alt="product.name">
+                                <div class="large-img swiper-slide" v-if="product.images == 0">
+                                    <img class="img-fluid" src="~/static/img/product/cosmetics/default.png" :alt="product.name">
+                                </div>
+                                <div class="large-img swiper-slide" v-else>
+                                    <div v-for="image in product.images" :key="image.id">
+                                        <img class="img-fluid" :src="`https://api.trivicare.com/${image.path}`" :alt="product.name">
+                                    </div>
                                 </div>
                                 <div class="quickview-nav swiper-button-prev">
                                     <i class="pe-7s-angle-left"></i>
@@ -33,14 +38,14 @@
                         </div>
                         <h2>{{ product.name }}</h2>
                         <div class="product-details-price">
-                            <span>{{ discountedPrice(product).toFixed(2) }} &euro;</span>
-                            <span class="old" v-if="product.discount > 0">{{ product.price_base}} &euro;</span>
+                            <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                            <span class="old" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2)}} &euro;</span>
                         </div>
                         <div class="pro-details-rating-wrap">
                             <client-only>
                                 <vue-star-rating :read-only="true" :rating="product.rating" :star-size="20" :show-rating="false" :increment="0.5"></vue-star-rating>
                             </client-only>
-                            <span><a class="ms-1" href="#">{{ product.total_reviews }} Reviews</a></span>
+                            <span><a class="ms-1" href="#">{{ product.total_reviews }} Valoraciones</a></span>
                         </div>
                         <p>{{ product.description }}</p>
                         <div class="pro-details-size-color" v-if="product.variation">
