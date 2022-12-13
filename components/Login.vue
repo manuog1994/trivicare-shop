@@ -47,11 +47,9 @@
 
         methods: {
             async login() {
-                await this.$axios.get('/sanctum/csrf-cookie')
-                .then(res => {
-                    console.log(res);
+                try {
                     const formData = new FormData(this.$refs.loginform);
-                    this.$auth.loginWith('laravelSanctum', {
+                    await this.$auth.loginWith('laravelSanctum', {
                         data: formData
                     }).then(res => {
                         console.log(res);
@@ -59,11 +57,10 @@
                         this.errors = [];
                         this.$notify({ title: 'Bienvenid@ de nuevo!'})
                     });
-
-                }).catch((error) => {
+                } catch (error) {
                     this.errors = ['El correo electrónico o la contraseña son incorrectos.']; 
-                    console.log(error.response.data)
-                })
+                    console.log(error.response.data)             
+                }
             }, 
         },
     }
