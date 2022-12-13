@@ -36,6 +36,7 @@
                                                 <div class="d-md-flex justify-content-md-end">
                                                     <span class="d-none d-md-block" style="font-size:14px;color:#cfcfcf;margin-right:5px;padding-right:5px;text-decoration:line-through;" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
                                                     <p class="d-md-none">Precio: <span class=" fw-semibold">{{ (discountedPrice(product) * 1.21).toFixed(2) }} €</span></p>
+                                                    <p class="text-price d-none d-md-block"><span class=" fw-semibold">{{ (discountedPrice(product) * 1.21).toFixed(2) }} €</span></p>
                                                 </div>
 
                                             </div>
