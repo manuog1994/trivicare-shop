@@ -51,16 +51,16 @@
                                     <td>{{ product.cartQuantity }}</td>
                                     <td>
                                         <span v-if="product.discount < 0">
-                                            {{ product.price }}
+                                            {{ (product.price_base * 1.21).toFixed(2) }} &euro;
                                         </span>
                                         <span v-else>
-                                            {{ discountedPrice(product).toFixed(2) }} &euro;
+                                            {{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;
                                         </span>
                                         <span class="old ms-2" v-if="product.discount != null">
-                                            {{ product.price }} &euro;
+                                            {{ (product.price_base * 1.21).toFixed(2) }} &euro;
                                         </span>
                                     </td>
-                                    <td>{{ product.total }} &euro;</td>
+                                    <td>{{ (product.total * 1.21).toFixed(2) }} &euro;</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -71,7 +71,7 @@
                             <div class="d-flex flex-column">
                                 <div class="d-flex justify-content-between mb-2">
                                     <div class="me-2 fw-bold">Subtotal:</div>
-                                    <div>{{ order.total }} &euro;</div>
+                                    <div>{{ (order.total * 1.21).toFixed(2) }} &euro;</div>
                                 </div>
                                 <div v-if="order.coupon" class="d-flex justify-content-between mb-2">
                                     <div class="me-2 fw-bold">Cupón:</div>
@@ -90,8 +90,8 @@
                                 </div>
                                 <div class="d-flex justify-content-between mt-2">
                                     <div class="me-2 fs-4 fw-bold">Total:</div>
-                                    <div v-if="order.shipping == 0" style="font-size:20px;">{{ order.total }} &euro;</div>
-                                    <div v-else style="font-size:20px;">{{ (parseFloat(order.total) + parseFloat(order.shipping)).toFixed(2) }} &euro;</div>
+                                    <div v-if="order.shipping == 0" style="font-size:20px;">{{ (order.total * 1.21).toFixed(2) }} &euro;</div>
+                                    <div v-else style="font-size:20px;">{{ ((parseFloat(order.total) * 1.21) + parseFloat(order.shipping)).toFixed(2) }} &euro;</div>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +147,7 @@ export default {
         },
 
         discountedPrice(product) {
-            return product.price - (product.price * product.discount / 100)
+            return product.price_base - (product.price_base * product.discount / 100)
         },
 
         async getUserName() {
