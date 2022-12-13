@@ -6,7 +6,13 @@ export default defineNuxtConfig({
         fallback: true
     },
 
+    
     target: 'server', // default is 'server'
+    
+    "engines": {
+        "node": "16.x"
+    },
+    
     
     // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {
@@ -93,10 +99,10 @@ export default defineNuxtConfig({
         strategies: {
           laravelSanctum: {
             provider: 'laravel/sanctum',
-            url: 'http://localhost:8000',
+            url: 'https://api.trivicare.com',
             endpoints: {
                 login: {
-                    url: '/login',
+                    url: '/login', method: 'post'
                 }
             },
           },
@@ -104,7 +110,7 @@ export default defineNuxtConfig({
     },
 
     axios: {
-        baseURL: 'http://localhost:8000',
+        baseURL: 'https://api.trivicare.com',
         credentials:true,
     },
 

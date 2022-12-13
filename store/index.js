@@ -207,7 +207,7 @@ export const actions = {
 
     async getProducts(context, {perPage, page, category, search, slug, sort, tag, status}) {
         const { data } = await axios.get(
-          'http://localhost:8000/api/products?perPage=' + perPage + '&page=' + page + '&filter[category_id]=' + category + '&filter[name]=' + search + '&filter[slug]=' + slug + '&filter[status]=' + status +'&sort=' + sort + '&tags=' + tag
+          'https://api.trivicare.com/api/products?perPage=' + perPage + '&page=' + page + '&filter[category_id]=' + category + '&filter[name]=' + search + '&filter[slug]=' + slug + '&filter[status]=' + status +'&sort=' + sort + '&tags=' + tag
         );
         context.commit("SET_PRODUCT", data);
         context.commit("SET_PAGINATION", data.meta);
@@ -215,14 +215,14 @@ export const actions = {
 
     async getCategories(context) {
         const { data } = await axios.get(
-          'http://localhost:8000/api/categories'
+          'https://api.trivicare.com/api/categories'
         );
         context.commit("SET_CATEGORY", data.data);
     },
 
     async getTags(context) {
         const { data } = await axios.get(
-          'http://localhost:8000/api/tags'
+          'https://api.trivicare.com/api/tags'
         );
         context.commit("SET_TAG", data.data);
     },

@@ -42,24 +42,28 @@
         },
 
         mounted() {
-            this.$axios.$get('/sanctum/csrf-cookie');
+            this.$axios.get('/sanctum/csrf-cookie');
         },
 
         methods: {
             async login() {
-                try {
+                await this.$axios.get('/sanctum/csrf-cookie')
+                .then(res => {
+                    console.log(res);
                     const formData = new FormData(this.$refs.loginform);
-                    await this.$auth.loginWith('laravelSanctum', {
+                    this.$auth.loginWith('laravelSanctum', {
                         data: formData
                     }).then(res => {
                         console.log(res);
+                        window.location.reload();
+                        this.errors = [];
+                        this.$notify({ title: 'Bienvenid@ de nuevo!'})
                     });
-                    window.location.reload();
-                    this.errors = [];
-                    this.$notify({ title: 'Bienvenid@ de nuevo!'})
-                } catch (error) {
-                    this.errors = ['El correo electrónico o la contraseña son incorrectos.'];              
-                }
+
+                }).catch((error) => {
+                    this.errors = ['El correo electrónico o la contraseña son incorrectos.']; 
+                    console.log(error.response.data)
+                })
             }, 
         },
     }

@@ -32,17 +32,17 @@
             }
         },
 
-        mounted() {
-            this.$axios.$get('/sanctum/csrf-cookie');
+        async mounted() {
+            await this.$axios.get('/sanctum/csrf-cookie');
         },
 
         methods: {
             register() {
                 const formData = new FormData(this.$refs.registerform);
-                this.$axios.post('/register', formData)
+                this.$axios.post('/api/register', formData)
                 .then(res => {
                     this.$auth.loginWith('laravelSanctum', { data: formData });
-                    console.log(res);
+                    //console.log(res);
                     this.errors = [];
                     this.$router.push({
                         path: '/'
