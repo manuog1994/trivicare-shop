@@ -4,7 +4,15 @@ declare module '@nuxt/schema' {
     ["imports"]?: typeof import("imports").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
   }
   interface RuntimeConfig {
-     public: any,
+     googleAnalytics: {
+        id: string,
+    },
+
+    public: {
+        googleAnalytics: {
+             id: string,
+        },
+    },
 
     app: {
         basePath: string,

@@ -21,6 +21,7 @@ import nuxt_plugin_nitrobridgeclient_7234adce from 'nuxt_plugin_nitrobridgeclien
 import nuxt_plugin_axios_c99ba5ee from 'nuxt_plugin_axios_c99ba5ee' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_capiplugin_cfcb4f2c from 'nuxt_plugin_capiplugin_cfcb4f2c' // Source: ./capi.plugin.mjs (mode: 'all')
 import nuxt_plugin_errorpluginserver_44ca2f7f from 'nuxt_plugin_errorpluginserver_44ca2f7f' // Source: ../node_modules/@nuxt/bridge/dist/runtime/error.plugin.server.mjs (mode: 'server')
+import nuxt_plugin_googleanalytics_b6b44906 from 'nuxt_plugin_googleanalytics_b6b44906' // Source: ./google-analytics.js (mode: 'client')
 import nuxt_plugin_fontawesome_2e6a558b from 'nuxt_plugin_fontawesome_2e6a558b' // Source: ./fontawesome.js (mode: 'all')
 import nuxt_plugin_vueawesomeswiper_5ce03f58 from 'nuxt_plugin_vueawesomeswiper_5ce03f58' // Source: ../plugins/vue-awesome-swiper.js (mode: 'all')
 import nuxt_plugin_vuejspagiante_7edc93b2 from 'nuxt_plugin_vuejspagiante_7edc93b2' // Source: ../plugins/vuejs-pagiante.js (mode: 'all')
@@ -260,6 +261,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (process.server && typeof nuxt_plugin_errorpluginserver_44ca2f7f === 'function') {
     await nuxt_plugin_errorpluginserver_44ca2f7f(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_googleanalytics_b6b44906 === 'function') {
+    await nuxt_plugin_googleanalytics_b6b44906(app.context, inject)
   }
 
   if (typeof nuxt_plugin_fontawesome_2e6a558b === 'function') {

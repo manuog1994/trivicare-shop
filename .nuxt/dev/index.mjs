@@ -21,7 +21,7 @@ import { hash } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_m
 import { createStorage } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/unstorage/dist/drivers/fs.mjs';
 
-const _runtimeConfig = {"app":{"baseURL":"/","basePath":"/","assetsPath":"/_nuxt/","cdnURL":"","buildAssetsDir":"/_nuxt/"},"nitro":{"routes":{},"envPrefix":"NUXT_"},"public":{}};
+const _runtimeConfig = {"app":{"baseURL":"/","basePath":"/","assetsPath":"/_nuxt/","cdnURL":"","buildAssetsDir":"/_nuxt/"},"nitro":{"routes":{},"envPrefix":"NUXT_"},"googleAnalytics":{"id":"G-6FYD0CCL8E"},"public":{"googleAnalytics":{"id":"G-6FYD0CCL8E"}}};
 const ENV_PREFIX = "NITRO_";
 const ENV_PREFIX_ALT = _runtimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_";
 const getEnv = (key) => {
