@@ -7,7 +7,7 @@
                         <div class="col-lg-2 col-md-6 col-4">
                             <div class="logo">
                                 <n-link to="/">
-                                    <img src="/img/logo/logo-2.png" alt="trivicare logo">
+                                    <img src="/img/logo/logo-ajustado2.png" alt="trivicare logo">
                                 </n-link>
                             </div>
                         </div>
