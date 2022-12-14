@@ -11,10 +11,10 @@
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
                                 <div v-if="product.images.length == 0" class="large-img swiper-slide">
-                                    <img class="img-fluid" src="~/static/img/product/cosmetics/default.png" :alt="product.name">
+                                    <nuxt-img src="~/static/img/product/cosmetics/default.png" placeholder />
                                 </div>
                                 <div v-else class="large-img swiper-slide" v-for="image in product.images" :key="'image-' + image.id">
-                                    <img class="img-fluid" :src="`http://localhost:8000/${image.path}`" :alt="product.name">
+                                    <nuxt-img :src="`https://api.trivicare.com/${image.path}`" placeholder />
                                 </div>
                                 <div class="quickview-nav swiper-button-prev">
                                     <i class="pe-7s-angle-left"></i>
@@ -25,10 +25,10 @@
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
                                 <div v-if="product.images.length == 0" class="thumb-img swiper-slide">
-                                    <img class="img-fluid" src="~/static/img/product/cosmetics/default.png" :alt="product.name">
+                                    <nuxt-img src="~/static/img/product/cosmetics/default.png" placeholder/>
                                 </div>
                                 <div v-else class="thumb-img swiper-slide" v-for="image in product.images" :key="'imagetwo-' + image.id">
-                                    <img class="img-fluid" :src="`http://localhost:8000/${image.path}`" :alt="product.name">
+                                    <nuxt-img :src="`https://api.trivicare.com/${image.path}`" placeholder/>
                                 </div>
                             </swiper>
                         </div>

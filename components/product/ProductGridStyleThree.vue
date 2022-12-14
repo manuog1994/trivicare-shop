@@ -3,12 +3,12 @@
         <div class="product-img">
             <n-link :to="`/product/${slugify(product.title)}`">
                 <div v-if="product.images.lenght == 0">
-                    <img class="default-img" src="~/static/img/product/cosmetics/default.png" :alt="product.title">
-                    <img class="hover-img" src="~/static/img/product/cosmetics/default.png" :alt="product.title">
+                    <nuxt-img class="default-img" src="~/static/img/product/cosmetics/default.png" :alt="product.title" />
+                    <nuxt-img class="hover-img" src="~/static/img/product/cosmetics/default.png" :alt="product.title" />
                 </div>
                 <div v-else>
-                    <img class="default-img" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.title">
-                    <img class="hover-img" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.title">
+                    <nuxt-img class="default-img" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.title" />
+                    <nuxt-img class="hover-img" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.title" />
                 </div>
             </n-link>
             <div class="product-badges">

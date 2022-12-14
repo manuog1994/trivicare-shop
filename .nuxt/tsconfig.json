@@ -76,6 +76,12 @@
       "#head": [
         ".nuxt/meta"
       ],
+      "~image": [
+        "node_modules/@nuxtjs/image/dist/runtime"
+      ],
+      "~image/*": [
+        "node_modules/@nuxtjs/image/dist/runtime/*"
+      ],
       "~auth/runtime": [
         "node_modules/@nuxtjs/auth-next/dist/runtime"
       ],

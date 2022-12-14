@@ -6,8 +6,8 @@
                     <swiper :options="testimonialOption">
                         <client-only>
                             <div class="swiper-slide single-testimonial text-center" v-for="(testimonial, index) in testimonialData" :key="index">
-                                <img :src="testimonial.imgSrc" :alt="testimonial.name">
-                                <p>{{ testimonial.desc }}</p>
+                                <nuxt-img :src="testimonial.imgSrc" :alt="testimonial.name" />
+                                 <p>{{ testimonial.desc }}</p>
                                 <div class="client-info">
                                     <i class="fa fa-map-signs"></i>
                                     <h5>{{ testimonial.name }}</h5>

@@ -2,6 +2,7 @@
 /// <reference types="@nuxtjs/fontawesome" />
 /// <reference types="@nuxtjs/dotenv" />
 /// <reference types="@nuxt/bridge-edge" />
+/// <reference types="@nuxt/image" />
 /// <reference types="@nuxtjs/style-resources" />
 /// <reference types="@nuxtjs/axios" />
 /// <reference types="@nuxtjs/auth-next" />

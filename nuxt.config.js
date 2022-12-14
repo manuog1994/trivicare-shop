@@ -78,7 +78,7 @@ export default defineNuxtConfig({
     // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
     buildModules: [
         '@nuxtjs/fontawesome',
-        '@nuxtjs/dotenv', 
+        '@nuxtjs/dotenv',
     ],
 
     fontawesome: {
@@ -91,9 +91,10 @@ export default defineNuxtConfig({
 
     // Modules (https://go.nuxtjs.dev/config-modules)
     modules: [
+        '@nuxtjs/image',    
         '@nuxtjs/style-resources',
         '@nuxtjs/axios',
-        '@nuxtjs/auth-next',    
+        '@nuxtjs/auth-next',
     ],
 
     auth: {
@@ -119,7 +120,7 @@ export default defineNuxtConfig({
         middleware: ['auth'],
     },
       
-    transition: {
+    pageTransition: {
         name: 'my-layout',
         mode: 'out-in'
     },
@@ -146,7 +147,11 @@ export default defineNuxtConfig({
     env: {
         baseUrl: process.env.BASE_URL || 'http://localhost:3000',
         googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID
-    }
+    },
+
+    // serverMiddleware: {
+    //     '/_ipx': '~/server/middleware/ipx.js'
+    // }
       
       
 })
