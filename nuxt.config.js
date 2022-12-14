@@ -78,6 +78,7 @@ export default defineNuxtConfig({
     // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
     buildModules: [
         '@nuxtjs/fontawesome', 
+        '@nuxtjs/google-analytics'
     ],
 
     fontawesome: {
@@ -141,7 +142,15 @@ export default defineNuxtConfig({
         },
     },
 
-    env: {}
+    googleAnalytics: {
+        id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+    },
+    
+    publicRuntimeConfig: {
+        googleAnalytics: {
+            id: process.env.GOOGLE_ANALYTICS_ID
+        }
+    }
 
 
       

@@ -44,6 +44,7 @@
         "@fortawesome/free-solid-svg-icons": "^6.2.0",
         "@nuxt/bridge": "npm:@nuxt/bridge-edge@3.0.0-27747000.69db93e",
         "@nuxtjs/fontawesome": "^1.1.2",
+        "@nuxtjs/google-analytics": "^2.4.0",
         "defu": "^5.0.1",
         "fibers": "^5.0.3",
         "postcss": "^8.4.19",

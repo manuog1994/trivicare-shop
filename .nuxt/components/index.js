@@ -26,7 +26,6 @@ export { default as WelcomeMessage } from '../../components/WelcomeMessage.vue'
 export { default as BannerItem } from '../../components/banner/BannerItem.vue'
 export { default as BannerStyleFour } from '../../components/banner/BannerStyleFour.vue'
 export { default as BannerStyleOne } from '../../components/banner/BannerStyleOne.vue'
-export { default as HeroSliderSix } from '../../components/hero/HeroSliderSix.vue'
 export { default as PolicyServicePolicy } from '../../components/policy/ServicePolicy.vue'
 export { default as PolicyServicePolicyFive } from '../../components/policy/ServicePolicyFive.vue'
 export { default as PolicyServicePolicyFour } from '../../components/policy/ServicePolicyFour.vue'
@@ -44,6 +43,7 @@ export { default as CrudEdit } from '../../components/crud/Edit.vue'
 export { default as CrudNav } from '../../components/crud/Nav.vue'
 export { default as CrudOrders } from '../../components/crud/Orders.vue'
 export { default as CrudOrdersHistory } from '../../components/crud/OrdersHistory.vue'
+export { default as HeroSliderSix } from '../../components/hero/HeroSliderSix.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

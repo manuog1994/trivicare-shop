@@ -29,7 +29,6 @@ declare module 'vue' {
     'BannerItem': typeof import("../components/banner/BannerItem.vue")['default'],
     'BannerStyleFour': typeof import("../components/banner/BannerStyleFour.vue")['default'],
     'BannerStyleOne': typeof import("../components/banner/BannerStyleOne.vue")['default'],
-    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'PolicyServicePolicy': typeof import("../components/policy/ServicePolicy.vue")['default'],
     'PolicyServicePolicyFive': typeof import("../components/policy/ServicePolicyFive.vue")['default'],
     'PolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
@@ -46,7 +45,8 @@ declare module 'vue' {
     'CrudEdit': typeof import("../components/crud/Edit.vue")['default'],
     'CrudNav': typeof import("../components/crud/Nav.vue")['default'],
     'CrudOrders': typeof import("../components/crud/Orders.vue")['default'],
-    'CrudOrdersHistory': typeof import("../components/crud/OrdersHistory.vue")['default']
+    'CrudOrdersHistory': typeof import("../components/crud/OrdersHistory.vue")['default'],
+    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default']
     'LazyAboutMission': typeof import("../components/AboutMission.vue")['default'],
     'LazyBrandLogoCarousel': typeof import("../components/BrandLogoCarousel.vue")['default'],
     'LazyBreadcrumb': typeof import("../components/Breadcrumb.vue")['default'],
@@ -75,7 +75,6 @@ declare module 'vue' {
     'LazyBannerItem': typeof import("../components/banner/BannerItem.vue")['default'],
     'LazyBannerStyleFour': typeof import("../components/banner/BannerStyleFour.vue")['default'],
     'LazyBannerStyleOne': typeof import("../components/banner/BannerStyleOne.vue")['default'],
-    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'LazyPolicyServicePolicy': typeof import("../components/policy/ServicePolicy.vue")['default'],
     'LazyPolicyServicePolicyFive': typeof import("../components/policy/ServicePolicyFive.vue")['default'],
     'LazyPolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
@@ -92,7 +91,8 @@ declare module 'vue' {
     'LazyCrudEdit': typeof import("../components/crud/Edit.vue")['default'],
     'LazyCrudNav': typeof import("../components/crud/Nav.vue")['default'],
     'LazyCrudOrders': typeof import("../components/crud/Orders.vue")['default'],
-    'LazyCrudOrdersHistory': typeof import("../components/crud/OrdersHistory.vue")['default']
+    'LazyCrudOrdersHistory': typeof import("../components/crud/OrdersHistory.vue")['default'],
+    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default']
   }
 }
 export const AboutMission: typeof import("../components/AboutMission.vue")['default']
@@ -123,7 +123,6 @@ export const WelcomeMessage: typeof import("../components/WelcomeMessage.vue")['
 export const BannerItem: typeof import("../components/banner/BannerItem.vue")['default']
 export const BannerStyleFour: typeof import("../components/banner/BannerStyleFour.vue")['default']
 export const BannerStyleOne: typeof import("../components/banner/BannerStyleOne.vue")['default']
-export const HeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const PolicyServicePolicy: typeof import("../components/policy/ServicePolicy.vue")['default']
 export const PolicyServicePolicyFive: typeof import("../components/policy/ServicePolicyFive.vue")['default']
 export const PolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
@@ -141,6 +140,7 @@ export const CrudEdit: typeof import("../components/crud/Edit.vue")['default']
 export const CrudNav: typeof import("../components/crud/Nav.vue")['default']
 export const CrudOrders: typeof import("../components/crud/Orders.vue")['default']
 export const CrudOrdersHistory: typeof import("../components/crud/OrdersHistory.vue")['default']
+export const HeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const LazyAboutMission: typeof import("../components/AboutMission.vue")['default']
 export const LazyBrandLogoCarousel: typeof import("../components/BrandLogoCarousel.vue")['default']
 export const LazyBreadcrumb: typeof import("../components/Breadcrumb.vue")['default']
@@ -169,7 +169,6 @@ export const LazyWelcomeMessage: typeof import("../components/WelcomeMessage.vue
 export const LazyBannerItem: typeof import("../components/banner/BannerItem.vue")['default']
 export const LazyBannerStyleFour: typeof import("../components/banner/BannerStyleFour.vue")['default']
 export const LazyBannerStyleOne: typeof import("../components/banner/BannerStyleOne.vue")['default']
-export const LazyHeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const LazyPolicyServicePolicy: typeof import("../components/policy/ServicePolicy.vue")['default']
 export const LazyPolicyServicePolicyFive: typeof import("../components/policy/ServicePolicyFive.vue")['default']
 export const LazyPolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
@@ -187,4 +186,5 @@ export const LazyCrudEdit: typeof import("../components/crud/Edit.vue")['default
 export const LazyCrudNav: typeof import("../components/crud/Nav.vue")['default']
 export const LazyCrudOrders: typeof import("../components/crud/Orders.vue")['default']
 export const LazyCrudOrdersHistory: typeof import("../components/crud/OrdersHistory.vue")['default']
+export const LazyHeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const componentNames: string[]

@@ -34,7 +34,6 @@ You can directly use them in pages and other components without the need to impo
 - `<BannerItem>` | `<banner-item>` (components/banner/BannerItem.vue)
 - `<BannerStyleFour>` | `<banner-style-four>` (components/banner/BannerStyleFour.vue)
 - `<BannerStyleOne>` | `<banner-style-one>` (components/banner/BannerStyleOne.vue)
-- `<HeroSliderSix>` | `<hero-slider-six>` (components/hero/HeroSliderSix.vue)
 - `<PolicyServicePolicy>` | `<policy-service-policy>` (components/policy/ServicePolicy.vue)
 - `<PolicyServicePolicyFive>` | `<policy-service-policy-five>` (components/policy/ServicePolicyFive.vue)
 - `<PolicyServicePolicyFour>` | `<policy-service-policy-four>` (components/policy/ServicePolicyFour.vue)
@@ -52,3 +51,4 @@ You can directly use them in pages and other components without the need to impo
 - `<CrudNav>` | `<crud-nav>` (components/crud/Nav.vue)
 - `<CrudOrders>` | `<crud-orders>` (components/crud/Orders.vue)
 - `<CrudOrdersHistory>` | `<crud-orders-history>` (components/crud/OrdersHistory.vue)
+- `<HeroSliderSix>` | `<hero-slider-six>` (components/hero/HeroSliderSix.vue)

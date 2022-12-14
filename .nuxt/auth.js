@@ -42,7 +42,7 @@ export default function (ctx, inject) {
   // Register strategies
   // laravelSanctum
   $auth.registerStrategy('laravelSanctum', new CookieScheme($auth, {
-  "url": "http://localhost:8000",
+  "url": "https://api.trivicare.com",
   "endpoints": {
     "csrf": {
       "withCredentials": true,
@@ -51,7 +51,7 @@ export default function (ctx, inject) {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      "url": "http://localhost:8000/sanctum/csrf-cookie"
+      "url": "https://api.trivicare.com/sanctum/csrf-cookie"
     },
     "login": {
       "withCredentials": true,
@@ -60,7 +60,7 @@ export default function (ctx, inject) {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      "url": "http://localhost:8000/login",
+      "url": "https://api.trivicare.com/login",
       "method": "post"
     },
     "logout": {
@@ -70,7 +70,7 @@ export default function (ctx, inject) {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      "url": "http://localhost:8000/logout"
+      "url": "https://api.trivicare.com/logout"
     },
     "user": {
       "withCredentials": true,
@@ -79,7 +79,7 @@ export default function (ctx, inject) {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      "url": "http://localhost:8000/api/user"
+      "url": "https://api.trivicare.com/api/user"
     }
   },
   "name": "laravelSanctum",
