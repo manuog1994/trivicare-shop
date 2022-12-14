@@ -149,9 +149,9 @@ export default defineNuxtConfig({
         googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID
     },
 
-    // serverMiddleware: {
-    //     '/_ipx': '~/server/middleware/ipx.js'
-    // }
+    image: {
+        dir: 'static/',
+    }
       
       
 })
