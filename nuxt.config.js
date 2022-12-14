@@ -70,10 +70,6 @@ export default defineNuxtConfig({
             src: '~/plugins/notifications-client.js', 
             mode: 'client' 
         },
-        {
-            src: '~/plugins/vue-gtag.js',
-            mode: 'client'
-        },
     ],
 
     // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -81,7 +77,8 @@ export default defineNuxtConfig({
 
     // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
     buildModules: [
-        '@nuxtjs/fontawesome', 
+        '@nuxtjs/fontawesome',
+        '@nuxtjs/dotenv', 
     ],
 
     fontawesome: {
@@ -146,7 +143,10 @@ export default defineNuxtConfig({
     },
 
 
-
+    env: {
+        baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+        googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID
+    }
       
       
 })

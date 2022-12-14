@@ -26,7 +26,7 @@
                     </template>
                 </CookieConsent>
             </VueIfBot>
-        </div>
+         </div>
     </client-only>
 </template>
 
@@ -53,7 +53,8 @@
             TheFooter: () => import("@/components/TheFooter"),
             Intro: () => import("@/components/Intro"),
             CookieConsent,
-            VueIfBot
+            VueIfBot,
+
         },
 
         data() {

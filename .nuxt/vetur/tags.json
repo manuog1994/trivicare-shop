@@ -83,6 +83,9 @@
   "BannerStyleOne": {
     "description": "Auto imported from components/banner/BannerStyleOne.vue"
   },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
   "PolicyServicePolicy": {
     "description": "Auto imported from components/policy/ServicePolicy.vue"
   },
@@ -97,9 +100,6 @@
   },
   "PolicyServicePolicyTwo": {
     "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"

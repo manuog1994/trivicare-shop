@@ -32,7 +32,6 @@ import nuxt_plugin_vuestarrating_daf07ac8 from 'nuxt_plugin_vuestarrating_daf07a
 import nuxt_plugin_bootstrap_68fdc73f from 'nuxt_plugin_bootstrap_68fdc73f' // Source: ../plugins/bootstrap.js (mode: 'client')
 import nuxt_plugin_vuejsmodal_f50827f4 from 'nuxt_plugin_vuejsmodal_f50827f4' // Source: ../plugins/vue-js-modal (mode: 'client')
 import nuxt_plugin_notificationsclient_f727f91e from 'nuxt_plugin_notificationsclient_f727f91e' // Source: ../plugins/notifications-client.js (mode: 'client')
-import nuxt_plugin_vuegtag_44730e72 from 'nuxt_plugin_vuegtag_44730e72' // Source: ../plugins/vue-gtag.js (mode: 'client')
 import nuxt_plugin_auth_b4b991f2 from 'nuxt_plugin_auth_b4b991f2' // Source: ./auth.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -305,10 +304,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (process.client && typeof nuxt_plugin_notificationsclient_f727f91e === 'function') {
     await nuxt_plugin_notificationsclient_f727f91e(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_vuegtag_44730e72 === 'function') {
-    await nuxt_plugin_vuegtag_44730e72(app.context, inject)
   }
 
   if (typeof nuxt_plugin_auth_b4b991f2 === 'function') {
