@@ -28,7 +28,7 @@
 
 @charset "UTF-8";
 /*!
- * Bootstrap  v5.2.2 (https://getbootstrap.com/)
+ * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -6763,7 +6763,6 @@ textarea.form-control-lg {
 .carousel-item-prev {
   display: block;
 }
-/* rtl:begin:ignore */
 .carousel-item-next:not(.carousel-item-start),
 .active.carousel-item-end {
   transform: translateX(100%);
@@ -6772,7 +6771,6 @@ textarea.form-control-lg {
 .active.carousel-item-start {
   transform: translateX(-100%);
 }
-/* rtl:end:ignore */
 .carousel-fade .carousel-item {
   opacity: 0;
   transition-property: opacity;
@@ -22530,6 +22528,21 @@ a.link-nav{
 }
 
 
+.tag-block {
+    display: inline-flex;
+    padding: 1rem, 1rem;
+    border-radius: 5px;
+    border: 1px solid #a8a8a8;
+}
+
+
+.product-grid-change{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+
 .w-10 {
         width: 10px;
 }
@@ -22573,20 +22586,5 @@ a.link-nav{
 }
 .fade-enter, .fade-leave-active {
         opacity: 0
-}
-
-
-.tag-block {
-    display: inline-flex;
-    padding: 1rem, 1rem;
-    border-radius: 5px;
-    border: 1px solid #a8a8a8;
-}
-
-
-.product-grid-change{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0.5rem;
 }
 

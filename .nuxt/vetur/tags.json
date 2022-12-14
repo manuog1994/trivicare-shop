@@ -74,30 +74,6 @@
   "WelcomeMessage": {
     "description": "Auto imported from components/WelcomeMessage.vue"
   },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
-  },
-  "CrudAll": {
-    "description": "Auto imported from components/crud/All.vue"
-  },
-  "CrudCoupons": {
-    "description": "Auto imported from components/crud/Coupons.vue"
-  },
-  "CrudCreate": {
-    "description": "Auto imported from components/crud/Create.vue"
-  },
-  "CrudEdit": {
-    "description": "Auto imported from components/crud/Edit.vue"
-  },
-  "CrudNav": {
-    "description": "Auto imported from components/crud/Nav.vue"
-  },
-  "CrudOrders": {
-    "description": "Auto imported from components/crud/Orders.vue"
-  },
-  "CrudOrdersHistory": {
-    "description": "Auto imported from components/crud/OrdersHistory.vue"
-  },
   "BannerItem": {
     "description": "Auto imported from components/banner/BannerItem.vue"
   },
@@ -122,6 +98,9 @@
   "PolicyServicePolicyTwo": {
     "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
   },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
   },
@@ -136,5 +115,26 @@
   },
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
+  },
+  "CrudAll": {
+    "description": "Auto imported from components/crud/All.vue"
+  },
+  "CrudCoupons": {
+    "description": "Auto imported from components/crud/Coupons.vue"
+  },
+  "CrudCreate": {
+    "description": "Auto imported from components/crud/Create.vue"
+  },
+  "CrudEdit": {
+    "description": "Auto imported from components/crud/Edit.vue"
+  },
+  "CrudNav": {
+    "description": "Auto imported from components/crud/Nav.vue"
+  },
+  "CrudOrders": {
+    "description": "Auto imported from components/crud/Orders.vue"
+  },
+  "CrudOrdersHistory": {
+    "description": "Auto imported from components/crud/OrdersHistory.vue"
   }
 }

@@ -10,7 +10,7 @@
                             </div>
                             <div class="contact-info-dec">
                                 <p>A través del teléfono:</p>
-                                <p>+34 616 641 849</p>
+                                <p>+34 613036942</p>
                             </div>
                         </div>
                         <div class="single-contact-info">

@@ -70,6 +70,10 @@ export default defineNuxtConfig({
             src: '~/plugins/notifications-client.js', 
             mode: 'client' 
         },
+        {
+            src: '~/plugins/vue-gtag.js',
+            mode: 'client'
+        },
     ],
 
     // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -78,7 +82,6 @@ export default defineNuxtConfig({
     // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
     buildModules: [
         '@nuxtjs/fontawesome', 
-        '@nuxtjs/google-analytics'
     ],
 
     fontawesome: {
@@ -142,15 +145,6 @@ export default defineNuxtConfig({
         },
     },
 
-    googleAnalytics: {
-        id: 'G-6FYD0CCL8E', // Use as fallback if no runtime config is provided
-    },
-
-    publicRuntimeConfig: {
-        googleAnalytics: {
-            id: 'G-6FYD0CCL8E'
-        }
-    }
 
 
       
