@@ -7,8 +7,8 @@
                     <nuxt-img class="hover-img" provider="customProvider" src="default.webp" :alt="product.name" />
                 </div>
                 <div v-else>
-                    <nuxt-img class="default-img" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.name" />
-                    <nuxt-img class="hover-img" :src="`https://api.trivicare.com/${product.images[1].path}`" :alt="product.name" />
+                    <nuxt-img class="default-img" provider="customProvider" :src="product.images[0].path" :alt="product.name" />
+                    <nuxt-img class="hover-img" provider="customProvider" :src="product.images[1].path" :alt="product.name" />
                 </div>
             </n-link>
             <div class="product-badges">

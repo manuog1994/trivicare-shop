@@ -26,17 +26,17 @@
             return {
                 policies: [
                 {
-                        icon: "/support-1.png",
+                        icon: "support-1.png",
                         title: "Envío gratis",
                         subTitle: "Envío gratis en pedidos superiores a 50€"
                     },
                     {
-                        icon: "/support-2.png",
+                        icon: "support-2.png",
                         title: "Atención al cliente",
                         subTitle: "Atención al cliente personal y profesional"
                     },
                     {
-                        icon: "/support-4.png",
+                        icon: "support-4.png",
                         title: "10% de descuento",
                         subTitle: "10% de descuento en tu primera compra"
                     },
