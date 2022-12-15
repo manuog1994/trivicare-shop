@@ -6172,7 +6172,7 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",{stati
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",{staticClass:"support-area pb-70"},[_vm._ssrNode('<div class="container">',"</div>",[_vm._ssrNode('<div class="row">',"</div>",_vm._l(_vm.policies,function(policy,index){return _vm._ssrNode('<div class="col-lg-4 col-sm-6">',"</div>",[_vm._ssrNode('<div class="support-wrap-2 support-padding-2 support-shape-3 mb-30 text-center">',"</div>",[_vm._ssrNode('<div class="support-content-2">',"</div>",[_vm._ssrNode('<div class="support-icon">',"</div>",[_c("nuxt-img",{staticClass:"animated",attrs:{src:policy.icon,alt:policy.title}})],1),_vm._ssrNode(' <div class="support-content"><h5>'+_vm._ssrEscape(_vm._s(policy.title))+"</h5> <p>"+_vm._ssrEscape(_vm._s(policy.subTitle))+"</p></div>")],2)])]);}),0)])]);};var staticRenderFns=[];render._withStripped=true;
+var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",{staticClass:"support-area pb-70"},[_vm._ssrNode('<div class="container">',"</div>",[_vm._ssrNode('<div class="row">',"</div>",_vm._l(_vm.policies,function(policy,index){return _vm._ssrNode('<div class="col-lg-4 col-sm-6">',"</div>",[_vm._ssrNode('<div class="support-wrap-2 support-padding-2 support-shape-3 mb-30 text-center">',"</div>",[_vm._ssrNode('<div class="support-content-2">',"</div>",[_vm._ssrNode('<div class="support-icon">',"</div>",[_c("nuxt-img",{staticClass:"animated",attrs:{provider:"customProvider",src:policy.icon,alt:policy.title}})],1),_vm._ssrNode(' <div class="support-content"><h5>'+_vm._ssrEscape(_vm._s(policy.title))+"</h5> <p>"+_vm._ssrEscape(_vm._s(policy.subTitle))+"</p></div>")],2)])]);}),0)])]);};var staticRenderFns=[];render._withStripped=true;
 
 /***/ }),
 
@@ -6818,7 +6818,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({data(){return{policies:[{icon:"support-1.png",title:"Envío gratis",subTitle:"Envío gratis en pedidos superiores a 50€"},{icon:"support-2.png",title:"Atención al cliente",subTitle:"Atención al cliente personal y profesional"},{icon:"support-4.png",title:"10% de descuento",subTitle:"10% de descuento en tu primera compra"}]};}});
+/* harmony default export */ __webpack_exports__["default"] = ({data(){return{policies:[{icon:"support-1.webp",title:"Envío gratis",subTitle:"Envío gratis en pedidos superiores a 50€"},{icon:"support-2.webp",title:"Atención al cliente",subTitle:"Atención al cliente personal y profesional"},{icon:"support-4.webp",title:"10% de descuento",subTitle:"10% de descuento en tu primera compra"}]};}});
 
 /***/ }),
 
