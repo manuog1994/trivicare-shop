@@ -28,7 +28,16 @@
 
         head() {
             return {
-                title: this.product.name
+                title: this.product.name,
+                meta: [
+                    { charset: 'utf-8' },
+                    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: 'Nuestros productos son de la mejor calidad, naturales y ecológicos. Compra online y recibe en tu casa.'
+                    }
+                ],
             }
         },
 

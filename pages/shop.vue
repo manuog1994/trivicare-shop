@@ -375,14 +375,41 @@
             if (this.category) {
                 return {
                     title: this.$route.query.category.charAt(0).toUpperCase()+ this.$route.query.category.slice(1),
+                    meta: [
+                        { charset: 'utf-8' },
+                        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                        {
+                            hid: 'description',
+                            name: 'description',
+                            content: 'Tenemos una gran variedad de productos naturales y ecológicos para ti, elige el que más te guste y disfruta de la mejor calidad.'
+                        }
+                    ],
                 }
             } else if (this.tag) {
                 return {
                     title: this.$route.query.tag.charAt(0).toUpperCase()+ this.$route.query.tag.slice(1),
+                    meta: [
+                        { charset: 'utf-8' },
+                        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                        {
+                            hid: 'description',
+                            name: 'description',
+                            content: 'Tenemos una gran variedad de productos naturales y ecológicos para ti, elige el que más te guste y disfruta de la mejor calidad.'
+                        }
+                    ],
                 }
             } else {
                 return {
                     title: 'Todos los Productos',
+                    meta: [
+                        { charset: 'utf-8' },
+                        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                        {
+                            hid: 'description',
+                            name: 'description',
+                            content: 'Tenemos una gran variedad de productos naturales y ecológicos para ti, elige el que más te guste y disfruta de la mejor calidad.'
+                        }
+                    ],
                 }
             }
         },

@@ -41,7 +41,16 @@
         },
         head() {
             return {
-                title: "Contacto"
+                title: "Contacto",
+                meta: [
+                    { charset: 'utf-8' },
+                    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: 'Puede contactar con nosotros a través de este formulario o enviándonos un correo electrónico a info@trivicare.com, te atenderemos lo antes posible.'
+                    }
+                ],
             }
         },
 

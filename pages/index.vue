@@ -83,9 +83,19 @@
 
         head() {
             return {
-                title: 'Tienda de cosmética natural y ecológica | Cosmética natural y ecológica',
+                title: 'Cuidamos de tú piel | Cosmética natural y ecológica',
+                meta: [
+                    { charset: 'utf-8' },
+                    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: 'La cosmética natural y ecológica es la mejor opción para cuidar de tu piel. Descubre los beneficios de los productos naturales y ecológicos.'
+                    }
+                ],            
             }
         },
+        
     };
 </script>
 

@@ -28,7 +28,16 @@
         },
         head() {
             return {
-                title: "Sobre Nosotros"
+                title: "Sobre Nosotros",
+                meta: [
+                    { charset: 'utf-8' },
+                    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: 'Somos una empresa de cosmética natural y ecológica, con productos de alta calidad y con ingredientes naturales y ecológicos.'
+                    }
+                ],
             }
         },
 
