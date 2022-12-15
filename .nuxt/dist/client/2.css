@@ -461,6 +461,19 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
 .fa-duotone.fa-inverse {
   color: var(--fa-inverse, #fff); }
 
+
+/*! purgecss start ignore */
+.nuxt-speedkit-image[data-v-354346e0] {
+  content-visibility: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*! purgecss end ignore */
+
 /**
  * Swiper 5.4.5
  * Most modern mobile touch slider and framework with hardware accelerated transitions

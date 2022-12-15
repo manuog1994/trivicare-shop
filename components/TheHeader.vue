@@ -6,7 +6,7 @@
                     <div class="col-lg-2 col-md-6 col-4">
                         <div class="logo">
                             <n-link to="/">
-                                <nuxt-img src="logo-ajustado2.png" placeholder />
+                                <nuxt-img src="logo-ajustado2.png" alt="logo" />
                             </n-link>
                         </div>
                     </div>
@@ -90,12 +90,14 @@
 </style>
 
 <script>
+    import SpeedkitImage from 'nuxt-speedkit/components/SpeedkitImage';
     export default {
         auth: false,
 
         components: {
             Navigation: () => import("@/components/Navigation"),
             MiniCart: () => import("@/components/MiniCart"),
+            SpeedkitImage,
         },
 
         computed: {
@@ -118,7 +120,7 @@
                 openCart: false,
                 navOpen: false,
                 role: '',
-             }
+            }
         },
 
         beforeMount() {

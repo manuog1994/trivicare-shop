@@ -76,14 +76,14 @@
       "#head": [
         ".nuxt/meta"
       ],
+      "~auth/runtime": [
+        "node_modules/@nuxtjs/auth-next/dist/runtime"
+      ],
       "~image": [
         "node_modules/@nuxt/image/dist/runtime"
       ],
       "~image/*": [
         "node_modules/@nuxt/image/dist/runtime/*"
-      ],
-      "~auth/runtime": [
-        "node_modules/@nuxtjs/auth-next/dist/runtime"
       ],
       "#imports": [
         ".nuxt/imports"
