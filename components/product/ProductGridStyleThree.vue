@@ -3,8 +3,8 @@
         <div class="product-img">
             <n-link :to="`/product/${slugify(product.title)}`">
                 <div v-if="product.images.lenght == 0">
-                    <nuxt-img class="default-img" src="default.png" :alt="product.title" />
-                    <nuxt-img class="hover-img" src="default.png" :alt="product.title" />
+                    <nuxt-img class="default-img" provider="customProvider" src="default.webp" :alt="product.title" />
+                    <nuxt-img class="hover-img" provider="customProvider" src="default.webp" :alt="product.title" />
                 </div>
                 <div v-else>
                     <nuxt-img class="default-img" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.title" />

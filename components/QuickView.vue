@@ -11,7 +11,7 @@
                             </div>
                             <swiper :options="swiperOptionTop">
                                 <div class="large-img swiper-slide" v-if="product.images == 0">
-                                    <nuxt-img class="img-fluid" src="default.png" :alt="product.name" />
+                                    <nuxt-img class="img-fluid" provider="customProvider" src="default.webp" :alt="product.name" />
                                 </div>
                                 <div class="large-img swiper-slide" v-else>
                                     <div v-for="image in product.images" :key="image.id">

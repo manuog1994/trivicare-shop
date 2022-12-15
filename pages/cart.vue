@@ -25,7 +25,7 @@
                                         <div class="col-4 col-md-2 p-2 ms-4">
                                             <n-link :to="`/product/${product.slug}`">
                                                 <nuxt-img v-if="product.images.length > 0" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.name" /> 
-                                                <nuxt-img v-else src="default.png" :alt="product.name" />
+                                                <nuxt-img v-else provider="customProvider" src="default.webp" :alt="product.name" />
                                             </n-link>
                                         </div>
                                         <div class="col-7 col-md-9 mt-md-3 mt-1">

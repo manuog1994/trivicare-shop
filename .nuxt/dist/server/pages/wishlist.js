@@ -100,6 +100,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/***/ }),
+
+/***/ "./static/img/product/cosmetics/default.png":
+/*!**************************************************!*\
+  !*** ./static/img/product/cosmetics/default.png ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/img/product/cosmetics/default.png";
+
 /***/ })
 
 };;

@@ -6,7 +6,7 @@
                     <div class="col-lg-2 col-md-6 col-4">
                         <div class="logo">
                             <n-link to="/">
-                                <nuxt-img provider="customProvider" src="logo-ajustado2.png" alt="logo" />
+                                <nuxt-img provider="customProvider" src="logo-ajustado2.webp" alt="logo" />
                             </n-link>
                         </div>
                     </div>

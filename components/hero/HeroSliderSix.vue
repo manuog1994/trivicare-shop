@@ -60,12 +60,12 @@
                     {
                         title: "Bienvenid@ a TriviCare",
                         desc: "Queremos cuidar de tu piel, con toda nuestra gama de productos",
-                        backgroundImage: "/img/slider/slider1-1.jpg"
+                        backgroundImage: "https://api.trivicare.com/nuxt/slider1-1.webp"
                     },
                     {
                         title: "Oferta de Inauguración",
                         desc: "10% de descuento en tu compra con el cupón 'TRIVICARE10' solo hasta el 31 de Diciembre",
-                        backgroundImage: "/img/slider/slider1-2.jpg"
+                        backgroundImage: "https://api.trivicare.com/nuxt/slider1-2.webp"
                     }
                 ]
             }
