@@ -8,7 +8,7 @@
                             <div class="shopping-cart-img">
                                 <n-link :to="`/product/${product.slug}`">
                                     <nuxt-img v-if="product.images.length > 0" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.name" />
-                                    <nuxt-img v-else src="~/static/img/product/cosmetics/default.png" :alt="product.name" />
+                                    <nuxt-img v-else src="default.png" :alt="product.name" />
                                 </n-link>
                             </div>
                             <div class="shopping-cart-title">

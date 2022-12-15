@@ -22,17 +22,17 @@
             return {
                 policies: [
                     {
-                        icon: "/img/icon-img/support-1.png",
+                        icon: "/support-1.png",
                         title: "Free Shipping",
                         subTitle: "Free shipping on all order consectetu adipisicing elit sed"
                     },
                     {
-                        icon: "/img/icon-img/support-2.png",
+                        icon: "/support-2.png",
                         title: "Support 24/7",
                         subTitle: "Support 24 hours a day consectetu adipisicing elit sed"
                     },
                     {
-                        icon: "/img/icon-img/support-3.png",
+                        icon: "/support-3.png",
                         title: "Money Return",
                         subTitle: "30 days for free return consectetu adipisicing elit sed"
                     }

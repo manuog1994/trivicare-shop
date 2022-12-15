@@ -24,22 +24,22 @@
             return {
                 policies: [
                     {
-                        icon: "/img/icon-img/support-1.png",
+                        icon: "/support-1.png",
                         title: "Envío gratis",
                         subTitle: "Envío gratis en pedidos superiores a 50€"
                     },
                     {
-                        icon: "/img/icon-img/support-2.png",
+                        icon: "/support-2.png",
                         title: "Atención al cliente",
                         subTitle: "Atención al cliente personal y profesional"
                     },
                     {
-                        icon: "/img/icon-img/support-3.png",
+                        icon: "/support-3.png",
                         title: "Devoluciones",
                         subTitle: "7 días para devolver el producto"
                     },
                     {
-                        icon: "/img/icon-img/support-4.png",
+                        icon: "/support-4.png",
                         title: "10% de descuento",
                         subTitle: "10% de descuento en tu primera compra"
                     },

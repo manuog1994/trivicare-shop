@@ -27,22 +27,22 @@
                     {
                         id: 1,
                         text: "Free shipping on all order",
-                        textImg: "/img/icon-img/support-8.png",
-                        icon: "/img/icon-img/support-5.png",
+                        textImg: "/support-8.png",
+                        icon: "/support-5.png",
                         bgColorClass: "support-bg-color-1"
                     },
                     {
                         id: 2,
                         text: "Money back guarantee under 5 days",
-                        textImg: "/img/icon-img/support-9.png",
-                        icon: "/img/icon-img/support-6.png",
+                        textImg: "/support-9.png",
+                        icon: "/support-6.png",
                         bgColorClass: "support-bg-color-2"
                     },
                     {
                         id: 3,
                         text: "10% discount for our member",
-                        textImg: "/img/icon-img/support-10.png",
-                        icon: "/img/icon-img/support-7.png",
+                        textImg: "/support-10.png",
+                        icon: "/support-7.png",
                         bgColorClass: "support-bg-color-3"
                     }
                 ]

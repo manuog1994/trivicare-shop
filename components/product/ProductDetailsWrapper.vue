@@ -25,7 +25,7 @@
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
                                 <div v-if="product.images.length == 0" class="thumb-img swiper-slide">
-                                    <nuxt-img src="~/static/img/product/cosmetics/default.png" placeholder/>
+                                    <nuxt-img src="default.png" placeholder/>
                                 </div>
                                 <div v-else class="thumb-img swiper-slide" v-for="image in product.images" :key="'imagetwo-' + image.id">
                                     <nuxt-img :src="`https://api.trivicare.com/${image.path}`" placeholder/>
