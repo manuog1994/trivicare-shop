@@ -149,10 +149,13 @@ export default defineNuxtConfig({
         googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID
     },
 
-    image: {
-        dir: 'static/',
-        domains: ['trivicare.com', 'api.trivicare.com', 'localhost:3000']
-    }
+
+
+    // serverMiddleware: {
+    //     '/_ipx': '~/server/middleware/ipx.js'
+    // }
+      
+      
       
       
 })
