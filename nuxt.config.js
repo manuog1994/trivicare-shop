@@ -151,6 +151,7 @@ export default defineNuxtConfig({
 
     image: {
         dir: 'static/',
+        domains: ['trivicare.com', 'api.trivicare.com', 'localhost:3000']
     }
       
       
