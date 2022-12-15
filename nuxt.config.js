@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     },
 
     
-    target: 'static', // default is 'server'
+    target: 'server', // default is 'server'
     
     "engines": {
         "node": "16.x"
@@ -91,7 +91,7 @@ export default defineNuxtConfig({
 
     // Modules (https://go.nuxtjs.dev/config-modules)
     modules: [
-        'nuxt-speedkit',
+        '@nuxt/image',
         '@nuxtjs/style-resources',
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
@@ -149,10 +149,10 @@ export default defineNuxtConfig({
         googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID
     },
 
-    image: {
-        dir: 'static/',
-        domains: ['trivicare.com', 'api.trivicare.com', 'localhost:3000']
-    }
+    // image: {
+    //     dir: 'static/',
+    //     domains: ['trivicare.com', 'api.trivicare.com', 'localhost:3000']
+    // }
       
       
 })

@@ -199,7 +199,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {"baseUrl":"http://localhost:3000","googleAnalyticsId":"G-6FYD0CCL8E","baseURL":"https://trivicare.com","GOOGLE_ANALYTICS_ID":"G-6FYD0CCL8E","NUXT_SPEEDKIT_LAZY_OFFSET_COMPONENT":"0%","NUXT_SPEEDKIT_LAZY_OFFSET_ASSET":"0%"}
+      env: {"baseUrl":"http://localhost:3000","googleAnalyticsId":"G-6FYD0CCL8E","baseURL":"https://trivicare.com","GOOGLE_ANALYTICS_ID":"G-6FYD0CCL8E"}
     }
     // Only set once
 

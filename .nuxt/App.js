@@ -103,10 +103,6 @@ export default {
     isFetching () {
       return this.nbFetching > 0
     },
-
-    isPreview () {
-      return Boolean(this.$options.previewData)
-    },
   },
 
   methods: {

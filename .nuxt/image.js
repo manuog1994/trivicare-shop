@@ -4,6 +4,7 @@ import NuxtImg from '~image/components/nuxt-img.vue'
 import NuxtPicture from '~image/components/nuxt-picture.vue'
 
 import * as staticRuntime$9781 from '/Users/manuelortegagaliano/wa/trivicare-shop/node_modules/@nuxt/image/dist/runtime/providers/static.js'
+import * as ipxRuntime$57ee from '/Users/manuelortegagaliano/wa/trivicare-shop/node_modules/@nuxt/image/dist/runtime/providers/ipx.js'
 
 const imageOptions = {
   "screens": {
@@ -16,17 +17,14 @@ const imageOptions = {
     "2xl": 1536
   },
   "presets": {},
-  "provider": "static",
-  "domains": [
-    "trivicare.com",
-    "api.trivicare.com",
-    "localhost"
-  ],
+  "provider": "ipx",
+  "domains": [],
   "alias": {}
 }
 
 imageOptions.providers = {
-  ['static']: { provider: staticRuntime$9781, defaults: {} }
+  ['static']: { provider: staticRuntime$9781, defaults: {} },
+  ['ipx']: { provider: ipxRuntime$57ee, defaults: {} }
 }
 
 Vue.component(NuxtImg.name, NuxtImg)

@@ -90,14 +90,12 @@
 </style>
 
 <script>
-    import SpeedkitImage from 'nuxt-speedkit/components/SpeedkitImage';
     export default {
         auth: false,
 
         components: {
             Navigation: () => import("@/components/Navigation"),
             MiniCart: () => import("@/components/MiniCart"),
-            SpeedkitImage,
         },
 
         computed: {
