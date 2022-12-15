@@ -154,6 +154,19 @@ export default defineNuxtConfig({
     // serverMiddleware: {
     //     '/_ipx': '~/server/middleware/ipx.js'
     // }
+
+    image: {
+        providers: {
+        customProvider: {
+            name: 'customProvider', // optional value to overrider provider name
+            provider: '~/providers/custom', // Path to custom provider
+            options: {
+            // ... provider options
+            }
+        }
+        }
+    }
+      
       
       
       

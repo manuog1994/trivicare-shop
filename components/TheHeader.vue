@@ -6,7 +6,7 @@
                     <div class="col-lg-2 col-md-6 col-4">
                         <div class="logo">
                             <n-link to="/">
-                                <nuxt-img src="logo-ajustado2.png" alt="logo" :modifiers="{ grayscale: true, tint: '#00DC82' }"/>
+                                <nuxt-img provider="customProvider" src="logo-ajustado2.png" alt="logo" />
                             </n-link>
                         </div>
                     </div>

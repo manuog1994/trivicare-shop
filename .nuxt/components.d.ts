@@ -26,10 +26,10 @@ declare module 'vue' {
     'TheFooter': typeof import("../components/TheFooter.vue")['default'],
     'TheHeader': typeof import("../components/TheHeader.vue")['default'],
     'WelcomeMessage': typeof import("../components/WelcomeMessage.vue")['default'],
-    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'BannerItem': typeof import("../components/banner/BannerItem.vue")['default'],
     'BannerStyleFour': typeof import("../components/banner/BannerStyleFour.vue")['default'],
     'BannerStyleOne': typeof import("../components/banner/BannerStyleOne.vue")['default'],
+    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'PolicyServicePolicy': typeof import("../components/policy/ServicePolicy.vue")['default'],
     'PolicyServicePolicyFive': typeof import("../components/policy/ServicePolicyFive.vue")['default'],
     'PolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
@@ -72,10 +72,10 @@ declare module 'vue' {
     'LazyTheFooter': typeof import("../components/TheFooter.vue")['default'],
     'LazyTheHeader': typeof import("../components/TheHeader.vue")['default'],
     'LazyWelcomeMessage': typeof import("../components/WelcomeMessage.vue")['default'],
-    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'LazyBannerItem': typeof import("../components/banner/BannerItem.vue")['default'],
     'LazyBannerStyleFour': typeof import("../components/banner/BannerStyleFour.vue")['default'],
     'LazyBannerStyleOne': typeof import("../components/banner/BannerStyleOne.vue")['default'],
+    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'LazyPolicyServicePolicy': typeof import("../components/policy/ServicePolicy.vue")['default'],
     'LazyPolicyServicePolicyFive': typeof import("../components/policy/ServicePolicyFive.vue")['default'],
     'LazyPolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
@@ -120,10 +120,10 @@ export const TestimonialOne: typeof import("../components/TestimonialOne.vue")['
 export const TheFooter: typeof import("../components/TheFooter.vue")['default']
 export const TheHeader: typeof import("../components/TheHeader.vue")['default']
 export const WelcomeMessage: typeof import("../components/WelcomeMessage.vue")['default']
-export const HeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const BannerItem: typeof import("../components/banner/BannerItem.vue")['default']
 export const BannerStyleFour: typeof import("../components/banner/BannerStyleFour.vue")['default']
 export const BannerStyleOne: typeof import("../components/banner/BannerStyleOne.vue")['default']
+export const HeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const PolicyServicePolicy: typeof import("../components/policy/ServicePolicy.vue")['default']
 export const PolicyServicePolicyFive: typeof import("../components/policy/ServicePolicyFive.vue")['default']
 export const PolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
@@ -166,10 +166,10 @@ export const LazyTestimonialOne: typeof import("../components/TestimonialOne.vue
 export const LazyTheFooter: typeof import("../components/TheFooter.vue")['default']
 export const LazyTheHeader: typeof import("../components/TheHeader.vue")['default']
 export const LazyWelcomeMessage: typeof import("../components/WelcomeMessage.vue")['default']
-export const LazyHeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const LazyBannerItem: typeof import("../components/banner/BannerItem.vue")['default']
 export const LazyBannerStyleFour: typeof import("../components/banner/BannerStyleFour.vue")['default']
 export const LazyBannerStyleOne: typeof import("../components/banner/BannerStyleOne.vue")['default']
+export const LazyHeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const LazyPolicyServicePolicy: typeof import("../components/policy/ServicePolicy.vue")['default']
 export const LazyPolicyServicePolicyFive: typeof import("../components/policy/ServicePolicyFive.vue")['default']
 export const LazyPolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
