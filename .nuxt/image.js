@@ -18,7 +18,11 @@ const imageOptions = {
   },
   "presets": {},
   "provider": "ipx",
-  "domains": [],
+  "domains": [
+    "trivicare.com",
+    "api.trivicare.com",
+    "localhost"
+  ],
   "alias": {}
 }
 

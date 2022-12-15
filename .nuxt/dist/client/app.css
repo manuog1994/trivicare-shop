@@ -22522,27 +22522,6 @@ a.link-nav{
 }
 
 
-.bg-slider-img {
-    background-color: #f5f5f5a3;
-    padding: 8rem 5rem;
-}
-
-
-.tag-block {
-    display: inline-flex;
-    padding: 1rem, 1rem;
-    border-radius: 5px;
-    border: 1px solid #a8a8a8;
-}
-
-
-.product-grid-change{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0.5rem;
-}
-
-
 .w-10 {
         width: 10px;
 }
@@ -22586,5 +22565,26 @@ a.link-nav{
 }
 .fade-enter, .fade-leave-active {
         opacity: 0
+}
+
+
+.tag-block {
+    display: inline-flex;
+    padding: 1rem, 1rem;
+    border-radius: 5px;
+    border: 1px solid #a8a8a8;
+}
+
+
+.product-grid-change{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+
+.bg-slider-img {
+    background-color: #f5f5f5a3;
+    padding: 8rem 5rem;
 }
 
