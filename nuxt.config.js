@@ -25,7 +25,6 @@ export default defineNuxtConfig({
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-            //{ rel: 'stylesheet', type: 'text/css', href: 'https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css'}
         ],
 
         script: [
@@ -95,6 +94,7 @@ export default defineNuxtConfig({
         '@nuxtjs/style-resources',
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
+        '@nuxtjs/robots',
     ],
 
     auth: {
@@ -149,12 +149,6 @@ export default defineNuxtConfig({
         googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID
     },
 
-
-
-    // serverMiddleware: {
-    //     '/_ipx': '~/server/middleware/ipx.js'
-    // }
-
     image: {
         providers: {
         customProvider: {
@@ -165,7 +159,14 @@ export default defineNuxtConfig({
             }
         }
         }
-    }
+    },
+
+    robots: [
+        {
+            UserAgent: '*',
+            Disallow: ['/crud', '/my-account', '/checkout', '/cart', '/wishlist', '/my-orders', '/orders', '/orders-profile', '/forgot-password', '/compare' ],
+        },
+    ],
       
       
       

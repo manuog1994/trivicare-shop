@@ -12,6 +12,7 @@ h3.cart-page-title {
     font-size: 20px;
     font-weight: 500;
     margin: 0 0 15px;
+    font-display: swap;
 }
 
 .cart-table-content {
@@ -221,6 +222,7 @@ h3.cart-page-title {
             font-weight: 500;
             margin: 0;
             padding-right: 18px;
+            font-display: swap;
             @media #{$lg-layout} {
                 font-size: 16px;
             }
@@ -235,6 +237,7 @@ h3.cart-page-title {
         margin-top: 22px;
         p {
             margin: 0;
+            font-display: swap;
         }
         .tax-select-wrapper {
             margin: 5px 0 0;
@@ -285,6 +288,7 @@ h3.cart-page-title {
         margin: 21px 0 0;
         p {
             margin: 0 0 15px;
+            font-display: swap;
         }
         form {
             input {
@@ -343,6 +347,7 @@ h3.cart-page-title {
             font-weight: 500;
             margin: 0;
             padding-right: 18px;
+            font-display: swap;
         }
         .section-bg-gary-cart {
             background-color: #f9f9f9;
@@ -353,6 +358,7 @@ h3.cart-page-title {
     h5 {
         font-size: 14px;
         margin: 36px 0 27px;
+        font-display: swap;
         span {
             float: right;
             font-size: 18px;
@@ -367,6 +373,7 @@ h3.cart-page-title {
         h5 {
             font-size: 14px;
             margin: 0;
+            font-display: swap;
         }
         ul {
             padding: 19px 0 0 0px;
@@ -401,6 +408,7 @@ h3.cart-page-title {
         font-size: 20px;
         font-weight: 500;
         margin: 0 0 25px;
+        font-display: swap;
         span {
             float: right;
         }
@@ -436,6 +444,7 @@ h3.cart-page-title {
     h4 {
         font-size: 20px;
         padding: 15px 0;
+        font-display: swap;
     }
     &__button {
         border: none;

@@ -12,6 +12,7 @@
         margin: 0;
         position: relative;
         text-transform: uppercase;
+        font-display: swap;
         @media #{$xs-layout}{
             line-height: 22px;
             font-size: 14px;
@@ -60,11 +61,13 @@
                 font-size: 15px;
                 margin: 0;
                 text-transform: uppercase;
+                font-display: swap;
             }
             h5 {
                 font-size: 16px;
                 letter-spacing: 0.2px;
                 margin-top: 7px;
+                font-display: swap;
             }
         }
         .billing-info {

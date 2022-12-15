@@ -41,6 +41,7 @@
             color: $dark;
             margin: 0 0 16px;
             line-height: 1;
+            font-display: swap;
         }
     }
     .footer-list {
@@ -64,6 +65,7 @@
         .footer-title {
             h3{
                 color: $white;
+                font-display: swap;
             }
         }
         .footer-list {
@@ -83,6 +85,7 @@
         p {
             color: #7a7a7a;
             margin: 0 0 20px;
+            font-display: swap;
         }
         .subscribe-form {
             form {
@@ -114,6 +117,7 @@
         &.subscribe-style-white {
             p {
                 color: #e6e6e6;
+                font-display: swap;
             }
             .subscribe-form {
                 form {
@@ -247,6 +251,7 @@
         line-height: 28px;
         margin: 31px auto 33px;
         width: 55%;
+        font-display: swap;
         @media #{$md-layout}{
             width: 85%;
         }
@@ -311,6 +316,7 @@
     p {
         color: $white;
         line-height: 1;
+        font-display: swap;
         a {
             color: $white;
             &:hover {
@@ -324,6 +330,7 @@
     &.copyright-gray {
         p {
             color: #848484;
+            font-display: swap;
             a {
                 color: #848484;
                 letter-spacing: .9px;
@@ -339,6 +346,7 @@
     .footer-top {
         p {
             color: $black;
+            font-display: swap;
         }
         .footer-social {
             ul {

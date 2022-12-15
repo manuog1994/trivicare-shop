@@ -13,6 +13,7 @@
         margin: 0 0 0;
         position: relative;
         display: inline-block;
+        font-display: swap;
         @media #{$xs-layout}{
             font-size:24px;
             line-height: 30px;
@@ -63,6 +64,7 @@
         padding: 0 0 15px;
         position: relative;
         display: inline-block;
+        font-display: swap;
         &:before {
             position: absolute;
             content: "";
@@ -91,6 +93,7 @@
         font-weight: 500;
         color: $black;
         font-size: 24px;
+        font-display: swap;
     }
     &.mb-40 {
         @media #{$xs-layout}{
@@ -137,6 +140,7 @@
         margin: 0;
         line-height: 1;
         padding-right: 45px;
+        font-display: swap;
         @media #{$xs-layout}{
             padding-right: 0px;
         }
@@ -149,6 +153,7 @@
         font-size: 48px;
         margin: 0;
         line-height: 38px;
+        font-display: swap;
         @media #{$md-layout}{
             font-size: 40px;
         }
@@ -174,6 +179,7 @@
         font-size: 36px;
         margin: 0;
         font-weight: 600;
+        font-display: swap;
         @media #{$xs-layout}{
             font-size: 26px;
         }
@@ -210,6 +216,7 @@
         font-weight: 500;
         margin: 0;
         line-height: 29px;
+        font-display: swap;
         @media #{$xs-layout}{
             font-size: 30px;
         }

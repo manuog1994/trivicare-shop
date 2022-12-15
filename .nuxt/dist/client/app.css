@@ -11434,6 +11434,7 @@ h6,
   font-weight: 400;
   margin-top: 0;
   line-height: 1.1;
+  font-display: swap;
 }
 p {
   font-size: 14px;
@@ -11445,24 +11446,31 @@ p {
 }
 h1, .h1 {
   font-size: 36px;
+  font-display: swap;
 }
 h2, .h2 {
   font-size: 30px;
+  font-display: swap;
 }
 h3, .h3 {
   font-size: 24px;
+  font-display: swap;
 }
 h4, .h4 {
   font-size: 18px;
+  font-display: swap;
 }
 h5, .h5 {
   font-size: 14px;
+  font-display: swap;
 }
 h6, .h6 {
   font-size: 12px;
+  font-display: swap;
 }
 p:last-child {
   margin-bottom: 0;
+  font-display: swap;
 }
 a,
 button {
@@ -13446,6 +13454,7 @@ a.default-btn {
   font-size: 15px;
   line-height: 1.2;
   padding-right: 10px;
+  font-display: swap;
 }
 .header-right-wrap .same-style.cart-wrap .shopping-cart-content ul li .shopping-cart-title h4 a, .header-right-wrap .same-style.cart-wrap .shopping-cart-content ul li .shopping-cart-title .h4 a {
   color: #000000;
@@ -13456,6 +13465,7 @@ a.default-btn {
 .header-right-wrap .same-style.cart-wrap .shopping-cart-content ul li .shopping-cart-title h6, .header-right-wrap .same-style.cart-wrap .shopping-cart-content ul li .shopping-cart-title .h6 {
   font-size: 13px;
   margin: 5px 0 8px;
+  font-display: swap;
 }
 .header-right-wrap .same-style.cart-wrap .shopping-cart-content ul li .shopping-cart-title span {
   font-size: 14px;
@@ -13471,6 +13481,7 @@ a.default-btn {
   font-size: 14px;
   margin-bottom: 17px;
   font-weight: 500;
+  font-display: swap;
 }
 .header-right-wrap .same-style.cart-wrap .shopping-cart-content .shopping-cart-total h4 span, .header-right-wrap .same-style.cart-wrap .shopping-cart-content .shopping-cart-total .h4 span {
   float: right;
@@ -14340,6 +14351,7 @@ a.default-btn {
   font-size: 24px;
   font-weight: 500;
   margin: 0;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .single-slider .slider-content h3, .single-slider .slider-content .h3 {
@@ -14352,6 +14364,7 @@ a.default-btn {
   font-size: 72px;
   color: #010101;
   margin: 6px 0 37px;
+  font-display: swap;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .single-slider .slider-content h1, .single-slider .slider-content .h1 {
@@ -14505,6 +14518,7 @@ a.default-btn {
   margin: 0;
   line-height: 1;
   text-transform: uppercase;
+  font-display: swap;
 }
 .slider-content-7 h1, .slider-content-7 .h1 {
   font-size: 70px;
@@ -14512,6 +14526,7 @@ a.default-btn {
   margin: 0px 0 40px;
   line-height: 90px;
   font-weight: 300;
+  font-display: swap;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1365px) {
   .slider-content-7 h1, .slider-content-7 .h1 {
@@ -14550,6 +14565,7 @@ a.default-btn {
 }
 .slider-content-7.slider-content-19-white h3, .slider-content-7.slider-content-19-white .h3 {
   color: #ffffff;
+  font-display: swap;
 }
 .slider-content-7.slider-content-19-white h1, .slider-content-7.slider-content-19-white .h1 {
   color: #ffffff;
@@ -14613,6 +14629,7 @@ a.default-btn {
   position: relative;
   margin-left: 135px;
   margin-bottom: 0;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .slider-content-2 h3, .slider-content-2 .h3 {
@@ -14650,6 +14667,7 @@ a.default-btn {
   line-height: 80px;
   color: #010101;
   margin: 6px 0 37px;
+  font-display: swap;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1365px) {
   .slider-content-2 h1, .slider-content-2 .h1 {
@@ -14682,6 +14700,7 @@ a.default-btn {
   margin: 0;
   position: relative;
   display: inline-block;
+  font-display: swap;
 }
 .slider-content-3 h3::before, .slider-content-3 .h3::before, .slider-content-3 h3::after, .slider-content-3 .h3::after {
   position: absolute;
@@ -14710,6 +14729,7 @@ a.default-btn {
 .slider-content-3 h1, .slider-content-3 .h1 {
   font-size: 72px;
   margin: 28px 0 23px;
+  font-display: swap;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .slider-content-3 h1, .slider-content-3 .h1 {
@@ -14736,6 +14756,7 @@ a.default-btn {
   margin: 0 0 44px;
 }
 .slider-content-3.slider-content-3-white h3, .slider-content-3.slider-content-3-white .h3 {
+  font-display: swap;
   color: #ffffff;
 }
 .slider-content-3.slider-content-3-white h3::before, .slider-content-3.slider-content-3-white .h3::before, .slider-content-3.slider-content-3-white h3::after, .slider-content-3.slider-content-3-white .h3::after {
@@ -14749,12 +14770,14 @@ a.default-btn {
     font-size: 55px;
     line-height: 45px;
     margin: 20px 0 23px;
+    font-display: swap;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .slider-content-3.slider-content-3-white h1, .slider-content-3.slider-content-3-white .h1 {
     font-size: 47px;
     margin: 20px 0 18px;
+    font-display: swap;
   }
 }
 .slider-content-3.slider-content-3-white p {
@@ -14797,7 +14820,11 @@ a.default-btn {
     font-size: 34px;
     line-height: 35px;
     margin: 15px 0 15px;
+    font-display: swap;
   }
+}
+.slider-content-3.slider-content-5 h3, .slider-content-3.slider-content-5 .h3 {
+  font-display: swap;
 }
 .slider-content-3.slider-content-5 h3:before, .slider-content-3.slider-content-5 .h3:before, .slider-content-3.slider-content-5 h3:after, .slider-content-3.slider-content-5 .h3:after {
   display: none;
@@ -14873,6 +14900,7 @@ a.default-btn {
   font-size: 30px;
   margin: 0;
   color: #ffffff;
+  font-display: swap;
 }
 .slider-content-4 h1, .slider-content-4 .h1 {
   font-weight: 500;
@@ -14881,6 +14909,7 @@ a.default-btn {
   letter-spacing: 0.5px;
   color: #ffffff;
   line-height: 56px;
+  font-display: swap;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .slider-content-4 h1, .slider-content-4 .h1 {
@@ -14929,6 +14958,7 @@ a.default-btn {
   letter-spacing: 8px;
   margin: 0px;
   line-height: 1;
+  font-display: swap;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px) {
   .slider-content-6 h1, .slider-content-6 .h1 {
@@ -15039,6 +15069,7 @@ a.default-btn {
   font-size: 24px;
   font-weight: 500;
   margin: 0;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .slider-content-13 h5, .slider-content-13 .h5 {
@@ -15050,6 +15081,7 @@ a.default-btn {
   font-weight: 600;
   line-height: 120px;
   margin: 34px 0 55px;
+  font-display: swap;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .slider-content-13 h1, .slider-content-13 .h1 {
@@ -15121,6 +15153,7 @@ a.default-btn {
   margin: 0;
   letter-spacing: 0.3px;
   line-height: 1;
+  font-display: swap;
 }
 .slider-content-18 h1, .slider-content-18 .h1 {
   font-size: 48px;
@@ -15129,6 +15162,7 @@ a.default-btn {
   margin: 17px 0 37px;
   line-height: 65px;
   letter-spacing: 1px;
+  font-display: swap;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .slider-content-18 h1, .slider-content-18 .h1 {
@@ -15264,6 +15298,7 @@ a.default-btn {
 .support-wrap .support-content h5, .support-wrap .support-content .h5 {
   font-size: 18px;
   margin: 0 0 5px;
+  font-display: swap;
 }
 .support-wrap .support-content p {
   color: #666;
@@ -15311,6 +15346,7 @@ a.default-btn {
   color: #494949;
   margin: 15px 0 15px;
   line-height: 24px;
+  font-display: swap;
 }
 .support-wrap-2 .support-content-2 p {
   font-size: 14px;
@@ -15433,6 +15469,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   margin: 0 0 0;
   position: relative;
   display: inline-block;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .section-title h2, .section-title .h2 {
@@ -15486,6 +15523,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   padding: 0 0 15px;
   position: relative;
   display: inline-block;
+  font-display: swap;
 }
 .section-title-2 h2:before, .section-title-2 .h2:before {
   position: absolute;
@@ -15511,6 +15549,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-weight: 500;
   color: #000000;
   font-size: 24px;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .section-title-3.mb-40 {
@@ -15555,6 +15594,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   margin: 0;
   line-height: 1;
   padding-right: 45px;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .section-title-4 h3, .section-title-4 .h3 {
@@ -15566,6 +15606,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-size: 48px;
   margin: 0;
   line-height: 38px;
+  font-display: swap;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .section-title-5 h2, .section-title-5 .h2 {
@@ -15591,6 +15632,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-size: 36px;
   margin: 0;
   font-weight: 600;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .section-title-6 h2, .section-title-6 .h2 {
@@ -15628,6 +15670,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-weight: 500;
   margin: 0;
   line-height: 29px;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .section-title-7 h2, .section-title-7 .h2 {
@@ -15820,6 +15863,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 .product-wrap .product-content h3, .product-wrap .product-content .h3 {
   font-size: 16px;
   margin: 0;
+  font-display: swap;
 }
 .product-wrap .product-content h3 a, .product-wrap .product-content .h3 a {
   transition: none;
@@ -15889,6 +15933,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-size: 24px;
   margin: 0 0 0px;
   line-height: 1;
+  font-display: swap;
 }
 .product-details-content .product-details-price {
   display: flex;
@@ -16346,6 +16391,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 .product-wrap-2 .product-content-2 .title-price-wrap-2 h3, .product-wrap-2 .product-content-2 .title-price-wrap-2 .h3 {
   margin: 0 0 6px;
   line-height: 1;
+  font-display: swap;
 }
 .product-wrap-2 .product-content-2 .title-price-wrap-2 h3 a, .product-wrap-2 .product-content-2 .title-price-wrap-2 .h3 a {
   color: #000000;
@@ -16378,6 +16424,9 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 }
 .product-wrap-2 .product-content-2 .title-price-wrap-2 .price-2 span:last-child:before {
   display: none;
+}
+.product-wrap-2 .product-content-2 .title-price-wrap-2.title-price-wrap-2-white h3, .product-wrap-2 .product-content-2 .title-price-wrap-2.title-price-wrap-2-white .h3 {
+  font-display: swap;
 }
 .product-wrap-2 .product-content-2 .title-price-wrap-2.title-price-wrap-2-white h3 a, .product-wrap-2 .product-content-2 .title-price-wrap-2.title-price-wrap-2-white .h3 a {
   color: #ffffff;
@@ -16511,6 +16560,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-size: 18px;
   margin: 0;
   line-height: 1;
+  font-display: swap;
 }
 .product-wrap-3 .product-content-3-wrap .product-content-3 .price-3 {
   margin: 10px 0 20px;
@@ -16734,348 +16784,6 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   display: flex;
   flex-wrap: wrap;
 }
-.blog-wrap .blog-img {
-  position: relative;
-  overflow: hidden;
-}
-.blog-wrap .blog-img img {
-  width: 100%;
-  transform: scale(1);
-  transition: all 0.5s ease 0s;
-}
-.blog-wrap .blog-img span {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  display: block;
-  line-height: 1;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 500;
-  padding: 4px 8px 5px;
-  background-color: #2AB5B2;
-}
-.blog-wrap .blog-content-wrap {
-  text-align: center;
-}
-.blog-wrap .blog-content-wrap .blog-content {
-  display: inline-block;
-  background-color: #ffffff;
-  padding: 15px 30px;
-  margin: -64px 0 0;
-  z-index: 99;
-  position: relative;
-  max-width: 85%;
-  width: 100%;
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
-  .blog-wrap .blog-content-wrap .blog-content {
-    padding: 14px 30px;
-    margin: -50px 0 0;
-  }
-}
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .blog-wrap .blog-content-wrap .blog-content {
-    padding: 14px 15px;
-  }
-}
-.blog-wrap .blog-content-wrap .blog-content h3, .blog-wrap .blog-content-wrap .blog-content .h3 {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 30px;
-  margin: 0 0 5px;
-}
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .blog-wrap .blog-content-wrap .blog-content h3, .blog-wrap .blog-content-wrap .blog-content .h3 {
-    font-size: 18px;
-    line-height: 27px;
-  }
-}
-.blog-wrap .blog-content-wrap .blog-content span {
-  color: #666666;
-  font-style: italic;
-}
-.blog-wrap .blog-content-wrap .blog-content span a {
-  color: #666666;
-}
-.blog-wrap .blog-content-wrap .blog-content span a:hover {
-  color: #2AB5B2;
-}
-.blog-wrap .blog-content-3 {
-  background-color: #f6f3f3;
-  padding: 25px 42px 27px;
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
-  .blog-wrap .blog-content-3 {
-    padding: 25px 15px 27px;
-  }
-}
-.blog-wrap .blog-content-3 h3, .blog-wrap .blog-content-3 .h3 {
-  font-size: 20px;
-  font-weight: 500;
-  margin: 0 0 7px;
-  line-height: 30px;
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
-  .blog-wrap .blog-content-3 h3, .blog-wrap .blog-content-3 .h3 {
-    font-size: 18px;
-  }
-}
-.blog-wrap .blog-content-3 h3 a, .blog-wrap .blog-content-3 .h3 a {
-  color: #000000;
-}
-.blog-wrap .blog-content-3 h3 a:hover, .blog-wrap .blog-content-3 .h3 a:hover {
-  color: #2AB5B2;
-}
-.blog-wrap .blog-content-3 span {
-  color: #000000;
-  font-style: italic;
-}
-.blog-wrap .blog-content-3 span a {
-  color: #b0afaf;
-}
-.blog-wrap .blog-content-3 span a:hover {
-  color: #2AB5B2;
-}
-.blog-wrap:hover .blog-img img {
-  transform: scale(1.2);
-}
-/* blog page */
-.blog-wrap-2 {
-  box-shadow: 0 3px 5px rgba(85, 85, 85, 0.2);
-}
-.blog-wrap-2 .blog-img-2 {
-  overflow: hidden;
-  position: relative;
-}
-.blog-wrap-2 .blog-img-2 a img {
-  width: 100%;
-  transform: scale(1);
-  transition: all 0.5s ease 0s;
-}
-.blog-wrap-2 .blog-content-2 {
-  padding: 25px 30px 34px;
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px) {
-  .blog-wrap-2 .blog-content-2 {
-    padding: 25px 20px 34px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .blog-wrap-2 .blog-content-2 {
-    padding: 20px 15px 29px;
-  }
-}
-.blog-wrap-2 .blog-content-2 .blog-meta-2 {
-  display: flex;
-}
-.blog-wrap-2 .blog-content-2 .blog-meta-2 ul li {
-  color: #333333;
-  display: inline-block;
-  font-size: 14px;
-  letter-spacing: 1px;
-  list-style: outside none none;
-  margin: 0 17px 0 0;
-  position: relative;
-  text-transform: uppercase;
-  display: inline-block;
-  line-height: 1;
-}
-.blog-wrap-2 .blog-content-2 .blog-meta-2 ul li::before {
-  background-color: #555;
-  content: "";
-  height: 2px;
-  position: absolute;
-  right: -13px;
-  top: 6px;
-  transition: all 0.4s ease 0s;
-  width: 5px;
-}
-.blog-wrap-2 .blog-content-2 .blog-meta-2 ul li:last-child::before {
-  display: none;
-}
-.blog-wrap-2 .blog-content-2 .blog-meta-2 ul li a {
-  color: #555;
-}
-.blog-wrap-2 .blog-content-2 .blog-meta-2 ul li a:hover {
-  color: #2AB5B2;
-}
-.blog-wrap-2 .blog-content-2 h4, .blog-wrap-2 .blog-content-2 .h4 {
-  font-size: 22px;
-  font-weight: 500;
-  margin: 10px 0 20px;
-  color: #333333;
-}
-@media only screen and (max-width: 767px) {
-  .blog-wrap-2 .blog-content-2 h4, .blog-wrap-2 .blog-content-2 .h4 {
-    margin: 10px 0 12px;
-  }
-}
-.blog-wrap-2 .blog-content-2 h4 a, .blog-wrap-2 .blog-content-2 .h4 a {
-  color: #333333;
-}
-.blog-wrap-2 .blog-content-2 h4 a:hover, .blog-wrap-2 .blog-content-2 .h4 a:hover {
-  color: #2AB5B2;
-}
-.blog-wrap-2 .blog-content-2 p {
-  margin: 0;
-  color: #666666;
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment {
-  display: flex;
-  justify-content: space-between;
-  margin: 22px 0 0;
-}
-@media only screen and (max-width: 767px) {
-  .blog-wrap-2 .blog-content-2 .blog-share-comment {
-    margin: 14px 0 0;
-  }
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-btn-2 a {
-  color: #333333;
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  margin-top: 4px;
-  text-transform: capitalize;
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-btn-2 a:hover {
-  color: #2AB5B2;
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share span {
-  color: #333333;
-  float: left;
-  font-size: 15px;
-  margin-right: 12px;
-  margin-top: 3px;
-  text-transform: capitalize;
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social {
-  float: left;
-}
-@media only screen and (max-width: 767px) {
-  .blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social {
-    margin-top: 4px;
-  }
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social ul li {
-  display: inline-block;
-  margin-right: 5px;
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social ul li:last-child {
-  margin-right: 0;
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social ul li a {
-  border-radius: 50px;
-  color: #ffffff;
-  display: inline-block;
-  font-size: 14px;
-  height: 30px;
-  line-height: 28px;
-  text-align: center;
-  width: 30px;
-}
-@media only screen and (max-width: 767px) {
-  .blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social ul li a {
-    font-size: 12px;
-    height: 25px;
-    line-height: 23px;
-    width: 25px;
-  }
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social ul li a.facebook {
-  background-color: #3b5998;
-  border: 1px solid #3b5998;
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social ul li a.facebook:hover {
-  background-color: transparent;
-  color: #3b5998;
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social ul li a.twitter {
-  background-color: #55acee;
-  border: 1px solid #55acee;
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social ul li a.twitter:hover {
-  background-color: transparent;
-  color: #55acee;
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social ul li a.instagram {
-  background-color: #c32aa3;
-  border: 1px solid #c32aa3;
-}
-.blog-wrap-2 .blog-content-2 .blog-share-comment .blog-share .share-social ul li a.instagram:hover {
-  background-color: transparent;
-  color: #c32aa3;
-}
-.blog-wrap-2:hover .blog-img-2 img {
-  transform: scale(1.1);
-}
-/*-------- 7. Blog style  ----------*/
-@media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-  .blog-area .ml-20 {
-    margin-left: 0;
-  }
-  .blog-area .mr-20 {
-    margin-right: 0;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .blog-area .pro-pagination-style.mt-20 {
-    margin-top: 0;
-  }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-  .blog-details-wrapper.ml-20 {
-    margin-left: 0;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .blog-area.pb-100 {
-    padding-bottom: 45px;
-  }
-}
-.blog-area.blog-no-sidebar .blog-content-2 h4, .blog-area.blog-no-sidebar .blog-content-2 .h4 {
-  font-size: 20px;
-}
-@media only screen and (max-width: 767px) {
-  .blog-area.blog-no-sidebar .blog-content-2 h4, .blog-area.blog-no-sidebar .blog-content-2 .h4 {
-    font-size: 17px;
-  }
-}
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .blog-area.blog-no-sidebar .blog-content-2 h4, .blog-area.blog-no-sidebar .blog-content-2 .h4 {
-    font-size: 20px;
-  }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .blog-area.blog-no-sidebar .blog-content-2 .blog-share-comment .blog-share .share-social {
-    margin-top: 4px;
-  }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .blog-area.blog-no-sidebar .blog-content-2 .blog-share-comment .blog-share .share-social ul li {
-    margin-right: 3px;
-  }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .blog-area.blog-no-sidebar .blog-content-2 .blog-share-comment .blog-share .share-social ul li a {
-    font-size: 12px;
-    height: 25px;
-    line-height: 23px;
-    width: 25px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .blog-without-sidebar .blog-area.pb-100 {
-    padding-bottom: 60px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .home-fashion-two .blog-area {
-    padding-top: 30px;
-  }
-}
 /*-------- 8. Footer style  -----*/
 .copyright .footer-logo {
   margin-bottom: 12px;
@@ -17115,6 +16823,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   color: #333333;
   margin: 0 0 16px;
   line-height: 1;
+  font-display: swap;
 }
 .footer-widget .footer-list ul li {
   margin: 0 0 11px;
@@ -17131,6 +16840,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 }
 .footer-widget.footer-widget-white .footer-title h3, .footer-widget.footer-widget-white .footer-title .h3 {
   color: #ffffff;
+  font-display: swap;
 }
 .footer-widget.footer-widget-white .footer-list ul li a {
   color: #e6e6e6;
@@ -17141,6 +16851,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 .footer-widget .subscribe-style p {
   color: #7a7a7a;
   margin: 0 0 20px;
+  font-display: swap;
 }
 .footer-widget .subscribe-style .subscribe-form form input {
   background: transparent;
@@ -17167,6 +16878,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 }
 .footer-widget .subscribe-style.subscribe-style-white p {
   color: #e6e6e6;
+  font-display: swap;
 }
 .footer-widget .subscribe-style.subscribe-style-white .subscribe-form form input {
   color: #a4a4a4;
@@ -17297,6 +17009,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   line-height: 28px;
   margin: 31px auto 33px;
   width: 55%;
+  font-display: swap;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .footer-top p {
@@ -17357,6 +17070,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 .copyright-2 p {
   color: #ffffff;
   line-height: 1;
+  font-display: swap;
 }
 .copyright-2 p a {
   color: #ffffff;
@@ -17369,6 +17083,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 }
 .copyright-2.copyright-gray p {
   color: #848484;
+  font-display: swap;
 }
 .copyright-2.copyright-gray p a {
   color: #848484;
@@ -17379,6 +17094,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 }
 .footer-white .footer-top p {
   color: #000000;
+  font-display: swap;
 }
 .footer-white .footer-top .footer-social ul li a {
   color: #000000;
@@ -17440,6 +17156,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-weight: 600;
   margin: 0;
   font-family: "Cormorant Garamond";
+  font-display: swap;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .single-banner .banner-content h3, .single-banner .banner-content .h3 {
@@ -17457,6 +17174,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   margin: 3px 0 58px;
   font-weight: 600;
   font-family: "Cormorant Garamond";
+  font-display: swap;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .single-banner .banner-content h4, .single-banner .banner-content .h4 {
@@ -17496,6 +17214,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-size: 14px;
   display: inline-block;
   text-align: center;
+  font-display: swap;
 }
 .single-banner .banner-content a.kids-btn-red {
   color: #ff3d2a;
@@ -17544,6 +17263,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 }
 .single-banner .banner-content.banner-content1-modify h3, .single-banner .banner-content.banner-content1-modify .h3 {
   color: #1c1c1c;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .single-banner .banner-content.banner-content1-modify h3, .single-banner .banner-content.banner-content1-modify .h3 {
@@ -17552,6 +17272,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 }
 .single-banner .banner-content.banner-content1-modify h4, .single-banner .banner-content.banner-content1-modify .h4 {
   margin: 12px 0 68px;
+  font-display: swap;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1365px) {
   .single-banner .banner-content.banner-content1-modify h4, .single-banner .banner-content.banner-content1-modify .h4 {
@@ -17650,9 +17371,11 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   }
   .banner-area-2.banner-area-2 .single-banner .banner-content h3, .banner-area-2.banner-area-2 .single-banner .banner-content .h3 {
     font-size: 25px;
+    font-display: swap;
   }
   .banner-area-2.banner-area-2 .single-banner .banner-content h4, .banner-area-2.banner-area-2 .single-banner .banner-content .h4 {
     margin: 3px 0 10px;
+    font-display: swap;
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1365px) {
@@ -17662,9 +17385,11 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   }
   .banner-area-2.banner-area-2 .single-banner .banner-content h3, .banner-area-2.banner-area-2 .single-banner .banner-content .h3 {
     font-size: 25px;
+    font-display: swap;
   }
   .banner-area-2.banner-area-2 .single-banner .banner-content h4, .banner-area-2.banner-area-2 .single-banner .banner-content .h4 {
     margin: 3px 0 10px;
+    font-display: swap;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -17673,9 +17398,11 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   }
   .banner-area-2.banner-area-2 .single-banner .banner-content h3, .banner-area-2.banner-area-2 .single-banner .banner-content .h3 {
     font-size: 30px;
+    font-display: swap;
   }
   .banner-area-2.banner-area-2 .single-banner .banner-content h4, .banner-area-2.banner-area-2 .single-banner .banner-content .h4 {
     margin: 3px 0 40px;
+    font-display: swap;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -17715,6 +17442,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-weight: 600;
   margin: 0 50px 0 0;
   line-height: 48px;
+  font-display: swap;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .save-money-content h2, .save-money-content .h2 {
@@ -17743,6 +17471,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   background-color: #ed59a0;
   line-height: 1;
   padding: 13px 40px 15px;
+  font-display: swap;
 }
 .save-money-content .save-money-btn a:hover {
   background-color: #2AB5B2;
@@ -17752,6 +17481,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-size: 48px;
   color: #010101;
   margin: 0 0 23px;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .subscribe-style-2 h2, .subscribe-style-2 .h2 {
@@ -17796,6 +17526,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-size: 48px;
   color: #010101;
   margin: 0 0 23px;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .subscribe-style-3 h2, .subscribe-style-3 .h2 {
@@ -17843,6 +17574,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 }
 .subscribe-style-3.subscribe-style-3-white h2, .subscribe-style-3.subscribe-style-3-white .h2 {
   color: #ffffff;
+  font-display: swap;
 }
 .subscribe-style-3.subscribe-style-3-white p {
   color: #ffffff;
@@ -17895,6 +17627,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   color: #666;
   margin: 0;
   letter-spacing: 0.3px;
+  font-display: swap;
 }
 .welcome-content h1, .welcome-content .h1 {
   font-size: 30px;
@@ -17906,6 +17639,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   display: inline-block;
   padding: 0 0 23px;
   line-height: 1;
+  font-display: swap;
 }
 .welcome-content h1:before, .welcome-content .h1:before {
   position: absolute;
@@ -17924,6 +17658,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   line-height: 30px;
   width: 66%;
   margin: 0 auto;
+  font-display: swap;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .welcome-content p {
@@ -18026,6 +17761,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-weight: 500;
   margin: 0 0 3px;
   text-transform: capitalize;
+  font-display: swap;
 }
 .team-wrapper .team-content span {
   font-size: 15px;
@@ -18042,6 +17778,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   text-transform: capitalize;
   line-height: 22px;
   color: #333333;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .single-mission h3, .single-mission .h3 {
@@ -18095,6 +17832,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin: 22px 0 3px;
+  font-display: swap;
 }
 .single-testimonial .client-info span {
   font-size: 14px;
@@ -18214,6 +17952,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   color: #000000;
   font-size: 48px;
   margin: 0;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .funfact-content h2, .funfact-content .h2 {
@@ -18303,6 +18042,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .funfact-content.funfact-res h2, .funfact-content.funfact-res .h2 {
     font-size: 35px;
+    font-display: swap;
   }
   .funfact-content.funfact-res .timer {
     margin: 30px 0 0;
@@ -18401,6 +18141,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-weight: 500;
   color: #333333;
   margin: 0;
+  font-display: swap;
 }
 .sidebar-widget .sidebar-widget-list .sidebar-widget-list-left {
   display: flex;
@@ -18557,6 +18298,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-size: 14px;
   margin-top: 5px;
   line-height: 1.3;
+  font-display: swap;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
   .blog-sidebar {
@@ -18667,6 +18409,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
 .product-layout.list .product-content h3, .product-layout.list .product-content .h3 {
   font-size: 24px;
   margin: 0;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .product-layout.list .product-content h3, .product-layout.list .product-content .h3 {
@@ -19048,6 +18791,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   margin: 0;
   line-height: 1;
   font-weight: 500;
+  font-display: swap;
 }
 .single-review .review-top-wrap .review-left .review-rating {
   line-height: 1;
@@ -19085,6 +18829,7 @@ div[class*=col-]:last-of-type .support-wrap-2:before {
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
+  font-display: swap;
 }
 .ratting-form-wrapper .ratting-form form .star-box {
   display: flex;
@@ -19134,6 +18879,7 @@ h3.cart-page-title, .cart-page-title.h3 {
   font-size: 20px;
   font-weight: 500;
   margin: 0 0 15px;
+  font-display: swap;
 }
 .cart-table-content table {
   border: 1px solid #ebebeb;
@@ -19371,6 +19117,7 @@ h3.cart-page-title, .cart-page-title.h3 {
   font-weight: 500;
   margin: 0;
   padding-right: 18px;
+  font-display: swap;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .cart-tax .title-wrap h4.cart-bottom-title, .cart-tax .title-wrap .cart-bottom-title.h4,
@@ -19392,6 +19139,7 @@ h3.cart-page-title, .cart-page-title.h3 {
 .cart-tax .tax-wrapper p,
 .discount-code-wrapper .tax-wrapper p {
   margin: 0;
+  font-display: swap;
 }
 .cart-tax .tax-wrapper .tax-select-wrapper,
 .discount-code-wrapper .tax-wrapper .tax-select-wrapper {
@@ -19451,6 +19199,7 @@ h3.cart-page-title, .cart-page-title.h3 {
 .cart-tax .discount-code p,
 .discount-code-wrapper .discount-code p {
   margin: 0 0 15px;
+  font-display: swap;
 }
 .cart-tax .discount-code form input,
 .discount-code-wrapper .discount-code form input {
@@ -19513,6 +19262,7 @@ h3.cart-page-title, .cart-page-title.h3 {
   font-weight: 500;
   margin: 0;
   padding-right: 18px;
+  font-display: swap;
 }
 .grand-total .title-wrap .section-bg-gary-cart {
   background-color: #f9f9f9;
@@ -19522,6 +19272,7 @@ h3.cart-page-title, .cart-page-title.h3 {
 .grand-total h5, .grand-total .h5 {
   font-size: 14px;
   margin: 36px 0 27px;
+  font-display: swap;
 }
 .grand-total h5 span, .grand-total .h5 span {
   float: right;
@@ -19537,6 +19288,7 @@ h3.cart-page-title, .cart-page-title.h3 {
 .grand-total .total-shipping h5, .grand-total .total-shipping .h5 {
   font-size: 14px;
   margin: 0;
+  font-display: swap;
 }
 .grand-total .total-shipping ul {
   padding: 19px 0 0 0px;
@@ -19570,6 +19322,7 @@ h3.cart-page-title, .cart-page-title.h3 {
   font-size: 20px;
   font-weight: 500;
   margin: 0 0 25px;
+  font-display: swap;
 }
 .grand-total h4.grand-total-title span, .grand-total .grand-total-title.h4 span {
   float: right;
@@ -19600,6 +19353,7 @@ h3.cart-page-title, .cart-page-title.h3 {
 .empty-cart h4, .empty-cart .h4 {
   font-size: 20px;
   padding: 15px 0;
+  font-display: swap;
 }
 .empty-cart__button {
   border: none;
@@ -19621,6 +19375,7 @@ h3.cart-page-title, .cart-page-title.h3 {
   color: #000000;
   margin: 0 0 20px;
   font-weight: 500;
+  font-display: swap;
 }
 .billing-info-wrap .billing-info label,
 .billing-info-wrap .billing-select label {
@@ -19692,6 +19447,7 @@ h3.cart-page-title, .cart-page-title.h3 {
 .billing-info-wrap .additional-info-wrap h4, .billing-info-wrap .additional-info-wrap .h4 {
   font-size: 16px;
   font-weight: 500;
+  font-display: swap;
 }
 .billing-info-wrap .additional-info-wrap .additional-info label {
   color: #333333;
@@ -19724,6 +19480,7 @@ h3.cart-page-title, .cart-page-title.h3 {
   font-weight: 500;
   margin: 0 0 20px;
   color: #000000;
+  font-display: swap;
 }
 .your-order-area .your-order-wrap {
   padding: 38px 45px 44px;
@@ -19806,6 +19563,7 @@ h3.cart-page-title, .cart-page-title.h3 {
   color: #212121;
   font-size: 16px;
   margin: 0;
+  font-display: swap;
 }
 .your-order-area .payment-accordion h4 a, .your-order-area .payment-accordion .h4 a {
   color: #212121;
@@ -19822,6 +19580,7 @@ h3.cart-page-title, .cart-page-title.h3 {
   padding: 0 0 0 10px;
   font-size: 14px;
   color: #333333;
+  font-display: swap;
 }
 .your-order-area .place-order > button {
   background-color: #2AB5B2;
@@ -19992,6 +19751,7 @@ h3.cart-page-title, .cart-page-title.h3 {
   font-size: 24px;
   margin: 0 0 17px;
   line-height: 1;
+  font-display: swap;
 }
 .contact-social ul li {
   margin: 0 10px;
@@ -20024,6 +19784,7 @@ h3.cart-page-title, .cart-page-title.h3 {
   color: #464646;
   line-height: 1;
   margin-bottom: 36px;
+  font-display: swap;
 }
 .contact-form .contact-form-style input, .contact-form .contact-form-style textarea {
   background: transparent;
@@ -20059,6 +19820,7 @@ h3.cart-page-title, .cart-page-title.h3 {
 }
 .contact-form p {
   color: #333333;
+  font-display: swap;
 }
 .contact-form p.success {
   margin-top: 10px;
@@ -20071,291 +19833,6 @@ h3.cart-page-title, .cart-page-title.h3 {
   .contact-area.pb-100 {
     padding-bottom: 60px;
   }
-}
-/*------ 23. Blog Details Page  -------*/
-.blog-details-top .blog-details-img {
-  position: relative;
-}
-.blog-details-top .blog-details-img img {
-  width: 100%;
-}
-.blog-details-top .blog-details-content {
-  margin-top: 30px;
-}
-.blog-details-top .blog-details-content .blog-meta-2 {
-  display: flex;
-}
-.blog-details-top .blog-details-content .blog-meta-2 ul li {
-  color: #333333;
-  display: inline-block;
-  font-size: 14px;
-  letter-spacing: 1px;
-  list-style: outside none none;
-  margin: 0 17px 0 0;
-  position: relative;
-  text-transform: uppercase;
-  display: inline-block;
-  line-height: 1;
-}
-.blog-details-top .blog-details-content .blog-meta-2 ul li::before {
-  background-color: #555;
-  content: "";
-  height: 2px;
-  position: absolute;
-  right: -13px;
-  top: 6px;
-  transition: all 0.4s ease 0s;
-  width: 5px;
-}
-.blog-details-top .blog-details-content .blog-meta-2 ul li:last-child::before {
-  display: none;
-}
-.blog-details-top .blog-details-content .blog-meta-2 ul li a {
-  color: #333333;
-}
-.blog-details-top .blog-details-content .blog-meta-2 ul li a:hover {
-  color: #2AB5B2;
-}
-.blog-details-top .blog-details-content h3, .blog-details-top .blog-details-content .h3 {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1.4;
-  margin: 8px 0 20px;
-}
-.blog-details-top .blog-details-content p {
-  margin: 0;
-  line-height: 26px;
-}
-.blog-details-top .blog-details-content blockquote {
-  color: #333333;
-  font-size: 18px;
-  margin: 15px 0 15px;
-  line-height: 1.6;
-  font-weight: 500;
-  font-style: italic;
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-  .blog-details-top .blog-details-content blockquote {
-    font-size: 17px;
-  }
-}
-.tag-share {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 30px 0 30px;
-}
-@media only screen and (max-width: 767px) {
-  .tag-share {
-    display: block;
-    margin: 20px 0 25px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .tag-share .dec-tag {
-    margin-bottom: 10px;
-  }
-}
-.tag-share .dec-tag ul {
-  display: flex;
-}
-.tag-share .dec-tag ul li {
-  margin-right: 10px;
-  position: relative;
-}
-.tag-share .dec-tag ul li a {
-  text-transform: capitalize;
-  font-size: 15px;
-}
-.tag-share .blog-share {
-  display: flex;
-  align-items: center;
-}
-.tag-share .blog-share span {
-  font-size: 15px;
-  text-transform: capitalize;
-}
-.tag-share .blog-share ul {
-  display: flex;
-}
-.tag-share .blog-share ul li {
-  margin-left: 10px;
-}
-.tag-share .blog-share ul li a {
-  border-radius: 50px;
-  color: #ffffff;
-  display: inline-block;
-  font-size: 14px;
-  height: 30px;
-  line-height: 28px;
-  text-align: center;
-  width: 30px;
-}
-@media only screen and (max-width: 767px) {
-  .tag-share .blog-share ul li a {
-    font-size: 12px;
-    height: 25px;
-    line-height: 23px;
-    width: 25px;
-  }
-}
-.tag-share .blog-share ul li a.facebook {
-  background-color: #3b5998;
-  border: 1px solid #3b5998;
-}
-.tag-share .blog-share ul li a.facebook:hover {
-  background-color: transparent;
-  color: #3b5998;
-}
-.tag-share .blog-share ul li a.twitter {
-  background-color: #55acee;
-  border: 1px solid #55acee;
-}
-.tag-share .blog-share ul li a.twitter:hover {
-  background-color: transparent;
-  color: #55acee;
-}
-.tag-share .blog-share ul li a.instagram {
-  background-color: #c32aa3;
-  border: 1px solid #c32aa3;
-}
-.tag-share .blog-share ul li a.instagram:hover {
-  background-color: transparent;
-  color: #c32aa3;
-}
-.next-previous-post {
-  border-bottom: 1px solid #f1f1f1;
-  border-top: 1px solid #f1f1f1;
-  padding: 18px 0 17px;
-  display: flex;
-  justify-content: space-between;
-}
-.next-previous-post a {
-  font-size: 15px;
-  text-transform: capitalize;
-}
-.blog-comment-wrapper .blog-dec-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin: 0;
-  text-transform: uppercase;
-}
-@media only screen and (max-width: 767px) {
-  .blog-comment-wrapper .blog-dec-title {
-    font-size: 18px;
-  }
-}
-.blog-comment-wrapper .single-comment-wrapper {
-  display: flex;
-}
-@media only screen and (max-width: 767px) {
-  .blog-comment-wrapper .single-comment-wrapper.mt-35 {
-    margin-top: 20px;
-  }
-  .blog-comment-wrapper .single-comment-wrapper.mt-50 {
-    margin-top: 30px;
-  }
-}
-.blog-comment-wrapper .single-comment-wrapper .blog-comment-img {
-  flex: 0 0 120px;
-  margin-right: 28px;
-}
-@media only screen and (max-width: 767px) {
-  .blog-comment-wrapper .single-comment-wrapper .blog-comment-img {
-    flex: 0 0 80px;
-    margin-right: 20px;
-  }
-}
-.blog-comment-wrapper .single-comment-wrapper .blog-comment-img img {
-  width: 100%;
-}
-.blog-comment-wrapper .single-comment-wrapper .blog-comment-content h4, .blog-comment-wrapper .single-comment-wrapper .blog-comment-content .h4 {
-  font-size: 16px;
-  font-weight: 500;
-  margin: 0;
-  line-height: 1;
-}
-.blog-comment-wrapper .single-comment-wrapper .blog-comment-content span {
-  color: #555;
-  display: block;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-.blog-comment-wrapper .single-comment-wrapper .blog-comment-content p {
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-.blog-comment-wrapper .single-comment-wrapper .blog-comment-content .reply-btn {
-  font-size: 12px;
-  font-weight: 500;
-  padding: 6px 15px;
-  line-height: 1;
-  text-transform: capitalize;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-}
-.blog-comment-wrapper .single-comment-wrapper .blog-comment-content .reply-btn:hover {
-  background-color: #2AB5B2;
-  border-color: #2AB5B2;
-  color: #ffffff;
-}
-@media only screen and (max-width: 767px) {
-  .blog-comment-wrapper .single-comment-wrapper.ml-60 {
-    margin-left: 30px;
-  }
-}
-.blog-reply-wrapper .blog-dec-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin: 0;
-  text-transform: uppercase;
-}
-@media only screen and (max-width: 767px) {
-  .blog-reply-wrapper .blog-dec-title {
-    font-size: 18px;
-  }
-}
-.blog-reply-wrapper .blog-form {
-  margin-top: 35px;
-}
-@media only screen and (max-width: 767px) {
-  .blog-reply-wrapper .blog-form {
-    margin-top: 20px;
-  }
-}
-.blog-reply-wrapper .blog-form .leave-form input {
-  background: transparent none repeat scroll 0 0;
-  border: 1px solid #eaeaea;
-  box-shadow: none;
-  color: #333333;
-  height: 45px;
-  margin-bottom: 30px;
-  padding-left: 20px;
-}
-.blog-reply-wrapper .blog-form .text-leave textarea {
-  border: 1px solid #eaeaea;
-  background-color: transparent;
-  box-shadow: none;
-  color: #333333;
-  height: 250px;
-  padding-top: 20px;
-  margin-bottom: 20px;
-  padding-left: 20px;
-}
-@media only screen and (max-width: 767px) {
-  .blog-reply-wrapper .blog-form .text-leave textarea {
-    height: 160px;
-  }
-}
-.blog-reply-wrapper .blog-form .text-leave button {
-  background-color: #2AB5B2;
-  color: #ffffff;
-  font-weight: 500;
-  margin-top: 10px;
-  padding: 14px 30px 13px;
-}
-.blog-reply-wrapper .blog-form .text-leave button:hover {
-  background-color: #333333;
 }
 /*------ 24. login register Page  --------*/
 .login-register-tab-list {
@@ -20487,6 +19964,7 @@ h3.cart-page-title, .cart-page-title.h3 {
   margin: 0;
   position: relative;
   text-transform: uppercase;
+  font-display: swap;
 }
 @media only screen and (max-width: 767px) {
   .single-my-account h3.panel-title, .single-my-account .panel-title.h3 {
@@ -20541,11 +20019,13 @@ h3.cart-page-title, .cart-page-title.h3 {
   font-size: 15px;
   margin: 0;
   text-transform: uppercase;
+  font-display: swap;
 }
 .single-my-account .myaccount-info-wrapper .account-info-wrapper h5, .single-my-account .myaccount-info-wrapper .account-info-wrapper .h5 {
   font-size: 16px;
   letter-spacing: 0.2px;
   margin-top: 7px;
+  font-display: swap;
 }
 .single-my-account .myaccount-info-wrapper .billing-info {
   margin-bottom: 20px;

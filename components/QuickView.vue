@@ -11,11 +11,11 @@
                             </div>
                             <swiper :options="swiperOptionTop">
                                 <div class="large-img swiper-slide" v-if="product.images == 0">
-                                    <nuxt-img class="img-fluid" provider="customProvider" src="default.webp" :alt="product.name" />
+                                    <nuxt-img class="img-fluid" provider="customProvider" src="default.webp" :alt="product.name" width="100%"/>
                                 </div>
                                 <div class="large-img swiper-slide" v-else>
                                     <div v-for="image in product.images" :key="image.id">
-                                        <nuxt-img class="img-fluid" provider="customProvider" :src="image.path" :alt="product.name" />
+                                        <nuxt-img class="img-fluid" provider="customProvider" :src="image.path" :alt="product.name" width="100%"/>
                                     </div>
                                 </div>
                                 <div class="quickview-nav swiper-button-prev">

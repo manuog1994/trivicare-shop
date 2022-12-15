@@ -6,7 +6,7 @@ import { mkdirSync } from 'fs';
 import { parentPort, threadId } from 'worker_threads';
 import { provider, isWindows } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/std-env/dist/index.mjs';
 import { createRenderer as createRenderer$1 } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { eventHandler, defineEventHandler, handleCacheHeaders, createEvent, createApp, createRouter, lazyEventHandler, getQuery } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/h3/dist/index.mjs';
+import { eventHandler, defineEventHandler, handleCacheHeaders, createEvent, setHeader, createApp, createRouter, lazyEventHandler, getQuery } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/h3/dist/index.mjs';
 import devalue from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/@nuxt/devalue/dist/devalue.mjs';
 import { parseURL, withQuery, joinURL } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/ufo/dist/index.mjs';
 import destr from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/destr/dist/index.mjs';
@@ -20,6 +20,7 @@ import { createHooks } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop
 import { hash } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/ohash/dist/index.mjs';
 import { createStorage } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/unstorage/dist/drivers/fs.mjs';
+import robots from '/Users/manuelortegagaliano/wa/trivicare-shop/.nuxt/robots.mjs';
 
 const _runtimeConfig = {"app":{"baseURL":"/","basePath":"/","assetsPath":"/_nuxt/","cdnURL":"","buildAssetsDir":"/_nuxt/"},"nitro":{"routes":{},"envPrefix":"NUXT_"},"public":{}};
 const ENV_PREFIX = "NITRO_";
@@ -353,10 +354,83 @@ const errorHandler = (async function errorhandler(_error, event) {
   event.res.end(html);
 });
 
+const _LFo3GY = defineEventHandler(async (event) => {
+  setHeader(event, "Content-Type", "text/plain");
+  return render(await getRules(robots, event.req));
+});
+var Correspondence = /* @__PURE__ */ ((Correspondence2) => {
+  Correspondence2[Correspondence2["User-agent"] = 0] = "User-agent";
+  Correspondence2[Correspondence2["Crawl-delay"] = 1] = "Crawl-delay";
+  Correspondence2[Correspondence2["Disallow"] = 2] = "Disallow";
+  Correspondence2[Correspondence2["Allow"] = 3] = "Allow";
+  Correspondence2[Correspondence2["Host"] = 4] = "Host";
+  Correspondence2[Correspondence2["Sitemap"] = 5] = "Sitemap";
+  Correspondence2[Correspondence2["Clean-param"] = 6] = "Clean-param";
+  Correspondence2[Correspondence2["Comment"] = 7] = "Comment";
+  Correspondence2[Correspondence2["BlankLine"] = 8] = "BlankLine";
+  return Correspondence2;
+})(Correspondence || {});
+function render(rules) {
+  return rules.map((rule) => {
+    const value = String(rule.value).trim();
+    switch (rule.key.toString()) {
+      case Correspondence[7 /* Comment */]:
+        return `# ${value}`;
+      case Correspondence[8 /* BlankLine */]:
+        return "";
+      default:
+        return `${rule.key}: ${value}`;
+    }
+  }).join("\n");
+}
+async function getRules(options, req) {
+  const correspondences = {
+    useragent: "User-agent",
+    crawldelay: "Crawl-delay",
+    disallow: "Disallow",
+    allow: "Allow",
+    host: "Host",
+    sitemap: "Sitemap",
+    cleanparam: "Clean-param",
+    comment: "Comment",
+    blankline: "BlankLine"
+  };
+  const rules = [];
+  const parseRule = (rule) => {
+    const parsed = {};
+    for (const [key, value] of Object.entries(rule)) {
+      parsed[String(key).toLowerCase().replace(/[\W_]+/g, "")] = value;
+    }
+    return parsed;
+  };
+  for (const rule of Array.isArray(options) ? options : [options]) {
+    const parsed = parseRule(rule);
+    const keys = Object.keys(correspondences).filter((key) => typeof parsed[key] !== "undefined");
+    for (const key of keys) {
+      const parsedKey = parsed[key];
+      let values;
+      values = typeof parsedKey === "function" ? await parsedKey(req) : parsedKey;
+      values = Array.isArray(values) ? values : [values];
+      for (const value of values) {
+        const v = typeof value === "function" ? await value(req) : value;
+        if (v === false) {
+          continue;
+        }
+        rules.push({
+          key: correspondences[key],
+          value: v
+        });
+      }
+    }
+  }
+  return rules;
+}
+
 const _lazy_mDdGmo = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
   { route: '/__nuxt_error', handler: _lazy_mDdGmo, lazy: true, middleware: false, method: undefined },
+  { route: '/robots.txt', handler: _LFo3GY, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_mDdGmo, lazy: true, middleware: false, method: undefined }
 ];
 

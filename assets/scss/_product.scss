@@ -153,6 +153,7 @@
         h3 {
             font-size: 16px;
             margin: 0;
+            font-display: swap;
             a {
                 transition: none;
             }
@@ -228,6 +229,7 @@
         font-size: 24px;
         margin: 0 0 0px;
         line-height: 1;
+        font-display: swap;
     }
     .product-details-price {
         display: flex;
@@ -696,6 +698,7 @@
             h3 {
                 margin: 0 0 6px;
                 line-height: 1;
+                font-display: swap;
                 a {
                     color: $black;
                     font-size: 16px;
@@ -733,6 +736,7 @@
             }
             &.title-price-wrap-2-white {
                 h3{
+                    font-display: swap;
                     a{
                         color: $white;
                         &:hover {
@@ -900,6 +904,7 @@
                     font-size: 18px;
                     margin: 0;
                     line-height: 1;
+                    font-display: swap;
                 }
             }
             .price-3 {

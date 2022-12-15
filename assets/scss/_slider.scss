@@ -82,6 +82,7 @@
             font-size: 24px;
             font-weight: 500;
             margin: 0;
+            font-display: swap;
             @media #{$xs-layout}{
                 font-size: 20px;
                 font-weight: 400;
@@ -92,6 +93,7 @@
             font-size: 72px;
             color: #010101;
             margin: 6px 0 37px;
+            font-display: swap;
             @media #{$lg-layout}{
                 line-height: 65px;
                 font-size: 52px;
@@ -246,6 +248,7 @@
         margin: 0;
         line-height: 1;
         text-transform: uppercase;
+        font-display: swap;
     }
     h1 {
         font-size: 70px;
@@ -253,6 +256,7 @@
         margin: 0px 0 40px;
         line-height: 90px;
         font-weight: 300;
+        font-display: swap;
         @media #{$xl-layout}{
             font-size: 50px;
             margin: 10px 0 20px;
@@ -282,6 +286,7 @@
     &.slider-content-19-white {
         h3 {
             color: $white;
+            font-display: swap;
         }
         h1 {
             color: $white;
@@ -349,6 +354,7 @@
         position: relative;
         margin-left: 135px;
         margin-bottom: 0;
+        font-display: swap;
         @media #{$xs-layout}{
             margin-left: 0px;
         }
@@ -378,6 +384,7 @@
         line-height: 80px;
         color: #010101;
         margin: 6px 0 37px;
+        font-display: swap;
         @media #{$xl-layout}{
             font-size: 60px;
             line-height: 80px;
@@ -405,6 +412,7 @@
         margin: 0;
         position: relative;
         display: inline-block;
+        font-display: swap;
         &::before,
         &::after {
             position: absolute;
@@ -430,6 +438,7 @@
     h1 {
         font-size: 72px;
         margin: 28px 0 23px;
+        font-display: swap;
         @media #{$lg-layout}{
             font-size: 52px;
             line-height: 40px;
@@ -452,6 +461,7 @@
     
     &.slider-content-3-white {
         h3 {
+            font-display: swap;
             color: $white;
             &::before,
             &::after {
@@ -464,10 +474,12 @@
                 font-size: 55px;
                 line-height: 45px;
                 margin: 20px 0 23px;
+                font-display: swap;
             }
             @media #{$md-layout}{
                 font-size: 47px;
                 margin: 20px 0 18px;
+                font-display: swap;
             }
         }
         p {
@@ -504,9 +516,11 @@
                 font-size: 34px;
                 line-height: 35px;
                 margin: 15px 0 15px;
+                font-display: swap;
             }
         }
         h3 {
+            font-display: swap;
             &:before,
             &:after {
                 display: none;
@@ -574,6 +588,7 @@
         font-size: 30px;
         margin: 0;
         color: $white;
+        font-display: swap;
     }
     h1 {
         font-weight: 500;
@@ -582,6 +597,7 @@
         letter-spacing: .5px;
         color: $white;
         line-height: 56px;
+        font-display: swap;
         @media #{$md-layout}{
             font-size: 58px;
             margin: 17px 0 20px;
@@ -629,6 +645,7 @@
         letter-spacing: 8px;
         margin: 0px;
         line-height: 1;
+        font-display: swap;
         @media #{$lg-layout, $md-layout}{
             font-size: 45px;
         }
@@ -721,6 +738,7 @@
         font-size: 24px;
         font-weight: 500;
         margin: 0;
+        font-display: swap;
         @media #{$xs-layout}{
             font-size: 22px;
         }
@@ -730,6 +748,7 @@
         font-weight: 600;
         line-height: 120px;
         margin: 34px 0 55px;
+        font-display: swap;
         @media #{$lg-layout}{
             font-size: 90px;
             line-height: 90px;
@@ -796,6 +815,7 @@
         margin: 0;
         letter-spacing: .3px;
         line-height: 1;
+        font-display: swap;
     }
     h1 {
         font-size: 48px;
@@ -804,6 +824,7 @@
         margin: 17px 0 37px;
         line-height: 65px;
         letter-spacing: 1px;
+        font-display: swap;
         @media #{$lg-layout}{
             font-size: 42px;
             line-height: 60px;

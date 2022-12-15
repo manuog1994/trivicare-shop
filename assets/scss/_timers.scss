@@ -24,6 +24,7 @@
         color: $black;
         font-size: 48px;
         margin: 0;
+        font-display: swap;
         @media #{$xs-layout}{
             font-size: 32px;
         }
@@ -111,6 +112,7 @@
         &.funfact-res {
             h2 {
                 font-size: 35px;
+                font-display: swap;
             }
             .timer {
                 margin: 30px 0 0;

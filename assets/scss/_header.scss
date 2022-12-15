@@ -489,6 +489,7 @@
                             font-size: 15px;
                             line-height: 1.2;
                             padding-right: 10px;
+                            font-display: swap;
                             a {
                                 color: $black;
                                 &:hover {
@@ -499,6 +500,7 @@
                         h6 {
                             font-size: 13px;
                             margin: 5px 0 8px;
+                            font-display: swap;
                         }
                         span {
                             font-size: 14px;
@@ -520,6 +522,7 @@
                     font-size: 14px;
                     margin-bottom: 17px;
                     font-weight: 500;
+                    font-display: swap;
                     span {
                         float: right;
                         

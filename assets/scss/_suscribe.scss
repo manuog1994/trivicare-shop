@@ -4,6 +4,7 @@
         font-size: 48px;
         color: #010101;
         margin: 0 0 23px;
+        font-display: swap;
         @media #{$xs-layout}{
             font-size: 30px;
             margin: 0 0 12px;
@@ -53,6 +54,7 @@
         font-size: 48px;
         color: #010101;
         margin: 0 0 23px;
+        font-display: swap;
         @media #{$xs-layout}{
             font-size: 35px;
             margin: 0 0 12px;
@@ -99,6 +101,7 @@
     &.subscribe-style-3-white {
         h2 {
             color: $white;
+            font-display: swap;
         }
         p {
             color: $white;

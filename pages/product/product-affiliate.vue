@@ -15,7 +15,7 @@
                                 </div>
                                 <swiper :options="swiperOptionTop" ref="swiperTop">
                                     <div class="large-img swiper-slide">
-                                        <nuxt-img class="img-fluid" src="default.png" :alt="product.name" />
+                                        <nuxt-img class="img-fluid" provider="customProvider" src="default.webp" :alt="product.name" />
                                     </div>
                                     <div class="quickview-nav swiper-button-prev">
                                         <i class="pe-7s-angle-left"></i>
@@ -26,7 +26,7 @@
                                 </swiper>
                                 <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
                                     <div class="thumb-img swiper-slide">
-                                        <nuxt-img class="img-fluid" src="default.png" :alt="product.name" />
+                                        <nuxt-img provider="customProvider" class="img-fluid" src="default.webp" :alt="product.name" />
                                     </div>
                                 </swiper>
                             </div>

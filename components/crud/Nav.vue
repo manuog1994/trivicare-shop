@@ -3,7 +3,7 @@
         <div class="container">
             <div class="d-flex align-items-center">
                 <div>
-                    <img src="~/static/img/logo/logo-ajustado.png" width="15%" alt="">
+                    <nuxt-img provider="customProvider" src="logo-ajustado2.webp" width="15%" alt="logo" />
                 </div>
 
                 <div class=" d-inline-flex" style="text-align:end;">

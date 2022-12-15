@@ -6,6 +6,7 @@
 /// <reference types="@nuxtjs/style-resources" />
 /// <reference types="@nuxtjs/axios" />
 /// <reference types="@nuxtjs/auth-next" />
+/// <reference types="@nuxtjs/robots" />
 /// <reference types="@nuxt/components" />
 /// <reference types="@nuxt/telemetry" />
 /// <reference path="types/components.d.ts" />

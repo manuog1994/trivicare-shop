@@ -39,6 +39,7 @@
             font-weight: 600;
             margin: 0;
             font-family: 'Cormorant Garamond';
+            font-display: swap;
             @media #{$md-layout}{
                 font-size: 27px;
             }
@@ -52,6 +53,7 @@
             margin: 3px 0 58px;
             font-weight: 600;
             font-family: 'Cormorant Garamond';
+            font-display: swap;
             @media #{$lg-layout}{
                 margin: 3px 0 25px;
             }
@@ -83,6 +85,7 @@
             font-size: 14px;
             display: inline-block;
             text-align: center;
+            font-display: swap;
             &.kids-btn-red {
                 color: #ff3d2a;
                 border: 2px solid #ff3d2a;
@@ -128,12 +131,14 @@
         &.banner-content1-modify {
             h3 {
                 color: #1c1c1c;
+                font-display: swap;
                 @media #{$xs-layout}{
                     font-size: 25px;
                 }
             }
             h4 {
                 margin: 12px 0 68px;
+                font-display: swap;
                 @media #{$xl-layout}{
                     margin: 12px 0 38px;
                 }
@@ -220,9 +225,11 @@
                     left: 15px;
                     h3 {
                         font-size: 25px;
+                        font-display: swap;
                     } 
                     h4 {
                         margin: 3px 0 10px;
+                        font-display: swap;
                     } 
                 }
             }
@@ -232,9 +239,11 @@
                     left: 15px;
                     h3 {
                         font-size: 25px;
+                        font-display: swap;
                     } 
                     h4 {
                         margin: 3px 0 10px;
+                        font-display: swap;
                     } 
                 }
             }
@@ -243,9 +252,11 @@
                     top: 25px;
                     h3 {
                         font-size: 30px;
+                        font-display: swap;
                     } 
                     h4 {
                         margin: 3px 0 40px;
+                        font-display: swap;
                     } 
                 }
             }
@@ -293,6 +304,7 @@
         font-weight: 600;
         margin: 0 50px 0 0;
         line-height: 48px;
+        font-display: swap;
         @media #{$md-layout}{
             font-size: 30px;
             margin: 0 30px 0 0;
@@ -316,6 +328,7 @@
             background-color: #ed59a0;
             line-height: 1;
             padding: 13px 40px 15px;
+            font-display: swap;
             &:hover {
                 background-color: $theme-color;
             }

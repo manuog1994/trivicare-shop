@@ -87,6 +87,7 @@
             h3 {
                 font-size: 24px;
                 margin: 0;
+                font-display: swap;
                 @media #{$xs-layout}{
                     font-size: 20px;
                     line-height: 20px;

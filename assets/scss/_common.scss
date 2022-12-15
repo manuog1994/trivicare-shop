@@ -63,6 +63,7 @@ h6 {
     font-weight: 400;
     margin-top: 0;
     line-height: 1.1;
+    font-display: swap;
 }
 
 p {
@@ -76,30 +77,37 @@ p {
 
 h1 {
     font-size: 36px;
+    font-display: swap;
 }
 
 h2 {
     font-size: 30px;
+    font-display: swap;
 }
 
 h3 {
     font-size: 24px;
+    font-display: swap;
 }
 
 h4 {
     font-size: 18px;
+    font-display: swap;
 }
 
 h5 {
     font-size: 14px;
+    font-display: swap;
 }
 
 h6 {
     font-size: 12px;
+    font-display: swap;
 }
 
 p:last-child {
     margin-bottom: 0;
+    font-display: swap;
 }
 
 a,

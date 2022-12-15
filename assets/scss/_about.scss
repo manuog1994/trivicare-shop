@@ -8,6 +8,7 @@
         color: #666;
         margin: 0;
         letter-spacing: .3px;
+        font-display: swap;
     }
     h1 {
         font-size: 30px;
@@ -19,6 +20,7 @@
         display: inline-block;
         padding: 0 0 23px;
         line-height: 1;
+        font-display: swap;
         &:before {
             position: absolute;
             background-color: #070508;
@@ -37,6 +39,7 @@
         line-height: 30px;
         width: 66%;
         margin: 0 auto;
+        font-display: swap;
         @media #{$lg-layout}{
             width: 80%;
         }
@@ -134,6 +137,7 @@
             font-weight: 500;
             margin: 0 0 3px;
             text-transform: capitalize;
+            font-display: swap;
         }
         span {
             font-size: 15px;
@@ -154,6 +158,7 @@
         text-transform: capitalize;
         line-height: 22px;
         color: $dark;
+        font-display: swap;
         @media #{$xs-layout}{
             margin: 0 0 10px;
         }
