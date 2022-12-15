@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     },
 
     
-    target: 'server', // default is 'server'
+    target: 'static', // default is 'server'
     
     "engines": {
         "node": "16.x"
