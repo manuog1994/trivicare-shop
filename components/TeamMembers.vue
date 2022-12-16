@@ -10,7 +10,7 @@
                     <div class="col-lg-3 col-sm-6" v-for="(member, index) in teamMemberData" :key="index">
                         <div class="team-wrapper mb-30">
                             <div class="team-img">
-                                <nuxt-img :src="member.imgSrc" :alt="member.name" sizes="sm:100% md:100% lg:100%"/>
+                                <nuxt-img :src="member.imgSrc" :alt="member.name"/>
                                  <div class="team-action">
                                     <client-only>
                                         <a :href="social.url" v-for="(social, index) in member.socialLink" :key="index">
