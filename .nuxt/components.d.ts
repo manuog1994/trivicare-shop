@@ -29,8 +29,8 @@ declare module 'vue' {
     'BannerItem': typeof import("../components/banner/BannerItem.vue")['default'],
     'BannerStyleFour': typeof import("../components/banner/BannerStyleFour.vue")['default'],
     'BannerStyleOne': typeof import("../components/banner/BannerStyleOne.vue")['default'],
-    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'PolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
+    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'ProductDetailsWrapper': typeof import("../components/product/ProductDetailsWrapper.vue")['default'],
     'ProductGridItem': typeof import("../components/product/ProductGridItem.vue")['default'],
     'ProductGridItemTwo': typeof import("../components/product/ProductGridItemTwo.vue")['default'],
@@ -71,8 +71,8 @@ declare module 'vue' {
     'LazyBannerItem': typeof import("../components/banner/BannerItem.vue")['default'],
     'LazyBannerStyleFour': typeof import("../components/banner/BannerStyleFour.vue")['default'],
     'LazyBannerStyleOne': typeof import("../components/banner/BannerStyleOne.vue")['default'],
-    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'LazyPolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
+    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'LazyProductDetailsWrapper': typeof import("../components/product/ProductDetailsWrapper.vue")['default'],
     'LazyProductGridItem': typeof import("../components/product/ProductGridItem.vue")['default'],
     'LazyProductGridItemTwo': typeof import("../components/product/ProductGridItemTwo.vue")['default'],
@@ -115,8 +115,8 @@ export const WelcomeMessage: typeof import("../components/WelcomeMessage.vue")['
 export const BannerItem: typeof import("../components/banner/BannerItem.vue")['default']
 export const BannerStyleFour: typeof import("../components/banner/BannerStyleFour.vue")['default']
 export const BannerStyleOne: typeof import("../components/banner/BannerStyleOne.vue")['default']
-export const HeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const PolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
+export const HeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const ProductDetailsWrapper: typeof import("../components/product/ProductDetailsWrapper.vue")['default']
 export const ProductGridItem: typeof import("../components/product/ProductGridItem.vue")['default']
 export const ProductGridItemTwo: typeof import("../components/product/ProductGridItemTwo.vue")['default']
@@ -157,8 +157,8 @@ export const LazyWelcomeMessage: typeof import("../components/WelcomeMessage.vue
 export const LazyBannerItem: typeof import("../components/banner/BannerItem.vue")['default']
 export const LazyBannerStyleFour: typeof import("../components/banner/BannerStyleFour.vue")['default']
 export const LazyBannerStyleOne: typeof import("../components/banner/BannerStyleOne.vue")['default']
-export const LazyHeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const LazyPolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
+export const LazyHeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const LazyProductDetailsWrapper: typeof import("../components/product/ProductDetailsWrapper.vue")['default']
 export const LazyProductGridItem: typeof import("../components/product/ProductGridItem.vue")['default']
 export const LazyProductGridItemTwo: typeof import("../components/product/ProductGridItemTwo.vue")['default']

@@ -120,6 +120,7 @@ export default defineNuxtConfig({
 
     sitemap: {
         hostname: 'https://trivicare.com',
+        gzip: true,
         exclude: [
             '/crud',
             '/my-account',
