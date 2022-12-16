@@ -4,7 +4,7 @@
             <client-only>
                 <div class="swiper-slide single-instagram" v-for="(instagram, index) in instagramData" :key="index">
                     <n-link to="/shop">
-                        <nuxt-img :src="instagram.imgSrc" :alt="instagram.imgSrc" style="width:100%;"/>
+                        <nuxt-img :src="instagram.imgSrc" :alt="instagram.imgSrc"  sizes="sm:100% md:100% lg:100%"/>
                     </n-link>
                 </div>
             </client-only>

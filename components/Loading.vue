@@ -1,7 +1,7 @@
 <template>
   <div v-if="loading" class="loading-page m-5">
     <div class="d-flex justify-content-center opacity-50">
-      <nuxt-img provider="customProvider" src="TriviCare_byn Positivo.webp" alt="logo" style="width:100%;"/>
+      <nuxt-img provider="customProvider" src="TriviCare_byn Positivo.webp" alt="logo" sizes="sm:100% md:100% lg:100%"/>
     </div>
     <loading-progress
       indeterminate="indeterminate"

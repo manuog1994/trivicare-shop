@@ -7,8 +7,8 @@
                         <li class="single-shopping-cart" v-for="product in products" :key="product.id">
                             <div class="shopping-cart-img">
                                 <n-link :to="`/product/${product.slug}`">
-                                    <nuxt-img v-if="product.images.length > 0" provider="customProvider" :src="image.path" :alt="product.name" style="width:100%;"/>
-                                    <nuxt-img v-else provider="customProvider" src="default.webp" :alt="product.name" style="width:100%;"/>
+                                    <nuxt-img v-if="product.images.length > 0" provider="customProvider" :src="image.path" :alt="product.name" sizes="sm:100% md:100% lg:100%"/>
+                                    <nuxt-img v-else provider="customProvider" src="default.webp" :alt="product.name" sizes="sm:100% md:100% lg:100%"/>
                                 </n-link>
                             </div>
                             <div class="shopping-cart-title">
