@@ -47,7 +47,7 @@
                             </client-only> 
                             <span><a class="ms-2" href="#des-details3" title="Valoraciones">{{ product.total_reviews }} Reviews</a></span>
                         </div>
-                        <p>{{ product.description }}</p>
+                        <p>{{ (product.description).substring(0,250)+"..." }}</p>
                         <!-- <div class="pro-details-size-color" v-if="product.variation">
                             <div class="pro-details-color-wrap">
                                 <h6 class="label">Color</h6>
