@@ -19,7 +19,7 @@
                             </div>
                             <div class="contact-info-dec">
                                 <p>Por correo electrónico:</p>
-                                <p><a href="">info@trivicare.com</a></p>
+                                <p><a href="mailto:info@trivicare.com">info@trivicare.com</a></p>
                             </div>
                         </div>
                         <div class="single-contact-info">
@@ -35,17 +35,17 @@
                             <h3>Siguenos en:</h3>
                             <ul>
                                 <li>
-                                    <a href="https://www.facebook.com/trivicare" target="_blank">
+                                    <a href="https://www.facebook.com/trivicare" target="_blank" title="Facebook">
                                         <fa-icon icon="fa-brands fa-facebook-f" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.instagram.com/trivicare" target="_blank">
+                                    <a href="https://www.instagram.com/trivicare" target="_blank" title="Instagram">
                                         <fa-icon icon="fa-brands fa-instagram" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.tiktok.com/@trivicare" target="_blank">
+                                    <a href="https://www.tiktok.com/@trivicare" target="_blank" title="TikTok">
                                         <fa-icon icon="fa-brands fa-tiktok" />
                                     </a>
                                 </li>

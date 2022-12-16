@@ -113,17 +113,17 @@
                         <div class="pro-details-social">
                             <ul>
                                 <li>
-                                    <a href="https://www.facebook.com/trivicare" target="_blank">
+                                    <a href="https://www.facebook.com/trivicare" target="_blank" title="Facebook">
                                         <fa-icon icon="fa-brands fa-facebook-f" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.instagram.com/trivicare" target="_blank">
+                                    <a href="https://www.instagram.com/trivicare" target="_blank" title="Instagram">
                                         <fa-icon icon="fa-brands fa-instagram" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.tiktok.com/@trivicare" target="_blank">
+                                    <a href="https://www.tiktok.com/@trivicare" target="_blank" title="TikTok">
                                         <fa-icon icon="fa-brands fa-tiktok" />
                                     </a>
                                 </li>

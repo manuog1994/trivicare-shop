@@ -2,7 +2,7 @@
   "publicPath": "/_nuxt/",
   "all": [
     "0.js",
-    "1189e25af39fe9af5876.hot-update.json",
+    "27398db3fab1159b433c.hot-update.json",
     "app.css",
     "app.js",
     "assets/fonts/Pe-icon-7-stroke.eot",
@@ -33,6 +33,7 @@
     "pages/orders-profiles/_id.js",
     "pages/orders/_id.css",
     "pages/orders/_id.js",
+    "pages/privacy-policy.27398db3fab1159b433c.hot-update.js",
     "pages/privacy-policy.css",
     "pages/privacy-policy.js",
     "pages/product/_slug.js",
@@ -43,7 +44,6 @@
     "pages/terms-conditions.js",
     "pages/unsubscribe.css",
     "pages/unsubscribe.js",
-    "pages/wishlist.1189e25af39fe9af5876.hot-update.js",
     "pages/wishlist.js",
     "runtime.js",
     "static/svg/sign-out-alt-solid.svg",
@@ -78,6 +78,7 @@
     "pages/orders-profiles/_id.js",
     "pages/orders/_id.css",
     "pages/orders/_id.js",
+    "pages/privacy-policy.27398db3fab1159b433c.hot-update.js",
     "pages/privacy-policy.css",
     "pages/privacy-policy.js",
     "pages/product/_slug.js",
@@ -88,7 +89,6 @@
     "pages/terms-conditions.js",
     "pages/unsubscribe.css",
     "pages/unsubscribe.js",
-    "pages/wishlist.1189e25af39fe9af5876.hot-update.js",
     "pages/wishlist.js"
   ],
   "modules": {
@@ -545,20 +545,21 @@
       23
     ],
     "bb9bd64e": [
-      32,
-      33
+      33,
+      34,
+      32
     ],
     "3462e995": [
-      36,
-      37
+      37,
+      38
     ],
     "73214cd5": [
-      38,
-      39
+      39,
+      40
     ],
     "4ec0cca2": [
-      40,
-      41
+      41,
+      42
     ],
     "f0900460": [
       30,
@@ -4425,16 +4426,17 @@
       23
     ],
     "72a5a66e": [
-      32,
-      33
+      33,
+      34,
+      32
     ],
     "653628c5": [
-      38,
-      39
+      39,
+      40
     ],
     "330d07bf": [
-      40,
-      41
+      41,
+      42
     ],
     "54dec856": [
       2,
@@ -4613,8 +4615,8 @@
       31
     ],
     "97cfcfae": [
-      36,
-      37
+      37,
+      38
     ],
     "27dbfa48": [
       46,
@@ -5409,30 +5411,30 @@
       31
     ],
     "c5e7853a": [
-      32,
-      33
+      33,
+      34,
+      32
     ],
     "5f26f381": [
-      34
-    ],
-    "7a7cecc5": [
       35
     ],
+    "7a7cecc5": [
+      36
+    ],
     "36d2d37e": [
-      36,
-      37
+      37,
+      38
     ],
     "3c572371": [
-      38,
-      39
+      39,
+      40
     ],
     "a5a3343a": [
-      40,
-      41
+      41,
+      42
     ],
     "3e29aab1": [
-      43,
-      42
+      43
     ],
     "0d17a0f2": [
       46,
@@ -6100,30 +6102,30 @@
       31
     ],
     "ed1a9916": [
-      32,
-      33
+      33,
+      34,
+      32
     ],
     "14292bb8": [
-      34
-    ],
-    "3d3d5742": [
       35
     ],
+    "3d3d5742": [
+      36
+    ],
     "18af9eb6": [
-      36,
-      37
+      37,
+      38
     ],
     "5628196e": [
-      38,
-      39
+      39,
+      40
     ],
     "ae57f146": [
-      40,
-      41
+      41,
+      42
     ],
     "5b9d92c7": [
-      43,
-      42
+      43
     ],
     "287f8dae": [
       46,
@@ -6399,98 +6401,99 @@
       31
     ],
     "e23c5948": [
-      32,
-      33
+      33,
+      34,
+      32
     ],
     "85accd3c": [
-      32,
-      33
+      33,
+      34,
+      32
     ],
     "bba5271e": [
-      32,
-      33
+      33,
+      34,
+      32
     ],
     "1404878c": [
-      32,
-      33
+      33,
+      34,
+      32
     ],
     "03c90d96": [
-      34
+      35
     ],
     "f80cdad2": [
-      34
+      35
     ],
     "57d74a90": [
-      34
+      35
     ],
     "0412ac9a": [
-      35
+      36
     ],
     "684f6852": [
-      35
+      36
     ],
     "2ca38d08": [
-      35
+      36
     ],
     "6b3567fb": [
-      36,
-      37
+      37,
+      38
     ],
     "6538ce3a": [
-      36,
-      37
+      37,
+      38
     ],
     "46c4f181": [
-      36,
-      37
+      37,
+      38
     ],
     "858e35ac": [
-      36,
-      37
+      37,
+      38
     ],
     "72869c43": [
-      38,
-      39
+      39,
+      40
     ],
     "77bd381b": [
-      38,
-      39
+      39,
+      40
     ],
     "61a51e6d": [
-      38,
-      39
+      39,
+      40
     ],
     "5334f14c": [
-      38,
-      39
+      39,
+      40
     ],
     "6bf442dc": [
-      40,
-      41
+      41,
+      42
     ],
     "05b09ee0": [
-      40,
-      41
+      41,
+      42
     ],
     "f495add2": [
-      40,
-      41
+      41,
+      42
     ],
     "c22d174c": [
-      40,
-      41
+      41,
+      42
     ],
     "49fe766c": [
-      43,
-      42
+      43
     ],
     "443eae74": [
-      43,
-      42
+      43
     ],
     "4dc85d1a": [
-      43,
-      42
+      43
     ],
     "6c7b5ddd": [
       2,
@@ -6711,6 +6714,7 @@
       "pages/orders/_id.js"
     ],
     "7918e9b8": [
+      "pages/privacy-policy.27398db3fab1159b433c.hot-update.js",
       "pages/privacy-policy.js"
     ],
     "cdc5b0ae": [
@@ -6729,7 +6733,6 @@
       "pages/unsubscribe.js"
     ],
     "c039edb4": [
-      "pages/wishlist.1189e25af39fe9af5876.hot-update.js",
       "pages/wishlist.js"
     ],
     "6fca0322": [

@@ -13,7 +13,7 @@
             <input type="password" name="password_confirmation" placeholder="Confirma tu contraseña">
             <div class="mb-2">
                 <input type="checkbox" name="terms" id="terms" v-model="checked" value="true">
-                <label for="terms"><a href="#">Acepto los términos y condiciones</a></label>
+                <label for="terms"><a href="https://trivicare.com/">Acepto los términos y condiciones</a></label>
             </div>
             <div class="button-box mt-4">
                 <button class="btn" :class="{'disabled': checked ? false : true}" type="submit" title="Registrarse">Registrar</button>

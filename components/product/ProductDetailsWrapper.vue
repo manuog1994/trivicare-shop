@@ -11,10 +11,10 @@
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
                                 <div v-if="product.images.length == 0" class="large-img swiper-slide">
-                                    <nuxt-img provider="customProvider" src="default.webp" alt="default" width="100%"/>
+                                    <nuxt-img provider="customProvider" src="default.webp" alt="default" width="100%" height="100%"/>
                                 </div>
                                 <div v-else class="large-img swiper-slide" v-for="image in product.images" :key="'image-' + image.id">
-                                    <nuxt-img provider="customProvider" :src="image.path" alt="default" width="100%"/>
+                                    <nuxt-img provider="customProvider" :src="image.path" alt="default" width="100%" height="100%"/>
                                 </div>
                                 <div class="quickview-nav swiper-button-prev">
                                     <i class="pe-7s-angle-left"></i>
@@ -25,10 +25,10 @@
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
                                 <div v-if="product.images.length == 0" class="thumb-img swiper-slide">
-                                    <nuxt-img provider="customProvider" src="default.webp" alt="default" width="100%"/>
+                                    <nuxt-img provider="customProvider" src="default.webp" alt="default" width="100%" heigth="100%"/>
                                 </div>
                                 <div v-else class="thumb-img swiper-slide" v-for="image in product.images" :key="'imagetwo-' + image.id">
-                                    <nuxt-img provider="customProvider" :src="image.path" alt="default" width="100%"/>
+                                    <nuxt-img provider="customProvider" :src="image.path" alt="default" width="100%" height="100%"/>
                                 </div>
                             </swiper>
                         </div>
@@ -45,7 +45,7 @@
                             <client-only>
                                 <vue-star-rating :star-size="30" :read-only="true" :show-rating="false" :rating="product.rating"></vue-star-rating>
                             </client-only> 
-                            <span><a class="ms-2" href="#des-details3">{{ product.total_reviews }} Reviews</a></span>
+                            <span><a class="ms-2" href="#des-details3" title="Valoraciones">{{ product.total_reviews }} Reviews</a></span>
                         </div>
                         <p>{{ product.description }}</p>
                         <!-- <div class="pro-details-size-color" v-if="product.variation">
@@ -92,7 +92,7 @@
                             <ul>
                                 <li>
                                     <div>
-                                        <a href="">{{ product.category.name  }}</a>
+                                        <a :href="`https://trivicare.com/${product.category.slug}`" :title="product.category.name">{{ product.category.name  }}</a>
                                     </div>
                                 </li>
                             </ul>
@@ -101,24 +101,24 @@
                             <span class="label me-2">Tag:</span>
                             <ul>
                                 <li v-for="taggy in product.tags" :key="'tag-' +  taggy.id">
-                                    <n-link class="tag-block" :style="`background-color:${taggy.color}`" :to="`/shop?tag=${taggy.slug}`">#{{ taggy.tag }}</n-link>
+                                    <n-link class="tag-block" :style="`background-color:${taggy.color}`" :to="`/shop?tag=${taggy.slug}`" title="Etiqueta">#{{ taggy.tag }}</n-link>
                                 </li>
                             </ul>
                         </div>
                         <div class="pro-details-social">
                             <ul>
                                 <li>
-                                    <a href="https://www.facebook.com/trivicare" target="_blank">
+                                    <a href="https://www.facebook.com/trivicare" target="_blank" title="Facebook">
                                         <fa-icon icon="fa-brands fa-facebook-f" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.instagram.com/trivicare" target="_blank">
+                                    <a href="https://www.instagram.com/trivicare" target="_blank" title="Instagram">
                                         <fa-icon icon="fa-brands fa-instagram" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.tiktok.com/@trivicare" target="_blank">
+                                    <a href="https://www.tiktok.com/@trivicare" target="_blank" title="TikTok">
                                         <fa-icon icon="fa-brands fa-tiktok" />
                                     </a>
                                 </li>

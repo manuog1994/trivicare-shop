@@ -49,9 +49,9 @@
                         </div>
                         <div class="footer-list">
                             <ul>
-                                <li><a href="https://www.facebook.com/trivicare" target="_blank">Facebook</a></li>
-                                <li><a href="https://www.instagram.com/trivicare" target="_blank">Instagram</a></li>
-                                <li><a href="https://www.tiktok.com/@trivicare" target="_blank">TikTok</a></li>
+                                <li><a href="https://www.facebook.com/trivicare" target="_blank" title="Facebook">Facebook</a></li>
+                                <li><a href="https://www.instagram.com/trivicare" target="_blank" title="Instagram">Instagram</a></li>
+                                <li><a href="https://www.tiktok.com/@trivicare" target="_blank" title="TikTok">TikTok</a></li>
                             </ul>
                         </div>
                     </div>

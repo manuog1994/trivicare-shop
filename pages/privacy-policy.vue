@@ -10,7 +10,7 @@
                     <div class="col-12">
                         <div class="policy-list">
                             <h3 class="policy-title">Who we are ?</h3>
-                            <p>Our website address is: <a href="http://hasthemes.com">http://hasthemes.com</a></p>
+                            <p>Our website address is: <a href="http://hasthemes.com" title="Temas">http://hasthemes.com</a></p>
                         </div>
                         <div class="policy-list">
                             <h3 class="policy-title">What personal data we collect and why we collect it Comments</h3>

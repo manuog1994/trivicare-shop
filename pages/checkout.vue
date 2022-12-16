@@ -97,7 +97,7 @@
                                                 <div class="form-check ms-3 mb-4">
                                                     <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
                                                     <label class="form-check-label" for="flexCheckDefault">
-                                                        He leído y acepto la <a href="#">política de privacidad</a>.
+                                                        He leído y acepto la <a href="#" title="Ver política de privacidad">política de privacidad</a>.
                                                     </label>
                                                 </div>
                                                 <div class="billing-btn">
@@ -165,7 +165,7 @@
                                     <div class="form-check ms-4">
                                         <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
                                         <label class="form-check-label" for="flexCheckDefault">
-                                            He leído y acepto la <a href="#">política de privacidad</a>.
+                                            He leído y acepto la <a href="#" title="Ver política de privacidad">política de privacidad</a>.
                                         </label>
                                     </div>
                                     <div class="billing-btn mt-5">

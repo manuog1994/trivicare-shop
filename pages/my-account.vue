@@ -43,7 +43,7 @@
                                                         </div>
                                                         <div class="billing-back-btn">
                                                             <div class="billing-back">
-                                                                <a href="#"><i class="fa fa-arrow-up"></i> atrás</a>
+                                                                <a href="#"><i class="fa fa-arrow-up" title="Atrás"></i> atrás</a>
                                                             </div>
                                                             <div class="billing-btn">
                                                                 <button type="submit" title="Actualizar email">Actualizar Email</button>
@@ -90,7 +90,7 @@
                                                         </div>
                                                         <div class="billing-back-btn">
                                                             <div class="billing-back">
-                                                                <a href="#"><i class="fa fa-arrow-up"></i> atrás</a>
+                                                                <a href="#"><i class="fa fa-arrow-up" title="Atrás"></i> atrás</a>
                                                             </div>
                                                             <div class="billing-btn">
                                                                 <button type="submit" title="Actualizar contraseña">Actualizar contraseña</button>
@@ -132,7 +132,7 @@
                                                     </div>
                                                     <div class="billing-back-btn">
                                                         <div class="billing-back">
-                                                            <a href="#"><i class="fa fa-arrow-up"></i> atrás</a>
+                                                            <a href="#" title="Atrás"><i class="fa fa-arrow-up"></i> atrás</a>
                                                         </div>
                                                     </div>
                                                 </div>
