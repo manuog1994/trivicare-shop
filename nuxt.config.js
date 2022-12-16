@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
+import axios from 'axios'
 
 export default defineNuxtConfig({
     loading: '~/components/Loading.vue',
@@ -95,7 +96,7 @@ export default defineNuxtConfig({
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
         '@nuxtjs/sitemap',
-        ['@nuxtjs/robots', { UserAgent: '*', Disallow: ['/crud', '/my-account', '/checkout', '/cart', '/wishlist', '/my-orders', '/orders', '/orders-profile', '/forgot-password', '/compare' ], }],
+        '@nuxtjs/robots',
     ],
 
     auth: {
@@ -115,6 +116,36 @@ export default defineNuxtConfig({
     axios: {
         baseURL: 'https://api.trivicare.com',
         credentials:true,
+    },
+
+    sitemap: {
+        exclude: [
+            '/crud',
+            '/my-account',
+            '/checkout',
+            '/cart',
+            '/wishlist',
+            '/my-orders',
+            '/orders',
+            '/orders-profile',
+            '/forgot-password',
+            '/compare',
+            '/unsubscribe'
+        ],
+
+        routes: async () => {
+            const { data } = await axios.get('https://api.trivicare.com/api/products')
+            return data.data.map(p => '/product/' + p.slug);
+        }
+    },
+
+    robots: () => {
+        return {
+          UserAgent: '*',
+          Disallow: '/crud',
+    
+          Sitemap: (req) => `https://${req.headers.host}/sitemap.xml`,
+        }
     },
 
     router: {
@@ -161,39 +192,6 @@ export default defineNuxtConfig({
             }
         }
     },
-    
-    sitemap: {
-        hostname: 'https://trivicare.com',
-        gzip: true,
-        exclude: [
-            '/crud',
-            '/orders/**',
-            '/my-account',
-            '/checkout',
-            '/cart',
-            '/wishlist',
-            '/my-orders',
-            '/orders',
-            '/orders-profile', 
-            '/forgot-password',
-            '/compare',
-            '/orders-profile/**',
-            '/unsubscribe',
-        ],
-        routes: [
-            '/',
-            '/about',
-            '/contact',
-            '/products',
-            '/products/**',
-            '/shop',
-            '/shop/**',
-            '/terms-conditions',
-            '/privacy-policy',
-            '/login'
-
-        ]
-    }
 
       
 })
