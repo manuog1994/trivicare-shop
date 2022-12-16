@@ -46,7 +46,7 @@
                                                                 <a href="#"><i class="fa fa-arrow-up"></i> atrás</a>
                                                             </div>
                                                             <div class="billing-btn">
-                                                                <button type="submit">Actualizar Email</button>
+                                                                <button type="submit" title="Actualizar email">Actualizar Email</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -93,7 +93,7 @@
                                                                 <a href="#"><i class="fa fa-arrow-up"></i> atrás</a>
                                                             </div>
                                                             <div class="billing-btn">
-                                                                <button type="submit">Actualizar contraseña</button>
+                                                                <button type="submit" title="Actualizar contraseña">Actualizar contraseña</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -209,7 +209,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="billing-btn">
-                                                            <button class="btn-form" type="submit">Guardar</button>
+                                                            <button class="btn-form" type="submit" title="Guardar">Guardar</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -243,7 +243,7 @@
                     </span>
                 </template>
                 <template slot="button">
-                    <button class="btn border-1">Aceptar</button>
+                    <button class="btn border-1" title="Aceptar">Aceptar</button>
                 </template>
             </CookieConsent>
         </VueIfBot>

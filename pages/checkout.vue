@@ -101,7 +101,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="billing-btn">
-                                                    <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit">Guardar</button>
+                                                    <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -169,7 +169,7 @@
                                         </label>
                                     </div>
                                     <div class="billing-btn mt-5">
-                                        <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit">Guardar</button>
+                                        <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
                                     </div>
                                 </form>
                             </div>
@@ -224,7 +224,7 @@
                                     </div>
                                 </div>
                                 <div class="place-order mt-25 d-flex justify-content-center">
-                                    <button @click.prevent="createOrder" class="btn btn-theme" :class="{'disabled': disabled ? true : false }" id="next">Ir a la pasarela de pago</button>
+                                    <button @click.prevent="createOrder" class="btn btn-theme" :class="{'disabled': disabled ? true : false }" id="next" title="Ir a la pasarela de pago">Ir a la pasarela de pago</button>
                                 </div>
                             </div>
                         </div>

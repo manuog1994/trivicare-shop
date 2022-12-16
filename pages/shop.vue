@@ -29,13 +29,13 @@
                                     </div>
                                 </div>
                                 <div class="shop-tab d-none d-md-block">
-                                    <button @click="layout = 'twoColumn'" :class="{ active : layout === 'twoColumn' }">
+                                    <button @click="layout = 'twoColumn'" :class="{ active : layout === 'twoColumn' }" title="Ver dos productos por fila">
                                         <i class="fa fa-th-large"></i>
                                     </button>
-                                    <button @click="layout = 'threeColumn'" :class="{ active : layout === 'threeColumn' }">
+                                    <button @click="layout = 'threeColumn'" :class="{ active : layout === 'threeColumn' }" title="Ver tres productos por fila">
                                         <i class="fa fa-th"></i>
                                     </button>
-                                    <button @click="layout = 'list'" :class="{ active : layout === 'list' }">
+                                    <button @click="layout = 'list'" :class="{ active : layout === 'list' }" title="Ver un solo producto por fila">
                                         <i class="fa fa-list-ul"></i>
                                     </button>
                                 </div>

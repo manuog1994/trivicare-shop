@@ -6,10 +6,10 @@
         <div class="login-register-area pt-100 pb-100">
             <div class="container">
                 <div class="login-register-tab-list nav">
-                    <button @click="comA('Login')" :class="{ active: isActive === 'Login' }" >
+                    <button @click="comA('Login')" :class="{ active: isActive === 'Login' }" title="Iniciar sesión">
                         Iniciar Sessión
                     </button>
-                    <button @click="comA('Register')" :class="{ active: isActive === 'Register' }" >
+                    <button @click="comA('Register')" :class="{ active: isActive === 'Register' }" title="Registrarte">
                         Regístrate
                     </button>
                 </div>
@@ -30,7 +30,7 @@
                     </span>
                 </template>
                 <template slot="button">
-                    <button class="btn border-1">Aceptar</button>
+                    <button class="btn border-1" title="Aceptar">Aceptar</button>
                 </template>
             </CookieConsent>
         </VueIfBot>

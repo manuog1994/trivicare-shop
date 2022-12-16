@@ -37,10 +37,10 @@
                                                 <del class="old" v-if="product.discount > 0">{{ product.price }} &euro;</del>
                                             </td>
                                             <td class="product-wishlist-cart">
-                                                <button @click="addToCart(product)">añadir al carrito</button>
+                                                <button @click="addToCart(product)" title="Añadir al carrito">añadir al carrito</button>
                                             </td>
                                             <td class="product-remove">
-                                                <button @click="removeProductFromWishlist(product)"><i class="fa fa-times"></i></button>
+                                                <button @click="removeProductFromWishlist(product)" title="Eliminar de la lista de deseos"><i class="fa fa-times"></i></button>
                                             </td>
                                         </tr>
                                     </client-only>

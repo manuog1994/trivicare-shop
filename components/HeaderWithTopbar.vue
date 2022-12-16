@@ -26,7 +26,7 @@
                                     </n-link>
                                 </div>
                                 <div class="same-style account-setting d-none d-lg-block">
-                                    <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings"><i class="pe-7s-user-female"></i></button>
+                                    <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menú de perfil"><i class="pe-7s-user-female"></i></button>
                                     <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
                                         <ul v-if="role == 'admin'">
                                             <li><n-link to="/crud">PCD</n-link></li>
@@ -56,14 +56,14 @@
                                     <span class="count-style">{{ wishlistItemCount }}</span>
                                 </div>
                                 <div class="same-style cart-wrap">
-                                    <button class="icon-cart" @click="openCart = !openCart">
+                                    <button class="icon-cart" @click="openCart = !openCart" title="Desplegar carrito">
                                         <i class="pe-7s-shopbag"></i>
                                         <span class="count-style">{{ cartItemCount }}</span>
                                     </button>
                                     <MiniCart :miniCart="{ visible:openCart }" @minicartClose="openCart = !openCart" />
                                 </div>
                                 <div class="same-style mobile-menu-toggler d-block d-lg-none">
-                                    <button class="mobile-aside-button" @click="navOpen = !navOpen">
+                                    <button class="mobile-aside-button" @click="navOpen = !navOpen" title="Menu">
                                         <i class="pe-7s-menu"></i>
                                     </button>
                                 </div>

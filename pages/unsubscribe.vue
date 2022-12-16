@@ -14,7 +14,7 @@
                     <input type="email" class="form-control" name="email">
                 </div>
                 <div class="mb-2">
-                    <button type="submit" class="btn-form">Darse de baja</button>
+                    <button type="submit" class="btn-form" title="Darse de baja">Darse de baja</button>
                 </div>
             </form>
         </div>

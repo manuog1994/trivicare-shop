@@ -16,7 +16,7 @@
                 <label for="terms"><a href="#">Acepto los términos y condiciones</a></label>
             </div>
             <div class="button-box mt-4">
-                <button class="btn" :class="{'disabled': checked ? false : true}" type="submit">Registrar</button>
+                <button class="btn" :class="{'disabled': checked ? false : true}" type="submit" title="Registrarse">Registrar</button>
             </div>
         </form>
     </div>

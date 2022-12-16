@@ -19,10 +19,10 @@
                 <!-- <button class="btn" title="Compare" @click="addToCompare(product)"> 
                     <i class="pe-7s-shuffle"></i>
                 </button> -->
-                <button class="btn" title="Add To Cart" @click="addToCart(product)">
+                <button class="btn" title="Añadir al carrito" @click="addToCart(product)">
                     <i class="pe-7s-cart"></i>
                 </button>
-                <button class="btn" title="Quick View" @click="onClick(product)">
+                <button class="btn" title="Vista previa" @click="onClick(product)">
                     <i class="pe-7s-look"></i>
                 </button>
             </div>
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="pro-wishlist-2">
-                <button @click="addToWishlist(product)"><i class="pe-7s-like"></i></button>
+                <button @click="addToWishlist(product)" title="Añadir a la lista de deseos"><i class="pe-7s-like"></i></button>
             </div>
         </div>
     </div>

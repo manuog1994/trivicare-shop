@@ -29,7 +29,7 @@
                                 </select>
                             </div>
                             <div class="mb-2">
-                                <button type="submit" class="btn btn-primary">Crear</button>
+                                <button type="submit" class="btn btn-primary" title="Crear">Crear</button>
                             </div>
                         </form>
                     </div>
@@ -61,7 +61,7 @@
                             <td v-else>Activo</td>
                             <td>
                                 <form @submit.prevent="destroy(coupon.id)">
-                                    <button type="submit" class="btn btn-danger">
+                                    <button type="submit" class="btn btn-danger" title="Eliminar">
                                         Eliminar
                                     </button>
                                 </form>

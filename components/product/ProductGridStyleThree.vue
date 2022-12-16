@@ -30,13 +30,13 @@
                         <!-- <button class="btn" title="Compare" @click="addToCompare(product)"> 
                             <i class="pe-7s-shuffle"></i>
                         </button> -->
-                        <button class="btn" title="Add To Cart" @click="addToCart(product)">
+                        <button class="btn" title="Añadir al carrito" @click="addToCart(product)">
                             <i class="pe-7s-cart"></i>
                         </button>
-                        <button class="btn" title="Wishlist" @click="addToWishlist(product)">
+                        <button class="btn" title="Añadir a la lista de deseos" @click="addToWishlist(product)">
                             <i class="pe-7s-like"></i>
                         </button>
-                        <button class="btn" title="Quick View" @click="onClick(product)">
+                        <button class="btn" title="Vista previa" @click="onClick(product)">
                             <i class="pe-7s-look"></i>
                         </button>
                     </div>

@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <textarea name="message" placeholder="Tu Mensaje*"></textarea>
-                                    <button class="submit" type="submit">ENVIAR</button>
+                                    <button class="submit" type="submit" title="Enviar">ENVIAR</button>
                                 </div>
                             </div>
                         </form>

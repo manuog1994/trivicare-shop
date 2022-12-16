@@ -17,7 +17,7 @@
             </div>
              <div class="product-action" v-if="layout === 'twoColumn' || layout === 'threeColumn'">
                 <div class="pro-same-action pro-wishlist">
-                    <button class="btn" title="Wishlist" @click="addToWishlist(product)"> 
+                    <button class="btn" title="Añadir a la lista de deseos" @click="addToWishlist(product)"> 
                         <i class="pe-7s-like"></i>
                     </button>
                 </div>
@@ -25,13 +25,13 @@
                     <n-link :to="`/product/${product.slug}`" class="btn" v-if="product.variation">
                         selecciona una opción
                     </n-link>
-                    <button class="btn" title="Add to cart" @click="addToCart(product)" v-else>
+                    <button class="btn" title="Añadir al carrito" @click="addToCart(product)" v-else>
                         <i class="pe-7s-cart"></i> 
                         Añadir al carrito
                     </button>
                 </div>
                 <div class="pro-same-action pro-quickview">
-                    <button class="btn" title="Quick View" @click="onClick(product)">
+                    <button class="btn" title="Vista previa" @click="onClick(product)">
                         <i class="pe-7s-look"></i>
                     </button>
                 </div>
@@ -54,17 +54,17 @@
                 <p>{{ product.description }}</p>
                 <div class="pro-action d-flex align-items-center" >
                     <div class="pro-cart btn-hover">
-                        <button class="btn" title="Add To Cart" @click="addToCart(product)" v-if="product.stock > 0">
+                        <button class="btn" title="Añadir al carrito" @click="addToCart(product)" v-if="product.stock > 0">
                             <i class="pe-7s-cart"></i> 
                             Añadir al carrito
                         </button>
-                        <button v-else class="btn disabled">
+                        <button v-else class="btn disabled" title="No hay stock">
                             <i class="pe-7s-attention"></i>
                              No hay Stock
                         </button>
                     </div>
                     <div class="pro-wishlist">
-                        <button @click="addToWishlist(product)">
+                        <button @click="addToWishlist(product)" title="Añadir a la lista de deseos">
                             <i class="fa fa-heart-o"></i>
                         </button>
                     </div>

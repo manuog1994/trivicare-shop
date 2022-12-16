@@ -14,7 +14,7 @@
                     <input type="email" class="form-control" name="email">
                 </div>
                 <div class="mb-2">
-                    <button type="submit" class="btn-form">Recuperar la contraseña</button>
+                    <button type="submit" class="btn-form" title="Recuperar la contraseña">Recuperar la contraseña</button>
                 </div>
             </form>
         </div>

@@ -2,7 +2,7 @@
     <div class="offcanvas-mobile-menu-wrapper">
         <div class="mobile-menu-overlay" @click="$emit('toggleAsideMenu')"></div>
         <div class="mobile-menu-inner">
-            <button class="close-btn" @click="$emit('toggleAsideMenu')">
+            <button class="close-btn" @click="$emit('toggleAsideMenu')" title="Cerrar">
                 <i class="pe-7s-close"></i>
             </button>
             <div class="mobile-menu-inner-wrapper">

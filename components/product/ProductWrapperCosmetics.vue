@@ -4,10 +4,10 @@
             <div class="container">
                 <ul class="nav product-tab-list-2 pb-55">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#sale-product" role="tab">Más Vendidos</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#sale-product" role="tab" title="Vista previa">Más Vendidos</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#new-product" role="tab">Últimos Productos Añadidos</button>
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#new-product" role="tab" title="Últimos productos añadidos">Últimos Productos Añadidos</button>
                     </li>
                 </ul>
                 <div class="tab-content">

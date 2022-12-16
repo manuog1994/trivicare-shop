@@ -52,14 +52,14 @@
                                                             <h5>Cantidad: </h5>
                                                         </div>
                                                         <div class="cart-plus-minus">
-                                                            <button @click="decrementProduct(product)" class="dec qtybutton">-</button>
+                                                            <button @click="decrementProduct(product)" class="dec qtybutton" title="Quitar">-</button>
                                                             <input class="cart-plus-minus-box" type="text" :value="product.cartQuantity" readonly>
-                                                            <button @click="incrementProduct(product)" class="inc qtybutton">+</button>
+                                                            <button @click="incrementProduct(product)" class="inc qtybutton" title="Añadir">+</button>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 d-flex justify-content-start">
                                                         <div class="product-remove">
-                                                            <button @click="removeProduct(product)">Eliminar</button>
+                                                            <button @click="removeProduct(product)" title="Eliminar">Eliminar</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -101,7 +101,7 @@
                                         <p v-if="error" class="text-danger">{{ error }}</p>
                                         <form @submit.prevent="validationCupon">
                                             <input v-model="inputCupons" type="text" name="name" required>
-                                            <button class="cart-btn-2" type="submit">Aplicar cupón</button>
+                                            <button class="cart-btn-2" type="submit" title="Aplicar cupón">Aplicar cupón</button>
                                         </form>
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@
                                 <div class="col-lg-12">
                                     <div class="cart-shiping-update-wrapper">
                                         <div class="cart-clear">
-                                            <button @click="clearCart()">Vaciar Carrito</button>
+                                            <button @click="clearCart()" title="Vaciar carrito">Vaciar Carrito</button>
                                         </div>
                                         <div class="cart-shiping-update">
                                             <n-link to="/shop">Continuar Comprando</n-link>
@@ -147,7 +147,7 @@
                         </span>
                     </template>
                     <template slot="button">
-                        <button class="btn border-1">Aceptar</button>
+                        <button class="btn border-1" title="Aceptar">Aceptar</button>
                     </template>
                 </CookieConsent>
             </VueIfBot>

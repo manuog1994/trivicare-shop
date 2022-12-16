@@ -94,7 +94,7 @@ export default defineNuxtConfig({
         '@nuxtjs/style-resources',
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
-        '@nuxtjs/robots',
+        ['nuxt-robots-module', { UserAgent: '*', Disallow: ['/crud', '/my-account', '/checkout', '/cart', '/wishlist', '/my-orders', '/orders', '/orders-profile', '/forgot-password', '/compare' ], }],
     ],
 
     auth: {
@@ -151,26 +151,15 @@ export default defineNuxtConfig({
 
     image: {
         providers: {
-        customProvider: {
-            name: 'customProvider', // optional value to overrider provider name
-            provider: '~/providers/custom', // Path to custom provider
-            options: {
-            // ... provider options
+            customProvider: {
+                name: 'customProvider', // optional value to overrider provider name
+                provider: '~/providers/custom', // Path to custom provider
+                options: {
+                // ... provider options
+                }
             }
         }
-        }
-    },
-
-    robots: [
-        {
-            UserAgent: '*',
-            Disallow: ['/crud', '/my-account', '/checkout', '/cart', '/wishlist', '/my-orders', '/orders', '/orders-profile', '/forgot-password', '/compare' ],
-        },
-    ],
-      
-      
-      
-      
+    },      
       
 })
 

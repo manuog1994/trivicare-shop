@@ -24,6 +24,7 @@
         "core-js": "^3.21.1",
         "js-file-download": "^0.4.12",
         "nuxt-edge": "latest",
+        "nuxt-robots-module": "^1.5.1",
         "sweetalert2": "^11.4.33",
         "swiper": "^5.3.7",
         "vue-awesome-swiper": "^4.1.1",

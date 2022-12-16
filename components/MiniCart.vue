@@ -19,7 +19,7 @@
                                 <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
                             </div>
                             <div class="shopping-cart-delete">
-                                <button @click="removeProduct(product)">
+                                <button @click="removeProduct(product)" title="Eliminar producto">
                                     <i class="fa fa-times-circle"></i>
                                 </button>
                             </div>

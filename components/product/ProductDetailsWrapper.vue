@@ -73,15 +73,15 @@
                         </div>
                         <div v-else class="pro-details-quality">
                             <div class="cart-plus-minus">
-                                <button @click="decreaseQuantity()" class="dec qtybutton">-</button>
+                                <button @click="decreaseQuantity()" class="dec qtybutton" title="Quitar">-</button>
                                 <input class="cart-plus-minus-box" type="text" :value="singleQuantity" readonly>
-                                <button @click="increaseQuantity()" class="inc qtybutton">+</button>
+                                <button @click="increaseQuantity()" class="inc qtybutton" title="Añadir">+</button>
                             </div>
                             <div class="pro-details-cart btn-hover">
-                                <button @click="addToCart(product)">Añadir al Carrito</button>
+                                <button @click="addToCart(product)" title="Añadir al Carrito">Añadir al Carrito</button>
                             </div>
                             <div class="pro-details-wishlist">
-                                <button @click="addToWishlist(product)" title="wishlist"><i class="fa fa-heart-o"></i></button>
+                                <button @click="addToWishlist(product)" title="Añadir a la lista de deseos"><i class="fa fa-heart-o"></i></button>
                             </div>
                             <!-- <div class="pro-details-compare">
                                 <button @click="addToCompare(product)" title="compare"><i class="pe-7s-shuffle"></i></button>

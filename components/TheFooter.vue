@@ -9,7 +9,7 @@
                                 <nuxt-img provider="customProvider" src="logo-footer2.webp" alt="logo-footer" width="100%"/>
                             </n-link>
                         </div>
-                        <p>© 2022 <a href="#" target="_blank">TriviCare Natural Cosmetics.</a><br> Todos los derechos reservados.</p>
+                        <p>© 2022 TriviCare Natural Cosmetics.<br> Todos los derechos reservados.</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-sm-4">
@@ -66,7 +66,7 @@
                             <div class="subscribe-form">
                                 <form class="mc-form" @submit.prevent="subscribeForm" ref="form">
                                     <input class="email" type="email" required placeholder="Introduce tu email..." name="email" >
-                                    <button type="submit" class="button" name="subscribe">Suscribirse</button>
+                                    <button type="submit" class="button" name="subscribe" title="Suscribirse">Suscribirse</button>
                                 </form>
                             </div>
                         </div>

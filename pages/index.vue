@@ -22,7 +22,7 @@
                         </span>
                     </template>
                     <template slot="button">
-                        <button class="btn border-1">Aceptar</button>
+                        <button class="btn border-1" title="Aceptar">Aceptar</button>
                     </template>
                 </CookieConsent>
             </VueIfBot>

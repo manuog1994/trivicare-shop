@@ -52,7 +52,7 @@
                                                 </div>
                                                 <form v-if="$auth.user && $auth.user.id == review.user_id" @submit="deleteReview(review.id)">
                                                     <div class="review-delete">
-                                                        <button class="btn">Eliminar</button>
+                                                        <button class="btn" title="Eliminar">Eliminar</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -89,7 +89,7 @@
                                                     <form @submit="createReview">
                                                         <div class="rating-form-style form-submit">
                                                             <textarea v-model="message" name="Your Review" placeholder="Escribe aquí tu valoración..."></textarea>
-                                                            <button class="btn btn-light" type="submit">Enviar</button>
+                                                            <button class="btn btn-light" type="submit" title="Enviar">Enviar</button>
                                                         </div>
                                                     </form>
                                                 </div>
