@@ -94,7 +94,8 @@ export default defineNuxtConfig({
         '@nuxtjs/style-resources',
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
-        ['nuxt-robots-module', { UserAgent: '*', Disallow: ['/crud', '/my-account', '/checkout', '/cart', '/wishlist', '/my-orders', '/orders', '/orders-profile', '/forgot-password', '/compare' ], }],
+        '@nuxtjs/sitemap',
+        ['@nuxtjs/robots', { UserAgent: '*', Disallow: ['/crud', '/my-account', '/checkout', '/cart', '/wishlist', '/my-orders', '/orders', '/orders-profile', '/forgot-password', '/compare' ], }],
     ],
 
     auth: {
@@ -159,7 +160,41 @@ export default defineNuxtConfig({
                 }
             }
         }
-    },      
+    },
+    
+    sitemap: {
+        hostname: 'https://trivicare.com',
+        gzip: true,
+        exclude: [
+            '/crud',
+            '/orders/**',
+            '/my-account',
+            '/checkout',
+            '/cart',
+            '/wishlist',
+            '/my-orders',
+            '/orders',
+            '/orders-profile', 
+            '/forgot-password',
+            '/compare',
+            '/orders-profile/**',
+            '/unsubscribe',
+        ],
+        routes: [
+            '/',
+            '/about',
+            '/contact',
+            '/products',
+            '/products/**',
+            '/shop',
+            '/shop/**',
+            '/terms-conditions',
+            '/privacy-policy',
+            '/login'
+
+        ]
+    }
+
       
 })
 
