@@ -95,8 +95,6 @@ export default defineNuxtConfig({
         '@nuxtjs/style-resources',
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
-        '@nuxtjs/sitemap',
-        '@nuxtjs/robots',
     ],
 
     auth: {
@@ -118,37 +116,6 @@ export default defineNuxtConfig({
         credentials:true,
     },
 
-    sitemap: {
-        hostname: 'https://trivicare.com',
-        gzip: true,
-        exclude: [
-            '/crud',
-            '/my-account',
-            '/checkout',
-            '/cart',
-            '/wishlist',
-            '/my-orders',
-            '/orders',
-            '/orders-profile',
-            '/forgot-password',
-            '/compare',
-            '/unsubscribe'
-        ],
-
-        routes: async () => {
-            const { data } = await axios.get('https://api.trivicare.com/api/products')
-            return data.data.map(p => '/product/' + p.slug);
-        }
-    },
-
-    robots: () => {
-        return {
-          UserAgent: '*',
-          Disallow: '/crud',
-    
-          Sitemap: (req) => `https://${req.headers.host}/sitemap.xml`,
-        }
-    },
 
     router: {
         middleware: ['auth'],

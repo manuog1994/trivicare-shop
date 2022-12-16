@@ -85,9 +85,6 @@
       "~auth/runtime": [
         "node_modules/@nuxtjs/auth-next/dist/runtime"
       ],
-      "#robots": [
-        ".nuxt/robots"
-      ],
       "#imports": [
         ".nuxt/imports"
       ]
