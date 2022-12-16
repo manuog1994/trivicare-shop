@@ -5812,7 +5812,7 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only",[_c("ul",[_c("li",[_c("a",{staticClass:"link-nav",on:{click:function($event){$event.preventDefault();return _vm.redirectHome.apply(null,arguments);}}},[_vm._v("Ver Todo")])]),_vm._v(" "),_vm._l(_vm.categories,function(category){return _c("li",{key:category.id},[_c("a",{staticClass:"link-nav",on:{click:function($event){$event.preventDefault();_vm.categoryId=category.slug;}}},[_vm._v(_vm._s(category.name))])]);}),_vm._v(" "),_c("li",[_c("n-link",{attrs:{to:"/contact"}},[_vm._v("Contacto")])],1)],2)]);};var staticRenderFns=[];render._withStripped=true;
+var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only",[_c("ul",[_c("li",[_c("a",{staticClass:"link-nav",attrs:{href:"https://trivicare.com/shop"}},[_vm._v("Ver Todo")])]),_vm._v(" "),_vm._l(_vm.categories,function(category){return _c("li",{key:category.id},[_c("a",{staticClass:"link-nav",attrs:{href:`https://trivicare.com/shop?category=${category.slug}`}},[_vm._v(_vm._s(category.name))])]);}),_vm._v(" "),_c("li",[_c("n-link",{attrs:{to:"/contact"}},[_vm._v("Contacto")])],1)],2)]);};var staticRenderFns=[];render._withStripped=true;
 
 /***/ }),
 
