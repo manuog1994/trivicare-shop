@@ -3,12 +3,12 @@
         <div class="product-img">
             <n-link :to="`/product/${slugify(product.title)}`">
                 <div v-if="product.images.lenght == 0">
-                    <nuxt-img class="default-img" provider="customProvider" src="default.webp" :alt="product.title" width="100%"/>
-                    <nuxt-img class="hover-img" provider="customProvider" src="default.webp" :alt="product.title" width="100%"/>
+                    <nuxt-img class="default-img" provider="customProvider" src="default.webp" :alt="product.title" width="100%" height="100%"/>
+                    <nuxt-img class="hover-img" provider="customProvider" src="default.webp" :alt="product.title" width="100%" height="100%"/>
                 </div>
                 <div v-else>
-                    <nuxt-img class="default-img" provider="customProvider" :src="product.images[0].path" :alt="product.title" width="100%"/>
-                    <nuxt-img class="hover-img" provider="customProvider" :src="product.images[0].path" :alt="product.title" width="100%"/>
+                    <nuxt-img class="default-img" provider="customProvider" :src="product.images[0].path" :alt="product.title" width="100%" height="100%"/>
+                    <nuxt-img class="hover-img" provider="customProvider" :src="product.images[0].path" :alt="product.title" width="100%" height="100%"/>
                 </div>
             </n-link>
             <div class="product-badges">

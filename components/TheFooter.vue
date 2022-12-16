@@ -6,7 +6,7 @@
                     <div class="copyright mb-30">
                         <div class="footer-logo">
                             <n-link to="/">
-                                <nuxt-img provider="customProvider" src="logo-footer2.webp" alt="logo-footer" width="100%"/>
+                                <nuxt-img provider="customProvider" src="logo-footer2.webp" alt="logo-footer" width="100%" height="100%"/>
                             </n-link>
                         </div>
                         <p>© 2022 TriviCare Natural Cosmetics.<br> Todos los derechos reservados.</p>

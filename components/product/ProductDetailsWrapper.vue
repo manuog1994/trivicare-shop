@@ -25,7 +25,7 @@
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
                                 <div v-if="product.images.length == 0" class="thumb-img swiper-slide">
-                                    <nuxt-img provider="customProvider" src="default.webp" alt="default" width="100%" heigth="100%"/>
+                                    <nuxt-img provider="customProvider" src="default.webp" alt="default" width="100%" height="100%"/>
                                 </div>
                                 <div v-else class="thumb-img swiper-slide" v-for="image in product.images" :key="'imagetwo-' + image.id">
                                     <nuxt-img provider="customProvider" :src="image.path" alt="default" width="100%" height="100%"/>

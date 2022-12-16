@@ -34,7 +34,7 @@
                                     <div v-for="review in reviews" :key="'review-' + review.id" class="review-wrapper">
                                         <div class="single-review">
                                             <div class="review-img">
-                                                <nuxt-img provider="customProvider" src="default.webp" alt="default" width="100%"/>
+                                                <nuxt-img provider="customProvider" src="default.webp" alt="default" width="100%" height="100%"/>
                                             </div>
                                             <div class="review-content">
                                                 <div class="review-top-wrap">
