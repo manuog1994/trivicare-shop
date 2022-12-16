@@ -5,13 +5,7 @@
             <HeroSliderSix />
             <transition name="intro" mode="out-in"><Intro /></transition>
             <ServicePolicyFour />
-            <!-- <TestimonialOne /> -->
             <ProductWrapperCosmetics />
-            <!-- <BannerStyleFour /> -->
-            <!-- <InstagramPostWrapper /> -->
-            <!-- <BlogWrapper /> -->
-
-            
             <TheFooter />
             <VueIfBot>
                 <CookieConsent>
@@ -37,19 +31,12 @@
 
     export default {
         auth: false,
-        transition: {
-            name: 'fade',
-            mode: 'out-in'
-        },
 
         components: {
             TheHeader: () => import("@/components/TheHeader"),
             HeroSliderSix: () => import("@/components/hero/HeroSliderSix"),
             ProductWrapperCosmetics: () => import("@/components/product/ProductWrapperCosmetics"),
             ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
-            // TestimonialOne: () => import("@/components/TestimonialOne"),
-            // InstagramPostWrapper: () => import('@/components/InstagramPostWrapper'),
-            // BlogWrapper: () => import('@/components/BlogWrapper'),
             TheFooter: () => import("@/components/TheFooter"),
             Intro: () => import("@/components/Intro"),
             CookieConsent,

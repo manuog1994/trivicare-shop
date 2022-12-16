@@ -24,8 +24,8 @@
                                     <div class="row d-md-flex line-cart mt-md-4 mt-2" v-for="product in products" :key="product.id">
                                         <div class="col-4 col-md-2 p-2 ms-4">
                                             <n-link :to="`/product/${product.slug}`">
-                                                <nuxt-img v-if="product.images.length > 0" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.name" /> 
-                                                <nuxt-img v-else provider="customProvider" src="default.webp" :alt="product.name" />
+                                                <nuxt-img v-if="product.images.length > 0" :src="`https://api.trivicare.com/${product.images[0].path}`" :alt="product.name" style="width:100%;"/> 
+                                                <nuxt-img v-else provider="customProvider" src="default.webp" :alt="product.name" style="width:100%;"/>
                                             </n-link>
                                         </div>
                                         <div class="col-7 col-md-9 mt-md-3 mt-1">

@@ -6,7 +6,7 @@
                     <div class="support-wrap-2 support-padding-2 support-shape-3 mb-30 text-center">
                         <div class="support-content-2">
                             <div class="support-icon">
-                                <nuxt-img class="animated" provider="customProvider" :src="policy.icon" :alt="policy.title" width="100%" height="100%"/>
+                                <nuxt-img class="animated" provider="customProvider" :src="policy.icon" :alt="policy.title" style="width:auto"/>
                             </div>
                             <div class="support-content">
                                 <h5>{{ policy.title }}</h5>

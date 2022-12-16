@@ -1,6 +1,4 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
-import axios from 'axios'
-
 export default defineNuxtConfig({
     loading: '~/components/Loading.vue',
      generate: {
@@ -27,11 +25,9 @@ export default defineNuxtConfig({
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
-
         script: [
-            { src: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", integrity: "sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM", crossorigin: "anonymous"},
-        ],
-
+            { src: 'bootstrap/js/bootstrap.js', type: 'text/javascript' },
+        ]
         
     },
 

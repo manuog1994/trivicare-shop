@@ -18,7 +18,7 @@
                                             <client-only>
                                                 <td class="product-image-title" v-for="(product, index) in products" :key="index">
                                                     <n-link :to="`/product/${product.slug}`" class="image">
-                                                        <nuxt-img class="img-fluid" :src="product.images[0]" :alt="product.name" />
+                                                        <nuxt-img class="img-fluid" :src="product.images[0]" :alt="product.name" style="width:100%;"/>
                                                     </n-link>
                                                     <h4 class="title">
                                                         <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>

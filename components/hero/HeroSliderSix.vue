@@ -1,7 +1,7 @@
 <template>
     <div class="slider-area nav-style-1 nav-style-3">
         <swiper :options="swiperOption">
-            <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="slider-height-5 d-flex align-items-center bg-img" :style="{ backgroundImage:`url(${slider.backgroundImage})`}">
+            <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="slider-height-5 d-flex align-items-center bg-img" :style="{ backgroundImage:`url(${slider.backgroundImage})`}" style="width:100%;">
                 <div class="container bg-slider-img">
                     <div class="row">
                         <div class="col-12">

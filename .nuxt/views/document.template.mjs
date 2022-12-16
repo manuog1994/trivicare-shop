@@ -1,5 +1,5 @@
 export default (params) => `<!DOCTYPE html>
-<html ${params.HTML_ATTRS}>
+<html ${params.HTML_ATTRS} lang="es">
   <head ${params.HEAD_ATTRS}>
     ${params.HEAD}
     <!-- add cache control con max-age-->
