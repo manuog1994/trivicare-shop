@@ -91,6 +91,7 @@ export default defineNuxtConfig({
         '@nuxtjs/style-resources',
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
+        ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 24 * 14 }],
     ],
 
     auth: {

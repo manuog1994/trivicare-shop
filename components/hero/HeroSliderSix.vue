@@ -1,6 +1,6 @@
 <template>
     <div class="slider-area nav-style-1 nav-style-3">
-        <swiper :options="swiperOption">
+        <swiper :options="swiperOption" class="d-none d-md-block">
             <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="slider-height-5 d-flex align-items-center bg-img" :style="{ backgroundImage:`url(${slider.backgroundImage})`}" style="width:100%;">
                 <div class="container bg-slider-img">
                     <div class="row">
@@ -26,6 +26,16 @@
             </div>
             <!-- Swiper Navigation End -->
         </swiper>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-md-none" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <nuxt-img provider="customProvider" class="d-block" src="slider1-1.webp" width="550px" alt="logo" />
+                </div>
+                <div class="carousel-item">
+                    <nuxt-img provider="customProvider" class="d-block" src="slider1-2.webp" width="550px" alt="logo" />
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -60,12 +70,14 @@
                     {
                         title: "Bienvenid@ a TriviCare",
                         desc: "Queremos cuidar de tu piel, con toda nuestra gama de productos",
-                        backgroundImage: "https://api.trivicare.com/nuxt/slider1-1.webp"
+                        backgroundImage: "https://api.trivicare.com/nuxt/slider1-1.webp",
+                        backgroundImageTwo: "https://api.trivicare.com/nuxt/slider1-1.webp"
                     },
                     {
                         title: "Oferta de Inauguración",
                         desc: "10% de descuento en tu compra con el cupón 'TRIVICARE10' solo hasta el 31 de Diciembre",
-                        backgroundImage: "https://api.trivicare.com/nuxt/slider1-2.webp"
+                        backgroundImage: "https://api.trivicare.com/nuxt/slider1-2.webp",
+                        backgroundImageTwo: "https://api.trivicare.com/nuxt/slider1-2.webp"
                     }
                 ]
             }

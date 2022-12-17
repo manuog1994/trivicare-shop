@@ -23,6 +23,9 @@
   "Intro": {
     "description": "Auto imported from components/Intro.vue"
   },
+  "IntroMobile": {
+    "description": "Auto imported from components/IntroMobile.vue"
+  },
   "Loading": {
     "description": "Auto imported from components/Loading.vue"
   },
@@ -104,6 +107,12 @@
   "CrudOrdersHistory": {
     "description": "Auto imported from components/crud/OrdersHistory.vue"
   },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
   },
@@ -118,11 +127,5 @@
   },
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
   }
 }

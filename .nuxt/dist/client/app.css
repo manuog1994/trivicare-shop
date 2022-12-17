@@ -21847,6 +21847,16 @@ Copyright (c) 2015 Daniel Eden
 .vue-typer .custom.char[data-v-3931fc21] {
   color: #000;
 }
+.pleft-30[data-v-b16785ba] {
+  padding: 1rem 5rem;
+}
+.vue-typer[data-v-b16785ba] {
+  font-size: 2rem;
+  font-weight: normal;
+}
+.vue-typer .custom.char[data-v-b16785ba] {
+  color: #000;
+}
 
 @media screen and (min-width: 420px) {
 .p-30 {
@@ -22048,6 +22058,12 @@ a.link-nav{
 }
 
 
+.bg-slider-img {
+    background-color: #f5f5f5a3;
+    padding: 8rem 5rem;
+}
+
+
 .tag-block {
     display: inline-flex;
     padding: 1rem, 1rem;
@@ -22060,11 +22076,5 @@ a.link-nav{
     display: flex;
     justify-content: center;
     margin-bottom: 0.5rem;
-}
-
-
-.bg-slider-img {
-    background-color: #f5f5f5a3;
-    padding: 8rem 5rem;
 }
 

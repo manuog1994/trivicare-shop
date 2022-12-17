@@ -4,6 +4,7 @@
             <TheHeader />
             <HeroSliderSix />
             <transition name="intro" mode="out-in"><Intro /></transition>
+            <IntroMobile />
             <ServicePolicyFour />
             <ProductWrapperCosmetics />
             <TheFooter />
@@ -39,6 +40,7 @@
             ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
             TheFooter: () => import("@/components/TheFooter"),
             Intro: () => import("@/components/Intro"),
+            IntroMobile: () => import("@/components/IntroMobile"),
             CookieConsent,
             VueIfBot,
 
@@ -77,7 +79,7 @@
                     {
                         hid: 'description',
                         name: 'description',
-                        content: 'La cosmética natural y ecológica es la mejor opción para cuidar de tu piel. Descubre los beneficios de los productos naturales y ecológicos.'
+                        content: 'La cosmética natural y ecológica es la mejor opción para cuidar de tu piel. Descubre una nueva forma de belleza natural con nuestra marca de cosméticos ecológicos. Nuestra tienda online ofrece una selección única de productos naturales y orgánicos para tu cuidado diario de la piel, el cabello y la salud. Encuentra los mejores productos ecológicos a precios accesibles para llevar tu cuidado de la belleza al siguiente nivel.'
                     }
                 ],            
             }
