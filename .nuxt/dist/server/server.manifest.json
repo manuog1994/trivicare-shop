@@ -18,6 +18,7 @@
     "pages/product/_slug.js": "pages/product/_slug.js",
     "pages/product/product-affiliate.js": "pages/product/product-affiliate.js",
     "pages/shop.js": "pages/shop.js",
+    "pages/success.js": "pages/success.js",
     "pages/terms-conditions.js": "pages/terms-conditions.js",
     "pages/unsubscribe.js": "pages/unsubscribe.js",
     "pages/wishlist.js": "pages/wishlist.js",

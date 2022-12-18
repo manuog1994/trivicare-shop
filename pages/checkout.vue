@@ -223,8 +223,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="place-order mt-25 d-flex justify-content-center">
-                                    <button @click.prevent="createOrder" class="btn btn-theme" :class="{'disabled': disabled ? true : false }" id="next" title="Ir a la pasarela de pago">Ir a la pasarela de pago</button>
+                                <div class="" style="margin-top: 4rem; width: auto;">
+                                    <StripeElement />
                                 </div>
                             </div>
                         </div>
@@ -272,6 +272,7 @@
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             Breadcrumb: () => import("@/components/Breadcrumb"),
+            StripeElement: () => import("@/components/StripeElement"),
             TheFooter: () => import("@/components/TheFooter"),
         },
 

@@ -77,6 +77,13 @@
     "_name": "_565d63a3"
   },
   {
+    "name": "success",
+    "path": "/success",
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/success.vue",
+    "chunkName": "pages/success",
+    "_name": "_37ee3834"
+  },
+  {
     "name": "terms-conditions",
     "path": "/terms-conditions",
     "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/terms-conditions.vue",

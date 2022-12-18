@@ -27,6 +27,8 @@ export default defineNuxtConfig({
         ],
         script: [
             { src: 'bootstrap/js/bootstrap.js', type: 'text/javascript' },
+            { src: 'https://js.stripe.com/v3' },
+
         ]
         
     },
@@ -66,6 +68,7 @@ export default defineNuxtConfig({
             src: '~/plugins/notifications-client.js', 
             mode: 'client' 
         },
+
     ],
 
     // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -144,7 +147,8 @@ export default defineNuxtConfig({
 
     env: {
         baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-        googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID
+        googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
+        STRIPE_PK: process.env.STRIPE_PK,
     },
 
     image: {

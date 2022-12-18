@@ -199,7 +199,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {"baseUrl":"http://localhost:3000","googleAnalyticsId":"G-6FYD0CCL8E","baseURL":"https://trivicare.com","GOOGLE_ANALYTICS_ID":"G-6FYD0CCL8E"}
+      env: {"baseUrl":"http://localhost:3000","googleAnalyticsId":"G-6FYD0CCL8E","STRIPE_PK":"pk_test_51M7hp1JHUqdFIZqmVk4sv7dtIe4N9zVPLxRu3DU6moGliUBJqxu5KUlESl07jLb2eowUB7hGCh4cCSHiWayluIeY00UJebhW39","baseURL":"https://trivicare.com","GOOGLE_ANALYTICS_ID":"G-6FYD0CCL8E"}
     }
     // Only set once
 

@@ -15,6 +15,7 @@ const _e24cb1e8 = () => interopDefault(import('../pages/login.vue' /* webpackChu
 const _1dd7b8f9 = () => interopDefault(import('../pages/my-account.vue' /* webpackChunkName: "pages/my-account" */))
 const _32bd45f8 = () => interopDefault(import('../pages/privacy-policy.vue' /* webpackChunkName: "pages/privacy-policy" */))
 const _565d63a3 = () => interopDefault(import('../pages/shop.vue' /* webpackChunkName: "pages/shop" */))
+const _37ee3834 = () => interopDefault(import('../pages/success.vue' /* webpackChunkName: "pages/success" */))
 const _4eeb482a = () => interopDefault(import('../pages/terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
 const _2c9d4b98 = () => interopDefault(import('../pages/unsubscribe.vue' /* webpackChunkName: "pages/unsubscribe" */))
 const _961aa71c = () => interopDefault(import('../pages/wishlist.vue' /* webpackChunkName: "pages/wishlist" */))
@@ -80,6 +81,10 @@ export const routerOptions = {
     path: "/shop",
     component: _565d63a3,
     name: "shop"
+  }, {
+    path: "/success",
+    component: _37ee3834,
+    name: "success"
   }, {
     path: "/terms-conditions",
     component: _4eeb482a,
