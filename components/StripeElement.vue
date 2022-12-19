@@ -1,33 +1,38 @@
 <template>
-    <div>
-    <!-- Display a payment form -->
-        <form id="payment-form" @submit="handleSubmit" ref="form">
-            <div id="payment-element">
-                <!--Stripe.js injects the Payment Element-->
-            </div>
-            <button id="submit" type="submit">
-                <div class="spinner hidden" id="spinner"></div>
-                <span id="button-text">Pagar ahora</span>
-            </button>
-            <div id="payment-message" class="hidden"></div>
-        </form>
-    </div>
+    <modal name="StripeElement" @before-open="beforeOpen" width="530px" height=auto>
+      <div class="d-flex justify-content-center">
+      <!-- Display a payment form -->
+          <form id="payment-form" @submit="handleSubmit" ref="form">
+              <div id="payment-element">
+                  <!--Stripe.js injects the Payment Element-->
+              </div>
+              <button id="submit" type="submit">
+                  <div class="spinner hidden" id="spinner"></div>
+                  <span id="button-text">Pagar</span>
+              </button>
+              <div id="payment-message" class="hidden"></div>
+          </form>
+      </div>
+    </modal>
 </template>
 
 <script>
 export default {
+  auth: true,
+  name: "StripeElement",
 
     data() {
         return {
             stripe: Stripe("pk_test_51M7hp1JHUqdFIZqmVk4sv7dtIe4N9zVPLxRu3DU6moGliUBJqxu5KUlESl07jLb2eowUB7hGCh4cCSHiWayluIeY00UJebhW39"),
             elements: '',
             clientSecret: '',
+            shipping: 0,
+            orderId: 0,
         }
     },
 
     mounted() {
-        this.initialize();
-        this.checkStatus();
+
     },
 
     computed: {
@@ -39,15 +44,20 @@ export default {
         },
     },
 
-    watch: {
-
-    },
-
     methods: {
-        // Fetches a payment intent and captures the client secret
+        beforeOpen ({params: {shipping, orderId}}) {
+            this.shipping = shipping;
+            this.orderId = orderId;
+            console.log({orderId})
+            console.log({shipping})
+            this.initialize();
+            this.checkStatus();
+        },
+
         async initialize() {
-            const total = (this.total * 1.21).toFixed(2);
-            const { clientSecret } = await this.$axios.post('/api/stripe', { total })
+            const total = ((this.total * 1.21) + this.shipping).toFixed(2);
+            const orderId = this.orderId;
+            const { clientSecret } = await this.$axios.post('/api/stripe', { total, orderId })
                 .then((r) => {
                     return r.data;
                 });
@@ -72,14 +82,16 @@ export default {
             e.preventDefault();
             this.setLoading(true);
 
+
             let elements = this.elements;
             const {error} = await this.stripe.confirmPayment({
                 elements,
                 confirmParams: {
                 // Make sure to change this to your payment completion page
-                return_url: "https://trivicare.com/success",
+                return_url: "https//trivicare.com/success",
                 },
             });
+
 
             if (error.type === "card_error" || error.type === "validation_error") {
                 this.showMessage(error.message);

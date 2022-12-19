@@ -12,7 +12,7 @@ exports.modules = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",[_vm._ssrNode("<h1>Has realizado tu pago con éxito, Gracias por tu pedido</h1>")]);};var staticRenderFns=[];render._withStripped=true;
+var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",{staticClass:"container-fluid d-flex justify-content-center align-items-center bg-light",staticStyle:{height:"100vh"}},[_vm.paymentIntent!=null?_vm._ssrNode('<div class="card p-5 text-center shadow">',"</div>",[_vm._ssrNode('<div class="d-flex justify-content-center mb-5"><img src="/payment/success.webp" alt="success.webp" width="60"></div> <h1>Ha realizado su pago con éxito, Gracias por su pedido</h1> <p class="mt-2">En unos minutos recibirá la factura y confirmación de su pedido, en el correo electrónico indicado en su cuenta.</p> <p>Revise su bandeja de entrada y si no la ve dirijase a su carpeta de Spam.</p> '),_vm._ssrNode("<p>","</p>",[_vm._ssrNode(_vm._ssrEscape("La página se redirigirá a sus pedidos en "+_vm._s(_vm.counter)+" segundo(s), si no es así ")),_c("n-link",{staticClass:"text-primary text-decoration-underline",attrs:{to:"/my-orders"}},[_vm._v("pulse aquí")]),_vm._ssrNode(".")],2)],2):_vm._e()]);};var staticRenderFns=[];render._withStripped=true;
 
 /***/ }),
 
@@ -25,7 +25,9 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",[_vm._
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* WEBPACK VAR INJECTION */(function(URLSearchParams) {/* harmony default export */ __webpack_exports__["default"] = ({auth:true,data(){return{paymentIntent:null,counter:10};},beforeMount(){const url=new URLSearchParams(window.location.search).get('payment_intent_client_secret');if(url==null){this.$router.push('/cart');}else{this.paymentIntent=url;}},mounted(){if(this.paymentIntent!=null){this.orderPaid();this.countdown();}},methods:{async orderPaid(){const token_id=this.paymentIntent;await this.$axios.post('/api/order-paid/'+token_id).then(()=>{this.$store.commit('CLEAR_CART');this.$store.commit('CLEAR_CUPON');});},// countdown of 10 seconds to redirect to my-orders
+countdown(){const interval=setInterval(()=>{this.counter--;if(this.counter===0){clearInterval(interval);this.$router.push('/my-orders');}},1000);}}});
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! url */ "url")["URLSearchParams"]))
 
 /***/ }),
 

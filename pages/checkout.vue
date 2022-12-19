@@ -8,31 +8,25 @@
                 <div class="container">
                      <div class="row" v-if="products.length > 0">
                         <div v-if="$auth.user.user_profile.length > 0" class="col-lg-7">
-                            <h3 class="text-center mb-2">¿Donde se lo enviamos?</h3>
-                            <p class="text-center">Para continuar seleccione una de sus direcciones de envio, y pulse el botón "Ir a la pasarela de pago"</p>
-                            <h4 class="mt-3">Datos de envío</h4>
-                            <div class="row">
-                                <div class="form-group">
-                                    <select class="form-select" v-model="selected" @change="enableButton" ref="userIdProfile">
-                                        <option v-if=" selected == 'Seleccione una dirección' " selected disabled>{{ selected }}</option>
-                                        <option v-else selected disabled>Seleccione una dirección</option>
-                                        <client-only>
-                                            <option v-for="profile in $auth.user.user_profile" :key="profile.id" :value="profile.id">{{ profile.name }} {{ profile.lastname }}, {{ profile.address }}, {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option>
-                                        </client-only>
-                                    </select>
+                            <h3 class="text-center mb-2">Estas a punto de terminar tu compra</h3>
+                            <p class="text-center">Seleccione una de sus direcciones de envio, un método de pago, un tipo de envío y pulse en el botón "Pagar Ahora".</p>
+                            <div class="panel panel-default single-my-account mt-2">
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-1">Elige una dirección </a></h3>
                                 </div>
-                                <div v-if="selected.name" class="card mt-4">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ selected.name }} {{ selected.lastname }}</h5>
-                                        <p class="card-title">{{ selected.address }}</p>
-                                        <p class="card-title">{{ selected.zipcode }} {{ selected.city }} ({{ selected.state }})</p>
-                                        <p class="card-title">{{ selected.country }}</p>
-                                        <p class="card-title">{{ selected.phone }}</p>
-                                        <p class="card-title">{{ $auth.user.email }}</p>
+                                <div id="my-account-1" class="panel-collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="form-group p-5">
+                                            <select class="form-select" v-model="selected" @change="enableButton" ref="userIdProfile">
+                                                <option v-if=" selected == 'Seleccione una dirección' " selected disabled>{{ selected }}</option>
+                                                <option v-else selected disabled>Seleccione una dirección</option>
+                                                <client-only>
+                                                    <option v-for="profile in $auth.user.user_profile" :key="profile.id" :value="profile.id">{{ profile.name }} {{ profile.lastname }}, {{ profile.address }}, {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option>
+                                                </client-only>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="panel panel-default single-my-account mt-5">
                                 <div class="panel-heading my-account-title">
                                     <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-2">Usar otra dirección de envío </a></h3>
                                 </div>
@@ -107,6 +101,54 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-3">Seleccione un método de pago </a></h3>
+                                </div>
+                                <div id="my-account-3" class="panel-collapse collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="ms-2 p-5">
+                                            <div class="form-check mb-2 d-flex align-items-center">
+                                                <input class="form-check-input mb-1" type="radio" name="flexRadioDefault" id="flexRadioDefault1" v-model="payment" value="card">
+                                                <label class="form-check-label ms-2" for="flexRadioDefault1">
+                                                    Pago por tarjeta
+                                                </label>
+                                                <img class="ms-2" src="/payment/metodosdepago.webp" alt="metodos-de-pago.webp" width="50%" />
+                                            </div>
+                                            <div class="form-check d-flex align-items-center">
+                                                <input class="form-check-input mb-1" type="radio" name="flexRadioDefault" id="flexRadioDefault2" v-model="payment" value="paypal">
+                                                <label class="form-check-label ms-2" for="flexRadioDefault2">
+                                                    Pago por Paypal
+                                                </label>
+                                                <img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="30%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-4">Selecciona el tipo de envío </a></h3>
+                                </div>
+                                <div id="my-account-4" class="panel-collapse collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="ms-2 p-5">
+                                            <div class="form-check mb-2 d-flex align-items-center">
+                                                <input class="form-check-input mb-1" type="radio" name="flexRadio" id="flexRadioDefault3" v-model="shippingMethod" value="correos">
+                                                <label class="form-check-label ms-2" for="flexRadioDefault3">
+                                                    Envío por Correos 48h/72h
+                                                </label>
+                                                <img class="ms-2" src="/payment/correos.webp" alt="correos.webp" width="20%" />
+                                                <span class="ms-5">{{ getShipping(total) }} &euro;</span>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center">
+                                                <input class="form-check-input mb-1" type="radio" name="flexRadio" id="flexRadioDefault4" v-model="shippingMethod" value="gls">
+                                                <label class="form-check-label ms-2" for="flexRadioDefault4">
+                                                    Envío por GLS 24h/48h
+                                                </label>
+                                                <img class="ms-5" src="/payment/gls.webp" alt="gls.webp" width="10%" />
+                                                <span style="margin-left:5.7rem;">{{ getShipping(total) }} &euro;</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div v-else class="col-lg-7">
@@ -174,7 +216,7 @@
                                 </form>
                             </div>
                         </div>
-                        
+                        <!-- Resumen del pedio -->
                         <div class="col-lg-5">
                             <div class="your-order-area">
                                 <h3>Tu Pedido</h3>
@@ -223,8 +265,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="" style="margin-top: 4rem; width: auto;">
-                                    <StripeElement />
+                                <div class="mt-2">
+                                    <button @click="onClick" id="end-select" class="btn btn-theme" disabled>Hacer Pedido</button>
                                 </div>
                             </div>
                         </div>
@@ -238,6 +280,7 @@
             </div>
     
             <TheFooter />
+            <StripeElement/>
         </div>
     </client-only>
 </template>
@@ -264,9 +307,11 @@
                 phone: '',
                 country: '',
                 disabled: true,
-                userIdProfile: '',
+                userIdProfile: null,
                 token_id: '',
                 checked: false,
+                payment: null,
+                shippingMethod: null,
             }
         },
         components: {
@@ -309,6 +354,18 @@
             },
         },
 
+        watch: {
+            payment() {
+                document.getElementById('my-account-4').classList.remove('collapse');
+            },
+
+            shippingMethod() {
+                if(this.payment != null && this.shippingMethod != null && this.disabled == false) {
+                    document.getElementById('end-select').disabled = false;
+                }
+            }
+        },
+
         mounted() {
             this.$nextTick(() => {
                 this.$nuxt.$loading.start()
@@ -328,6 +385,10 @@
         },
 
         methods: {
+            onClick() {
+                this.createOrder();
+            },
+
             async createProfile() {
                 const response = await this.$axios.post('/api/register-profile', {
                     user_id: this.$auth.user.id,
@@ -361,20 +422,10 @@
             enableButton(e) {
                 this.disabled = false;
                 this.userIdProfile = e.target.value;
-            },
-
-            makeid(length) {
-                let result = '';
-                let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                let charactersLength = characters.length;
-                for ( var i = 0; i < length; i++ ) {
-                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-                }
-                this.token_id = result;
+                document.getElementById("my-account-3").classList.remove("collapse");
             },
 
             async createOrder() {
-                this.makeid(24);
                 const products = JSON.stringify(this.$store.getters.getCart);
                 const cupon = this.$store.getters.getCupon;
                 await this.$axios.post('/api/orders', {
@@ -385,11 +436,14 @@
                     total: this.$store.getters.getTotal,
                     coupon: cupon.code,
                     shipping: this.shipping,
-                    token_id: this.token_id,
-                }).then(() => {
-                    this.$store.commit('CLEAR_CART');
-                    this.$store.commit('CLEAR_CUPON');
-                    window.location.href = 'https://api.trivicare.com/stripe/' + this.token_id;
+                }).then((res) => {
+                    console.log(res.data.order.id);
+                    if(this.payment == 'card') {
+                        this.$modal.show('StripeElement', {
+                            orderId: res.data.order.id,
+                            shipping: this.shipping,
+                        });
+                    }
                 });
  
             },
