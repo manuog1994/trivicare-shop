@@ -28,6 +28,7 @@ export default defineNuxtConfig({
         script: [
             { src: 'bootstrap/js/bootstrap.js', type: 'text/javascript' },
             { src: 'https://js.stripe.com/v3' },
+            { src: 'https://www.paypal.com/sdk/js?client-id=AezG3YQ0iS0ugtoBRA05497Vkyj9B26Qf4sIrSJoxWrEk5Y9EXn2mDhACSAX1UgIQQxAmAwV_MvZttp6&currency=EUR' },
 
         ]
         

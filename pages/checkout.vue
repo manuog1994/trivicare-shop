@@ -268,6 +268,9 @@
                                 <div class="mt-2">
                                     <button @click="onClick" id="end-select" class="btn btn-theme" disabled>Hacer Pedido</button>
                                 </div>
+                                <div>
+                                    <Paypal :load="initPaypal" :shipping="shipping" :order_id="order_id"/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -278,9 +281,10 @@
                 <p>Por favor, para realizar está y otras acciones debe ir a su cuenta de email y buscar el correo electrónico "Trivicare.com | Verificación de correo electrónico".</p>
                 <p>Si no lo encuentra, revise su carpeta de spam o <a @click.prevent="resendEmail">pulse aquí</a> para generar un nuevo correo.</p>
             </div>
-    
+
             <TheFooter />
             <StripeElement/>
+
         </div>
     </client-only>
 </template>
@@ -312,12 +316,16 @@
                 checked: false,
                 payment: null,
                 shippingMethod: null,
+                initPaypal: false,
+                order_id: 0,
+
             }
         },
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             Breadcrumb: () => import("@/components/Breadcrumb"),
             StripeElement: () => import("@/components/StripeElement"),
+            Paypal: () => import("@/components/Paypal"),
             TheFooter: () => import("@/components/TheFooter"),
         },
 
@@ -437,12 +445,15 @@
                     coupon: cupon.code,
                     shipping: this.shipping,
                 }).then((res) => {
-                    console.log(res.data.order.id);
                     if(this.payment == 'card') {
                         this.$modal.show('StripeElement', {
                             orderId: res.data.order.id,
                             shipping: this.shipping,
                         });
+                    }else {
+                        this.initPaypal = true;
+                        this.order_id = res.data.order.id;
+                        document.getElementById('end-select').hidden = true;
                     }
                 });
  

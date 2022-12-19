@@ -48,8 +48,6 @@ export default {
         beforeOpen ({params: {shipping, orderId}}) {
             this.shipping = shipping;
             this.orderId = orderId;
-            console.log({orderId})
-            console.log({shipping})
             this.initialize();
             this.checkStatus();
         },
