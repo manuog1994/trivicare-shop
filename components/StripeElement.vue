@@ -88,7 +88,7 @@ export default {
                 elements,
                 confirmParams: {
                 // Make sure to change this to your payment completion page
-                return_url: "https//trivicare.com/success",
+                return_url: "https://trivicare.com/success",
                 },
             });
 

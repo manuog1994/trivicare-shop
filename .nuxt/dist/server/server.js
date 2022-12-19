@@ -247,7 +247,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************!*\
   !*** ./.nuxt/components/index.js ***!
   \***********************************/
-/*! exports provided: AboutMission, BrandLogoCarousel, Breadcrumb, ContactInfo, FunFact, HeaderWithTopbar, InstagramPostWrapper, Intro, IntroMobile, Loading, Location, Login, MiniCart, Navigation, OffCanvasMobileMenu, ProductDetailsDescriptionReview, QuickView, Register, ResponsiveMobileMenu, SectionTitleWithSubTitle, ShopSidebar, StripeElement, TeamMembers, TestimonialOne, TheFooter, TheHeader, WelcomeMessage, HeroSliderSix, PolicyServicePolicyFour, BannerItem, BannerStyleFour, BannerStyleOne, ProductDetailsWrapper, ProductGridItem, ProductGridItemTwo, ProductGridStyleThree, ProductWrapperCosmetics, CrudAll, CrudCoupons, CrudCreate, CrudEdit, CrudNav, CrudOrders, CrudOrdersHistory */
+/*! exports provided: AboutMission, BrandLogoCarousel, Breadcrumb, ContactInfo, FunFact, HeaderWithTopbar, InstagramPostWrapper, Intro, IntroMobile, Loading, Location, Login, MiniCart, Navigation, OffCanvasMobileMenu, ProductDetailsDescriptionReview, QuickView, Register, ResponsiveMobileMenu, SectionTitleWithSubTitle, ShopSidebar, StripeElement, TeamMembers, TestimonialOne, TheFooter, TheHeader, WelcomeMessage, BannerItem, BannerStyleFour, BannerStyleOne, HeroSliderSix, PolicyServicePolicyFour, ProductDetailsWrapper, ProductGridItem, ProductGridItemTwo, ProductGridStyleThree, ProductWrapperCosmetics, CrudAll, CrudCoupons, CrudCreate, CrudEdit, CrudNav, CrudOrders, CrudOrdersHistory */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -334,20 +334,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_WelcomeMessage_vue__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../../components/WelcomeMessage.vue */ "./components/WelcomeMessage.vue");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WelcomeMessage", function() { return _components_WelcomeMessage_vue__WEBPACK_IMPORTED_MODULE_27__["default"]; });
 
-/* harmony import */ var _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../../components/hero/HeroSliderSix.vue */ "./components/hero/HeroSliderSix.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HeroSliderSix", function() { return _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_28__["default"]; });
+/* harmony import */ var _components_banner_BannerItem_vue__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../../components/banner/BannerItem.vue */ "./components/banner/BannerItem.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerItem", function() { return _components_banner_BannerItem_vue__WEBPACK_IMPORTED_MODULE_28__["default"]; });
 
-/* harmony import */ var _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../../components/policy/ServicePolicyFour.vue */ "./components/policy/ServicePolicyFour.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolicyServicePolicyFour", function() { return _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_29__["default"]; });
+/* harmony import */ var _components_banner_BannerStyleFour_vue__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../../components/banner/BannerStyleFour.vue */ "./components/banner/BannerStyleFour.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerStyleFour", function() { return _components_banner_BannerStyleFour_vue__WEBPACK_IMPORTED_MODULE_29__["default"]; });
 
-/* harmony import */ var _components_banner_BannerItem_vue__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../../components/banner/BannerItem.vue */ "./components/banner/BannerItem.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerItem", function() { return _components_banner_BannerItem_vue__WEBPACK_IMPORTED_MODULE_30__["default"]; });
+/* harmony import */ var _components_banner_BannerStyleOne_vue__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../../components/banner/BannerStyleOne.vue */ "./components/banner/BannerStyleOne.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerStyleOne", function() { return _components_banner_BannerStyleOne_vue__WEBPACK_IMPORTED_MODULE_30__["default"]; });
 
-/* harmony import */ var _components_banner_BannerStyleFour_vue__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../../components/banner/BannerStyleFour.vue */ "./components/banner/BannerStyleFour.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerStyleFour", function() { return _components_banner_BannerStyleFour_vue__WEBPACK_IMPORTED_MODULE_31__["default"]; });
+/* harmony import */ var _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../../components/hero/HeroSliderSix.vue */ "./components/hero/HeroSliderSix.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HeroSliderSix", function() { return _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_31__["default"]; });
 
-/* harmony import */ var _components_banner_BannerStyleOne_vue__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../components/banner/BannerStyleOne.vue */ "./components/banner/BannerStyleOne.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerStyleOne", function() { return _components_banner_BannerStyleOne_vue__WEBPACK_IMPORTED_MODULE_32__["default"]; });
+/* harmony import */ var _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../components/policy/ServicePolicyFour.vue */ "./components/policy/ServicePolicyFour.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolicyServicePolicyFour", function() { return _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_32__["default"]; });
 
 /* harmony import */ var _components_product_ProductDetailsWrapper_vue__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../../components/product/ProductDetailsWrapper.vue */ "./components/product/ProductDetailsWrapper.vue");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductDetailsWrapper", function() { return _components_product_ProductDetailsWrapper_vue__WEBPACK_IMPORTED_MODULE_33__["default"]; });
@@ -6861,7 +6861,7 @@ this.$router.push({path:'/shop',query:{category:this.categorySlug,tag:this.tagSl
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({auth:true,name:"StripeElement",data(){return{stripe:Stripe("pk_test_51M7hp1JHUqdFIZqmVk4sv7dtIe4N9zVPLxRu3DU6moGliUBJqxu5KUlESl07jLb2eowUB7hGCh4cCSHiWayluIeY00UJebhW39"),elements:'',clientSecret:'',shipping:0,orderId:0};},mounted(){},computed:{products(){return this.$store.getters.getCart;},total(){return this.$store.getters.getTotal;}},methods:{beforeOpen({params:{shipping,orderId}}){this.shipping=shipping;this.orderId=orderId;console.log({orderId});console.log({shipping});this.initialize();this.checkStatus();},async initialize(){const total=(this.total*1.21+this.shipping).toFixed(2);const orderId=this.orderId;const{clientSecret}=await this.$axios.post('/api/stripe',{total,orderId}).then(r=>{return r.data;});this.clientSecret=clientSecret;const appearance={theme:'stripe'};this.elements=this.stripe.elements({clientSecret,appearance});const paymentElementOptions={layout:"tabs"};const paymentElement=this.elements.create("payment",paymentElementOptions);paymentElement.mount("#payment-element");},async handleSubmit(e){e.preventDefault();this.setLoading(true);let elements=this.elements;const{error}=await this.stripe.confirmPayment({elements,confirmParams:{// Make sure to change this to your payment completion page
-return_url:"https//trivicare.com/success"}});if(error.type==="card_error"||error.type==="validation_error"){this.showMessage(error.message);}else{this.showMessage("Ha ocurrido un error inesperado.");}this.setLoading(false);},// Fetches the payment intent status after payment submission
+return_url:"http://localhost:3000/success"}});if(error.type==="card_error"||error.type==="validation_error"){this.showMessage(error.message);}else{this.showMessage("Ha ocurrido un error inesperado.");}this.setLoading(false);},// Fetches the payment intent status after payment submission
 async checkStatus(){if(!this.clientSecret){return;}const{paymentIntent}=await this.stripe.retrievePaymentIntent(this.clientSecret);switch(paymentIntent.status){case"succeeded":this.showMessage("Hemos recibido tu pago. ¡Gracias!");break;case"processing":this.showMessage("Tu pago esta en proceso.");break;case"requires_payment_method":this.showMessage("Tu pago no se ha podido realizar. Intentalo de nuevo.");break;default:this.showMessage("Algo salió mal.");break;}},// ------- UI helpers -------
 showMessage(messageText){const messageContainer=document.querySelector("#payment-message");messageContainer.classList.remove("hidden");messageContainer.textContent=messageText;setTimeout(function(){messageContainer.classList.add("hidden");messageText.textContent="";},4000);},// Show a spinner on payment submission
 setLoading(isLoading){if(isLoading){// Disable the button and show a spinner
