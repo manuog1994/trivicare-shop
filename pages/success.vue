@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import { StringDecoder } from 'string_decoder';
 
 export default {
     auth: true,

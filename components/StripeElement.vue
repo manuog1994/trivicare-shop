@@ -91,8 +91,7 @@ export default {
 
 
             let elements = this.elements;
-            const url = process.env.baseUrl + '/success';
-            const store = this.$store;
+            const url = process.env.url + '/success';
             const {error} = await this.stripe.confirmPayment({
                 elements,
                 confirmParams: {
