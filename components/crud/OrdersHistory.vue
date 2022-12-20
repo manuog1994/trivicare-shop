@@ -10,6 +10,7 @@
                         <th scope="col">Estado Pago</th>
                         <th scope="col">Estado Pedido</th>
                         <th scope="col">Fecha</th>
+                        <th scope="col">Factura en Papel</th>
                         <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -26,12 +27,17 @@
                             <td v-if="order.status == 4">Entregado</td>
                             <td v-else>Cancelado</td>
                             <td>{{ order.order_date }}</td>
+                            <td v-if="order.invoice_paper == 1">Si</td>
+                            <td v-else>No</td>
                             <td>
                                 <n-link :to="`/orders/${order.id}`" class="btn btn-primary">
                                     <i class="pe-7s-look"></i>
                                 </n-link>
                                 <a v-if="order.paid == 3 && order.invoice != null" @click.prevent="getUrl(order)" class="btn btn-warning">
                                     <i class="pe-7s-download"></i>
+                                </a>
+                                <a v-if="order.note != null" class="btn btn-secondary" @click.prevent="onClick(order.note)">
+                                    <i class=" pe-7s-note2"></i>
                                 </a>
                             </td>
                         </tr>
@@ -42,6 +48,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <Note />
                 <div class="d-flex justify-content-center mt-5">
                     <nav aria-label="...">
                         <ul class="pagination-custom">
@@ -63,6 +70,7 @@
 </template>
 
 <script>
+import Note from './Note.vue';
 export default {
     auth: true,
 
@@ -74,6 +82,10 @@ export default {
             user: {},
             pagination: {},
         }
+    },
+
+    components: {
+        Note,
     },
 
     mounted() {
@@ -115,6 +127,10 @@ export default {
 
 
     methods: {
+        onClick(note) {
+            this.$modal.show('note', note);
+        },
+
         async getOrders() {
             const response = await this.$axios.get('/api/orders?perPage=10&sort=-id&page=' + this.page + '&history[status]=' );
             this.orders = response.data.data;

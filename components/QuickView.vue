@@ -47,7 +47,7 @@
                             </client-only>
                             <span><a class="ms-1" href="#">{{ product.total_reviews }} Valoraciones</a></span>
                         </div>
-                        <p>{{ product.description }}</p>
+                        <p style="font-size: x-small;">{{ product.description }}</p>
                         <div class="pro-details-size-color" v-if="product.variation">
                             <div class="pro-details-color-wrap">
                                 <h6 class="label">Color</h6>

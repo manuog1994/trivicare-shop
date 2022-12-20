@@ -5,7 +5,7 @@
             <Breadcrumb pageTitle="carrito" />
     
             <div class="cart-main-area pt-90 pb-100">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row" v-if="products.length > 0">
                         <div class="col-12 col-md-8">
                             <div>
@@ -160,10 +160,6 @@
     import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
-        transition: {
-            name: 'fade',
-            mode: 'out-in'
-        },
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             Breadcrumb: () => import('@/components/Breadcrumb'),
@@ -326,7 +322,6 @@
     .card-cart {
         background-color: #F9F9F9;
         border: 1px solid #EAEAEA;
-        border-radius: 5px;
         width: 100%;
         height: auto;
     }

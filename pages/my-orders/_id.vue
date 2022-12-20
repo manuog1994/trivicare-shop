@@ -32,9 +32,6 @@
                                             <n-link :to="`/orders/${order.id}`" class="btn btn-primary">
                                                 <i class="pe-7s-look"></i>
                                             </n-link>
-                                            <a v-if="order.paid != 3 && order.token_id != null" class="btn btn-info" :href="`http://localhost:8000/stripe/${order.token_id}`">
-                                                <i class="pe-7s-cash"></i>
-                                            </a>
                                             <a v-if="order.paid == 3 && order.invoice != null" @click.prevent="getUrl(order)" class="btn btn-warning">
                                                 <i class="pe-7s-download"></i>
                                             </a>
@@ -76,10 +73,6 @@
 <script>
     export default {
         auth: true,
-        transition: {
-            name: 'fade',
-            mode: 'out-in'
-        },
 
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
@@ -102,6 +95,12 @@
         },
 
         mounted() {
+            this.$nextTick(() => {
+                this.$nuxt.$loading.start()
+                setTimeout(() => {
+                    this.$nuxt.$loading.finish()
+                }, 2000);
+            });
             this.getOrder()
         },
 

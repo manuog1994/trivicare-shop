@@ -64,10 +64,7 @@
 
 <script>
     export default {
-        transition: {
-            name: 'fade',
-            mode: 'out-in'
-        },
+        auth: false,
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             Breadcrumb: () => import('@/components/Breadcrumb'),
@@ -80,6 +77,12 @@
         },
 
         mounted() {
+            this.$nextTick(() => {
+                this.$nuxt.$loading.start()
+                setTimeout(() => {
+                    this.$nuxt.$loading.finish()
+                }, 2000);
+            });
             var tituloOriginal = document.title; // Lo guardamos para restablecerlo
             window.onblur = function(){ // Si el usuario se va a otro lado...
             document.title = "Ey, vuelve aquí!";// Cambiamos el título

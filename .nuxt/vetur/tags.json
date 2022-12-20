@@ -38,6 +38,9 @@
   "MiniCart": {
     "description": "Auto imported from components/MiniCart.vue"
   },
+  "MobileBar": {
+    "description": "Auto imported from components/MobileBar.vue"
+  },
   "Navigation": {
     "description": "Auto imported from components/Navigation.vue"
   },
@@ -98,11 +101,17 @@
   "CrudNav": {
     "description": "Auto imported from components/crud/Nav.vue"
   },
+  "CrudNote": {
+    "description": "Auto imported from components/crud/Note.vue"
+  },
   "CrudOrders": {
     "description": "Auto imported from components/crud/Orders.vue"
   },
   "CrudOrdersHistory": {
     "description": "Auto imported from components/crud/OrdersHistory.vue"
+  },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
   "PolicyServicePolicyFour": {
     "description": "Auto imported from components/policy/ServicePolicyFour.vue"
@@ -130,8 +139,5 @@
   },
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   }
 }

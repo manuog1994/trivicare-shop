@@ -47,6 +47,15 @@
             TheFooter: () => import('@/components/TheFooter.vue'),
         },
 
+        mounted() {
+            this.$nextTick(() => {
+                this.$nuxt.$loading.start()
+                setTimeout(() => {
+                    this.$nuxt.$loading.finish()
+                }, 500)
+            })
+        },
+
         methods: {
             async unsubscribe() {
                 const formData = new FormData(this.$refs.unsubscribeform);

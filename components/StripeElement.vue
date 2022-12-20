@@ -1,19 +1,17 @@
 <template>
-    <modal name="StripeElement" @before-open="beforeOpen" width="530px" height=auto>
-      <div class="d-flex justify-content-center">
-      <!-- Display a payment form -->
-          <form id="payment-form" @submit="handleSubmit" ref="form">
-              <div id="payment-element">
-                  <!--Stripe.js injects the Payment Element-->
-              </div>
-              <button id="submit" type="submit">
-                  <div class="spinner hidden" id="spinner"></div>
-                  <span id="button-text">Pagar</span>
-              </button>
-              <div id="payment-message" class="hidden"></div>
-          </form>
-      </div>
-    </modal>
+    <div class="d-flex justify-content-center">
+    <!-- Display a payment form -->
+        <form id="payment-form" @submit="handleSubmit" ref="form">
+            <div id="payment-element">
+                <!--Stripe.js injects the Payment Element-->
+            </div>
+            <button id="submit" type="submit">
+                <div class="spinner hidden" id="spinner"></div>
+                <span id="button-text">Pagar {{ ((this.total * 1.21) + this.shipping).toFixed(2) }} &euro;</span>
+            </button>
+            <div id="payment-message" class="hidden"></div>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -21,19 +19,36 @@ export default {
   auth: true,
   name: "StripeElement",
 
+  props: {
+      loadStripe: {
+          type: Boolean,
+          default: false
+      },
+      shipping: {
+          type: Number,
+          default: 0
+      },
+      order_id: {
+          type: Number,
+          default: 0
+      }
+  },
+
     data() {
         return {
-            stripe: Stripe("pk_test_51M7hp1JHUqdFIZqmVk4sv7dtIe4N9zVPLxRu3DU6moGliUBJqxu5KUlESl07jLb2eowUB7hGCh4cCSHiWayluIeY00UJebhW39"),
+            stripe: Stripe(process.env.stripeKey),
             elements: '',
             clientSecret: '',
-            shipping: 0,
-            orderId: 0,
         }
     },
 
     mounted() {
-
+        if (this.loadStripe == true) {
+            this.initialize();
+            this.checkStatus();
+        }
     },
+
 
     computed: {
         products() {
@@ -45,16 +60,10 @@ export default {
     },
 
     methods: {
-        beforeOpen ({params: {shipping, orderId}}) {
-            this.shipping = shipping;
-            this.orderId = orderId;
-            this.initialize();
-            this.checkStatus();
-        },
 
-        async initialize() {
+      async initialize() {
             const total = ((this.total * 1.21) + this.shipping).toFixed(2);
-            const orderId = this.orderId;
+            const orderId = this.order_id;
             const { clientSecret } = await this.$axios.post('/api/stripe', { total, orderId })
                 .then((r) => {
                     return r.data;
@@ -82,11 +91,13 @@ export default {
 
 
             let elements = this.elements;
+            const url = process.env.baseUrl + '/success';
+            const store = this.$store;
             const {error} = await this.stripe.confirmPayment({
                 elements,
                 confirmParams: {
-                // Make sure to change this to your payment completion page
-                return_url: "https://trivicare.com/success",
+                  // Make sure to change this to your payment completion page
+                  return_url: url,
                 },
             });
 
@@ -183,7 +194,6 @@ form {
   align-self: center;
   box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
     0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
-  border-radius: 7px;
   padding: 40px;
 }
 
@@ -205,10 +215,9 @@ form {
 
 /* Buttons and links */
 button {
-  background: #5469d4;
+  background: #2AB5B2;
   font-family: Arial, sans-serif;
   color: #ffffff;
-  border-radius: 4px;
   border: 0;
   padding: 12px 16px;
   font-size: 16px;
@@ -254,7 +263,7 @@ button:disabled {
 .spinner:before {
   width: 10.4px;
   height: 20.4px;
-  background: #5469d4;
+  background: #2AB5B2;
   border-radius: 20.4px 0 0 20.4px;
   top: -0.2px;
   left: -0.2px;
@@ -266,7 +275,7 @@ button:disabled {
 .spinner:after {
   width: 10.4px;
   height: 10.2px;
-  background: #5469d4;
+  background: #2AB5B2;
   border-radius: 0 10.2px 10.2px 0;
   top: -0.1px;
   left: 10.2px;
@@ -300,7 +309,7 @@ button:disabled {
 @media only screen and (max-width: 600px) {
   form {
     width: 80vw;
-    min-width: initial;
+    min-width: 360px;
   }
 }
 

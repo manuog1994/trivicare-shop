@@ -114,7 +114,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <client-only>
-                                                            <div class="card w-75 m-auto mb-3"
+                                                            <div class="card shadow w-75 m-auto mb-3"
                                                                 v-for="profile in $auth.user.user_profile" :key="profile.id">
                                                                 <div class="card-body">
                                                                     <h5 class="card-title">{{ profile.name }}
@@ -204,12 +204,18 @@
                                                         </div>
                                                         <div class="col-lg-7 col-md-7">
                                                             <div class="billing-info">
-                                                                <label>Email</label>
-                                                                <input :value="$auth.user.email" type="email" disabled>
+                                                                <label>DNI</label>
+                                                                <input v-model="dni" type="text" required>
                                                             </div>
                                                         </div>
-                                                        <div class="billing-btn">
-                                                            <button class="btn-form" type="submit" title="Guardar">Guardar</button>
+                                                        <div class="form-check ms-4">
+                                                            <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
+                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                                He leído y acepto la <a href="#" title="Ver política de privacidad">política de privacidad</a>.
+                                                            </label>
+                                                        </div>
+                                                        <div class="billing-btn mt-5">
+                                                            <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -259,15 +265,6 @@
     import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         middleware: 'auth',
-        transition: {
-            name: 'fade',
-            mode: 'out-in'
-        },
-
-        components: {
-            CookieConsent,
-            VueIfBot
-        },
 
         data() {
             return {
@@ -286,6 +283,10 @@
                 zipcode: '',
                 phone: '',
                 country: '',
+                dni: '',
+
+                disabled: true,
+                checked: false,
             }
         },
 
@@ -293,9 +294,17 @@
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             Breadcrumb: () => import("@/components/Breadcrumb"),
             TheFooter: () => import("@/components/TheFooter"),
+            CookieConsent,
+            VueIfBot,
         },
 
         mounted() {
+            this.$nextTick(() => {
+                this.$nuxt.$loading.start()
+                setTimeout(() => {
+                    this.$nuxt.$loading.finish()
+                }, 2000);
+            });
         },
 
         methods: {
@@ -385,7 +394,8 @@
                     state: this.state,
                     zipcode: this.zipcode,
                     phone: this.phone,
-                    country: this.country,    
+                    country: this.country,
+                    dni: this.dni,    
                 })
                 this.name = '';
                 this.lastname = '';
@@ -396,6 +406,7 @@
                 this.zipcode = '';
                 this.phone = '';
                 this.country = '';
+                this.dni = '';
                 this.$auth.fetchUser()
                 this.$notify({ type: 'success', text: 'Dirección creada correctamente' })
             },

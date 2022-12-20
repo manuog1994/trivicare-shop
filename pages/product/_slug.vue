@@ -14,10 +14,7 @@
 
     export default {
         auth: false,
-        transition: {
-            name: 'fade',
-            mode: 'out-in'
-        },
+
         data() {
             return {
                 slug: this.$route.params.slug,
@@ -42,6 +39,12 @@
         },
 
         mounted() {
+            this.$nextTick(() => {
+                this.$nuxt.$loading.start()
+                setTimeout(() => {
+                    this.$nuxt.$loading.finish()
+                }, 2000);
+            });
             this.getProducts()
         },
 

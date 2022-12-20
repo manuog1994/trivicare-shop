@@ -177,6 +177,12 @@
 
         mounted() {
             this.$nextTick(() => {
+                this.$nuxt.$loading.start()
+                setTimeout(() => {
+                    this.$nuxt.$loading.finish()
+                }, 2000);
+            });
+            this.$nextTick(() => {
                 const swiperTop = this.$refs.swiperTop.$swiper
                 const swiperThumbs = this.$refs.swiperThumbs.$swiper
                 swiperTop.controller.control = swiperThumbs

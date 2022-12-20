@@ -31,15 +31,19 @@
 
 <style scoped>
   .loading-page {
-    position: fixed;
+    position: absolute !important;
     top: 0;
     left: 0;
     width: auto;
     height: auto;
-    background: rgba(255, 255, 255, 0.8) !important;
+    background: rgba(255, 255, 255, 0.83) !important;
     text-align: center;
     padding-top: 200px;
     font-size: 30px;
     font-family: sans-serif;
+  }
+
+  nuxt-img {
+    position: absolute;
   }
 </style>

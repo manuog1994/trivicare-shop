@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "5a485ff3be011d5986c0";
+/******/ 	var hotCurrentHash = "f06c804289eb67b00886";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -835,7 +835,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/login":"pages/login","pages/my-account":"pages/my-account","pages/my-orders/_id":"pages/my-orders/_id","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"8":"pages/my-account","pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/login":"pages/login","pages/my-orders/_id":"pages/my-orders/_id","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -877,7 +877,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/login":"pages/login","pages/my-account":"pages/my-account","pages/my-orders/_id":"pages/my-orders/_id","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
+/******/ 				var href = "" + ({"8":"pages/my-account","pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/login":"pages/login","pages/my-orders/_id":"pages/my-orders/_id","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -911,7 +911,7 @@
 /******/ 				installedCssChunks[chunkId] = 0;
 /******/ 				if(supportsPreload) {
 /******/ 					var execLinkTag = document.createElement("link");
-/******/ 					execLinkTag.href =  __webpack_require__.p + "" + ({"pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/login":"pages/login","pages/my-account":"pages/my-account","pages/my-orders/_id":"pages/my-orders/_id","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
+/******/ 					execLinkTag.href =  __webpack_require__.p + "" + ({"8":"pages/my-account","pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/compare":"pages/compare","pages/contact":"pages/contact","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/login":"pages/login","pages/my-orders/_id":"pages/my-orders/_id","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/privacy-policy":"pages/privacy-policy","pages/product/_slug":"pages/product/_slug","pages/product/product-affiliate":"pages/product/product-affiliate","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
 /******/ 					execLinkTag.rel = "stylesheet";
 /******/ 					execLinkTag.type = "text/css";
 /******/ 					document.body.appendChild(execLinkTag);

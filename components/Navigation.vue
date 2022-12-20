@@ -2,11 +2,10 @@
     <client-only>
         <ul>
             <li>
-                 <!-- <n-link to="/shop">Ver Todo</n-link> -->
-                 <a class="link-nav" href="https://trivicare.com/shop">Ver Todo</a>
+                 <a class="link-nav" :href="url + '/shop'">Ver Todo</a>
              </li>
                 <li v-for="category in categories" :key="category.id">
-                    <a class="link-nav" :href="`https://trivicare.com/shop?category=${category.slug}`">{{ category.name  }}</a>
+                    <a class="link-nav" :href="url + '/shop?category=' + category.slug">{{ category.name  }}</a>
                 </li>
              <li>
                 <n-link to="/contact">Contacto</n-link>
@@ -27,6 +26,7 @@
         data() {
             return {
                 categoryId : '',
+                url: process.env.baseUrl,
             }
         },
 

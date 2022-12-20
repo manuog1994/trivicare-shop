@@ -60,7 +60,6 @@ export default {
                 onApprove: (data, actions) => {
                     const axios = this.$axios;
                     const order_id = this.order_id;
-                    const store = this.$store;
 
                     return actions.order.capture().then(function(orderData) {
                         // Successful capture! For dev/demo purposes:
@@ -69,11 +68,8 @@ export default {
                         const token_id = transaction.id;
                         axios.post('/api/order-paid-paypal/' + token_id, {
                             order_id: order_id,
-                        }).then(() => {
-                                store.commit('CLEAR_CART');
-                                store.commit('CLEAR_CUPON');
-                            });
-                        actions.redirect('https://trivicare.com/success?payment_intent_client_secret=' + transaction.id);
+                        })
+                        actions.redirect( process.env.baseUrl + '/success?payment_intent_client_secret=' + transaction.id);
                 });
             }
             

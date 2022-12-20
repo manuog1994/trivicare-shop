@@ -108,10 +108,6 @@ import { join } from 'path';
 
 export default {
     auth: true,
-    transition: {
-        name: 'fade',
-        mode: 'out-in'
-    },
 
     components: {
         TheHeader: () => import('@/components/TheHeader'),
@@ -130,6 +126,12 @@ export default {
     },
 
     mounted() {
+        this.$nextTick(() => {
+            this.$nuxt.$loading.start()
+            setTimeout(() => {
+                this.$nuxt.$loading.finish()
+            }, 2000);
+        });
         this.getOrder();
         this.getUserName();
     },

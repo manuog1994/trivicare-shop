@@ -3,6 +3,7 @@
         <div class="shop-page-wrapper">
             <HeaderWithTopbar containerClass="container" />
             <Breadcrumb class="d-none d-md-block" :pageTitle="this.$route.query.category || this.$route.query.tag ? 'Resultados de la búsqueda' : 'Todos los productos' "/>
+            <MobileBar class="d-md-none" @search="searchFilter"/>
             <!-- product items wrapper -->
             <div class="shop-area pt-100 pb-100">
                 <div class="container">
@@ -101,14 +102,11 @@
     import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
-        transition: {
-            name: 'fade',
-            mode: 'out-in'
-        },
 
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             Breadcrumb: () => import("@/components/Breadcrumb"),
+            MobileBar: () => import("@/components/MobileBar"),
             ProductGridItem: () => import("@/components/product/ProductGridItem"),
             QuickView: () => import("@/components/QuickView"),
             TheFooter: () => import("@/components/TheFooter"),
@@ -269,36 +267,18 @@
 
         watch: {
             page() {
-                this.$nextTick(() => {
-                    this.$nuxt.$loading.start()
-                    setTimeout(() => {
-                        this.$nuxt.$loading.finish()
-                    }, 500);
-                });
                 setTimeout(() => {
                     this.getProducts();
                 }, 500);
             },
 
             category() {
-                this.$nextTick(() => {
-                    this.$nuxt.$loading.start()
-                    setTimeout(() => {
-                        this.$nuxt.$loading.finish()
-                    }, 500);
-                });
                 setTimeout(() => {
                     this.getProducts();
                 }, 500);
             },
 
             tag() {
-                this.$nextTick(() => {
-                    this.$nuxt.$loading.start()
-                    setTimeout(() => {
-                        this.$nuxt.$loading.finish()
-                    }, 500);
-                });
                 setTimeout(() => {
                     this.getProducts();
                 }, 500);

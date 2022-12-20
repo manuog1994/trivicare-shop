@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { StringDecoder } from 'string_decoder';
+
 export default {
     auth: true,
 
@@ -35,6 +37,12 @@ export default {
     },
 
     mounted() {
+        this.$nextTick(() => {
+            this.$nuxt.$loading.start()
+            setTimeout(() => {
+                this.$nuxt.$loading.finish()
+            }, 2000);
+        });
         if(this.paymentIntent != null) {
             this.orderPaid();
             this.countdown();
@@ -47,7 +55,7 @@ export default {
             await this.$axios.post('/api/order-paid/' + token_id)
                 .then(() => {
                     this.$store.commit('CLEAR_CART');
-                    this.$store.commit('CLEAR_CUPON');
+                    this.$store.commit('CLEAR_TOTAL');
                 });
         },
 

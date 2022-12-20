@@ -13,16 +13,19 @@
 }
 
 .loading-page[data-v-31d8889e] {
-  position: fixed;
+  position: absolute !important;
   top: 0;
   left: 0;
   width: auto;
   height: auto;
-  background: rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.83) !important;
   text-align: center;
   padding-top: 200px;
   font-size: 30px;
   font-family: sans-serif;
+}
+nuxt-img[data-v-31d8889e] {
+  position: absolute;
 }
 
 
@@ -19078,7 +19081,6 @@ h3.cart-page-title, .cart-page-title.h3 {
 .discount-code-wrapper {
   background-color: #f9f9f9;
   border: 1px solid #ebebeb;
-  border-radius: 5px;
   padding: 45px 30px 50px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -19229,7 +19231,6 @@ h3.cart-page-title, .cart-page-title.h3 {
 .grand-total {
   background-color: #f9f9f9;
   border: 1px solid #ebebeb;
-  border-radius: 5px;
   padding: 45px 30px 50px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -21866,6 +21867,18 @@ Copyright (c) 2015 Daniel Eden
 
 
 
+input[data-v-fd950674] {
+    border: none;
+    border-radius: 0;
+    background: #fff;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    font-size: 1rem;
+    color: #000;
+}
+
+
+
 a.link-nav{
     color: #666666;
 }
@@ -22020,7 +22033,6 @@ form[data-v-19098524] {
   align-self: center;
   box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
     0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
-  border-radius: 7px;
   padding: 40px;
 }
 .hidden[data-v-19098524] {
@@ -22038,10 +22050,9 @@ form[data-v-19098524] {
 }
 /* Buttons and links */
 button[data-v-19098524] {
-  background: #5469d4;
+  background: #2AB5B2;
   font-family: Arial, sans-serif;
   color: #ffffff;
-  border-radius: 4px;
   border: 0;
   padding: 12px 16px;
   font-size: 16px;
@@ -22084,7 +22095,7 @@ button[data-v-19098524]:disabled {
 .spinner[data-v-19098524]:before {
   width: 10.4px;
   height: 20.4px;
-  background: #5469d4;
+  background: #2AB5B2;
   border-radius: 20.4px 0 0 20.4px;
   top: -0.2px;
   left: -0.2px;
@@ -22094,7 +22105,7 @@ button[data-v-19098524]:disabled {
 .spinner[data-v-19098524]:after {
   width: 10.4px;
   height: 10.2px;
-  background: #5469d4;
+  background: #2AB5B2;
   border-radius: 0 10.2px 10.2px 0;
   top: -0.1px;
   left: 10.2px;
@@ -22112,7 +22123,7 @@ button[data-v-19098524]:disabled {
 @media only screen and (max-width: 600px) {
 form[data-v-19098524] {
     width: 80vw;
-    min-width: initial;
+    min-width: 360px;
 }
 }
 
@@ -22176,6 +22187,12 @@ form[data-v-19098524] {
 }
 
 
+.bg-slider-img {
+    background-color: #f5f5f5a3;
+    padding: 8rem 5rem;
+}
+
+
 .tag-block {
     display: inline-flex;
     padding: 1rem, 1rem;
@@ -22188,11 +22205,5 @@ form[data-v-19098524] {
     display: flex;
     justify-content: center;
     margin-bottom: 0.5rem;
-}
-
-
-.bg-slider-img {
-    background-color: #f5f5f5a3;
-    padding: 8rem 5rem;
 }
 

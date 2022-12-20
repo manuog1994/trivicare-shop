@@ -73,10 +73,7 @@
 <script>
     export default {
         auth: true,
-        transition: {
-            name: 'fade',
-            mode: 'out-in'
-        },
+
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             Breadcrumb: () => import('@/components/Breadcrumb'),
@@ -99,6 +96,12 @@
         },
 
         mounted() {
+            this.$nextTick(() => {
+                this.$nuxt.$loading.start()
+                setTimeout(() => {
+                    this.$nuxt.$loading.finish()
+                }, 2000);
+            });
             this.getOrder();
             this.getRoles();
         },

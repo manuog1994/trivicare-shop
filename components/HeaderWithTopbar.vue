@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <div class="header-top-area header-padding-2 d-none d-lg-block background-color-banner">
+            <div class="header-top-area header-padding-2 d-none d-md-block background-color-banner">
                 <div :class="containerClass">
                     <div class="header-top-inner">
                         <div class="header-offer m-auto">

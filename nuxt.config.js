@@ -28,7 +28,7 @@ export default defineNuxtConfig({
         script: [
             { src: 'bootstrap/js/bootstrap.js', type: 'text/javascript' },
             { src: 'https://js.stripe.com/v3' },
-            { src: 'https://www.paypal.com/sdk/js?client-id=AezG3YQ0iS0ugtoBRA05497Vkyj9B26Qf4sIrSJoxWrEk5Y9EXn2mDhACSAX1UgIQQxAmAwV_MvZttp6&currency=EUR' },
+            { src: 'https://www.paypal.com/sdk/js?client-id=' + process.env.PAYPAL_CLIENT_ID + '&currency=EUR' },
 
         ]
         
@@ -102,8 +102,8 @@ export default defineNuxtConfig({
         strategies: {
           laravelSanctum: {
             provider: 'laravel/sanctum',
-            url: 'https://api.trivicare.com',
-            endpoints: {
+            url: process.env.BASE_URL || 'http://localhost:8000',
+             endpoints: {
                 login: {
                     url: '/login', method: 'post'
                 }
@@ -113,7 +113,7 @@ export default defineNuxtConfig({
     },
 
     axios: {
-        baseURL: 'https://api.trivicare.com',
+        baseURL: process.env.BASE_URL || 'http://localhost:8000',
         credentials:true,
     },
 
@@ -125,6 +125,7 @@ export default defineNuxtConfig({
     pageTransition: {
         name: 'my-layout',
         mode: 'out-in'
+        
     },
 
 
@@ -149,7 +150,7 @@ export default defineNuxtConfig({
     env: {
         baseUrl: process.env.BASE_URL || 'http://localhost:3000',
         googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
-        STRIPE_PK: process.env.STRIPE_PK,
+        stripeKey: process.env.STRIPE_PK,
     },
 
     image: {

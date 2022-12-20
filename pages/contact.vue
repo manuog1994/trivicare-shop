@@ -2,8 +2,8 @@
     <div class="shop-page-wrapper">
         <HeaderWithTopbar containerClass="container" />
         <Breadcrumb pageTitle="contacto" />
-        <Location />
         <ContactInfo />
+        <Location />
         <TheFooter />
         <VueIfBot>
             <CookieConsent>
@@ -26,10 +26,7 @@
     import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
-        transition: {
-            name: 'fade',
-            mode: 'out-in'
-        },
+
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             ContactInfo: () => import("@/components/ContactInfo"),

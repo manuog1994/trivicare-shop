@@ -3,7 +3,7 @@
         <div class="home-cosmetics">
             <TheHeader />
             <HeroSliderSix />
-            <transition name="intro" mode="out-in"><Intro /></transition>
+            <Intro />
             <IntroMobile />
             <ServicePolicyFour />
             <ProductWrapperCosmetics />
@@ -49,6 +49,7 @@
         data() {
             return {
                 show: false,
+                test: '',
             }
         },
 
