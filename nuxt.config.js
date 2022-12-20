@@ -151,6 +151,7 @@ export default defineNuxtConfig({
         baseUrl: process.env.BASE_URL || 'http://localhost:3000',
         googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
         stripeKey: process.env.STRIPE_PK,
+        url: process.env.URL || 'http://localhost:3000',
     },
 
     image: {

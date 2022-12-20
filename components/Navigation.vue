@@ -26,7 +26,7 @@
         data() {
             return {
                 categoryId : '',
-                url: process.env.baseUrl,
+                url: process.env.url,
             }
         },
 
