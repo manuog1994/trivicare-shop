@@ -2,7 +2,6 @@ import Middleware from './middleware'
 import { Auth, authMiddleware, ExpiredAuthSessionError } from '~auth/runtime'
 
 // Active schemes
-import { LocalScheme } from '~auth/runtime'
 import { CookieScheme } from '~auth/runtime'
 
 Middleware.auth = authMiddleware
@@ -34,31 +33,13 @@ export default function (ctx, inject) {
   "localStorage": {
     "prefix": "auth."
   },
-  "defaultStrategy": "local"
+  "defaultStrategy": "laravelSanctum"
 }
 
   // Create a new Auth instance
   const $auth = new Auth(ctx, options)
 
   // Register strategies
-  // local
-  $auth.registerStrategy('local', new LocalScheme($auth, {
-  "token": {
-    "property": "token",
-    "global": true
-  },
-  "user": {
-    "property": "user"
-  },
-  "endpoints": {
-    "user": {
-      "url": "/api/auth/user",
-      "method": "get"
-    }
-  },
-  "name": "local"
-}))
-
   // laravelSanctum
   $auth.registerStrategy('laravelSanctum', new CookieScheme($auth, {
   "url": "http://localhost:8000",

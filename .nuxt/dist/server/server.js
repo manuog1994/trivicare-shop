@@ -186,10 +186,9 @@ __webpack_require__.r(__webpack_exports__);
 
 // Active schemes
 _middleware__WEBPACK_IMPORTED_MODULE_1__["default"].auth=_auth_runtime__WEBPACK_IMPORTED_MODULE_2__["authMiddleware"];/* harmony default export */ __webpack_exports__["default"] = (function(ctx,inject){// Options
-const options={"resetOnError":false,"ignoreExceptions":false,"scopeKey":"scope","rewriteRedirects":true,"fullPathRedirect":false,"watchLoggedIn":true,"redirect":{"login":"/login","logout":"/","home":"/","callback":"/login"},"vuex":{"namespace":"auth"},"cookie":{"prefix":"auth.","options":{"path":"/"}},"localStorage":{"prefix":"auth."},"defaultStrategy":"local"};// Create a new Auth instance
+const options={"resetOnError":false,"ignoreExceptions":false,"scopeKey":"scope","rewriteRedirects":true,"fullPathRedirect":false,"watchLoggedIn":true,"redirect":{"login":"/login","logout":"/","home":"/","callback":"/login"},"vuex":{"namespace":"auth"},"cookie":{"prefix":"auth.","options":{"path":"/"}},"localStorage":{"prefix":"auth."},"defaultStrategy":"laravelSanctum"};// Create a new Auth instance
 const $auth=new _auth_runtime__WEBPACK_IMPORTED_MODULE_2__["Auth"](ctx,options);// Register strategies
-// local
-$auth.registerStrategy('local',new _auth_runtime__WEBPACK_IMPORTED_MODULE_2__["LocalScheme"]($auth,{"token":{"property":"token","global":true},"user":{"property":"user"},"endpoints":{"user":{"url":"/api/auth/user","method":"get"}},"name":"local"}));// laravelSanctum
+// laravelSanctum
 $auth.registerStrategy('laravelSanctum',new _auth_runtime__WEBPACK_IMPORTED_MODULE_2__["CookieScheme"]($auth,{"url":"http://localhost:8000","endpoints":{"csrf":{"withCredentials":true,"headers":{"X-Requested-With":"XMLHttpRequest","Content-Type":"application/json","Accept":"application/json"},"url":"http://localhost:8000/sanctum/csrf-cookie"},"login":{"withCredentials":true,"headers":{"X-Requested-With":"XMLHttpRequest","Content-Type":"application/json","Accept":"application/json"},"url":"http://localhost:8000/login","method":"post"},"logout":{"withCredentials":true,"headers":{"X-Requested-With":"XMLHttpRequest","Content-Type":"application/json","Accept":"application/json"},"url":"http://localhost:8000/logout"},"user":{"withCredentials":true,"headers":{"X-Requested-With":"XMLHttpRequest","Content-Type":"application/json","Accept":"application/json"},"url":"http://localhost:8000/api/user"}},"name":"laravelSanctum","cookie":{"name":"XSRF-TOKEN"},"user":{"property":false}}));// Inject it to nuxt context as $auth
 inject('auth',$auth);ctx.$auth=$auth;// Initialize auth
 return $auth.init().catch(error=>{if(false){}});});
@@ -248,7 +247,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************!*\
   !*** ./.nuxt/components/index.js ***!
   \***********************************/
-/*! exports provided: AboutMission, BrandLogoCarousel, Breadcrumb, ContactInfo, FunFact, HeaderWithTopbar, InstagramPostWrapper, Intro, IntroMobile, Loading, Location, Login, MiniCart, MobileBar, Navigation, OffCanvasMobileMenu, Paypal, ProductDetailsDescriptionReview, QuickView, Register, ResponsiveMobileMenu, SectionTitleWithSubTitle, ShopSidebar, StripeElement, TeamMembers, TestimonialOne, TheFooter, TheHeader, WelcomeMessage, HeroSliderSix, ProductDetailsWrapper, ProductGridItem, ProductGridItemTwo, ProductGridStyleThree, ProductWrapperCosmetics, PolicyServicePolicyFour, BannerItem, BannerStyleFour, BannerStyleOne, CrudAll, CrudCoupons, CrudCreate, CrudEdit, CrudNav, CrudNote, CrudOrders, CrudOrdersHistory */
+/*! exports provided: AboutMission, BrandLogoCarousel, Breadcrumb, ContactInfo, FunFact, HeaderWithTopbar, InstagramPostWrapper, Intro, IntroMobile, Loading, Location, Login, MiniCart, MobileBar, Navigation, OffCanvasMobileMenu, Paypal, ProductDetailsDescriptionReview, QuickView, Register, ResponsiveMobileMenu, SectionTitleWithSubTitle, ShopSidebar, StripeElement, TeamMembers, TestimonialOne, TheFooter, TheHeader, WelcomeMessage, PolicyServicePolicyFour, HeroSliderSix, BannerItem, BannerStyleFour, BannerStyleOne, ProductDetailsWrapper, ProductGridItem, ProductGridItemTwo, ProductGridStyleThree, ProductWrapperCosmetics, CrudAll, CrudCoupons, CrudCreate, CrudEdit, CrudNav, CrudNote, CrudOrders, CrudOrdersHistory */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -341,35 +340,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_WelcomeMessage_vue__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../../components/WelcomeMessage.vue */ "./components/WelcomeMessage.vue");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WelcomeMessage", function() { return _components_WelcomeMessage_vue__WEBPACK_IMPORTED_MODULE_29__["default"]; });
 
-/* harmony import */ var _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../../components/hero/HeroSliderSix.vue */ "./components/hero/HeroSliderSix.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HeroSliderSix", function() { return _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_30__["default"]; });
+/* harmony import */ var _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../../components/policy/ServicePolicyFour.vue */ "./components/policy/ServicePolicyFour.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolicyServicePolicyFour", function() { return _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_30__["default"]; });
 
-/* harmony import */ var _components_product_ProductDetailsWrapper_vue__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../../components/product/ProductDetailsWrapper.vue */ "./components/product/ProductDetailsWrapper.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductDetailsWrapper", function() { return _components_product_ProductDetailsWrapper_vue__WEBPACK_IMPORTED_MODULE_31__["default"]; });
+/* harmony import */ var _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../../components/hero/HeroSliderSix.vue */ "./components/hero/HeroSliderSix.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HeroSliderSix", function() { return _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_31__["default"]; });
 
-/* harmony import */ var _components_product_ProductGridItem_vue__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../components/product/ProductGridItem.vue */ "./components/product/ProductGridItem.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridItem", function() { return _components_product_ProductGridItem_vue__WEBPACK_IMPORTED_MODULE_32__["default"]; });
+/* harmony import */ var _components_banner_BannerItem_vue__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../components/banner/BannerItem.vue */ "./components/banner/BannerItem.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerItem", function() { return _components_banner_BannerItem_vue__WEBPACK_IMPORTED_MODULE_32__["default"]; });
 
-/* harmony import */ var _components_product_ProductGridItemTwo_vue__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../../components/product/ProductGridItemTwo.vue */ "./components/product/ProductGridItemTwo.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridItemTwo", function() { return _components_product_ProductGridItemTwo_vue__WEBPACK_IMPORTED_MODULE_33__["default"]; });
+/* harmony import */ var _components_banner_BannerStyleFour_vue__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../../components/banner/BannerStyleFour.vue */ "./components/banner/BannerStyleFour.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerStyleFour", function() { return _components_banner_BannerStyleFour_vue__WEBPACK_IMPORTED_MODULE_33__["default"]; });
 
-/* harmony import */ var _components_product_ProductGridStyleThree_vue__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../../components/product/ProductGridStyleThree.vue */ "./components/product/ProductGridStyleThree.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridStyleThree", function() { return _components_product_ProductGridStyleThree_vue__WEBPACK_IMPORTED_MODULE_34__["default"]; });
+/* harmony import */ var _components_banner_BannerStyleOne_vue__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../../components/banner/BannerStyleOne.vue */ "./components/banner/BannerStyleOne.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerStyleOne", function() { return _components_banner_BannerStyleOne_vue__WEBPACK_IMPORTED_MODULE_34__["default"]; });
 
-/* harmony import */ var _components_product_ProductWrapperCosmetics_vue__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../../components/product/ProductWrapperCosmetics.vue */ "./components/product/ProductWrapperCosmetics.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductWrapperCosmetics", function() { return _components_product_ProductWrapperCosmetics_vue__WEBPACK_IMPORTED_MODULE_35__["default"]; });
+/* harmony import */ var _components_product_ProductDetailsWrapper_vue__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../../components/product/ProductDetailsWrapper.vue */ "./components/product/ProductDetailsWrapper.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductDetailsWrapper", function() { return _components_product_ProductDetailsWrapper_vue__WEBPACK_IMPORTED_MODULE_35__["default"]; });
 
-/* harmony import */ var _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../../components/policy/ServicePolicyFour.vue */ "./components/policy/ServicePolicyFour.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolicyServicePolicyFour", function() { return _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_36__["default"]; });
+/* harmony import */ var _components_product_ProductGridItem_vue__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../../components/product/ProductGridItem.vue */ "./components/product/ProductGridItem.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridItem", function() { return _components_product_ProductGridItem_vue__WEBPACK_IMPORTED_MODULE_36__["default"]; });
 
-/* harmony import */ var _components_banner_BannerItem_vue__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../../components/banner/BannerItem.vue */ "./components/banner/BannerItem.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerItem", function() { return _components_banner_BannerItem_vue__WEBPACK_IMPORTED_MODULE_37__["default"]; });
+/* harmony import */ var _components_product_ProductGridItemTwo_vue__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../../components/product/ProductGridItemTwo.vue */ "./components/product/ProductGridItemTwo.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridItemTwo", function() { return _components_product_ProductGridItemTwo_vue__WEBPACK_IMPORTED_MODULE_37__["default"]; });
 
-/* harmony import */ var _components_banner_BannerStyleFour_vue__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../../components/banner/BannerStyleFour.vue */ "./components/banner/BannerStyleFour.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerStyleFour", function() { return _components_banner_BannerStyleFour_vue__WEBPACK_IMPORTED_MODULE_38__["default"]; });
+/* harmony import */ var _components_product_ProductGridStyleThree_vue__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../../components/product/ProductGridStyleThree.vue */ "./components/product/ProductGridStyleThree.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridStyleThree", function() { return _components_product_ProductGridStyleThree_vue__WEBPACK_IMPORTED_MODULE_38__["default"]; });
 
-/* harmony import */ var _components_banner_BannerStyleOne_vue__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../../components/banner/BannerStyleOne.vue */ "./components/banner/BannerStyleOne.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BannerStyleOne", function() { return _components_banner_BannerStyleOne_vue__WEBPACK_IMPORTED_MODULE_39__["default"]; });
+/* harmony import */ var _components_product_ProductWrapperCosmetics_vue__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../../components/product/ProductWrapperCosmetics.vue */ "./components/product/ProductWrapperCosmetics.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductWrapperCosmetics", function() { return _components_product_ProductWrapperCosmetics_vue__WEBPACK_IMPORTED_MODULE_39__["default"]; });
 
 /* harmony import */ var _components_crud_All_vue__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ../../components/crud/All.vue */ "./components/crud/All.vue");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CrudAll", function() { return _components_crud_All_vue__WEBPACK_IMPORTED_MODULE_40__["default"]; });
@@ -663,7 +662,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component(vue_client_only__WEBPACK_I
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component(vue_no_ssr__WEBPACK_IMPORTED_MODULE_4___default.a.name,{...vue_no_ssr__WEBPACK_IMPORTED_MODULE_4___default.a,render(h,ctx){if(false){}return vue_no_ssr__WEBPACK_IMPORTED_MODULE_4___default.a.render(h,ctx);}});// Component: <NuxtChild>
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component(_components_nuxt_child_js__WEBPACK_IMPORTED_MODULE_6__["default"].name,_components_nuxt_child_js__WEBPACK_IMPORTED_MODULE_6__["default"]);vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('NChild',_components_nuxt_child_js__WEBPACK_IMPORTED_MODULE_6__["default"]);// Component NuxtLink is imported in server.js or client.js
 // Component: <Nuxt>
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component(_components_nuxt_js__WEBPACK_IMPORTED_MODULE_8__["default"].name,_components_nuxt_js__WEBPACK_IMPORTED_MODULE_8__["default"]);Object.defineProperty(vue__WEBPACK_IMPORTED_MODULE_0__["default"].prototype,'$nuxt',{get(){const globalNuxt=this.$root?this.$root.$options.$nuxt:null;if(false){}return globalNuxt;},configurable:true});vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_meta__WEBPACK_IMPORTED_MODULE_2___default.a,{"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"});const defaultTransition={"name":"my-layout","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"};const originalRegisterModule=vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store.prototype.registerModule;function registerModule(path,rawModule,options={}){const preserveState= false&&(false);return originalRegisterModule.call(this,path,rawModule,{preserveState,...options});}async function createApp(ssrContext,config={}){const store=Object(_store_js__WEBPACK_IMPORTED_MODULE_11__["createStore"])(ssrContext);const router=await Object(_router_js__WEBPACK_IMPORTED_MODULE_5__["createRouter"])(ssrContext,config,{store});// Add this.$router into store actions/mutations
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component(_components_nuxt_js__WEBPACK_IMPORTED_MODULE_8__["default"].name,_components_nuxt_js__WEBPACK_IMPORTED_MODULE_8__["default"]);Object.defineProperty(vue__WEBPACK_IMPORTED_MODULE_0__["default"].prototype,'$nuxt',{get(){const globalNuxt=this.$root?this.$root.$options.$nuxt:null;if(false){}return globalNuxt;},configurable:true});vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_meta__WEBPACK_IMPORTED_MODULE_2___default.a,{"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"});const defaultTransition={"name":"slide-fade","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"};const originalRegisterModule=vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store.prototype.registerModule;function registerModule(path,rawModule,options={}){const preserveState= false&&(false);return originalRegisterModule.call(this,path,rawModule,{preserveState,...options});}async function createApp(ssrContext,config={}){const store=Object(_store_js__WEBPACK_IMPORTED_MODULE_11__["createStore"])(ssrContext);const router=await Object(_router_js__WEBPACK_IMPORTED_MODULE_5__["createRouter"])(ssrContext,config,{store});// Add this.$router into store actions/mutations
 store.$router=router;// Fix SSR caveat https://github.com/nuxt/nuxt.js/issues/3757#issuecomment-414689141
 store.registerModule=registerModule;// Create Root instance
 // here we inject the router and store to all child components,
@@ -7116,12 +7115,9 @@ __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(URLSearchParams) {/* harmony default export */ __webpack_exports__["default"] = ({middleware:'guest',data(){return{disabled:false,errors:[]};},computed:{},mounted(){this.$axios.get('/sanctum/csrf-cookie');// if Url contains params called code
 if(new URLSearchParams(window.location.search).has('code')){const url=window.location.search;const state=new URLSearchParams(window.location.search).get('state');//eliminamos state de la url
 const code=url.replace('?state='+state+'&','');//añadimos auth_ para que laravel lo reconozca
-const code2=code.replace('code=','auth_code=');this.$axios.post("http://localhost:8000"+'/api/auth/code'+code2).then(res=>{//console.log(res.data.user);
-this.$auth.loginWith('laravelSanctum',{data:{email:res.data.user.email,provider_id:res.data.user.provider_id}}).then(res=>{//console.log(res);
-window.location.href='/';this.errors=[];//this.$notify({ title: 'Bienvenid@ de nuevo!'})
-}).catch(err=>{//console.log(err);
-this.errors=['Hemos tenido un problema al iniciar sesión, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];});}).catch(err=>{//console.log(err);
-this.errors=['Hemos tenido un problema al iniciar sesión, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];});}},methods:{async login(){try{const formData=new FormData(this.$refs.loginform);await this.$auth.loginWith('laravelSanctum',{data:formData}).then(res=>{//console.log(res);
+const code2=code.replace('code=','auth_code=');this.$axios.post("http://localhost:8000"+'/api/auth/code'+code2).then(res=>{console.log(res.data.user);cosole.log("http://localhost:8000");this.$auth.loginWith('laravelSanctum',{data:{email:res.data.user.email,provider_id:res.data.user.provider_id}}).then(res=>{console.log(res);//window.location.href = '/';
+this.errors=[];//this.$notify({ title: 'Bienvenid@ de nuevo!'})
+}).catch(err=>{console.log(err);this.errors=['Hemos tenido un problema al iniciar sesión, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];});}).catch(err=>{console.log(err);this.errors=['Hemos tenido un problema al iniciar sesión, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];});}},methods:{async login(){try{const formData=new FormData(this.$refs.loginform);await this.$auth.loginWith('laravelSanctum',{data:formData}).then(res=>{//console.log(res);
 window.location.reload();this.errors=[];//this.$notify({ title: 'Bienvenid@ de nuevo!'})
 });}catch(error){this.errors=['El correo electrónico o la contraseña son incorrectos.'];//console.log(error.response.data)             
 }},async loginGoogle(){await this.$axios.get('/api/auth/url').then(res=>{//console.log(res.data);

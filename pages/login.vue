@@ -48,6 +48,10 @@
     import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
     import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
+        auth: false,
+
+        pageTransition: 'slide-fade',
+
          components: {
             HeaderWithTopbar,
             Login,

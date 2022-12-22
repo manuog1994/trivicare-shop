@@ -103,6 +103,8 @@
     export default {
         auth: false,
 
+        pageTransition: 'slide-fade',
+
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             Breadcrumb: () => import("@/components/Breadcrumb"),
@@ -438,11 +440,5 @@
     }
     .page-link-custom.disabled {
     color: #a0a0a0;
-    }
-    .fade-enter-active, .fade-leave-active {
-    transition: opacity 1.5s ease;
-}
-    .fade-enter, .fade-leave-active {
-        opacity: 0
     }
 </style>

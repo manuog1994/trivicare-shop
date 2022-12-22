@@ -1,6 +1,6 @@
 <template>
     <div class="product-details-page-wrapper">
-        <HeaderWithTopbar containerClass="container" />
+        <HeaderWithTopbar containerClass="container-fluid" />
         <Breadcrumb pageTitle="product affiliate" />
         
         <div class="shop-area pt-100 pb-100">

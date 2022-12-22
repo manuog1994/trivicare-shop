@@ -1,7 +1,7 @@
 <template>
     <client-only>
         <div class="product-details-page-wrapper">
-            <HeaderWithTopbar containerClass="container"/>
+            <HeaderWithTopbar containerClass="container-fluid"/>
             <Breadcrumb :pageTitle="product.name" v-if="product" />
             <ProductDetailsWrapper :product="product" v-if="product" />
             <ProductDetailsDescriptionReview :product="product" :reviews="reviews" v-if="product" />
@@ -15,6 +15,9 @@
     export default {
         auth: false,
 
+        pageTransition: 'slide-fade',
+
+        
         data() {
             return {
                 slug: this.$route.params.slug,

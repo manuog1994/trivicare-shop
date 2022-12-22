@@ -12,7 +12,7 @@ exports.modules = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only",[_c("div",{staticClass:"product-details-page-wrapper"},[_c("HeaderWithTopbar",{attrs:{containerClass:"container"}}),_vm._v(" "),_vm.product?_c("Breadcrumb",{attrs:{pageTitle:_vm.product.name}}):_vm._e(),_vm._v(" "),_vm.product?_c("ProductDetailsWrapper",{attrs:{product:_vm.product}}):_vm._e(),_vm._v(" "),_vm.product?_c("ProductDetailsDescriptionReview",{attrs:{product:_vm.product,reviews:_vm.reviews}}):_vm._e(),_vm._v(" "),_c("TheFooter")],1)]);};var staticRenderFns=[];render._withStripped=true;
+var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only",[_c("div",{staticClass:"product-details-page-wrapper"},[_c("HeaderWithTopbar",{attrs:{containerClass:"container-fluid"}}),_vm._v(" "),_vm.product?_c("Breadcrumb",{attrs:{pageTitle:_vm.product.name}}):_vm._e(),_vm._v(" "),_vm.product?_c("ProductDetailsWrapper",{attrs:{product:_vm.product}}):_vm._e(),_vm._v(" "),_vm.product?_c("ProductDetailsDescriptionReview",{attrs:{product:_vm.product,reviews:_vm.reviews}}):_vm._e(),_vm._v(" "),_c("TheFooter")],1)]);};var staticRenderFns=[];render._withStripped=true;
 
 /***/ }),
 
@@ -25,7 +25,7 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({auth:false,data(){return{slug:this.$route.params.slug,product:'',reviews:[]};},head(){return{title:this.product.name,meta:[{charset:'utf-8'},{name:'viewport',content:'width=device-width, initial-scale=1'},{hid:'description',name:'description',content:'Nuestros productos son de la mejor calidad, naturales y ecológicos. Compra online y recibe en tu casa.'}]};},mounted(){this.$nextTick(()=>{this.$nuxt.$loading.start();setTimeout(()=>{this.$nuxt.$loading.finish();},2000);});this.getProducts();},methods:{async getProducts(){await this.$store.dispatch('getProducts',{page:'',category:'',search:'',slug:this.slug,sort:'',tag:'',status:2});const products=this.$store.getters.getProducts;this.product=products.data[0];this.reviews=products.data[0].reviews;}}});
+/* harmony default export */ __webpack_exports__["default"] = ({auth:false,pageTransition:'slide-fade',data(){return{slug:this.$route.params.slug,product:'',reviews:[]};},head(){return{title:this.product.name,meta:[{charset:'utf-8'},{name:'viewport',content:'width=device-width, initial-scale=1'},{hid:'description',name:'description',content:'Nuestros productos son de la mejor calidad, naturales y ecológicos. Compra online y recibe en tu casa.'}]};},mounted(){this.$nextTick(()=>{this.$nuxt.$loading.start();setTimeout(()=>{this.$nuxt.$loading.finish();},2000);});this.getProducts();},methods:{async getProducts(){await this.$store.dispatch('getProducts',{page:'',category:'',search:'',slug:this.slug,sort:'',tag:'',status:2});const products=this.$store.getters.getProducts;this.product=products.data[0];this.reviews=products.data[0].reviews;}}});
 
 /***/ }),
 

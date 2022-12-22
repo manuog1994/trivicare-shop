@@ -160,6 +160,9 @@
     import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
+
+        pageTransition: 'slide-fade',
+
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             Breadcrumb: () => import('@/components/Breadcrumb'),

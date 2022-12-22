@@ -69,24 +69,25 @@
 
                 this.$axios.post(process.env.baseUrl + '/api/auth/code' + code2)
                     .then(res => {
-                        //console.log(res.data.user);
+                        console.log(res.data.user);
+                        cosole.log(process.env.baseUrl)
                         this.$auth.loginWith('laravelSanctum', {
                             data: {
                                 email: res.data.user.email,
                                 provider_id: res.data.user.provider_id,
                             }
                         }).then(res => {
-                            //console.log(res);
-                            window.location.href = '/';
+                            console.log(res);
+                            //window.location.href = '/';
                             this.errors = [];
                             //this.$notify({ title: 'Bienvenid@ de nuevo!'})
                         }).catch(err => {
-                            //console.log(err);
+                            console.log(err);
                             this.errors = ['Hemos tenido un problema al iniciar sesión, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];
                         })
                     })
                     .catch(err => {
-                        //console.log(err);
+                        console.log(err);
                         this.errors = ['Hemos tenido un problema al iniciar sesión, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];
                     })
             }

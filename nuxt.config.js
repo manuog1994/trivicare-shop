@@ -103,22 +103,6 @@ export default defineNuxtConfig({
 
     auth: {
         strategies: {
-            local: {
-                token: {
-                    property: 'token',
-                    global: true,
-                    // required: true,
-                    // type: 'Bearer'
-                },
-                user: {
-                    property: 'user',
-                    // autoFetch: true
-                },
-                endpoints: {
-                    user: { url: '/api/auth/user', method: 'get' }
-                }
-            },
-
             laravelSanctum: {
                 provider: 'laravel/sanctum',
                 url: process.env.BASE_URL || 'http://localhost:8000',
@@ -143,10 +127,10 @@ export default defineNuxtConfig({
     },
       
     pageTransition: {
-        name: 'my-layout',
-        mode: 'out-in'
-        
+        name: 'slide-fade',
+        mode: 'out-in',
     },
+
 
 
     styleResources: {

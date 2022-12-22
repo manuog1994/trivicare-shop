@@ -1,7 +1,7 @@
 <template>
     <client-only>
         <div class="shop-page-wrapper" v-if="role == 'admin'">
-            <HeaderWithTopbar containerClass="container" />
+            <HeaderWithTopbar containerClass="container-fluid" />
             <Breadcrumb pageTitle="Pedidos" />
     
                 <div class="container login-register-area pt-100 pb-100">

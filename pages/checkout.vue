@@ -413,6 +413,9 @@
     export default {
         middleware: 'auth',
 
+        pageTransition: 'slide-fade',
+
+
         data() {
             return {
                 shipping: 0,
