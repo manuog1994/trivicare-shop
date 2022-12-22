@@ -13,7 +13,7 @@
                     <template slot="message">
                         <span>
                             Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
-                            <a class="text-info" href="/politica-de-cookies">Política de Cookies</a>.
+                            <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
                         </span>
                     </template>
                     <template slot="button">
@@ -54,12 +54,6 @@
         },
 
         mounted() {
-            this.$nextTick(() => {
-                this.$nuxt.$loading.start()
-                setTimeout(() => {
-                    this.$nuxt.$loading.finish()
-                }, 2000);
-            });
             var tituloOriginal = document.title; // Lo guardamos para restablecerlo
             window.onblur = function(){ // Si el usuario se va a otro lado...
             document.title = "Ey, vuelve aquí!";// Cambiamos el título

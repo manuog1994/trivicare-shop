@@ -12,6 +12,10 @@
             <input type="password" name="password" placeholder="Contraseña">
             <input type="password" name="password_confirmation" placeholder="Confirma tu contraseña">
             <div class="mb-2">
+                <input type="checkbox" name="newsletter" id="newsletter" v-model="newsletter" value="1">
+                <label for="newsletter">Quiero recibir novedades, ofertas y descuentos.</label>
+            </div>
+            <div class="mb-2">
                 <input type="checkbox" name="terms" id="terms" v-model="checked" value="true">
                 <label for="terms"><a href="https://trivicare.com/">Acepto los términos y condiciones</a></label>
             </div>
@@ -28,7 +32,8 @@
         data() {
             return {
                 errors: [],
-                checked: false
+                checked: false,
+                newsletter: false,
             }
         },
 
@@ -39,10 +44,11 @@
         methods: {
             register() {
                 const formData = new FormData(this.$refs.registerform);
-                this.$axios.post('/api/register', formData)
+                formData.append('newsletter', this.newsletter);
+                this.$axios.post('/register', formData)
                 .then(res => {
-                    this.$auth.loginWith('laravelSanctum', { data: formData });
                     //console.log(res);
+                    this.$auth.loginWith('laravelSanctum', { data: formData });
                     this.errors = [];
                     this.$router.push({
                         path: '/'
@@ -50,6 +56,7 @@
                     this.$notify({ title: 'Te has registrado correctamente, Bienvenid@!'})
 
                 }).catch((error) => {
+                    //console.log(error);
                     this.errors = Object.values(error.response.data.errors).flat();
                 })
 

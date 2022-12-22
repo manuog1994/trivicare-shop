@@ -1,7 +1,7 @@
 <template>
     <client-only>
         <div class="cart-page-wrapper">
-            <HeaderWithTopbar containerClass="container" />
+            <HeaderWithTopbar containerClass="container-fluid" />
             <Breadcrumb pageTitle="carrito" />
     
             <div class="cart-main-area pt-90 pb-100">
@@ -82,7 +82,7 @@
                                         </span>
                                         Código descuento
                                         <span class="text-danger">
-                                             -{{ (subTotal * (cuponStore.discount / 100)).toFixed(2) }} &euro; 
+                                             -{{ ((subTotal * (cuponStore.discount / 100)) * 1.21).toFixed(2) }} &euro; 
                                         </span>
                                     </h5>
                                     <!-- <h5>IVA 21% <span>{{ (total * 0.21).toFixed(2) }} &euro;</span></h5> -->
@@ -217,8 +217,10 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
+
             this.$auth.fetchUser();
         },
+        
 
         methods: {
 

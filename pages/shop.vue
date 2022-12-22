@@ -1,7 +1,7 @@
 <template>
     <client-only>
         <div class="shop-page-wrapper">
-            <HeaderWithTopbar containerClass="container" />
+            <HeaderWithTopbar containerClass="container-fluid" />
             <Breadcrumb class="d-none d-md-block" :pageTitle="this.$route.query.category || this.$route.query.tag ? 'Resultados de la búsqueda' : 'Todos los productos' "/>
             <MobileBar class="d-md-none" @search="searchFilter"/>
             <!-- product items wrapper -->
@@ -85,7 +85,7 @@
                     <template slot="message">
                         <span>
                             Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
-                            <a class="text-info" href="/politica-de-cookies">Política de Cookies</a>.
+                            <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
                         </span>
                     </template>
                     <template slot="button">

@@ -2,10 +2,10 @@
     <client-only>
         <ul>
             <li>
-                 <a class="link-nav" :href="url + '/shop'">Ver Todo</a>
+                <n-link to="/shop">Ver Todo</n-link>
              </li>
                 <li v-for="category in categories" :key="category.id">
-                    <a class="link-nav" :href="url + '/shop?category=' + category.slug">{{ category.name  }}</a>
+                    <n-link :to="`/shop?category=${category.slug}`">{{ category.name }}</n-link>
                 </li>
              <li>
                 <n-link to="/contact">Contacto</n-link>

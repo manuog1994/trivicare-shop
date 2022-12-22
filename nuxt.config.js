@@ -1,7 +1,10 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 export default defineNuxtConfig({
-    loading: '~/components/Loading.vue',
-     generate: {
+    loading: {
+        color: '#2AB5B2',
+        height: '5px',
+    },
+    generate: {
         fallback: true
     },
 
@@ -100,15 +103,32 @@ export default defineNuxtConfig({
 
     auth: {
         strategies: {
-          laravelSanctum: {
-            provider: 'laravel/sanctum',
-            url: process.env.BASE_URL || 'http://localhost:8000',
-             endpoints: {
-                login: {
-                    url: '/login', method: 'post'
+            local: {
+                token: {
+                    property: 'token',
+                    global: true,
+                    // required: true,
+                    // type: 'Bearer'
+                },
+                user: {
+                    property: 'user',
+                    // autoFetch: true
+                },
+                endpoints: {
+                    user: { url: '/api/auth/user', method: 'get' }
                 }
             },
-          },
+
+            laravelSanctum: {
+                provider: 'laravel/sanctum',
+                url: process.env.BASE_URL || 'http://localhost:8000',
+                endpoints: {
+                    login: {
+                        url: '/login', method: 'post'
+                    }
+                },
+            },
+
         }
     },
 
@@ -148,10 +168,11 @@ export default defineNuxtConfig({
 
 
     env: {
-        baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+        baseUrl: process.env.BASE_URL || 'http://localhost:8000',
         googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
         stripeKey: process.env.STRIPE_PK,
         url: process.env.URL || 'http://localhost:3000',
+        googleClientId: process.env.GOOGLE_CLIENT_ID,
     },
 
     image: {

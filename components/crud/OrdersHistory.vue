@@ -20,10 +20,12 @@
                             <td>
                                 <n-link :to="`/orders-profiles/${order.user_id}`">{{ getName(order) }}</n-link>
                             </td>
-                            <td v-if="order.paid == 1">Pendiente</td>
-                            <td v-if="order.paid == 2">En Proceso</td>
-                            <td v-if="order.paid == 3">Pagado</td>
-                            <td v-if="order.paid == 4">Rechazado</td>
+                            <td v-if="order.paid == 'PENDIENTE'">Pendiente</td>
+                            <td v-if="order.paid == 'PROCESANDO'">Procesando</td>
+                            <td v-if="order.paid == 'PAGADO'">Pagado</td>
+                            <td v-if="order.paid == 'RECHAZADO'">Rechazado</td>
+                            <td v-if="order.paid == 'CONTRAREEMBOLSO'">Contra reembolso</td>
+                            <td v-if="order.paid == 'TRANSFERENCIA'">Transferencia</td>
                             <td v-if="order.status == 4">Entregado</td>
                             <td v-else>Cancelado</td>
                             <td>{{ order.order_date }}</td>
@@ -33,7 +35,7 @@
                                 <n-link :to="`/orders/${order.id}`" class="btn btn-primary">
                                     <i class="pe-7s-look"></i>
                                 </n-link>
-                                <a v-if="order.paid == 3 && order.invoice != null" @click.prevent="getUrl(order)" class="btn btn-warning">
+                                <a v-if="order.paid == 'PAGADO' || order.paid == 'CONTRAREEMBOLSO' || order.paid == 'TRANSFERENCIA' && order.invoice != null" @click.prevent="getUrl(order)" class="btn btn-warning">
                                     <i class="pe-7s-download"></i>
                                 </a>
                                 <a v-if="order.note != null" class="btn btn-secondary" @click.prevent="onClick(order.note)">

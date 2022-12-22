@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "7a601239e3aac595be74";
+/******/ 	var hotCurrentHash = "f7b99dcdc6f3a2e33c68";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -873,7 +873,7 @@
 /******/
 /******/ 		// extract-css-chunks-webpack-plugin CSS loading
 /******/ 		var supportsPreload = (function() { try { return document.createElement("link").relList.supports("preload"); } catch(e) { return false; }}());
-/******/ 		var cssChunks = {"pages/cart":1,"pages/checkout":1,"pages/forgot-password":1,"pages/index":1,"pages/orders/_id":1,"pages/privacy-policy":1,"pages/shop":1,"pages/terms-conditions":1,"pages/unsubscribe":1};
+/******/ 		var cssChunks = {"pages/cart":1,"pages/checkout":1,"pages/forgot-password":1,"pages/index":1,"pages/my-orders/_id":1,"pages/orders/_id":1,"pages/privacy-policy":1,"pages/shop":1,"pages/terms-conditions":1,"pages/unsubscribe":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {

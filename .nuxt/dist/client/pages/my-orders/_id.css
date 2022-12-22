@@ -1,0 +1,37 @@
+
+.pagination-custom[data-v-5fb99e28] {
+display: flex;
+padding-left: 0;
+list-style: none;
+}
+.page-link-custom[data-v-5fb99e28] {
+position: relative;
+font-size: 18px;
+display: flex;
+padding: 0 .75rem;
+color: #686868;
+text-decoration: none;
+background-color: #fff;
+transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+.page-link-custom[data-v-5fb99e28] {
+    transition: none;
+}
+}
+.page-link-custom[data-v-5fb99e28]:hover {
+z-index: 2;
+color: orange;
+}
+.page-link-custom[data-v-5fb99e28]:focus {
+z-index: 3;
+color: orange;
+outline: 0;
+}
+.page-link-custom.active[data-v-5fb99e28] {
+    color: orange;
+}
+.page-link-custom.disabled[data-v-5fb99e28] {
+color: #a0a0a0;
+}
+

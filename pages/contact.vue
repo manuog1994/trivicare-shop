@@ -1,6 +1,6 @@
 <template>
     <div class="shop-page-wrapper">
-        <HeaderWithTopbar containerClass="container" />
+        <HeaderWithTopbar containerClass="container-fluid" />
         <Breadcrumb pageTitle="contacto" />
         <ContactInfo />
         <Location />

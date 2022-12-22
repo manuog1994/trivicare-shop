@@ -1,6 +1,6 @@
 <template>
     <div class="cart-page-wrapper">
-        <HeaderWithTopbar containerClass="container" />
+        <HeaderWithTopbar containerClass="container-fluid" />
         <Breadcrumb pageTitle="lista de deseos" />
         
         <!-- wishlist section start -->
@@ -64,10 +64,25 @@
         </div>
         <!-- wishlist section end -->
         <TheFooter />
+        <VueIfBot>
+            <CookieConsent>
+                <template slot="message">
+                    <span>
+                        Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
+                        <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
+                    </span>
+                </template>
+                <template slot="button">
+                    <button class="btn border-1">Aceptar</button>
+                </template>
+            </CookieConsent>
+        </VueIfBot>
     </div>
 </template>
 
 <script>
+    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
+    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
         
@@ -75,6 +90,8 @@
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             Breadcrumb: () => import("@/components/Breadcrumb"),
             TheFooter: () => import("@/components/TheFooter"),
+            CookieConsent,
+            VueIfBot
         },
 
         computed: {

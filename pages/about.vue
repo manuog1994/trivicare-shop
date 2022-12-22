@@ -1,6 +1,6 @@
 <template>
     <div class="about-page-wrapper">
-        <HeaderWithTopbar containerClass="container" />
+        <HeaderWithTopbar containerClass="container-fluid" />
         <Breadcrumb pageTitle="about us" />
         <WelcomeMessage class="pt-100 pb-95" />
         <BannerStyleOne class="pb-70" />
@@ -9,10 +9,25 @@
         <TeamMembers />
         <BrandLogoCarousel />
         <TheFooter />
+        <VueIfBot>
+            <CookieConsent>
+                <template slot="message">
+                    <span>
+                        Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
+                        <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
+                    </span>
+                </template>
+                <template slot="button">
+                    <button class="btn border-1">Aceptar</button>
+                </template>
+            </CookieConsent>
+        </VueIfBot>
     </div>
 </template>
 
 <script>
+    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
+    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
     export default {
         auth: false,
         components: {
@@ -24,7 +39,9 @@
             FunFact: () => import('@/components/FunFact'), 
             TeamMembers: () => import('@/components/TeamMembers'), 
             BrandLogoCarousel: () => import('@/components/BrandLogoCarousel'), 
-            TheFooter: () => import('@/components/TheFooter'), 
+            TheFooter: () => import('@/components/TheFooter'),
+            VueIfBot,
+            CookieConsent 
         },
         head() {
             return {

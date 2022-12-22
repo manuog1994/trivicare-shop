@@ -1,7 +1,7 @@
 <template>
     <client-only>
         <div class="cart-page-wrapper">
-            <HeaderWithTopbar containerClass="container" />
+            <HeaderWithTopbar containerClass="container-fluid" />
             <Breadcrumb pageTitle="Dirección de Envío" />
             
             <div v-if="$auth.user.email_verified_at != null" class="checkout-area pt-95 pb-100">
@@ -335,7 +335,7 @@
                                         <div>
                                             <ul class="d-flex justify-content-between mb-2">
                                                 <li v-if="cuponStore.discount > 0" class="your-order-shipping">Código descuento</li>
-                                                <li v-if="cuponStore.discount > 0" class="text-danger">-{{ (subTotal * (cuponStore.discount / 100)).toFixed(2)  }} &euro;</li>
+                                                <li v-if="cuponStore.discount > 0" class="text-danger">-{{ ((subTotal * (cuponStore.discount / 100)) * 1.21).toFixed(2)  }} &euro;</li>
                                             </ul>
                                         </div>
                                         <!-- <div>
@@ -390,11 +390,26 @@
             </div>
 
             <TheFooter />
+            <VueIfBot>
+                <CookieConsent>
+                    <template slot="message">
+                        <span>
+                            Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
+                            <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
+                        </span>
+                    </template>
+                    <template slot="button">
+                        <button class="btn border-1">Aceptar</button>
+                    </template>
+                </CookieConsent>
+            </VueIfBot>            
         </div>
     </client-only>
 </template>
 
 <script>
+    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
+    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         middleware: 'auth',
 
@@ -432,6 +447,8 @@
             StripeElement: () => import("@/components/StripeElement"),
             Paypal: () => import("@/components/Paypal"),
             TheFooter: () => import("@/components/TheFooter"),
+            CookieConsent,
+            VueIfBot
         },
 
 
@@ -484,6 +501,10 @@
                     document.getElementById('my-account-4').classList.add('collapse');
                     document.getElementById('my-account-3').classList.add('collapse');
                     document.getElementById('my-account-1').classList.add('collapse');
+                }
+
+                if(this.shippingMethod == 'contrareembolso') {
+                    this.makeid(23);
                 }
             }
         },
@@ -565,17 +586,20 @@
                     shipping_method: this.shippingMethod,
                     note: this.note,
                     invoice_paper: this.invoice_paper,
+                    token_id: this.token_id
                 }).then((res) => {
                     if(this.payment == 'card') {
                         this.initStripe = true;
                         this.order_id = res.data.order.id;
                         document.getElementById('end-select').hidden = true;
                         document.getElementById('my-account-5').classList.add('collapse');
-                    }else {
+                    }else if(this.payment == 'paypal') {
                         this.initPaypal = true;
                         this.order_id = res.data.order.id;
                         document.getElementById('end-select').hidden = true;
                         document.getElementById('my-account-5').classList.add('collapse');
+                    }else if(this.payment == 'contrareembolso') {
+                        this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
                     }
                 });
  
@@ -605,7 +629,18 @@
                 }).catch((error) => {
                     this.errors = Object.values(error.response.data).flat();
                 })
-            }
+            },
+
+            makeid(length) {
+                let result = '';
+                let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let charactersLength = characters.length;
+                for ( var i = 0; i < length; i++ ) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                this.token_id = result;
+                console.log(this.token_id);
+            },
         },
 
         head() {

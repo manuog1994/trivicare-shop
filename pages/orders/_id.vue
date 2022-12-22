@@ -203,12 +203,18 @@ export default {
         },
 
         getPaymentState(order) {
-            if (order.paid == 1) {
+            if (order.paid == 'PENDIENTE') {
                 return 'Pendiente';
-            } else if (order.paid == 2) {
+            } else if (order.paid == 'PROCESANDO') {
                 return 'Procesando';
-            } else if (order.paid == 3) {
+            } else if (order.paid == 'PAGADO') {
                 return 'Pagado';
+            } else if (order.paid == 'RECHAZADO') {
+                return 'Rechazado';
+            } else if (order.paid == 'CONTRAREEMBOLSO') {
+                return 'Contra reembolso';
+            } else if (order.paid == 'TRANSFERENCIA') {
+                return 'Transferencia';
             }
         },
 

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loading" class="loading-page m-5">
+  <div v-if="loading" class="loading-page container-fluid">
     <div class="d-flex justify-content-center opacity-50">
       <nuxt-img provider="customProvider" src="TriviCare_byn Positivo.webp" alt="logo"/>
     </div>
@@ -31,12 +31,13 @@
 
 <style scoped>
   .loading-page {
-    position: absolute !important;
+    display: block;
+    background-size: cover;
     top: 0;
     left: 0;
     width: auto;
     height: auto;
-    background: rgba(255, 255, 255, 0.83) !important;
+    background: rgba(117, 117, 117, 0.83) !important;
     text-align: center;
     padding-top: 200px;
     font-size: 30px;

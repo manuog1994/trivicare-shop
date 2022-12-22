@@ -11,8 +11,8 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Estado Pago</th>
                         <th scope="col">Estado Pedido</th>
-                        <th scope="col">Factura en Papel</th>
                         <th scope="col">Fecha</th>
+                        <th scope="col">Factura en Papel</th>
                         <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -22,10 +22,12 @@
                             <td>
                                 <n-link :to="`/orders-profiles/${order.user_id}`">{{ getName(order) }}</n-link>
                             </td>
-                            <td v-if="order.paid == 1">Pendiente</td>
-                            <td v-if="order.paid == 2">En Proceso</td>
-                            <td v-if="order.paid == 3">Pagado</td>
-                            <td v-if="order.paid == 4">Rechazado</td>
+                            <td v-if="order.paid == 'PENDIENTE'">Pendiente</td>
+                            <td v-if="order.paid == 'PROCESANDO'">Procesando</td>
+                            <td v-if="order.paid == 'PAGADO'">Pagado</td>
+                            <td v-if="order.paid == 'RECHAZADO'">Rechazado</td>
+                            <td v-if="order.paid == 'CONTRAREEMBOLSO'">Contra reembolso</td>
+                            <td v-if="order.paid == 'TRANSFERENCIA'">Transferencia</td>
                             <td>
                                 <select class="form-select" :value="order.status" @change="updateStatus" @click="loadOrder(order)">
                                     <option value="1">Recibido</option>
@@ -42,7 +44,7 @@
                                 <n-link :to="`/orders/${order.id}`" class="btn btn-primary">
                                     <i class="pe-7s-look"></i>
                                 </n-link>
-                                <a v-if="order.paid == 3 && order.invoice != null" @click.prevent="getUrl(order)" class="btn btn-warning">
+                                <a v-if="order.paid == 'PAGADO' || order.paid == 'CONTRAREEMBOLSO' || order.paid == 'TRANSFERENCIA' && order.invoice != null" @click.prevent="getUrl(order)" class="btn btn-warning">
                                     <i class="pe-7s-download"></i>
                                 </a>
                                 <a v-if="order.note != null" class="btn btn-secondary" @click.prevent="onClick(order.note)">

@@ -22,17 +22,19 @@
                                     <tr v-for="order in orders" :key="order.id">
                                         <th scope="row">{{ order.id }}</th>
                                         <td>{{ getName(order) }}</td>
-                                        <td v-if="order.paid == 1">Pendiente</td>
-                                        <td v-if="order.paid == 2">En Proceso</td>
-                                        <td v-if="order.paid == 3">Pagado</td>
-                                        <td v-if="order.paid == 4">Rechazado</td>
+                                        <td v-if="order.paid == 'PENDIENTE'">Pendiente</td>
+                                        <td v-if="order.paid == 'PROCESANDO'">Procesando</td>
+                                        <td v-if="order.paid == 'PAGADO'">Pagado</td>
+                                        <td v-if="order.paid == 'RECHAZADO'">Rechazado</td>
+                                        <td v-if="order.paid == 'CONTRAREEMBOLSO'">Contra reembolso</td>
+                                        <td v-if="order.paid == 'TRANSFERENCIA'">Transferencia</td> 
                                         <td>{{ getState(order) }}</td>
                                         <td>{{ order.order_date }}</td>
                                         <td>
                                             <n-link :to="`/orders/${order.id}`" class="btn btn-primary">
                                                 <i class="pe-7s-look"></i>
                                             </n-link>
-                                            <a v-if="order.paid == 3 && order.invoice != null" @click.prevent="getUrl(order)" class="btn btn-warning">
+                                            <a v-if="order.paid == 'PAGADO' || order.paid == 'CONTRAREEMBOLSO' || order.paid == 'TRANSFERENCIA' && order.invoice != null" @click.prevent="getUrl(order)" class="btn btn-warning">
                                                 <i class="pe-7s-download"></i>
                                             </a>
                                         </td>
@@ -197,3 +199,42 @@
 
     }
 </script>
+
+<style scoped>
+    .pagination-custom {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    }
+
+    .page-link-custom {
+    position: relative;
+    font-size: 18px;
+    display: flex;
+    padding: 0 .75rem;
+    color: #686868;
+    text-decoration: none;
+    background-color: #fff;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    @media (prefers-reduced-motion: reduce) {
+    .page-link-custom {
+        transition: none;
+    }
+    }
+    .page-link-custom:hover {
+    z-index: 2;
+    color: orange;
+    }
+    .page-link-custom:focus {
+    z-index: 3;
+    color: orange;
+    outline: 0;
+    }
+    .page-link-custom.active {
+        color: orange;
+    }
+    .page-link-custom.disabled {
+    color: #a0a0a0;
+    }
+</style>

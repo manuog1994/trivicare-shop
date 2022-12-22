@@ -5,7 +5,8 @@
                 <div class="d-flex justify-content-center mb-5">
                     <img src="/payment/success.webp" alt="success.webp" width="60">
                 </div>
-                <h1>Ha realizado su pago con éxito, Gracias por su pedido</h1>
+                <h1 v-if="paymentIntent.length == 23">Hemos recibido su pedido. Gracias por confiar en nosotros.</h1>
+                <h1 v-else>Ha realizado su pago con éxito, Gracias por su pedido</h1>
                 <p class="mt-2">En unos minutos recibirá la factura y confirmación de su pedido, en el correo electrónico indicado en su cuenta.</p>
                 <p>Revise su bandeja de entrada y si no la ve dirijase a su carpeta de Spam.</p>
                 <p>La página se redirigirá a sus pedidos en {{ counter }} segundo(s), si no es así <n-link class="text-primary text-decoration-underline" to="/my-orders">pulse aquí</n-link>.</p>
@@ -36,12 +37,6 @@ export default {
     },
 
     mounted() {
-        this.$nextTick(() => {
-            this.$nuxt.$loading.start()
-            setTimeout(() => {
-                this.$nuxt.$loading.finish()
-            }, 2000);
-        });
         if(this.paymentIntent != null) {
             this.orderPaid();
             this.countdown();
@@ -52,9 +47,12 @@ export default {
         async orderPaid () {
             const token_id = this.paymentIntent;
             await this.$axios.post('/api/order-paid/' + token_id)
-                .then(() => {
+                .then((res) => {
+                    //console.log(res.data)
                     this.$store.commit('CLEAR_CART');
-                    this.$store.commit('CLEAR_TOTAL');
+                    this.$store.commit('CLEAR_CUPON');
+                }).catch((err) => {
+                    //console.log(err)
                 });
         },
 

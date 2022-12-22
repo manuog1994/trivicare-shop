@@ -22,6 +22,20 @@
                 }" title="Iniciar sesión">Iniciar sesión</button>
             </div>
         </form>
+        <div class="mt-5">
+            <div class="col-md-12 d-flex justify-content-center">
+                <a @click.prevent="loginGoogle" class="btn btn-light">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <span class="text-center">Inicia sesión con</span>
+                        <div class="row">
+                            <div class="col-12 m-auto ms-1">
+                                <img src="/social/google.webp" alt="google.webp" width="30px">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -43,6 +57,39 @@
 
         mounted() {
             this.$axios.get('/sanctum/csrf-cookie');
+
+            // if Url contains params called code
+            if (new URLSearchParams(window.location.search).has('code')) {
+                const url = window.location.search;
+                const state = new URLSearchParams(window.location.search).get('state');
+                //eliminamos state de la url
+                const code = url.replace('?state=' + state + '&', '');
+                //añadimos auth_ para que laravel lo reconozca
+                const code2 = code.replace('code=', 'auth_code=');
+
+                this.$axios.post(process.env.baseUrl + '/api/auth/code' + code2)
+                    .then(res => {
+                        //console.log(res.data.user);
+                        this.$auth.loginWith('laravelSanctum', {
+                            data: {
+                                email: res.data.user.email,
+                                provider_id: res.data.user.provider_id,
+                            }
+                        }).then(res => {
+                            //console.log(res);
+                            window.location.href = '/';
+                            this.errors = [];
+                            //this.$notify({ title: 'Bienvenid@ de nuevo!'})
+                        }).catch(err => {
+                            //console.log(err);
+                            this.errors = ['Hemos tenido un problema al iniciar sesión, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];
+                        })
+                    })
+                    .catch(err => {
+                        //console.log(err);
+                        this.errors = ['Hemos tenido un problema al iniciar sesión, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];
+                    })
+            }
         },
 
         methods: {
@@ -55,13 +102,22 @@
                         //console.log(res);
                         window.location.reload();
                         this.errors = [];
-                        this.$notify({ title: 'Bienvenid@ de nuevo!'})
+                        //this.$notify({ title: 'Bienvenid@ de nuevo!'})
                     });
                 } catch (error) {
                     this.errors = ['El correo electrónico o la contraseña son incorrectos.']; 
                     //console.log(error.response.data)             
                 }
-            }, 
+            },
+            
+            async loginGoogle() {
+                await this.$axios.get('/api/auth/url')
+                    .then(res => {
+                        //console.log(res.data);
+                        window.location.href = res.data;
+                    })
+            },
+
         },
     }
 </script>

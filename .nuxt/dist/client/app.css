@@ -12,20 +12,23 @@
   margin-bottom: 30px;
 }
 
-.loading-page[data-v-31d8889e] {
-  position: absolute !important;
-  top: 0;
-  left: 0;
-  width: auto;
-  height: auto;
-  background: rgba(255, 255, 255, 0.83) !important;
-  text-align: center;
-  padding-top: 200px;
-  font-size: 30px;
-  font-family: sans-serif;
+.nuxt-progress {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 5px;
+  width: 0%;
+  opacity: 1;
+  transition: width 0.1s, opacity 0.4s;
+  background-color: #2AB5B2;
+  z-index: 999999;
 }
-nuxt-img[data-v-31d8889e] {
-  position: absolute;
+.nuxt-progress.nuxt-progress-notransition {
+  transition: none;
+}
+.nuxt-progress-failed {
+  background-color: red;
 }
 
 
@@ -21858,6 +21861,24 @@ Copyright (c) 2015 Daniel Eden
 .vue-typer .custom.char[data-v-b16785ba] {
   color: #000;
 }
+
+.loading-page[data-v-31d8889e] {
+  display: block;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  background: rgba(117, 117, 117, 0.83) !important;
+  text-align: center;
+  padding-top: 200px;
+  font-size: 30px;
+  font-family: sans-serif;
+}
+nuxt-img[data-v-31d8889e] {
+  position: absolute;
+}
+
 
 @media screen and (min-width: 420px) {
 .p-30 {
