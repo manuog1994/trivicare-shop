@@ -57,11 +57,7 @@
         },
 
         mounted() {
-            if (this.$auth.loggedIn) {
-                this.$router.push({
-                    path: '/'
-                });
-            }
+
             this.$axios.get('/sanctum/csrf-cookie');
 
             // if Url contains params called code

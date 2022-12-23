@@ -7149,7 +7149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(URLSearchParams) {/* harmony default export */ __webpack_exports__["default"] = ({middleware:['guest'],data(){return{disabled:false,errors:[]};},computed:{},mounted(){if(this.$auth.loggedIn){this.$router.push({path:'/'});}this.$axios.get('/sanctum/csrf-cookie');// if Url contains params called code
+/* WEBPACK VAR INJECTION */(function(URLSearchParams) {/* harmony default export */ __webpack_exports__["default"] = ({middleware:['guest'],data(){return{disabled:false,errors:[]};},computed:{},mounted(){this.$axios.get('/sanctum/csrf-cookie');// if Url contains params called code
 if(new URLSearchParams(window.location.search).has('code')){const url=window.location.search;const state=new URLSearchParams(window.location.search).get('state');//eliminamos state de la url
 const code=url.replace('?state='+state+'&','');//añadimos auth_ para que laravel lo reconozca
 const code2=code.replace('code=','auth_code=');this.$axios.post("http://localhost:8000"+'/api/auth/code'+code2).then(res=>{//console.log(res.data.user);

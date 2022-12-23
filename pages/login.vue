@@ -1,6 +1,6 @@
 <template>
     <client-only>
-        <div class="shop-page-wrapper">
+        <div class="shop-page-wrapper" v-if="!$auth.user">
             <HeaderWithTopbar containerClass="container-fluid" />
             <Breadcrumb pageTitle="Autentificación" />
             
@@ -69,6 +69,11 @@
         },
 
         mounted() {
+            if (this.$auth.loggedIn) {
+                this.$router.push({
+                    path: '/'
+                });
+            }
             this.$nextTick(() => {
                 this.$nuxt.$loading.start()
                 setTimeout(() => {
