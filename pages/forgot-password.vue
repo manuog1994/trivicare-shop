@@ -79,9 +79,9 @@
                 await this.$axios.post('/api/forgot-password', formData)
                 .then((response) => {
                     this.send = true;
-                    //console.log(response);
+                    //console.log(response.response.data.message);
                 }).catch((error) => {
-                    //console.log(error);
+                    //console.log(error.response.data.message);
                 });
             }
         }

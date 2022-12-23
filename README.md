@@ -1,4 +1,4 @@
-# flone-vue
+# TriviCare Natural Cosmetics Website
 
 ## Build Setup
 

@@ -3,7 +3,6 @@
         <div class="shop-page-wrapper">
             <HeaderWithTopbar containerClass="container-fluid" />
             <Breadcrumb pageTitle="Mi Cuenta" />
-    
              <div v-if="$auth.user.email_verified_at != null" class="my-account-area pb-80 pt-100">
                 <div class="w-50 m-auto" v-if="errors">
                     <client-only>
@@ -287,7 +286,7 @@
 
                 disabled: true,
                 checked: false,
-            }
+             }
         },
 
         components: {
@@ -299,6 +298,7 @@
         },
 
         mounted() {
+
             this.$nextTick(() => {
                 this.$nuxt.$loading.start()
                 setTimeout(() => {
@@ -308,6 +308,7 @@
         },
 
         methods: {
+
             async updateEmail() {
                 Swal.fire({
                     title: '¿Estas seguro de que quieres cambiar tu email?',

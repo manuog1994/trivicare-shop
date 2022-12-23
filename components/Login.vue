@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </a>
-            </div>
+             </div>
         </div>
     </div>
 </template>
@@ -42,7 +42,8 @@
 <script>
 
     export default {
-        middleware: 'guest',
+        middleware: ['guest'],
+        
         
         data() {
             return {
@@ -56,6 +57,11 @@
         },
 
         mounted() {
+            if (this.$auth.loggedIn) {
+                this.$router.push({
+                    path: '/'
+                });
+            }
             this.$axios.get('/sanctum/csrf-cookie');
 
             // if Url contains params called code
@@ -69,8 +75,8 @@
 
                 this.$axios.post(process.env.baseUrl + '/api/auth/code' + code2)
                     .then(res => {
-                        console.log(res.data.user);
-                        cosole.log(process.env.baseUrl)
+                        //console.log(res.data.user);
+                        //console.log(process.env.baseUrl)
                         this.$auth.loginWith('laravelSanctum', {
                             data: {
                                 email: res.data.user.email,
@@ -78,7 +84,7 @@
                             }
                         }).then(res => {
                             console.log(res);
-                            //window.location.href = '/';
+                            window.location.href = '/';
                             this.errors = [];
                             //this.$notify({ title: 'Bienvenid@ de nuevo!'})
                         }).catch(err => {
@@ -88,9 +94,10 @@
                     })
                     .catch(err => {
                         console.log(err);
-                        this.errors = ['Hemos tenido un problema al iniciar sesión, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];
-                    })
-            }
+                        this.errors = ['Hemos tenido problemas al obtener sus datos de Google, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];
+                    });
+
+                }
         },
 
         methods: {
@@ -100,14 +107,14 @@
                     await this.$auth.loginWith('laravelSanctum', {
                         data: formData
                     }).then(res => {
-                        //console.log(res);
+                        console.log(res);
                         window.location.reload();
                         this.errors = [];
                         //this.$notify({ title: 'Bienvenid@ de nuevo!'})
                     });
                 } catch (error) {
                     this.errors = ['El correo electrónico o la contraseña son incorrectos.']; 
-                    //console.log(error.response.data)             
+                    console.log(error.response.data)             
                 }
             },
             
@@ -118,6 +125,7 @@
                         window.location.href = res.data;
                     })
             },
+
 
         },
     }

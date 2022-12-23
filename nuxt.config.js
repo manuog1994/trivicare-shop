@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {
         title: 'TriviCare Natural Cosmetics',
-        titleTemplate: 'TriviCare | %s',
+        titleTemplate: 'TriviCare Natural Cosmetics | %s',
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -99,6 +99,7 @@ export default defineNuxtConfig({
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
         ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 24 * 14 }],
+        'cookie-universal-nuxt'
     ],
 
     auth: {
@@ -124,6 +125,7 @@ export default defineNuxtConfig({
 
     router: {
         middleware: ['auth'],
+        //middleware: ['authentication'],
     },
       
     pageTransition: {

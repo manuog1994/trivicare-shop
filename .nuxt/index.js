@@ -18,6 +18,7 @@ import nuxt_plugin_appplugin_177fb149 from 'nuxt_plugin_appplugin_177fb149' // S
 import nuxt_plugin_configplugin_063e04b4 from 'nuxt_plugin_configplugin_063e04b4' // Source: ../node_modules/@nuxt/bridge/dist/runtime/config.plugin.mjs (mode: 'all')
 import nuxt_plugin_nitrobridgeserver_185a6891 from 'nuxt_plugin_nitrobridgeserver_185a6891' // Source: ./nitro-bridge.server.mjs (mode: 'server')
 import nuxt_plugin_nitrobridgeclient_7234adce from 'nuxt_plugin_nitrobridgeclient_7234adce' // Source: ./nitro-bridge.client.mjs (mode: 'client')
+import nuxt_plugin_cookieuniversalnuxt_1e2a9ab1 from 'nuxt_plugin_cookieuniversalnuxt_1e2a9ab1' // Source: ./cookie-universal-nuxt.js (mode: 'all')
 import nuxt_plugin_axios_c99ba5ee from 'nuxt_plugin_axios_c99ba5ee' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_image_f38dabf8 from 'nuxt_plugin_image_f38dabf8' // Source: ./image.js (mode: 'all')
 import nuxt_plugin_capiplugin_cfcb4f2c from 'nuxt_plugin_capiplugin_cfcb4f2c' // Source: ./capi.plugin.mjs (mode: 'all')
@@ -101,7 +102,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"TriviCare Natural Cosmetics","titleTemplate":"TriviCare | %s","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"script":[{"src":"bootstrap\u002Fjs\u002Fbootstrap.js","type":"text\u002Fjavascript"},{"src":"https:\u002F\u002Fjs.stripe.com\u002Fv3"},{"src":"https:\u002F\u002Fwww.paypal.com\u002Fsdk\u002Fjs?client-id=AezG3YQ0iS0ugtoBRA05497Vkyj9B26Qf4sIrSJoxWrEk5Y9EXn2mDhACSAX1UgIQQxAmAwV_MvZttp6&currency=EUR"}],"style":[]},
+    head: {"title":"TriviCare Natural Cosmetics","titleTemplate":"TriviCare Natural Cosmetics | %s","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"script":[{"src":"bootstrap\u002Fjs\u002Fbootstrap.js","type":"text\u002Fjavascript"},{"src":"https:\u002F\u002Fjs.stripe.com\u002Fv3"},{"src":"https:\u002F\u002Fwww.paypal.com\u002Fsdk\u002Fjs?client-id=AezG3YQ0iS0ugtoBRA05497Vkyj9B26Qf4sIrSJoxWrEk5Y9EXn2mDhACSAX1UgIQQxAmAwV_MvZttp6&currency=EUR"}],"style":[]},
 
     store,
     router,
@@ -249,6 +250,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (process.client && typeof nuxt_plugin_nitrobridgeclient_7234adce === 'function') {
     await nuxt_plugin_nitrobridgeclient_7234adce(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_cookieuniversalnuxt_1e2a9ab1 === 'function') {
+    await nuxt_plugin_cookieuniversalnuxt_1e2a9ab1(app.context, inject)
   }
 
   if (typeof nuxt_plugin_axios_c99ba5ee === 'function') {

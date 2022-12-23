@@ -47,7 +47,7 @@
                 formData.append('newsletter', this.newsletter);
                 this.$axios.post('/register', formData)
                 .then(res => {
-                    //console.log(res);
+                    console.log(res);
                     this.$auth.loginWith('laravelSanctum', { data: formData });
                     this.errors = [];
                     this.$router.push({
@@ -56,7 +56,7 @@
                     this.$notify({ title: 'Te has registrado correctamente, Bienvenid@!'})
 
                 }).catch((error) => {
-                    //console.log(error);
+                    console.log(error);
                     this.errors = Object.values(error.response.data.errors).flat();
                 })
 
