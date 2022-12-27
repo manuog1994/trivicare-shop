@@ -11,6 +11,7 @@
 /// <reference types="@nuxt/telemetry" />
 /// <reference path="types/components.d.ts" />
 /// <reference path="types/schema.d.ts" />
+/// <reference types="@pinia/nuxt" />
 /// <reference path="types/nitro.d.ts" />
 /// <reference path="types/imports.d.ts" />
 /// <reference path="imports.d.ts" />

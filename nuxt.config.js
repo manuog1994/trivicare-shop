@@ -101,6 +101,7 @@ export default defineNuxtConfig({
         '@nuxtjs/auth-next',
         ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 24 * 14 }],
         'cookie-universal-nuxt',
+        ['@pinia/nuxt', { disableVuex: false }]
     ],
 
     auth: {

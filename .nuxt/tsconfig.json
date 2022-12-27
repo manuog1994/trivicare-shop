@@ -85,6 +85,9 @@
       "~auth/runtime": [
         "node_modules/@nuxtjs/auth-next/dist/runtime"
       ],
+      "pinia": [
+        "node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia"
+      ],
       "#imports": [
         ".nuxt/imports"
       ]

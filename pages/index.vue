@@ -32,7 +32,7 @@
 <script>
     import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
     import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
-
+    import { useTestStore } from '../stores/TestStore';
 
     export default {
         auth: false,
