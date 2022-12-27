@@ -1,26 +1,30 @@
 <template>
     <client-only>
         <div class="home-cosmetics">
-            <TheHeader />
-            <HeroSliderSix />
-            <Intro />
-            <IntroMobile />
-            <ServicePolicyFour />
-            <ProductWrapperCosmetics />
-            <TheFooter />
-            <VueIfBot>
-                <CookieConsent>
-                    <template slot="message">
-                        <span>
-                            Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
-                            <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
-                        </span>
-                    </template>
-                    <template slot="button">
-                        <button class="btn border-1" title="Aceptar">Aceptar</button>
-                    </template>
-                </CookieConsent>
-            </VueIfBot>
+            <HeaderWithTopbar containerClass="container-fluid" />
+            <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
+            <div id="post-nav" class="" @click="closeMenus">
+                <NavBottom/>
+                <HeroSliderSix />
+                <Intro />
+                <IntroMobile />
+                <ServicePolicyFour />
+                <ProductWrapperCosmetics />
+                <TheFooter />
+                <VueIfBot>
+                    <CookieConsent>
+                        <template slot="message">
+                            <span>
+                                Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
+                                <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
+                            </span>
+                        </template>
+                        <template slot="button">
+                            <button class="btn border-1" title="Aceptar">Aceptar</button>
+                        </template>
+                    </CookieConsent>
+                </VueIfBot>
+            </div>
          </div>
     </client-only>
 </template>
@@ -36,7 +40,9 @@
         pageTransition: 'slide-fade',
 
         components: {
+            HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             TheHeader: () => import("@/components/TheHeader"),
+            NavBottom: () => import("@/components/NavBottom"),
             HeroSliderSix: () => import("@/components/hero/HeroSliderSix"),
             ProductWrapperCosmetics: () => import("@/components/product/ProductWrapperCosmetics"),
             ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
@@ -52,6 +58,8 @@
             return {
                 show: false,
                 test: '',
+                searchChildren: '',
+                closeMenu: false,
             }
         },
 
@@ -65,6 +73,21 @@
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
             this.$auth.fetchUser();
+        },
+
+        methods: {
+            closeMenus() {
+                this.searchOpacity(false);
+                this.$root.$emit('closeMenu', this.closeMenu);
+            },
+
+            searchOpacity(searchFather) {
+                if (searchFather == true) {
+                    document.getElementById("post-nav").classList.add("search-screen");
+                } else {
+                    document.getElementById("post-nav").classList.remove("search-screen");
+                }
+            }
         },
 
         head() {
@@ -86,6 +109,16 @@
 </script>
 
 <style>
+.background-color-banner {
+    background-color: #ffb1b1;
+}
+
+
+.search-screen {
+    opacity: .5 !important;
+}
+
+
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }

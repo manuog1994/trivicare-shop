@@ -2,14 +2,26 @@
   "AboutMission": {
     "description": "Auto imported from components/AboutMission.vue"
   },
+  "Auth": {
+    "description": "Auto imported from components/Auth.vue"
+  },
   "BrandLogoCarousel": {
     "description": "Auto imported from components/BrandLogoCarousel.vue"
   },
   "Breadcrumb": {
     "description": "Auto imported from components/Breadcrumb.vue"
   },
+  "CartContainer": {
+    "description": "Auto imported from components/CartContainer.vue"
+  },
+  "CheckoutContainer": {
+    "description": "Auto imported from components/CheckoutContainer.vue"
+  },
   "ContactInfo": {
     "description": "Auto imported from components/ContactInfo.vue"
+  },
+  "ForgotPasswordContainer": {
+    "description": "Auto imported from components/ForgotPasswordContainer.vue"
   },
   "FunFact": {
     "description": "Auto imported from components/FunFact.vue"
@@ -41,14 +53,32 @@
   "MobileBar": {
     "description": "Auto imported from components/MobileBar.vue"
   },
+  "MyAccountContainer": {
+    "description": "Auto imported from components/MyAccountContainer.vue"
+  },
+  "MyOrdersCom": {
+    "description": "Auto imported from components/MyOrdersCom.vue"
+  },
+  "NavBottom": {
+    "description": "Auto imported from components/NavBottom.vue"
+  },
   "Navigation": {
     "description": "Auto imported from components/Navigation.vue"
   },
   "OffCanvasMobileMenu": {
     "description": "Auto imported from components/OffCanvasMobileMenu.vue"
   },
+  "OrdersCom": {
+    "description": "Auto imported from components/OrdersCom.vue"
+  },
+  "OrdersProfileCom": {
+    "description": "Auto imported from components/OrdersProfileCom.vue"
+  },
   "Paypal": {
     "description": "Auto imported from components/Paypal.vue"
+  },
+  "PrivacyPolicyContainer": {
+    "description": "Auto imported from components/PrivacyPolicyContainer.vue"
   },
   "ProductDetailsDescriptionReview": {
     "description": "Auto imported from components/ProductDetailsDescriptionReview.vue"
@@ -62,8 +92,14 @@
   "ResponsiveMobileMenu": {
     "description": "Auto imported from components/ResponsiveMobileMenu.vue"
   },
+  "Search": {
+    "description": "Auto imported from components/Search.vue"
+  },
   "SectionTitleWithSubTitle": {
     "description": "Auto imported from components/SectionTitleWithSubTitle.vue"
+  },
+  "ShopContainer": {
+    "description": "Auto imported from components/ShopContainer.vue"
   },
   "ShopSidebar": {
     "description": "Auto imported from components/ShopSidebar.vue"
@@ -74,6 +110,9 @@
   "TeamMembers": {
     "description": "Auto imported from components/TeamMembers.vue"
   },
+  "TermsConditionsContainer": {
+    "description": "Auto imported from components/TermsConditionsContainer.vue"
+  },
   "TestimonialOne": {
     "description": "Auto imported from components/TestimonialOne.vue"
   },
@@ -83,8 +122,17 @@
   "TheHeader": {
     "description": "Auto imported from components/TheHeader.vue"
   },
+  "UnsubscribeContainer": {
+    "description": "Auto imported from components/UnsubscribeContainer.vue"
+  },
   "WelcomeMessage": {
     "description": "Auto imported from components/WelcomeMessage.vue"
+  },
+  "WishListContainer": {
+    "description": "Auto imported from components/WishListContainer.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
   },
   "BannerItem": {
     "description": "Auto imported from components/banner/BannerItem.vue"
@@ -95,11 +143,23 @@
   "BannerStyleOne": {
     "description": "Auto imported from components/banner/BannerStyleOne.vue"
   },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
   "HeroSliderSix": {
     "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
+  "ProductDetailsWrapper": {
+    "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
+  },
+  "ProductGridItem": {
+    "description": "Auto imported from components/product/ProductGridItem.vue"
+  },
+  "ProductGridItemTwo": {
+    "description": "Auto imported from components/product/ProductGridItemTwo.vue"
+  },
+  "ProductGridStyleThree": {
+    "description": "Auto imported from components/product/ProductGridStyleThree.vue"
+  },
+  "ProductWrapperCosmetics": {
+    "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
   },
   "CrudAll": {
     "description": "Auto imported from components/crud/All.vue"
@@ -124,20 +184,5 @@
   },
   "CrudOrdersHistory": {
     "description": "Auto imported from components/crud/OrdersHistory.vue"
-  },
-  "ProductDetailsWrapper": {
-    "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
-  },
-  "ProductGridItem": {
-    "description": "Auto imported from components/product/ProductGridItem.vue"
-  },
-  "ProductGridItemTwo": {
-    "description": "Auto imported from components/product/ProductGridItemTwo.vue"
-  },
-  "ProductGridStyleThree": {
-    "description": "Auto imported from components/product/ProductGridStyleThree.vue"
-  },
-  "ProductWrapperCosmetics": {
-    "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
   }
 }

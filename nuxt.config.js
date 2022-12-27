@@ -29,7 +29,7 @@ export default defineNuxtConfig({
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
         script: [
-            { src: 'bootstrap/js/bootstrap.js', type: 'text/javascript' },
+            { src: 'bootstrap/js/bootstrap.min.js'},
             { src: 'https://js.stripe.com/v3' },
             { src: 'https://www.paypal.com/sdk/js?client-id=' + process.env.PAYPAL_CLIENT_ID + '&currency=EUR' },
 
@@ -43,6 +43,7 @@ export default defineNuxtConfig({
         '~/assets/css/animation.css',
         '~/assets/css/my-layout.css',
     ],
+
 
 
     // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -61,8 +62,8 @@ export default defineNuxtConfig({
             mode: 'client'
         },
         { 
-            src: '~/plugins/bootstrap.js', 
-            mode: 'client'
+            src: '~/plugins/bootstrap.js',
+            mode: 'client' 
         },
         {
             src: '~/plugins/vue-js-modal', 
@@ -99,7 +100,7 @@ export default defineNuxtConfig({
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
         ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 24 * 14 }],
-        'cookie-universal-nuxt'
+        'cookie-universal-nuxt',
     ],
 
     auth: {
@@ -138,7 +139,7 @@ export default defineNuxtConfig({
     styleResources: {
         scss: [
             '~/assets/scss/_variables.scss',
-        ]
+        ],
     },
 
     // Build Configuration (https://go.nuxtjs.dev/config-build)

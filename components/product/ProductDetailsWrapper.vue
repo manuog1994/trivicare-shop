@@ -10,17 +10,13 @@
                                 <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
-                                <div v-if="product.images.length == 0" class="large-img swiper-slide">
-                                    <nuxt-img provider="customProvider" src="default.webp" alt="default" width="100%" height="100%"/>
+                                <div v-if="product.images.length == 0" class="swiper-slide text-center">
+                                    <nuxt-img class="principal" provider="customProvider" src="default.webp" alt="default" />
+                                    <p class="fst-italic">Haz doble click sobre la imagen para zoom</p>
                                 </div>
-                                <div v-else class="large-img swiper-slide" v-for="image in product.images" :key="'image-' + image.id">
-                                    <nuxt-img provider="customProvider" :src="image.path" alt="default" width="100%" height="100%"/>
-                                </div>
-                                <div class="quickview-nav swiper-button-prev">
-                                    <i class="pe-7s-angle-left"></i>
-                                </div>
-                                <div class="quickview-nav swiper-button-next">
-                                    <i class="pe-7s-angle-right"></i>
+                                <div v-else class="swiper-slide text-center" v-for="image in product.images" :key="'image-' + image.id">
+                                    <nuxt-img class="principal" provider="customProvider" :src="image.path" alt="default" />
+                                    <p class="fst-italic">Haz doble click sobre la imagen para zoom</p>
                                 </div>
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
@@ -45,9 +41,9 @@
                             <client-only>
                                 <vue-star-rating :star-size="30" :read-only="true" :show-rating="false" :rating="product.rating"></vue-star-rating>
                             </client-only> 
-                            <span><a class="ms-2" href="#des-details3" title="Valoraciones">{{ product.total_reviews }} Reviews</a></span>
+                            <span><a class="ms-2" href="#des-details3" title="Valoraciones">{{ product.total_reviews }} Valoraciones</a></span>
                         </div>
-                        <p>{{ (product.description).substring(0,250)+"..." }}</p>
+                        <p>{{ (product.description).substring(0,200)+"..." }}</p>
                         <!-- <div class="pro-details-size-color" v-if="product.variation">
                             <div class="pro-details-color-wrap">
                                 <h6 class="label">Color</h6>
@@ -68,7 +64,7 @@
                                 </div>
                             </div>
                         </div> -->
-                        <div v-if="product.stock == 0">
+                        <div v-if="product.stock < 0">
                             <p class="text-danger fst-italic">En estos momento no tenemos stock del producto.</p>
                         </div>
                         <div v-else class="pro-details-quality">
@@ -131,13 +127,30 @@
     </div>
 </template>
 
-<style>
+<style lang="scss">
     .tag-block {
         display: inline-flex;
         padding: 1rem, 1rem;
         border-radius: 5px;
         border: 1px solid #a8a8a8;    
     }
+
+    .principal {
+        width: 425px;
+        height: 425px;
+        transition: transform .2s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        @media only screen and (max-width: 400px) {
+            width: 275px;
+            height: 275px;
+        }
+    }
+
+
 </style>
 
 <script>
@@ -157,10 +170,12 @@
                     spaceBetween: 10,
                     effect: 'fade',
                     loopedSlides: 5, // looped slides should be the same
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev'
-                    }
+                    zoom: true,
+                    modules: '',
+                    // navigation: {
+                    //     nextEl: '.swiper-button-next',
+                    //     prevEl: '.swiper-button-prev'
+                    // }
                 },
 
                 swiperOptionThumbs: {

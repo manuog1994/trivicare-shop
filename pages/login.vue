@@ -2,78 +2,50 @@
     <client-only>
         <div class="shop-page-wrapper" v-if="!$auth.user">
             <HeaderWithTopbar containerClass="container-fluid" />
-            <Breadcrumb pageTitle="Autentificación" />
-            
-            <div class="login-register-area pt-100 pb-100">
-                <div class="container">
-                    <div class="login-register-tab-list nav">
-                        <button @click="comA('Login')" :class="{ active: isActive === 'Login' }" title="Iniciar sesión">
-                            Iniciar Sessión
-                        </button>
-                        <button @click="comA('Register')" :class="{ active: isActive === 'Register' }" title="Registrarte">
-                            Regístrate
-                        </button>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-7 col-12 ms-auto me-auto">
-                            <component :is="isActive" />
-                        </div>
-                    </div>
-                </div>
+            <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
+            <div id="post-nav" class="" @click="closeMenus">
+                <NavBottom />
+                <Auth />
+                <TheFooter />
+                <VueIfBot>
+                    <CookieConsent>
+                        <template slot="message">
+                            <span>
+                                Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
+                                <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
+                            </span>
+                        </template>
+                        <template slot="button">
+                            <button class="btn border-1" title="Aceptar">Aceptar</button>
+                        </template>
+                    </CookieConsent>
+                </VueIfBot>
             </div>
-            <TheFooter />
-            <VueIfBot>
-                <CookieConsent>
-                    <template slot="message">
-                        <span>
-                            Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
-                            <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
-                        </span>
-                    </template>
-                    <template slot="button">
-                        <button class="btn border-1" title="Aceptar">Aceptar</button>
-                    </template>
-                </CookieConsent>
-            </VueIfBot>
         </div>
     </client-only>
 </template>
 
 <script>
-    import HeaderWithTopbar from "@/components/HeaderWithTopbar";
-    import Login from "@/components/Login";
-    import Register from "@/components/Register";
-    import Breadcrumb from "@/components/Breadcrumb";
-    import TheFooter from "@/components/TheFooter";
     import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
     import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
-        auth: false,
+        middleware: 'auth',
 
         pageTransition: 'slide-fade',
 
          components: {
-            HeaderWithTopbar,
-            Login,
-            Register,
-            Breadcrumb,
-            TheFooter,
+            HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
+            TheHeader: () => import("@/components/TheHeader"),
+            NavBottom: () => import("@/components/NavBottom"),
+            Auth: () => import("@/components/Auth"),
+            TheFooter: () => import("@/components/TheFooter"),
             CookieConsent,
             VueIfBot
         },
 
-        data() {
-            return {
-                isActive: "Login",
-            };
-        },
+
 
         mounted() {
-            if (this.$auth.loggedIn) {
-                this.$router.push({
-                    path: '/'
-                });
-            }
             this.$nextTick(() => {
                 this.$nuxt.$loading.start()
                 setTimeout(() => {
@@ -90,11 +62,28 @@
             }
         },
 
-        methods: {
-            comA(item) {
-                this.isActive = item;
+        data() {
+            return {
+                searchChildren: '',
             }
         },
+
+        methods: {
+            closeMenus() {
+                this.searchOpacity(false);
+                this.$root.$emit('closeMenu', this.closeMenu);
+            },
+
+            searchOpacity(searchFather) {
+                if (searchFather == true) {
+                    document.getElementById("post-nav").classList.add("search-screen");
+                } else {
+                    document.getElementById("post-nav").classList.remove("search-screen");
+                }
+            }
+        },
+
+
         head() {
             return {
                 title: "Iniciar Sessión / Regístrate"

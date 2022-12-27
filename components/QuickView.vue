@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pro-details-quality">
+                        <div class="pro-details-quality" v-if="product.stock < 0">
                             <div class="cart-plus-minus">
                                 <button @click="decreaseQuantity()" class="dec qtybutton" title="Quitar">-</button>
                                 <input class="cart-plus-minus-box" type="text" :value="singleQuantity" readonly>
@@ -87,6 +87,9 @@
                             <!-- <div class="pro-details-compare">
                                 <button @click="addToCompare(product)"><i class="pe-7s-shuffle"></i></button>
                             </div> -->
+                        </div>
+                        <div class="pro-details-quality" v-else>
+                            <p class="text-danger">No hay stock disponible en este momento.</p>
                         </div>
                         <div class="pro-details-meta">
                             <span class="label">Categoría:</span>

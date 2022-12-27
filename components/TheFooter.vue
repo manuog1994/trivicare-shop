@@ -65,7 +65,7 @@
                             <p>Recibe por email ofertas y nuestras últimas novedades.</p>
                             <div class="subscribe-form">
                                 <form class="mc-form" @submit.prevent="subscribeForm" ref="form">
-                                    <input class="email" type="email" required placeholder="Introduce tu email..." name="email" >
+                                    <input type="email" required placeholder="  Introduce tu email..." name="email" >
                                     <button type="submit" class="button" name="subscribe" title="Suscribirse">Suscribirse</button>
                                 </form>
                             </div>
@@ -81,6 +81,12 @@
     .w-sm {
         margin: auto;
         width: 30rem;
+    }
+
+    @media only screen and (max-width: 575px) {
+        .pt-100 {
+            padding-top: 25px;
+        }
     }
 
 </style>

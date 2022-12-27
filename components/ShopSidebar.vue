@@ -40,7 +40,7 @@
                 <a @click.prevent="tagShow = 4" class="btn p-2" v-if="tagShow > 4">Ver menos</a>
             </div>
         </div>
-        <div class="pro-action d-flex justify-content-center mt-4">
+        <div class="pro-action d-flex justify-content-center mt-4 border-bottom-1">
             <div class="pro-cart btn-hover">
                 <a class="clear_filters" @click.prevent="clearFilters">
                     <i class="fa fa-trash"></i> 
@@ -127,6 +127,7 @@
                 this.tagSlug = '';
                 this.$router.push({ path: '/shop'})
             },
+
         },
 
     };

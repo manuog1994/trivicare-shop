@@ -1,5 +1,6 @@
 <template>
-    <ul class='mobile-menu'>
+<div>    
+    <ul class='mobile-menu border-bottom-1'>
         <client-only>
             <li v-for='(link, i) in menus' :key='i'>
                 <n-link :to="link.url">
@@ -28,6 +29,24 @@
             </li>
         </client-only>
     </ul>
+    <div class="d-md-none mt-2">
+        <a v-if="$auth.loggedIn == false" class="text-center" href="/login">Iniciar sesión</a>
+        <div v-else class="mt-2">
+            <p>Hola, <strong>{{ $auth.user.name }}</strong></p>
+            <ul class="ms-2">
+                <li>
+                    <a href="/my-account">Mi cuenta</a>
+                </li>
+                <li>
+                    <a href="/my-orders">Mis pedidos</a>
+                </li>
+                <li>
+                    <a @click="logout">Cerrar sesión</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 </template>
 
 <script>
@@ -46,22 +65,22 @@
 
                     },
                     {
-                        url: '/shop',
+                        url: '/shop?category=facial',
                         title: 'Facial',
 
                     },
                     {
-                        url: '/shop',
+                        url: '/shop?category=hidratante',
                         title: 'Hidratante',
 
                     },
                     {
-                        url: '/shop',
+                        url: '/shop?category=corporal',
                         title: 'Corporal',
 
                     },
                     {
-                        url: '/shop',
+                        url: '/shop?category=accesorios',
                         title: 'Accesorios',
 
                     },
@@ -110,6 +129,16 @@
                     }
                 })
             })
+        },
+
+        methods: {
+            
+            async logout() {
+                await this.$auth.logout();
+                window.location.reload();
+                this.$notify({ title: 'Has cerrado sesión!'})
+
+            },
         }
     }
 </script>

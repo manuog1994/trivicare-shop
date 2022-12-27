@@ -26,7 +26,7 @@
             </div>
             <!-- Swiper Navigation End -->
         </swiper>
-        <div id="carouselExampleSlidesOnly" class="carousel slide d-md-none" data-bs-ride="carousel">
+        <!-- <div id="carouselExampleSlidesOnly" class="carousel slide d-md-none" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <nuxt-img provider="customProvider" class="d-block" src="slider1-1.webp" width="550px" alt="logo" />
@@ -35,6 +35,9 @@
                     <nuxt-img provider="customProvider" class="d-block" src="slider1-2.webp" width="550px" alt="logo" />
                 </div>
             </div>
+        </div> -->
+        <div class="d-md-none">
+            <img src="/campain/Trivicarenavidad.webp" alt="Banner" width="100%">
         </div>
     </div>
 </template>

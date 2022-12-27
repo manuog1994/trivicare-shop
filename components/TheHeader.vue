@@ -1,23 +1,28 @@
 <template>
-    <div>
+    <div class="d-lg-none menu-mobile">
         <header class="header-area header-padding-1 sticky-bar header-res-padding clearfix" :class="{'is-sticky': isSticky}">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-2 col-md-6 col-4">
-                        <div class="logo">
+                    <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-start align-items-center">
+                        <div class="same-style mobile-menu-toggler d-flex d-lg-none">
+                            <button class="mobile-aside-button fs-2" @click="navOpen = !navOpen" title="Menu">
+                                <i class="pe-7s-menu"></i>
+                            </button>
+                        </div>
+                        <div class="button-search-div">
+                            <button class="search-button" @click="searchOpen">
+                                <i class="pe-7s-search"></i>
+                            </button> 
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-4">
+                        <div class="lgo">
                             <n-link to="/">
                                 <nuxt-img provider="customProvider" src="logo-ajustado2.webp" alt="logo"/>
                             </n-link>
                         </div>
                     </div>
-                    <div class="col-lg-8 d-none d-lg-block">
-                        <div class="main-menu">
-                            <nav>
-                                <Navigation />
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-8">
+                    <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end align-items-center">
                         <div class="header-right-wrap">
                             <!-- <div class="same-style header-search d-none d-lg-block">
                                 <button class="search-active" @click="isOpenSearch = !isOpenSearch"><i class="pe-7s-search"></i></button>
@@ -25,10 +30,11 @@
                                     <input v-model="msg" type="text" placeholder="Buscar..." />
                                 </div> 
                             </div> -->
-                            <div class="same-style account-setting d-none d-lg-block">
+                            <div class="same-style account-setting d-none d-md-block">
                                 <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menu perfil"><i class="pe-7s-user-female"></i></button>
                                 <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
                                     <ul v-if="role == 'admin'">
+                                        <li class="border-bottom-1 mb-1"><p>Hola, <strong>{{ getName() }}</strong></p></li>
                                         <li><n-link to="/crud">PCD</n-link></li>
                                         <li><n-link to="/my-account">Mi Perfil</n-link></li>
                                         <li><n-link to="/my-orders">Mis pedidos</n-link></li>
@@ -36,6 +42,7 @@
                                         <li><a @click="logout">Cerrar sesión</a></li>
                                     </ul>
                                     <ul v-else-if="$auth.user">
+                                        <li class="border-bottom-1 mb-1"><p>Hola, <strong>{{ getName() }}</strong></p></li>
                                         <li><n-link to="/my-account">Mi Perfil</n-link></li>
                                         <li><n-link to="/my-orders">Mis pedidos</n-link></li>
                                         <li><a @click="logout">Cerrar sesión</a></li>
@@ -46,7 +53,7 @@
                                 </div>
                             </div>
                             <!-- <div class="same-style header-compare">
-                                <n-link to="/compare"><i class="pe-7s-shuffle"></i></n-link>
+                                <n-link to="/com"><i class="pe-7s-shuffle"></i></n-link>
                                 <span class="count-style">{{ compareItemCount }}</span>
                             </div> -->
                             <div class="same-style header-wishlist">
@@ -60,20 +67,14 @@
                                 </button>
                                 <MiniCart :miniCart="{ visible:openCart }" @minicartClose="openCart = !openCart" />
                             </div>
-                            <div class="same-style mobile-menu-toggler d-block d-lg-none">
-                                <button class="mobile-aside-button" @click="navOpen = !navOpen" title="Menu">
-                                    <i class="pe-7s-menu"></i>
-                                </button>
-                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="header-top-area header-padding-2 d-none d-md-block background-color-banner">
-                <div class="container">
-                    <div class="header-top-inner">
-                        <div class="header-offer m-auto">
-                            <vue-typer class="custom-two" text="Envío gratis a partir de 50 €" :repeat="0"></vue-typer>
+                    <div id="searchMobile" class="col-12 hidden">
+                        <div class="input-group mt-2">
+                            <input type="text" class="form-control" placeholder="Encuentra tu lado más natural..." aria-label="Buscar..." aria-describedby="basic-addon1" @input="opacity = true">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa fa-search"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -83,18 +84,47 @@
     </div>
 </template>
 
-<style scoped>
-.background-color-banner {
-    background-color: #ffb1b1;
+<style lang="scss" scoped>
+.lgo{
+    display: flex;
+    justify-content: center;
+    a {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
+
+.button-search-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        background-color: transparent;
+        border: none;
+        color: #000;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-left: 10px;
+
+        &:hover {
+            color: $theme-color;
+        }
+    }
+}
+
 </style>
 
 <script>
     export default {
         auth: false,
+        props: ['searchChildren'],
 
         components: {
-            Navigation: () => import("@/components/Navigation"),
             MiniCart: () => import("@/components/MiniCart"),
         },
 
@@ -118,12 +148,13 @@
                 openCart: false,
                 navOpen: false,
                 role: '',
+                opacity: false,
             }
         },
 
         beforeMount() {
-            this.$root.$on('message', data => {
-                this.msg = data;
+            this.$root.$on('opacityOther', data => {
+                this.opacity = data;
             });
         },
 
@@ -139,7 +170,20 @@
             this.getRoles();             
         }, 
 
+        watch: {
+            opacity() {
+                this.$emit('opacity', this.opacity)
+            }
+        },
+
         methods: {
+            searchOpen() {
+                if (document.getElementById('searchMobile').classList.contains('hidden')) {
+                    document.getElementById('searchMobile').classList.remove('hidden');
+                 } else {
+                    document.getElementById('searchMobile').classList.add('hidden');
+                }
+            },
             async logout() {
                 await this.$auth.logout();
                 window.location.reload();
@@ -156,6 +200,16 @@
                     }else {
                         this.role = '';
                     }
+                }
+            },
+
+            getName() {
+                if(this.$auth.user) {
+                    const space = ' ';
+                    const name = this.$auth.user.name;
+                    const arr = name.split(space);
+
+                    return arr[0];
                 }
             }
         }

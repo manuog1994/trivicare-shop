@@ -28,7 +28,7 @@
                 {
                         icon: "support-1.webp",
                         title: "Envío gratis",
-                        subTitle: "Envío gratis en pedidos superiores a 50€"
+                        subTitle: "Envío gratis en pedidos superiores a 50€ (solo península)"
                     },
                     {
                         icon: "support-2.webp",

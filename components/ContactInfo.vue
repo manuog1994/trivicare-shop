@@ -1,5 +1,5 @@
 <template>
-    <div class="contact-area pt-100 pb-100" ref="contact">
+    <div class="contact-area pb-100" ref="contact">
         <div class="container-fluid">
             <div class="custom-row-2">
                 <div class="col-lg-4 col-md-5 col-12">

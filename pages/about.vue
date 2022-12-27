@@ -1,27 +1,30 @@
 <template>
     <div class="about-page-wrapper">
         <HeaderWithTopbar containerClass="container-fluid" />
-        <Breadcrumb pageTitle="about us" />
-        <WelcomeMessage class="pt-100 pb-95" />
-        <BannerStyleOne class="pb-70" />
-        <AboutMission />
-        <FunFact />
-        <TeamMembers />
-        <BrandLogoCarousel />
-        <TheFooter />
-        <VueIfBot>
-            <CookieConsent>
-                <template slot="message">
-                    <span>
-                        Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
-                        <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
-                    </span>
-                </template>
-                <template slot="button">
-                    <button class="btn border-1">Aceptar</button>
-                </template>
-            </CookieConsent>
-        </VueIfBot>
+        <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
+        <div id="post-nav" class="" @click="closeMenus">
+            <NavBottom />
+            <WelcomeMessage class="pt-100 pb-95" />
+            <BannerStyleOne class="pb-70" />
+            <AboutMission />
+            <FunFact />
+            <TeamMembers />
+            <BrandLogoCarousel />
+            <TheFooter />
+            <VueIfBot>
+                <CookieConsent>
+                    <template slot="message">
+                        <span>
+                            Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
+                            <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
+                        </span>
+                    </template>
+                    <template slot="button">
+                        <button class="btn border-1">Aceptar</button>
+                    </template>
+                </CookieConsent>
+            </VueIfBot>
+        </div>
     </div>
 </template>
 
@@ -31,8 +34,9 @@
     export default {
         auth: false,
         components: {
-            HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'), 
-            Breadcrumb: () => import('@/components/Breadcrumb'), 
+            HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
+            TheHeader: () => import('@/components/TheHeader'),
+            NavBottom: () => import('@/components/NavBottom'), 
             WelcomeMessage: () => import('@/components/WelcomeMessage'), 
             BannerStyleOne: () => import('@/components/banner/BannerStyleOne'), 
             AboutMission: () => import('@/components/AboutMission'), 
@@ -43,6 +47,14 @@
             VueIfBot,
             CookieConsent 
         },
+
+        data() {
+            return {
+                searchChildren: '',
+            }
+        },
+
+
         head() {
             return {
                 title: "Sobre Nosotros",
@@ -73,6 +85,21 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
-        }
+        },
+
+        methods: {
+            closeMenus() {
+                this.searchOpacity(false);
+                this.$root.$emit('closeMenu', this.closeMenu);
+            },
+            
+            searchOpacity(searchFather) {
+                if (searchFather == true) {
+                    document.getElementById("post-nav").classList.add("search-screen");
+                } else {
+                    document.getElementById("post-nav").classList.remove("search-screen");
+                }
+            }
+        },
     };
 </script>

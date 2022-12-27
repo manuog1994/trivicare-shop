@@ -8,16 +8,17 @@
             </client-only>
         </div>
         <form ref="registerform" @submit.prevent="register">
-            <input name="email" placeholder="Email" type="email">
-            <input type="password" name="password" placeholder="Contraseña">
-            <input type="password" name="password_confirmation" placeholder="Confirma tu contraseña">
+            <input name="name" placeholder="Nombre" type="text" required>
+            <input name="email" placeholder="Email" type="email" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <input type="password" name="password_confirmation" placeholder="Confirma tu contraseña" required>
             <div class="mb-2">
                 <input type="checkbox" name="newsletter" id="newsletter" v-model="newsletter" value="1">
                 <label for="newsletter">Quiero recibir novedades, ofertas y descuentos.</label>
             </div>
             <div class="mb-2">
                 <input type="checkbox" name="terms" id="terms" v-model="checked" value="true">
-                <label for="terms"><a href="https://trivicare.com/">Acepto los términos y condiciones</a></label>
+                <label for="terms">Acepto los <a href="https://trivicare.com/">términos y condiciones</a></label>
             </div>
             <div class="button-box mt-4">
                 <button class="btn" :class="{'disabled': checked ? false : true}" type="submit" title="Registrarse">Registrar</button>
@@ -28,8 +29,7 @@
 
 <script>
     export default {
-        middleware: 'guest',
-        data() {
+         data() {
             return {
                 errors: [],
                 checked: false,

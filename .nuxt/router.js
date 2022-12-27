@@ -7,7 +7,6 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _b50bada0 = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
 const _6b55decd = () => interopDefault(import('../pages/cart.vue' /* webpackChunkName: "pages/cart" */))
 const _1dc09b73 = () => interopDefault(import('../pages/checkout.vue' /* webpackChunkName: "pages/checkout" */))
-const _170d9fc8 = () => interopDefault(import('../pages/compare.vue' /* webpackChunkName: "pages/compare" */))
 const _32117183 = () => interopDefault(import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */))
 const _1a46402a = () => interopDefault(import('../pages/crud.vue' /* webpackChunkName: "pages/crud" */))
 const _cce7ec30 = () => interopDefault(import('../pages/forgot-password.vue' /* webpackChunkName: "pages/forgot-password" */))
@@ -19,7 +18,6 @@ const _37ee3834 = () => interopDefault(import('../pages/success.vue' /* webpackC
 const _4eeb482a = () => interopDefault(import('../pages/terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
 const _2c9d4b98 = () => interopDefault(import('../pages/unsubscribe.vue' /* webpackChunkName: "pages/unsubscribe" */))
 const _961aa71c = () => interopDefault(import('../pages/wishlist.vue' /* webpackChunkName: "pages/wishlist" */))
-const _65efec1c = () => interopDefault(import('../pages/product/product-affiliate.vue' /* webpackChunkName: "pages/product/product-affiliate" */))
 const _6f13daf4 = () => interopDefault(import('../pages/my-orders/_id.vue' /* webpackChunkName: "pages/my-orders/_id" */))
 const _5151db40 = () => interopDefault(import('../pages/orders-profiles/_id.vue' /* webpackChunkName: "pages/orders-profiles/_id" */))
 const _5dd1ff7d = () => interopDefault(import('../pages/orders/_id.vue' /* webpackChunkName: "pages/orders/_id" */))
@@ -49,10 +47,6 @@ export const routerOptions = {
     path: "/checkout",
     component: _1dc09b73,
     name: "checkout"
-  }, {
-    path: "/compare",
-    component: _170d9fc8,
-    name: "compare"
   }, {
     path: "/contact",
     component: _32117183,
@@ -97,10 +91,6 @@ export const routerOptions = {
     path: "/wishlist",
     component: _961aa71c,
     name: "wishlist"
-  }, {
-    path: "/product/product-affiliate",
-    component: _65efec1c,
-    name: "product-product-affiliate"
   }, {
     path: "/my-orders/:id?",
     component: _6f13daf4,

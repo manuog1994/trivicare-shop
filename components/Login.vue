@@ -12,10 +12,16 @@
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <div class="button-box">
-                <div class="login-toggle-btn">
-                    <input type="checkbox">
-                    <label>Recuérdame</label>
-                    <n-link to="/forgot-password">¿Olvidaste tu contraseña?</n-link>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="login-toggle-btn">
+                            <input type="checkbox">
+                            <label>Recuérdame</label>
+                        </div>
+                    </div>
+                    <div class="col-6" style="text-align:right;">
+                        <n-link class="forgot-password" to="/forgot-password">¿Olvidaste tu contraseña?</n-link>
+                    </div>
                 </div>
                 <button :class="{
                     'disabled': true
@@ -42,8 +48,6 @@
 <script>
 
     export default {
-        middleware: ['guest'],
-        
         
         data() {
             return {
@@ -80,7 +84,7 @@
                             }
                         }).then(res => {
                             console.log(res);
-                            window.location.href = '/';
+                            //window.location.reload();
                             this.errors = [];
                             //this.$notify({ title: 'Bienvenid@ de nuevo!'})
                         }).catch(err => {
@@ -104,7 +108,7 @@
                         data: formData
                     }).then(res => {
                         console.log(res);
-                        window.location.reload();
+                        //window.location.reload();
                         this.errors = [];
                         //this.$notify({ title: 'Bienvenid@ de nuevo!'})
                     });

@@ -1,4 +1,10 @@
 
+.background-color-banner {
+    background-color: #ffb1b1;
+}
+.search-screen {
+    opacity: .5 !important;
+}
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }

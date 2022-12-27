@@ -1,34 +1,31 @@
 <template>
-    <div>
+    <div class="d-none d-lg-block">
         <header class="header-area">
             <div class="header-padding-1 sticky-bar header-res-padding clearfix" :class="{'is-sticky': isSticky}">
                 <div :class="containerClass">
                     <div class="row">
-                        <div class="col-lg-2 col-md-6 col-4">
-                            <div class="logo">
+                        <div class="col-md-2 d-flex align-items-center">
+                            <div class="">
                                 <n-link to="/">
                                     <nuxt-img provider="customProvider" src="logo-ajustado2.webp" alt="logo"/>
                                 </n-link>
                             </div>
                         </div>
-                        <div class="col-lg-8 d-none d-lg-block">
-                            <div class="main-menu">
-                                <nav>
-                                    <Navigation />
-                                </nav>
-                            </div>
+                        <div class="col-md-8 d-flex align-items-center">
+                            <Search />
                         </div>
-                        <div class="col-lg-2 col-md-6 col-8">
+                        <div class="col-md-2 stiky-buttons">
                             <div class="header-right-wrap">
                                 <div class="same-style d-none d-lg-block me-2">
                                     <n-link to="/">
                                         <i class="fa fa-home"></i>
                                     </n-link>
                                 </div>
-                                <div class="same-style account-setting d-none d-lg-block">
+                                <div class="same-style account-setting d-block">
                                     <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menú de perfil"><i class="pe-7s-user-female"></i></button>
                                     <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
                                         <ul v-if="role == 'admin'">
+                                            <li class="border-bottom-1 mb-1"><p>Hola, <strong>{{ getName() }}</strong></p></li>
                                             <li><n-link to="/crud">PCD</n-link></li>
                                             <li><n-link to="/my-account">Mi Perfil</n-link></li>
                                             <li><n-link to="/my-orders">Mis pedidos</n-link></li>
@@ -36,6 +33,7 @@
                                             <li><a @click="logout">Cerrar sesión</a></li>
                                         </ul>
                                         <ul v-else-if="$auth.user">
+                                            <li class="border-bottom-1 mb-1"><p>Hola, <strong>{{ getName() }}</strong></p></li>
                                             <li><n-link to="/my-account">Mi Perfil</n-link></li>
                                             <li><n-link to="/my-orders">Mis pedidos</n-link></li>
                                             <li><a @click="logout">Cerrar sesión</a></li>
@@ -72,17 +70,10 @@
                     </div>
                 </div>
             </div>
-            <div class="header-top-area header-padding-2 d-none d-md-block background-color-banner">
-                <div :class="containerClass">
-                    <div class="header-top-inner">
-                        <div class="header-offer m-auto">
-                            <vue-typer class="custom-two" text="Envío gratis a partir de 50 €" :repeat="0"></vue-typer>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Navigation />
         </header>
         <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" />
+
     </div>
 </template>
 
@@ -101,6 +92,7 @@
 <script>
     export default {
         components: {
+            Search: () => import("@/components/Search"),
             Navigation: () => import("@/components/Navigation"),
             MiniCart: () => import("@/components/MiniCart"),
         },
@@ -189,7 +181,24 @@
                     }
                 }
 
+            },
+            getName() {
+                if(this.$auth.user) {
+                    const space = ' ';
+                    const name = this.$auth.user.name;
+                    const arr = name.split(space);
+
+                    return arr[0];
+                }
             }
-        }
+        },
+
+        beforeMount() {
+            this.$root.$on('closeMenu', data => {
+                this.navOpen = data
+                this.openCart = data
+                this.isOpenAccountSettings = data
+            })
+        },  
     };
 </script>

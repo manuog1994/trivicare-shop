@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <div class="product-content text-center">
+        <div class="product-content text-center mt-4">
             <h3 class="mb-1">
                 <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
             </h3>
@@ -51,7 +51,7 @@
                 <span class="old" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
             </div>
             <div class="product-content__list-view" v-if="layout === 'list'">
-                <p>{{ (product.description).substring(0,250)+"..." }}</p>
+                <!-- <p class="">{{ (product.description).substring(0,100)+"..." }}</p> -->
                 <div class="pro-action d-flex align-items-center" >
                     <div class="pro-cart btn-hover">
                         <button class="btn" title="Añadir al carrito" @click="addToCart(product)" v-if="product.stock > 0">
