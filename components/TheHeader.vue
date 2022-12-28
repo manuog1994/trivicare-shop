@@ -8,8 +8,6 @@
                             <button class="mobile-aside-button fs-2" @click="navOpen = !navOpen" title="Menu">
                                 <i class="pe-7s-menu"></i>
                             </button>
-                        </div>
-                        <div class="">
                             <button class="search-button" @click="searchOpen">
                                 <i class="pe-7s-search fs-4"></i>
                             </button> 
