@@ -1,48 +1,54 @@
 <template>
-    <div class="slider-area nav-style-1 nav-style-3">
-        <swiper :options="swiperOption" class="d-none d-md-block">
-            <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="slider-height-5 d-flex align-items-center bg-img" :style="{ backgroundImage:`url(${slider.backgroundImage})`}" style="width:100%;">
-                <div class="container bg-slider-img">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="slider-content-4 slider-content-6 slider-animation-1 text-center">
-                                <h1 class="text-dark">{{ slider.title }}</h1>
-                                <p class="text-dark">{{ slider.desc }}</p>
-                                <div class="slider-btn btn-hover">
-                                    <n-link to="/shop">COMPRAR AHORA</n-link>
+    <div>
+        <div class="slider-area nav-style-1 nav-style-3">
+            <swiper :options="swiperOption" class="d-none d-md-block">
+                <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="slider-height-5 d-flex align-items-center bg-img" :style="{ backgroundImage:`url(${slider.backgroundImage})`}" style="width:100%;">
+                    <div class="container bg-slider-img">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="slider-content-4 slider-content-6 slider-animation-1 text-center">
+                                    <h1 class="text-dark">{{ slider.title }}</h1>
+                                    <p class="text-dark">{{ slider.desc }}</p>
+                                    <div class="slider-btn btn-hover">
+                                        <n-link to="/shop">COMPRAR AHORA</n-link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </swiper-slide>
+    
+                <!-- Swiper Navigation Start -->
+                <div class="hero-slider-nav swiper-button-prev">
+                    <i class="pe-7s-angle-left"></i>
                 </div>
-            </swiper-slide>
-
-            <!-- Swiper Navigation Start -->
-            <div class="hero-slider-nav swiper-button-prev">
-                <i class="pe-7s-angle-left"></i>
-            </div>
-            <div class="hero-slider-nav swiper-button-next">
-                <i class="pe-7s-angle-right"></i>
-            </div>
-            <!-- Swiper Navigation End -->
-        </swiper>
-        <!-- <div id="carouselExampleSlidesOnly" class="carousel slide d-md-none" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <nuxt-img provider="customProvider" class="d-block" src="slider1-1.webp" width="550px" alt="logo" />
+                <div class="hero-slider-nav swiper-button-next">
+                    <i class="pe-7s-angle-right"></i>
                 </div>
-                <div class="carousel-item">
-                    <nuxt-img provider="customProvider" class="d-block" src="slider1-2.webp" width="550px" alt="logo" />
+                <!-- Swiper Navigation End -->
+            </swiper>
+            <!-- <div id="carouselExampleSlidesOnly" class="carousel slide d-md-none" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <nuxt-img provider="customProvider" class="d-block" src="slider1-1.webp" width="550px" alt="logo" />
+                    </div>
+                    <div class="carousel-item">
+                        <nuxt-img provider="customProvider" class="d-block" src="slider1-2.webp" width="550px" alt="logo" />
+                    </div>
                 </div>
-            </div>
-        </div> -->
+            </div> -->
+        </div>
         <div class="d-md-none">
-            <img src="/campain/Trivicarenavidad.webp" alt="Banner" width="100%">
+            <img class="img-mobile" src="/campain/Trivicarenavidad.webp" alt="Banner">
         </div>
     </div>
 </template>
 
 <style>
+    .img-mobile {
+        width: 100%;
+    }
+    
     .bg-slider-img {
         background-color: #f5f5f5a3;
         padding: 8rem 5rem;

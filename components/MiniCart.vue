@@ -3,28 +3,26 @@
         <div class="minicart-wrapper" :class="miniCart">
             <div class="shopping-cart-content" v-if="products.length > 0">
                 <ul>
-                    <client-only>
-                        <li class="single-shopping-cart" v-for="product in products" :key="product.id">
-                            <div class="shopping-cart-img">
-                                <n-link :to="`/product/${product.slug}`">
-                                    <nuxt-img v-if="product.images > 0" provider="customProvider" :src="image.path" :alt="product.name"/>
-                                    <nuxt-img v-else provider="customProvider" src="default.webp" :alt="product.name"/>
-                                </n-link>
-                            </div>
-                            <div class="shopping-cart-title">
-                                <h4>
-                                    <n-link :to="`/product/${product.slug}`">{{ product.name}}</n-link>
-                                </h4>
-                                <h6>Cant: {{ product.cartQuantity }}</h6>
-                                <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
-                            </div>
-                            <div class="shopping-cart-delete">
-                                <button @click="removeProduct(product)" title="Eliminar producto">
-                                    <i class="fa fa-times-circle"></i>
-                                </button>
-                            </div>
-                        </li>
-                    </client-only>
+                    <li class="single-shopping-cart" v-for="product in products" :key="product.id">
+                        <div class="shopping-cart-img">
+                            <n-link :to="`/product/${product.slug}`">
+                                <nuxt-img v-if="product.images > 0" provider="customProvider" :src="image.path" :alt="product.name"/>
+                                <nuxt-img v-else provider="customProvider" src="default.webp" :alt="product.name"/>
+                            </n-link>
+                        </div>
+                        <div class="shopping-cart-title">
+                            <h4>
+                                <n-link :to="`/product/${product.slug}`">{{ product.name}}</n-link>
+                            </h4>
+                            <h6>Cant: {{ product.cartQuantity }}</h6>
+                            <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                        </div>
+                        <div class="shopping-cart-delete">
+                            <button @click="removeProduct(product)" title="Eliminar producto">
+                                <i class="fa fa-times-circle"></i>
+                            </button>
+                        </div>
+                    </li>
                 </ul>
                 <div class="shopping-cart-total">
                     <h4>Total : <span class="shop-total">{{ (total * 1.21).toFixed(2) }} &euro;</span></h4>
@@ -40,6 +38,14 @@
         </div>
     </client-only>
 </template>
+
+<style lang="scss" scoped>
+
+
+
+
+
+</style>
 
 <script>
     export default {

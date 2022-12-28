@@ -24,12 +24,6 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end align-items-center">
                         <div class="header-right-wrap">
-                            <!-- <div class="same-style header-search d-none d-lg-block">
-                                <button class="search-active" @click="isOpenSearch = !isOpenSearch"><i class="pe-7s-search"></i></button>
-                                <div class="search-content" :class="{ active:isOpenSearch }">
-                                    <input v-model="msg" type="text" placeholder="Buscar..." />
-                                </div> 
-                            </div> -->
                             <div class="same-style account-setting d-none d-md-block">
                                 <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menu perfil"><i class="pe-7s-user-female"></i></button>
                                 <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
@@ -52,10 +46,6 @@
                                     </ul>
                                 </div>
                             </div>
-                            <!-- <div class="same-style header-compare">
-                                <n-link to="/com"><i class="pe-7s-shuffle"></i></n-link>
-                                <span class="count-style">{{ compareItemCount }}</span>
-                            </div> -->
                             <div class="same-style header-wishlist">
                                 <n-link to="/wishlist"><i class="pe-7s-like"></i></n-link>
                                 <span class="count-style">{{ wishlistItemCount }}</span>
@@ -80,7 +70,7 @@
                 </div>
             </div>
         </header>
-        <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" />
+        <!-- <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" /> -->
     </div>
 </template>
 
