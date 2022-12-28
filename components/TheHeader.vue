@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-start align-items-center">
-                        <div class="same-style mobile-menu-toggler d-flex d-lg-none">
+                        <div class="same-style mobile-menu-toggler">
                             <button class="mobile-aside-button fs-2" @click="navOpen = !navOpen" title="Menu">
                                 <i class="pe-7s-menu"></i>
                             </button>
@@ -90,9 +90,7 @@
 }
 
 .button-search-div {
-    display: flex;
-    justify-content: start;
-    align-items: center;
+
     button {
         background-color: transparent;
         border: none;
