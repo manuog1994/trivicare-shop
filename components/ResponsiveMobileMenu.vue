@@ -1,6 +1,6 @@
 <template>
 <div>    
-    <ul class='mobile-menu border-bottom-1'>
+    <ul class='mobile-menu mb-2 border-bottom-1'>
         <client-only>
             <li v-for='(link, i) in menus' :key='i'>
                 <n-link :to="link.url">
@@ -29,7 +29,7 @@
             </li>
         </client-only>
     </ul>
-    <div class="d-md-none mt-2">
+    <div class="d-md-none mt-4">
         <a v-if="$auth.loggedIn == false" class="text-center" href="/login">Iniciar sesión</a>
         <div v-else class="mt-2">
             <p>Hola, <strong>{{ $auth.user.name }}</strong></p>

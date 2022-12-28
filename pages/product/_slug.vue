@@ -3,7 +3,7 @@
         <div class="product-details-page-wrapper">
             <HeaderWithTopbar containerClass="container-fluid"/>
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
-            <div id="post-nav" class="" @click="searchOpacity(false)">
+            <div id="post-nav" class="" @click="closeMenus">
                 <NavBottom />
                 <ProductDetailsWrapper :product="product" v-if="product" />
                 <ProductDetailsDescriptionReview :product="product" :reviews="reviews" v-if="product" />
@@ -41,6 +41,11 @@
         },
 
         methods: {
+            closeMenus() {
+                this.searchOpacity(false);
+                this.$root.$emit('closeMenu', this.closeMenu);
+            },
+
             async getProducts() {
                 await this.$store.dispatch('getProducts', {
                     page: '',

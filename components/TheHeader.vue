@@ -68,7 +68,7 @@
                 </div>
             </div>
         </header>
-        <!-- <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" /> -->
+        <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" />
     </div>
 </template>
 
@@ -143,6 +143,12 @@
         beforeMount() {
             this.$root.$on('opacityOther', data => {
                 this.opacity = data;
+            });
+            this.$root.$on('closeMenu', data => {
+                this.isOpenAccountSettings = data;
+                this.openCart = data;
+                this.navOpen = data;
+                document.getElementById('searchMobile').classList.add('hidden');
             });
         },
 
