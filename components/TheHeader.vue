@@ -9,9 +9,9 @@
                                 <i class="pe-7s-menu"></i>
                             </button>
                         </div>
-                        <div class="button-search-div">
+                        <div class="">
                             <button class="search-button" @click="searchOpen">
-                                <i class="pe-7s-search"></i>
+                                <i class="pe-7s-search fs-4"></i>
                             </button> 
                         </div>
                     </div>
