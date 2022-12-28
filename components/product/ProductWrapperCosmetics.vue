@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="product-area pb-95">
+        <div class="product-area pb-95 d-none d-md-block">
             <div class="container">
                 <ul class="nav product-tab-list-2 pb-55">
                     <li class="nav-item" role="presentation">

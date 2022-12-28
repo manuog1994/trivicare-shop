@@ -1,22 +1,16 @@
 <template>
-    <div class="brand-logo-area pb-100 about-brand-logo">
+    <div class="brand-logo-area pb-100 about-brand-logo d-md-none">
         <div class="container">
-            <div class="brand-logo-active">
+            <div class="">
+                <h2 class="fs-5">Nuestros Productos</h2>
+            </div>
+            <div class="brand-logo-active" style="margin-top:20px;">
                 <swiper :options="brandLogoCarousel">
-                    <div class="single-brand-logo swiper-slide">
-                        <nuxt-img src="/img/brand-logo/barnd-logo-1.png" alt="Brand Logo" />
-                    </div>
-                    <div class="single-brand-logo swiper-slide">
-                        <nuxt-img src="/img/brand-logo/barnd-logo-2.png" alt="Brand Logo" />
-                    </div>
-                    <div class="single-brand-logo swiper-slide">
-                        <nuxt-img src="/img/brand-logo/barnd-logo-3.png" alt="Brand Logo" />
-                    </div>
-                    <div class="single-brand-logo swiper-slide">
-                        <nuxt-img src="/img/brand-logo/barnd-logo-4.png" alt="Brand Logo" />
-                    </div>
-                    <div class="single-brand-logo swiper-slide">
-                        <nuxt-img src="/img/brand-logo/barnd-logo-5.png" alt="Brand Logo" />
+                    <div class="single-brand-logo swiper-slide" v-for="product in products" :key="product.id">
+                        <a :href="url + '/product/' + product.slug" style="cursor:pointer;">
+                            <nuxt-img provider="customProvider" src="default.webp" alt="default" />
+                            <p>{{ product.name }}</p>
+                        </a>
                     </div>
                 </swiper>
             </div>
@@ -49,9 +43,33 @@
                         992: {
                             slidesPerView: 5
                         }
-                    }
-                }
+                    },
+
+                },
+                products: [],
+                url: process.env.url,
             }
         },
+
+        mounted() {
+            this.getProducts()
+        },
+
+        methods: {
+            async getProducts() {
+                await this.$store.dispatch('getProducts', {
+                    perPage: '',
+                    page: '',
+                    category: '',
+                    search: '',
+                    slug: '',
+                    sort: '',
+                    tag: '',
+                    status: 2,
+                })
+                const products = this.$store.getters.getProducts
+                this.products = products.data
+            },
+        }
     };
 </script>

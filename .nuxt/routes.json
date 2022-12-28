@@ -63,6 +63,20 @@
     "_name": "_32bd45f8"
   },
   {
+    "name": "questions",
+    "path": "/questions",
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/questions.vue",
+    "chunkName": "pages/questions",
+    "_name": "_5d78ad20"
+  },
+  {
+    "name": "send-policy",
+    "path": "/send-policy",
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/send-policy.vue",
+    "chunkName": "pages/send-policy",
+    "_name": "_1f4a590c"
+  },
+  {
     "name": "shop",
     "path": "/shop",
     "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/shop.vue",

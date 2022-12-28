@@ -16,11 +16,6 @@
                         </div>
                         <div class="col-md-2 stiky-buttons">
                             <div class="header-right-wrap">
-                                <div class="same-style d-none d-lg-block me-2">
-                                    <n-link to="/">
-                                        <i class="fa fa-home"></i>
-                                    </n-link>
-                                </div>
                                 <div class="same-style account-setting d-block">
                                     <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menú de perfil"><i class="pe-7s-user-female"></i></button>
                                     <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">

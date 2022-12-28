@@ -7,9 +7,9 @@
                 <NavBottom/>
                 <HeroSliderSix />
                 <Intro />
-                <IntroMobile />
                 <ServicePolicyFour />
                 <ProductWrapperCosmetics />
+                <BrandLogoCarousel />
                 <TheFooter />
                 <VueIfBot>
                     <CookieConsent>
@@ -45,10 +45,10 @@
             NavBottom: () => import("@/components/NavBottom"),
             HeroSliderSix: () => import("@/components/hero/HeroSliderSix"),
             ProductWrapperCosmetics: () => import("@/components/product/ProductWrapperCosmetics"),
+            BrandLogoCarousel: () => import("@/components/BrandLogoCarousel"),
             ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
             TheFooter: () => import("@/components/TheFooter"),
             Intro: () => import("@/components/Intro"),
-            IntroMobile: () => import("@/components/IntroMobile"),
             CookieConsent,
             VueIfBot,
 
