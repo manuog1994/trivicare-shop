@@ -97,7 +97,7 @@
         color: #000;
         font-size: 1.5rem;
         cursor: pointer;
-        margin-left: 10px;
+        //margin-left: 10px;
 
         &:hover {
             color: $theme-color;
