@@ -13324,7 +13324,7 @@ a.default-btn {
   }
 }
 .header-right-wrap .same-style {
-  margin-left: 15px;
+  margin-left: 10px;
   position: relative;
 }
 .header-right-wrap .same-style > a,
@@ -22437,12 +22437,18 @@ form[data-v-19098524] {
   width: 100%;
   height: 100%;
 }
+.button-search-div[data-v-72292c93] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .button-search-div button[data-v-72292c93] {
   background-color: transparent;
   border: none;
   color: #000;
   font-size: 1.5rem;
   cursor: pointer;
+  margin-left: 10px;
 }
 .button-search-div button[data-v-72292c93]:hover {
   color: #2AB5B2;

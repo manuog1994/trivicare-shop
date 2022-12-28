@@ -4,13 +4,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-start align-items-center">
-                        <div class="same-style mobile-menu-toggler">
+                        <div class="same-style mobile-menu-toggler d-flex d-lg-none">
                             <button class="mobile-aside-button fs-2" @click="navOpen = !navOpen" title="Menu">
                                 <i class="pe-7s-menu"></i>
                             </button>
-                            <button class="search-button" @click="searchOpen">
-                                <i class="pe-7s-search fs-4"></i>
-                            </button> 
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4 col-4">
@@ -22,6 +19,9 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end align-items-center">
                         <div class="header-right-wrap">
+                            <div class="same-style header-search">
+                                <button class="search-active" @click="searchOpen"><i class="pe-7s-search"></i></button>
+                            </div>
                             <div class="same-style account-setting d-none d-md-block">
                                 <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menu perfil"><i class="pe-7s-user-female"></i></button>
                                 <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
@@ -88,14 +88,16 @@
 }
 
 .button-search-div {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     button {
         background-color: transparent;
         border: none;
         color: #000;
         font-size: 1.5rem;
         cursor: pointer;
-        //margin-left: 10px;
+        margin-left: 10px;
 
         &:hover {
             color: $theme-color;
