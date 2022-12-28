@@ -22439,7 +22439,7 @@ form[data-v-19098524] {
 }
 .button-search-div[data-v-72292c93] {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 .button-search-div button[data-v-72292c93] {

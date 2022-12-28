@@ -91,7 +91,7 @@
 
 .button-search-div {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     button {
         background-color: transparent;
