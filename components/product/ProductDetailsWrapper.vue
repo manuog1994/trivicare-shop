@@ -138,11 +138,6 @@
     .principal {
         width: 425px;
         height: 425px;
-        transition: transform .2s;
-
-        &:hover {
-            transform: scale(1.1);
-        }
 
         @media only screen and (max-width: 400px) {
             width: 275px;

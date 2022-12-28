@@ -1,6 +1,6 @@
 <template>
     <client-only>
-        <div class="row">
+        <div class="d-flex justify-content-around">
             <div class="d-flex col-7">
                 <nav>
                     <ul class="d-flex justify-content-around">

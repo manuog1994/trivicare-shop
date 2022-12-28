@@ -14271,21 +14271,21 @@ a.default-btn {
   position: relative;
 }
 .slider-height-1 {
-  height: 750px;
+  height: auto;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1365px) {
   .slider-height-1 {
-    height: 650px;
+    height: auto;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .slider-height-1 {
-    height: 520px;
+    height: auto;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .slider-height-1 {
-    height: 450px;
+    height: auto;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -14301,7 +14301,7 @@ a.default-btn {
 }
 @media only screen and (max-width: 767px) {
   .slider-height-1.slider-height-res {
-    height: 400px;
+    height: auto;
     position: relative;
   }
   .slider-height-1.slider-height-res:before {
@@ -14965,16 +14965,16 @@ a.default-btn {
 }
 /* slider 6 hm6 */
 .slider-height-5 {
-  height: 850px;
+  height: auto;
 }
 @media only screen and (min-width: 1366px) and (max-width: 1600px), only screen and (min-width: 1200px) and (max-width: 1365px) {
   .slider-height-5 {
-    height: 600px;
+    height: auto;
   }
 }
 @media only screen and (max-width: 767px) {
   .slider-height-5 {
-    height: 500px;
+    height: auto;
   }
 }
 .slider-content-6 h1, .slider-content-6 .h1 {
@@ -22488,10 +22488,6 @@ form[data-v-19098524] {
 .principal {
   width: 425px;
   height: 425px;
-  transition: transform 0.2s;
-}
-.principal:hover {
-  transform: scale(1.1);
 }
 @media only screen and (max-width: 400px) {
 .principal {

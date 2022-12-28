@@ -4,15 +4,15 @@
 }
 
 .slider-height-1 {
-    height: 750px;
+    height: auto;
     @media #{$xl-layout}{
-        height: 650px;
+        height: auto;
     }
     @media #{$lg-layout}{
-        height: 520px;
+        height: auto;
     }
     @media #{$md-layout}{
-        height: 450px;
+        height: auto;
     }
     @media #{$xs-layout}{
         height: auto;
@@ -23,7 +23,7 @@
     }
     &.slider-height-res{
         @media #{$xs-layout}{
-            height: 400px;
+            height: auto;
             position: relative;
             &:before {
                 position: absolute;
@@ -630,12 +630,12 @@
 
 /* slider 6 hm6 */
 .slider-height-5 {
-	height: 850px;
+	height: auto;
     @media #{$xx-layout, $xl-layout}{
-        height: 600px;
+        height: auto;
     }
     @media #{$xs-layout}{
-        height: 500px;
+        height: auto;
     }
 }
 
