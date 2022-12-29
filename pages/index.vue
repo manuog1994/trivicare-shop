@@ -10,6 +10,7 @@
                 <ServicePolicyFour />
                 <ProductWrapperCosmetics />
                 <BrandLogoCarousel />
+                <Info />
                 <TheFooter />
                 <VueIfBot>
                     <CookieConsent>
@@ -46,6 +47,7 @@
             HeroSliderSix: () => import("@/components/hero/HeroSliderSix"),
             ProductWrapperCosmetics: () => import("@/components/product/ProductWrapperCosmetics"),
             BrandLogoCarousel: () => import("@/components/BrandLogoCarousel"),
+            Info: () => import("@/components/Info"),
             ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
             TheFooter: () => import("@/components/TheFooter"),
             Intro: () => import("@/components/Intro"),

@@ -79,7 +79,7 @@
         <footer class="d-md-none bg-gray">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6 border-top">
+                    <div class="col-lg-4 border-top">
                         <div class="footer-widget mb-3 text-center">
                             <div class="footer-title mt-3">
                                 <h3>¿Quieres recibir ofertas, descuentos y la últimas novedades?</h3>
@@ -95,7 +95,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-4">
+                    <div class="col-lg-2">
                         <div class="text-center footer-widget mb-3 border-top">
                             <div class="footer-title mt-3">
                                 <h3>Pago Seguro</h3>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-4">
+                    <div class="col-lg-2">
                         <div class="text-center footer-widget mb-3 border-top">
                             <div class="footer-title mt-3">
                                 <h3>¿Tienes dudas sobre tu pedido? ¡Llámanos!</h3>
@@ -127,7 +127,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-4">
+                    <div class="col-lg-2">
                         <div class="footer-widget mb-3 text-center border-top">
                             <div class="footer-title mt-3">
                                 <h3>¿Quienes somos?</h3>
@@ -142,7 +142,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-4">
+                    <div class="col-lg-2">
                         <div class="footer-widget mb-3 text-center border-top">
                             <div class="footer-title mt-3">
                                 <h3>Nuestras políticas</h3>
@@ -157,7 +157,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-6">
+                    <div class="col-lg-2">
                         <div class="footer-widget mb-3 text-center border-top">
                             <div class="footer-title mt-3">
                                 <h3>Síguenos en nuestras redes</h3>
@@ -169,12 +169,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 bg-dark">
-                        <div class="footer-widget mb-3 text-center">
-                            <div class="footer-title mt-3">
-                                <p class="text-light">© 2022 TriviCare Natural Cosmetics. Todos los derechos reservados.</p>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div class="container-fluid bg-dark mt-3">
+                <div class="footer-widget text-center p-3">
+                    <div class="footer-title">
+                        <p class="text-light">© 2022 TriviCare Natural Cosmetics. Todos los derechos reservados.</p>
                     </div>
                 </div>
             </div>

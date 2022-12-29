@@ -29,6 +29,9 @@
   "HeaderWithTopbar": {
     "description": "Auto imported from components/HeaderWithTopbar.vue"
   },
+  "Info": {
+    "description": "Auto imported from components/Info.vue"
+  },
   "InstagramPostWrapper": {
     "description": "Auto imported from components/InstagramPostWrapper.vue"
   },
@@ -140,6 +143,12 @@
   "BannerStyleOne": {
     "description": "Auto imported from components/banner/BannerStyleOne.vue"
   },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
   },
@@ -154,12 +163,6 @@
   },
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
   "CrudAll": {
     "description": "Auto imported from components/crud/All.vue"

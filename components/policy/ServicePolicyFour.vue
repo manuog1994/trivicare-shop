@@ -19,16 +19,24 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-between mt-4 mb-4 d-md-none">
+        <div class="d-flex justify-content-between mt-4 mb-4 d-md-none p-4 p-sm-4">
             <div v-for="policy in policies" :key="policy.title" class="text-center">
-                <div style="width:80px;margin:20px;">
+                <div class="policy-icons">
                     <nuxt-img class="animated" provider="customProvider" :src="policy.icon" :alt="policy.title" width="30px"/>
-                    <p>{{ policy.title }}</p>
+                    <p class="display-min">{{ policy.title }}</p>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<style>
+.policy-icons{
+    width: 80px;
+    height: auto;
+    margin: auto;
+}
+</style>
 
 <script>
     export default {
