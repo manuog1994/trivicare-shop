@@ -12,7 +12,7 @@
                     </thead>
                     <tbody v-if="orders.length != 0">
                         <tr v-for="order in orders" :key="order.id">
-                            <td><a :href="'/orders/' + order.id">{{ order.invoice.invoice_number }}</a></td>
+                            <td><a :href="'/orders/' + order.id">{{ getInvoiceNumber(order) }}</a></td>
                             <td>{{ getState(order) }}</td>
                             <td>{{ order.order_date }}</td>
                         </tr>
@@ -135,6 +135,17 @@ export default {
             }).map((profile) => {
                 this.user = profile
                 return profile.name + ' ' + profile.lastname
+            }).toString();
+        },
+
+        getInvoiceNumber(order) {
+            let orders = this.orders;
+            return orders.filter((or) => {
+                if (or.id == order.id) {
+                    return or
+                }
+            }).map((or) => {
+                return or.invoice.invoice_number
             }).toString();
         },
         
