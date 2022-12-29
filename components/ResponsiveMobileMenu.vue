@@ -32,7 +32,7 @@
     <div class="d-md-none mt-4">
         <a v-if="$auth.loggedIn == false" class="text-center" href="/login">Iniciar sesión</a>
         <div v-else class="mt-2">
-            <p>Hola, <strong>{{ $auth.user.name }}</strong></p>
+            <p>Hola, <strong>{{ getName() }}</strong></p>
             <ul class="ms-2">
                 <li v-if="role == 'admin'">
                     <a href="/crud">PDC</a>
@@ -158,6 +158,16 @@
                     }
                 }
             },
+
+            getName() {
+                if(this.$auth.user) {
+                    const space = ' ';
+                    const name = this.$auth.user.name;
+                    const arr = name.split(space);
+
+                    return arr[0];
+                }
+            }
         }
     }
 </script>

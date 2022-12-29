@@ -1,7 +1,7 @@
 <template>
     <client-only>
         <div>
-              <div v-if="$auth.user.email_verified_at != null" class="my-account-area pb-80 pt-100">
+              <div class="my-account-area pb-80 pt-100">
                 <div class="w-50 m-auto" v-if="errors">
                     <client-only>
                         <div class="alert alert-danger" role="alert" v-for="error in errors" :key="error.id">
@@ -224,12 +224,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div v-if="$auth.user.email_verified_at == null" class="my-account-area pb-80 pt-100 text-center">
-                <h1 class="mb-5">Su cuenta no está verificada</h1>
-                <p>Por favor, para realizar está y otras acciones debe ir a su cuenta de email y buscar el correo electrónico "Trivicare.com | Verificación de correo electrónico".</p>
-                <p>Si no lo encuentra, revise su carpeta de spam o <a @click.prevent="resendEmail">pulse aquí</a> para generar un nuevo correo.</p>
             </div>
     
             <div v-if="$auth.user.email_verified_at != null" class="text-center mb-5">

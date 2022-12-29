@@ -1,6 +1,6 @@
 <template>
     <client-only>
-        <div class="shop-page-wrapper" v-if="!$auth.user">
+        <div class="shop-page-wrapper">
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
@@ -86,7 +86,7 @@
 
         head() {
             return {
-                title: "Iniciar Sessión / Regístrate"
+                title: "Iniciar sesión / Regístrate"
             }
         }
     };

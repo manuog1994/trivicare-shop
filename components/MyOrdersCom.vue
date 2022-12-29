@@ -10,7 +10,7 @@
                         <th scope="col">Fecha</th>
                         </tr>
                     </thead>
-                    <tbody v-if="orders.length > 0">
+                    <tbody v-if="orders.length != 0">
                         <tr v-for="order in orders" :key="order.id">
                             <td><a :href="'/orders/' + order.id">{{ order.invoice.invoice_number }}</a></td>
                             <td>{{ getState(order) }}</td>

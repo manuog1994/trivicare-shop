@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="$auth.user.email_verified_at != null" class="checkout-area pt-95 pb-100">
+        <div class="checkout-area pt-95 pb-100">
             <div class="container-fluid">
                     <div class="row" v-if="products.length > 0">
                     <div v-if="$auth.user.user_profile.length > 0" class="col-lg-7">
@@ -138,7 +138,7 @@
                                                 <img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100px" height="auto"/>
                                             </div>
                                         </div>
-                                        <div class="row mt-4 d-flex align-items-center">
+                                        <!-- <div class="row mt-4 d-flex align-items-center">
                                             <div class="col-6">
                                                 <div class="form-check d-flex align-items-center">
                                                     <input class="form-check-input mb-1" type="radio" name="payment" id="contrareembolso_payment" v-model="payment" value="contrareembolso">
@@ -150,7 +150,7 @@
                                             <div class="col-6 d-flex justify-content-center">
                                                 <img class="ms-2" src="/payment/reembolso.webp" alt="reembolso.webp" width="50px" />
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -377,12 +377,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- If user no verified -->
-        <div v-if="$auth.user.email_verified_at == null" class="my-account-area pb-80 pt-100 text-center">
-            <h1 class="mb-5">Su cuenta no está verificada</h1>
-            <p>Por favor, para realizar está y otras acciones debe ir a su cuenta de email y buscar el correo electrónico "Trivicare.com | Verificación de correo electrónico".</p>
-            <p>Si no lo encuentra, revise su carpeta de spam o <a @click.prevent="resendEmail">pulse aquí</a> para generar un nuevo correo.</p>
         </div>
     </div>
 </template>
