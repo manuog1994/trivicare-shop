@@ -57,13 +57,8 @@
                             </div>
                         </div>
                     </div>
-                    <div id="searchMobile" class="col-12 hidden">
-                        <div class="input-group mt-2">
-                            <input type="text" class="form-control" placeholder="Encuentra tu lado más natural..." aria-label="Buscar..." aria-describedby="basic-addon1" @input="opacity = true">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
+                    <div id="searchMobile" class="col-12 hidden mt-3">
+                        <Search />
                     </div>
                 </div>
             </div>
@@ -114,6 +109,7 @@
 
         components: {
             MiniCart: () => import("@/components/MiniCart"),
+            Search: () => import("@/components/Search"),
         },
 
         computed: {

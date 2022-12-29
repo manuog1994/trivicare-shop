@@ -79,7 +79,7 @@
         <footer class="d-md-none bg-gray">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 border-top">
+                    <div class="col-lg-4">
                         <div class="footer-widget mb-3 text-center">
                             <div class="footer-title mt-3">
                                 <h3>¿Quieres recibir ofertas, descuentos y la últimas novedades?</h3>
@@ -117,6 +117,11 @@
                                 <a href="tel:+34613036942" title="Teléfono">
                                     <i class="pe-7s-phone"></i>
                                     613 036 942
+                                </a>
+                            </p>
+                            <p>
+                                <a href="https://api.whatsapp.com/send/?phone=34613036942&text=Hola%2C+quisiera%20informaci%C3%B3n..." title="Whatsapp">
+                                    <img src="/social/whatsapp.png" alt="whatsapp.png" width="90px" height="auto"/>
                                 </a>
                             </p>
                             <p> 
