@@ -143,11 +143,11 @@
   "BannerStyleOne": {
     "description": "Auto imported from components/banner/BannerStyleOne.vue"
   },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
   "HeroSliderSix": {
     "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"

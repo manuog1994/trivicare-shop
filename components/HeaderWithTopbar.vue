@@ -7,7 +7,7 @@
                         <div class="col-md-2 d-flex align-items-center">
                             <div class="">
                                 <n-link to="/">
-                                    <nuxt-img provider="customProvider" src="logo-ajustado2.webp" alt="logo"/>
+                                    <nuxt-img provider="customProvider" src="nuxt/logo-ajustado2.webp" alt="logo"/>
                                 </n-link>
                             </div>
                         </div>

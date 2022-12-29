@@ -1,7 +1,7 @@
 import { joinURL } from 'ufo'
 // import {} from '~image'
 
-const serverUrl = 'https://api.trivicare.com/nuxt/'
+const serverUrl = process.env.baseUrl + '/' || 'http://localhost:8000/'  
 
 export function getImage(src, { modifiers = {}, baseURL = serverUrl }, { options, nuxtContext, $img }) {
   const { width, height, format, fit, ...providerModifiers } = modifiers

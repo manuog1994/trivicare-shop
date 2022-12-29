@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 d-none d-md-block">
-                    <ShopSidebar classes="mr-30" @search="searchFilter"/>
+                    <ShopSidebar classes="mr-30"/>
                 </div>
             </div>
         </div>
@@ -177,7 +177,7 @@ export default {
                 perPage: this.perPage,
                 page: this.page,
                 category: this.category,
-                search: this.searchResult,
+                search: '',
                 slug: '',
                 sort: this.sortFilter,
                 tag: this.tag,
@@ -212,12 +212,6 @@ export default {
         discountedPrice(product) {
             return product.price_base - (product.price_base * product.discount / 100)
         },
-
-        searchFilter(value) {
-            this.searchResult = value;
-            this.getProducts();
-        },
-
 
     },
 

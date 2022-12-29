@@ -1,12 +1,5 @@
 <template>
     <div class="sidebar-style" :class="classes">
-        <div class="sidebar-widget">
-            <h4 class="pro-sidebar-title">Buscar</h4>
-            <div class="pro-sidebar-search mb-50 mt-25">
-                <input v-model="search" type="text" placeholder="Buscar...">
-            </div>
-        </div>
-
         <!-- category widget  -->
         <div class="sidebar-widget">
             <h4 class="pro-sidebar-title">Categorías</h4>
@@ -40,7 +33,7 @@
                 <a @click.prevent="tagShow = 4" class="btn p-2" v-if="tagShow > 4">Ver menos</a>
             </div>
         </div>
-        <div class="pro-action d-flex justify-content-center mt-4 border-bottom-1">
+        <div class="pro-action d-flex justify-content-center mt-4">
             <div class="pro-cart btn-hover">
                 <a class="clear_filters" @click.prevent="clearFilters">
                     <i class="fa fa-trash"></i> 
@@ -67,7 +60,6 @@
             return {
                 hidden: false,
                 categoryFilter: '',
-                search: '',
                 categorySlug: '',
                 tagSlug: [],
                 tags: [],
@@ -87,10 +79,6 @@
 
         
         watch: {
-            search() {
-                this.$emit("search", this.search)
-            },
-
             categorySlug() {
                 //this.tagSlug = '';
                 this.$router.push({ path: '/shop', query: { category: this.categorySlug, tag: this.tagSlug } })

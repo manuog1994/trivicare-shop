@@ -181,7 +181,7 @@ export default defineNuxtConfig({
                 options: {
                 // ... provider options
                 }
-            }
+            },
         }
     },
 

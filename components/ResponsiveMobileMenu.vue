@@ -34,6 +34,9 @@
         <div v-else class="mt-2">
             <p>Hola, <strong>{{ $auth.user.name }}</strong></p>
             <ul class="ms-2">
+                <li v-if="role == 'admin'">
+                    <a href="/crud">PDC</a>
+                </li>
                 <li>
                     <a href="/my-account">Mi cuenta</a>
                 </li>
@@ -89,7 +92,8 @@
                         url: '/contact',
                         title: 'Contacto',
                     }
-                ]
+                ],
+                role: '',
             }
         },
         mounted() {
@@ -107,6 +111,8 @@
                 }
                 return siblings;
             };
+
+            this.getRoles();
 
             const subMenuToggle = document.querySelectorAll('.submenu-toggle');
             subMenuToggle.forEach(function(btn) {
@@ -138,6 +144,19 @@
                 window.location.reload();
                 this.$notify({ title: 'Has cerrado sesión!'})
 
+            },
+
+            getRoles() {
+                if(this.$auth.user) {
+                    const roles = this.$auth.user.roles;
+                    if(roles != null) {
+                        roles.map(role => {
+                            this.role = role.name;
+                        });
+                    }else {
+                        this.role = '';
+                    }
+                }
             },
         }
     }

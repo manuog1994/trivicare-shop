@@ -13,7 +13,7 @@
                     <div class="col-md-4 col-sm-4 col-4">
                         <div class="lgo">
                             <n-link to="/">
-                                <nuxt-img provider="customProvider" src="logo-ajustado2.webp" alt="logo"/>
+                                <nuxt-img provider="customProvider" src="nuxt/logo-ajustado2.webp" alt="logo"/>
                             </n-link>
                         </div>
                     </div>
