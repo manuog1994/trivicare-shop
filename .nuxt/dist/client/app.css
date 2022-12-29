@@ -22546,15 +22546,6 @@ form[data-v-19098524] {
   background-color: #2AB5B2;
 }
 
-.img-mobile {
-    width: 100%;
-}
-.bg-slider-img {
-    background-color: #f5f5f5a3;
-    padding: 8rem 5rem;
-}
-
-
 .policy-icons{
     width: 80px;
     height: auto;
@@ -22582,6 +22573,15 @@ form[data-v-19098524] {
     display: flex;
     justify-content: center;
     margin-bottom: 0.5rem;
+}
+
+
+.img-mobile {
+    width: 100%;
+}
+.bg-slider-img {
+    background-color: #f5f5f5a3;
+    padding: 8rem 5rem;
 }
 
 

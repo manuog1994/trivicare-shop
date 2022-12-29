@@ -1,25 +1,25 @@
 <template>
     <div class="container pt-100 pb-100">
         <!-- Numero de pedido -->
-        <div class="mb-4">
-            <h2>Detalle del pedido {{ order.id }}</h2>
+        <div class="mb-5">
+            <h2>Detalle del pedido</h2>
         </div>
         <!-- Datos del pedido -->
         <div>
-            <div class="d-flex justify-content-between mb-5">
-                <div class="mr-5">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
                     <h4>Datos del pedido</h4>
                     <p>Fecha: {{ order.order_date }}</p>
                     <p>Estado: {{ getState(order) }}</p>
                     <p>Estado de pago: {{ getPaymentState(order) }}</p>
                 </div>
-                <div class="mr-5">
+                <div class="col-lg-4 mb-4">
                     <h4>Datos del cliente</h4>
                     <p>Nombre: {{ getName(order) }}</p>
                     <p>Correo: {{ user.user }}</p>
                     <p>Teléfono: {{ user.phone }}</p>
                 </div>
-                <div class="mr-5">
+                <div class="col-lg-4 mb-4">
                     <h4>Datos de envío</h4>
                     <p>Dirección: {{ user.address }}</p>
                     <p>Ciudad: {{ user.city }}</p>
@@ -51,9 +51,6 @@
                             </span>
                             <span v-else>
                                 {{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;
-                            </span>
-                            <span class="old ms-2" v-if="product.discount != null">
-                                {{ (product.price_base * 1.21).toFixed(2) }} &euro;
                             </span>
                         </td>
                         <td>{{ (product.total * 1.21).toFixed(2) }} &euro;</td>
@@ -93,6 +90,10 @@
             </div>
         </div>
 
+        <!-- Boton descargar factura -->
+        <div class="d-flex justify-content-end mt-5">
+            <button class="btn btn-primary" @click.prevent="getUrl(order)">Descargar factura</button>
+        </div>
     </div>
 </template>
 
@@ -115,13 +116,19 @@ export default {
 
     methods: {
         async getOrder() {
-            await this.$axios.get('/api/orders/' + this.id)
+            await this.$axios.get('/api/orders?filter[id]=' + this.id)
                 .then(response => {
-                    this.order = response.data.data
-                    this.products = JSON.parse(this.order.products);
+                    const orders = response.data.data;
+                    orders.map(order => {
+                        if (order.id == this.id) {
+                            this.order = order;
+                            this.products = JSON.parse(this.order.products);
+                        }
+                    })
+                    //console.log(orders)
                 })
                 .catch(error => {
-                    console.log(error)
+                    //console.log(error)
                 })
         },
 
@@ -135,7 +142,7 @@ export default {
                     this.users = response.data.data;
                 })
                 .catch(error => {
-                    console.log(error);
+                    //console.log(error);
                 });
         },
 
@@ -193,6 +200,17 @@ export default {
             } else if (order.paid == 'TRANSFERENCIA') {
                 return 'Transferencia';
             }
+        },
+
+
+        async getUrl(order){
+            //console.log(order);
+            let FileDownload = require('js-file-download');
+            await this.$axios.get('/api/invoices/' + order.invoice.id, {
+                responseType: 'blob'
+            }).then(response => {
+                FileDownload(response.data, order.invoice.filename);
+            });
         },
 
     },

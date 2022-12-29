@@ -7,7 +7,7 @@
                         <div class="shopping-cart-img">
                             <n-link :to="`/product/${product.slug}`">
                                 <nuxt-img v-if="product.images > 0" provider="customProvider" :src="image.path" :alt="product.name"/>
-                                <nuxt-img v-else provider="customProvider" src="default.webp" :alt="product.name"/>
+                                <nuxt-img v-else provider="customProvider" src="nuxt/default.webp" :alt="product.name"/>
                             </n-link>
                         </div>
                         <div class="shopping-cart-title">

@@ -4,7 +4,7 @@
             <div class="d-flex justify-content-between">
                 <div>
                     <nuxt-link to="/">
-                        <nuxt-img provider="customProvider" src="logo-ajustado2.webp" width="15%" height="100%" alt="logo" />
+                        <nuxt-img provider="customProvider" src="nuxt/logo-ajustado2.webp" width="15%" height="100%" alt="logo" />
                     </nuxt-link>
                 </div>
 

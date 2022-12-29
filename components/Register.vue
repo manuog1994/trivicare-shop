@@ -12,13 +12,15 @@
             <input name="email" placeholder="Email" type="email" required>
             <input type="password" name="password" placeholder="Contraseña" required>
             <input type="password" name="password_confirmation" placeholder="Confirma tu contraseña" required>
-            <div class="mb-2">
-                <input type="checkbox" name="newsletter" id="newsletter" v-model="newsletter" value="1">
-                <label for="newsletter">Quiero recibir novedades, ofertas y descuentos.</label>
-            </div>
-            <div class="mb-2">
-                <input type="checkbox" name="terms" id="terms" v-model="checked" value="true">
-                <label for="terms">Acepto los <a href="https://trivicare.com/">términos y condiciones</a></label>
+            <div class="d-flex flex-column">
+                <div class="mb-2 d-flex justify-content-center align-items-center">
+                    <input type="checkbox" name="newsletter" id="newsletter" v-model="newsletter" value="1">
+                    <label class="ms-2" for="newsletter">Quiero recibir novedades, ofertas y descuentos.</label>
+                </div>
+                <div class="mb-2 d-flex align-items-center">
+                    <input type="checkbox" name="terms" id="terms" v-model="checked" value="true">
+                    <label class="ms-2" for="terms">Acepto los <a href="https://trivicare.com/">términos y condiciones</a></label>
+                </div>
             </div>
             <div class="button-box mt-4">
                 <button class="btn" :class="{'disabled': checked ? false : true}" type="submit" title="Registrarse">Registrar</button>

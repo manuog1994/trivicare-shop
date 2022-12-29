@@ -2,10 +2,10 @@
     <div class="login-register-area pt-100 pb-100">
         <div class="container">
             <div class="login-register-tab-list nav">
-                <button @click="comA('Login')" :class="{ active: isActive === 'Login' }" title="Iniciar sesión">
-                    Iniciar Sessión
+                <button @click="comA('Login')" class="fs-6" :class="{ active: isActive === 'Login' }" title="Iniciar sesión">
+                    Iniciar sesión
                 </button>
-                <button @click="comA('Register')" :class="{ active: isActive === 'Register' }" title="Registrarte">
+                <button @click="comA('Register')" class="fs-6" :class="{ active: isActive === 'Register' }" title="Regístrate">
                     Regístrate
                 </button>
             </div>
