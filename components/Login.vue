@@ -83,17 +83,17 @@
                                 provider_id: res.data.user.provider_id,
                             }
                         }).then(res => {
-                            console.log(res);
+                            //console.log(res);
                             //window.location.reload();
                             this.errors = [];
                             //this.$notify({ title: 'Bienvenid@ de nuevo!'})
                         }).catch(err => {
-                            console.log(err);
+                            //console.log(err);
                             this.errors = ['Hemos tenido un problema al iniciar sesión, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];
                         })
                     })
                     .catch(err => {
-                        console.log(err);
+                        //console.log(err);
                         this.errors = ['Hemos tenido problemas al obtener sus datos de Google, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];
                     });
 
@@ -107,14 +107,14 @@
                     await this.$auth.loginWith('laravelSanctum', {
                         data: formData
                     }).then(res => {
-                        console.log(res);
+                        //console.log(res);
                         //window.location.reload();
                         this.errors = [];
                         //this.$notify({ title: 'Bienvenid@ de nuevo!'})
                     });
                 } catch (error) {
                     this.errors = ['El correo electrónico o la contraseña son incorrectos.']; 
-                    console.log(error.response.data)             
+                    //console.log(error.response.data)             
                 }
             },
             

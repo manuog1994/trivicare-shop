@@ -93,7 +93,7 @@
                             <div class="footer-list">
                                 <ul>
                                     <li><n-link to="/terms-conditions">Términos y Condiciones</n-link></li>
-                                    <li><n-link to="/send-policy">Política de envío</n-link></li>
+                                    <li><n-link to="/legal-warning">Aviso Legal</n-link></li>
                                     <li><n-link to="/privacy-policy">Política de Privacidad</n-link></li>
                                     <li><n-link to="/questions">Preguntas Frecuentes</n-link></li>
                                 </ul>
