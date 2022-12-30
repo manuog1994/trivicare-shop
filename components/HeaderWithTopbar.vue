@@ -175,7 +175,7 @@
                 if(this.$auth.user) {
                     const space = ' ';
                     const name = this.$auth.user.name;
-                    console.log(name);
+                    //console.log(name);
                     const arr = name.split(space);
 
                     return arr[0];
