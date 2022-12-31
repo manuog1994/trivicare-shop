@@ -8,19 +8,6 @@
                 <ShopContainer />
                 <QuickView />
                 <TheFooter />
-                <VueIfBot>
-                    <CookieConsent>
-                        <template slot="message">
-                            <span>
-                                Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
-                                <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
-                            </span>
-                        </template>
-                        <template slot="button">
-                            <button class="btn border-1">Aceptar</button>
-                        </template>
-                    </CookieConsent>
-                </VueIfBot>
             </div>
         </div>
     </client-only>
