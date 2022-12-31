@@ -226,7 +226,7 @@
                 </div>
             </div>
     
-            <div v-if="$auth.user.email_verified_at != null" class="text-center mb-5">
+            <div class="text-center mb-5">
                 <a class="btn btn-light" @click.prevent="deleteAccount">Eliminar cuenta</a>
             </div>
         </div>

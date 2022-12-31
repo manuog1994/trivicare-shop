@@ -47,15 +47,15 @@ declare module 'vue' {
     'WelcomeMessage': typeof import("../components/WelcomeMessage.vue")['default'],
     'WishListContainer': typeof import("../components/WishListContainer.vue")['default'],
     'PolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
+    'BannerItem': typeof import("../components/banner/BannerItem.vue")['default'],
+    'BannerStyleFour': typeof import("../components/banner/BannerStyleFour.vue")['default'],
+    'BannerStyleOne': typeof import("../components/banner/BannerStyleOne.vue")['default'],
+    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'ProductDetailsWrapper': typeof import("../components/product/ProductDetailsWrapper.vue")['default'],
     'ProductGridItem': typeof import("../components/product/ProductGridItem.vue")['default'],
     'ProductGridItemTwo': typeof import("../components/product/ProductGridItemTwo.vue")['default'],
     'ProductGridStyleThree': typeof import("../components/product/ProductGridStyleThree.vue")['default'],
     'ProductWrapperCosmetics': typeof import("../components/product/ProductWrapperCosmetics.vue")['default'],
-    'BannerItem': typeof import("../components/banner/BannerItem.vue")['default'],
-    'BannerStyleFour': typeof import("../components/banner/BannerStyleFour.vue")['default'],
-    'BannerStyleOne': typeof import("../components/banner/BannerStyleOne.vue")['default'],
-    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'CrudAll': typeof import("../components/crud/All.vue")['default'],
     'CrudCoupons': typeof import("../components/crud/Coupons.vue")['default'],
     'CrudCreate': typeof import("../components/crud/Create.vue")['default'],
@@ -110,15 +110,15 @@ declare module 'vue' {
     'LazyWelcomeMessage': typeof import("../components/WelcomeMessage.vue")['default'],
     'LazyWishListContainer': typeof import("../components/WishListContainer.vue")['default'],
     'LazyPolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
+    'LazyBannerItem': typeof import("../components/banner/BannerItem.vue")['default'],
+    'LazyBannerStyleFour': typeof import("../components/banner/BannerStyleFour.vue")['default'],
+    'LazyBannerStyleOne': typeof import("../components/banner/BannerStyleOne.vue")['default'],
+    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'LazyProductDetailsWrapper': typeof import("../components/product/ProductDetailsWrapper.vue")['default'],
     'LazyProductGridItem': typeof import("../components/product/ProductGridItem.vue")['default'],
     'LazyProductGridItemTwo': typeof import("../components/product/ProductGridItemTwo.vue")['default'],
     'LazyProductGridStyleThree': typeof import("../components/product/ProductGridStyleThree.vue")['default'],
     'LazyProductWrapperCosmetics': typeof import("../components/product/ProductWrapperCosmetics.vue")['default'],
-    'LazyBannerItem': typeof import("../components/banner/BannerItem.vue")['default'],
-    'LazyBannerStyleFour': typeof import("../components/banner/BannerStyleFour.vue")['default'],
-    'LazyBannerStyleOne': typeof import("../components/banner/BannerStyleOne.vue")['default'],
-    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'LazyCrudAll': typeof import("../components/crud/All.vue")['default'],
     'LazyCrudCoupons': typeof import("../components/crud/Coupons.vue")['default'],
     'LazyCrudCreate': typeof import("../components/crud/Create.vue")['default'],
@@ -175,15 +175,15 @@ export const UnsubscribeContainer: typeof import("../components/UnsubscribeConta
 export const WelcomeMessage: typeof import("../components/WelcomeMessage.vue")['default']
 export const WishListContainer: typeof import("../components/WishListContainer.vue")['default']
 export const PolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
+export const BannerItem: typeof import("../components/banner/BannerItem.vue")['default']
+export const BannerStyleFour: typeof import("../components/banner/BannerStyleFour.vue")['default']
+export const BannerStyleOne: typeof import("../components/banner/BannerStyleOne.vue")['default']
+export const HeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const ProductDetailsWrapper: typeof import("../components/product/ProductDetailsWrapper.vue")['default']
 export const ProductGridItem: typeof import("../components/product/ProductGridItem.vue")['default']
 export const ProductGridItemTwo: typeof import("../components/product/ProductGridItemTwo.vue")['default']
 export const ProductGridStyleThree: typeof import("../components/product/ProductGridStyleThree.vue")['default']
 export const ProductWrapperCosmetics: typeof import("../components/product/ProductWrapperCosmetics.vue")['default']
-export const BannerItem: typeof import("../components/banner/BannerItem.vue")['default']
-export const BannerStyleFour: typeof import("../components/banner/BannerStyleFour.vue")['default']
-export const BannerStyleOne: typeof import("../components/banner/BannerStyleOne.vue")['default']
-export const HeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const CrudAll: typeof import("../components/crud/All.vue")['default']
 export const CrudCoupons: typeof import("../components/crud/Coupons.vue")['default']
 export const CrudCreate: typeof import("../components/crud/Create.vue")['default']
@@ -238,15 +238,15 @@ export const LazyUnsubscribeContainer: typeof import("../components/UnsubscribeC
 export const LazyWelcomeMessage: typeof import("../components/WelcomeMessage.vue")['default']
 export const LazyWishListContainer: typeof import("../components/WishListContainer.vue")['default']
 export const LazyPolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
+export const LazyBannerItem: typeof import("../components/banner/BannerItem.vue")['default']
+export const LazyBannerStyleFour: typeof import("../components/banner/BannerStyleFour.vue")['default']
+export const LazyBannerStyleOne: typeof import("../components/banner/BannerStyleOne.vue")['default']
+export const LazyHeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const LazyProductDetailsWrapper: typeof import("../components/product/ProductDetailsWrapper.vue")['default']
 export const LazyProductGridItem: typeof import("../components/product/ProductGridItem.vue")['default']
 export const LazyProductGridItemTwo: typeof import("../components/product/ProductGridItemTwo.vue")['default']
 export const LazyProductGridStyleThree: typeof import("../components/product/ProductGridStyleThree.vue")['default']
 export const LazyProductWrapperCosmetics: typeof import("../components/product/ProductWrapperCosmetics.vue")['default']
-export const LazyBannerItem: typeof import("../components/banner/BannerItem.vue")['default']
-export const LazyBannerStyleFour: typeof import("../components/banner/BannerStyleFour.vue")['default']
-export const LazyBannerStyleOne: typeof import("../components/banner/BannerStyleOne.vue")['default']
-export const LazyHeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const LazyCrudAll: typeof import("../components/crud/All.vue")['default']
 export const LazyCrudCoupons: typeof import("../components/crud/Coupons.vue")['default']
 export const LazyCrudCreate: typeof import("../components/crud/Create.vue")['default']

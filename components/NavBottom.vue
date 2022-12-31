@@ -1,6 +1,6 @@
 <template>
     <client-only>
-        <div class="d-block background-color-banner">
+        <div class="d-block bg-banner">
             <div>
                 <div class="">
                     <div class="custom-banner">
@@ -26,6 +26,10 @@ export default {
     height: 40px;
     font-size: 14px;
     color: #ff0000;
+}
+
+.bg-banner {
+    background-color: #dd88b8df;
 }
 
 </style>

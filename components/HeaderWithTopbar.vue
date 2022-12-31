@@ -71,10 +71,6 @@
     font-size: 14px;
     color: #ff0000;
 }
-
-.background-color-banner {
-    background-color: #ffb1b1;
-}
     
 </style>
 

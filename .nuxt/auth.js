@@ -70,7 +70,8 @@ export default function (ctx, inject) {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      "url": "http://localhost:8000/logout"
+      "url": "http://localhost:8000/logout",
+      "method": "post"
     },
     "user": {
       "withCredentials": true,
@@ -79,7 +80,12 @@ export default function (ctx, inject) {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      "url": "http://localhost:8000/api/user"
+      "url": "http://localhost:8000/api/user",
+      "method": "get"
+    },
+    "refresh": {
+      "url": "http://localhost:8000/refresh",
+      "method": "post"
     }
   },
   "name": "laravelSanctum",

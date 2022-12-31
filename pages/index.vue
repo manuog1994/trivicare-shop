@@ -14,8 +14,8 @@
                 <TheFooter />
                 <VueIfBot>
                     <CookieConsent>
-                        <template slot="message">
-                            <span>
+                        <template slot="message" class=" position-absolute">
+                            <span style="background-color:white important!;">
                                 Este sitio web utiliza cookies para mejorar tu experiencia. Si quieres saber más, visita nuestra 
                                 <a class="text-info" href="/privacy-policy">Política de Cookies</a>.
                             </span>
@@ -74,7 +74,7 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
-            this.$auth.fetchUser();
+            this.$auth.refreshTokens()
         },
 
         methods: {

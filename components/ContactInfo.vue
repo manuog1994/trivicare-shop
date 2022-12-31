@@ -10,7 +10,7 @@
                             </div>
                             <div class="contact-info-dec">
                                 <p>A través del teléfono:</p>
-                                <p>+34 613036942</p>
+                                <p><a href="tel:34613036942">+34 613 036 942</a></p>
                             </div>
                         </div>
                         <div class="single-contact-info">
@@ -109,7 +109,10 @@ export default {
             .then(response => {
                 //console.log(response);
                 this.$notify({title: 'Mensaje enviado'});
-                form.reset()
+                this.contact.name = '';
+                this.contact.email = '';
+                this.contact.subject = '';
+                this.contact.message = '';
             }).catch(error => {
                 //console.log(error);
             })

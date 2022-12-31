@@ -111,6 +111,11 @@
                         color: $theme-color;
                         border-bottom: 2px solid $theme-color;
                     }
+                    &:disabled {
+                        color: rgb(185, 185, 185);
+                        border-bottom: 2px solid #d1d1d1;
+                    }
+
                 }
             }
         }

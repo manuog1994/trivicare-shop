@@ -112,7 +112,16 @@ export default defineNuxtConfig({
                 endpoints: {
                     login: {
                         url: '/login', method: 'post'
-                    }
+                    },
+                    logout: {
+                        url: '/logout', method: 'post'
+                    },
+                    user: {
+                        url: '/api/user', method: 'get'
+                    },
+                    refresh: {
+                        url: '/refresh', method: 'post'
+                    },
                 },
             },
 
