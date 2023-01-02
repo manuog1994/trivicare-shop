@@ -12,9 +12,11 @@
                     </thead>
                     <tbody v-if="orders.length != 0">
                         <tr v-for="order in orders" :key="order.id">
-                            <td><a :href="'/orders/' + order.id">{{ getInvoiceNumber(order) }}</a></td>
-                            <td>{{ getState(order) }}</td>
-                            <td>{{ order.order_date }}</td>
+                            <template v-if="order.invoice != null">
+                                <td><a :href="'/orders/' + order.id">{{ getInvoiceNumber(order) }}</a></td>
+                                <td>{{ getState(order) }}</td>
+                                <td>{{ order.order_date }}</td>
+                            </template>
                         </tr>
                     </tbody>
                     <tbody v-else>
@@ -139,6 +141,7 @@ export default {
         },
 
         getInvoiceNumber(order) {
+            //console.log(order)
             let orders = this.orders;
             return orders.filter((or) => {
                 if (or.id == order.id) {

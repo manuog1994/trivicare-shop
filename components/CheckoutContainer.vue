@@ -554,7 +554,19 @@
                     }else if(this.payment == 'contrareembolso') {
                         this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
                     }
-                });
+                }).catch((err) => {
+                    console.log(err);
+                    if (err.response.status == 401) {
+                        this.$notify({
+                            group: 'foo',
+                            title: 'Error',
+                            text: 'Tu sesión ha caducado, por favor, vuelve a iniciar sesión',
+                            type: 'error'
+                        });
+                        //this.$auth.logout();
+                        this.$router.push('/login');
+                   }
+                })
  
             },
 
