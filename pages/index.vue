@@ -61,7 +61,13 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
-            this.$auth.refreshTokens()
+            if(this.$axios.onError(error => {
+                const code = error.response.status;
+                if (code === 401) {
+                    this.$router.push('/login');
+                    this.$notify({ title: 'Su sesión ha caducado', message: 'Por favor, vuelva a iniciar sesión', type: 'error', duration: 5000, position: 'top-right', icon: 'mdi mdi-alert-circle'})
+                }
+            }));
         },
 
         methods: {

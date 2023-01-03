@@ -60,6 +60,7 @@
                     </tbody>
                 </table>
                 <Note />
+                <ModalTrack />
                 <!-- paginación -->
                 <div class="d-flex justify-content-center mt-5">
                     <nav aria-label="...">
@@ -83,6 +84,7 @@
 
 <script>
 import Note from './Note.vue';
+import ModalTrack from './ModalTrack.vue';
 export default {
     auth: true,
 
@@ -98,6 +100,7 @@ export default {
 
     components: {
         Note,
+        ModalTrack,
     },
 
     mounted() {
@@ -190,9 +193,14 @@ export default {
 
         async updateStatus(e) {
             const status = e.target.value;
-            await this.$axios.put('/api/orders/status/' + this.order.id, {
-                status: status
-            }).then(() => this.$notify({ title: 'El estado del pedido ha sido actualizado'}));
+            console.log(status);
+            if (status == 3) {
+                this.$modal.show('modal-track', this.order.id);
+            } else {
+                await this.$axios.put('/api/orders/status/' + this.order.id, {
+                    status: status
+                }).then(() => this.$notify({ title: 'El estado del pedido ha sido actualizado'}));
+            }
         },
 
         changePage(url) {

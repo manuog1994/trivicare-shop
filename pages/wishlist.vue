@@ -13,7 +13,7 @@
 <script>
     import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
     import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
-import WishListContainer from '../components/WishListContainer.vue';
+    import WishListContainer from '../components/WishListContainer.vue';
     export default {
         auth: false,
         
@@ -49,7 +49,13 @@ import WishListContainer from '../components/WishListContainer.vue';
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
-            this.$auth.fetchUser();
+            if(this.$axios.onError(error => {
+                const code = error.response.status;
+                if (code === 401) {
+                    this.$router.push('/login');
+                    this.$notify({ title: 'Su sesión ha caducado', message: 'Por favor, vuelva a iniciar sesión', type: 'error', duration: 5000, position: 'top-right', icon: 'mdi mdi-alert-circle'})
+                }
+            }));
         },
 
         methods: {

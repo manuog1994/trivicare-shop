@@ -134,9 +134,6 @@
   "WishListContainer": {
     "description": "Auto imported from components/WishListContainer.vue"
   },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
   "BannerItem": {
     "description": "Auto imported from components/banner/BannerItem.vue"
   },
@@ -145,9 +142,6 @@
   },
   "BannerStyleOne": {
     "description": "Auto imported from components/banner/BannerStyleOne.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
@@ -164,6 +158,12 @@
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
   },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
   "CrudAll": {
     "description": "Auto imported from components/crud/All.vue"
   },
@@ -175,6 +175,9 @@
   },
   "CrudEdit": {
     "description": "Auto imported from components/crud/Edit.vue"
+  },
+  "CrudModalTrack": {
+    "description": "Auto imported from components/crud/ModalTrack.vue"
   },
   "CrudNav": {
     "description": "Auto imported from components/crud/Nav.vue"

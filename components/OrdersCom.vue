@@ -33,7 +33,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Producto</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Precio</th>
@@ -42,7 +41,6 @@
                 </thead>
                 <tbody>
                     <tr v-for="product in this.products" :key="product.id">
-                        <th scope="row">{{ product.id }}</th>
                         <td>{{ product.name }}</td>
                         <td>{{ product.cartQuantity }}</td>
                         <td>

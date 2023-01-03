@@ -254,14 +254,14 @@ export default {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((response) => {
-                    this.images = [];
-                    this.$refs.file.value = '';
-                    this.getProducts();
-                    this.$notify({title: 'La imagen se ha subido correctamente!'});
-                }).catch((error) => {
-                    console.log(error);
-                    this.$notify({title: 'Ha ocurrido un error al subir la imagen!'});
-                })
+                this.images = [];
+                this.$refs.file.value = '';
+                this.getProducts();
+                this.$notify({title: 'La imagen se ha subido correctamente!'});
+            }).catch((error) => {
+                console.log(error);
+                this.$notify({title: 'Ha ocurrido un error al subir la imagen!'});
+            })
             
         }
     },
