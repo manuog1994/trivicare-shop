@@ -33,7 +33,7 @@
 
                                         <li><a @click="logout">Cerrar sesión</a></li>
                                     </ul>
-                                    <ul v-else-if="$auth.user">
+                                    <ul v-else-if="$auth.loggedIn == true">
                                         <li class="border-bottom-1 mb-1"><p>Hola, <strong>{{ getName() }}</strong></p></li>
                                         <li><n-link to="/my-account">Mi Perfil</n-link></li>
                                         <li><n-link to="/my-orders">Mis pedidos</n-link></li>

@@ -15,16 +15,18 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <h4>Datos del cliente</h4>
-                    <p>Nombre: {{ getName(order) }}</p>
-                    <p>Correo: {{ user.user }}</p>
-                    <p>Teléfono: {{ user.phone }}</p>
+                    <p v-if="user.name != 'deleted'">Nombre:{{ user.name }} {{ user.lastname }}</p>
+                    <p>Correo: {{ email }}</p>
+                    <p v-if="user.phone != 0">Teléfono: {{ user.phone }}</p>
+                    <p v-else>Sus datos han sido eliminados</p>
                 </div>
                 <div class="col-lg-4 mb-4">
                     <h4>Datos de envío</h4>
-                    <p>Dirección: {{ user.address }}</p>
-                    <p>Ciudad: {{ user.city }}</p>
-                    <p>Estado: {{ user.state }}</p>
-                    <p>Código postal: {{ user.zipcode }}</p>
+                    <p v-if="user.address != 'deleted'">Dirección: {{ user.address }}</p>
+                    <p v-if="user.city != 'deleted'">Ciudad: {{ user.city }}</p>
+                    <p v-if="user.state != 'deleted'">Provincia: {{ user.state }}</p>
+                    <p v-if="user.zipcode != 0">Código postal: {{ user.zipcode }}</p>
+                    <p v-else>Sus datos han sido eliminados</p>
                 </div>
             </div>
         </div>
@@ -104,12 +106,13 @@ export default {
             id: this.$route.params.id,
             users: [],
             user: {},
+            email: ''
         }
     },
 
     mounted() {
         this.getOrder();
-        this.getUserName();
+        //this.getUserName();
     },
 
     methods: {
@@ -120,7 +123,15 @@ export default {
                     orders.map(order => {
                         if (order.id == this.id) {
                             this.order = order;
-                            this.products = JSON.parse(this.order.products);
+                            this.products = JSON.parse(order.products);
+                            this.email = order.user.email;
+                            const user_profiles = order.user.user_profile;
+                            user_profiles.map(user_profile => {
+                                if(user_profile.id == order.user_profile_id) {
+                                    this.user = user_profile;
+                                    this.fullName = user_profile.name + ' ' + user_profile.lastname;
+                                }
+                            })
                         }
                     })
                     //console.log(orders)
@@ -144,31 +155,21 @@ export default {
                 });
         },
 
-        getName(order) {
-            let users = this.users;
-            return users.filter(user => {
-                if (user.id == order.user_profile_id) {
-                    return user;
-                }
-            }).map(user => {
-                this.user = user;
+        // getName() {
+        //     const order = this.order;
+        //     console.log(order);
+        //     let users = this.users;
+        //     console.log(users)
+        //     return users.filter(user => {
+        //         if (user.id == order.user_profile_id) {
+        //             return user;
+        //         }
+        //     }).map(user => {
+        //         this.user = user;
 
-                const data = this.$auth.user.roles;
-                const role = data.filter(role => {
-                    if (role.name == 'admin') {
-                        return role;
-                    }
-                }).map(role => {
-                    return role.name;
-                }).toString();
-
-                if(role != 'admin' && user.user_id != this.$auth.user.id) {
-                    return this.$router.push('/error');
-                }
-
-                return user.name + ' ' + user.lastname;
-            }).toString();
-        },
+        //         this.fullName = user.name + ' ' + user.lastname;
+        //     });
+        // },
 
         getState(order) {
             if (order.status == 1) {

@@ -111,18 +111,19 @@
                                                     </div>
                                                     <div class="row">
                                                         <client-only>
-                                                            <div class="card shadow w-75 m-auto mb-3"
-                                                                v-for="profile in $auth.user.user_profile" :key="profile.id">
-                                                                <div class="card-body">
-                                                                    <h5 class="card-title">{{ profile.name }}
-                                                                        {{ profile.lastname }}</h5>
-                                                                    <p class="card-text">{{ profile.address }}</p>
-                                                                    <p class="card-text">{{ profile.phone }}</p>
-                                                                    <p class="card-text">{{ profile.zipcode }}
-                                                                        {{ profile.city }} ({{ profile.state }})</p>
-                                                                    <p class="card-text">{{ profile.country }}</p>
-                                                                    <a @click.prevent="deleteProfile(profile.id)"
-                                                                        class="btn btn-light">Eliminar</a>
+                                                            <div v-for="profile in $auth.user.user_profile" :key="'profile' + profile.id">
+                                                                <div class="card shadow w-75 m-auto mb-3" v-if="profile.name != 'deleted'">
+                                                                    <div class="card-body">
+                                                                        <h5 class="card-title">{{ profile.name }}
+                                                                            {{ profile.lastname }}</h5>
+                                                                        <p class="card-text">{{ profile.address }}</p>
+                                                                        <p class="card-text">{{ profile.phone }}</p>
+                                                                        <p class="card-text">{{ profile.zipcode }}
+                                                                            {{ profile.city }} ({{ profile.state }})</p>
+                                                                        <p class="card-text">{{ profile.country }}</p>
+                                                                        <a @click.prevent="deleteProfile(profile.id)"
+                                                                            class="btn btn-light">Eliminar</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </client-only>
@@ -237,8 +238,7 @@
 <script>
     import Swal from 'sweetalert2'
     export default {
-        middleware: 'auth',
-
+ 
         data() {
             return {
                 email: '',

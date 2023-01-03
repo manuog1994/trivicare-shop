@@ -13,7 +13,7 @@ export default (params) => `<!DOCTYPE html>
     <meta http-equiv="Cache-Control" content="max-age=3600" />
     <!-- Google tag (gtag.js) -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id={{process.env.googleAnalyticsId}}"></script> -->
-     <script>
+     <!-- <script>
         
         // window.dataLayer = window.dataLayer || [];
         // function gtag(){dataLayer.push(arguments);}
@@ -21,7 +21,7 @@ export default (params) => `<!DOCTYPE html>
 
         // gtag('config', 'G-6FYD0CCL8E');
 
-    </script>
+    </script> -->
   </head>
   <body ${params.BODY_ATTRS}>
     <!-- Google Tag Manager (noscript) -->

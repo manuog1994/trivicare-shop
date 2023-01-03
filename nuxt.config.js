@@ -113,15 +113,7 @@ export default defineNuxtConfig({
                     login: {
                         url: '/login', method: 'post'
                     },
-                    logout: {
-                        url: '/logout', method: 'post'
-                    },
-                    user: {
-                        url: '/api/user', method: 'get'
-                    },
-                    refresh: {
-                        url: '/refresh', method: 'post'
-                    },
+                    refresh: false,
                 },
             },
 
@@ -135,8 +127,7 @@ export default defineNuxtConfig({
 
 
     router: {
-        middleware: ['auth'],
-        //middleware: ['authentication'],
+        middleware: ['auth', 'role'],
     },
       
     pageTransition: {

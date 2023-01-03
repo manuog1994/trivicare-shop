@@ -2,187 +2,172 @@
     <div>
         <div class="checkout-area pt-95 pb-100">
             <div class="container-fluid">
-                    <div class="row" v-if="products.length > 0">
-                    <div v-if="$auth.user.user_profile.length > 0" class="col-lg-7">
-                        <h3 class="text-center mb-2">Estas a punto de terminar tu compra</h3>
-                        <p class="text-center">Seleccione una de sus direcciones de envio, un método de pago, un tipo de envío y pulse en el botón "Pagar Ahora".</p>
-                        <div class="panel panel-default single-my-account mt-2">
-                            <!-- Select profile -->
-                            <div class="panel-heading my-account-title">
-                                <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-1">Elige una dirección </a></h3>
-                            </div>
-                            <div id="my-account-1" class="panel-collapse" data-bs-parent="#faq">
-                                <div class="panel-body">
-                                    <div class="form-group p-4 p-md-5">
-                                        <select class="form-select" v-model="selected" @change="enableButton" ref="userIdProfile">
-                                            <option v-if=" selected == 'Seleccione una dirección' " selected disabled>{{ selected }}</option>
-                                            <option v-else selected disabled>Seleccione una dirección</option>
-                                            <client-only>
-                                                <option v-for="profile in $auth.user.user_profile" :key="profile.id" :value="profile.id">{{ profile.name }} {{ profile.lastname }}, {{ profile.address }}, {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option>
-                                            </client-only>
-                                        </select>
+                <div class="row" v-if="products.length > 0">
+                    <div v-if="$auth.loggedIn == true">
+                        <div v-if="$auth.user.user_profile.length > 0" class="col-lg-7">
+                            <h3 class="text-center mb-2">Estas a punto de terminar tu compra</h3>
+                            <p class="text-center">Seleccione una de sus direcciones de envio, un método de pago, un tipo de envío y pulse en el botón "Pagar Ahora".</p>
+                            <div class="panel panel-default single-my-account mt-2">
+                                <!-- Select profile -->
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-1">Elige una dirección </a></h3>
+                                </div>
+                                <div id="my-account-1" class="panel-collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="form-group p-4 p-md-5">
+                                            <select class="form-select" v-model="selected" @change="enableButton" ref="userIdProfile">
+                                                <option v-if=" selected == 'Seleccione una dirección' " selected disabled>{{ selected }}</option>
+                                                <option v-else selected disabled>Seleccione una dirección</option>
+                                                <client-only>
+                                                    <option v-for="profile in $auth.user.user_profile" :key="profile.id" :value="profile.id">{{ profile.name }} {{ profile.lastname }}, {{ profile.address }}, {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option>
+                                                </client-only>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Create new profile -->
-                            <div class="panel-heading my-account-title">
-                                <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-2">Usar otra dirección de envío </a></h3>
-                            </div>
-                            <div id="my-account-2" class="panel-collapse collapse" data-bs-parent="#faq">
-                                <div class="panel-body">
-                                    <div class="myaccount-info-wrapper">
-                                        <form @submit.prevent="createProfile" class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="billing-info">
-                                                    <label>Nombre</label>
-                                                    <input v-model="name" type="text" required>
+                                <!-- Create new profile -->
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-2">Usar otra dirección de envío </a></h3>
+                                </div>
+                                <div id="my-account-2" class="panel-collapse collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="myaccount-info-wrapper">
+                                            <form @submit.prevent="createProfile" class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="billing-info">
+                                                        <label>Nombre</label>
+                                                        <input v-model="name" type="text" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="billing-info">
-                                                    <label>Apellidos</label>
-                                                    <input v-model="lastname" type="text" required>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="billing-info">
+                                                        <label>Apellidos</label>
+                                                        <input v-model="lastname" type="text" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12">
-                                                <div class="billing-info">
-                                                    <label>Dirección</label>
-                                                    <input v-model="address" type="text" required>
+                                                <div class="col-lg-12 col-md-12">
+                                                    <div class="billing-info">
+                                                        <label>Dirección</label>
+                                                        <input v-model="address" type="text" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12">
-                                                <div class="billing-info">
-                                                    <label>Opcional</label>
-                                                    <input v-model="optional_address" type="text">
+                                                <div class="col-lg-12 col-md-12">
+                                                    <div class="billing-info">
+                                                        <label>Opcional</label>
+                                                        <input v-model="optional_address" type="text">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4">
-                                                <div class="billing-info">
-                                                    <label>Código Postal</label>
-                                                    <input v-model="zipcode" type="number" required>
+                                                <div class="col-lg-4 col-md-4">
+                                                    <div class="billing-info">
+                                                        <label>Código Postal</label>
+                                                        <input v-model="zipcode" type="number" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-8">
-                                                <div class="billing-info">
-                                                    <label>Ciudad</label>
-                                                    <input v-model="city" type="text" required>
+                                                <div class="col-lg-8 col-md-8">
+                                                    <div class="billing-info">
+                                                        <label>Ciudad</label>
+                                                        <input v-model="city" type="text" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="billing-info">
-                                                    <label>Provincia</label>
-                                                    <input v-model="state" type="text" required>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="billing-info">
+                                                        <label>Provincia</label>
+                                                        <input v-model="state" type="text" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="billing-info">
-                                                    <label>País</label>
-                                                    <input v-model="country" type="text" required>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="billing-info">
+                                                        <label>País</label>
+                                                        <input v-model="country" type="text" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-5 col-md-5">
-                                                <div class="billing-info">
-                                                    <label>Teléfono</label>
-                                                    <input v-model="phone" type="number" required>
+                                                <div class="col-lg-5 col-md-5">
+                                                    <div class="billing-info">
+                                                        <label>Teléfono</label>
+                                                        <input v-model="phone" type="number" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-7 col-md-7">
-                                                <div class="billing-info">
-                                                    <label>DNI</label>
-                                                    <input v-model="dni" type="text" required>
+                                                <div class="col-lg-7 col-md-7">
+                                                    <div class="billing-info">
+                                                        <label>DNI</label>
+                                                        <input v-model="dni" type="text" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-check ms-3 mb-4">
-                                                <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                    He leído y acepto la <a href="#" title="Ver política de privacidad">política de privacidad</a>.
-                                                </label>
-                                            </div>
-                                            <div class="billing-btn">
-                                                <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
-                                            </div>
-                                        </form>
+                                                <div class="form-check ms-3 mb-4">
+                                                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        He leído y acepto la <a href="#" title="Ver política de privacidad">política de privacidad</a>.
+                                                    </label>
+                                                </div>
+                                                <div class="billing-btn">
+                                                    <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Payment -->
-                            <div class="panel-heading my-account-title">
-                                <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-3">Seleccione un método de pago </a></h3>
-                            </div>
-                            <div id="my-account-3" class="panel-collapse collapse" data-bs-parent="#faq">
-                                <div class="panel-body">
-                                    <div class="p-4 p-md-5">
-                                        <div class="row d-flex align-items-center">
-                                            <div class="col-6">
-                                                <div class="form-check mb-2 d-flex align-items-center">
-                                                    <input class="form-check-input mb-1" type="radio" name="payment" id="card_payment" v-model="payment" value="card">
-                                                    <label class="form-check-label ms-2" for="card_payment">
-                                                        Pago por tarjeta
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <img class="ms-2" src="/payment/metodosdepago.webp" alt="metodos-de-pago.webp" width="100%"/>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-4 d-flex align-items-center">
-                                            <div class="col-6">
-                                                <div class="form-check d-flex align-items-center">
-                                                    <input class="form-check-input mb-1" type="radio" name="payment" id="paypal_payment" v-model="payment" value="paypal">
-                                                    <label class="form-check-label ms-2" for="paypal_payment">
-                                                        Pago por Paypal
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 d-flex justify-content-center">
-                                                <img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100px" height="auto"/>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="row mt-4 d-flex align-items-center">
-                                            <div class="col-6">
-                                                <div class="form-check d-flex align-items-center">
-                                                    <input class="form-check-input mb-1" type="radio" name="payment" id="contrareembolso_payment" v-model="payment" value="contrareembolso">
-                                                    <label class="form-check-label ms-2" for="contrareembolso_payment">
-                                                        Pago por contra reembolso (el precio incrementará un 1.75%)
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 d-flex justify-content-center">
-                                                <img class="ms-2" src="/payment/reembolso.webp" alt="reembolso.webp" width="50px" />
-                                            </div>
-                                        </div> -->
-                                    </div>
+                                <!-- Payment -->
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-3">Seleccione un método de pago </a></h3>
                                 </div>
-                            </div>
-                            <!-- Shipping -->
-                            <div class="panel-heading my-account-title">
-                                <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-4">Selecciona una opción de envío </a></h3>
-                            </div>
-                            <div id="my-account-4" class="panel-collapse collapse" data-bs-parent="#faq">
-                                <div class="panel-body">
-                                    <div class="p-4 p-md-5">
-                                        <div v-if="payment == 'contrareembolso' " class="row mt-4 d-flex align-items-center">
-                                            <div class="col-6">
-                                                <div class="form-check">
-                                                    <input class="form-check-input mb-1" type="radio" name="shipping" id="contrareembolso_shipping" v-model="shippingMethod" value="contrareembolso" checked>
-                                                    <label class="form-check-label ms-2" for="contrareembolso_shipping">
-                                                        Envío por Correos Contra Reembolso
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="d-flex justify-content-center">
-                                                    <img src="/payment/correos.webp" alt="correos.webp" width="100px"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div v-else>
+                                <div id="my-account-3" class="panel-collapse collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="p-4 p-md-5">
                                             <div class="row d-flex align-items-center">
-                                                <div class="col-6 d-flex align-items-center">
-                                                    <div class="form-check mb-2">
-                                                        <input class="form-check-input mb-1" type="radio" name="shipping" id="correos" v-model="shippingMethod" value="correos">
-                                                        <label class="form-check-label ms-2" for="correos">
-                                                            Envío por Correos 48h/72h
+                                                <div class="col-6">
+                                                    <div class="form-check mb-2 d-flex align-items-center">
+                                                        <input class="form-check-input mb-1" type="radio" name="payment" id="card_payment" v-model="payment" value="card">
+                                                        <label class="form-check-label ms-2" for="card_payment">
+                                                            Pago por tarjeta
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <img class="ms-2" src="/payment/metodosdepago.webp" alt="metodos-de-pago.webp" width="100%"/>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-4 d-flex align-items-center">
+                                                <div class="col-6">
+                                                    <div class="form-check d-flex align-items-center">
+                                                        <input class="form-check-input mb-1" type="radio" name="payment" id="paypal_payment" v-model="payment" value="paypal">
+                                                        <label class="form-check-label ms-2" for="paypal_payment">
+                                                            Pago por Paypal
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 d-flex justify-content-center">
+                                                    <img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100px" height="auto"/>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="row mt-4 d-flex align-items-center">
+                                                <div class="col-6">
+                                                    <div class="form-check d-flex align-items-center">
+                                                        <input class="form-check-input mb-1" type="radio" name="payment" id="contrareembolso_payment" v-model="payment" value="contrareembolso">
+                                                        <label class="form-check-label ms-2" for="contrareembolso_payment">
+                                                            Pago por contra reembolso (el precio incrementará un 1.75%)
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 d-flex justify-content-center">
+                                                    <img class="ms-2" src="/payment/reembolso.webp" alt="reembolso.webp" width="50px" />
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Shipping -->
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-4">Selecciona una opción de envío </a></h3>
+                                </div>
+                                <div id="my-account-4" class="panel-collapse collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="p-4 p-md-5">
+                                            <div v-if="payment == 'contrareembolso' " class="row mt-4 d-flex align-items-center">
+                                                <div class="col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input mb-1" type="radio" name="shipping" id="contrareembolso_shipping" v-model="shippingMethod" value="contrareembolso" checked>
+                                                        <label class="form-check-label ms-2" for="contrareembolso_shipping">
+                                                            Envío por Correos Contra Reembolso
                                                         </label>
                                                     </div>
                                                 </div>
@@ -192,119 +177,136 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row mt-4 d-flex align-items-center">
-                                                <div class="col-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input mb-1" type="radio" name="shipping" id="gls" v-model="shippingMethod" value="gls">
-                                                        <label class="form-check-label ms-2" for="gls">
-                                                            Envío por GLS 24h/48h
-                                                        </label>
+                                            <div v-else>
+                                                <div class="row d-flex align-items-center">
+                                                    <div class="col-6 d-flex align-items-center">
+                                                        <div class="form-check mb-2">
+                                                            <input class="form-check-input mb-1" type="radio" name="shipping" id="correos" v-model="shippingMethod" value="correos">
+                                                            <label class="form-check-label ms-2" for="correos">
+                                                                Envío por Correos 48h/72h
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex justify-content-center">
+                                                            <img src="/payment/correos.webp" alt="correos.webp" width="100px"/>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
-                                                    <div class="d-flex justify-content-center">
-                                                        <img src="/payment/gls.webp" alt="gls.webp" width="100px"/>
+                                                <div class="row mt-4 d-flex align-items-center">
+                                                    <div class="col-6">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input mb-1" type="radio" name="shipping" id="gls" v-model="shippingMethod" value="gls">
+                                                            <label class="form-check-label ms-2" for="gls">
+                                                                Envío por GLS 24h/48h
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex justify-content-center">
+                                                            <img src="/payment/gls.webp" alt="gls.webp" width="100px"/>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Order notes -->
-                            <div class="panel-heading my-account-title">
-                                <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-5">Añade una nota a tu pedido</a></h3>
-                            </div>
-                            <div id="my-account-5" class="panel-collapse collapse" data-bs-parent="#faq">
-                                <div class="panel-body">
-                                    <div class="p-4 p-md-5">
-                                        <div class="mb-2">
-                                            <h4 class="mb-4">Aquí puedes dejarnos una nota sobre tu pedido (es opcional)</h4>
-                                            <textarea v-model="note" name="note" id="note" cols="20" rows="5" placeholder="Escribe aquí tu nota"></textarea>
-                                        </div>
-                                        <div class="mt-5">
-                                            <h5 class="mb-4">En TriviCare Natural Cosmetics pensamos en el medio ambiente, es por ello que no incluimos la factura en papel en vuestros pedidos, pero si os es imprescindible podeís marcar la siguiente opción:</h5>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="1" id="invoice" v-model="invoice_paper">
-                                                <label class="form-check-label" for="invoice">
-                                                    Incluir factura en papel
-                                                </label>
-                                                </div>
+                                <!-- Order notes -->
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-5">Añade una nota a tu pedido</a></h3>
+                                </div>
+                                <div id="my-account-5" class="panel-collapse collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="p-4 p-md-5">
+                                            <div class="mb-2">
+                                                <h4 class="mb-4">Aquí puedes dejarnos una nota sobre tu pedido (es opcional)</h4>
+                                                <textarea v-model="note" name="note" id="note" cols="20" rows="5" placeholder="Escribe aquí tu nota"></textarea>
+                                            </div>
+                                            <div class="mt-5">
+                                                <h5 class="mb-4">En TriviCare Natural Cosmetics pensamos en el medio ambiente, es por ello que no incluimos la factura en papel en vuestros pedidos, pero si os es imprescindible podeís marcar la siguiente opción:</h5>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="1" id="invoice" v-model="invoice_paper">
+                                                    <label class="form-check-label" for="invoice">
+                                                        Incluir factura en papel
+                                                    </label>
+                                                    </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div v-else class="col-lg-7">
-                        <div class="billing-info-wrap">
-                            <h3>Datos de envío y facturación</h3>
-                            <form @submit.prevent="createProfile" class="row">
-                                <div class="col-lg-5 col-md-5">
-                                    <div class="billing-info mb-20">
-                                        <label>Nombre</label>
-                                        <input v-model="name" type="text" required>
+                        <div v-else class="col-lg-7">
+                            <div class="billing-info-wrap">
+                                <h3>Datos de envío y facturación</h3>
+                                <form @submit.prevent="createProfile" class="row">
+                                    <div class="col-lg-5 col-md-5">
+                                        <div class="billing-info mb-20">
+                                            <label>Nombre</label>
+                                            <input v-model="name" type="text" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-7 col-md-7">
-                                    <div class="billing-info mb-20">
-                                        <label>Apellidos</label>
-                                        <input v-model="lastname" type="text" required>
+                                    <div class="col-lg-7 col-md-7">
+                                        <div class="billing-info mb-20">
+                                            <label>Apellidos</label>
+                                            <input v-model="lastname" type="text" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="billing-info mb-20">
-                                        <label>Dirección</label>
-                                        <input v-model="address" class="billing-address" placeholder="Calle y número" type="text" required>
-                                        <input v-model="optional_address" placeholder="Opcional" type="text">
+                                    <div class="col-lg-12">
+                                        <div class="billing-info mb-20">
+                                            <label>Dirección</label>
+                                            <input v-model="address" class="billing-address" placeholder="Calle y número" type="text" required>
+                                            <input v-model="optional_address" placeholder="Opcional" type="text">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-7 col-md-7">
-                                    <div class="billing-info mb-20">
-                                        <label>Ciudad</label>
-                                        <input v-model="city" type="text" required>
+                                    <div class="col-lg-7 col-md-7">
+                                        <div class="billing-info mb-20">
+                                            <label>Ciudad</label>
+                                            <input v-model="city" type="text" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-5 col-md-5">
-                                    <div class="billing-info mb-20">
-                                        <label>Provincia</label>
-                                        <input v-model="state" type="text" required>
+                                    <div class="col-lg-5 col-md-5">
+                                        <div class="billing-info mb-20">
+                                            <label>Provincia</label>
+                                            <input v-model="state" type="text" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="billing-info mb-20">
-                                        <label>Código Postal</label>
-                                        <input v-model="zipcode" type="text" required>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="billing-info mb-20">
+                                            <label>Código Postal</label>
+                                            <input v-model="zipcode" type="text" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="billing-info mb-20">
-                                        <label>Teléfono</label>
-                                        <input v-model="phone" type="text" required>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="billing-info mb-20">
+                                            <label>Teléfono</label>
+                                            <input v-model="phone" type="text" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="billing-info mb-20">
-                                        <label>DNI</label>
-                                        <input v-model="dni" type="text" required>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="billing-info mb-20">
+                                            <label>DNI</label>
+                                            <input v-model="dni" type="text" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="billing-info mb-20">
-                                        <label>País</label>
-                                        <input v-model="country" type="text" required>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="billing-info mb-20">
+                                            <label>País</label>
+                                            <input v-model="country" type="text" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-check ms-4">
-                                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        He leído y acepto la <a href="#" title="Ver política de privacidad">política de privacidad</a>.
-                                    </label>
-                                </div>
-                                <div class="billing-btn mt-5">
-                                    <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
-                                </div>
-                            </form>
+                                    <div class="form-check ms-4">
+                                        <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            He leído y acepto la <a href="#" title="Ver política de privacidad">política de privacidad</a>.
+                                        </label>
+                                    </div>
+                                    <div class="billing-btn mt-5">
+                                        <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <!-- Resumen del pedio -->
@@ -383,8 +385,7 @@
 
 <script>
     export default {
-        middleware: 'auth',
-
+ 
         components: {
             StripeElement: () => import("@/components/StripeElement"),
             Paypal: () => import("@/components/Paypal"),
