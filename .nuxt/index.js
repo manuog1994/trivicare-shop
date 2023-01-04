@@ -30,9 +30,9 @@ import nuxt_plugin_vuejspagiante_7edc93b2 from 'nuxt_plugin_vuejspagiante_7edc93
 import nuxt_plugin_observevisibility_b986de04 from 'nuxt_plugin_observevisibility_b986de04' // Source: ../plugins/observe-visibility.js (mode: 'all')
 import nuxt_plugin_persistedStateclient_3b127e9c from 'nuxt_plugin_persistedStateclient_3b127e9c' // Source: ../plugins/persistedState.client.js (mode: 'client')
 import nuxt_plugin_vueprogresspath_0eff6422 from 'nuxt_plugin_vueprogresspath_0eff6422' // Source: ../plugins/vue-progress-path.js (mode: 'all')
+import nuxt_plugin_bootstrapvue_928a4c1e from 'nuxt_plugin_bootstrapvue_928a4c1e' // Source: ../plugins/bootstrap-vue (mode: 'client')
 import nuxt_plugin_vuetype_d25ba400 from 'nuxt_plugin_vuetype_d25ba400' // Source: ../plugins/vue-type.js (mode: 'client')
 import nuxt_plugin_vuestarrating_daf07ac8 from 'nuxt_plugin_vuestarrating_daf07ac8' // Source: ../plugins/vue-star-rating.js (mode: 'client')
-import nuxt_plugin_bootstrap_68fdc73f from 'nuxt_plugin_bootstrap_68fdc73f' // Source: ../plugins/bootstrap.js (mode: 'client')
 import nuxt_plugin_vuejsmodal_f50827f4 from 'nuxt_plugin_vuejsmodal_f50827f4' // Source: ../plugins/vue-js-modal (mode: 'client')
 import nuxt_plugin_notificationsclient_f727f91e from 'nuxt_plugin_notificationsclient_f727f91e' // Source: ../plugins/notifications-client.js (mode: 'client')
 import nuxt_plugin_auth_b4b991f2 from 'nuxt_plugin_auth_b4b991f2' // Source: ./auth.js (mode: 'all')
@@ -103,7 +103,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"TriviCare Natural Cosmetics","titleTemplate":"TriviCare Natural Cosmetics | %s","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"script":[{"src":"bootstrap\u002Fjs\u002Fbootstrap.min.js"},{"src":"https:\u002F\u002Fjs.stripe.com\u002Fv3"},{"src":"https:\u002F\u002Fwww.paypal.com\u002Fsdk\u002Fjs?client-id=AezG3YQ0iS0ugtoBRA05497Vkyj9B26Qf4sIrSJoxWrEk5Y9EXn2mDhACSAX1UgIQQxAmAwV_MvZttp6&currency=EUR"}],"style":[]},
+    head: {"title":"TriviCare Natural Cosmetics","titleTemplate":"TriviCare Natural Cosmetics | %s","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"script":[{"src":"https:\u002F\u002Fjs.stripe.com\u002Fv3"},{"src":"https:\u002F\u002Fwww.paypal.com\u002Fsdk\u002Fjs?client-id=AezG3YQ0iS0ugtoBRA05497Vkyj9B26Qf4sIrSJoxWrEk5Y9EXn2mDhACSAX1UgIQQxAmAwV_MvZttp6&currency=EUR"}],"style":[]},
 
     store,
     router,
@@ -301,16 +301,16 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_vueprogresspath_0eff6422(app.context, inject)
   }
 
+  if (process.client && typeof nuxt_plugin_bootstrapvue_928a4c1e === 'function') {
+    await nuxt_plugin_bootstrapvue_928a4c1e(app.context, inject)
+  }
+
   if (process.client && typeof nuxt_plugin_vuetype_d25ba400 === 'function') {
     await nuxt_plugin_vuetype_d25ba400(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_vuestarrating_daf07ac8 === 'function') {
     await nuxt_plugin_vuestarrating_daf07ac8(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_bootstrap_68fdc73f === 'function') {
-    await nuxt_plugin_bootstrap_68fdc73f(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_vuejsmodal_f50827f4 === 'function') {

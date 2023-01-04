@@ -318,15 +318,13 @@
                             <div class="mb-2">
                                 <h3>Si estas registrado o quieres registrarte</h3>                        
                             </div>
-                            <div class="p-5">
+                            <div class="p-3 p-md-5">
                                 <n-link class="btn btn-theme w-50 m-auto" to="/login" title="Iniciar sesión">Iniciar sesión</n-link>
                             </div>
-                            <div class="d-flex justify-content-center align-self-center">
-                                <p class="text-decoration-line-through me-2">________________</p>
-                                <p> de lo contrario </p>
-                                <p class="text-decoration-line-through ms-2">_________________</p>
+                            <div class="p-3">
+                                <p class="text-middle-p"><span class="text-middle-span">de lo contrario</span></p>
                             </div>
-                            <div class="p-5">
+                            <div class="p-3 p-md-5">
                                 <h3>Puedes realizar tu pedido como invitado</h3>
                             </div>
                             <div>
@@ -989,15 +987,35 @@
     }
 
     .btn-theme{
-    background-color: $theme-color;
-    width: 100%;
-    color: $white;
-    font-weight: 500;
-    margin-top: 10px;
-    padding: 14px 30px 13px;
-        &:hover {
-            background-color: $dark;
+        background-color: $theme-color;
+        width: 100%;
+        color: $white;
+        font-weight: 500;
+        margin-top: 10px;
+        padding: 14px 30px 13px;
+            &:hover {
+                background-color: $dark;
+            }
+        @media only screen and (max-width: 400px) {
+            width: 80%;
+            padding: 13px 15px 13px;
         }
+    }
+
+    .text-middle-p {
+        width: 20rem; 
+        text-align: center; 
+        border-bottom: 1px solid rgb(125, 125, 125); 
+        line-height: 0.1em;
+        margin: auto;
+        @media only screen and (max-width: 350px) {
+            width: 10rem;
+        }
+    } 
+
+    .text-middle-span { 
+        background:#fff; 
+        padding:0 10px; 
     }
 
 </style>

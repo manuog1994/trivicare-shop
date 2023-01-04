@@ -29,7 +29,6 @@ export default defineNuxtConfig({
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
         script: [
-            { src: 'bootstrap/js/bootstrap.min.js'},
             { src: 'https://js.stripe.com/v3' },
             { src: 'https://www.paypal.com/sdk/js?client-id=' + process.env.PAYPAL_CLIENT_ID + '&currency=EUR' },
 
@@ -45,7 +44,6 @@ export default defineNuxtConfig({
     ],
 
 
-
     // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
     plugins: [
         '~/plugins/vue-awesome-swiper.js',
@@ -53,6 +51,10 @@ export default defineNuxtConfig({
         '~/plugins/observe-visibility.js',
         '~/plugins/persistedState.client.js',
         '~/plugins/vue-progress-path.js',
+        { 
+            src: '~/plugins/bootstrap-vue',
+            mode: 'client'
+        },
         {
             src: '~/plugins/vue-type.js',
             mode: 'client'
@@ -60,10 +62,6 @@ export default defineNuxtConfig({
         {
             src: '~/plugins/vue-star-rating.js', // <--- file name
             mode: 'client'
-        },
-        { 
-            src: '~/plugins/bootstrap.js',
-            mode: 'client' 
         },
         {
             src: '~/plugins/vue-js-modal', 

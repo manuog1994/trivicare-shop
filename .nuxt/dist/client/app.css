@@ -21963,6 +21963,28 @@ span.pointer-main {
 .btn-theme:hover {
   background-color: #333333;
 }
+@media only screen and (max-width: 400px) {
+.btn-theme {
+    width: 80%;
+    padding: 13px 15px 13px;
+}
+}
+.text-middle-p {
+  width: 20rem;
+  text-align: center;
+  border-bottom: 1px solid rgb(125, 125, 125);
+  line-height: 0.1em;
+  margin: auto;
+}
+@media only screen and (max-width: 350px) {
+.text-middle-p {
+    width: 10rem;
+}
+}
+.text-middle-span {
+  background: #fff;
+  padding: 0 10px;
+}
 .login-form[data-v-1bff8790] {
   max-width: 50rem;
   margin: 5rem auto;
