@@ -43,6 +43,16 @@ export default {
     },
 
     methods: {
+        makeToken(length) {
+            let result = '';
+            let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            document.cookie = "token_payment=" + result + "; path=/success; " + "expires=" + new Date(Date.now() + 60000).toUTCString();
+         },
+
         loadPaypal() {
             paypal.Buttons({
                 // Sets up the transaction when a payment button is clicked
@@ -60,7 +70,7 @@ export default {
                 onApprove: (data, actions) => {
                     const axios = this.$axios;
                     const order_id = this.order_id;
-
+                    this.makeToken(20);
                     return actions.order.capture().then(function(orderData) {
                         // Successful capture! For dev/demo purposes:
                         //console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));

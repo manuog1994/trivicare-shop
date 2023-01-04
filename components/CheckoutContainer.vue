@@ -3,10 +3,12 @@
         <div class="checkout-area pt-95 pb-100">
             <div class="container-fluid">
                 <div class="row" v-if="products.length > 0">
-                    <div v-if="$auth.loggedIn == true">
-                        <div v-if="$auth.user.user_profile.length > 0" class="col-lg-7">
+                    <!-- Auth user -->
+                    <div v-if="$auth.loggedIn === true" class="col-lg-7">
+                        <!-- select profile -->
+                        <div v-if="$auth.user.user_profile.length > 0" class="col-12">
                             <h3 class="text-center mb-2">Estas a punto de terminar tu compra</h3>
-                            <p class="text-center">Seleccione una de sus direcciones de envio, un método de pago, un tipo de envío y pulse en el botón "Pagar Ahora".</p>
+                            <p class="text-center">Seleccione una de sus direcciones de envio, un método de pago, un tipo de envío y pulse en el botón "Hacer pedido".</p>
                             <div class="panel panel-default single-my-account mt-2">
                                 <!-- Select profile -->
                                 <div class="panel-heading my-account-title">
@@ -237,7 +239,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-else class="col-lg-7">
+                        <!-- create profile -->
+                        <div v-else class="col-12">
                             <div class="billing-info-wrap">
                                 <h3>Datos de envío y facturación</h3>
                                 <form @submit.prevent="createProfile" class="row">
@@ -306,6 +309,285 @@
                                         <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
                                     </div>
                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Guest user -->
+                    <div v-else class="col-lg-7">
+                        <div class="text-center" :class="{'hidden': btnGuest ? false : true}">
+                            <div class="mb-2">
+                                <h3>Si estas registrado o quieres registrarte</h3>                        
+                            </div>
+                            <div class="p-5">
+                                <n-link class="btn btn-theme w-50 m-auto" to="/login" title="Iniciar sesión">Iniciar sesión</n-link>
+                            </div>
+                            <div class="d-flex justify-content-center align-self-center">
+                                <p class="text-decoration-line-through me-2">________________</p>
+                                <p> de lo contrario </p>
+                                <p class="text-decoration-line-through ms-2">_________________</p>
+                            </div>
+                            <div class="p-5">
+                                <h3>Puedes realizar tu pedido como invitado</h3>
+                            </div>
+                            <div>
+                                <a @click="btnGuest = false" class="btn btn-theme w-50" title="Realizar pedido como invitado">Como invitado</a>
+                            </div>
+                        </div>
+                        <div class="" :class="{'hidden': btnGuest ? true : false}">
+                            <h4 class="mb-4">Introduzca sus datos, seleccione un método de pago y uno de envío.</h4>
+                            <div class="panel panel-default single-my-account mt-2">
+                                <!-- Create guest profile -->
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-1" id="titleSelect">Introduzca sus datos de envío </a></h3>
+                                </div>
+                                <div id="my-account-1" class="panel-collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="myaccount-info-wrapper">
+                                            <!-- Formulario Guest -->
+                                            <form @submit.prevent="createUser" class="row" :class="{'hidden': formHidden ? false : true}">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="billing-info">
+                                                        <label>Nombre</label>
+                                                        <input v-model="guest.name" type="text" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="billing-info">
+                                                        <label>Apellidos</label>
+                                                        <input v-model="guest.lastname" type="text" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12">
+                                                    <div class="billing-info">
+                                                        <label>Dirección</label>
+                                                        <input v-model="guest.address" type="text" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12">
+                                                    <div class="billing-info">
+                                                        <label>Email</label>
+                                                        <input v-model="guest.email" type="text" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12">
+                                                    <div class="billing-info">
+                                                        <label>Opcional</label>
+                                                        <input v-model="guest.optional_address" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4">
+                                                    <div class="billing-info">
+                                                        <label>Código Postal</label>
+                                                        <input v-model="guest.zipcode" type="number" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-8 col-md-8">
+                                                    <div class="billing-info">
+                                                        <label>Ciudad</label>
+                                                        <input v-model="guest.city" type="text" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="billing-info">
+                                                        <label>Provincia</label>
+                                                        <input v-model="guest.state" type="text" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="billing-info">
+                                                        <label>País</label>
+                                                        <input v-model="guest.country" type="text" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 col-md-5">
+                                                    <div class="billing-info">
+                                                        <label>Teléfono</label>
+                                                        <input v-model="guest.phone" type="number" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-7 col-md-7">
+                                                    <div class="billing-info">
+                                                        <label>DNI</label>
+                                                        <input v-model="guest.dni" type="text" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-check ms-3 mb-4">
+                                                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Acepto los <n-link class="text-info" to="/terms-conditions">términos y condiciones</n-link>.
+                                                    </label>
+                                                </div>
+                                                <div class="billing-btn">
+                                                    <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
+                                                </div>
+                                            </form>
+                                            <!-- GuestStore View -->
+                                            <div class="row" :class="{'hidden': formHidden ? true : false}">
+                                                <div class="col-10 p-4 m-auto">
+                                                    <div>
+                                                        <p>Nombre y Apellidos: 
+                                                            <strong>{{ guestStore.name }} {{ guestStore.lastname }}</strong>
+                                                        </p>                                                    
+                                                    </div>
+                                                    <div>
+                                                        <p>Dirección: 
+                                                            <strong>{{ guestStore.address }}, {{ guestStore.optional_address }} {{ guestStore.zipcode }}, {{ guestStore.city }}, {{ guestStore.state }}, {{ guestStore.country }}</strong>
+                                                        </p>                                                    
+                                                    </div>
+                                                    <div>
+                                                        <p>Email: 
+                                                            <strong>{{ guestStore.email }}</strong>
+                                                        </p>                                                    
+                                                    </div>
+                                                    <div>
+                                                        <p>Teléfono: 
+                                                            <strong>{{ guestStore.phone }}</strong>
+                                                        </p>                                                    
+                                                    </div>
+                                                    <div>
+                                                        <p>DNI: 
+                                                            <strong>{{ guestStore.dni }}</strong>
+                                                        </p>                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="col-10 p-4">
+                                                    <div class="billing-btn">
+                                                        <a @click="deleteGuest" type="submit" title="Editar">Eliminar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Payment -->
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-3">Seleccione un método de pago </a></h3>
+                                </div>
+                                <div id="my-account-3" class="panel-collapse collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="p-4 p-md-5">
+                                            <div class="row d-flex align-items-center">
+                                                <div class="col-6">
+                                                    <div class="form-check mb-2 d-flex align-items-center">
+                                                        <input class="form-check-input mb-1" type="radio" name="payment" id="card_payment" v-model="payment" value="card">
+                                                        <label class="form-check-label ms-2" for="card_payment">
+                                                            Pago por tarjeta
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <img class="ms-2" src="/payment/metodosdepago.webp" alt="metodos-de-pago.webp" width="100%"/>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-4 d-flex align-items-center">
+                                                <div class="col-6">
+                                                    <div class="form-check d-flex align-items-center">
+                                                        <input class="form-check-input mb-1" type="radio" name="payment" id="paypal_payment" v-model="payment" value="paypal">
+                                                        <label class="form-check-label ms-2" for="paypal_payment">
+                                                            Pago por Paypal
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 d-flex justify-content-center">
+                                                    <img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100px" height="auto"/>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="row mt-4 d-flex align-items-center">
+                                                <div class="col-6">
+                                                    <div class="form-check d-flex align-items-center">
+                                                        <input class="form-check-input mb-1" type="radio" name="payment" id="contrareembolso_payment" v-model="payment" value="contrareembolso">
+                                                        <label class="form-check-label ms-2" for="contrareembolso_payment">
+                                                            Pago por contra reembolso (el precio incrementará un 1.75%)
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 d-flex justify-content-center">
+                                                    <img class="ms-2" src="/payment/reembolso.webp" alt="reembolso.webp" width="50px" />
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Shipping -->
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-4">Selecciona una opción de envío </a></h3>
+                                </div>
+                                <div id="my-account-4" class="panel-collapse collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="p-4 p-md-5">
+                                            <div v-if="payment == 'contrareembolso' " class="row mt-4 d-flex align-items-center">
+                                                <div class="col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input mb-1" type="radio" name="shipping" id="contrareembolso_shipping" v-model="shippingMethod" value="contrareembolso" checked>
+                                                        <label class="form-check-label ms-2" for="contrareembolso_shipping">
+                                                            Envío por Correos Contra Reembolso
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="d-flex justify-content-center">
+                                                        <img src="/payment/correos.webp" alt="correos.webp" width="100px"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div v-else>
+                                                <div class="row d-flex align-items-center">
+                                                    <div class="col-6 d-flex align-items-center">
+                                                        <div class="form-check mb-2">
+                                                            <input class="form-check-input mb-1" type="radio" name="shipping" id="correos" v-model="shippingMethod" value="correos">
+                                                            <label class="form-check-label ms-2" for="correos">
+                                                                Envío por Correos 48h/72h
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex justify-content-center">
+                                                            <img src="/payment/correos.webp" alt="correos.webp" width="100px"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-4 d-flex align-items-center">
+                                                    <div class="col-6">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input mb-1" type="radio" name="shipping" id="gls" v-model="shippingMethod" value="gls">
+                                                            <label class="form-check-label ms-2" for="gls">
+                                                                Envío por GLS 24h/48h
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex justify-content-center">
+                                                            <img src="/payment/gls.webp" alt="gls.webp" width="100px"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Order notes -->
+                                <div class="panel-heading my-account-title">
+                                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-5">Añade una nota a tu pedido</a></h3>
+                                </div>
+                                <div id="my-account-5" class="panel-collapse collapse" data-bs-parent="#faq">
+                                    <div class="panel-body">
+                                        <div class="p-4 p-md-5">
+                                            <div class="mb-2">
+                                                <h4 class="mb-4">Aquí puedes dejarnos una nota sobre tu pedido (es opcional)</h4>
+                                                <textarea v-model="note" name="note" id="note" cols="20" rows="5" placeholder="Escribe aquí tu nota"></textarea>
+                                            </div>
+                                            <div class="mt-5">
+                                                <h5 class="mb-4">En TriviCare Natural Cosmetics pensamos en el medio ambiente, es por ello que no incluimos la factura en papel en vuestros pedidos, pero si os es imprescindible podeís marcar la siguiente opción:</h5>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="1" id="invoice" v-model="invoice_paper">
+                                                    <label class="form-check-label" for="invoice">
+                                                        Incluir factura en papel
+                                                    </label>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -378,6 +660,12 @@
                         </div>
                     </div>
                 </div>
+                <div v-else>
+                    <div class="text-center p-5">
+                        <h2>No tienes elementos para efectuar tu compra, vuelve a la tienda y agrega los productos al carrito.</h2>
+                        <n-link class="btn btn-theme" to="/shop">Ir a la tienda</n-link>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -417,6 +705,23 @@
                 invoice_paper: false,
                 note: '',
 
+                guest: {
+                    user_id: '',
+                    user_profile_id: '',
+                    name: '',
+                    lastname: '',
+                    email: '',
+                    address: '',
+                    optional_address: '',
+                    city: '',
+                    state: '',
+                    zipcode: '',
+                    phone: '',
+                    country: '',
+                    dni: '',
+                },
+                formHidden: true,
+                btnGuest: true,
             }
         },
 
@@ -431,6 +736,10 @@
 
             total() {
                 return this.$store.getters.getTotal
+            },
+
+            guestStore() {
+                return this.$store.getters.getGuest
             },
 
             cuponStore() {
@@ -463,6 +772,7 @@
             },
 
             shippingMethod() {
+                this.disabled = false;
                 if(this.payment != null && this.shippingMethod != null && this.disabled == false) {
                     document.getElementById('end-select').disabled = false;
                     document.getElementById('my-account-5').classList.remove('collapse');
@@ -474,16 +784,34 @@
                 if(this.shippingMethod == 'contrareembolso') {
                     this.makeid(23);
                 }
+            },
+        },
+
+        async mounted() {
+            await this.$axios.get('/sanctum/csrf-cookie');
+            if(this.guestStore.length != 0) {
+                this.formHidden = false;
+                document.getElementById('titleSelect').innerHTML = 'Su dirección de envío';
+                document.getElementById('my-account-3').classList.remove('collapse');
             }
         },
 
-        mounted() {
-            
-        },
-
         methods: {
+            deleteGuest() {
+                this.$store.commit('CLEAR_GUEST');
+                this.formHidden = true;
+                document.getElementById('titleSelect').innerHTML = 'Introduzca sus datos de envío';
+            },
+
             onClick() {
                 this.createOrder();
+            },
+
+            async createUser() {
+                this.$store.commit('SET_GUEST', this.guest);
+                this.formHidden = false;
+                document.getElementById('titleSelect').innerHTML = 'Su dirección de envío';
+                document.getElementById('my-account-3').classList.remove('collapse');
             },
 
             async createProfile() {
@@ -521,53 +849,83 @@
             },
 
             enableButton(e) {
-                this.disabled = false;
                 this.userIdProfile = e.target.value;
                 document.getElementById("my-account-3").classList.remove("collapse");
             },
 
             async createOrder() {
-                const products = JSON.stringify(this.$store.getters.getCart);
-                const cupon = this.$store.getters.getCupon;
-                await this.$axios.post('/api/orders', {
-                    user_id: this.$auth.user.id,
-                    user_profile_id: this.userIdProfile,
-                    products: products,
-                    subTotal: this.$store.getters.getSubTotal,
-                    total: this.$store.getters.getTotal,
-                    coupon: cupon.code,
-                    shipping: this.shipping,
-                    shipping_method: this.shippingMethod,
-                    note: this.note,
-                    invoice_paper: this.invoice_paper,
-                    token_id: this.token_id
-                }).then((res) => {
-                    if(this.payment == 'card') {
-                        this.initStripe = true;
-                        this.order_id = res.data.order.id;
-                        document.getElementById('end-select').hidden = true;
-                        document.getElementById('my-account-5').classList.add('collapse');
-                    }else if(this.payment == 'paypal') {
-                        this.initPaypal = true;
-                        this.order_id = res.data.order.id;
-                        document.getElementById('end-select').hidden = true;
-                        document.getElementById('my-account-5').classList.add('collapse');
-                    }else if(this.payment == 'contrareembolso') {
-                        this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
-                    }
-                }).catch((err) => {
-                    console.log(err);
-                    if (err.response.status == 401) {
-                        this.$notify({
-                            group: 'foo',
-                            title: 'Error',
-                            text: 'Tu sesión ha caducado, por favor, vuelve a iniciar sesión',
-                            type: 'error'
-                        });
-                        //this.$auth.logout();
-                        this.$router.push('/login');
-                   }
-                })
+                if(this.guestStore.length != 0) {
+                    await this.$axios.post('/api/guest-store', this.guestStore)
+                    .then(res => {
+                        const resp = res.data.data;
+                        const guest = { ...this.guestStore, id: resp.id}
+                        this.$store.dispatch('addIdToGuest', guest);
+                        const products = JSON.stringify(this.$store.getters.getCart);
+                        const cupon = this.$store.getters.getCupon;
+                        this.$axios.post('/api/orders', {
+                            guest_id: this.guestStore.id,
+                            user_id: this.guestStore.user_id,
+                            user_profile_id: this.guestStore.user_profile_id,
+                            products: products,
+                            subTotal: this.$store.getters.getSubTotal,
+                            total: this.$store.getters.getTotal,
+                            coupon: cupon.code,
+                            shipping: this.shipping,
+                            shipping_method: this.shippingMethod,
+                            note: this.note,
+                            invoice_paper: this.invoice_paper,
+                            token_id: this.token_id
+                        }).then((res) => {
+                            if(this.payment == 'card') {
+                                this.initStripe = true;
+                                this.order_id = res.data.order.id;
+                                document.getElementById('end-select').hidden = true;
+                                document.getElementById('my-account-5').classList.add('collapse');
+                            }else if(this.payment == 'paypal') {
+                                this.initPaypal = true;
+                                this.order_id = res.data.order.id;
+                                document.getElementById('end-select').hidden = true;
+                                document.getElementById('my-account-5').classList.add('collapse');
+                            }else if(this.payment == 'contrareembolso') {
+                                this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
+                            }
+                        }).catch((err) => {
+                        })
+                    });
+                } else {
+
+                    const products = JSON.stringify(this.$store.getters.getCart);
+                    const cupon = this.$store.getters.getCupon;
+                    await this.$axios.post('/api/orders', {
+                        guest_id: null,
+                        user_id: this.$auth.user.id,
+                        user_profile_id: this.userIdProfile,
+                        products: products,
+                        subTotal: this.$store.getters.getSubTotal,
+                        total: this.$store.getters.getTotal,
+                        coupon: cupon.code,
+                        shipping: this.shipping,
+                        shipping_method: this.shippingMethod,
+                        note: this.note,
+                        invoice_paper: this.invoice_paper,
+                        token_id: this.token_id
+                    }).then((res) => {
+                        if(this.payment == 'card') {
+                            this.initStripe = true;
+                            this.order_id = res.data.order.id;
+                            document.getElementById('end-select').hidden = true;
+                            document.getElementById('my-account-5').classList.add('collapse');
+                        }else if(this.payment == 'paypal') {
+                            this.initPaypal = true;
+                            this.order_id = res.data.order.id;
+                            document.getElementById('end-select').hidden = true;
+                            document.getElementById('my-account-5').classList.add('collapse');
+                        }else if(this.payment == 'contrareembolso') {
+                            this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
+                        }
+                    }).catch((err) => {
+                    })
+                }
  
             },
 
@@ -590,7 +948,6 @@
             async resendEmail() {
                 await this.$axios.post('/api/resend-email/' + this.$auth.user.id)
                 .then(res => {
-                    //console.log(res);
                     this.$notify({ title: 'Email reenviado'});
                 }).catch((error) => {
                     this.errors = Object.values(error.response.data).flat();
@@ -605,7 +962,6 @@
                     result += characters.charAt(Math.floor(Math.random() * charactersLength));
                 }
                 this.token_id = result;
-                //console.log(this.token_id);
             },
         },
     };

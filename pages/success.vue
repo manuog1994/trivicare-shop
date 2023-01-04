@@ -9,7 +9,7 @@
                 <h1 v-else>Ha realizado su pago con éxito, Gracias por su pedido</h1>
                 <p class="mt-2">En unos minutos recibirá la factura y confirmación de su pedido, en el correo electrónico indicado en su cuenta.</p>
                 <p>Revise su bandeja de entrada y si no la ve dirijase a su carpeta de Spam.</p>
-                <p>La página se redirigirá a sus pedidos en {{ counter }} segundo(s), si no es así <n-link class="text-primary text-decoration-underline" to="/my-orders">pulse aquí</n-link>.</p>
+                <p>La página se redirigirá a sus pedidos en {{ counter }} segundo(s), si no es así <n-link class="text-primary text-decoration-underline" to="/">pulse aquí</n-link>.</p>
             </div>
         </div>
     </client-only>
@@ -18,7 +18,8 @@
 <script>
 
 export default {
-    auth: true,
+    middleware: 'token',
+    auth: false,
 
     data() {
         return {
@@ -29,9 +30,7 @@ export default {
 
     beforeMount() {
         const url = new URLSearchParams(window.location.search).get('payment_intent_client_secret');
-        if (url == null) {
-            this.$router.push('/cart');
-        }else {
+        if (url != null) {
             this.paymentIntent = url;
         }
     },
@@ -48,11 +47,12 @@ export default {
             const token_id = this.paymentIntent;
             await this.$axios.post('/api/order-paid/' + token_id)
                 .then((res) => {
-                    console.log(res.data)
+                    //console.log(res.data);
+                    this.$store.commit('CLEAR_GUEST');
                     this.$store.commit('CLEAR_CART');
                     this.$store.commit('CLEAR_CUPON');
                 }).catch((err) => {
-                    console.log(err)
+                    //console.log(err.response.data.message)
                 });
         },
 
@@ -62,7 +62,7 @@ export default {
                 this.counter--;
                 if (this.counter === 0) {
                     clearInterval(interval);
-                    this.$router.push('/my-orders');
+                    this.$router.push('/');
                 }
             }, 1000);
         }

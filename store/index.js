@@ -15,6 +15,7 @@ export const state = () => ({
     pagination: [],
     tags: [],
     cupon: [],
+    guest: [],
 })
 
 
@@ -34,6 +35,14 @@ export const getters = {
 
     getCupon(state) {
         return state.cupon
+    },
+
+    getGuest(state) {
+        return state.guest
+    },
+
+    getTokenPayment(state) {
+        return state.tokenPayment
     },
 
     getPagination(state) {
@@ -109,6 +118,14 @@ export const mutations = {
         state.cupon = cupon
     },
 
+    SET_GUEST(state, guest) {
+        state.guest = guest
+    },
+
+    SET_TOKENPAYMENT(state, tokenPayment) {
+        state.tokenPayment = tokenPayment
+    },
+
     UPDATE_CART(state, payload) {
         const item = state.cart.find(el => payload.id === el.id)
         if (item) {
@@ -118,6 +135,18 @@ export const mutations = {
         } else {
             const price = payload.discount ? payload.price_base - (payload.price_base *(payload.discount)/100) : payload.price_base;
             state.cart.push({...payload, cartQuantity: payload.cartQuantity, total: price })
+        }
+    },
+
+    UPDATE_GUEST(state, guest) {
+        const item = state.guest;
+        if (item) {
+            if(item.email === guest.email) {
+                item.id = guest.id
+                item.user_id = 3
+                item.user_profile_id = 1
+                return item;
+            }
         }
     },
 
@@ -140,6 +169,14 @@ export const mutations = {
 
     CLEAR_CUPON(state) {
         state.cupon = []
+    },
+
+    CLEAR_GUEST(state) {
+        state.guest = []
+    },
+
+    CLEAR_TOKENPAYMENT(state) {
+        state.tokenPayment = null
     },
     
     ADD_TO_WISHLIST(state, product) {
@@ -176,6 +213,9 @@ export const mutations = {
 
 // contains your actions
 export const actions = {
+    addIdToGuest({commit}, payload) {
+        commit('UPDATE_GUEST', payload)
+    },
 
     addToCartItem({commit}, payload) {
         commit('UPDATE_CART', payload)

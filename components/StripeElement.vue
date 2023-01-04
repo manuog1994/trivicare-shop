@@ -85,7 +85,18 @@ export default {
             paymentElement.mount("#payment-element");
         },
 
+        makeToken(length) {
+            let result = '';
+            let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            document.cookie = "token_payment=" + result + "; path=/success; " + "expires=" + new Date(Date.now() + 60000).toUTCString();
+         },
+
         async handleSubmit(e) {
+            this.makeToken(20);
             e.preventDefault();
             this.setLoading(true);
 

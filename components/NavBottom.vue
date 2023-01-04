@@ -4,7 +4,7 @@
             <div>
                 <div class="">
                     <div class="custom-banner">
-                        <vue-typer class="custom-two" text="Envío gratis a península partir de 50 €" :repeat="0"></vue-typer>
+                        <vue-typer class="custom-two" text="Envío gratis a Península y Baleares partir de 50 €" :repeat="0"></vue-typer>
                     </div>
                 </div>
             </div>
