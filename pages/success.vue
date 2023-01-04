@@ -47,12 +47,12 @@ export default {
             const token_id = this.paymentIntent;
             await this.$axios.post('/api/order-paid/' + token_id)
                 .then((res) => {
-                    //console.log(res.data);
+                    console.log(res.data);
                     this.$store.commit('CLEAR_GUEST');
                     this.$store.commit('CLEAR_CART');
                     this.$store.commit('CLEAR_CUPON');
                 }).catch((err) => {
-                    //console.log(err.response.data.message)
+                    console.log(err.response.data)
                 });
         },
 

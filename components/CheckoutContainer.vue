@@ -810,6 +810,7 @@
                 this.formHidden = false;
                 document.getElementById('titleSelect').innerHTML = 'Su dirección de envío';
                 document.getElementById('my-account-3').classList.remove('collapse');
+                console.log(this.guestStore);
             },
 
             async createProfile() {
@@ -874,6 +875,7 @@
                             invoice_paper: this.invoice_paper,
                             token_id: this.token_id
                         }).then((res) => {
+                            console.log(res.data);
                             if(this.payment == 'card') {
                                 this.initStripe = true;
                                 this.order_id = res.data.order.id;
@@ -888,6 +890,7 @@
                                 this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
                             }
                         }).catch((err) => {
+                            console.log(err);
                         })
                     });
                 } else {

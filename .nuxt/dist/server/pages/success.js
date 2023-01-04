@@ -25,9 +25,7 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(URLSearchParams) {/* harmony default export */ __webpack_exports__["default"] = ({middleware:'token',auth:false,data(){return{paymentIntent:null,counter:10};},beforeMount(){const url=new URLSearchParams(window.location.search).get('payment_intent_client_secret');if(url!=null){this.paymentIntent=url;}},mounted(){if(this.paymentIntent!=null){this.orderPaid();this.countdown();}},methods:{async orderPaid(){const token_id=this.paymentIntent;await this.$axios.post('/api/order-paid/'+token_id).then(res=>{//console.log(res.data);
-this.$store.commit('CLEAR_GUEST');this.$store.commit('CLEAR_CART');this.$store.commit('CLEAR_CUPON');}).catch(err=>{//console.log(err.response.data.message)
-});},// countdown of 10 seconds to redirect to my-orders
+/* WEBPACK VAR INJECTION */(function(URLSearchParams) {/* harmony default export */ __webpack_exports__["default"] = ({middleware:'token',auth:false,data(){return{paymentIntent:null,counter:10};},beforeMount(){const url=new URLSearchParams(window.location.search).get('payment_intent_client_secret');if(url!=null){this.paymentIntent=url;}},mounted(){if(this.paymentIntent!=null){this.orderPaid();this.countdown();}},methods:{async orderPaid(){const token_id=this.paymentIntent;await this.$axios.post('/api/order-paid/'+token_id).then(res=>{console.log(res.data);this.$store.commit('CLEAR_GUEST');this.$store.commit('CLEAR_CART');this.$store.commit('CLEAR_CUPON');}).catch(err=>{console.log(err.response.data);});},// countdown of 10 seconds to redirect to my-orders
 countdown(){const interval=setInterval(()=>{this.counter--;if(this.counter===0){clearInterval(interval);this.$router.push('/');}},1000);}}});
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! url */ "url")["URLSearchParams"]))
 
