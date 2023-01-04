@@ -10238,7 +10238,7 @@ createOrder:(data,actions)=>{return actions.order.create({purchase_units:[{descr
 }}]});},// Finalize the transaction after payer approval
 onApprove:(data,actions)=>{const axios=this.$axios;const order_id=this.order_id;this.makeToken(20);return actions.order.capture().then(function(orderData){// Successful capture! For dev/demo purposes:
 //console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-const transaction=orderData.purchase_units[0].payments.captures[0];const token_id=transaction.id;axios.post('/api/order-paid-paypal/'+token_id,{order_id:order_id});actions.redirect("http://localhost:3000"+'/success?payment_intent_client_secret='+transaction.id);});}}).render('#paypal-button-container');}}});
+const transaction=orderData.purchase_units[0].payments.captures[0];const token_id=transaction.id;axios.post('/api/order-paid-paypal/'+token_id,{order_id:order_id,token_id:token_id}).then(res=>console.log(res.data)).catch(err=>console.log(err.response.data));actions.redirect("http://localhost:3000"+'/success?payment_intent_client_secret='+transaction.id);});}}).render('#paypal-button-container');}}});
 
 /***/ }),
 
