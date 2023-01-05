@@ -60,7 +60,47 @@
             }
         },
 
+        mounted() {
+            this.getProducts()
+        },
+
         methods: {
+            async getProducts() {
+                await this.$store.dispatch('getProducts', {
+                    perPage: '',
+                    page: '',
+                    category: '',
+                    search: '',
+                    slug: '',
+                    sort: '',
+                    tag: '',
+                    status: 2,
+                })
+                let prod = this.$store.getters.getProducts;
+                let response = prod.data;
+                let cart = this.products;
+                let cartProducts = cart.map((item) => {
+                    return item.id
+                }).toString();
+
+                let products = response.filter((item) => {
+                    if (cartProducts.includes(item.id)) {
+                        return item
+                    }
+                })
+
+                cart.forEach((item) => {
+                    products.forEach((product) => {
+                        if (item.id == product.id) {
+                            product.cartQuantity = item.cartQuantity
+                        }
+                    })
+                })
+
+                this.$store.dispatch('refreshCart', products)
+
+            },
+
             removeProduct(product) {
                 // for notification
                 this.$notify({ title: 'Producto eliminado'})

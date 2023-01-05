@@ -1,13 +1,15 @@
 <template>
-    <div class="cart-page-wrapper">
-        <HeaderWithTopbar containerClass="container-fluid" />
-        <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>                    
-        <div id="post-nav" class="" @click="closeMenus">
-            <NavBottom/>
-            <WishListContainer />
-            <TheFooter />
-        </div>    
-    </div>
+    <client-only>
+        <div class="cart-page-wrapper">
+            <HeaderWithTopbar containerClass="container-fluid" />
+            <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>                    
+            <div id="post-nav" class="" @click="closeMenus">
+                <NavBottom/>
+                <WishListContainer />
+                <TheFooter />
+            </div>    
+        </div>
+    </client-only>
 </template>
 
 <script>

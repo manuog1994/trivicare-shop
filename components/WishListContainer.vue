@@ -22,7 +22,7 @@
                                         <td class="product-thumbnail">
                                             <n-link :to="`/product/${product.slug}`">
                                                 <nuxt-img v-if="product.images > 0" provider="customProvider" :src="product.images[0].path" :alt="product.name"/>
-                                                <nuxt-img v-else provider="customProvider" src="default.webp" :alt="product.name"/> 
+                                                <nuxt-img v-else provider="customProvider" src="nuxt/default.webp" :alt="product.name"/> 
                                             </n-link>
                                         </td>
                                         <td class="product-name">
@@ -69,8 +69,47 @@ export default {
         }
     },
 
+    mounted() {
+        this.getProducts()
+    },
     
     methods: {
+        async getProducts() {
+                await this.$store.dispatch('getProducts', {
+                    perPage: '',
+                    page: '',
+                    category: '',
+                    search: '',
+                    slug: '',
+                    sort: '',
+                    tag: '',
+                    status: 2,
+                })
+                let prod = this.$store.getters.getProducts;
+                let response = prod.data;
+                let wish = this.products;
+                let wishProducts = wish.map((item) => {
+                    return item.id
+                }).toString();
+
+                let products = response.filter((item) => {
+                    if (wishProducts.includes(item.id)) {
+                        return item
+                    }
+                })
+
+                wish.forEach((item) => {
+                    products.forEach((product) => {
+                        if (item.id == product.id) {
+                            product
+                        }
+                    })
+                })
+
+                this.$store.dispatch('refreshWishList', products)
+
+            },
+
         addToCart(product) {
             const prod = {...product, cartQuantity: 1}
             // for notification

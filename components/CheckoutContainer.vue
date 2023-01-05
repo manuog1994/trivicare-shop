@@ -791,10 +791,47 @@
                 this.formHidden = false;
                 document.getElementById('titleSelect').innerHTML = 'Su dirección de envío';
                 document.getElementById('my-account-3').classList.remove('collapse');
-            }
+            };
+
+            this.getProducts();
         },
 
         methods: {
+            async getProducts() {
+                await this.$store.dispatch('getProducts', {
+                    perPage: '',
+                    page: '',
+                    category: '',
+                    search: '',
+                    slug: '',
+                    sort: '',
+                    tag: '',
+                    status: 2,
+                })
+                const prod = this.$store.getters.getProducts;
+                const response = prod.data;
+                const cart = this.products;
+                const cartProducts = cart.map((item) => {
+                    return item.id
+                }).toString();
+
+                const products = response.filter((item) => {
+                    if (cartProducts.includes(item.id)) {
+                        return item
+                    }
+                })
+
+                console.log(products)
+                
+                products.forEach((item) => {
+                    const prod = { ...item}
+                    console.log(prod)
+                    //this.$store.dispatch('refreshCart', prod)
+                });
+                
+
+            },
+
             deleteGuest() {
                 this.$store.commit('CLEAR_GUEST');
                 this.formHidden = true;
@@ -810,7 +847,7 @@
                 this.formHidden = false;
                 document.getElementById('titleSelect').innerHTML = 'Su dirección de envío';
                 document.getElementById('my-account-3').classList.remove('collapse');
-                console.log(this.guestStore);
+                //console.log(this.guestStore);
             },
 
             async createProfile() {
@@ -875,7 +912,7 @@
                             invoice_paper: this.invoice_paper,
                             token_id: this.token_id
                         }).then((res) => {
-                            console.log(res.data);
+                            //console.log(res.data);
                             if(this.payment == 'card') {
                                 this.initStripe = true;
                                 this.order_id = res.data.order.id;
@@ -890,7 +927,7 @@
                                 this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
                             }
                         }).catch((err) => {
-                            console.log(err);
+                            //console.log(err);
                         })
                     });
                 } else {

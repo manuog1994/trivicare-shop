@@ -138,6 +138,16 @@ export const mutations = {
         }
     },
 
+    REFRESH_WISHLIST(state, payload) {
+        state.wishlist = []
+        state.wishlist.push(...payload)
+    },
+
+    REFRESH_CART(state, products) {
+        state.cart = []
+        state.cart.push(...products)
+    },
+
     UPDATE_GUEST(state, guest) {
         const item = state.guest;
         if (item) {
@@ -215,6 +225,14 @@ export const mutations = {
 export const actions = {
     addIdToGuest({commit}, payload) {
         commit('UPDATE_GUEST', payload)
+    },
+
+    refreshWishList({commit}, products) {
+        commit('REFRESH_WISHLIST', products)
+    },
+
+    refreshCart({commit}, products) {
+        commit('REFRESH_CART', products)
     },
 
     addToCartItem({commit}, payload) {

@@ -79,7 +79,7 @@ export default {
                         axios.post('/api/order-paid-paypal/' + token_id, {
                             order_id: order_id,
                             token_id: token_id
-                        }).then(res => console.log(res.data)).catch(err => console.log(err.response.data));
+                        });
                         actions.redirect( process.env.url + '/success?payment_intent_client_secret=' + transaction.id);
                 });
             }
