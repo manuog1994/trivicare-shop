@@ -252,17 +252,18 @@
                     }
                 })
                 if(this.errorStock == false){
+                    document.cookie = "duration=900; expires=" + new Date(Date.now() + 600000).toUTCString();
+
                     this.makeid(27);
                     this.$axios.post('/api/reserve', {
                         products: JSON.stringify(products),
                         token_reserve: this.token_reserve,
                     }).then(res => {
+                        this.$router.push('/checkout' + '?reserve=' + this.token_reserve)
                         console.log(res.data)
                     }).catch(err => {
                         console.log(err)
                     })
-                    document.cookie= "duration=900; path=/checkout; expires=" + new Date(Date.now() + 60000).toUTCString();
-                    this.$router.push('/checkout' + '?reserve=' + this.token_reserve)
                 }
             },
 
