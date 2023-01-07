@@ -21985,6 +21985,21 @@ span.pointer-main {
   background: #fff;
   padding: 0 10px;
 }
+.bg-red-color {
+  background-color: #E94B4C;
+}
+.bg-green-color {
+  background-color: #C6D42E;
+}
+.bg-purple-color {
+  background-color: #DD88B8;
+}
+.bg-blue-color {
+  background-color: #2AB5B2;
+}
+.bg-orange-color {
+  background-color: #F9B34C;
+}
 .login-form[data-v-1bff8790] {
   max-width: 50rem;
   margin: 5rem auto;
@@ -22629,6 +22644,15 @@ form[data-v-19098524] {
   background-color: #2AB5B2;
 }
 
+.img-mobile {
+    width: 100%;
+}
+.bg-slider-img {
+    background-color: #f5f5f5a3;
+    padding: 8rem 5rem;
+}
+
+
 .policy-icons{
     width: 80px;
     height: auto;
@@ -22656,15 +22680,6 @@ form[data-v-19098524] {
     display: flex;
     justify-content: center;
     margin-bottom: 0.5rem;
-}
-
-
-.img-mobile {
-    width: 100%;
-}
-.bg-slider-img {
-    background-color: #f5f5f5a3;
-    padding: 8rem 5rem;
 }
 
 

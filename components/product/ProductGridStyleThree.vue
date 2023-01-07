@@ -30,7 +30,7 @@
                         <!-- <button class="btn" title="Compare" @click="addToCompare(product)"> 
                             <i class="pe-7s-shuffle"></i>
                         </button> -->
-                        <button class="btn" title="Añadir al carrito" @click="addToCart(product)">
+                        <button v-if="product.stock > 0" class="btn" title="Añadir al carrito" @click="addToCart(product)">
                             <i class="pe-7s-cart"></i>
                         </button>
                         <button class="btn" title="Añadir a la lista de deseos" @click="addToWishlist(product)">

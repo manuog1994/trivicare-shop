@@ -14,8 +14,13 @@
                             <h4>
                                 <n-link :to="`/product/${product.slug}`">{{ product.name}}</n-link>
                             </h4>
-                            <h6>Cant: {{ product.cartQuantity }}</h6>
-                            <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                            <div v-if="product.stock > 0">
+                                <h6>Cant: {{ product.cartQuantity }}</h6>
+                                <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                            </div>
+                            <div v-else>
+                                <h6 class="text-danger">No hay stock</h6>
+                            </div>
                         </div>
                         <div class="shopping-cart-delete">
                             <button @click="removeProduct(product)" title="Eliminar producto">
@@ -29,7 +34,8 @@
                 </div>
                 <div class="shopping-cart-btn btn-hover text-center" @click="$emit('minicartClose')">
                     <n-link to="/cart" class="default-btn">ver carrito</n-link>
-                    <n-link to="/checkout" class="default-btn">comprar ahora</n-link>
+                    <a v-if="!errorStock" class="default-btn" @click="newReserve">Comprar Ahora</a>
+                    <p class="text-danger" v-else>{{ errorStockMessage }}</p>
                 </div>
             </div>
             <div class="shopping-cart-content text-center" v-else>
@@ -50,6 +56,14 @@
 <script>
     export default {
         props: ["miniCart"],
+
+        data() {
+            return {
+                errorStock: false,
+                errorStockMessage: '',
+                token_reserve: '',
+            }
+        },
 
         computed: {
             products() {
@@ -109,6 +123,39 @@
 
             discountedPrice(product) {
                 return product.price_base - (product.price_base * product.discount / 100)
+            },
+
+            makeid(length) {
+                let result = '';
+                let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let charactersLength = characters.length;
+                for ( var i = 0; i < length; i++ ) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                this.token_reserve = result;
+            },
+
+            newReserve() {
+                this.getProducts();
+                let products = this.products;
+                let stock = products.map((item) => {
+                    if(item.stock == '0'){
+                        this.errorStock = true;
+                        this.errorStockMessage = 'Uno o varios de los productos que tienes en carrito no esta disponible, por favor, elimínalo del carrito y vuelve a intentarlo si deseas realizar el pedido.'
+                    }
+                })
+                if(this.errorStock == false){
+                    this.makeid(27);
+                    this.$axios.post('/api/reserve', {
+                        products: JSON.stringify(products),
+                        token_reserve: this.token_reserve,
+                    }).then(res => {
+                        console.log(res.data)
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                    this.$router.push('/checkout' + '?reserve=' + this.token_reserve)
+                }
             },
         },
     };

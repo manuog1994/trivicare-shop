@@ -145,77 +145,7 @@
                                         <div id="my-account-4" class="panel-collapse collapse" data-bs-parent="#faq">
                                             <div class="panel-body">
                                                 <div class="myaccount-info-wrapper">
-                                                    <form @submit.prevent="createProfile" class="row">
-                                                        <div class="col-lg-6 col-md-6">
-                                                            <div class="billing-info">
-                                                                <label>Nombre</label>
-                                                                <input v-model="name" type="text" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6">
-                                                            <div class="billing-info">
-                                                                <label>Apellidos</label>
-                                                                <input v-model="lastname" type="text" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12 col-md-12">
-                                                            <div class="billing-info">
-                                                                <label>Dirección</label>
-                                                                <input v-model="address" type="text" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12 col-md-12">
-                                                            <div class="billing-info">
-                                                                <label>Opcional</label>
-                                                                <input v-model="optional_address" type="text">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4">
-                                                            <div class="billing-info">
-                                                                <label>Código Postal</label>
-                                                                <input v-model="zipcode" type="number" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-8 col-md-8">
-                                                            <div class="billing-info">
-                                                                <label>Ciudad</label>
-                                                                <input v-model="city" type="text" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6">
-                                                            <div class="billing-info">
-                                                                <label>Provincia</label>
-                                                                <input v-model="state" type="text" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6">
-                                                            <div class="billing-info">
-                                                                <label>País</label>
-                                                                <input v-model="country" type="text" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-5 col-md-5">
-                                                            <div class="billing-info">
-                                                                <label>Teléfono</label>
-                                                                <input v-model="phone" type="number" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-7 col-md-7">
-                                                            <div class="billing-info">
-                                                                <label>DNI</label>
-                                                                <input v-model="dni" type="text" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-check ms-4">
-                                                            <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
-                                                            <label class="form-check-label" for="flexCheckDefault">
-                                                                He leído y acepto la <a href="#" title="Ver política de privacidad">política de privacidad</a>.
-                                                            </label>
-                                                        </div>
-                                                        <div class="billing-btn mt-5">
-                                                            <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
-                                                        </div>
-                                                    </form>
+                                                    <NewProfile />
                                                 </div>
                                             </div>
                                         </div>
@@ -246,24 +176,13 @@
                 password: '',
                 password_confirmation: '',
                 errors: [],
-
-                name: '',
-                lastname: '',
-                address: '',
-                optional_address: '',
-                city: '',
-                state: '',
-                zipcode: '',
-                phone: '',
-                country: '',
-                dni: '',
-
                 disabled: true,
                 checked: false,
              }
         },
 
         components: {
+            NewProfile: () => import('~/components/profile/NewProfile.vue'),
         },
 
         mounted() {
@@ -351,34 +270,6 @@
                         this.$router.push('/')
                     }
                 })
-            },
-
-            async createProfile() {
-                const response = await this.$axios.post('/api/register-profile', {
-                    user_id: this.$auth.user.id,
-                    name: this.name,
-                    lastname: this.lastname,
-                    address: this.address,
-                    optional_address: this.optional_address,
-                    city: this.city,
-                    state: this.state,
-                    zipcode: this.zipcode,
-                    phone: this.phone,
-                    country: this.country,
-                    dni: this.dni,    
-                })
-                this.name = '';
-                this.lastname = '';
-                this.address = '';
-                this.optional_address = '';
-                this.city = '';
-                this.state = '';
-                this.zipcode = '';
-                this.phone = '';
-                this.country = '';
-                this.dni = '';
-                this.$auth.fetchUser()
-                this.$notify({ type: 'success', text: 'Dirección creada correctamente' })
             },
 
             async resendEmail() {

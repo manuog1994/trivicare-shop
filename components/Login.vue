@@ -30,7 +30,7 @@
         </form>
         <div class="mt-5">
             <div class="col-md-12 d-flex justify-content-center">
-                <a @click.prevent="loginGoogle" class="btn btn-light">
+                <a @click.prevent="loginGoogle" class="btn btn-light rounded-0">
                     <div class="d-flex justify-content-center align-items-center">
                         <span class="text-center">Inicia sesión con</span>
                         <div class="row">

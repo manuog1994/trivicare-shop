@@ -13,8 +13,6 @@
 </template>
 
 <script>
-    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
-    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         middleware: 'auth',
 
@@ -26,8 +24,6 @@
             NavBottom: () => import("@/components/NavBottom"),
             Auth: () => import("@/components/Auth"),
             TheFooter: () => import("@/components/TheFooter"),
-            CookieConsent,
-            VueIfBot
         },
 
 

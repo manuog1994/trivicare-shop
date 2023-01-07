@@ -1,5 +1,8 @@
 <template>
     <div class="cart-main-area pt-90 pb-100">
+        <div class="alert alert-danger hidden" role="alert">
+            A simple danger alert—check it out!
+        </div>
         <div class="container-fluid">
             <div class="row" v-if="products.length > 0">
                 <div class="col-12 col-md-8">
@@ -42,7 +45,7 @@
                                     </div>
                                     <div class="product-quantity">
                                         <div class="row">
-                                            <div class="col-12 d-md-flex align-items-md-center">
+                                            <div v-if="product.stock != 0" class="col-12 d-md-flex align-items-md-center">
                                                 <div class="me-3">
                                                     <h5>Cantidad: </h5>
                                                 </div>
@@ -82,7 +85,8 @@
                             </h5>
                             <!-- <h5>IVA 21% <span>{{ (total * 0.21).toFixed(2) }} &euro;</span></h5> -->
                             <h4 class="grand-total-title">Total  <span>{{ (total * 1.21).toFixed(2) }} &euro;</span></h4>
-                            <n-link to="/checkout">Tramitar pedido</n-link>
+                            <a v-if="!errorStock" class="btn btn-theme rounded-0" @click="newReserve">Tramitar pedido</a>
+                            <p class="text-danger" v-else>{{ errorStockMessage }}</p>
                         </div>
                     </div>
                     <!-- Bloque Código Descuento -->
@@ -94,13 +98,12 @@
                             <div class="discount-code">
                                 <p>Introduce el código descuento.</p>
                                 <p v-if="error" class="text-danger">{{ error }}</p>
-                                <form @submit.prevent="validationCupon">
+                                <form @submit.prevent="getCupons">
                                     <input v-model="inputCupons" type="text" name="name" required>
-                                    <button class="cart-btn-2" type="submit" title="Aplicar cupón">Aplicar cupón</button>
+                                    <button class="cart-btn-2 rounded-0" type="submit" title="Aplicar cupón">Aplicar cupón</button>
                                 </form>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-12">
@@ -108,10 +111,10 @@
                         <div class="col-lg-12">
                             <div class="cart-shiping-update-wrapper">
                                 <div class="cart-clear">
-                                    <button @click="clearCart()" title="Vaciar carrito">Vaciar Carrito</button>
+                                    <button class="rounded-0" @click="clearCart()" title="Vaciar carrito">Vaciar Carrito</button>
                                 </div>
                                 <div class="cart-shiping-update">
-                                    <n-link to="/shop">Continuar Comprando</n-link>
+                                    <n-link class="rounded-0" to="/shop">Continuar Comprando</n-link>
                                 </div>
                             </div>
                         </div>
@@ -146,6 +149,10 @@
                 error: '',
                 cupon: '',
                 selectQuantity: 1,
+                errorStock: false,
+                errorStockMessage: '',
+                token_reserve: '',
+                duration: 900,
             }
         },
 
@@ -170,10 +177,6 @@
 
 
         mounted() {
-            setTimeout(() => {
-                this.getCupons()
-            }, 1000)
-
             var tituloOriginal = document.title; // Lo guardamos para restablecerlo
             window.onblur = function(){ // Si el usuario se va a otro lado...
             document.title = "Ey, vuelve aquí!";// Cambiamos el título
@@ -181,6 +184,11 @@
 
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
+            }
+
+            const cupon = this.$store.getters.getCupon
+            if (cupon) {
+                this.getCupons();
             }
 
             this.getProducts();
@@ -224,6 +232,40 @@
 
             },
 
+            makeid(length) {
+                let result = '';
+                let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let charactersLength = characters.length;
+                for ( var i = 0; i < length; i++ ) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                this.token_reserve = result;
+            },
+
+            newReserve() {
+                this.getProducts();
+                let products = this.products;
+                let stock = products.map((item) => {
+                    if(item.stock == '0'){
+                        this.errorStock = true;
+                        this.errorStockMessage = 'Uno o varios de los productos que tienes en carrito no esta disponible, por favor, elimínalo del carrito y vuelve a intentarlo si deseas realizar el pedido.'
+                    }
+                })
+                if(this.errorStock == false){
+                    this.makeid(27);
+                    this.$axios.post('/api/reserve', {
+                        products: JSON.stringify(products),
+                        token_reserve: this.token_reserve,
+                    }).then(res => {
+                        console.log(res.data)
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                    document.cookie= "duration=900; path=/checkout; expires=" + new Date(Date.now() + 60000).toUTCString();
+                    this.$router.push('/checkout' + '?reserve=' + this.token_reserve)
+                }
+            },
+
             incrementProduct(product) {
                 const prod = { ...product, cartQuantity: 1 }
                 if (product.cartQuantity < product.stock) {
@@ -247,6 +289,7 @@
                 this.$notify({ title: 'Producto eliminado del carrito!'})
 
                 this.$store.dispatch('removeProductFromCart', product)
+                this.getProducts();
             },
 
             discountedPrice(product) {
@@ -266,38 +309,44 @@
                 await this.$axios.get('/api/cupons')
                     .then(response => {
                         this.cupons = Object.values(response.data.data).flat();
+                        this.cupons.filter(cupon => {
+                            if (cupon.code == this.inputCupons) {
+                                this.cupon = cupon;
+                            }
+                        });
+                        const expires = new Date(this.cupon.validity);
+                        const today = new Date();
+                        if (this.cupon) {
+                            if (expires < today) {
+                                this.error = 'El cupón ha caducado';
+                                this.inputCupons = '';
+                            } else if (this.cupon.status == 1) {
+                                this.error = 'El cupón ya no está disponible';
+                                this.inputCupons = '';
+                            } else {
+                                this.error = '';
+                                this.discountCupon = this.cupon.discount;
+                                this.$store.commit('SET_CUPON', this.cupon);
+                                this.inputCupons = '';
+                                this.$notify({ title: 'Cupón aplicado!'})
+                            }
+                        } else if (this.$store.getters.getCupon) {
+                            const cupon = this.$store.getters.getCupon;
+                            const expires = new Date(cupon.validity);
+                            const today = new Date();
+
+                            if(expires < today) {
+                                this.$store.commit('CLEAR_CUPON');
+                                this.$notify({ title: 'El cupón ha caducado!'})
+                            }
+                            
+                        } else{
+                            this.error = 'El cupón no es válido';
+                            this.inputCupons = '';
+                        }
                     }).catch(error => {
                         console.log(error)
                     })
-            },
-
-            validationCupon() {
-                this.cupons.filter(cupon => {
-                    if (cupon.code == this.inputCupons) {
-                        this.cupon = cupon;
-                    }
-                });
-
-                const expires = new Date(this.cupon.validity);
-                const today = new Date();
-                if (this.cupon) {
-                    if (expires < today) {
-                        this.error = 'El cupón ha caducado';
-                        this.inputCupons = '';
-                    } else if (this.cupon.status == 1) {
-                        this.error = 'El cupón ya no está disponible';
-                        this.inputCupons = '';
-                    } else {
-                        this.error = '';
-                        this.discountCupon = this.cupon.discount;
-                        this.$store.commit('SET_CUPON', this.cupon);
-                        this.inputCupons = '';
-                        this.$notify({ title: 'Cupón aplicado!'})
-                    }
-                }else{
-                    this.error = 'El cupón no es válido';
-                    this.inputCupons = '';
-                }
             },
 
             deleteCupon() {

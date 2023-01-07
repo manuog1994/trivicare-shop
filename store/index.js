@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 
+
 Vue.use(Vuex);
 
 
@@ -16,6 +17,7 @@ export const state = () => ({
     tags: [],
     cupon: [],
     guest: [],
+    countdown: '',
 })
 
 
@@ -35,6 +37,10 @@ export const getters = {
 
     getCupon(state) {
         return state.cupon
+    },
+
+    getCountdown(state) {
+        return state.countdown
     },
 
     getGuest(state) {
@@ -124,6 +130,10 @@ export const mutations = {
 
     SET_TOKENPAYMENT(state, tokenPayment) {
         state.tokenPayment = tokenPayment
+    },
+
+    SET_COUNTDOWN(state, countdown) {
+        state.countdown = countdown
     },
 
     UPDATE_CART(state, payload) {
@@ -223,6 +233,10 @@ export const mutations = {
 
 // contains your actions
 export const actions = {
+    countdown({commit}, payload) {
+        commit('SET_COUNTDOWN', payload)
+    },
+
     addIdToGuest({commit}, payload) {
         commit('UPDATE_GUEST', payload)
     },
@@ -263,6 +277,7 @@ export const actions = {
         commit('REMOVE_FROM_COMPARE', product)
     },
 
+ 
     async getProducts(context, {perPage, page, category, search, slug, sort, tag, status}) {
         const { data } = await axios.get(
           process.env.baseUrl + '/api/products?perPage=' + perPage + '&page=' + page + '&filter[category_id]=' + category + '&filter[name]=' + search + '&filter[slug]=' + slug + '&filter[status]=' + status +'&sort=' + sort + '&tags=' + tag

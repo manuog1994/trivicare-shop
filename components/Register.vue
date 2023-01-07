@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="button-box mt-4">
-                <button class="btn" :class="{'disabled': checked ? false : true}" type="submit" title="Registrarse">Registrar</button>
+                <button class="btn rounded-0" :class="{'disabled': checked ? false : true}" type="submit" title="Registrarse">Registrar</button>
             </div>
         </form>
     </div>

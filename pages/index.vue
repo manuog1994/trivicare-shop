@@ -82,7 +82,7 @@
 
         head() {
             return {
-                title: 'Cuidamos de tú piel | Cosmética natural y ecológica',
+                title: 'TriviCare Natural Cosmetics | Cuidamos de tú piel | Cosmética natural y ecológica',
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },

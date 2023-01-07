@@ -1,6 +1,11 @@
 <template>
     <div>
-        <div class="checkout-area pt-95 pb-100">
+        <div v-if="!cancelOrder" class="checkout-area mt-5 pb-100">
+            <div class="text-center bg-blue-color p-2 fixed-bottom">
+                <p>
+                    <strong class="fs-5">Su pedido se cancelará en {{ countdown }}</strong>
+                </p>
+            </div>
             <div class="container-fluid">
                 <div class="row" v-if="products.length > 0">
                     <!-- Auth user -->
@@ -17,7 +22,7 @@
                                 <div id="my-account-1" class="panel-collapse" data-bs-parent="#faq">
                                     <div class="panel-body">
                                         <div class="form-group p-4 p-md-5">
-                                            <select class="form-select" v-model="selected" @change="enableButton" ref="userIdProfile">
+                                            <select class="form-select rounded-0" v-model="selected" @change="enableButton" ref="userIdProfile">
                                                 <option v-if=" selected == 'Seleccione una dirección' " selected disabled>{{ selected }}</option>
                                                 <option v-else selected disabled>Seleccione una dirección</option>
                                                 <client-only>
@@ -34,77 +39,7 @@
                                 <div id="my-account-2" class="panel-collapse collapse" data-bs-parent="#faq">
                                     <div class="panel-body">
                                         <div class="myaccount-info-wrapper">
-                                            <form @submit.prevent="createProfile" class="row">
-                                                <div class="col-lg-6 col-md-6">
-                                                    <div class="billing-info">
-                                                        <label>Nombre</label>
-                                                        <input v-model="name" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6">
-                                                    <div class="billing-info">
-                                                        <label>Apellidos</label>
-                                                        <input v-model="lastname" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <div class="billing-info">
-                                                        <label>Dirección</label>
-                                                        <input v-model="address" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <div class="billing-info">
-                                                        <label>Opcional</label>
-                                                        <input v-model="optional_address" type="text">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-4">
-                                                    <div class="billing-info">
-                                                        <label>Código Postal</label>
-                                                        <input v-model="zipcode" type="number" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-8 col-md-8">
-                                                    <div class="billing-info">
-                                                        <label>Ciudad</label>
-                                                        <input v-model="city" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6">
-                                                    <div class="billing-info">
-                                                        <label>Provincia</label>
-                                                        <input v-model="state" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6">
-                                                    <div class="billing-info">
-                                                        <label>País</label>
-                                                        <input v-model="country" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-5 col-md-5">
-                                                    <div class="billing-info">
-                                                        <label>Teléfono</label>
-                                                        <input v-model="phone" type="number" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-7 col-md-7">
-                                                    <div class="billing-info">
-                                                        <label>DNI</label>
-                                                        <input v-model="dni" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="form-check ms-3 mb-4">
-                                                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        He leído y acepto la <a href="#" title="Ver política de privacidad">política de privacidad</a>.
-                                                    </label>
-                                                </div>
-                                                <div class="billing-btn">
-                                                    <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
-                                                </div>
-                                            </form>
+                                            <NewProfile />
                                         </div>
                                     </div>
                                 </div>
@@ -241,74 +176,11 @@
                         </div>
                         <!-- create profile -->
                         <div v-else class="col-12">
-                            <div class="billing-info-wrap">
-                                <h3>Datos de envío y facturación</h3>
-                                <form @submit.prevent="createProfile" class="row">
-                                    <div class="col-lg-5 col-md-5">
-                                        <div class="billing-info mb-20">
-                                            <label>Nombre</label>
-                                            <input v-model="name" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-7 col-md-7">
-                                        <div class="billing-info mb-20">
-                                            <label>Apellidos</label>
-                                            <input v-model="lastname" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="billing-info mb-20">
-                                            <label>Dirección</label>
-                                            <input v-model="address" class="billing-address" placeholder="Calle y número" type="text" required>
-                                            <input v-model="optional_address" placeholder="Opcional" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-7 col-md-7">
-                                        <div class="billing-info mb-20">
-                                            <label>Ciudad</label>
-                                            <input v-model="city" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 col-md-5">
-                                        <div class="billing-info mb-20">
-                                            <label>Provincia</label>
-                                            <input v-model="state" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="billing-info mb-20">
-                                            <label>Código Postal</label>
-                                            <input v-model="zipcode" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="billing-info mb-20">
-                                            <label>Teléfono</label>
-                                            <input v-model="phone" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="billing-info mb-20">
-                                            <label>DNI</label>
-                                            <input v-model="dni" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="billing-info mb-20">
-                                            <label>País</label>
-                                            <input v-model="country" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-check ms-4">
-                                        <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            He leído y acepto la <a href="#" title="Ver política de privacidad">política de privacidad</a>.
-                                        </label>
-                                    </div>
-                                    <div class="billing-btn mt-5">
-                                        <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
-                                    </div>
-                                </form>
+                            <div>
+                                <h4>Introduzca sus datos de envío</h4>
+                            </div>
+                            <div class="p-3">
+                                <NewProfile />
                             </div>
                         </div>
                     </div>
@@ -319,7 +191,7 @@
                                 <h3>Si estas registrado o quieres registrarte</h3>                        
                             </div>
                             <div class="p-3 p-md-5">
-                                <n-link class="btn btn-theme w-50 m-auto" to="/login" title="Iniciar sesión">Iniciar sesión</n-link>
+                                <n-link class="btn btn-theme rounded-0 w-50 m-auto" to="/login" title="Iniciar sesión">Iniciar sesión</n-link>
                             </div>
                             <div class="p-3">
                                 <p class="text-middle-p"><span class="text-middle-span">de lo contrario</span></p>
@@ -328,7 +200,7 @@
                                 <h3>Puedes realizar tu pedido como invitado</h3>
                             </div>
                             <div>
-                                <a @click="btnGuest = false" class="btn btn-theme w-50" title="Realizar pedido como invitado">Como invitado</a>
+                                <a @click="btnGuest = false" class="btn btn-theme rounded-0 w-50" title="Realizar pedido como invitado">Como invitado</a>
                             </div>
                         </div>
                         <div class="" :class="{'hidden': btnGuest ? true : false}">
@@ -341,119 +213,7 @@
                                 <div id="my-account-1" class="panel-collapse" data-bs-parent="#faq">
                                     <div class="panel-body">
                                         <div class="myaccount-info-wrapper">
-                                            <!-- Formulario Guest -->
-                                            <form @submit.prevent="createUser" class="row" :class="{'hidden': formHidden ? false : true}">
-                                                <div class="col-lg-6 col-md-6">
-                                                    <div class="billing-info">
-                                                        <label>Nombre</label>
-                                                        <input v-model="guest.name" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6">
-                                                    <div class="billing-info">
-                                                        <label>Apellidos</label>
-                                                        <input v-model="guest.lastname" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <div class="billing-info">
-                                                        <label>Dirección</label>
-                                                        <input v-model="guest.address" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <div class="billing-info">
-                                                        <label>Email</label>
-                                                        <input v-model="guest.email" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <div class="billing-info">
-                                                        <label>Opcional</label>
-                                                        <input v-model="guest.optional_address" type="text">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-4">
-                                                    <div class="billing-info">
-                                                        <label>Código Postal</label>
-                                                        <input v-model="guest.zipcode" type="number" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-8 col-md-8">
-                                                    <div class="billing-info">
-                                                        <label>Ciudad</label>
-                                                        <input v-model="guest.city" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6">
-                                                    <div class="billing-info">
-                                                        <label>Provincia</label>
-                                                        <input v-model="guest.state" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6">
-                                                    <div class="billing-info">
-                                                        <label>País</label>
-                                                        <input v-model="guest.country" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-5 col-md-5">
-                                                    <div class="billing-info">
-                                                        <label>Teléfono</label>
-                                                        <input v-model="guest.phone" type="number" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-7 col-md-7">
-                                                    <div class="billing-info">
-                                                        <label>DNI</label>
-                                                        <input v-model="guest.dni" type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="form-check ms-3 mb-4">
-                                                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Acepto los <n-link class="text-info" to="/terms-conditions">términos y condiciones</n-link>.
-                                                    </label>
-                                                </div>
-                                                <div class="billing-btn">
-                                                    <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
-                                                </div>
-                                            </form>
-                                            <!-- GuestStore View -->
-                                            <div class="row" :class="{'hidden': formHidden ? true : false}">
-                                                <div class="col-10 p-4 m-auto">
-                                                    <div>
-                                                        <p>Nombre y Apellidos: 
-                                                            <strong>{{ guestStore.name }} {{ guestStore.lastname }}</strong>
-                                                        </p>                                                    
-                                                    </div>
-                                                    <div>
-                                                        <p>Dirección: 
-                                                            <strong>{{ guestStore.address }}, {{ guestStore.optional_address }} {{ guestStore.zipcode }}, {{ guestStore.city }}, {{ guestStore.state }}, {{ guestStore.country }}</strong>
-                                                        </p>                                                    
-                                                    </div>
-                                                    <div>
-                                                        <p>Email: 
-                                                            <strong>{{ guestStore.email }}</strong>
-                                                        </p>                                                    
-                                                    </div>
-                                                    <div>
-                                                        <p>Teléfono: 
-                                                            <strong>{{ guestStore.phone }}</strong>
-                                                        </p>                                                    
-                                                    </div>
-                                                    <div>
-                                                        <p>DNI: 
-                                                            <strong>{{ guestStore.dni }}</strong>
-                                                        </p>                                                    
-                                                    </div>
-                                                </div>
-                                                <div class="col-10 p-4">
-                                                    <div class="billing-btn">
-                                                        <a @click="deleteGuest" type="submit" title="Editar">Eliminar</a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <NewGuest />
                                         </div>
                                     </div>
                                 </div>
@@ -581,7 +341,7 @@
                                                     <label class="form-check-label" for="invoice">
                                                         Incluir factura en papel
                                                     </label>
-                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -589,7 +349,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Resumen del pedio -->
+                    <!-- Resumen del pedido -->
                     <div class="col-lg-5">
                         <div class="your-order-area">
                             <h3>Tu Pedido</h3>
@@ -647,7 +407,7 @@
                                 </div>
                             </div>
                             <div class="mt-2">
-                                <button @click="onClick" id="end-select" class="btn btn-theme" disabled>Hacer Pedido</button>
+                                <button @click="onClick" id="end-select" class="btn btn-theme rounded-0" disabled>Hacer Pedido</button>
                             </div>
                             <div class="">
                                 <Paypal :load="initPaypal" :shipping="shipping" :order_id="order_id"/>
@@ -666,35 +426,40 @@
                 </div>
             </div>
         </div>
+        <div v-if="cancelOrder == true" class="mt-100 pb-100">
+            <div class="card rounded-0 p-2 m-2 p-md-5 m-md-5">
+                <div class="d-flex justify-content-center mb-5">
+                    <img src="/payment/error.webp" alt="success.webp" width="60">
+                </div>
+                <div class="text-center">
+                    <h2>Su pedido ha sido cancelado</h2>
+                    <p>El tiempo de reserva de su pedido, se ha agotado por lo tanto el nuestro sistema lo ha vuelto a reponer. Si desea volver a crear el pedido, comience de nuevo pulsado el botón.</p>
+                </div>
+                <div class="mt-4 d-flex justify-content-center">
+                    <n-link class="btn btn-theme rounded-0 w-50 m-auto" to="/cart">Comenzar de nuevo</n-link>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
- 
+        
         components: {
             StripeElement: () => import("@/components/StripeElement"),
             Paypal: () => import("@/components/Paypal"),
+            NewProfile: () => import("@/components/profile/NewProfile"),
+            NewGuest: () => import("@/components/profile/NewGuest"),
         },
 
         data() {
             return {
                 shipping: 0,
                 selected: 'Seleccione una dirección',
-                name: '',
-                lastname: '',
-                address: '',
-                optional_address: '',
-                city: '',
-                state: '',
-                zipcode: '',
-                phone: '',
-                country: '',
-                dni: '',
                 disabled: true,
                 userIdProfile: null,
                 token_id: '',
-                checked: false,
                 payment: null,
                 shippingMethod: null,
                 initPaypal: false,
@@ -702,24 +467,11 @@
                 order_id: 0,
                 invoice_paper: false,
                 note: '',
-
-                guest: {
-                    user_id: '',
-                    user_profile_id: '',
-                    name: '',
-                    lastname: '',
-                    email: '',
-                    address: '',
-                    optional_address: '',
-                    city: '',
-                    state: '',
-                    zipcode: '',
-                    phone: '',
-                    country: '',
-                    dni: '',
-                },
-                formHidden: true,
                 btnGuest: true,
+                token_reserve: '',
+                countdown: '',
+                cancelOrder: false,
+                duration: 0,
             }
         },
 
@@ -785,6 +537,12 @@
             },
         },
 
+        beforeMount() {
+            this.$root.$on('duration', data => {
+                this.duration = data;
+            })
+        },
+
         async mounted() {
             await this.$axios.get('/sanctum/csrf-cookie');
             if(this.guestStore.length != 0) {
@@ -794,9 +552,23 @@
             };
 
             this.getProducts();
+            const reserve = new URLSearchParams(window.location.search).get('reserve');
+
+            if(reserve != null) {
+                this.token_reserve = reserve;
+            }
+            
+            const duration = this.getCookie('duration');
+            this.startTimer(duration);
         },
 
         methods: {
+            getCookie(name) {
+                var value = "; " + document.cookie;
+                var parts = value.split("; " + name + "=");
+                if (parts.length == 2) return parts.pop().split(";").shift();
+            },
+
             async getProducts() {
                 await this.$store.dispatch('getProducts', {
                     perPage: '',
@@ -808,76 +580,33 @@
                     tag: '',
                     status: 2,
                 })
-                const prod = this.$store.getters.getProducts;
-                const response = prod.data;
-                const cart = this.products;
-                const cartProducts = cart.map((item) => {
+                let prod = this.$store.getters.getProducts;
+                let response = prod.data;
+                let cart = this.products;
+                let cartProducts = cart.map((item) => {
                     return item.id
                 }).toString();
 
-                const products = response.filter((item) => {
+                let products = response.filter((item) => {
                     if (cartProducts.includes(item.id)) {
                         return item
                     }
                 })
 
-                console.log(products)
-                
-                products.forEach((item) => {
-                    const prod = { ...item}
-                    console.log(prod)
-                    //this.$store.dispatch('refreshCart', prod)
-                });
-                
+                cart.forEach((item) => {
+                    products.forEach((product) => {
+                        if (item.id == product.id) {
+                            product.cartQuantity = item.cartQuantity
+                        }
+                    })
+                })
 
-            },
-
-            deleteGuest() {
-                this.$store.commit('CLEAR_GUEST');
-                this.formHidden = true;
-                document.getElementById('titleSelect').innerHTML = 'Introduzca sus datos de envío';
+                this.$store.dispatch('refreshCart', products)
+                
             },
 
             onClick() {
                 this.createOrder();
-            },
-
-            async createUser() {
-                this.$store.commit('SET_GUEST', this.guest);
-                this.formHidden = false;
-                document.getElementById('titleSelect').innerHTML = 'Su dirección de envío';
-                document.getElementById('my-account-3').classList.remove('collapse');
-                //console.log(this.guestStore);
-            },
-
-            async createProfile() {
-                const response = await this.$axios.post('/api/register-profile', {
-                    user_id: this.$auth.user.id,
-                    name: this.name,
-                    lastname: this.lastname,
-                    address: this.address,
-                    optional_address: this.optional_address,
-                    city: this.city,
-                    state: this.state,
-                    zipcode: this.zipcode,
-                    phone: this.phone,
-                    country: this.country,
-                    dni: this.dni,    
-                })
-                this.name = '';
-                this.lastname = '';
-                this.address = '';
-                this.optional_address = '';
-                this.city = '';
-                this.state = '';
-                this.zipcode = '';
-                this.phone = '';
-                this.country = '';
-                this.dni = '';
-                this.checked = false;
-                this.disabled = true;
-                this.$auth.fetchUser()
-                this.$notify({ type: 'success', text: 'Dirección creada correctamente' })
             },
 
             discountedPrice(product) {
@@ -910,7 +639,8 @@
                             shipping_method: this.shippingMethod,
                             note: this.note,
                             invoice_paper: this.invoice_paper,
-                            token_id: this.token_id
+                            token_id: this.token_id,
+                            token_reserve: this.token_reserve,
                         }).then((res) => {
                             //console.log(res.data);
                             if(this.payment == 'card') {
@@ -927,7 +657,7 @@
                                 this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
                             }
                         }).catch((err) => {
-                            //console.log(err);
+                            console.log(err);
                         })
                     });
                 } else {
@@ -946,7 +676,8 @@
                         shipping_method: this.shippingMethod,
                         note: this.note,
                         invoice_paper: this.invoice_paper,
-                        token_id: this.token_id
+                        token_id: this.token_id,
+                        token_reserve: this.token_reserve,
                     }).then((res) => {
                         if(this.payment == 'card') {
                             this.initStripe = true;
@@ -962,6 +693,7 @@
                             this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
                         }
                     }).catch((err) => {
+                        console.log(err);
                     })
                 }
  
@@ -1001,11 +733,38 @@
                 }
                 this.token_id = result;
             },
+
+            // countdown of 10 minutes
+            startTimer(duration) {
+                if (duration == null || duration == undefined) {
+                    this.cancelOrder = true;
+                }
+                let timer = duration, minutes, seconds;
+                this.interval = setInterval(() => {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    let count = minutes + ":" + seconds;
+
+                    this.countdown = count;
+
+                    if (--timer < 0) {
+                        timer = 0;
+                        this.cancelOrder = true;
+                        //this.$store.commit('CLEAR_CART');
+                        //this.$router.push('/cart');
+                    }
+                }, 1000);
+            },
         },
     };
 </script>
 
 <style lang="scss">
+
     .btn-form{
         background-color: #f7f7f7;
         border: 1px solid #ebebeb;
@@ -1056,6 +815,26 @@
     .text-middle-span { 
         background:#fff; 
         padding:0 10px; 
+    }
+
+    .bg-red-color {
+        background-color: #E94B4C;
+    }
+
+    .bg-green-color {
+        background-color: #C6D42E;
+    }
+
+    .bg-purple-color {
+        background-color: #DD88B8;
+    }
+
+    .bg-blue-color {
+        background-color: #2AB5B2;
+    }
+
+    .bg-orange-color {
+        background-color: #F9B34C;
     }
 
 </style>

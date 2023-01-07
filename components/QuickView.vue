@@ -11,7 +11,7 @@
                             </div>
                             <swiper :options="swiperOptionTop">
                                 <div class="large-img swiper-slide" v-if="product.images == 0">
-                                    <nuxt-img class="img-fluid" provider="customProvider" src="default.webp" :alt="product.name"/>
+                                    <nuxt-img class="img-fluid" provider="customProvider" src="nuxt/default.webp" :alt="product.name"/>
                                 </div>
                                 <div class="large-img swiper-slide" v-else>
                                     <div v-for="image in product.images" :key="image.id">
@@ -47,7 +47,9 @@
                             </client-only>
                             <span><a class="ms-1" href="#">{{ product.total_reviews }} Valoraciones</a></span>
                         </div>
-                        <p style="font-size: x-small;">{{ product.description }}</p>
+                        <div style="height: 120px; overflow:scroll;">
+                            <p>{{ product.description }}</p>
+                        </div>
                         <div class="pro-details-size-color" v-if="product.variation">
                             <div class="pro-details-color-wrap">
                                 <h6 class="label">Color</h6>

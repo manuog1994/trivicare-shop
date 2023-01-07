@@ -159,6 +159,7 @@ export default defineNuxtConfig({
         stripeKey: process.env.STRIPE_PK,
         url: process.env.URL || 'http://localhost:3000',
         googleClientId: process.env.GOOGLE_CLIENT_ID,
+        universalToken: process.env.UNIVERSAL_TOKEN,
     },
 
     image: {
