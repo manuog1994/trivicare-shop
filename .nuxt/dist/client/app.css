@@ -21882,17 +21882,14 @@ span.pointer-main {
 .w-20 {
   width: 20%;
 }
-.product-quantity {
-  width: 425px;
-}
-.product-quantity .cart-plus-minus {
+.product-qty .cart-plus-min {
   display: inline-block;
   height: 40px;
   padding: 0;
   position: relative;
   width: 100px;
 }
-.product-quantity .cart-plus-minus .qtybutton {
+.product-qty .cart-plus-min .qtybut {
   color: black;
   cursor: pointer;
   float: inherit;
@@ -21905,15 +21902,15 @@ span.pointer-main {
   top: 0;
   height: 40px;
 }
-.product-quantity .cart-plus-minus .dec.qtybutton {
+.product-qty .cart-plus-min .dec.qtybut {
   border-right: 1px solid #e5e5e5;
   left: 0;
 }
-.product-quantity .cart-plus-minus .inc.qtybutton {
+.product-qty .cart-plus-min .inc.qtybut {
   border-left: 1px solid #e5e5e5;
   right: 0;
 }
-.product-quantity .cart-plus-minus input.cart-plus-minus-box {
+.product-qty .cart-plus-min input.cart-plus-min-box {
   color: #333333;
   float: left;
   font-size: 14px;
@@ -21925,13 +21922,13 @@ span.pointer-main {
   padding: 0;
   text-align: center;
 }
-.product-quantity .product-remove button {
+.product-qty .product-remov button {
   color: #666;
   font-size: 15px;
   margin: 10px 0;
   padding: 0;
 }
-.product-quantity .product-remove button:hover {
+.product-qty .product-remov button:hover {
   color: #2AB5B2;
 }
 .btn-form {
@@ -22644,42 +22641,10 @@ form[data-v-19098524] {
   background-color: #2AB5B2;
 }
 
-.img-mobile {
-    width: 100%;
-}
-.bg-slider-img {
-    background-color: #f5f5f5a3;
-    padding: 8rem 5rem;
-}
-
-
 .policy-icons{
     width: 80px;
     height: auto;
     margin: auto;
-}
-
-.tag-block {
-  display: inline-flex;
-  padding: 1rem, 1rem;
-  border-radius: 5px;
-  border: 1px solid #a8a8a8;
-}
-.principal {
-  width: 425px;
-  height: 425px;
-}
-@media only screen and (max-width: 400px) {
-.principal {
-    width: 275px;
-    height: 275px;
-}
-}
-
-.product-grid-change{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0.5rem;
 }
 
 
@@ -22726,5 +22691,37 @@ form[data-v-19098524] {
 }
 .fade-enter, .fade-leave-active {
         opacity: 0
+}
+
+
+.img-mobile {
+    width: 100%;
+}
+.bg-slider-img {
+    background-color: #f5f5f5a3;
+    padding: 8rem 5rem;
+}
+
+.tag-block {
+  display: inline-flex;
+  padding: 1rem, 1rem;
+  border-radius: 5px;
+  border: 1px solid #a8a8a8;
+}
+.principal {
+  width: 425px;
+  height: 425px;
+}
+@media only screen and (max-width: 400px) {
+.principal {
+    width: 275px;
+    height: 275px;
+}
+}
+
+.product-grid-change{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
 }
 

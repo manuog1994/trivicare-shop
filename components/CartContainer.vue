@@ -1,8 +1,5 @@
 <template>
     <div class="cart-main-area pt-90 pb-100">
-        <div class="alert alert-danger hidden" role="alert">
-            A simple danger alert—check it out!
-        </div>
         <div class="container-fluid">
             <div class="row" v-if="products.length > 0">
                 <div class="col-12 col-md-8">
@@ -36,27 +33,26 @@
                                             <p class="d-md-none">Precio: <span class=" fw-semibold">{{ (discountedPrice(product) * 1.21).toFixed(2) }} €</span></p>
                                             <p class="text-price d-none d-md-block"><span class=" fw-semibold">{{ (discountedPrice(product) * 1.21).toFixed(2) }} €</span></p>
                                         </div>
-
                                     </div>
                                     <div class="d-md-flex justify-content-md-start mb-2 mt-1">
                                         <p v-if="product.stock == 2 || product.stock == 1" class="p-0 text-danger fst-italic ms-2">{{ product.stock }} unidades disponibles en stock.</p>
                                         <p v-else-if="product.stock === 0" class="p-0 text-danger fst-italic ms-2">No hay stock</p>
                                         <p v-else class="p-0 text-green ms-2">En stock</p>
                                     </div>
-                                    <div class="product-quantity">
+                                    <div class="product-qty">
                                         <div class="row">
                                             <div v-if="product.stock != 0" class="col-12 d-md-flex align-items-md-center">
                                                 <div class="me-3">
                                                     <h5>Cantidad: </h5>
                                                 </div>
-                                                <div class="cart-plus-minus">
-                                                    <button @click="decrementProduct(product)" class="dec qtybutton" title="Quitar">-</button>
-                                                    <input class="cart-plus-minus-box" type="text" :value="product.cartQuantity" readonly>
-                                                    <button @click="incrementProduct(product)" class="inc qtybutton" title="Añadir">+</button>
+                                                <div class="cart-plus-min">
+                                                    <button @click="decrementProduct(product)" class="dec qtybut" title="Quitar">-</button>
+                                                    <input class="cart-plus-min-box" type="text" :value="product.cartQuantity" readonly>
+                                                    <button @click="incrementProduct(product)" class="inc qtybut" title="Añadir">+</button>
                                                 </div>
                                             </div>
                                             <div class="col-12 d-flex justify-content-start">
-                                                <div class="product-remove">
+                                                <div class="product-remov">
                                                     <button @click="removeProduct(product)" title="Eliminar">Eliminar</button>
                                                 </div>
                                             </div>
@@ -83,7 +79,6 @@
                                         -{{ ((subTotal * (cuponStore.discount / 100)) * 1.21).toFixed(2) }} &euro; 
                                 </span>
                             </h5>
-                            <!-- <h5>IVA 21% <span>{{ (total * 0.21).toFixed(2) }} &euro;</span></h5> -->
                             <h4 class="grand-total-title">Total  <span>{{ (total * 1.21).toFixed(2) }} &euro;</span></h4>
                             <a v-if="!errorStock" class="btn btn-theme rounded-0" @click="newReserve">Tramitar pedido</a>
                             <p class="text-danger" v-else>{{ errorStockMessage }}</p>
@@ -392,15 +387,15 @@
         width: 20%;
     }
 
-    .product-quantity {
-        width: 425px;
-        .cart-plus-minus {
+    .product-qty {
+        //width: 425px;
+        .cart-plus-min {
             display: inline-block;
             height: 40px;
             padding: 0;
             position: relative;
             width: 100px;
-        .qtybutton {
+        .qtybut {
             color: black;
             cursor: pointer;
             float: inherit;
@@ -413,15 +408,15 @@
             top: 0;
             height: 40px;
         }
-        .dec.qtybutton {
+        .dec.qtybut {
             border-right: 1px solid #e5e5e5;
             left: 0;
         }
-        .inc.qtybutton {
+        .inc.qtybut {
             border-left: 1px solid #e5e5e5;
             right: 0;
         }
-        input.cart-plus-minus-box {
+        input.cart-plus-min-box {
             color: $dark;
             float: left;
             font-size: 14px;
@@ -435,7 +430,7 @@
         }
     }
 
-    .product-remove {
+    .product-remov {
 
         button {
             color: #666;
