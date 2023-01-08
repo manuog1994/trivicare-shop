@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-start align-items-center">
-                        <div class="same-style mobile-menu-toggler d-flex d-lg-none">
+                        <div class="same-style mobile-menu-toggler d-flex d-lg-none ms-sm-3">
                             <button class="mobile-aside-button fs-2" @click="navOpen = !navOpen" title="Menu">
                                 <i class="pe-7s-menu"></i>
                             </button>
@@ -19,14 +19,10 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end align-items-center">
                         <div class="header-right-wrap">
-                            <div class="same-style header-search me-3">
+                            <div class="same-style header-search me-2">
                                 <button class="search-active" @click="searchOpen"><i class="pe-7s-search"></i></button>
                             </div>
-                            <div class="same-style header-wishlist d-none">
-                                <n-link to="/wishlist"><i class="pe-7s-like"></i></n-link>
-                                <span class="count-style">{{ wishlistItemCount }}</span>
-                            </div>
-                            <div class="same-style cart-wrap">
+                            <div class="same-style cart-wrap me-sm-3">
                                 <button class="icon-cart" @click="openCart = !openCart" title="Menu Carrito">
                                     <i class="pe-7s-shopbag"></i>
                                     <span class="count-style">{{ cartItemCount }}</span>

@@ -22694,8 +22694,27 @@ form[data-v-19098524] {
 }
 
 
-.img-mobile {
+p.img-mobile {
     width: 100%;
+    background: url(/_nuxt/static/campain/aloe-granada.webp);
+    padding: 10rem 0;
+    font-size: 22px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.bg-span {
+    background-color: #ffffffa3;
+    color: black;
+    font-size: 24px;
+    padding: 3rem 0;
+    margin: 15px;
+}
+.btn-mobile {
+    background-color: white;
+    padding: 10px 10px;
+    margin: 25px;
 }
 .bg-slider-img {
     background-color: #f5f5f5a3;

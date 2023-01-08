@@ -39,14 +39,38 @@
             </div> -->
         </div>
         <div class="d-md-none">
-            <img class="img-mobile" src="/campain/Trivicarenavidad.webp" alt="Banner">
+            <p class="img-mobile">
+                <span class="bg-span"><strong>Estamos de Inauguración, descubre nuestro catálogo</strong></span>
+                <n-link class="btn-mobile" to="/shop">Ver Productos</n-link>
+            </p>
         </div>
     </div>
 </template>
 
 <style>
-    .img-mobile {
+    p.img-mobile {
         width: 100%;
+        background: url('@/static/campain/aloe-granada.webp');
+        padding: 10rem 0;
+        font-size: 22px;
+        text-align: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bg-span {
+        background-color: #ffffffa3;
+        color: black;
+        font-size: 24px;
+        padding: 3rem 0;
+        margin: 15px;
+    }
+
+    .btn-mobile {
+        background-color: white;
+        padding: 10px 10px;
+        margin: 25px;
     }
     
     .bg-slider-img {

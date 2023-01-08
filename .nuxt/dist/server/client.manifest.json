@@ -2,8 +2,8 @@
   "publicPath": "/_nuxt/",
   "all": [
     "0.js",
-    "6039f2ede8c64303d3c9.hot-update.json",
-    "app.6039f2ede8c64303d3c9.hot-update.js",
+    "a143237eb68f3198c28a.hot-update.json",
+    "app.a143237eb68f3198c28a.hot-update.js",
     "app.css",
     "app.js",
     "commons/app.js",
@@ -44,7 +44,7 @@
     "vendors/app.js",
     "app.css",
     "app.js",
-    "app.6039f2ede8c64303d3c9.hot-update.js"
+    "app.a143237eb68f3198c28a.hot-update.js"
   ],
   "async": [
     "0.js",
@@ -6788,7 +6788,7 @@
       "0.js"
     ],
     "1a3ae26b": [
-      "app.6039f2ede8c64303d3c9.hot-update.js",
+      "app.a143237eb68f3198c28a.hot-update.js",
       "app.js"
     ],
     "085a35c4": [

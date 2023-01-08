@@ -5,7 +5,7 @@
                 <div :class="containerClass">
                     <div class="row">
                         <div class="col-md-2 d-flex align-items-center">
-                            <div class="">
+                            <div class="ms-lg-3 ms-xl-1">
                                 <n-link to="/">
                                     <nuxt-img provider="customProvider" src="nuxt/logo-ajustado2.webp" alt="logo"/>
                                 </n-link>
@@ -42,7 +42,7 @@
                                     <n-link to="/wishlist"><i class="pe-7s-like"></i></n-link>
                                     <span class="count-style">{{ wishlistItemCount }}</span>
                                 </div>
-                                <div class="same-style cart-wrap">
+                                <div class="same-style cart-wrap me-lg-3 me-xl-1">
                                     <button class="icon-cart" @click="openCart = !openCart" title="Desplegar carrito">
                                         <i class="pe-7s-shopbag"></i>
                                         <span class="count-style">{{ cartItemCount }}</span>
