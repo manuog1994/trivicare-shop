@@ -29,7 +29,7 @@
             </li>
         </client-only>
     </ul>
-    <div class="d-md-none mt-4">
+    <div class="mt-4">
         <a v-if="$auth.loggedIn == false" class="text-center" href="/login">Iniciar sesión</a>
         <div v-else class="mt-2">
             <p>Hola, <strong>{{ getName() }}</strong></p>
@@ -48,6 +48,10 @@
                 </li>
             </ul>
         </div>
+    </div>
+    <div class="mt-4">
+        <n-link to="/wishlist">Lista de deseos</n-link>
+        <span class="ms-2 bg-blue-color p-2 rounded-5">{{ wishlistItemCount }}</span>
     </div>
 </div>
 </template>
@@ -96,6 +100,13 @@
                 role: '',
             }
         },
+
+        computed: {
+            wishlistItemCount() {
+                return this.$store.getters.wishlistItemCount;
+            }
+        },
+
         mounted() {
             let getSiblings = function (e) {
                 let siblings = []; 

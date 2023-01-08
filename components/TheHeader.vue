@@ -19,32 +19,10 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end align-items-center">
                         <div class="header-right-wrap">
-                            <div class="same-style header-search">
+                            <div class="same-style header-search me-3">
                                 <button class="search-active" @click="searchOpen"><i class="pe-7s-search"></i></button>
                             </div>
-                            <div class="same-style account-setting d-none d-md-block">
-                                <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menu perfil"><i class="pe-7s-user-female"></i></button>
-                                <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
-                                    <ul v-if="role == 'admin'">
-                                        <li class="border-bottom-1 mb-1"><p>Hola, <strong>{{ getName() }}</strong></p></li>
-                                        <li><n-link to="/crud">PDC</n-link></li>
-                                        <li><n-link to="/my-account">Mi Perfil</n-link></li>
-                                        <li><n-link to="/my-orders">Mis pedidos</n-link></li>
-
-                                        <li><a @click="logout">Cerrar sesión</a></li>
-                                    </ul>
-                                    <ul v-else-if="$auth.loggedIn == true">
-                                        <li class="border-bottom-1 mb-1"><p>Hola, <strong>{{ getName() }}</strong></p></li>
-                                        <li><n-link to="/my-account">Mi Perfil</n-link></li>
-                                        <li><n-link to="/my-orders">Mis pedidos</n-link></li>
-                                        <li><a @click="logout">Cerrar sesión</a></li>
-                                    </ul>
-                                    <ul v-else>
-                                        <li><n-link to="/login">Iniciar sesión</n-link></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="same-style header-wishlist">
+                            <div class="same-style header-wishlist d-none">
                                 <n-link to="/wishlist"><i class="pe-7s-like"></i></n-link>
                                 <span class="count-style">{{ wishlistItemCount }}</span>
                             </div>

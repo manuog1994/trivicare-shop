@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <div class="support-area pb-70 d-none d-md-block">
+        <div class="support-area pb-70 d-none d-lg-block">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-sm-6" v-for="(policy, index) in policies" :key="index">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-between mt-4 mb-4 d-md-none p-4 p-sm-4">
+        <div class="d-flex justify-content-between justify-content-sm-around mt-4 mt-md-0 mb-4 mb-md-5 d-lg-none p-4 p-sm-4">
             <div v-for="policy in policies" :key="policy.title" class="text-center">
                 <div class="policy-icons">
                     <nuxt-img class="animated" provider="customProvider" :src="'nuxt/' + policy.icon" :alt="policy.title" width="30px"/>
