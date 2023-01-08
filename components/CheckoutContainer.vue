@@ -558,7 +558,8 @@
                 this.token_reserve = reserve;
             }
             
-            const duration = this.getCookie('duration');
+            const duration = this.$store.getters.getDuration;
+            console.log(duration);
             this.startTimer(duration);
         },
 
@@ -750,6 +751,8 @@
                     let count = minutes + ":" + seconds;
 
                     this.countdown = count;
+
+                    let store = this.$store.commit('SET_DURATION', timer);
 
                     if (--timer < 0) {
                         timer = 0;

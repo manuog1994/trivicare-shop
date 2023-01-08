@@ -17,7 +17,7 @@ export const state = () => ({
     tags: [],
     cupon: [],
     guest: [],
-    countdown: '',
+    duration: '',
 })
 
 
@@ -39,8 +39,8 @@ export const getters = {
         return state.cupon
     },
 
-    getCountdown(state) {
-        return state.countdown
+    getDuration(state) {
+        return state.duration
     },
 
     getGuest(state) {
@@ -132,8 +132,8 @@ export const mutations = {
         state.tokenPayment = tokenPayment
     },
 
-    SET_COUNTDOWN(state, countdown) {
-        state.countdown = countdown
+    SET_DURATION(state, duration) {
+        state.duration = duration
     },
 
     UPDATE_CART(state, payload) {
