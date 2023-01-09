@@ -10,8 +10,18 @@
         <form ref="registerform" @submit.prevent="register">
             <input name="name" placeholder="Nombre" type="text" required>
             <input name="email" placeholder="Email" type="email" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <input type="password" name="password_confirmation" placeholder="Confirma tu contraseña" required>
+            <div class="d-flex">
+                <input id="passOne" type="password" name="password" placeholder="Contraseña" required>
+                <span class="form-pass" @click="viewPass('passOne')">
+                    <i class="fa fa-eye"></i>
+                </span>
+            </div>
+            <div class="d-flex">
+                <input id="passTwo" type="password" name="password_confirmation" placeholder="Confirma tu contraseña" required>
+                <span class="form-pass" @click="viewPass('passTwo')">
+                    <i class="fa fa-eye"></i>
+                </span>
+            </div>
             <div class="d-flex flex-column">
                 <div class="mb-2 d-flex align-items-center">
                     <input type="checkbox" name="newsletter" id="newsletter" v-model="newsletter" value="1">
@@ -28,6 +38,19 @@
         </form>
     </div>
 </template>
+
+<style>
+.form-pass {
+    background-color: #2AB5B2;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #8c8c8c;
+    cursor: pointer;
+}
+</style>
 
 <script>
     export default {
@@ -65,6 +88,15 @@
                     })
                 })
 
+            },
+
+            viewPass(id) {
+                const pass = document.getElementById(id);
+                if (pass.type === "password") {
+                    pass.type = "text";
+                } else {
+                    pass.type = "password";
+                }
             }
         }
     }

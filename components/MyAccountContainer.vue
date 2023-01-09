@@ -68,20 +68,34 @@
                                                             <div class="col-lg-12 col-md-12">
                                                                 <div class="billing-info">
                                                                     <label>Contraseña actual</label>
-                                                                    <input v-model="old_password" type="password" required>
+                                                                    <div class="d-flex">
+                                                                        <input id="passOne" v-model="old_password" type="password" name="password" required>
+                                                                        <span class="form-pass" @click="viewPass('passOne')">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-12 col-md-12">
                                                                 <div class="billing-info">
                                                                     <label>Nueva Contraseña</label>
-                                                                    <input v-model="password" type="password" required>
+                                                                    <div class="d-flex">
+                                                                        <input id="passTwo" v-model="password" type="password" name="password" required>
+                                                                        <span class="form-pass" @click="viewPass('passTwo')">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-12 col-md-12">
                                                                 <div class="billing-info">
                                                                     <label>Confirma tu nueva Contraseña</label>
-                                                                    <input v-model="password_confirmation" type="password"
-                                                                        required>
+                                                                    <div class="d-flex">
+                                                                        <input id="passThree" v-model="password_confirmation" type="password" name="password" required>
+                                                                        <span class="form-pass" @click="viewPass('passThree')">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -186,13 +200,21 @@
         },
 
         mounted() {
-
             this.$nextTick(() => {
                 this.$nuxt.$loading.start()
                 setTimeout(() => {
                     this.$nuxt.$loading.finish()
                 }, 2000);
             });
+            var tituloOriginal = document.title; // Lo guardamos para restablecerlo
+            window.onblur = function(){ // Si el usuario se va a otro lado...
+            document.title = "Ey, vuelve aquí!";// Cambiamos el título
+            }
+
+            window.onfocus = function(){
+            document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
+            }
+            this.$auth.fetchUser();
         },
 
         methods: {
@@ -280,6 +302,15 @@
                 }).catch((error) => {
                     this.errors = Object.values(error.response.data).flat();
                 })
+            },
+
+            viewPass(id) {
+                var x = document.getElementById(id);
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
             }
         },
 
@@ -289,16 +320,19 @@
             }
         },
 
-        mounted() {
-            var tituloOriginal = document.title; // Lo guardamos para restablecerlo
-            window.onblur = function(){ // Si el usuario se va a otro lado...
-            document.title = "Ey, vuelve aquí!";// Cambiamos el título
-            }
 
-            window.onfocus = function(){
-            document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
-            }
-            this.$auth.fetchUser();
-        }
     }
 </script>
+
+<style scoped>
+.form-pass {
+    background-color: #2AB5B2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #8c8c8c;
+    cursor: pointer;
+}
+</style>

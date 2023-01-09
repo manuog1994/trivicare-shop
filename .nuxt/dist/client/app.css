@@ -21853,6 +21853,18 @@ Copyright (c) 2015 Daniel Eden
 .my-lauouts-leave-active {
   opacity: 0;
 }
+
+.form-pass {
+    background-color: #2AB5B2;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #8c8c8c;
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 320px) {
 .display-min {
     display: none;
@@ -22174,6 +22186,18 @@ input[data-v-fd950674] {
     color: #000;
 }
 
+
+
+.form-pass[data-v-a11d418a] {
+    background-color: #2AB5B2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #8c8c8c;
+    cursor: pointer;
+}
 
 
 .custom-banner{

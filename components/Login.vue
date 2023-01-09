@@ -10,7 +10,12 @@
         <form ref="loginform" @submit.prevent="login">
             <!-- @csrf -->
             <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
+            <div class="d-flex">
+                <input id="passOne" type="password" name="password" placeholder="Contraseña" required>
+                <span class="form-pass" @click="viewPass('passOne')">
+                    <i class="fa fa-eye"></i>
+                </span>
+            </div>
             <div class="button-box">
                 <div class="row">
                     <div class="col-6">
@@ -138,7 +143,14 @@
                     });
             },
 
-
+            viewPass(id) {
+                var x = document.getElementById(id);
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            },
         },
     }
 </script>
