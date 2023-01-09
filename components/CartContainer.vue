@@ -259,7 +259,9 @@
                         this.$router.push('/checkout' + '?reserve=' + this.token_reserve);
                         console.log(res.data);
                     }).catch(err => {
-                        console.log(err)
+                        this.$axios.post('/api/error-message', {
+                            message: error.response.data.message
+                        })
                     })
                 }
             },

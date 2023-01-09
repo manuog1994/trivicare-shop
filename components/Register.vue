@@ -60,6 +60,9 @@
                 }).catch((error) => {
                     //console.log(error);
                     this.errors = Object.values(error.response.data.errors).flat();
+                    this.$axios.post('/api/error-message', {
+                        message: error.response.data.message
+                    })
                 })
 
             }

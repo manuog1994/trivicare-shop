@@ -90,11 +90,17 @@
                         }).catch(err => {
                             //console.log(err);
                             this.errors = ['Hemos tenido un problema al iniciar sesión, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];
+                            this.$axios.post('/api/error-message', {
+                                message: error.response.data.message
+                            })
                         })
                     })
                     .catch(err => {
                         //console.log(err);
                         this.errors = ['Hemos tenido problemas al obtener sus datos de Google, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];
+                        this.$axios.post('/api/error-message', {
+                            message: error.response.data.message
+                        })
                     });
 
                 }
@@ -114,7 +120,10 @@
                     });
                 } catch (error) {
                     this.errors = ['El correo electrónico o la contraseña son incorrectos.']; 
-                    //console.log(error.response.data)             
+                    //console.log(error.response.data)
+                    this.$axios.post('/api/error-message', {
+                        message: error.response.data.message
+                    })            
                 }
             },
             
@@ -123,7 +132,10 @@
                     .then(res => {
                         //console.log(res.data);
                         window.location.href = res.data;
-                    })
+                    }).catch(err => {
+                        //console.log(err);
+                        
+                    });
             },
 
 

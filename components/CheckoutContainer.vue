@@ -658,7 +658,13 @@
                                 this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
                             }
                         }).catch((err) => {
-                            console.log(err);
+                            this.$axios.post('/api/error-message', {
+                                message: error.response.data.message
+                            })
+                        })
+                    }).catch(err => {
+                        this.$axios.post('/api/error-message', {
+                            message: error.response.data.message
                         })
                     });
                 } else {
@@ -694,7 +700,9 @@
                             this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
                         }
                     }).catch((err) => {
-                        console.log(err);
+                        this.$axios.post('/api/error-message', {
+                            message: error.response.data.message
+                        })
                     })
                 }
  

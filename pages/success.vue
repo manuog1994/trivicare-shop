@@ -86,6 +86,9 @@ export default {
                     this.countdown(20);
                     this.paymentIntent = null;
                     this.error = ('Ha ocurrido un error, por favor intente nuevamente más tarde.');
+                    this.$axios.post('/api/error-message', {
+                        message: error.response.data.message
+                    })
                 });
         },
 
