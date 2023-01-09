@@ -40,7 +40,13 @@
         </div>
         <div class="d-md-none">
             <p class="img-mobile">
-                <span class="bg-span"><strong>Estamos de Inauguración, descubre nuestro catálogo</strong></span>
+                <span class="bg-span">
+                    <img src="@/static/campain/TriviCare_byn Round Positivo.webp" alt="" width="80" style="margin-bottom: 20px">
+                    <br>
+                    <strong>Estamos de Inauguración</strong>
+                    <br>
+                    <span>Descubre nuestro catálogo.</span>
+                </span>
                 <n-link class="btn-mobile" to="/shop">Ver Productos</n-link>
             </p>
         </div>
@@ -50,8 +56,8 @@
 <style>
     p.img-mobile {
         width: 100%;
-        background: url('@/static/campain/aloe-granada.webp');
-        padding: 10rem 0;
+        background: url('@/static/campain/aloegranada.webp');
+        padding: 5rem 0;
         font-size: 22px;
         text-align: center;
         color: white;
@@ -60,8 +66,8 @@
     }
 
     .bg-span {
-        background-color: #ffffffa3;
-        color: black;
+        background-color: #ffffffdc;
+        color: rgb(73, 73, 73);
         font-size: 24px;
         padding: 3rem 0;
         margin: 15px;

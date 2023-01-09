@@ -22696,8 +22696,8 @@ form[data-v-19098524] {
 
 p.img-mobile {
     width: 100%;
-    background: url(/_nuxt/static/campain/aloe-granada.webp);
-    padding: 10rem 0;
+    background: url(/_nuxt/static/campain/aloegranada.webp);
+    padding: 5rem 0;
     font-size: 22px;
     text-align: center;
     color: white;
@@ -22705,8 +22705,8 @@ p.img-mobile {
     flex-direction: column;
 }
 .bg-span {
-    background-color: #ffffffa3;
-    color: black;
+    background-color: #ffffffdc;
+    color: rgb(73, 73, 73);
     font-size: 24px;
     padding: 3rem 0;
     margin: 15px;

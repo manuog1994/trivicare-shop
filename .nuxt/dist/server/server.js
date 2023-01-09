@@ -9878,7 +9878,7 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",{stati
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",[_vm._ssrNode('<div class="slider-area nav-style-1 nav-style-3">',"</div>",[_c("swiper",{staticClass:"d-none d-md-block",attrs:{options:_vm.swiperOption}},[_vm._l(_vm.sliderData,function(slider,index){return _c("swiper-slide",{key:index,staticClass:"slider-height-5 d-flex align-items-center bg-img",staticStyle:{width:"100%"},style:{backgroundImage:`url(${slider.backgroundImage})`}},[_c("div",{staticClass:"container bg-slider-img"},[_c("div",{staticClass:"row"},[_c("div",{staticClass:"col-12"},[_c("div",{staticClass:"slider-content-4 slider-content-6 slider-animation-1 text-center"},[_c("h1",{staticClass:"text-dark"},[_vm._v(_vm._s(slider.title))]),_vm._v(" "),_c("p",{staticClass:"text-dark"},[_vm._v(_vm._s(slider.desc))]),_vm._v(" "),_c("div",{staticClass:"slider-btn btn-hover"},[_c("n-link",{attrs:{to:"/shop"}},[_vm._v("COMPRAR AHORA")])],1)])])])])]);}),_vm._v(" "),_c("div",{staticClass:"hero-slider-nav swiper-button-prev"},[_c("i",{staticClass:"pe-7s-angle-left"})]),_vm._v(" "),_c("div",{staticClass:"hero-slider-nav swiper-button-next"},[_c("i",{staticClass:"pe-7s-angle-right"})])],2)],1),_vm._ssrNode(" "),_vm._ssrNode('<div class="d-md-none">',"</div>",[_vm._ssrNode('<p class="img-mobile">',"</p>",[_vm._ssrNode('<span class="bg-span"><strong>Estamos de Inauguración, descubre nuestro catálogo</strong></span> '),_c("n-link",{staticClass:"btn-mobile",attrs:{to:"/shop"}},[_vm._v("Ver Productos")])],2)])],2);};var staticRenderFns=[];render._withStripped=true;
+var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",[_vm._ssrNode('<div class="slider-area nav-style-1 nav-style-3">',"</div>",[_c("swiper",{staticClass:"d-none d-md-block",attrs:{options:_vm.swiperOption}},[_vm._l(_vm.sliderData,function(slider,index){return _c("swiper-slide",{key:index,staticClass:"slider-height-5 d-flex align-items-center bg-img",staticStyle:{width:"100%"},style:{backgroundImage:`url(${slider.backgroundImage})`}},[_c("div",{staticClass:"container bg-slider-img"},[_c("div",{staticClass:"row"},[_c("div",{staticClass:"col-12"},[_c("div",{staticClass:"slider-content-4 slider-content-6 slider-animation-1 text-center"},[_c("h1",{staticClass:"text-dark"},[_vm._v(_vm._s(slider.title))]),_vm._v(" "),_c("p",{staticClass:"text-dark"},[_vm._v(_vm._s(slider.desc))]),_vm._v(" "),_c("div",{staticClass:"slider-btn btn-hover"},[_c("n-link",{attrs:{to:"/shop"}},[_vm._v("COMPRAR AHORA")])],1)])])])])]);}),_vm._v(" "),_c("div",{staticClass:"hero-slider-nav swiper-button-prev"},[_c("i",{staticClass:"pe-7s-angle-left"})]),_vm._v(" "),_c("div",{staticClass:"hero-slider-nav swiper-button-next"},[_c("i",{staticClass:"pe-7s-angle-right"})])],2)],1),_vm._ssrNode(" "),_vm._ssrNode('<div class="d-md-none">',"</div>",[_vm._ssrNode('<p class="img-mobile">',"</p>",[_vm._ssrNode('<span class="bg-span"><img'+_vm._ssrAttr("src",__webpack_require__(/*! @/static/campain/TriviCare_byn Round Positivo.webp */ "./static/campain/TriviCare_byn Round Positivo.webp"))+' alt width="80" style="margin-bottom: 20px"> <br> <strong>Estamos de Inauguración</strong> <br> <span>Descubre nuestro catálogo.</span></span> '),_c("n-link",{staticClass:"btn-mobile",attrs:{to:"/shop"}},[_vm._v("Ver Productos")])],2)])],2);};var staticRenderFns=[];render._withStripped=true;
 
 /***/ }),
 
@@ -13749,6 +13749,17 @@ __webpack_require__.r(__webpack_exports__);
 // import {} from '~image'
 const serverUrl="http://localhost:8000"+'/'||false;function getImage(src,{modifiers={},baseURL=serverUrl},{options,nuxtContext,$img}){const{width,height,format,fit,...providerModifiers}=modifiers;const operations=[];// process modifiers
 const operationsString=operations.join(',');return{url:Object(ufo__WEBPACK_IMPORTED_MODULE_0__["joinURL"])(baseURL,operationsString,src)};}
+
+/***/ }),
+
+/***/ "./static/campain/TriviCare_byn Round Positivo.webp":
+/*!**********************************************************!*\
+  !*** ./static/campain/TriviCare_byn Round Positivo.webp ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/campain/TriviCare_byn Round Positivo.webp";
 
 /***/ }),
 
