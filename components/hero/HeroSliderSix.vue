@@ -45,7 +45,7 @@
                     <br>
                     <strong>Estamos de Inauguración</strong>
                     <br>
-                    <span>Descubre nuestro catálogo.</span>
+                    <span>Descubre nuestro catálogo</span>
                 </span>
                 <n-link class="btn-mobile" to="/shop">Ver Productos</n-link>
             </p>

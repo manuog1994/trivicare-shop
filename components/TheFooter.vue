@@ -89,6 +89,7 @@
                                     <li><n-link to="/contact">Puntos de venta</n-link></li>
                                     <li><n-link to="/contact">Contacto</n-link></li>
                                     <li><n-link to="/my-orders">Seguimiento de envío</n-link></li>
+                                    <li><a @click="openSuggestionsModal">Buzón de Sugerencias</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -206,6 +207,7 @@
                                     <li><n-link to="/contact">Puntos de venta</n-link></li>
                                     <li><n-link to="/contact">Contacto</n-link></li>
                                     <li><n-link to="/my-orders">Seguimiento de envío</n-link></li>
+                                    <li><a @click="openSuggestionsModal">Buzón de Sugerencias</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -247,6 +249,7 @@
                 </div>
             </div>
         </footer>
+        <SuggestionsModal />
     </div>
 </template>
 <style lang="scss" scoped>
@@ -271,6 +274,10 @@
                 checked: false,
                 email: ''
             }
+        },
+
+        components: {
+            SuggestionsModal: () => import('@/components/SuggestionsModal.vue')
         },
 
         watch: {
@@ -302,7 +309,11 @@
                 if (this.checked == false) {
                     this.$notify({title:'Atención!', text: 'Debes aceptar las condiciones de uso y política de privacidad.', type: 'warn'});
                 }
-            }
+            },
+
+            openSuggestionsModal() {
+                this.$modal.show('suggestionsModal');
+            },
         }
 
     }
