@@ -18,6 +18,7 @@ export const state = () => ({
     cupon: [],
     guest: [],
     duration: '',
+    notifications: [],
 })
 
 
@@ -77,6 +78,10 @@ export const getters = {
 
     compareItemCount: state => {
         return state.compare.length
+    },
+
+    notificationsItemCount: state => {
+        return state.notifications.length
     },
 
     getSubTotal: state => {

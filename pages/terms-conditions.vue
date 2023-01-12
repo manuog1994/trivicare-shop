@@ -1,13 +1,15 @@
 <template>
-    <div class="terms-conditions-wrapper">
-        <HeaderWithTopbar containerClass="container-fluid" />
-        <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
-        <div id="post-nav" class="" @click="closeMenus">
-            <NavBottom/>
-            <TermsConditionsContainer />
-            <TheFooter />       
+    <client-only>
+        <div class="terms-conditions-wrapper">
+            <HeaderWithTopbar containerClass="container-fluid" />
+            <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
+            <div id="post-nav" class="" @click="closeMenus">
+                <NavBottom/>
+                <TermsConditionsContainer />
+                <TheFooter />       
+            </div>
         </div>
-    </div>
+    </client-only>
 </template>
 
 <script>

@@ -28,6 +28,13 @@
     "_name": "_32117183"
   },
   {
+    "name": "cookies-policy",
+    "path": "/cookies-policy",
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/cookies-policy.vue",
+    "chunkName": "pages/cookies-policy",
+    "_name": "_2403639d"
+  },
+  {
     "name": "crud",
     "path": "/crud",
     "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/crud.vue",
@@ -63,11 +70,11 @@
     "_name": "_1dd7b8f9"
   },
   {
-    "name": "privacy-policy",
-    "path": "/privacy-policy",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/privacy-policy.vue",
-    "chunkName": "pages/privacy-policy",
-    "_name": "_32bd45f8"
+    "name": "notifications-center",
+    "path": "/notifications-center",
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/notifications-center.vue",
+    "chunkName": "pages/notifications-center",
+    "_name": "_16900cf2"
   },
   {
     "name": "questions",

@@ -1,32 +1,29 @@
 <template>
-    <div class="privacy-policy-wrapper">
-        <HeaderWithTopbar containerClass="container-fluid" />
-        <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
-        <div id="post-nav" class="" @click="closeMenus">
-            <NavBottom />
-            <PrivacyPolicyContainer />
-            <TheFooter />
+    <client-only>
+        <div class="privacy-policy-wrapper">
+            <HeaderWithTopbar containerClass="container-fluid" />
+            <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
+            <div id="post-nav" class="" @click="closeMenus">
+                <NavBottom />
+                <TheFooter />
+            </div>
         </div>
-    </div>
+    </client-only>
 </template>
 
 <script>
-    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
-    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
+
     export default {
         auth: false,
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             TheHeader: () => import('@/components/TheHeader'),
             NavBottom: () => import('@/components/NavBottom'),
-            PrivacyPolicyContainer: () => import('@/components/PrivacyPolicyContainer'),
             TheFooter: () => import('@/components/TheFooter'),
-            CookieConsent,
-            VueIfBot
         },
         head() {
             return {
-                title: "Política de privacidad"
+                title: "Preguntas frecuentes"
             }
         },
 

@@ -1,0 +1,12 @@
+
+.form-pass[data-v-a11d418a] {
+    background-color: #2AB5B2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #8c8c8c;
+    cursor: pointer;
+}
+

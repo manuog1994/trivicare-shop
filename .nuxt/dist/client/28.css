@@ -1,0 +1,24 @@
+.img-info {
+  width: 100%;
+  height: auto;
+  background-image: url("/campain/aloe.webp");
+  background-size: cover;
+  font-size: 24px;
+  color: white;
+}
+@media only screen and (min-width: 360px) and (max-width: 575px) {
+.img-info {
+    padding: 2rem;
+}
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+.img-info {
+    padding: 4rem;
+}
+}
+@media only screen and (max-width: 359px) {
+.img-info {
+    margin-top: 1rem;
+    padding: 1rem;
+}
+}

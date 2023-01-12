@@ -1,7 +1,7 @@
 <template>
     <client-only>
         <div>
-              <div class="my-account-area pb-80 pt-100">
+            <div class="my-account-area pb-80 pt-100">
                 <div class="w-50 m-auto" v-if="errors">
                     <client-only>
                         <div class="alert alert-danger" role="alert" v-for="error in errors" :key="error.id">
@@ -27,7 +27,7 @@
                                                         <div class="account-info-wrapper">
                                                             <h4>Información de mi cuenta</h4>
                                                             <h5>Correo eléctronico</h5>
-                                                        </div>
+                                                         </div>
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12">
                                                                 <p><strong>Email actual:</strong> {{ $auth.user.email }}</p>

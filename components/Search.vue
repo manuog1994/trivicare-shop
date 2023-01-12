@@ -5,7 +5,7 @@
                 <div class="col-12">
                     <div class="input-group">
                         <input type="text" class="form-control rounded-0" placeholder="Encuentra tu lado más natural..." aria-label="Buscar..." aria-describedby="basic-addon1" @input="hidden = false" v-model="search">
-                        <span class="input-group-text rounded-0" id="basic-addon1">
+                        <span class="input-group-text rounded-0 bg-blue-color" id="basic-addon1">
                             <i class="fa fa-search"></i>
                         </span>
                     </div>

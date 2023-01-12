@@ -8,12 +8,13 @@ const _b50bada0 = () => interopDefault(import('../pages/about.vue' /* webpackChu
 const _6b55decd = () => interopDefault(import('../pages/cart.vue' /* webpackChunkName: "pages/cart" */))
 const _1dc09b73 = () => interopDefault(import('../pages/checkout.vue' /* webpackChunkName: "pages/checkout" */))
 const _32117183 = () => interopDefault(import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */))
+const _2403639d = () => interopDefault(import('../pages/cookies-policy.vue' /* webpackChunkName: "pages/cookies-policy" */))
 const _1a46402a = () => interopDefault(import('../pages/crud.vue' /* webpackChunkName: "pages/crud" */))
 const _cce7ec30 = () => interopDefault(import('../pages/forgot-password.vue' /* webpackChunkName: "pages/forgot-password" */))
 const _d130fcaa = () => interopDefault(import('../pages/legal-warning.vue' /* webpackChunkName: "pages/legal-warning" */))
 const _e24cb1e8 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
 const _1dd7b8f9 = () => interopDefault(import('../pages/my-account.vue' /* webpackChunkName: "pages/my-account" */))
-const _32bd45f8 = () => interopDefault(import('../pages/privacy-policy.vue' /* webpackChunkName: "pages/privacy-policy" */))
+const _16900cf2 = () => interopDefault(import('../pages/notifications-center.vue' /* webpackChunkName: "pages/notifications-center" */))
 const _5d78ad20 = () => interopDefault(import('../pages/questions.vue' /* webpackChunkName: "pages/questions" */))
 const _565d63a3 = () => interopDefault(import('../pages/shop.vue' /* webpackChunkName: "pages/shop" */))
 const _37ee3834 = () => interopDefault(import('../pages/success.vue' /* webpackChunkName: "pages/success" */))
@@ -54,6 +55,10 @@ export const routerOptions = {
     component: _32117183,
     name: "contact"
   }, {
+    path: "/cookies-policy",
+    component: _2403639d,
+    name: "cookies-policy"
+  }, {
     path: "/crud",
     component: _1a46402a,
     name: "crud"
@@ -74,9 +79,9 @@ export const routerOptions = {
     component: _1dd7b8f9,
     name: "my-account"
   }, {
-    path: "/privacy-policy",
-    component: _32bd45f8,
-    name: "privacy-policy"
+    path: "/notifications-center",
+    component: _16900cf2,
+    name: "notifications-center"
   }, {
     path: "/questions",
     component: _5d78ad20,

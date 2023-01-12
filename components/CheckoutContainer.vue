@@ -115,33 +115,52 @@
                                                 </div>
                                             </div>
                                             <div v-else>
-                                                <div class="row d-flex align-items-center">
-                                                    <div class="col-6 d-flex align-items-center">
-                                                        <div class="form-check mb-2">
-                                                            <input class="form-check-input mb-1" type="radio" name="shipping" id="correos" v-model="shippingMethod" value="correos">
-                                                            <label class="form-check-label ms-2" for="correos">
-                                                                Envío por Correos 48h/72h
-                                                            </label>
+                                                <div v-if="total * 1.21 < 50">
+                                                    <div class="row d-flex align-items-center">
+                                                        <div class="col-6 d-flex align-items-center">
+                                                            <div class="form-check mb-2">
+                                                                <input class="form-check-input mb-1" type="radio" name="shipping" id="correos" v-model="shippingMethod" value="correos">
+                                                                <label class="form-check-label ms-2" for="correos">
+                                                                    Envío por Correos 48h/72h
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="d-flex justify-content-center">
+                                                                <img src="/payment/correos.webp" alt="correos.webp" width="100px"/>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
-                                                        <div class="d-flex justify-content-center">
-                                                            <img src="/payment/correos.webp" alt="correos.webp" width="100px"/>
+                                                    <div class="row mt-4 d-flex align-items-center">
+                                                        <div class="col-6">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input mb-1" type="radio" name="shipping" id="gls" v-model="shippingMethod" value="gls">
+                                                                <label class="form-check-label ms-2" for="gls">
+                                                                    Envío por GLS 24h/48h
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="d-flex justify-content-center">
+                                                                <img src="/payment/gls.webp" alt="gls.webp" width="100px"/>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row mt-4 d-flex align-items-center">
-                                                    <div class="col-6">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input mb-1" type="radio" name="shipping" id="gls" v-model="shippingMethod" value="gls">
-                                                            <label class="form-check-label ms-2" for="gls">
-                                                                Envío por GLS 24h/48h
-                                                            </label>
+                                                <div v-else>
+                                                    <div class="row mt-4 d-flex align-items-center">
+                                                        <div class="col-6">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input mb-1" type="radio" name="shipping" id="correos" v-model="shippingMethod" value="correos">
+                                                                <label class="form-check-label ms-2" for="correos">
+                                                                    Envío Gratis
+                                                                </label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="d-flex justify-content-center">
-                                                            <img src="/payment/gls.webp" alt="gls.webp" width="100px"/>
+                                                        <div class="col-6">
+                                                            <div class="d-flex justify-content-center">
+                                                                <img src="/payment/correos.webp" alt="correos.webp" width="100px"/>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -711,9 +730,9 @@
             getShipping(total) {
                 if ((total * 1.21) < 50) {
                     if(this.shippingMethod == 'gls') {
-                        return this.shipping = 7.95;
+                        return this.shipping = 9.95;
                     }else if(this.shippingMethod == 'correos') {
-                        return this.shipping = 6.95;
+                        return this.shipping = 8.95;
                     }else if(this.shippingMethod == 'contrareembolso') {
                         return this.shipping = 8.95;
                     }

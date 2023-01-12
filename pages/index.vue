@@ -18,9 +18,6 @@
 </template>
 
 <script>
-    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
-    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
-    import { useTestStore } from '../stores/TestStore';
 
     export default {
         auth: false,
@@ -39,8 +36,6 @@
             ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
             TheFooter: () => import("@/components/TheFooter"),
             Intro: () => import("@/components/Intro"),
-            CookieConsent,
-            VueIfBot,
 
         },
 
@@ -62,7 +57,7 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
-
+            this.$auth.fetchUser();
         },
 
         methods: {

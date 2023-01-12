@@ -16,7 +16,7 @@
                         </div>
                         <div class="col-md-2 stiky-buttons">
                             <div class="header-right-wrap">
-                                <div class="same-style account-setting d-block">
+                                <div class="same-style account-setting d-block me-1">
                                     <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menú de perfil"><i class="pe-7s-user-female"></i></button>
                                     <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
                                         <ul v-if="role == 'admin'">
@@ -37,6 +37,13 @@
                                             <li><n-link to="/login">Iniciar sesión</n-link></li>
                                         </ul>
                                     </div>
+                                </div>
+                                <div class="same-style cart-wrap">
+                                    <button class="" @click="openNotifications = !openNotifications" title="Notificaciones">
+                                        <i class="fa fa-comment-o icon-notify"></i>
+                                        <span class="count-style">{{ notifications }}</span>
+                                    </button>
+                                    <Notifications :notifications="openNotifications" @notificationsClose="openNotifications = !openNotifications" />
                                 </div>
                                 <div class="same-style header-wishlist">
                                     <n-link to="/wishlist"><i class="pe-7s-like"></i></n-link>
@@ -71,6 +78,10 @@
     font-size: 14px;
     color: #ff0000;
 }
+
+.icon-notify{
+    font-size: 20px;
+}
     
 </style>
 
@@ -80,6 +91,7 @@
             Search: () => import("@/components/Search"),
             Navigation: () => import("@/components/Navigation"),
             MiniCart: () => import("@/components/MiniCart"),
+            Notifications: () => import("@/components/Notifications"),
         },
 
         props: ['containerClass', 'msg'],
@@ -94,6 +106,9 @@
             compareItemCount() {
                 return this.$store.getters.compareItemCount
             },
+            notificationsItemCount() {
+                return this.$store.getters.notificationsItemCount
+            },
         },
 
         data() {
@@ -102,10 +117,12 @@
                 isOpenSearch: false,
                 isOpenAccountSettings: false,
                 openCart: false,
+                openNotifications: false,
                 navOpen: false,
                 categories: [],
                 categoryFilter: '',
                 role: '',
+                notifications: 0,
             }
         },
 
@@ -121,6 +138,7 @@
 
             this.getCategories();
             this.getRoles();
+            this.countNotifications();
         },
         
         watch: {
@@ -175,6 +193,19 @@
                     const arr = name.split(space);
 
                     return arr[0];
+                }
+            },
+
+            countNotifications() {
+                if(this.$auth.user) {
+                    let notifications = this.$auth.user.notifications;
+                    //console.log(notifications)
+                    if(notifications != null) {
+                        const noti = notifications.filter(notification => notification.read == 0).length;
+                        this.notifications = noti;
+                    }else {
+                        this.notifications = 0;
+                    }
                 }
             }
         },

@@ -27,7 +27,7 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("transition"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",{staticClass:"terms-conditions-wrapper"},[_c("HeaderWithTopbar",{attrs:{containerClass:"container-fluid"}}),_vm._ssrNode(" "),_c("TheHeader",{attrs:{searchFather:_vm.searchChildren},on:{opacity:_vm.searchOpacity}}),_vm._ssrNode(" "),_vm._ssrNode('<div id="post-nav">',"</div>",[_c("NavBottom"),_vm._ssrNode(" "),_c("TermsConditionsContainer"),_vm._ssrNode(" "),_c("TheFooter")],2)],2);};var staticRenderFns=[];render._withStripped=true;
+var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only",[_c("div",{staticClass:"terms-conditions-wrapper"},[_c("HeaderWithTopbar",{attrs:{containerClass:"container-fluid"}}),_vm._v(" "),_c("TheHeader",{attrs:{searchFather:_vm.searchChildren},on:{opacity:_vm.searchOpacity}}),_vm._v(" "),_c("div",{attrs:{id:"post-nav"},on:{click:_vm.closeMenus}},[_c("NavBottom"),_vm._v(" "),_c("TermsConditionsContainer"),_vm._v(" "),_c("TheFooter")],1)],1)]);};var staticRenderFns=[];render._withStripped=true;
 
 /***/ }),
 

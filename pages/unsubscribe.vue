@@ -1,18 +1,18 @@
 <template>
-    <div class="shop-page-wrapper">
-        <HeaderWithTopbar containerClass="container-fluid" />
-        <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
-        <div id="post-nav" class="" @click="closeMenus">
-            <NavBottom/>
-            <UnsubscribeContainer />
-            <TheFooter />
+    <client-only>
+        <div class="shop-page-wrapper">
+            <HeaderWithTopbar containerClass="container-fluid" />
+            <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
+            <div id="post-nav" class="" @click="closeMenus">
+                <NavBottom/>
+                <UnsubscribeContainer />
+                <TheFooter />
+            </div>
         </div>
-    </div>
+    </client-only>
   </template>
   
   <script>
-    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
-    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
   
@@ -28,8 +28,6 @@
             NavBottom: () => import('@/components/NavBottom.vue'),
             UnsubscribeContainer: () => import('@/components/UnsubscribeContainer.vue'),
             TheFooter: () => import('@/components/TheFooter.vue'),
-            CookieConsent,
-            VueIfBot
           },
   
           mounted() {

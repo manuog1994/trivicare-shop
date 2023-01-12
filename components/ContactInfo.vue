@@ -58,19 +58,19 @@
                         <div class="contact-title mb-30">
                             <h2>Contacta con nosotros</h2>
                         </div>
-                        <form class="contact-form-style" ref="contactform" @submit.prevent="sendContactForm">
+                        <form class="contact-form-style" ref="contactform" @submit.prevent="openContactModal(contact)">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input name="name" placeholder="Nombre*" type="text" v-model="contact.name">
+                                    <input name="name" placeholder="Nombre*" type="text" v-model="contact.name" required>
                                 </div>
                                 <div class="col-lg-6">
-                                    <input name="email" placeholder="Email*" type="email" v-model="contact.email">
+                                    <input name="email" placeholder="Email*" type="email" v-model="contact.email" required>
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name="subject" placeholder="Motivo*" type="text" v-model="contact.subject">
+                                    <input name="subject" placeholder="Motivo*" type="text" v-model="contact.subject" required>
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea name="message" placeholder="Tu Mensaje*" v-model="contact.message"></textarea>
+                                    <textarea name="message" placeholder="Tu Mensaje*" v-model="contact.message" required></textarea>
                                     <button class="submit" type="submit" title="Enviar">ENVIAR</button>
                                 </div>
                             </div>
@@ -79,6 +79,7 @@
                 </div>
             </div>
         </div>
+        <ContactModal />
     </div>
 </template>
 
@@ -96,28 +97,17 @@ export default {
         }
     },
 
+    components: {
+        ContactModal: () => import('@/components/ContactModal.vue')
+    },
+
 
     methods: {
-        async sendContactForm() {
-            console.log(this.contact);
-            await this.$axios.post('/api/contact', {
-                name: this.contact.name,
-                email: this.contact.email,
-                subject: this.contact.subject,
-                message: this.contact.message
-            })
-            .then(response => {
-                //console.log(response);
-                this.$notify({title: 'Mensaje enviado'});
-                this.contact.name = '';
-                this.contact.email = '';
-                this.contact.subject = '';
-                this.contact.message = '';
-            }).catch(error => {
-                //console.log(error);
-            })
+        openContactModal(contact) {
+            this.$modal.show('contactModal', contact);
+            this.$refs.contactform.reset();
+        },
 
-        }
     }
 }
 </script>

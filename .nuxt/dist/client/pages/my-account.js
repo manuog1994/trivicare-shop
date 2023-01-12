@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages/my-account"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[12],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-cookieconsent-component/src/components/CookieConsent.vue?vue&type=template&id=227b1abf&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************!*\

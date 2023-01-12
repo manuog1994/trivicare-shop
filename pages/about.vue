@@ -1,23 +1,23 @@
 <template>
-    <div class="about-page-wrapper">
-        <HeaderWithTopbar containerClass="container-fluid" />
-        <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
-        <div id="post-nav" class="" @click="closeMenus">
-            <NavBottom />
-            <WelcomeMessage class="pt-100 pb-95" />
-            <BannerStyleOne class="pb-70" />
-            <AboutMission />
-            <FunFact />
-            <TeamMembers />
-            <BrandLogoCarousel />
-            <TheFooter />
+    <client-only>
+        <div class="about-page-wrapper">
+            <HeaderWithTopbar containerClass="container-fluid" />
+            <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
+            <div id="post-nav" class="" @click="closeMenus">
+                <NavBottom />
+                <WelcomeMessage class="pt-100 pb-95" />
+                <BannerStyleOne class="pb-70" />
+                <AboutMission />
+                <FunFact />
+                <TeamMembers />
+                <BrandLogoCarousel />
+                <TheFooter />
+            </div>
         </div>
-    </div>
+    </client-only>
 </template>
 
 <script>
-    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
-    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
     export default {
         auth: false,
         components: {
@@ -31,8 +31,6 @@
             TeamMembers: () => import('@/components/TeamMembers'), 
             BrandLogoCarousel: () => import('@/components/BrandLogoCarousel'), 
             TheFooter: () => import('@/components/TheFooter'),
-            VueIfBot,
-            CookieConsent 
         },
 
         data() {

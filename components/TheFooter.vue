@@ -11,16 +11,10 @@
                             <div class="subscribe-style">
                                 <p>Recibe ofertas, descuentos y las últimas novedades.</p>
                                 <div class="subscribe-form">
-                                    <form class="mc-form" @submit.prevent="subscribeForm" ref="form">
+                                    <form class="mc-form" @submit.prevent="openNewsletterModal(email)" ref="form">
                                         <input type="email" required placeholder="  Introduce tu email..." name="email" v-model="email">
-                                        <div class="d-flex flex-column">
-                                            <div class="mt-2 d-flex align-items-center">
-                                                <input type="checkbox" name="checkOne" id="checkOne" v-model="checked" value="true" style="width:15px;">
-                                                <label class="ms-1" for="checkOne">Acepto las <a class="text-primary" href="/privacy-policy">condiciones de uso y la política de privacidad</a></label>
-                                            </div>
-                                        </div>
-                                        <button id="subscribe" type="submit" class="button" name="subscribe" title="Suscribirse" disabled>
-                                            <span @click="checkError">Suscríbeme</span>
+                                        <button id="subscribe" type="submit" class="button" name="subscribe" title="Suscribirse">
+                                            <span>Suscríbeme</span>
                                         </button>
                                     </form>
                                 </div>
@@ -102,8 +96,8 @@
                             <div class="footer-list">
                                 <ul>
                                     <li><n-link to="/terms-conditions">Términos y Condiciones</n-link></li>
-                                    <li><n-link to="/legal-warning">Aviso Legal</n-link></li>
-                                    <li><n-link to="/privacy-policy">Política de Privacidad</n-link></li>
+                                    <li><n-link to="/cookies-policy">Política de Cookies</n-link></li>
+                                    <li><n-link to="/legal-warning">Aviso Legal y Protección de Datos</n-link></li>
                                     <li><n-link to="/questions">Preguntas Frecuentes</n-link></li>
                                 </ul>
                             </div>
@@ -143,16 +137,10 @@
                             <div class="subscribe-style">
                                 <p class="fst-italic">Introduce tu correo electrónico y suscríbete a nuestro newsletter.</p>
                                 <div class="subscribe-form">
-                                    <form class="mc-form" @submit.prevent="subscribeForm" ref="form">
+                                    <form class="mc-form" @submit.prevent="openNewsletterModal(email)" ref="form">
                                         <input type="email" required placeholder="  Introduce tu email..." name="email" v-model="email">
-                                        <div class="d-flex flex-column">
-                                            <div class="mt-2 d-flex align-items-center">
-                                                <input type="checkbox" name="checkTwo" id="checkTwo" v-model="checked" value="true" style="width:15px;">
-                                                <label class="ms-1" for="checkTwo">Acepto las <a class="text-primary" href="/privacy-policy">condiciones de uso y la política de privacidad</a></label>
-                                            </div>
-                                        </div>
-                                        <button id="subscribeTwo" type="submit" class="button" name="subscribe" title="Suscribirse" disabled>
-                                            <span @click="checkError">Suscríbeme</span>
+                                        <button id="subscribeTwo" type="submit" class="button" name="subscribe" title="Suscribirse">
+                                            <span>Suscríbeme</span>
                                         </button>
                                     </form>
                                 </div>
@@ -220,8 +208,8 @@
                             <div class="footer-list">
                                 <ul>
                                     <li><n-link to="/terms-conditions">Términos y Condiciones</n-link></li>
-                                    <li><n-link to="/send-policy">Política de envío</n-link></li>
-                                    <li><n-link to="/privacy-policy">Política de Privacidad</n-link></li>
+                                    <li><n-link to="/cookies-policy">Política de Cookies</n-link></li>
+                                    <li><n-link to="/legal-warning">Aviso Legal y Protección de Datos</n-link></li>
                                     <li><n-link to="/questions">Preguntas Frecuentes</n-link></li>
                                 </ul>
                             </div>
@@ -250,6 +238,7 @@
             </div>
         </footer>
         <SuggestionsModal />
+        <NewsletterModal />
     </div>
 </template>
 <style lang="scss" scoped>
@@ -268,52 +257,27 @@
 </style>
 <script>
     export default {
-
         data() {
             return {
-                checked: false,
-                email: ''
+                email: '',
             }
         },
 
         components: {
-            SuggestionsModal: () => import('@/components/SuggestionsModal.vue')
+            SuggestionsModal: () => import('@/components/SuggestionsModal.vue'),
+            NewsletterModalVue: () => import('@/components/NewsletterModal.vue')
         },
 
-        watch: {
-            checked() {
-                document.getElementById('subscribe').disabled = !this.checked;
-                document.getElementById('subscribeTwo').disabled = !this.checked;
-            }
-        },
+
 
         methods: {
-            async subscribeForm() {
-                await this.$axios.post('/api/newsletter', {
-                    email: this.email
-                }).then(response => {
-                        //console.log(response);
-                        this.$notify({title: 'Gracias por suscribirte, pronto recibirás nuestras novedades.'});
-                        this.email = '';
-                        this.checked = false;
-                    })
-                    .catch(error => {
-                        //console.log(error);
-                        this.$notify({title:'Atención!', text: 'El email introducido ya estaba registrado.', type: 'warn'});
-                        this.email = '';
-                        this.checked = false;
-                    });
-            },
-
-            checkError() {
-                if (this.checked == false) {
-                    this.$notify({title:'Atención!', text: 'Debes aceptar las condiciones de uso y política de privacidad.', type: 'warn'});
-                }
-            },
-
             openSuggestionsModal() {
                 this.$modal.show('suggestionsModal');
             },
+
+            openNewsletterModal(email) {
+                this.$modal.show('newsletterModal', { email: email });
+            }
         }
 
     }
