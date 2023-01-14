@@ -53,6 +53,12 @@
         <n-link to="/wishlist">Lista de deseos</n-link>
         <span class="ms-2 bg-blue-color p-2 rounded-5">{{ wishlistItemCount }}</span>
     </div>
+    <div v-if="$auth.loggedIn == true" class="mt-4">
+        <n-link to="/notifications-center">
+            Notificaciones
+        </n-link>
+        <span class="ms-2 bg-blue-color p-2 rounded-5">{{ notifications }}</span>
+    </div>
 </div>
 </template>
 
@@ -98,6 +104,7 @@
                     }
                 ],
                 role: '',
+                notifications: 0
             }
         },
 
@@ -145,7 +152,9 @@
                         })
                     }
                 })
-            })
+            });
+
+            this.countNotifications();
         },
 
         methods: {
@@ -158,7 +167,7 @@
             },
 
             getRoles() {
-                if(this.$auth.user) {
+                if(this.$auth.loggedIn == true) {
                     const roles = this.$auth.user.roles;
                     if(roles != null) {
                         roles.map(role => {
@@ -171,12 +180,21 @@
             },
 
             getName() {
-                if(this.$auth.user) {
+                if(this.$auth.loggedIn == true) {
                     const space = ' ';
                     const name = this.$auth.user.name;
                     const arr = name.split(space);
 
                     return arr[0];
+                }
+            },
+
+            countNotifications() {
+                if(this.$auth.loggedIn == true) {
+                    const notifications = this.$auth.user.notifications;
+                    if (notifications.read == false) {
+                        this.notifications = notifications.length;
+                    }
                 }
             }
         }

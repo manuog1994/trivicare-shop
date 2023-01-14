@@ -13,17 +13,14 @@
 </template>
 
 <script>
-    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
-    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
+        auth: false,
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             TheHeader: () => import('@/components/TheHeader'),
             NavBottom: () => import('@/components/NavBottom'),
             TermsConditionsContainer: () => import('@/components/TermsConditionsContainer'),
             TheFooter: () => import('@/components/TheFooter'),
-            CookieConsent,
-            VueIfBot
         },
 
         data() {

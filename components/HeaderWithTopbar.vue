@@ -7,7 +7,7 @@
                         <div class="col-md-2 d-flex align-items-center">
                             <div class="ms-lg-3 ms-xl-1">
                                 <n-link to="/">
-                                    <nuxt-img provider="customProvider" src="nuxt/logo-ajustado2.webp" alt="logo"/>
+                                    <nuxt-img provider="customProvider" src="nuxt/TriviCare_byn Positivo.svg" width="350" alt="logo"/>
                                 </n-link>
                             </div>
                         </div>
@@ -38,12 +38,12 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="same-style cart-wrap">
+                                <div v-if="$auth.loggedIn == true" class="same-style cart-wrap">
                                     <button class="" @click="openNotifications = !openNotifications" title="Notificaciones">
                                         <i class="fa fa-comment-o icon-notify"></i>
                                         <span class="count-style">{{ notifications }}</span>
                                     </button>
-                                    <Notifications :notifications="openNotifications" @notificationsClose="openNotifications = !openNotifications" />
+                                    <Notifications :openNotifications="openNotifications" @notificationsClose="openNotifications = !openNotifications" />
                                 </div>
                                 <div class="same-style header-wishlist">
                                     <n-link to="/wishlist"><i class="pe-7s-like"></i></n-link>
@@ -173,7 +173,7 @@
             },
 
             getRoles() {
-                if(this.$auth.user) {
+                if(this.$auth.loggedIn == true) {
                     const roles = this.$auth.user.roles;
                     if(roles != null) {
                         roles.map(role => {
@@ -186,7 +186,7 @@
 
             },
             getName() {
-                if(this.$auth.user) {
+                if(this.$auth.loggedIn == true) {
                     const space = ' ';
                     const name = this.$auth.user.name;
                     //console.log(name);
@@ -197,11 +197,12 @@
             },
 
             countNotifications() {
-                if(this.$auth.user) {
+                if(this.$auth.loggedIn == true) {
                     let notifications = this.$auth.user.notifications;
                     //console.log(notifications)
                     if(notifications != null) {
                         const noti = notifications.filter(notification => notification.read == 0).length;
+                        //console.log(noti)
                         this.notifications = noti;
                     }else {
                         this.notifications = 0;

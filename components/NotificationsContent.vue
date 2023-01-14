@@ -1,6 +1,6 @@
 <template>
     <client-only>
-        <div class="card rounded-0 m-5">
+        <div class="card rounded-0 m-2 m-md-5 mt-5 mb-5">
             <div class="p-2 text-center">
                 <h2>Centro de Notificaciones</h2>
             </div>
@@ -13,9 +13,14 @@
                             <th scope="col">Leído</th>
                         </tr>
                     </thead>
-                    <tbody v-if="notifications > 0">
+                    <tbody v-if="notifications.length > 0">
                         <tr v-for="notification in paginatedItems" :key="notification.id" class="btn-hover-table" @click="openNotification(notification.id)">
-                            <td>{{ notification.title }}</td>
+                            <td>
+                                <i v-if="notification.type == 'send'" class="fa fa-truck me-2"></i>
+                                <i v-if="notification.type == 'review'" class="fa fa-star me-2"></i>
+                                <i v-if="notification.type == 'complete'" class="fa fa-inbox me-2"></i>
+                                {{ notification.title }}
+                            </td>
                             <td>{{ new Date(notification.created_at).toLocaleDateString() }}</td>
                             <td v-if="notification.read == 1">Si</td>
                             <td v-if="notification.read == 0">No</td>
@@ -37,10 +42,13 @@
                         <div>
                             <h5 class="card-title"><strong>{{ notification.title }}</strong></h5>
                             <p class="card-text">{{ notification.message }}</p>
+                            <p v-if="notification.url">
+                                <a :href="url + notification.url">Valorar Pedido</a>
+                            </p>
                         </div>
                         <div class="mt-2">
-                            <button class="btn btn-sm btn-danger rounded-0 text-white" @click="destroy(notification.id)">Eliminar</button>
-                            <button class="btn btn-sm btn-notify rounded-0" @click="openNotification(0)">Cerrar</button>
+                            <button class="btn btn-sm btn-danger rounded-0 text-white" @click.prevent="destroy(notification.id)">Eliminar</button>
+                            <button class="btn btn-sm btn-notify rounded-0" @click.prevent="openNotification(0)">Cerrar</button>
                         </div>
                     </div>
                 </div>
@@ -59,6 +67,7 @@ export default {
             notifications: [],
             page: 1,
             perPage: 10,
+            url: process.env.url
         }
     },
     computed: {
@@ -77,16 +86,33 @@ export default {
             await this.$axios.get('/api/notifications/' + this.$auth.user.id)
             .then(response => {
                 this.notifications = response.data.data;
-                //console.log(response.data.data)
             }).catch(error => {
-                console.log(error)
+                //console.log(error)
             })
         },
 
         openNotification(id) {
+            if(id == 0) {
+                this.showNotification = !this.showNotification;
+                this.notification_id = 0;
+                return;
+            }
             this.getNotification(id);
+            this.read(id);
             this.notification_id = id;
             this.showNotification = !this.showNotification;
+            this.$auth.fetchUser();
+        },
+
+        read(id) {
+            this.$axios.put('/api/notifications/' + id, {
+                read: 1
+            }).then(response => {
+                //console.log(response)
+                this.$auth.fetchUser()
+            }).catch(error => {
+                //console.log(error)
+            })
         },
 
         getNotification(id) {
@@ -119,7 +145,7 @@ export default {
                     }
                 }, 1000);
             }).catch(error => {
-                console.log(error)
+                //console.log(error)
             })
         }
     }

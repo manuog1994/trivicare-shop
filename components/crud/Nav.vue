@@ -1,15 +1,9 @@
 <template>
-    <div class="pt-35 pb-35 bg-gray-3">
+    <div class="bg-blue-color">
         <div class="container">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <nuxt-link to="/">
-                        <nuxt-img provider="customProvider" src="nuxt/logo-ajustado2.webp" width="15%" height="100%" alt="logo" />
-                    </nuxt-link>
-                </div>
-
-                <div class="d-inline-flex justify-content-lg-around align-content-center" style="text-align:end;">
-                    <div class="ms-5">
+            <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-around align-content-center" style="text-align:end;">
+                    <div class="p-4">
                         <ul>
                             <li>
                                 <n-link to="/">
@@ -18,11 +12,18 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="ms-5">
+                    <div class="ps-4 pe-4 d-flex align-items-center">
+                        <ul>
+                            <li>
+                                <h4>Panel de Control</h4>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-4">
                         <ul>
                             <li>
                                 <a @click="logout">
-                                    <img src="~/static/svg/sign-out-alt-solid.svg" width="30px" alt="logo">
+                                    <i class="fa fa-sign-out fs-2"></i>
                                 </a>
                             </li>
                         </ul>

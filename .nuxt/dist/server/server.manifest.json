@@ -18,6 +18,7 @@
     "pages/orders/_id.js": "pages/orders/_id.js",
     "pages/product/_slug.js": "pages/product/_slug.js",
     "pages/questions.js": "pages/questions.js",
+    "pages/review.js": "pages/review.js",
     "pages/shop.js": "pages/shop.js",
     "pages/success.js": "pages/success.js",
     "pages/terms-conditions.js": "pages/terms-conditions.js",

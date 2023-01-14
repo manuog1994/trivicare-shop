@@ -16,13 +16,41 @@
                             <p>{{ product.specifications  }}</p>
                         </div>
                     </div>
-                    <div id="des-details1" class="tab-pane ">
-                        <div class="product-anotherinfo-wrapper">
-                            <ul>
-                                <li><span>Peso</span>{{ product.weight  }}</li>
-                                <li><span>Dimensiones</span>{{ product.size  }}</li>
-                                <li><span>Materiales</span>{{ product.specifications }}</li>
-                            </ul>
+                    <div id="des-details3" ref="review-div" class="tab-pane">
+                        <div class="row">
+                            <div class="col-12">
+                                <div v-for="review in reviews" :key="review.id" class="review-wrapper">
+                                    <div class="single-review d-flex justify-content-center card p-5 rounded-0">
+                                        <!-- <div class="review-img">
+                                            <img src="/img/testimonial/1.jpg" alt="">
+                                        </div> -->
+                                        <div class="d-flex justify-content-center">
+                                            <div class="review-content">
+                                                <div class="review-top-wrap">
+                                                    <div class="review-left">
+                                                        <div class="review-name">
+                                                            <h4>{{ review.user_name }} {{ review.user_lastname  }}</h4>
+                                                        </div>
+                                                        <div class="review-rating">
+                                                            <client-only>
+                                                                <vue-star-rating :star-size="20" :read-only="true" :show-rating="false" :rating="review.rating"></vue-star-rating>
+                                                            </client-only>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="review-bottom">
+                                                    <p>{{ review.message }}</p>
+                                                </div>
+                                                <form v-if="$auth.user && $auth.user.id == review.user_id" @submit="deleteReview(review.id)">
+                                                    <div class="review-delete">
+                                                        <button class="btn">Eliminar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,7 +98,7 @@
                     this.$notify({ text: 'Valoración creada correctamente', type: 'success' })
 
                 } catch (error) {
-                    console.log(error)
+                    //console.log(error)
                 }
             },
 
@@ -79,7 +107,7 @@
                     const response = await this.$axios.delete('/api/reviews/' + review)
                     this.$notify({ text: 'Valoración eliminada correctamente', type: 'success' })
                 } catch (error) {
-                    console.log(error)
+                    //console.log(error)
                 }
             }
         },

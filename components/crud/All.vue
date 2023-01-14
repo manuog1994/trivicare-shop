@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class=" overflow-auto">
         <table class="table">
             <thead>
                 <tr>

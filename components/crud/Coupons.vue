@@ -3,7 +3,7 @@
         <!-- Formulario -->
         <div class="row mt-2 mb-2">
             <div class="col-12">
-                <div class="card w-75 m-auto">
+                <div class="card m-auto">
                     <div class="card-title p-3">
                         <h2>Crear cupón</h2>
                     </div>
@@ -39,7 +39,7 @@
 
         <!-- Tabla -->
         <div class="row mt-5">
-            <div class="col-12">
+            <div class="col-12 overflow-auto">
                 <table class="table">
                     <thead>
                         <tr>

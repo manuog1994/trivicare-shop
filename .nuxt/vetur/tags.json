@@ -116,6 +116,9 @@
   "ResponsiveMobileMenu": {
     "description": "Auto imported from components/ResponsiveMobileMenu.vue"
   },
+  "Reviews": {
+    "description": "Auto imported from components/Reviews.vue"
+  },
   "Search": {
     "description": "Auto imported from components/Search.vue"
   },
@@ -158,44 +161,11 @@
   "WishListContainer": {
     "description": "Auto imported from components/WishListContainer.vue"
   },
-  "BannerItem": {
-    "description": "Auto imported from components/banner/BannerItem.vue"
-  },
-  "BannerStyleFour": {
-    "description": "Auto imported from components/banner/BannerStyleFour.vue"
-  },
-  "BannerStyleOne": {
-    "description": "Auto imported from components/banner/BannerStyleOne.vue"
-  },
   "PolicyServicePolicyFour": {
     "description": "Auto imported from components/policy/ServicePolicyFour.vue"
   },
-  "CrudAll": {
-    "description": "Auto imported from components/crud/All.vue"
-  },
-  "CrudCoupons": {
-    "description": "Auto imported from components/crud/Coupons.vue"
-  },
-  "CrudCreate": {
-    "description": "Auto imported from components/crud/Create.vue"
-  },
-  "CrudEdit": {
-    "description": "Auto imported from components/crud/Edit.vue"
-  },
-  "CrudModalTrack": {
-    "description": "Auto imported from components/crud/ModalTrack.vue"
-  },
-  "CrudNav": {
-    "description": "Auto imported from components/crud/Nav.vue"
-  },
-  "CrudNote": {
-    "description": "Auto imported from components/crud/Note.vue"
-  },
-  "CrudOrders": {
-    "description": "Auto imported from components/crud/Orders.vue"
-  },
-  "CrudOrdersHistory": {
-    "description": "Auto imported from components/crud/OrdersHistory.vue"
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
@@ -212,8 +182,50 @@
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
   },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  "BannerItem": {
+    "description": "Auto imported from components/banner/BannerItem.vue"
+  },
+  "BannerStyleFour": {
+    "description": "Auto imported from components/banner/BannerStyleFour.vue"
+  },
+  "BannerStyleOne": {
+    "description": "Auto imported from components/banner/BannerStyleOne.vue"
+  },
+  "CrudAll": {
+    "description": "Auto imported from components/crud/All.vue"
+  },
+  "CrudCoupons": {
+    "description": "Auto imported from components/crud/Coupons.vue"
+  },
+  "CrudCreate": {
+    "description": "Auto imported from components/crud/Create.vue"
+  },
+  "CrudEdit": {
+    "description": "Auto imported from components/crud/Edit.vue"
+  },
+  "CrudErrorModal": {
+    "description": "Auto imported from components/crud/ErrorModal.vue"
+  },
+  "CrudModalTrack": {
+    "description": "Auto imported from components/crud/ModalTrack.vue"
+  },
+  "CrudNav": {
+    "description": "Auto imported from components/crud/Nav.vue"
+  },
+  "CrudNewInvoice": {
+    "description": "Auto imported from components/crud/NewInvoice.vue"
+  },
+  "CrudNote": {
+    "description": "Auto imported from components/crud/Note.vue"
+  },
+  "CrudOrders": {
+    "description": "Auto imported from components/crud/Orders.vue"
+  },
+  "CrudOrdersHistory": {
+    "description": "Auto imported from components/crud/OrdersHistory.vue"
+  },
+  "CrudSuccessInvoiceModal": {
+    "description": "Auto imported from components/crud/SuccessInvoiceModal.vue"
   },
   "ProfileNewGuest": {
     "description": "Auto imported from components/profile/NewGuest.vue"

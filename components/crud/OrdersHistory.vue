@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 overflow-auto">
                 <table class="table">
                     <thead>
                         <tr>
@@ -46,7 +46,7 @@
                     </tbody>
                     <tbody v-else>
                         <tr>
-                            <td colspan="6">No hay pedidos pendientes.</td>
+                            <td colspan="6">No hay pedidos en el historial.</td>
                         </tr>
                     </tbody>
                 </table>

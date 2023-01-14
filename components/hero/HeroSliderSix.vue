@@ -41,7 +41,7 @@
         <div class="d-md-none">
             <p class="img-mobile">
                 <span class="bg-span">
-                    <img src="@/static/campain/TriviCare_byn Round Positivo.webp" alt="" width="80" style="margin-bottom: 20px">
+                    <img src="@/static/campain/TriviCare_byn Positivo.svg" alt="" width="200" style="margin-bottom: 20px">
                     <br>
                     <strong>Estamos de Inauguración</strong>
                     <br>
@@ -107,17 +107,11 @@
 
                 sliderData: [
                     {
-                        title: "Bienvenid@ a TriviCare",
-                        desc: "Queremos cuidar de tu piel, con toda nuestra gama de productos",
+                        title: "Cuídate con TriviCare",
+                        desc: "Descubre nuestra gama de productos para mimar tu piel",
                         backgroundImage: "https://api.trivicare.com/nuxt/slider1-1.webp",
                         backgroundImageTwo: "https://api.trivicare.com/nuxt/slider1-1.webp"
                     },
-                    {
-                        title: "Oferta de Inauguración",
-                        desc: "10% de descuento en tu compra con el cupón 'TRIVICARE10' solo hasta el 31 de Diciembre",
-                        backgroundImage: "https://api.trivicare.com/nuxt/slider1-2.webp",
-                        backgroundImageTwo: "https://api.trivicare.com/nuxt/slider1-2.webp"
-                    }
                 ]
             }
         }

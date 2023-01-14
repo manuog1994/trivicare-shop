@@ -14,6 +14,7 @@
 
 <script>
     export default {
+        auth: false,
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             TheHeader: () => import('@/components/TheHeader'),

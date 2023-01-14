@@ -52,7 +52,7 @@ export default {
                     //console.log(error);
                     this.$notify({title:'Atención!', text: 'El email introducido ya estaba registrado.', type: 'warn'});
                     this.email = '';
-                    this.checked = false;
+                    this.$modal.hide('newsletterModal');
                 });
         },
 

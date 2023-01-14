@@ -1,9 +1,9 @@
 <template>
     <modal name="edit" @before-open="beforeOpen" width="800px" :scrollable="true" height=auto>
-        <div class="mb-2 ps-4 pt-4">
+        <div class="mb-2 ps-md-4 pt-md-4">
             <h2>Modificar Producto</h2>
         </div>
-        <form class="row p-5" ref="updateproduct" @submit="updateProduct">
+        <form class="row p-md-5" ref="updateproduct" @submit="updateProduct">
             <div class="col-12 mb-2">
                 <label for="title">Título</label>
                 <input class="form-control" type="text" name="name" :value="item.name" ref="name">
@@ -16,39 +16,39 @@
                 <label for="specifications">Especificaciones</label>
                 <textarea class="form-control" name="specifications" id="specifications" :value="item.specifications" ref="specifications"></textarea>
             </div>
-            <div class="col-3 mb-2">
+            <div class="col-12 col-md-3 mb-2">
                 <label for="price">Precio</label>
                 <input class="form-control" type="number" name="price" step=".01" :value="item.price" ref="price">
             </div>
-            <div class="col-3 mb-2">
+            <div class="col-12 col-md-3 mb-2">
                 <label for="stock">
                     Stock
                 </label>
                 <input class="form-control" type="number" name="stock" step=".01" :value="item.stock" ref="stock">
             </div>
-            <div class="col-6 mb-2">
+            <div class="col-12 col-md-6 mb-2">
                 <label for="barcode">Código de Barras</label>
                 <input class="form-control" type="number" name="barcode" :value="item.barcode" ref="barcode">
             </div>
-            <div class="col-4 mb-2">
+            <div class="col-12 col-md-4 mb-2">
                 <label for="category">Categoría</label>
                 <select class="form-select" name="category_id" :value="item.category_id" ref="category_id">
                     <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
                 </select>
             </div>
-            <div class="col-8 mb-2">
+            <div class="col-12 col-md-8 mb-2">
                 <label for="slug">Slug</label>
                 <input class="form-control" type="text" name="slug" :value="item.slug" ref="slug">
             </div>
-            <div class="col-4 mb-2">
+            <div class="col-12 col-md-4 mb-2">
                 <label for="discount">Descuento</label>
                 <input class="form-control" type="number" name="discount" step=".01" :value="item.discount" ref="discount">
             </div>
-            <div class="col-4 mb-2">
+            <div class="col-12 col-md-4 mb-2">
                 <label for="weight">Peso</label>
                 <input class="form-control" type="number" name="weight" step=".01" :value="item.weight" ref="weight">
             </div>
-            <div class="col-4 mb-2">
+            <div class="col-12 col-md-4 mb-2">
                 <label for="size">Tamaño</label>
                 <input class="form-control" type="number" name="size" step=".01" :value="item.size" ref="size">
             </div>
@@ -62,15 +62,19 @@
                 <div class="mb-2">
                     <h2 class="mt-3">Activos</h2>
                 </div>
-                <div class="d-flex bg-aqua rounded mb-3">
+                <div class="bg-aqua rounded mb-3">
                     <span class="ms-2">Actuales:</span>
-                    <p v-for="tag in item.tags" :key="tag.id" class="ms-2">
-                        {{ tag.name }} 
-                        <a @click.prevent="deleteTag(tag)"><i class="fa fa-trash"></i></a>
-                    </p>
+                    <div class="row">
+                        <div class="col-6 col-md-4" v-for="tag in item.tags" :key="tag.id">
+                            <p class="ms-2">
+                                {{ tag.name }} 
+                                <a @click.prevent="deleteTag(tag)"><i class="fa fa-trash"></i></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="row mt-2 mb-3 pb-3 border-bottom-1">
-                    <div class="form-check col-3 mb-2" v-for="tag in tags" :key="tag.id">
+                    <div class="form-check col-12 col-md-3 mb-2 ms-3" v-for="tag in tags" :key="tag.id">
                         <input class="form-check-input" type="checkbox" :value="tag.id" id="flexCheckDefault" v-model="inputTags">
                         <label class="form-check-label" for="flexCheckDefault">
                             {{ tag.name }}
@@ -84,7 +88,7 @@
         </form>
 
         <!-- Formulario de imágenes -->
-        <div class="ps-5 pe-5">
+        <div class="ps-md-5 pe-md-5 mt-2">
             <div class="row mb-5">
                 <div class="mb-2">
                     <h2>Imágenes</h2>

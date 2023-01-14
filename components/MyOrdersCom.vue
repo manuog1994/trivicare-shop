@@ -25,7 +25,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="d-flex justify-content-center mt-5">
+                <div v-if="orders.length > 0" class="d-flex justify-content-center mt-5">
                     <nav aria-label="...">
                         <ul class="pagination-custom">
                             <client-only>

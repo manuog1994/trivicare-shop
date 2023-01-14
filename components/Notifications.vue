@@ -1,7 +1,7 @@
 <template>
-    <div class="position-absolute box-notify" :class="{'d-none': notifications ? false : true}" style="right:0;background-color: white; border: 0.5px solid gray; border-radius: 5px; width: 260px;">
+    <div class="position-absolute box-notify" :class="{'d-none': openNotifications ? false : true}" style="right:0;background-color: white; border: 0.5px solid gray; border-radius: 5px; width: 260px;">
         <div class="d-block">
-            <ul v-if="notifications.length > 0">
+            <ul v-if="$auth.user.notifications.length > 0">
                 <div v-for="notification in $auth.user.notifications" :key="notification.id">
                     <a v-if="notification.read == 0" @click.prevent="read(notification.id)">
                         <li class="notify-list p-2 d-flex align-items-center">
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-    props: ["notifications"],
+    props: ["openNotifications"],
 
     data() {
         return {
@@ -47,7 +47,7 @@ export default {
         },
 
         countNotifications() {
-            if(this.$auth.user) {
+            if(this.$auth.loggedIn == true) {
                 let notifications = this.$auth.user.notifications;
                 //console.log(notifications)
                 if(notifications != null) {

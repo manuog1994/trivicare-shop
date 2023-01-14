@@ -16,6 +16,7 @@ const _e24cb1e8 = () => interopDefault(import('../pages/login.vue' /* webpackChu
 const _1dd7b8f9 = () => interopDefault(import('../pages/my-account.vue' /* webpackChunkName: "pages/my-account" */))
 const _16900cf2 = () => interopDefault(import('../pages/notifications-center.vue' /* webpackChunkName: "pages/notifications-center" */))
 const _5d78ad20 = () => interopDefault(import('../pages/questions.vue' /* webpackChunkName: "pages/questions" */))
+const _46218dc5 = () => interopDefault(import('../pages/review.vue' /* webpackChunkName: "pages/review" */))
 const _565d63a3 = () => interopDefault(import('../pages/shop.vue' /* webpackChunkName: "pages/shop" */))
 const _37ee3834 = () => interopDefault(import('../pages/success.vue' /* webpackChunkName: "pages/success" */))
 const _4eeb482a = () => interopDefault(import('../pages/terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
@@ -86,6 +87,10 @@ export const routerOptions = {
     path: "/questions",
     component: _5d78ad20,
     name: "questions"
+  }, {
+    path: "/review",
+    component: _46218dc5,
+    name: "review"
   }, {
     path: "/shop",
     component: _565d63a3,

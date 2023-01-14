@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "992041f0c5856ffd9477";
+/******/ 	var hotCurrentHash = "15b9082fe8b4a0af3c9c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -835,7 +835,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"12":"pages/my-account","pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/contact":"pages/contact","pages/cookies-policy":"pages/cookies-policy","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/legal-warning":"pages/legal-warning","pages/login":"pages/login","pages/my-orders/_id":"pages/my-orders/_id","pages/notifications-center":"pages/notifications-center","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/product/_slug":"pages/product/_slug","pages/questions":"pages/questions","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"12":"pages/my-account","pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/contact":"pages/contact","pages/cookies-policy":"pages/cookies-policy","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/legal-warning":"pages/legal-warning","pages/login":"pages/login","pages/my-orders/_id":"pages/my-orders/_id","pages/notifications-center":"pages/notifications-center","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/product/_slug":"pages/product/_slug","pages/questions":"pages/questions","pages/review":"pages/review","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -873,11 +873,11 @@
 /******/
 /******/ 		// extract-css-chunks-webpack-plugin CSS loading
 /******/ 		var supportsPreload = (function() { try { return document.createElement("link").relList.supports("preload"); } catch(e) { return false; }}());
-/******/ 		var cssChunks = {"pages/index":1,"pages/my-orders/_id":1,"pages/orders/_id":1,"pages/shop":1};
+/******/ 		var cssChunks = {"pages/index":1,"pages/my-orders/_id":1,"pages/orders/_id":1,"pages/review":1,"pages/shop":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"12":"pages/my-account","pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/contact":"pages/contact","pages/cookies-policy":"pages/cookies-policy","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/legal-warning":"pages/legal-warning","pages/login":"pages/login","pages/my-orders/_id":"pages/my-orders/_id","pages/notifications-center":"pages/notifications-center","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/product/_slug":"pages/product/_slug","pages/questions":"pages/questions","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
+/******/ 				var href = "" + ({"12":"pages/my-account","pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/contact":"pages/contact","pages/cookies-policy":"pages/cookies-policy","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/legal-warning":"pages/legal-warning","pages/login":"pages/login","pages/my-orders/_id":"pages/my-orders/_id","pages/notifications-center":"pages/notifications-center","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/product/_slug":"pages/product/_slug","pages/questions":"pages/questions","pages/review":"pages/review","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -911,7 +911,7 @@
 /******/ 				installedCssChunks[chunkId] = 0;
 /******/ 				if(supportsPreload) {
 /******/ 					var execLinkTag = document.createElement("link");
-/******/ 					execLinkTag.href =  __webpack_require__.p + "" + ({"12":"pages/my-account","pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/contact":"pages/contact","pages/cookies-policy":"pages/cookies-policy","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/legal-warning":"pages/legal-warning","pages/login":"pages/login","pages/my-orders/_id":"pages/my-orders/_id","pages/notifications-center":"pages/notifications-center","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/product/_slug":"pages/product/_slug","pages/questions":"pages/questions","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
+/******/ 					execLinkTag.href =  __webpack_require__.p + "" + ({"12":"pages/my-account","pages/about":"pages/about","pages/cart":"pages/cart","pages/checkout":"pages/checkout","pages/contact":"pages/contact","pages/cookies-policy":"pages/cookies-policy","pages/crud":"pages/crud","pages/forgot-password":"pages/forgot-password","pages/index":"pages/index","pages/legal-warning":"pages/legal-warning","pages/login":"pages/login","pages/my-orders/_id":"pages/my-orders/_id","pages/notifications-center":"pages/notifications-center","pages/orders-profiles/_id":"pages/orders-profiles/_id","pages/orders/_id":"pages/orders/_id","pages/product/_slug":"pages/product/_slug","pages/questions":"pages/questions","pages/review":"pages/review","pages/shop":"pages/shop","pages/success":"pages/success","pages/terms-conditions":"pages/terms-conditions","pages/unsubscribe":"pages/unsubscribe","pages/wishlist":"pages/wishlist"}[chunkId]||chunkId) + ".css";
 /******/ 					execLinkTag.rel = "stylesheet";
 /******/ 					execLinkTag.type = "text/css";
 /******/ 					document.body.appendChild(execLinkTag);

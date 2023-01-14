@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-5">
-                 <div class="w-50 m-auto">
+            <div class="col-12 mt-md-5">
+                 <div class="m-auto">
                     <form class="row" ref="productform" @submit.prevent="newProduct">
                         <div class="col-12 mb-2">
                             <label for="title">Título</label>
@@ -16,39 +16,39 @@
                             <label for="specifications">Especificaciones</label>
                             <textarea class="form-control" name="specifications" id="specifications"></textarea>
                         </div>
-                        <div class="col-3 mb-2">
+                        <div class="col-12 col-md-3 mb-2">
                             <label for="price">Precio</label>
                             <input class="form-control" type="number" name="price" step=".01">
                         </div>
-                        <div class="col-3 mb-2">
+                        <div class="col-12 col-md-3 mb-2">
                             <label for="stock">
                                 Stock
                             </label>
                             <input class="form-control" type="number" name="stock">
                         </div>
-                        <div class="col-6 mb-2">
+                        <div class="col-12 col-md-6 mb-2">
                             <label for="barcode">Código de Barras</label>
                             <input class="form-control" type="number" name="barcode">
                         </div>
-                        <div class="col-4 mb-2">
+                        <div class="col-12 col-md-4 mb-2">
                             <label for="category">Categoría</label>
                             <select class="form-select" name="category_id">
                                 <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
                             </select>
                         </div>
-                        <div class="col-8 mb-2">
+                        <div class="col-12 col-md-8 mb-2">
                             <label for="slug">Slug</label>
                             <input class="form-control" type="text" name="slug">
                         </div>
-                        <div class="col-4 mb-2">
+                        <div class="col-12 col-md-4 mb-2">
                             <label for="discount">Descuento</label>
                             <input class="form-control" type="number" name="discount" step=".01">
                         </div>
-                        <div class="col-4 mb-2">
+                        <div class="col-12 col-md-4 mb-2">
                             <label for="weight">Peso</label>
                             <input class="form-control" type="number" name="weight" step=".01">
                         </div>
-                        <div class="col-4 mb-2">
+                        <div class="col-12 col-md-4 mb-2">
                             <label for="size">Tamaño</label>
                             <input class="form-control" type="number" name="size" step=".01">
                         </div>
@@ -63,7 +63,7 @@
                                 <h2 class="mt-3">Activos</h2>
                             </div>
                             <div class="row mt-2 mb-2">
-                                <div class="form-check col-3 mb-2" v-for="tag in tags" :key="tag.id">
+                                <div class="form-check col-6 col-md-3 mb-2" v-for="tag in tags" :key="tag.id">
                                     <input class="form-check-input" type="checkbox" :value="tag.id" id="flexCheckDefault" v-model="inputTag">
                                     <label class="form-check-label" for="flexCheckDefault">
                                         {{ tag.name }}
