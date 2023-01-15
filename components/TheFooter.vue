@@ -82,7 +82,6 @@
                                     <li><n-link to="/about">Sobre nosotros</n-link></li>
                                     <li><n-link to="/contact">Puntos de venta</n-link></li>
                                     <li><n-link to="/contact">Contacto</n-link></li>
-                                    <li><n-link to="/my-orders">Seguimiento de envío</n-link></li>
                                     <li><a @click="openSuggestionsModal">Buzón de Sugerencias</a></li>
                                 </ul>
                             </div>
@@ -194,7 +193,6 @@
                                     <li><n-link to="/about">Sobre nosotros</n-link></li>
                                     <li><n-link to="/contact">Puntos de venta</n-link></li>
                                     <li><n-link to="/contact">Contacto</n-link></li>
-                                    <li><n-link to="/my-orders">Seguimiento de envío</n-link></li>
                                     <li><a @click="openSuggestionsModal">Buzón de Sugerencias</a></li>
                                 </ul>
                             </div>

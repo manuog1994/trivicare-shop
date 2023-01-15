@@ -49,7 +49,7 @@
                     <h3>¿Cómo puedo pagar por mi compra?</h3>
                 </div>
                 <div>
-                    <p>Aceptamos varios métodos de pago, incluyendo tarjeta de crédito, débito, PayPal, Google Pay e Apple Pay.</p>
+                    <p>Aceptamos varios métodos de pago, incluyendo tarjeta de crédito, débito, PayPal, Google Pay y Apple Pay.</p>
                 </div>
             </div>
             <div class="mb-5">
