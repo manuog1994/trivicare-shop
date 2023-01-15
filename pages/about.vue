@@ -6,11 +6,6 @@
             <div id="post-nav" class="" @click="closeMenus">
                 <NavBottom />
                 <WelcomeMessage class="pt-100 pb-95" />
-                <BannerStyleOne class="pb-70" />
-                <AboutMission />
-                <FunFact />
-                <TeamMembers />
-                <BrandLogoCarousel />
                 <TheFooter />
             </div>
         </div>
@@ -25,11 +20,6 @@
             TheHeader: () => import('@/components/TheHeader'),
             NavBottom: () => import('@/components/NavBottom'), 
             WelcomeMessage: () => import('@/components/WelcomeMessage'), 
-            BannerStyleOne: () => import('@/components/banner/BannerStyleOne'), 
-            AboutMission: () => import('@/components/AboutMission'), 
-            FunFact: () => import('@/components/FunFact'), 
-            TeamMembers: () => import('@/components/TeamMembers'), 
-            BrandLogoCarousel: () => import('@/components/BrandLogoCarousel'), 
             TheFooter: () => import('@/components/TheFooter'),
         },
 

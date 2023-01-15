@@ -5,6 +5,7 @@
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
                 <NavBottom />
+                <QuestionCont />
                 <TheFooter />
             </div>
         </div>
@@ -19,6 +20,7 @@
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             TheHeader: () => import('@/components/TheHeader'),
             NavBottom: () => import('@/components/NavBottom'),
+            QuestionCont: () => import('@/components/QuestionsCont'),
             TheFooter: () => import('@/components/TheFooter'),
         },
         head() {
