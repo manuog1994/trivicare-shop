@@ -206,12 +206,13 @@ export default {
                 dimensions: this.$refs.dimensions.value,
                 tags: JSON.stringify(this.inputTags),
             }).then((response) => {
-                    this.$notify({ title: 'El producto se ha actualizado correctamente', type: 'success' });
-                })
-                .catch((error) => {
-                    console.log(error);
-                    this.$notify({ title: 'Ha ocurrido un error', type: 'error' });
-                })
+                console.log(response);
+                this.$notify({ title: 'El producto se ha actualizado correctamente', type: 'success' });
+            })
+            .catch((error) => {
+                console.log(error);
+                this.$notify({ title: 'Ha ocurrido un error', type: 'error' });
+            })
 
         },
 
@@ -234,14 +235,14 @@ export default {
         deleteImage(image) {
             const image_id = image.id;
             this.$axios.delete('/api/images/' + image_id)
-                .then((response) => {
-                    this.getProducts();
-                    this.$notify({ title: 'La imagen se ha eliminado correctamente', type: 'success' });
-                })
-                .catch((error) => {
-                    console.log(error);
-                    this.$notify({ title: 'Ha ocurrido un error', type: 'error' });
-                });
+            .then((response) => {
+                this.getProducts();
+                this.$notify({ title: 'La imagen se ha eliminado correctamente', type: 'success' });
+            })
+            .catch((error) => {
+                console.log(error);
+                this.$notify({ title: 'Ha ocurrido un error', type: 'error' });
+            });
             
         },
 
@@ -258,6 +259,7 @@ export default {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((response) => {
+                console.log(response);
                 this.images = [];
                 this.$refs.file.value = '';
                 this.getProducts();
