@@ -149,6 +149,7 @@ export default {
             await this.$axios.post('/api/products/', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
+                    'Access-Control-Allow-Origin': '*',
                 },
             }).then((response) => {
                     this.$refs.productform.reset();

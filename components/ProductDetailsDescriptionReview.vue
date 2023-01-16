@@ -16,6 +16,15 @@
                             <p>{{ product.specifications  }}</p>
                         </div>
                     </div>
+                    <div id="des-details1" class="tab-pane ">
+                        <div class="product-anotherinfo-wrapper">
+                            <ul>
+                                <li><span>Peso</span>{{ product.weight }} g</li>
+                                <li><span>Dimensiones</span>{{ product.dimensions }} mm </li>
+                                <li><span>Tamaño</span>{{ product.size }} ml</li>
+                            </ul>
+                        </div>
+                    </div>
                     <div id="des-details3" ref="review-div" class="tab-pane">
                         <div class="row">
                             <div class="col-12">
