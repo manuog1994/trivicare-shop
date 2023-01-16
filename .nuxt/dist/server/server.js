@@ -12333,7 +12333,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({data(){return{policies:[{icon:"support-1.webp",title:"Envío gratis",subTitle:"Envío gratis en pedidos superiores a 50€ (solo península)"},{icon:"support-2.webp",title:"Atención al cliente",subTitle:"Atención al cliente personal y profesional"},{icon:"support-4.webp",title:"10% de descuento",subTitle:"10% de descuento en tu primera compra"}]};}});
+/* harmony default export */ __webpack_exports__["default"] = ({data(){return{policies:[{icon:"support-1.webp",title:"Envío gratis",subTitle:"Envío gratis en pedidos superiores a 50€ (solo Península y Baleares)"},{icon:"support-2.webp",title:"Atención al cliente",subTitle:"Atención al cliente personal y profesional"},{icon:"support-4.webp",title:"10% de descuento",subTitle:"10% de descuento en tu primera compra"}]};}});
 
 /***/ }),
 
