@@ -72,14 +72,17 @@
 
         head() {
             return {
-                title: this.product.name,
+                titleTemplate: this.product.name + '| TriviCare Natural Cosmetics',
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/product/' + this.product.slug }
+                ],
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
                     {
                         hid: 'description',
                         name: 'description',
-                        content: 'Nuestros productos son de la mejor calidad, naturales y ecológicos. Compra online y recibe en tu casa.'
+                        content: this.product.meta_description
                     }
                 ],
 

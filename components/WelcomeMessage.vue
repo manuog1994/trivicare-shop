@@ -29,12 +29,6 @@
 
 <script>
     export default {
-        data() {
-            return {
-                title: "Welcome To Flone",
-                subTitle: "Who Are We",
-                desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo consequat irure"
-            }
-        },
+
     };
 </script>
