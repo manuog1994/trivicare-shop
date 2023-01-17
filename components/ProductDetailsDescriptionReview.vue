@@ -11,9 +11,8 @@
                 </div>
                 <div class="tab-content description-review-bottom">
                     <div id="des-details2" class="tab-pane active">
-                        <div class="product-description-wrapper">
-                            <p>{{ product.description  }}</p>
-                            <p>{{ product.specifications  }}</p>
+                        <div class="product-description-wrapper m-auto">
+                            <div v-html="product.description"></div>
                         </div>
                     </div>
                     <div id="des-details1" class="tab-pane ">
@@ -33,7 +32,7 @@
                                         <!-- <div class="review-img">
                                             <img src="/img/testimonial/1.jpg" alt="">
                                         </div> -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex justify-content-start">
                                             <div class="review-content">
                                                 <div class="review-top-wrap">
                                                     <div class="review-left">

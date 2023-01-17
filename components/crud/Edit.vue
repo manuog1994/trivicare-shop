@@ -10,8 +10,14 @@
             </div>
             <div class="col-12 mb-2">
                 <label for="description">Descripción</label>
-                <textarea class="form-control" name="description" id="description" :value="item.description" ref="description"></textarea>
-            </div>
+                <editor api-key="8e7yeojh0bqgf51hmsdm12zbmuqh7yjs010wttlmc8yzgm6o" v-model="item.description" :init="{height: 500, menubar: true, plugins: [
+                    'advlist autolink lists link image charmap print preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime media table paste code help wordcount'
+                    ], toolbar: 'undo redo | formatselect | bold italic backcolor | \
+                    alignleft aligncenter alignright alignjustify | \
+                    bullist numlist outdent indent | removeformat | help'}"></editor>
+            </div>            
             <div class="col-12 mb-2">
                 <label for="specifications">Especificaciones</label>
                 <textarea class="form-control" name="specifications" id="specifications" :value="item.specifications" ref="specifications"></textarea>
@@ -132,6 +138,7 @@ export default {
                 dimensions: '',
                 new: '',
                 tags: '',
+                content: '',
             },
             images: [],
             inputTags: [],
@@ -194,7 +201,7 @@ export default {
         async updateProduct() {
             await this.$axios.put('/api/products/' + this.item.id, {
                 name: this.$refs.name.value,
-                description: this.$refs.description.value,
+                description: this.item.description,
                 specifications: this.$refs.specifications.value,
                 price: this.$refs.price.value,
                 stock: this.$refs.stock.value,

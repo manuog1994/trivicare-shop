@@ -48,7 +48,7 @@
                             <span><a class="ms-1" href="#">{{ product.total_reviews }} Valoraciones</a></span>
                         </div>
                         <div style="height: 120px; overflow:scroll;">
-                            <p>{{ product.description }}</p>
+                            <p>{{ product.specifications }}</p>
                         </div>
                         <div class="pro-details-size-color" v-if="product.variation">
                             <div class="pro-details-color-wrap">

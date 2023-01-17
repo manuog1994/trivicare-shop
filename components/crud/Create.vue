@@ -10,7 +10,13 @@
                         </div>
                         <div class="col-12 mb-2">
                             <label for="description">Descripción</label>
-                            <textarea class="form-control" name="description" id="description"></textarea>
+                            <editor api-key="8e7yeojh0bqgf51hmsdm12zbmuqh7yjs010wttlmc8yzgm6o" v-model="content" :init="{height: 500, menubar: true, plugins: [
+                                'advlist autolink lists link image charmap print preview anchor',
+                                'searchreplace visualblocks code fullscreen',
+                                'insertdatetime media table paste code help wordcount'
+                              ], toolbar: 'undo redo | formatselect | bold italic backcolor | \
+                                alignleft aligncenter alignright alignjustify | \
+                                bullist numlist outdent indent | removeformat | help'}"></editor>
                         </div>
                         <div class="col-12 mb-2">
                             <label for="specifications">Especificaciones</label>
@@ -105,6 +111,7 @@ export default {
             inputTag: [],
             images: [],
             tags: [],
+            content: '',
         }
     },
 
@@ -142,6 +149,7 @@ export default {
         async newProduct() {
             const formData = new FormData(this.$refs.productform);
             formData.append('tags', JSON.stringify(this.inputTag));
+            formData.append('description', this.content)
             const images = this.images;
             for (let i = 0; i < images.length; i++) {
                 formData.append('images[]', images[i]);
