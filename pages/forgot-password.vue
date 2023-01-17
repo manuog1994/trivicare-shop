@@ -11,8 +11,6 @@
   </template>
   
 <script>
-    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
-    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     import ForgotPasswordContainer from '../components/ForgotPasswordContainer.vue'
     export default {
         auth: false,
@@ -37,8 +35,6 @@
             TheHeader: () => import("@/components/TheHeader.vue"),
             NavBottom: () => import("@/components/NavBottom.vue"),
             TheFooter: () => import("@/components/TheFooter.vue"),
-            CookieConsent,
-            VueIfBot,
             ForgotPasswordContainer
         },
 
@@ -59,14 +55,10 @@
 
         head() {
             return {
-                title: 'Recuperar contraseña',
-                meta: [
-                    {
-                        hid: 'description',
-                        name: 'description',
-                        content: 'Recuperar contraseña'
-                    }
-                ]
+                titleTemplate: 'Recuperar contraseña | TriviCare Natural Cosmetics',
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/forgot-password' }
+                ],
             }
         },
   

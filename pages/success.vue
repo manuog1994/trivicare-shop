@@ -103,6 +103,15 @@ export default {
                     this.$router.push('/');
                 }
             }, 1000);
+        },
+
+        head() {
+            return {
+                titleTemplate: 'Estamos procesando su pago... | TriviCare Natural Cosmetics',
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/success' }
+                ],
+            }
         }
 
     },

@@ -70,7 +70,10 @@
 
         head() {
             return {
-                title: "Contacto",
+                titleTemplate: "Contacto | TriviCare Natural Cosmetics",
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/contact' }
+                ],
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },

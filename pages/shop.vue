@@ -14,8 +14,6 @@
 </template>
 
 <script>
-    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
-    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
 
@@ -28,8 +26,6 @@
             ShopContainer: () => import("@/components/ShopContainer"),
             QuickView: () => import("@/components/QuickView"),
             TheFooter: () => import("@/components/TheFooter"),
-            CookieConsent,
-            VueIfBot,
         },
 
         data() {

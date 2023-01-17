@@ -52,8 +52,6 @@
             NavBottom: () => import("@/components/NavBottom"),
             MyAccountContainer: () => import("@/components/MyAccountContainer"),
             TheFooter: () => import("@/components/TheFooter"),
-            CookieConsent,
-            VueIfBot,
         },
 
         mounted() {
@@ -224,7 +222,10 @@
 
         head() {
             return {
-                title: "Mi Cuenta",
+                titleTemplate: "Mi Cuenta | TriviCare Natural Cosmetics",
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/my-account' }
+                ],
             }
         },
 

@@ -55,6 +55,12 @@ export default {
         },
     },
 
+    head() {
+        return {
+            titleTemplate: 'Mis Pedidos | TriviCare Natural Cosmetics',
+        };
+    },
+
 }
 </script>
 

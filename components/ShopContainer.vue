@@ -304,7 +304,10 @@ export default {
     head() {
         if (this.category) {
             return {
-                title: this.$route.query.category.charAt(0).toUpperCase()+ this.$route.query.category.slice(1),
+                titleTemplate: this.$route.query.category.charAt(0).toUpperCase()+ this.$route.query.category.slice(1),
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/shop' }
+                ],
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },

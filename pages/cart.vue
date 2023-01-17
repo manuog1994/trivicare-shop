@@ -13,8 +13,6 @@
 </template>
 
 <script>
-    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
-    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
 
@@ -26,8 +24,6 @@
             NavBottom: () => import('@/components/NavBottom'),
             CartContainer: () => import('@/components/CartContainer'),
             TheFooter: () => import('@/components/TheFooter'),
-            CookieConsent,
-            VueIfBot,
         },
         data() {
             return {
@@ -74,7 +70,10 @@
 
         head() {
             return {
-                title: "Carrito"
+                titleTemplate: "Carrito | TriviCare Natural Cosmetics",
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/cart'},
+                ],
             }
         },
     };

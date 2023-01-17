@@ -13,8 +13,6 @@
 </template>
 
 <script>
-    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
-    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     export default {
         auth: false,
         
@@ -33,8 +31,6 @@
             NavBottom: () => import("@/components/NavBottom"),
             CheckoutContainer: () => import("@/components/CheckoutContainer"),
             TheFooter: () => import("@/components/TheFooter"),
-            CookieConsent,
-            VueIfBot
         },
 
         mounted() {
@@ -86,7 +82,10 @@
 
         head() {
             return {
-                title: "Resumen de tu Pedido",
+                titleTemplate: "Resumen de tu Pedido | TriviCare Natural Cosmetics",
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/checkout' }
+                ],
             }
         },
     };

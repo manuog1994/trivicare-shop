@@ -31,7 +31,10 @@
 
         head() {
             return {
-                title: "Términos & Condiciones"
+                titleTemplate: "Términos y condiciones | TriviCare Natural Cosmetics" ,
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/terms-conditions' }
+                ],
             }
         },
 

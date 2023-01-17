@@ -13,8 +13,6 @@
 </template>
 
 <script>
-    import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
-    import VueIfBot from 'vue-if-bot/dist/vue-if-bot.es'
     import WishListContainer from '../components/WishListContainer.vue';
     export default {
         auth: false,
@@ -25,8 +23,6 @@
             NavBottom: () => import("@/components/NavBottom"),
             WishListContainer: () => import("@/components/WishListContainer"),
             TheFooter: () => import("@/components/TheFooter"),
-            CookieConsent,
-            VueIfBot,
             WishListContainer
         },
 
@@ -78,7 +74,10 @@
 
         head() {
             return {
-                title: "Lista de Deseos"
+                titleTemplate: "Lista de Deseos | TriviCare Natural Cosmetics",
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/wishlist' }
+                ],
             }
         },
     };

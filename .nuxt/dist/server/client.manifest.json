@@ -2,7 +2,7 @@
   "publicPath": "/_nuxt/",
   "all": [
     "0.js",
-    "4aa06a155424d112e140.hot-update.json",
+    "2fa0cd9cb33bc543f6ad.hot-update.json",
     "app.css",
     "app.js",
     "assets/fonts/Pe-icon-7-stroke.eot",
@@ -31,9 +31,9 @@
     "pages/my-orders/_id.js",
     "pages/notifications-center.js",
     "pages/orders-profiles/_id.js",
+    "pages/orders/_id.2fa0cd9cb33bc543f6ad.hot-update.js",
     "pages/orders/_id.css",
     "pages/orders/_id.js",
-    "pages/product/_slug.4aa06a155424d112e140.hot-update.js",
     "pages/product/_slug.js",
     "pages/questions.js",
     "pages/review.css",
@@ -79,9 +79,9 @@
     "pages/my-orders/_id.js",
     "pages/notifications-center.js",
     "pages/orders-profiles/_id.js",
+    "pages/orders/_id.2fa0cd9cb33bc543f6ad.hot-update.js",
     "pages/orders/_id.css",
     "pages/orders/_id.js",
-    "pages/product/_slug.4aa06a155424d112e140.hot-update.js",
     "pages/product/_slug.js",
     "pages/questions.js",
     "pages/review.css",
@@ -185,6 +185,9 @@
     "31126286": [
       49,
       50
+    ],
+    "33548741": [
+      17
     ],
     "36895272": [
       2,
@@ -1152,8 +1155,9 @@
       27
     ],
     "f0900460": [
-      30,
-      31
+      31,
+      32,
+      30
     ],
     "c620b546": [
       21,
@@ -7356,6 +7360,9 @@
       49,
       50
     ],
+    "344d35b4": [
+      17
+    ],
     "7e299e2c": [
       49,
       50
@@ -10301,8 +10308,9 @@
       27
     ],
     "2f83a138": [
-      30,
-      31
+      31,
+      32,
+      30
     ],
     "89310cdc": [
       35,
@@ -11951,12 +11959,12 @@
       29
     ],
     "2610f8b2": [
-      30,
-      31
+      31,
+      32,
+      30
     ],
     "5f26f381": [
-      33,
-      32
+      33
     ],
     "46def506": [
       34
@@ -13510,12 +13518,12 @@
       29
     ],
     "1d69151c": [
-      30,
-      31
+      31,
+      32,
+      30
     ],
     "14292bb8": [
-      33,
-      32
+      33
     ],
     "107c96a1": [
       34
@@ -13560,6 +13568,15 @@
       49,
       50
     ],
+    "2d20c586": [
+      17
+    ],
+    "4b6bcdf8": [
+      17
+    ],
+    "7c3991a1": [
+      17
+    ],
     "68f86ada": [
       49,
       50
@@ -13567,6 +13584,9 @@
     "740fab36": [
       49,
       50
+    ],
+    "501df96c": [
+      17
     ],
     "3fa32e74": [
       49,
@@ -13814,32 +13834,33 @@
       29
     ],
     "38bb61d5": [
-      30,
-      31
+      31,
+      32,
+      30
     ],
     "6231f989": [
-      30,
-      31
+      31,
+      32,
+      30
     ],
     "714f3a88": [
-      30,
-      31
+      31,
+      32,
+      30
     ],
     "17e2814a": [
-      30,
-      31
+      31,
+      32,
+      30
     ],
     "03c90d96": [
-      33,
-      32
+      33
     ],
     "f80cdad2": [
-      33,
-      32
+      33
     ],
     "57d74a90": [
-      33,
-      32
+      33
     ],
     "6cf89c18": [
       34
@@ -14278,10 +14299,10 @@
       "pages/orders-profiles/_id.js"
     ],
     "1d2836b1": [
+      "pages/orders/_id.2fa0cd9cb33bc543f6ad.hot-update.js",
       "pages/orders/_id.js"
     ],
     "cdc5b0ae": [
-      "pages/product/_slug.4aa06a155424d112e140.hot-update.js",
       "pages/product/_slug.js"
     ],
     "1fdf4be8": [

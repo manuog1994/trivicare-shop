@@ -24,7 +24,10 @@
         },
         head() {
             return {
-                title: "Aviso legal | Política de Protección de Datos",
+                titleTemplate: "Aviso legal | Política de Protección de Datos | TriviCare Natural Cosmetics",
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/legal-warning' }
+                ]
             }
         },
 

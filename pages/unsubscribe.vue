@@ -53,6 +53,15 @@
                 }
             }
           },
+
+          head() {
+            return {
+                titleTemplate: 'Nos entristece que te vayas | TriviCare Natural Cosmetics',
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/unsubscribe' }
+                ]
+            }
+          }
   
 
     

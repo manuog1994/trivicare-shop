@@ -25,7 +25,10 @@
         },
         head() {
             return {
-                title: "Preguntas frecuentes"
+                titleTemplate: "Preguntas frecuentes | TriviCare Natural Cosmetics",
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/questions' }
+                ],
             }
         },
 

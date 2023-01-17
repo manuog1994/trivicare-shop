@@ -60,7 +60,10 @@ import MyOrdersCom from '../../components/MyOrdersCom.vue';
 
         head() {
             return {
-                title: 'Mis Pedidos',
+                titleTemplate: 'Mis Pedidos | TriviCare Natural Cosmetics',
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/my-orders' }
+                ],
             }
         },
 

@@ -46,6 +46,15 @@ export default {
                 document.getElementById("post-nav").classList.remove("search-screen");
             }
         },
+
+        head() {
+            return {
+                titleTemplate: 'Notificaciones',
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/notifications-center' }
+                ],
+            }
+        }
     }
 }
 </script>
