@@ -22,6 +22,7 @@
             return {
                 searchChildren: '',
                 role: '',
+                unauthorized: '',
             }
         },
 
@@ -33,6 +34,13 @@
                 }, 2000);
             });
             this.getRoles();
+
+            if(this.$axios.onError(error => {
+                const code = error.response.status;
+                if (code === 401) {
+                    this.unauthorized = true;
+                }
+            }));
         },
 
         components: {
@@ -41,6 +49,14 @@
             NavBottom: () => import('@/components/NavBottom'),
             OrdersProfileCom: () => import('@/components/OrdersProfileCom'),
             TheFooter: () => import('@/components/TheFooter'),
+        },
+
+        watch: {
+            unauthorized() {
+                if (this.unauthorized == true) {
+                    this.$auth.logout();
+                }
+            }
         },
 
         methods: {

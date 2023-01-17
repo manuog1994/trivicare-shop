@@ -44,6 +44,7 @@ export default {
     data() {
         return {
             isActive: "All",
+            unauthorized: '',
         }
     },
 
@@ -54,6 +55,21 @@ export default {
                 this.$nuxt.$loading.finish()
             }, 2000);
         });
+
+        if(this.$axios.onError(error => {
+            const code = error.response.status;
+            if (code === 401) {
+                this.unauthorized = true;
+            }
+        }));
+    },
+
+    watch: {
+        unauthorized() {
+            if (this.unauthorized == true) {
+                this.$auth.logout();
+            }
+        }
     },
 
     methods: {

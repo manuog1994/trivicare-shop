@@ -18,6 +18,7 @@ export default {
         return {
             searchChildren: '',
             closeMenu: false,
+            unauthorized: '',
         }
     },
 
@@ -30,7 +31,22 @@ export default {
     },
 
     mounted() {
-        this.$auth.fetchUser()
+        this.$auth.fetchUser();
+
+        if(this.$axios.onError(error => {
+            const code = error.response.status;
+            if (code === 401) {
+                this.unauthorized = true;
+            }
+        }));
+    },
+
+    watch: {
+        unauthorized() {
+            if (this.unauthorized == true) {
+                this.$auth.logout();
+            }
+        }
     },
 
     methods: {
@@ -47,13 +63,14 @@ export default {
             }
         },
 
-        head() {
-            return {
-                titleTemplate: 'Notificaciones',
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/notifications-center' }
-                ],
-            }
+    },
+
+    head() {
+        return {
+            titleTemplate: 'Notificaciones',
+            link: [
+                { rel: 'cannonical', href: 'https://trivicare.com/notifications-center' }
+            ],
         }
     }
 }

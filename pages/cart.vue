@@ -28,6 +28,7 @@
         data() {
             return {
                 searchChildren: '',
+                unauthorized: '',
             }
         },
 
@@ -48,7 +49,22 @@
 
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
-            }    
+            }
+            
+            if(this.$axios.onError(error => {
+                const code = error.response.status;
+                if (code === 401) {
+                    this.unauthorized = true;
+                }
+            }));
+        },
+
+        watch: {
+            unauthorized() {
+                if (this.unauthorized == true) {
+                    this.$auth.logout();
+                }
+            }
         },
         
 

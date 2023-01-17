@@ -45,6 +45,7 @@
                 test: '',
                 searchChildren: '',
                 closeMenu: false,
+                unauthorized: '',
             }
         },
 
@@ -58,6 +59,21 @@
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
             this.$auth.fetchUser();
+
+            if(this.$axios.onError(error => {
+                const code = error.response.status;
+                if (code === 401) {
+                    this.unauthorized = true;
+                }
+            }));
+        },
+
+        watch: {
+            unauthorized() {
+                if (this.unauthorized == true) {
+                    this.$auth.logout();
+                }
+            }
         },
 
         methods: {
