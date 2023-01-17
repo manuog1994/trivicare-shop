@@ -81,7 +81,11 @@ export default function (ctx, inject) {
       },
       "url": "http://localhost:8000/api/user"
     },
-    "refresh": false
+    "refresh": false,
+    "redirect": {
+      "login": false,
+      "logout": false
+    }
   },
   "name": "laravelSanctum",
   "cookie": {

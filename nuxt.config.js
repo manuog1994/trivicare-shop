@@ -115,6 +115,10 @@ export default defineNuxtConfig({
                         url: '/login', method: 'post'
                     },
                     refresh: false,
+                    redirect: {
+                        login: false,
+                        logout: false,
+                    },
                 },
             },
 

@@ -207,10 +207,10 @@
                     <div v-else class="col-lg-7">
                         <div class="text-center" :class="{'hidden': btnGuest ? false : true}">
                             <div class="mb-2">
-                                <h3>Si estas registrado o quieres registrarte</h3>                        
+                                <h3>Si estas registrado</h3>                        
                             </div>
                             <div class="p-3 p-md-5">
-                                <n-link class="btn btn-theme rounded-0 w-50 m-auto" to="/login" title="Iniciar sesión">Iniciar sesión</n-link>
+                                <button class="btn btn-theme rounded-0 w-50 m-auto" @click.prevent="openLoginModal" title="Iniciar sesión">Iniciar sesión</button>
                             </div>
                             <div class="p-3">
                                 <p class="text-middle-p"><span class="text-middle-span">de lo contrario</span></p>
@@ -459,6 +459,7 @@
                 </div>
             </div>
         </div>
+        <LoginModal />
     </div>
 </template>
 
@@ -470,6 +471,7 @@
             Paypal: () => import("@/components/Paypal"),
             NewProfile: () => import("@/components/profile/NewProfile"),
             NewGuest: () => import("@/components/profile/NewGuest"),
+            LoginModal: () => import("@/components/LoginModal"),
         },
 
         data() {
@@ -788,6 +790,10 @@
                         //this.$router.push('/cart');
                     }
                 }, 1000);
+            },
+
+            openLoginModal() {
+                this.$modal.show('loginModal');
             },
         },
     };

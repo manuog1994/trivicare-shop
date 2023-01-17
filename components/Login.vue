@@ -91,6 +91,7 @@
                             //console.log(res);
                             //window.location.reload();
                             this.errors = [];
+                            this.$modal.hide('loginModal');
                             //this.$notify({ title: 'Bienvenid@ de nuevo!'})
                         }).catch(err => {
                             //console.log(err);
@@ -121,6 +122,7 @@
                         //console.log(res);
                         //window.location.reload();
                         this.errors = [];
+                        this.$modal.hide('loginModal');
                         //this.$notify({ title: 'Bienvenid@ de nuevo!'})
                     });
                 } catch (error) {
