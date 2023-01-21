@@ -732,11 +732,11 @@
             getShipping(total) {
                 if ((total * 1.21) < 50) {
                     if(this.shippingMethod == 'gls') {
-                        return this.shipping = 9.95;
+                        return this.shipping = 7.90;
                     }else if(this.shippingMethod == 'correos') {
-                        return this.shipping = 8.95;
+                        return this.shipping = 6.90;
                     }else if(this.shippingMethod == 'contrareembolso') {
-                        return this.shipping = 8.95;
+                        return this.shipping = 8.90;
                     }
                 } else if ((total * 1.21) > 50 && this.payment == 'contrareembolso') {
                     return '+1.75%';
