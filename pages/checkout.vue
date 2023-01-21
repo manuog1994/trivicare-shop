@@ -83,9 +83,9 @@
         head() {
             return {
                 titleTemplate: "Resumen de tu Pedido | TriviCare Natural Cosmetics",
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/checkout' }
-                ],
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/checkout' }
+                // ],
             }
         },
     };

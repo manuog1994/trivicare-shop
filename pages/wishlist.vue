@@ -75,9 +75,9 @@
         head() {
             return {
                 titleTemplate: "Lista de Deseos | TriviCare Natural Cosmetics",
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/wishlist' }
-                ],
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/wishlist' }
+                // ],
             }
         },
     };

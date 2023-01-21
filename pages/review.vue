@@ -83,9 +83,9 @@
         head() {
             return {
                 titleTemplate: 'Valora tu pedido | TriviCare Natural Cosmetics',
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/review' }
-                ],            
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/review' }
+                // ],            
             }
         },
         

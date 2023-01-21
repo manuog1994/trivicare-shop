@@ -70,9 +70,9 @@
         head() {
             return {
                 titleTemplate: "Iniciar sesión / Regístrate | TriviCare Natural Cosmetics",
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/login'},
-                ],
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/login'},
+                // ],
             }
         }
     };

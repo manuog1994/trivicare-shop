@@ -73,9 +73,9 @@
         head() {
             return {
                 titleTemplate: this.product.name + ' | TriviCare Natural Cosmetics',
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/product/' + this.product.slug }
-                ],
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/product/' + this.product.slug }
+                // ],
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },

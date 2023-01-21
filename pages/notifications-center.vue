@@ -68,9 +68,9 @@ export default {
     head() {
         return {
             titleTemplate: 'Notificaciones',
-            link: [
-                { rel: 'cannonical', href: 'https://trivicare.com/notifications-center' }
-            ],
+            // link: [
+            //     { rel: 'cannonical', href: 'https://trivicare.com/notifications-center' }
+            // ],
         }
     }
 }

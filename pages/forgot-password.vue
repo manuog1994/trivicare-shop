@@ -56,9 +56,9 @@
         head() {
             return {
                 titleTemplate: 'Recuperar contraseña | TriviCare Natural Cosmetics',
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/forgot-password' }
-                ],
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/forgot-password' }
+                // ],
             }
         },
   

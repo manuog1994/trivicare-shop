@@ -87,9 +87,9 @@
         head() {
             return {
                 titleTemplate: "Carrito | TriviCare Natural Cosmetics",
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/cart'},
-                ],
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/cart'},
+                // ],
             }
         },
     };

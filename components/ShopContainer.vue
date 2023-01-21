@@ -305,9 +305,9 @@ export default {
         if (this.category) {
             return {
                 titleTemplate: this.$route.query.category.charAt(0).toUpperCase()+ this.$route.query.category.slice(1),
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/shop' }
-                ],
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/shop' }
+                // ],
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },

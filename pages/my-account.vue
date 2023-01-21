@@ -86,9 +86,9 @@
         head() {
             return {
                 titleTemplate: "Mi Cuenta | TriviCare Natural Cosmetics",
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/my-account' }
-                ],
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/my-account' }
+                // ],
             }
         },
 

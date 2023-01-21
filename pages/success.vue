@@ -108,9 +108,9 @@ export default {
         head() {
             return {
                 titleTemplate: 'Estamos procesando su pago... | TriviCare Natural Cosmetics',
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/success' }
-                ],
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/success' }
+                // ],
             }
         }
 

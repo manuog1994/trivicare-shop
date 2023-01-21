@@ -32,9 +32,9 @@
         head() {
             return {
                 titleTemplate: "Términos & Condiciones | TriviCare Natural Cosmetics",
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/cookies-policy'},
-                ],
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/cookies-policy'},
+                // ],
             }
         },
 

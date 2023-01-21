@@ -33,9 +33,9 @@
         head() {
             return {
                 titleTemplate: "Sobre Nosotros | TriviCare Natural Cosmetics",
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/about'}
-                ],
+                // link: [
+                //     { rel: 'cannonical', href: 'https://trivicare.com/about'}
+                // ],
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
