@@ -23,7 +23,7 @@
         auth: false,
         role: false,
 
-        pageTransition: 'slide-fade',
+        //pageTransition: 'slide-fade',
 
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
@@ -103,7 +103,7 @@
                     {
                         hid: 'description',
                         name: 'description',
-                        content: 'La cosmética natural y ecológica es la mejor opción para cuidar de tu piel. Descubre una nueva forma de belleza natural con nuestra marca de cosméticos ecológicos. Nuestra tienda online ofrece una selección única de productos naturales y orgánicos para tu cuidado diario de la piel, el cabello y la salud. Encuentra los mejores productos ecológicos a precios accesibles para llevar tu cuidado de la belleza al siguiente nivel.'
+                        content: 'Nuestra tienda online ofrece una selección única de productos naturales y orgánicos para tu cuidado diario de la piel. Encuentra los mejores productos ecológicos a precios accesibles para llevar tu cuidado de la belleza al siguiente nivel.'
                     }
                 ],            
             }
