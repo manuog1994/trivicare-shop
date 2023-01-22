@@ -253,7 +253,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
-                                                    <img class="ms-2" src="/payment/metodosdepago.webp" alt="metodos-de-pago.webp" width="100%"/>
+                                                    <img loading="lazy" class="ms-2" src="/payment/metodosdepago.webp" alt="metodos-de-pago.webp" width="100%"/>
                                                 </div>
                                             </div>
                                             <div class="row mt-4 d-flex align-items-center">
@@ -266,7 +266,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-6 d-flex justify-content-center">
-                                                    <img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100px" height="auto"/>
+                                                    <img loading="lazy" class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100px" height="auto"/>
                                                 </div>
                                             </div>
                                             <!-- <div class="row mt-4 d-flex align-items-center">
@@ -303,7 +303,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="d-flex justify-content-center">
-                                                        <img src="/payment/correos.webp" alt="correos.webp" width="100px"/>
+                                                        <img loading="lazy" src="/payment/correos.webp" alt="correos.webp" width="100px"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -319,7 +319,7 @@
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="d-flex justify-content-center">
-                                                            <img src="/payment/correos.webp" alt="correos.webp" width="100px"/>
+                                                            <img loading="lazy" src="/payment/correos.webp" alt="correos.webp" width="100px"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -334,7 +334,7 @@
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="d-flex justify-content-center">
-                                                            <img src="/payment/gls.webp" alt="gls.webp" width="100px"/>
+                                                            <img loading="lazy" src="/payment/gls.webp" alt="gls.webp" width="100px"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -448,7 +448,7 @@
         <div v-if="cancelOrder == true" class="mt-100 pb-100">
             <div class="card rounded-0 p-2 m-2 p-md-5 m-md-5">
                 <div class="d-flex justify-content-center mb-5">
-                    <img src="/payment/error.webp" alt="success.webp" width="60">
+                    <img loading="lazy" src="/payment/error.webp" alt="success.webp" width="60">
                 </div>
                 <div class="text-center">
                     <h2>Su pedido ha sido cancelado</h2>

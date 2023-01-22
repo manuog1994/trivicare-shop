@@ -7,7 +7,7 @@
                         <div class="support-wrap-2 support-padding-2 support-shape-3 mb-30 text-center">
                             <div class="support-content-2">
                                 <div class="support-icon">
-                                    <nuxt-img class="animated" provider="customProvider" :src="'nuxt/' + policy.icon" :alt="policy.title"/>
+                                    <nuxt-img loading="lazy" class="animated" provider="customProvider" :src="'nuxt/' + policy.icon" :alt="policy.title"/>
                                 </div>
                                 <div class="support-content">
                                     <h5>{{ policy.title }}</h5>
@@ -22,7 +22,7 @@
         <div class="d-flex justify-content-between justify-content-sm-around mt-4 mt-md-0 mb-4 mb-md-5 d-lg-none p-4 p-sm-4">
             <div v-for="policy in policies" :key="policy.title" class="text-center">
                 <div class="policy-icons">
-                    <nuxt-img class="animated" provider="customProvider" :src="'nuxt/' + policy.icon" :alt="policy.title" width="30px"/>
+                    <nuxt-img loading="lazy" class="animated" provider="customProvider" :src="'nuxt/' + policy.icon" :alt="policy.title" width="30px"/>
                     <p class="display-min">{{ policy.title }}</p>
                 </div>
             </div>

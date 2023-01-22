@@ -8,8 +8,8 @@
                 <swiper :options="brandLogoCarousel">
                     <div class="single-brand-logo swiper-slide" v-for="product in products" :key="product.id">
                         <a :href="url + '/product/' + product.slug" style="cursor:pointer;">
-                            <nuxt-img v-if="product.images.length == 0" provider="customProvider" src="nuxt/default.webp" alt="default" width="100px" />
-                            <nuxt-img v-else provider="customProvider" :src="product.images[0].path" :alt="product.name" width="100px" />
+                            <nuxt-img loading="lazy" v-if="product.images.length == 0" provider="customProvider" src="nuxt/default.webp" alt="default" width="100px" />
+                            <nuxt-img loading="lazy" v-else provider="customProvider" :src="product.images[0].path" :alt="product.name" width="100px" />
                             <p class="display-min">{{ product.name }}</p>
                             <p class="display-min" style="margin-top:-15px;">
                                 <strong>{{ product.price }} &euro;</strong>

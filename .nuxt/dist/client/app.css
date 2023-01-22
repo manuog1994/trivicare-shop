@@ -22699,6 +22699,36 @@ form[data-v-19098524] {
 .login-form form .btn-form[data-v-08b0c08b]:hover {
   background-color: #2AB5B2;
 }
+.tag-block {
+  display: inline-flex;
+  padding: 1rem, 1rem;
+  border-radius: 5px;
+  border: 1px solid #a8a8a8;
+}
+.principal {
+  width: 425px;
+  height: 425px;
+}
+@media only screen and (max-width: 400px) {
+.principal {
+    width: 275px;
+    height: 275px;
+}
+}
+
+.product-grid-change{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+
+.policy-icons{
+    width: 80px;
+    height: auto;
+    margin: auto;
+}
+
 
 p.img-mobile {
     width: 100%;
@@ -22725,36 +22755,6 @@ p.img-mobile {
 .bg-slider-img {
     background-color: #f5f5f5a3;
     padding: 8rem 5rem;
-}
-
-
-.policy-icons{
-    width: 80px;
-    height: auto;
-    margin: auto;
-}
-
-.tag-block {
-  display: inline-flex;
-  padding: 1rem, 1rem;
-  border-radius: 5px;
-  border: 1px solid #a8a8a8;
-}
-.principal {
-  width: 425px;
-  height: 425px;
-}
-@media only screen and (max-width: 400px) {
-.principal {
-    width: 275px;
-    height: 275px;
-}
-}
-
-.product-grid-change{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0.5rem;
 }
 
 

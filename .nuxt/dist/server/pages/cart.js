@@ -29,7 +29,10 @@ __webpack_require__.r(__webpack_exports__);
 window.onblur=function(){// Si el usuario se va a otro lado...
 document.title="Ey, vuelve aquí!";// Cambiamos el título
 };window.onfocus=function(){document.title=tituloOriginal;// Si el usuario vuelve restablecemos el título
-};if(this.$axios.onError(error=>{const code=error.response.status;if(code===401){this.unauthorized=true;}}));},watch:{unauthorized(){if(this.unauthorized==true){this.$auth.logout();}}},methods:{closeMenus(){this.searchOpacity(false);this.$root.$emit('closeMenu',this.closeMenu);},searchOpacity(searchFather){if(searchFather==true){document.getElementById("post-nav").classList.add("search-screen");}else{document.getElementById("post-nav").classList.remove("search-screen");}}},head(){return{titleTemplate:"Carrito | TriviCare Natural Cosmetics",link:[{rel:'cannonical',href:'https://trivicare.com/cart'}]};}});
+};if(this.$axios.onError(error=>{const code=error.response.status;if(code===401){this.unauthorized=true;}}));},watch:{unauthorized(){if(this.unauthorized==true){this.$auth.logout();}}},methods:{closeMenus(){this.searchOpacity(false);this.$root.$emit('closeMenu',this.closeMenu);},searchOpacity(searchFather){if(searchFather==true){document.getElementById("post-nav").classList.add("search-screen");}else{document.getElementById("post-nav").classList.remove("search-screen");}}},head(){return{titleTemplate:"Carrito | TriviCare Natural Cosmetics"// link: [
+//     { rel: 'cannonical', href: 'https://trivicare.com/cart'},
+// ],
+};}});
 
 /***/ }),
 

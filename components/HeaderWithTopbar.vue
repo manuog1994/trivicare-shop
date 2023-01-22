@@ -7,7 +7,7 @@
                         <div class="col-md-2 d-flex align-items-center">
                             <div class="ms-lg-3 ms-xl-1">
                                 <n-link to="/">
-                                    <nuxt-img provider="customProvider" src="nuxt/TriviCare_byn Positivo.svg" width="350" alt="logo"/>
+                                    <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo.svg" width="350" alt="logo"/>
                                 </n-link>
                             </div>
                         </div>

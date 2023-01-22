@@ -41,7 +41,7 @@
         <div class="d-md-none">
             <p class="img-mobile">
                 <span class="bg-span">
-                    <img src="@/static/campain/TriviCare_byn Positivo.svg" alt="" width="200" style="margin-bottom: 20px">
+                    <img loading="lazy" src="@/static/campain/TriviCare_byn Positivo.svg" alt="logo.svg" width="200" style="margin-bottom: 20px">
                     <br>
                     <strong>Estamos de Inauguración</strong>
                     <br>

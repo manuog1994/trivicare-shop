@@ -11,20 +11,20 @@
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
                                 <div v-if="product.images.length == 0" class="swiper-slide text-center">
-                                    <nuxt-img class="principal" provider="customProvider" src="nuxt/default.webp" alt="default" />
+                                    <nuxt-img loading="lazy" class="principal" provider="customProvider" src="nuxt/default.webp" alt="default" />
                                     <p class="fst-italic">Haz doble click sobre la imagen para zoom</p>
                                 </div>
                                 <div v-else class="swiper-slide text-center" v-for="image in product.images" :key="'image-' + image.id">
-                                    <nuxt-img class="principal" provider="customProvider" :src="image.path" alt="default" />
+                                    <nuxt-img loading="lazy" class="principal" provider="customProvider" :src="image.path" alt="default" />
                                     <p class="fst-italic">Haz doble click sobre la imagen para zoom</p>
                                 </div>
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
                                 <div v-if="product.images.length == 0" class="thumb-img swiper-slide">
-                                    <nuxt-img provider="customProvider" src="nuxt/default.webp" alt="default" width="100%" height="100%"/>
+                                    <nuxt-img loading="lazy" provider="customProvider" src="nuxt/default.webp" alt="default" width="100%" height="100%"/>
                                 </div>
                                 <div v-else class="thumb-img swiper-slide" v-for="image in product.images" :key="'imagetwo-' + image.id">
-                                    <nuxt-img provider="customProvider" :src="image.path" alt="default" width="100%" height="100%"/>
+                                    <nuxt-img loading="lazy" provider="customProvider" :src="image.path" alt="default" width="100%" height="100%"/>
                                 </div>
                             </swiper>
                         </div>
