@@ -30,8 +30,8 @@ export default defineNuxtConfig({
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
         script: [
-            { src: 'https://js.stripe.com/v3' },
-            { src: 'https://www.paypal.com/sdk/js?client-id=' + process.env.PAYPAL_CLIENT_ID + '&currency=EUR' },
+            //{ src: 'https://js.stripe.com/v3' },
+            //{ src: 'https://www.paypal.com/sdk/js?client-id=' + process.env.PAYPAL_CLIENT_ID + '&currency=EUR' },
 
         ]
         

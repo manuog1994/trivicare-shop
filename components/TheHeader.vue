@@ -13,7 +13,7 @@
                     <div class="col-md-4 col-sm-4 col-4">
                         <div class="lgo">
                             <n-link to="/">
-                                <nuxt-img provider="customProvider" src="nuxt/TriviCare_byn Round Positivo.svg" style="width:50px; margin:auto;" alt="logo"/>
+                                <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Round Positivo.svg" style="width:50px; margin:auto;" alt="logo"/>
                             </n-link>
                         </div>
                     </div>

@@ -45,10 +45,10 @@ components:{HeaderWithTopbar:()=>Promise.resolve(/*! import() */).then(__webpack
 window.onblur=function(){// Si el usuario se va a otro lado...
 document.title="Ey, vuelve aquí!";// Cambiamos el título
 };window.onfocus=function(){document.title=tituloOriginal;// Si el usuario vuelve restablecemos el título
-};this.$auth.fetchUser();if(this.$axios.onError(error=>{const code=error.response.status;if(code===401){this.unauthorized=true;}}));},watch:{unauthorized(){if(this.unauthorized==true){this.$auth.logout();}}},methods:{closeMenus(){this.searchOpacity(false);this.$root.$emit('closeMenu',this.closeMenu);},searchOpacity(searchFather){if(searchFather==true){document.getElementById("post-nav").classList.add("search-screen");}else{document.getElementById("post-nav").classList.remove("search-screen");}}},head(){return{titleTemplate:'Cuidamos de tú piel | Cosmética natural y ecológica',// link: [
+};if(this.$auth.loggedIn==true){this.$auth.fetchUser();}if(this.$axios.onError(error=>{const code=error.response.status;if(code===401){this.unauthorized=true;}}));},watch:{unauthorized(){if(this.unauthorized==true){this.$auth.logout();}}},methods:{closeMenus(){this.searchOpacity(false);this.$root.$emit('closeMenu',this.closeMenu);},searchOpacity(searchFather){if(searchFather==true){document.getElementById("post-nav").classList.add("search-screen");}else{document.getElementById("post-nav").classList.remove("search-screen");}}},head(){return{titleTemplate:'Cuidamos de tú piel | Cosmética natural y ecológica',// link: [
 //     { rel: 'cannonical', href: 'https://trivicare.com/' }
 // ],
-meta:[{charset:'utf-8'},{name:'viewport',content:'width=device-width, initial-scale=1'},{hid:'description',name:'description',content:'Nuestra tienda online ofrece una selección única de productos naturales y orgánicos para tu cuidado diario de la piel. Encuentra los mejores productos ecológicos a precios accesibles para llevar tu cuidado de la belleza al siguiente nivel.'}]};}});
+meta:[{charset:'utf-8'},{name:'viewport',content:'width=device-width, initial-scale=1'},{hid:'description',name:'description',content:'En TriviCare Natural Cosmetics ofrecemos una selección única de productos de cosmética natural y orgánica para tu cuidado diario de la piel.'}]};}});
 
 /***/ }),
 

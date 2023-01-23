@@ -176,6 +176,7 @@ export default {
             //alert("Su pago se ha realizado con éxito");
         }
     },
+
 }
 
 

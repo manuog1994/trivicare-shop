@@ -85,8 +85,10 @@ export default {
             }
             
         }).render('#paypal-button-container');
-        }
-    }
+        },
+
+    },
+
 }
 </script>
 

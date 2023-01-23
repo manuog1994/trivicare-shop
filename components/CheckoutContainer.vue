@@ -796,6 +796,22 @@
                 this.$modal.show('loginModal');
             },
         },
+
+        head() {
+            return {
+                script: [
+                    {
+                        src: "https://js.stripe.com/v3/",
+                        async: true,
+                    },
+
+                    { 
+                        src: 'https://www.paypal.com/sdk/js?client-id=' + process.env.PAYPAL_CLIENT_ID + '&currency=EUR',
+                        async: true, 
+                    }
+                ]
+            }
+        },
     };
 </script>
 
