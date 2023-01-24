@@ -250,7 +250,7 @@
 
         head() {
             return {
-                titleTemplate: this.product.name || 'Producto' + ' | TriviCare Natural Cosmetics',
+                titleTemplate: 'TRIVICARE' + this.product.name || 'Producto' + ' | TriviCare Natural Cosmetics',
                 link: [
                     { rel: 'cannonical', href: 'https://trivicare.com/product/'}
                 ],
