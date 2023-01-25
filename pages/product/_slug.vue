@@ -31,8 +31,8 @@
         },
 
 
-        beforeMount() {
-            this.getProducts()
+        async beforeMount() {
+            await this.getProducts()
         },
 
         mounted() {
@@ -42,6 +42,8 @@
                     this.$nuxt.$loading.finish()
                 }, 2000);
             });
+
+            console.log(this.description)
          },
 
         methods: {
@@ -73,6 +75,8 @@
                 }
             }
         },
+
+
 
     };
 </script>
