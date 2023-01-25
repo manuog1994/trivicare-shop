@@ -2,8 +2,8 @@
   "publicPath": "/_nuxt/",
   "all": [
     "0.js",
-    "96852f0ec52bfc417434.hot-update.json",
-    "app.96852f0ec52bfc417434.hot-update.js",
+    "7a66767df1686ff7ec16.hot-update.json",
+    "app.7a66767df1686ff7ec16.hot-update.js",
     "app.css",
     "app.js",
     "assets/fonts/Pe-icon-7-stroke.eot",
@@ -60,7 +60,7 @@
     "vendors/app.js",
     "app.css",
     "app.js",
-    "app.96852f0ec52bfc417434.hot-update.js"
+    "app.7a66767df1686ff7ec16.hot-update.js"
   ],
   "async": [
     "0.js",
@@ -14915,7 +14915,7 @@
       "0.js"
     ],
     "1a3ae26b": [
-      "app.96852f0ec52bfc417434.hot-update.js",
+      "app.7a66767df1686ff7ec16.hot-update.js",
       "app.js"
     ],
     "085a35c4": [
