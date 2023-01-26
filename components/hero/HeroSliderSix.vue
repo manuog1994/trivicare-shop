@@ -7,8 +7,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="slider-content-4 slider-content-6 slider-animation-1 text-center">
-                                    <h1 class="text-dark">{{ slider.title }}</h1>
-                                    <p class="text-dark">{{ slider.desc }}</p>
+                                    <h1 class="text-white">{{ slider.title }}</h1>
+                                    <p class="text-white">{{ slider.desc }}</p>
                                     <div class="slider-btn btn-hover">
                                         <n-link to="/shop">COMPRAR AHORA</n-link>
                                     </div>
