@@ -22221,20 +22221,40 @@ input[data-v-fd950674] {
     cursor: pointer;
 }
 
-
-.custom-banner{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    font-size: 14px;
-    color: #ff0000;
+.custom-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  font-size: 14px;
+  color: #ff0000;
+}
+.vue-typer {
+  /* Styles for the vue-typer container
+     e.g. font-family, font-size  */
+}
+.vue-typer .custom.char {
+  /* Styles for each character
+      e.g. color, background-color */
+  color: white;
+}
+.vue-typer .custom.char.typed {
+  /* Styles specific to typed characters
+      i.e. characters to the left of the caret */
+}
+.vue-typer .custom.char.selected {
+  /* Styles specific to selected characters
+      i.e. characters to the right of the caret while VueTyper's
+          'eraseStyle' is set to a selection-based style */
+}
+.vue-typer .custom.char.erased {
+  /* Styles specific to erased characters
+      i.e. characters to the right of the caret while VueTyper's
+          'eraseStyle' is set to a non-selection-based style */
 }
 .bg-banner {
-    background-color: #dd88b8df;
+  background-color: rgba(221, 136, 184, 0.8745098039);
 }
-
-
 
 a.link-nav{
     color: #666666;
@@ -22723,7 +22743,6 @@ p.img-mobile {
     margin: 25px;
 }
 .bg-slider-img {
-    background-color: #f5f5f5a3;
     padding: 8rem 5rem;
 }
 

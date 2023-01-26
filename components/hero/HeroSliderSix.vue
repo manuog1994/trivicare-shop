@@ -39,16 +39,9 @@
             </div> -->
         </div>
         <div class="d-md-none">
-            <p class="img-mobile">
-                <span class="bg-span">
-                    <img loading="lazy" src="@/static/campain/TriviCare_byn Positivo.svg" alt="logo.svg" width="200" style="margin-bottom: 20px">
-                    <br>
-                    <strong>Estamos de Inauguración</strong>
-                    <br>
-                    <span>Descubre nuestro catálogo</span>
-                </span>
-                <n-link class="btn-mobile" to="/shop">Ver Productos</n-link>
-            </p>
+            <n-link to="/shop" class="cursor-pointer">
+                <img loading="lazy" src="@/static/campain/valentineday.webp" alt="valentineday">
+            </n-link>
         </div>
     </div>
 </template>
@@ -80,7 +73,6 @@
     }
     
     .bg-slider-img {
-        background-color: #f5f5f5a3;
         padding: 8rem 5rem;
     }
 </style>
@@ -107,10 +99,10 @@
 
                 sliderData: [
                     {
-                        title: "Cuídate con TriviCare",
-                        desc: "Descubre nuestra gama de productos para mimar tu piel",
-                        backgroundImage: "https://api.trivicare.com/nuxt/slider1-1.webp",
-                        backgroundImageTwo: "https://api.trivicare.com/nuxt/slider1-1.webp"
+                        title: "Este San Valentín",
+                        desc: "Enamorate de tu piel con nuestra gama de productos naturales",
+                        backgroundImage: "/campain/valentindayweb.webp",
+                        backgroundImageTwo: "/campain/valentindayweb.webp"
                     },
                 ]
             }
