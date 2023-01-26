@@ -98,7 +98,7 @@
 
         head() {
             return {
-                titleTemplate: 'Cuidamos de tú piel | Cosmética natural y ecológica',
+                titleTemplate: 'TRIVICARE | Cuidamos de tú piel | Cosmética natural y ecológica',
                 // link: [
                 //     { rel: 'cannonical', href: 'https://trivicare.com/' }
                 // ],

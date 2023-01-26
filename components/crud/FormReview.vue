@@ -61,7 +61,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="review in reviews" :key="review.id">
+                <tr v-for="review in paginatedReviews" :key="review.id">
                     <td>{{ filterProduct(review.product_id) }}</td>
                     <td>{{ review.user_name }} {{ review.user_lastname }}</td>
                     <td>
@@ -76,6 +76,9 @@
                 </tr>
             </tbody>
         </table>
+        <div v-if="reviews.length > 10" class="d-flex justify-content-center">
+            <pagination v-model="page" :records="reviews.length" :perPage="perPage" @paginate="myCallBack" />
+        </div>
     </div>
 </template>
 
@@ -85,6 +88,8 @@ export default {
         return {
             products: [],
             reviews: [],
+            page: 1,
+            perPage: 10
         }
     },
 
@@ -93,8 +98,14 @@ export default {
         await this.getReviews()
     },
 
+    computed: {
+        paginatedReviews() {
+            return this.reviews.slice((this.page - 1) * this.perPage, this.page * this.perPage)
+        }
+    },
+
     methods: {
-        async getProducts(){
+        async getProducts() {
             await this.$store.dispatch('getProducts', {
                 page: '',
                 category: '',
@@ -148,6 +159,10 @@ export default {
             .then(response => {
                 this.getReviews()
             })
+        },
+
+        myCallBack(page) {
+            this.page = page
         }
     }
 }

@@ -27,11 +27,8 @@
                     <div id="des-details3" ref="review-div" class="tab-pane">
                         <div class="row">
                             <div class="col-12">
-                                <div v-for="review in reviews" :key="review.id" class="review-wrapper">
-                                    <div class="single-review d-flex justify-content-center card p-5 rounded-0">
-                                        <!-- <div class="review-img">
-                                            <img src="/img/testimonial/1.jpg" alt="">
-                                        </div> -->
+                                <div v-for="review in paginatedReviews" :key="review.id" class="review-wrapper">
+                                    <div class="single-review p-5">
                                         <div class="d-flex justify-content-start">
                                             <div class="review-content">
                                                 <div class="review-top-wrap">
@@ -57,6 +54,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div v-if="reviews.length > 10" class="d-flex justify-content-center">
+                                    <pagination v-model="page" :records="reviews.length" :perPage="perPage" @paginate="myCallBack" />
                                 </div>
                             </div>
                         </div>
@@ -86,30 +86,19 @@
                 rating: 0,
                 user_name: '',
                 user_lastname: '',
+                page: 1,
+                perPage: 10,
+            }
+        },
+
+        computed: {
+            paginatedReviews() {
+                return this.reviews.slice((this.page - 1) * this.perPage, this.page * this.perPage)
             }
         },
 
 
         methods: {
-            async createReview() {
-                try {
-                    const response = await this.$axios.post('/api/reviews', {
-                        user_id: this.$auth.user.id,
-                        product_id: this.product.id,
-                        message: this.message,
-                        rating: this.rating,
-                        user_name: this.user_name,
-                        user_lastname: this.user_lastname,
-                    })
-                    this.message = ''
-                    this.rating = 0
-                    this.$notify({ text: 'Valoración creada correctamente', type: 'success' })
-
-                } catch (error) {
-                    //console.log(error)
-                }
-            },
-
             async deleteReview(review) {
                 try {
                     const response = await this.$axios.delete('/api/reviews/' + review)
@@ -117,6 +106,10 @@
                 } catch (error) {
                     //console.log(error)
                 }
+            },
+
+            myCallBack(page) {
+                this.page = page
             }
         },
     };

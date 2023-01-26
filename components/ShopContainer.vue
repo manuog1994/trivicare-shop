@@ -83,13 +83,27 @@ export default {
         ProductGridItem: () => import('@/components/product/ProductGridItem'),
     },
 
-    mounted() {
-        setTimeout(() => {
-            this.getProducts();
-        }, 1000);
+    async mounted() {
+        await this.getProducts();
         if (this.$route.query.search) {
             this.searchResult = this.$route.query.search;
         }
+
+        var tituloOriginal = document.title; // Lo guardamos para restablecerlo
+        window.onblur = function(){ // Si el usuario se va a otro lado...
+            document.title = "Ey, vuelve aquí!";// Cambiamos el título
+        }
+
+        window.onfocus = function(){
+            document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
+        }
+        
+        if(this.$axios.onError(error => {
+            const code = error.response.status;
+            if (code === 401) {
+                this.unauthorized = true;
+            }
+        }));
     },
 
     data() {
@@ -106,8 +120,10 @@ export default {
             tag_slug: '',
             tag_id: '',
             perPage: 5,
+            unauthorized: false,
         }
     },
+
     computed: {
         page() {
             let page = this.$route.query.page ?? 1;
@@ -169,6 +185,14 @@ export default {
             
         },
 
+    },
+
+    watch: {
+        unauthorized() {
+            if (this.unauthorized == true) {
+                this.$auth.logout();
+            }
+        }
     },
 
     methods: {
@@ -304,7 +328,7 @@ export default {
     head() {
         if (this.category) {
             return {
-                titleTemplate: this.$route.query.category.charAt(0).toUpperCase()+ this.$route.query.category.slice(1),
+                titleTemplate: this.$route.query.category.charAt(0).toUpperCase()+ this.$route.query.category.slice(1) + ' | TriviCare Natural Cosmetics',
                 // link: [
                 //     { rel: 'cannonical', href: 'https://trivicare.com/shop' }
                 // ],
@@ -320,7 +344,7 @@ export default {
             }
         } else if (this.tag) {
             return {
-                title: this.$route.query.tag.charAt(0).toUpperCase()+ this.$route.query.tag.slice(1),
+                title: this.$route.query.tag.charAt(0).toUpperCase()+ this.$route.query.tag.slice(1) + ' | TriviCare Natural Cosmetics',
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -333,7 +357,7 @@ export default {
             }
         } else {
             return {
-                title: 'Todos los Productos',
+                titleTemplate: 'Todos los Productos | TriviCare Natural Cosmetics',
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },

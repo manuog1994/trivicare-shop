@@ -5,8 +5,8 @@
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
                 <NavBottom />
-                <ProductDetailsWrapper :product="product" v-if="product" />
-                <ProductDetailsDescriptionReview :product="product" :reviews="reviews" v-if="product" />
+                <ProductDetailsWrapper :product="productDetails" v-if="productDetails" />
+                <ProductDetailsDescriptionReview :product="productDetails" :reviews="productDetails.reviews" v-if="productDetails" />
                 <TheFooter />
             </div>
         </div>
@@ -21,11 +21,20 @@
         pageTransition: 'slide-fade',
 
         
-        async asyncData({ $axios, params }) {
+        async asyncData({ store, params }) {
             try {
-                const productDetails = await $axios.get('/api/products?filter[slug]=' + params.slug);
+                const productDispatch = await store.dispatch('getProducts', {
+                    page: '',
+                    category: '',
+                    search: '',
+                    slug: params.slug,
+                    sort: '',
+                    tag: '',
+                    status: 2
+                });
+                const productDetails = store.getters.getProducts
                 return {
-                    productDetails: productDetails.data.data[0],
+                    productDetails: productDetails.data[0],
                 }
             } catch (error) {
                 console.log(error)
@@ -54,16 +63,8 @@
         
         data() {
             return {
-                slug: this.$route.params.slug,
-                product: '',
-                reviews: [],
                 searchChildren: '',
             }
-        },
-
-
-        async beforeMount() {
-            await this.getProducts()
         },
 
         mounted() {
@@ -73,29 +74,12 @@
                     this.$nuxt.$loading.finish()
                 }, 2000);
             });
-
-            console.log(this.description)
          },
 
         methods: {
             closeMenus() {
                 this.searchOpacity(false);
                 this.$root.$emit('closeMenu', this.closeMenu);
-            },
-
-            async getProducts() {
-                await this.$store.dispatch('getProducts', {
-                    page: '',
-                    category: '',
-                    search: '',
-                    slug: this.slug,
-                    sort: '',
-                    tag: '',
-                    status: 2
-                })
-                const products = this.$store.getters.getProducts
-                this.product = products.data[0]
-                this.reviews = products.data[0].reviews
             },
 
             searchOpacity(searchFather) {
@@ -106,8 +90,5 @@
                 }
             }
         },
-
-
-
     };
 </script>
