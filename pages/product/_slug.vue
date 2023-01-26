@@ -21,6 +21,37 @@
         pageTransition: 'slide-fade',
 
         
+        async asyncData({ $axios, params }) {
+            try {
+                const productDetails = await $axios.get('/api/products?filter[slug]=' + params.slug);
+                return {
+                    productDetails: productDetails.data.data[0],
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        },
+
+        head() {
+            return {
+                title: this.productDetails.name + ' | TriviCare Natural Cosmetics',
+                link: [
+                    { rel: 'cannonical', href: 'https://trivicare.com/product/'}
+                ],
+                meta: [
+                    { charset: 'utf-8' },
+                    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: this.productDetails.meta_description
+                    }
+                ],
+
+            }
+        },
+
+        
         data() {
             return {
                 slug: this.$route.params.slug,

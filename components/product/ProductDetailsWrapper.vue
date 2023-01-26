@@ -169,10 +169,6 @@
                     loopedSlides: 5, // looped slides should be the same
                     zoom: true,
                     modules: '',
-                    // navigation: {
-                    //     nextEl: '.swiper-button-next',
-                    //     prevEl: '.swiper-button-prev'
-                    // }
                 },
 
                 swiperOptionThumbs: {
@@ -195,7 +191,7 @@
                 const swiperThumbs = this.$refs.swiperThumbs.$swiper
                 swiperTop.controller.control = swiperThumbs
                 swiperThumbs.controller.control = swiperTop
-            })
+            })            
         },
 
         methods: {
@@ -246,25 +242,6 @@
                 this.$store.dispatch('addToCompare', product)
             },
 
-        },
-
-        head() {
-            return {
-                title: this.product.name + ' | TriviCare Natural Cosmetics',
-                link: [
-                    { rel: 'cannonical', href: 'https://trivicare.com/product/'}
-                ],
-                meta: [
-                    { charset: 'utf-8' },
-                    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-                    {
-                        hid: 'description',
-                        name: 'description',
-                        content: this.product.meta_description
-                    }
-                ],
-
-            }
         },
 
     };

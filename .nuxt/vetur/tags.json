@@ -29,9 +29,6 @@
   "ForgotPasswordContainer": {
     "description": "Auto imported from components/ForgotPasswordContainer.vue"
   },
-  "FormReview": {
-    "description": "Auto imported from components/FormReview.vue"
-  },
   "FunFact": {
     "description": "Auto imported from components/FunFact.vue"
   },
@@ -176,17 +173,11 @@
   "BannerStyleOne": {
     "description": "Auto imported from components/banner/BannerStyleOne.vue"
   },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
-  "ProfileNewGuest": {
-    "description": "Auto imported from components/profile/NewGuest.vue"
-  },
-  "ProfileNewProfile": {
-    "description": "Auto imported from components/profile/NewProfile.vue"
-  },
   "HeroSliderSix": {
     "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
@@ -203,6 +194,12 @@
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
   },
+  "ProfileNewGuest": {
+    "description": "Auto imported from components/profile/NewGuest.vue"
+  },
+  "ProfileNewProfile": {
+    "description": "Auto imported from components/profile/NewProfile.vue"
+  },
   "CrudAll": {
     "description": "Auto imported from components/crud/All.vue"
   },
@@ -217,6 +214,9 @@
   },
   "CrudErrorModal": {
     "description": "Auto imported from components/crud/ErrorModal.vue"
+  },
+  "CrudFormReview": {
+    "description": "Auto imported from components/crud/FormReview.vue"
   },
   "CrudModalTrack": {
     "description": "Auto imported from components/crud/ModalTrack.vue"

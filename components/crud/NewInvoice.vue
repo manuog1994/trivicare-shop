@@ -156,10 +156,17 @@ export default {
         },
 
         async getProducts() {
-            await this.$axios.get('/api/products')
-                .then(response => {
-                    this.products = response.data.data;
-                })
+            await this.$store.dispatch('getProducts', {
+                page: '',
+                category: '',
+                search: '',
+                slug: '',
+                sort: '',
+                tag: '',
+                status: 2
+            })
+            const products = this.$store.getters.getProducts
+            this.products = products.data
         },
 
         addToCart(e) {

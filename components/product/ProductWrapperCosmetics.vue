@@ -51,11 +51,8 @@
             };
         },
 
-        mounted() {
-            setTimeout(() => {
-                this.getProducts();
-            }, 2000);
-
+        async mounted() {
+            await this.getProducts();
         },
 
 

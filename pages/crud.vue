@@ -12,6 +12,7 @@
                             <option value="OrdersHistory" @click="comA('OrdersHistory')" :class="{ active: isActive === 'OrdersHistory' }">Historial de pedidos</option>
                             <option value="Coupons" @click="comA('Coupons')" :class="{ active: isActive === 'Coupons' }">Cupones</option>
                             <option value="NewInvoice" @click="comA('NewInvoice')" :class="{ active: isActive === 'NewInvoice' }">Nueva Factura</option>
+                            <option value="FormReview" @click="comA('FormReview')" :class="{ active: isActive === 'FormReview' }">Formulario de valoración</option>
                         </select>
                     </div>
                     <div class="row">
@@ -38,7 +39,8 @@ export default {
         Orders: () => import("@/components/crud/Orders"),
         OrdersHistory: () => import("@/components/crud/OrdersHistory"),
         Coupons: () => import("@/components/crud/Coupons"),
-        NewInvoice: () => import("@/components/crud/NewInvoice"), 
+        NewInvoice: () => import("@/components/crud/NewInvoice"),
+        FormReview: () => import("@/components/crud/FormReview"), 
      },
 
     data() {
