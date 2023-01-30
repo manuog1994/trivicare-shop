@@ -39,13 +39,22 @@
 
         },
 
+        async asyncData ({ req }) {
+            if(!req) {
+                const visitorIP = 'No IP'
+                return { visitorIP }
+            } else {
+                const visitorIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress
+                return { visitorIP }
+            }
+        },
+
         data() {
             return {
                 show: false,
                 test: '',
                 searchChildren: '',
                 closeMenu: false,
-                unauthorized: '',
             }
         },
 
@@ -58,27 +67,24 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
+            
+            if(this.$axios.onError(error => {
+                const code = error.response.status;
+                if (code == 401) {
+                    this.$auth.logout();
+                }
+            }));
 
             if(this.$auth.loggedIn == true) {
                 this.$auth.fetchUser();
 
             }
-            
-            if(this.$axios.onError(error => {
-                const code = error.response.status;
-                if (code === 401) {
-                    this.unauthorized = true;
-                }
-            }));
- 
-        },
 
-        watch: {
-            unauthorized() {
-                if (this.unauthorized == true) {
-                    this.$auth.logout();
-                }
-            }
+            this.$axios.post('/api/visit', {
+                ip_address: this.visitorIP,
+                page_visited: 'index',
+            })
+ 
         },
 
         methods: {

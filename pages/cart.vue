@@ -25,10 +25,20 @@
             CartContainer: () => import('@/components/CartContainer'),
             TheFooter: () => import('@/components/TheFooter'),
         },
+
+        async asyncData ({ req }) {
+            if(!req) {
+                const visitorIP = 'No IP'
+                return { visitorIP }
+            } else {
+                const visitorIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress
+                return { visitorIP }
+            }
+        },
+        
         data() {
             return {
                 searchChildren: '',
-                unauthorized: '',
             }
         },
 
@@ -54,20 +64,16 @@
             if(this.$axios.onError(error => {
                 const code = error.response.status;
                 if (code === 401) {
-                    this.unauthorized = true;
-                }
-            }));
-        },
-
-        watch: {
-            unauthorized() {
-                if (this.unauthorized == true) {
                     this.$auth.logout();
                 }
-            }
+            }));
+
+            this.$axios.post('/api/visit', {
+                ip_address: this.visitorIP,
+                page_visited: 'cart',
+            })
         },
         
-
         methods: {
             closeMenus() {
                 this.searchOpacity(false);

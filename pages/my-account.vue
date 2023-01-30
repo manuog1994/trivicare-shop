@@ -54,19 +54,12 @@
 
             if(this.$axios.onError(error => {
                 const code = error.response.status;
-                if (code === 401) {
-                    this.unauthorized = true;
+                if (code == 401) {
+                    this.$auth.logout();
                 }
             }));
         },
 
-        watch: {
-            unauthorized() {
-                if (this.unauthorized == true) {
-                    this.$auth.logout();
-                }
-            }
-        },
 
         methods: {
             closeMenus() {

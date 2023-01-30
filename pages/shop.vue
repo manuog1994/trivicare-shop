@@ -28,6 +28,16 @@
             TheFooter: () => import("@/components/TheFooter"),
         },
 
+        async asyncData ({ req }) {
+            if(!req) {
+                const visitorIP = 'No IP'
+                return { visitorIP }
+            } else {
+                const visitorIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress
+                return { visitorIP }
+            }
+        },
+
         data() {
             return {
                 searchChildren: '',
@@ -42,6 +52,11 @@
                     this.$nuxt.$loading.finish()
                 }, 1000);
             });
+
+            this.$axios.post('/api/visit', {
+                ip_address: this.visitorIP,
+                page_visited: 'shop',
+            })
         },
 
         methods: {

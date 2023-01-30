@@ -34,6 +34,16 @@ export default {
     middleware: 'token',
     auth: false,
 
+    async asyncData ({ req }) {
+        if(!req) {
+            const visitorIP = 'No IP'
+            return { visitorIP }
+        } else {
+            const visitorIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress
+            return { visitorIP }
+        }
+    },
+
     components: {
         Loading: () => import('~/components/Loading.vue'),
     },
@@ -63,10 +73,11 @@ export default {
         if(this.paymentIntent != null) {
             this.orderPaid();
         }
-    },
 
-    watch: {
-
+        this.$axios.post('/api/visit', {
+            ip_address: this.visitorIP,
+            page_visited: 'success',
+        })
     },
 
     methods: {

@@ -62,18 +62,10 @@ export default {
 
         if(this.$axios.onError(error => {
             const code = error.response.status;
-            if (code === 401) {
-                this.unauthorized = true;
-            }
-        }));
-    },
-
-    watch: {
-        unauthorized() {
-            if (this.unauthorized == true) {
+            if (code == 401) {
                 this.$auth.logout();
             }
-        }
+        }));
     },
 
     methods: {
