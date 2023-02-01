@@ -1,51 +1,78 @@
 <template>
-    <div class=" overflow-auto">
-        <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Producto(s)</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Descuento</th>
-                <th scope="col">Vendido(s)</th>
-                <th scope="col">Stock</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody v-if="products.length > 0">
-                <tr v-for="product in products" :key="product.id">
-                <th scope="row">{{ product.id }}</th>
-                <td><n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link></td>
-                <td>{{ product.price }} &euro;</td>
-                <td v-if="product.discount > 0">{{ product.discount }} %</td>
-                <td v-else>-</td>
-                <td v-if="product.sold > 0">{{ product.sold }}</td>
-                <td v-else>-</td>
-                <td v-if="product.stock > 0">{{ product.stock }}</td>
-                <td v-else>-</td>
-                <td>
-                    <select class="form-select" name="status" @change="updateStatus(product)">
-                        <option>{{ product.status }}</option>
-                        <option v-if="product.status === 'Borrador'" value="Publicado">Publicado</option>
-                        <option v-else value="Borrador">Borrador</option>
-                    </select>
-                </td>
-                <td>
-                    <div>
-                        <button title="Editar producto" @click="onClick(product)" class="btn btn-warning btn-sm">Editar</button>
-                        <button title="Eliminar producto" class="btn btn-danger btn-sm" @click="destroy(product.id)">Eliminar</button>
-                    </div>
-                </td>
-                </tr>
-            </tbody>
-            <tbody v-else>
-                <tr>
-                    <td colspan="8">No hay productos.</td>
-                </tr>
-            </tbody>
-        </table>
-        <Edit />
+    <div>
+        <div class="d-flex justify-content-around">
+            <div class="card p-5 bg-aqua">
+                <p>Ayer</p>
+                <p>{{ yesterday.length }}</p>
+            </div>
+            <div class="card p-5 bg-warning">
+                <p>Hoy</p>
+                <p>{{ today.length }}</p>
+            </div>
+            <div class="card p-5 bg-gray">
+                <p>Inicio</p>
+            </div>
+            <div class="card p-5 bg-pink">
+                <p>Tienda</p>
+            </div>
+            <div class="card p-5 bg-danger">
+                <p>Productos</p>
+            </div>
+            <div class="card p-5 bg-info">
+                <p>Carrito</p>
+            </div>
+            <div class="card p-5 bg-purple">
+                <p>Compras</p>
+            </div>
+        </div>
+        <div class=" overflow-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Producto(s)</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Descuento</th>
+                    <th scope="col">Vendido(s)</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody v-if="products.length > 0">
+                    <tr v-for="product in products" :key="product.id">
+                    <th scope="row">{{ product.id }}</th>
+                    <td><n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link></td>
+                    <td>{{ product.price }} &euro;</td>
+                    <td v-if="product.discount > 0">{{ product.discount }} %</td>
+                    <td v-else>-</td>
+                    <td v-if="product.sold > 0">{{ product.sold }}</td>
+                    <td v-else>-</td>
+                    <td v-if="product.stock > 0">{{ product.stock }}</td>
+                    <td v-else>-</td>
+                    <td>
+                        <select class="form-select" name="status" @change="updateStatus(product)">
+                            <option>{{ product.status }}</option>
+                            <option v-if="product.status === 'Borrador'" value="Publicado">Publicado</option>
+                            <option v-else value="Borrador">Borrador</option>
+                        </select>
+                    </td>
+                    <td>
+                        <div>
+                            <button title="Editar producto" @click="onClick(product)" class="btn btn-warning btn-sm">Editar</button>
+                            <button title="Eliminar producto" class="btn btn-danger btn-sm" @click="destroy(product.id)">Eliminar</button>
+                        </div>
+                    </td>
+                    </tr>
+                </tbody>
+                <tbody v-else>
+                    <tr>
+                        <td colspan="8">No hay productos.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <Edit />
+        </div>
     </div>
 </template>
 
@@ -64,11 +91,19 @@ export default {
             products: [],
             status: '',
             productId: '',
+            yesterday: [],
+            today: [],
+            index: [],
+            store: [],
+            productsVisitors: [],
+            cart: [],
+            checkout: [],
         }
     },
 
     mounted() {
         this.getProducts();
+        this.getVisits();
     },
 
     methods: {
@@ -76,6 +111,28 @@ export default {
             await this.$axios.get('/api/products')
                 .then(response => {
                     this.products = response.data.data;
+                })
+        },
+
+        async getVisits() {
+            await this.$axios.get('/api/visits')
+                .then(response => {
+                    const visits = response.data;
+                    //filtra las visitas de ayer
+                    this.yesterday = visits.filter(visit => {
+                        const date = new Date();
+                        const yesterday = new Date();
+                        yesterday.setDate(yesterday.getDate() - 1);
+                        return date.toDateString() > yesterday.toDateString();
+                    });
+                    //filtra las visitas de hoy
+                    this.today = visits.filter(visit => {
+                        const date = new Date();
+                        const today = new Date(visit.created_at);
+                        console.log(date)
+                        console.log(visit.created_at)
+                        return date.toDateString() == today.toDateString();
+                    });
                 })
         },
 
