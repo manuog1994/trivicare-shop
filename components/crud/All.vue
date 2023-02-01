@@ -1,28 +1,33 @@
 <template>
     <div>
-        <div class="d-flex justify-content-around">
-            <div class="card p-5 bg-aqua">
+        <div class="row d-flex justify-content-around m-3">
+            <div class="card col-lg-1 bg-aqua">
                 <p>Ayer</p>
                 <p>{{ yesterday.length }}</p>
             </div>
-            <div class="card p-5 bg-warning">
+            <div class="card col-lg-1 bg-warning">
                 <p>Hoy</p>
                 <p>{{ today.length }}</p>
             </div>
-            <div class="card p-5 bg-gray">
+            <div class="card col-lg-1 bg-gray">
                 <p>Inicio</p>
+                <p>{{ index.length }}</p>
             </div>
-            <div class="card p-5 bg-pink">
+            <div class="card col-lg-1 bg-pink">
                 <p>Tienda</p>
+                <p>{{ store.length }}</p>
             </div>
-            <div class="card p-5 bg-danger">
+            <div class="card col-lg-1 bg-danger">
                 <p>Productos</p>
+                <p>{{ products.length }}</p>
             </div>
-            <div class="card p-5 bg-info">
+            <div class="card col-lg-1 bg-info">
                 <p>Carrito</p>
+                <p>{{ cart.length }}</p>
             </div>
-            <div class="card p-5 bg-purple">
+            <div class="card col-lg-1 bg-purple">
                 <p>Compras</p>
+                <p>{{ checkout.length }}</p>
             </div>
         </div>
         <div class=" overflow-auto">
@@ -101,9 +106,9 @@ export default {
         }
     },
 
-    mounted() {
-        this.getProducts();
-        this.getVisits();
+    async mounted() {
+        await this.getProducts();
+        await this.getVisits();
     },
 
     methods: {
@@ -133,6 +138,36 @@ export default {
                         console.log(visit.created_at)
                         return date.toDateString() == today.toDateString();
                     });
+                    //filtra las visitas de la tienda
+                    this.store = visits.filter(visit => {
+                        if(visit.page_visited == 'store') {
+                            return visit;
+                        }
+                    })
+                    //filtra las visitas de los productos
+                    this.shop = visits.filter(visit => {
+                        if(visit.page_visited == 'shop') {
+                            return visit;
+                        }
+                    })
+                    //filtra las visitas del carrito
+                    this.cart = visits.filter(visit => {
+                        if(visit.page_visited == 'cart') {
+                            return visit;
+                        }
+                    })
+                    //filtra las visitas de la caja
+                    this.checkout = visits.filter(visit => {
+                        if(visit.page_visited == 'checkout') {
+                            return visit;
+                        }
+                    })
+                    //filtra las visitas de los productos
+                    this.productsVisitors = visits.filter(visit => {
+                        if(visit.page_visited != 'store' && visit.page_visited != 'shop' && visit.page_visited != 'cart' && visit.page_visited != 'checkout' && visit.page_visited != 'index') {
+                            return visit;
+                        }
+                    })
                 })
         },
 
