@@ -6,10 +6,13 @@
             </div>
             <div class="brand-logo-active" style="margin-top:20px;">
                 <swiper :options="brandLogoCarousel">
-                    <div class="single-brand-logo swiper-slide" v-for="product in products" :key="product.id">
+                    <div class="swiper-slide" v-for="product in products" :key="product.id">
                         <a :href="url + '/product/' + product.slug" style="cursor:pointer;">
-                            <nuxt-img loading="lazy" v-if="product.images.length == 0" provider="customProvider" src="nuxt/default.webp" alt="default" width="100px" />
-                            <nuxt-img loading="lazy" v-else provider="customProvider" :src="product.images[0].path" :alt="product.name" width="100px" />
+                            <nuxt-img loading="lazy" v-if="product.images.length == 0" provider="customProvider" src="nuxt/default.webp" alt="default" width="400px" />
+                            <nuxt-img loading="lazy" v-else provider="customProvider" :src="product.images[0].path" :alt="product.name" width="400px" />
+                            <div class="">
+                                <vue-star-rating :star-size="20" :read-only="true" :show-rating="false" :rating="product.rating"></vue-star-rating>
+                            </div>
                             <p class="display-min">{{ product.name }}</p>
                             <p class="display-min" style="margin-top:-15px;">
                                 <strong>{{ product.price }} &euro;</strong>
