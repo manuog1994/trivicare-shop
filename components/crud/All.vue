@@ -125,17 +125,15 @@ export default {
                     const visits = response.data;
                     //filtra las visitas de ayer
                     this.yesterday = visits.filter(visit => {
-                        const date = new Date();
-                        const yesterday = new Date();
+                        const date = new Date(visit.created_at);
+                        let yesterday = new Date();
                         yesterday.setDate(yesterday.getDate() - 1);
-                        return date.toDateString() > yesterday.toDateString();
+                        return date.toDateString() == yesterday.toDateString();
                     });
                     //filtra las visitas de hoy
                     this.today = visits.filter(visit => {
                         const date = new Date();
                         const today = new Date(visit.created_at);
-                        console.log(date)
-                        console.log(visit.created_at)
                         return date.toDateString() == today.toDateString();
                     });
                     //filtra las visitas de la tienda

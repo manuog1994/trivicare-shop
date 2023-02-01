@@ -12374,8 +12374,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony default export */ __webpack_exports__["default"] = ({auth:true,components:{Edit: _Edit_vue__WEBPACK_IMPORTED_MODULE_0__["default"]},data(){return{products:[],status:'',productId:'',yesterday:[],today:[],index:[],store:[],productsVisitors:[],cart:[],checkout:[]};},async mounted(){await this.getProducts();await this.getVisits();},methods:{async getProducts(){await this.$axios.get('/api/products').then(response=>{this.products=response.data.data;});},async getVisits(){await this.$axios.get('/api/visits').then(response=>{const visits=response.data;//filtra las visitas de ayer
-this.yesterday=visits.filter(visit=>{const date=new Date();const yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);return date.toDateString()>yesterday.toDateString();});//filtra las visitas de hoy
-this.today=visits.filter(visit=>{const date=new Date();const today=new Date(visit.created_at);console.log(date);console.log(visit.created_at);return date.toDateString()==today.toDateString();});//filtra las visitas de la tienda
+this.yesterday=visits.filter(visit=>{const date=new Date(visit.created_at);let yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);return date.toDateString()==yesterday.toDateString();});//filtra las visitas de hoy
+this.today=visits.filter(visit=>{const date=new Date();const today=new Date(visit.created_at);return date.toDateString()==today.toDateString();});//filtra las visitas de la tienda
 this.store=visits.filter(visit=>{if(visit.page_visited=='store'){return visit;}});//filtra las visitas de los productos
 this.shop=visits.filter(visit=>{if(visit.page_visited=='shop'){return visit;}});//filtra las visitas del carrito
 this.cart=visits.filter(visit=>{if(visit.page_visited=='cart'){return visit;}});//filtra las visitas de la caja
