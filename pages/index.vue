@@ -39,16 +39,6 @@
 
         },
 
-        async asyncData ({ req }) {
-            if(!req) {
-                const visitorIP = 'No IP'
-                return { visitorIP }
-            } else {
-                const visitorIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress
-                return { visitorIP }
-            }
-        },
-
         data() {
             return {
                 show: false,
@@ -58,7 +48,7 @@
             }
         },
 
-        mounted() {
+        async mounted() {
             var tituloOriginal = document.title; // Lo guardamos para restablecerlo
             window.onblur = function(){ // Si el usuario se va a otro lado...
             document.title = "Ey, vuelve aquí!";// Cambiamos el título
@@ -80,8 +70,8 @@
 
             }
 
-            this.$axios.post('/api/visit', {
-                ip_address: this.visitorIP,
+            await this.$axios.post('/api/visit', {
+                ip_address: 'No Ip',
                 page_visited: 'index',
             })
  

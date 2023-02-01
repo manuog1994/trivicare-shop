@@ -18,20 +18,9 @@
         
         pageTransition: 'slide-fade',
 
-        async asyncData ({ req }) {
-            if(!req) {
-                const visitorIP = 'No IP'
-                return { visitorIP }
-            } else {
-                const visitorIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress
-                return { visitorIP }
-            }
-        },
-
         data() {
             return {
                 searchChildren: '',
-                unauthorized: false,
             }
         },
 
@@ -43,7 +32,7 @@
             TheFooter: () => import("@/components/TheFooter"),
         },
 
-        mounted() {
+        async mounted() {
             this.$nextTick(() => {
                 this.$nuxt.$loading.start()
                 setTimeout(() => {
@@ -66,8 +55,8 @@
                 }
             }));
 
-            this.$axios.post('/api/visit', {
-                ip_address: this.visitorIP,
+            await this.$axios.post('/api/visit', {
+                ip_address: 'No IP',
                 page_visited: 'checkout',
             })
         },

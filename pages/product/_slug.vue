@@ -21,41 +21,22 @@
         pageTransition: 'slide-fade',
 
         
-        async asyncData({ store, params, req }) {
+        async asyncData({ store, params }) {
             try {
-                if(!req) {
-                    const visitorIP = 'No IP'
-                    const productDispatch = await store.dispatch('getProducts', {
-                        page: '',
-                        category: '',
-                        search: '',
-                        slug: params.slug,
-                        sort: '',
-                        tag: '',
-                        status: 2
-                    });
-                    const productDetails = store.getters.getProducts
-                    return {
-                        productDetails: productDetails.data[0],
-                        visitorIP
-                    }
-                } else {
-                    const visitorIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress
-                    const productDispatch = await store.dispatch('getProducts', {
-                        page: '',
-                        category: '',
-                        search: '',
-                        slug: params.slug,
-                        sort: '',
-                        tag: '',
-                        status: 2
-                    });
-                    const productDetails = store.getters.getProducts
-                    return {
-                        productDetails: productDetails.data[0],
-                        visitorIP
-                    }
+                const productDispatch = await store.dispatch('getProducts', {
+                    page: '',
+                    category: '',
+                    search: '',
+                    slug: params.slug,
+                    sort: '',
+                    tag: '',
+                    status: 2
+                });
+                const productDetails = store.getters.getProducts
+                return {
+                    productDetails: productDetails.data[0],
                 }
+
 
             } catch (error) {
                 console.log(error)
@@ -88,7 +69,7 @@
             }
         },
 
-        mounted() {
+        async mounted() {
             this.$nextTick(() => {
                 this.$nuxt.$loading.start()
                 setTimeout(() => {
@@ -96,8 +77,8 @@
                 }, 2000);
             });
 
-            this.$axios.post('/api/visit', {
-                ip_address: this.visitorIP,
+            await this.$axios.post('/api/visit', {
+                ip_address: 'No Ip',
                 page_visited: this.productDetails.name,
             })
          },
