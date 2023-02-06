@@ -257,7 +257,7 @@
                         const duration = 900;
                         this.$store.commit('SET_DURATION', duration);
                         this.$router.push('/checkout' + '?reserve=' + this.token_reserve);
-                        console.log(res.data);
+                        //console.log(res.data);
                     }).catch(err => {
                         this.$axios.post('/api/error-message', {
                             message: error.response.data.message
@@ -345,7 +345,7 @@
                             this.inputCupons = '';
                         }
                     }).catch(error => {
-                        console.log(error)
+                        //console.log(error)
                     })
             },
 

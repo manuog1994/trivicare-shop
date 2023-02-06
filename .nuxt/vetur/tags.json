@@ -164,6 +164,12 @@
   "WishListContainer": {
     "description": "Auto imported from components/WishListContainer.vue"
   },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
   "BannerItem": {
     "description": "Auto imported from components/banner/BannerItem.vue"
   },
@@ -172,6 +178,27 @@
   },
   "BannerStyleOne": {
     "description": "Auto imported from components/banner/BannerStyleOne.vue"
+  },
+  "ProductDetailsWrapper": {
+    "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
+  },
+  "ProductGridItem": {
+    "description": "Auto imported from components/product/ProductGridItem.vue"
+  },
+  "ProductGridItemTwo": {
+    "description": "Auto imported from components/product/ProductGridItemTwo.vue"
+  },
+  "ProductGridStyleThree": {
+    "description": "Auto imported from components/product/ProductGridStyleThree.vue"
+  },
+  "ProductWrapperCosmetics": {
+    "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
+  },
+  "ProfileNewGuest": {
+    "description": "Auto imported from components/profile/NewGuest.vue"
+  },
+  "ProfileNewProfile": {
+    "description": "Auto imported from components/profile/NewProfile.vue"
   },
   "CrudAll": {
     "description": "Auto imported from components/crud/All.vue"
@@ -214,32 +241,5 @@
   },
   "CrudSuccessInvoiceModal": {
     "description": "Auto imported from components/crud/SuccessInvoiceModal.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
-  "ProductDetailsWrapper": {
-    "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
-  },
-  "ProductGridItem": {
-    "description": "Auto imported from components/product/ProductGridItem.vue"
-  },
-  "ProductGridItemTwo": {
-    "description": "Auto imported from components/product/ProductGridItemTwo.vue"
-  },
-  "ProductGridStyleThree": {
-    "description": "Auto imported from components/product/ProductGridStyleThree.vue"
-  },
-  "ProductWrapperCosmetics": {
-    "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
-  },
-  "ProfileNewGuest": {
-    "description": "Auto imported from components/profile/NewGuest.vue"
-  },
-  "ProfileNewProfile": {
-    "description": "Auto imported from components/profile/NewProfile.vue"
   }
 }

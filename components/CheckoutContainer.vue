@@ -117,7 +117,7 @@
                                             <div v-else>
                                                 <div v-if="total * 1.21 < 50">
                                                     <div class="row d-flex align-items-center">
-                                                        <div class="col-6 d-flex align-items-center">
+                                                        <div class="col-4 d-flex align-items-center">
                                                             <div class="form-check mb-2">
                                                                 <input class="form-check-input mb-1" type="radio" name="shipping" id="correos" v-model="shippingMethod" value="correos">
                                                                 <label class="form-check-label ms-2" for="correos">
@@ -125,14 +125,23 @@
                                                                 </label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-6">
+                                                        <div class="col-4">
                                                             <div class="d-flex justify-content-center">
                                                                 <img src="/payment/correos.webp" alt="correos.webp" width="100px"/>
                                                             </div>
                                                         </div>
+                                                        <div class="col-4">
+                                                            <div>
+                                                                <p>
+                                                                    <strong>
+                                                                        +6, 95 &euro;
+                                                                    </strong>
+                                                                </p>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="row mt-4 d-flex align-items-center">
-                                                        <div class="col-6">
+                                                        <div class="col-4">
                                                             <div class="form-check">
                                                                 <input class="form-check-input mb-1" type="radio" name="shipping" id="gls" v-model="shippingMethod" value="gls">
                                                                 <label class="form-check-label ms-2" for="gls">
@@ -140,9 +149,16 @@
                                                                 </label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-6">
+                                                        <div class="col-4">
                                                             <div class="d-flex justify-content-center">
                                                                 <img src="/payment/gls.webp" alt="gls.webp" width="100px"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div>
+                                                                <p>
+                                                                    <strong>+8,95 &euro;</strong>
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -309,32 +325,46 @@
                                             </div>
                                             <div v-else>
                                                 <div class="row d-flex align-items-center">
-                                                    <div class="col-6 d-flex align-items-center">
+                                                    <div class="col-4 d-flex align-items-center">
                                                         <div class="form-check mb-2">
                                                             <input class="form-check-input mb-1" type="radio" name="shipping" id="correos" v-model="shippingMethod" value="correos">
                                                             <label class="form-check-label ms-2" for="correos">
-                                                                Envío por Correos 48h/72h <strong>+6,95 &euro;</strong>
+                                                                Envío por Correos 48h/72h +6,95 &euro;
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
+                                                    <div class="col-4">
                                                         <div class="d-flex justify-content-center">
                                                             <img loading="lazy" src="/payment/correos.webp" alt="correos.webp" width="100px"/>
                                                         </div>
                                                     </div>
+                                                    <div class="col-4">
+                                                        <div>
+                                                            <p>
+                                                                <strong>+6,95 &euro;</strong>
+                                                            </p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row mt-4 d-flex align-items-center">
-                                                    <div class="col-6">
+                                                    <div class="col-4">
                                                         <div class="form-check">
                                                             <input class="form-check-input mb-1" type="radio" name="shipping" id="gls" v-model="shippingMethod" value="gls">
                                                             <label class="form-check-label ms-2" for="gls">
-                                                                Envío por GLS 24h/48h <strong>+8,95 &euro;</strong>
+                                                                Envío por GLS 24h/48h
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
+                                                    <div class="col-4">
                                                         <div class="d-flex justify-content-center">
                                                             <img loading="lazy" src="/payment/gls.webp" alt="gls.webp" width="100px"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div>
+                                                            <p>
+                                                                <strong>+8,95 &euro;</strong>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -580,7 +610,7 @@
             }
             
             const duration = this.$store.getters.getDuration;
-            console.log(duration);
+            //console.log(duration);
             this.startTimer(duration);
         },
 
