@@ -313,7 +313,7 @@
                                                         <div class="form-check mb-2">
                                                             <input class="form-check-input mb-1" type="radio" name="shipping" id="correos" v-model="shippingMethod" value="correos">
                                                             <label class="form-check-label ms-2" for="correos">
-                                                                Envío por Correos 48h/72h <strong>+6,90 &euro;</strong>
+                                                                Envío por Correos 48h/72h <strong>+6,95 &euro;</strong>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -328,7 +328,7 @@
                                                         <div class="form-check">
                                                             <input class="form-check-input mb-1" type="radio" name="shipping" id="gls" v-model="shippingMethod" value="gls">
                                                             <label class="form-check-label ms-2" for="gls">
-                                                                Envío por GLS 24h/48h <strong>+9,90 &euro;</strong>
+                                                                Envío por GLS 24h/48h <strong>+8,95 &euro;</strong>
                                                             </label>
                                                         </div>
                                                     </div>

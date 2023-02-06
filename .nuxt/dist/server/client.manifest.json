@@ -3,7 +3,7 @@
   "all": [
     "0.js",
     "app.css",
-    "app.ddb7b10166811a2331f2.hot-update.js",
+    "app.ee321ab2f6ff340837f4.hot-update.js",
     "app.js",
     "assets/fonts/Pe-icon-7-stroke.eot",
     "assets/fonts/Pe-icon-7-stroke.svg",
@@ -15,7 +15,7 @@
     "assets/fonts/fontawesome-webfont.woff",
     "assets/fonts/fontawesome-webfont.woff2",
     "commons/app.js",
-    "ddb7b10166811a2331f2.hot-update.json",
+    "ee321ab2f6ff340837f4.hot-update.json",
     "pages/about.js",
     "pages/cart.js",
     "pages/checkout.js",
@@ -60,7 +60,7 @@
     "vendors/app.js",
     "app.css",
     "app.js",
-    "app.ddb7b10166811a2331f2.hot-update.js"
+    "app.ee321ab2f6ff340837f4.hot-update.js"
   ],
   "async": [
     "0.js",
@@ -15086,7 +15086,7 @@
       "0.js"
     ],
     "1a3ae26b": [
-      "app.ddb7b10166811a2331f2.hot-update.js",
+      "app.ee321ab2f6ff340837f4.hot-update.js",
       "app.js"
     ],
     "085a35c4": [
