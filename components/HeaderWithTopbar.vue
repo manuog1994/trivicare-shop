@@ -19,16 +19,9 @@
                                 <div class="same-style account-setting d-block me-1">
                                     <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menú de perfil"><i class="pe-7s-user-female"></i></button>
                                     <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
-                                        <ul v-if="role == 'admin'">
+                                        <ul v-if="$auth.loggedIn == true">
                                             <li class="border-bottom-1 mb-1"><p>Hola, <strong>{{ getName() }}</strong></p></li>
-                                            <li><n-link to="/crud">PDC</n-link></li>
-                                            <li><n-link to="/my-account">Mi Perfil</n-link></li>
-                                            <li><n-link to="/my-orders">Mis pedidos</n-link></li>
-
-                                            <li><a @click="logout">Cerrar sesión</a></li>
-                                        </ul>
-                                        <ul v-else-if="$auth.user">
-                                            <li class="border-bottom-1 mb-1"><p>Hola, <strong>{{ getName() }}</strong></p></li>
+                                            <li v-if="role == 'admin'"><n-link to="/crud">PDC</n-link></li>
                                             <li><n-link to="/my-account">Mi Perfil</n-link></li>
                                             <li><n-link to="/my-orders">Mis pedidos</n-link></li>
                                             <li><a @click="logout">Cerrar sesión</a></li>

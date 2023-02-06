@@ -313,7 +313,7 @@
                                                         <div class="form-check mb-2">
                                                             <input class="form-check-input mb-1" type="radio" name="shipping" id="correos" v-model="shippingMethod" value="correos">
                                                             <label class="form-check-label ms-2" for="correos">
-                                                                Envío por Correos 48h/72h
+                                                                Envío por Correos 48h/72h <strong>+6,90 &euro;</strong>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -328,7 +328,7 @@
                                                         <div class="form-check">
                                                             <input class="form-check-input mb-1" type="radio" name="shipping" id="gls" v-model="shippingMethod" value="gls">
                                                             <label class="form-check-label ms-2" for="gls">
-                                                                Envío por GLS 24h/48h
+                                                                Envío por GLS 24h/48h <strong>+9,90 &euro;</strong>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -732,11 +732,11 @@
             getShipping(total) {
                 if ((total * 1.21) < 50) {
                     if(this.shippingMethod == 'gls') {
-                        return this.shipping = 7.90;
+                        return this.shipping = 8.95;
                     }else if(this.shippingMethod == 'correos') {
-                        return this.shipping = 6.90;
+                        return this.shipping = 6.95;
                     }else if(this.shippingMethod == 'contrareembolso') {
-                        return this.shipping = 8.90;
+                        return this.shipping = 8.95;
                     }
                 } else if ((total * 1.21) > 50 && this.payment == 'contrareembolso') {
                     return '+1.75%';
