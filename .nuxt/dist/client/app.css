@@ -22713,6 +22713,13 @@ form[data-v-19098524] {
   background-color: #2AB5B2;
 }
 
+.policy-icons{
+    width: 80px;
+    height: auto;
+    margin: auto;
+}
+
+
 p.img-mobile {
     width: 100%;
     background: url(/_nuxt/static/campain/aloegranada.webp);
@@ -22737,13 +22744,6 @@ p.img-mobile {
 }
 .bg-slider-img {
     padding: 8rem 5rem;
-}
-
-
-.policy-icons{
-    width: 80px;
-    height: auto;
-    margin: auto;
 }
 
 .tag-block {

@@ -7,21 +7,18 @@
                 <table class="table">
                     <thead>
                         <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
+                        <th scope="col">Fecha</th>
                         <th scope="col">Estado Pago</th>
                         <th scope="col">Estado Pedido</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Factura en Papel</th>
+                        <th scope="col">Método Pago</th>
+                        <th scope="col">Transporte</th>
+                        <th scope="col">Factura</th>
                         <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody v-if="orders.length > 0">
                         <tr v-for="order in orders" :key="order.id">
-                            <th scope="row">{{ order.id }}</th>
-                            <td>
-                                <n-link :to="`/orders-profiles/${order.user_id}`">{{ getName(order) }}</n-link>
-                            </td>
+                            <td>{{ order.order_date }}</td>
                             <td v-if="order.paid == 'PENDIENTE'">Pendiente</td>
                             <td v-if="order.paid == 'PROCESANDO'">Procesando</td>
                             <td v-if="order.paid == 'PAGADO'">Pagado</td>
@@ -37,7 +34,8 @@
                                     <option value="5">Cancelado</option>
                                 </select>
                             </td>
-                            <td>{{ order.order_date }}</td>
+                            <td>{{ order.payment_method }}</td>
+                            <td>{{ order.shipping_method }}</td>
                             <td v-if="order.invoice_paper == 1">Si</td>
                             <td v-else>No</td>
                             <td>
@@ -105,7 +103,6 @@ export default {
 
     mounted() {
         this.getOrders();
-        this.getUserName();
     },
 
     computed: {
@@ -151,31 +148,10 @@ export default {
             this.orders = response.data.data;
             const paginations = response.data;
             this.pagination = {
-                    links: paginations['meta'].links,
-                    current_page: paginations['meta'].current_page,
-                    last_page: paginations['meta'].last_page,
+                links: paginations['meta'].links,
+                current_page: paginations['meta'].current_page,
+                last_page: paginations['meta'].last_page,
             }
-        },
-
-        async getUserName() {
-            await this.$axios.get('/api/users')
-                .then(response => {
-                    this.users = response.data.data;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        },
-
-        getName(order) {
-            let users = this.users;
-            return users.filter(user => {
-                if (user.id == order.user_profile_id) {
-                    return user;
-                }
-            }).map(user => {
-                return user.name + ' ' + user.lastname;
-            }).toString();
         },
 
         async getUrl(order){

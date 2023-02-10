@@ -5,21 +5,18 @@
                 <table class="table">
                     <thead>
                         <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
+                        <th scope="col">Fecha</th>
                         <th scope="col">Estado Pago</th>
                         <th scope="col">Estado Pedido</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Factura en Papel</th>
+                        <th scope="col">Método Pago</th>
+                        <th scope="col">Transporte</th>
+                        <th scope="col">Factura</th>
                         <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody v-if="orders.length > 0">
                         <tr v-for="order in orders" :key="order.id">
-                            <th scope="row">{{ order.id }}</th>
-                            <td>
-                                <n-link :to="`/orders-profiles/${order.user_id}`">{{ getName(order) }}</n-link>
-                            </td>
+                            <td>{{ order.order_date }}</td>
                             <td v-if="order.paid == 'PENDIENTE'">Pendiente</td>
                             <td v-if="order.paid == 'PROCESANDO'">Procesando</td>
                             <td v-if="order.paid == 'PAGADO'">Pagado</td>
@@ -28,7 +25,8 @@
                             <td v-if="order.paid == 'TRANSFERENCIA'">Transferencia</td>
                             <td v-if="order.status == 4">Entregado</td>
                             <td v-else>Cancelado</td>
-                            <td>{{ order.order_date }}</td>
+                            <td>{{ order.payment_method }}</td>
+                            <td>{{ order.shipping_method }}</td>
                             <td v-if="order.invoice_paper == 1">Si</td>
                             <td v-else>No</td>
                             <td>

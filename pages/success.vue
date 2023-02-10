@@ -85,7 +85,6 @@ export default {
             const token_id = this.paymentIntent;
             await this.$axios.post('/api/order-paid/' + token_id)
                 .then((res) => {
-                    console.log(res.data);
                     this.loading = false;
                     this.countdown(10);
                     this.$store.commit('CLEAR_GUEST');
