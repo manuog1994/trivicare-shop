@@ -164,36 +164,6 @@
   "WishListContainer": {
     "description": "Auto imported from components/WishListContainer.vue"
   },
-  "CheckoutGuestCreate": {
-    "description": "Auto imported from components/checkout/GuestCreate.vue"
-  },
-  "CheckoutNewAddressModal": {
-    "description": "Auto imported from components/checkout/NewAddressModal.vue"
-  },
-  "CheckoutOrderNotes": {
-    "description": "Auto imported from components/checkout/OrderNotes.vue"
-  },
-  "CheckoutPaymentMethods": {
-    "description": "Auto imported from components/checkout/PaymentMethods.vue"
-  },
-  "CheckoutPickupModal": {
-    "description": "Auto imported from components/checkout/PickupModal.vue"
-  },
-  "CheckoutResumen": {
-    "description": "Auto imported from components/checkout/Resumen.vue"
-  },
-  "CheckoutSelectAddress": {
-    "description": "Auto imported from components/checkout/SelectAddress.vue"
-  },
-  "CheckoutShippingMethods": {
-    "description": "Auto imported from components/checkout/ShippingMethods.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
-  },
   "BannerItem": {
     "description": "Auto imported from components/banner/BannerItem.vue"
   },
@@ -203,20 +173,11 @@
   "BannerStyleOne": {
     "description": "Auto imported from components/banner/BannerStyleOne.vue"
   },
-  "ProductDetailsWrapper": {
-    "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
-  "ProductGridItem": {
-    "description": "Auto imported from components/product/ProductGridItem.vue"
-  },
-  "ProductGridItemTwo": {
-    "description": "Auto imported from components/product/ProductGridItemTwo.vue"
-  },
-  "ProductGridStyleThree": {
-    "description": "Auto imported from components/product/ProductGridStyleThree.vue"
-  },
-  "ProductWrapperCosmetics": {
-    "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
   },
   "CrudAll": {
     "description": "Auto imported from components/crud/All.vue"
@@ -265,5 +226,44 @@
   },
   "ProfileNewProfile": {
     "description": "Auto imported from components/profile/NewProfile.vue"
+  },
+  "ProductDetailsWrapper": {
+    "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
+  },
+  "ProductGridItem": {
+    "description": "Auto imported from components/product/ProductGridItem.vue"
+  },
+  "ProductGridItemTwo": {
+    "description": "Auto imported from components/product/ProductGridItemTwo.vue"
+  },
+  "ProductGridStyleThree": {
+    "description": "Auto imported from components/product/ProductGridStyleThree.vue"
+  },
+  "ProductWrapperCosmetics": {
+    "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
+  },
+  "CheckoutGuestCreate": {
+    "description": "Auto imported from components/checkout/GuestCreate.vue"
+  },
+  "CheckoutNewAddressModal": {
+    "description": "Auto imported from components/checkout/NewAddressModal.vue"
+  },
+  "CheckoutOrderNotes": {
+    "description": "Auto imported from components/checkout/OrderNotes.vue"
+  },
+  "CheckoutPaymentMethods": {
+    "description": "Auto imported from components/checkout/PaymentMethods.vue"
+  },
+  "CheckoutPickupModal": {
+    "description": "Auto imported from components/checkout/PickupModal.vue"
+  },
+  "CheckoutResumen": {
+    "description": "Auto imported from components/checkout/Resumen.vue"
+  },
+  "CheckoutSelectAddress": {
+    "description": "Auto imported from components/checkout/SelectAddress.vue"
+  },
+  "CheckoutShippingMethods": {
+    "description": "Auto imported from components/checkout/ShippingMethods.vue"
   }
 }

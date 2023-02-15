@@ -1,46 +1,11 @@
 <template>
     <div>
-        <div class="slider-area nav-style-1 nav-style-3">
-            <swiper :options="swiperOption" class="d-none d-md-block">
-                <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="slider-height-5 d-flex align-items-center bg-img" :style="{ backgroundImage:`url(${slider.backgroundImage})`}" style="width:100%;">
-                    <div class="container bg-slider-img">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="slider-content-4 slider-content-6 slider-animation-1 text-center">
-                                    <h1 class="text-white">{{ slider.title }}</h1>
-                                    <p class="text-white">{{ slider.desc }}</p>
-                                    <div class="slider-btn btn-hover">
-                                        <n-link to="/shop">COMPRAR AHORA</n-link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </swiper-slide>
-    
-                <!-- Swiper Navigation Start -->
-                <div class="hero-slider-nav swiper-button-prev">
-                    <i class="pe-7s-angle-left"></i>
-                </div>
-                <div class="hero-slider-nav swiper-button-next">
-                    <i class="pe-7s-angle-right"></i>
-                </div>
-                <!-- Swiper Navigation End -->
-            </swiper>
-            <!-- <div id="carouselExampleSlidesOnly" class="carousel slide d-md-none" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <nuxt-img provider="customProvider" class="d-block" src="slider1-1.webp" width="550px" alt="logo" />
-                    </div>
-                    <div class="carousel-item">
-                        <nuxt-img provider="customProvider" class="d-block" src="slider1-2.webp" width="550px" alt="logo" />
-                    </div>
-                </div>
-            </div> -->
+        <div class="d-none d-md-flex">
+            <img loading="lazy" src="@/static/campain/banner.webp" alt="banner">
         </div>
         <div class="d-md-none">
             <n-link to="/shop" class="cursor-pointer">
-                <img loading="lazy" src="@/static/campain/valentineday.webp" alt="valentineday">
+                <img loading="lazy" src="@/static/campain/banner600x550.webp" alt="banner_movil" style="width: 100%;">
             </n-link>
         </div>
     </div>
@@ -79,33 +44,5 @@
 
 <script>
     export default {
-        data() {
-            return {
-                swiperOption: {
-                    loop: true,
-                    speed: 750,
-                    autoplay: {
-                        delay: 6000
-                    },
-                    effect: "fade",
-                    fadeEffect: { 
-                        crossFade: true 
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                },
-
-                sliderData: [
-                    {
-                        title: "Este San Valentín",
-                        desc: "Enamorate de tu piel con nuestra gama de productos naturales",
-                        backgroundImage: "/campain/valentindayweb.webp",
-                        backgroundImageTwo: "/campain/valentindayweb.webp"
-                    },
-                ]
-            }
-        }
     };
 </script>
