@@ -153,12 +153,6 @@
         },
 
         async mounted() {
-            if(this.guestStore.length != 0) {
-                this.formHidden = false;
-                document.getElementById('titleSelect').innerHTML = 'Su dirección de envío';
-                document.getElementById('my-account-3').classList.remove('collapse');
-            };
-
             const duration = this.$store.getters.getDuration;
             this.startTimer(duration);
         },

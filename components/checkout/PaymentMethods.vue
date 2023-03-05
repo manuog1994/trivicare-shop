@@ -9,17 +9,22 @@
                     <div class="row d-flex align-items-center">
                         <div class="col-6">
                             <div class="form-check mb-2 d-flex align-items-center">
-                                <input class="form-check-input mb-1" type="radio" name="payment" id="card_payment" v-model="payment" value="stripe">
+                                <input class="form-check-input mb-1" type="radio" name="payment" id="card_payment" v-model="payment" value="paypal">
                                 <label class="form-check-label ms-2" for="card_payment">
-                                    Pago por tarjeta
+                                    Pago por tarjeta o Paypal
                                 </label>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <img class="ms-2" src="/payment/metodosdepago.webp" alt="metodos-de-pago.webp" width="100%"/>
+                        <div class="row col-6">
+                            <div class="">
+                                <img class="ms-2" src="/payment/metodosdepago.webp" alt="metodos-de-pago.webp" width="100%"/>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100px" height="auto"/>
+                            </div>
                         </div>
                     </div>
-                    <div class="row mt-4 d-flex align-items-center">
+                    <!-- <div class="row mt-4 d-flex align-items-center">
                         <div class="col-6">
                             <div class="form-check d-flex align-items-center">
                                 <input class="form-check-input mb-1" type="radio" name="payment" id="paypal_payment" v-model="payment" value="paypal">
@@ -31,7 +36,7 @@
                         <div class="col-6 d-flex justify-content-center">
                             <img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100px" height="auto"/>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

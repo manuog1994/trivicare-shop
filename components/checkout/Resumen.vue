@@ -50,6 +50,10 @@
             </div>
             <div class="mt-2">
                 <button @click="onClick" id="end-select" class="btn btn-theme rounded-0" disabled>Hacer Pedido</button>
+                <div class="text-center">
+                    <p class="mt-3">¿Tienes problemas para hacer tu pedido?</p>
+                    <a href="https://api.whatsapp.com/send?phone=34613036942&text=Hola,%20tengo%20un%20problema%20con%20mi%20pedido" target="_blank" class="text-info">Haz click aquí y contacta con nosotros por WhatsApp</a>
+                </div>
             </div>
             <div class="">
                 <Paypal :load="initPaypal" :shipping="shipping" :order_id="order_id"/>
@@ -295,7 +299,7 @@ export default {
                         this.$router.push('/success?payment_intent_client_secret=' + this.token_id);
                     }
                 }).catch((err) => {
-                    console.log(err)
+                    //console.log(err)
                     this.$axios.post('/api/error-message', {
                         message: error.response.data.message
                     })

@@ -153,7 +153,7 @@ export default {
 
     methods: {
         createUser() {
-            console.log(this.guest);
+            //console.log(this.guest);
             this.$store.commit('SET_GUEST', this.guest);
             this.formHidden = false;
             this.$refs.guestform.reset();

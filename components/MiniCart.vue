@@ -155,9 +155,9 @@
                         const duration = 900;
                         this.$store.commit('SET_DURATION', duration);
                         this.$router.push('/checkout' + '?reserve=' + this.token_reserve);
-                        console.log(res.data);
+                        //console.log(res.data);
                     }).catch(err => {
-                        console.log(err)
+                        //console.log(err)
                     })
                 }
             },
