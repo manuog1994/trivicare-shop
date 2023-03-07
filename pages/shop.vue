@@ -43,10 +43,6 @@
                 }, 1000);
             });
 
-            await this.$axios.post('/api/visit', {
-                ip_address: 'No IP',
-                page_visited: 'shop',
-            })
         },
 
         methods: {

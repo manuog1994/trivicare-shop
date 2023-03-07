@@ -120,7 +120,7 @@
             <div class="container-fluid bg-dark mt-3">
                 <div class="footer-widget text-center p-3">
                     <div class="footer-title">
-                        <p class="text-light">© 2022 TriviCare Natural Cosmetics. Todos los derechos reservados.</p>
+                        <p class="text-light">© 2022 - {{ yearNow }} TriviCare Natural Cosmetics. Todos los derechos reservados.</p>
                     </div>
                 </div>
             </div>
@@ -230,7 +230,7 @@
             <div class="container-fluid bg-dark mt-3">
                 <div class="footer-widget text-center p-3">
                     <div class="footer-title">
-                        <p class="text-light">© 2022 TriviCare Natural Cosmetics. Todos los derechos reservados.</p>
+                        <p class="text-light">© 2022 - {{ yearNow }} TriviCare Natural Cosmetics. Todos los derechos reservados.</p>
                     </div>
                 </div>
             </div>
@@ -258,6 +258,7 @@
         data() {
             return {
                 email: '',
+                yearNow: new Date().getFullYear()
             }
         },
 

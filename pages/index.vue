@@ -69,11 +69,6 @@
                 this.$auth.fetchUser();
 
             }
-
-            await this.$axios.post('/api/visit', {
-                ip_address: 'No Ip',
-                page_visited: 'index',
-            })
  
         },
 

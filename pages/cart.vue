@@ -57,11 +57,6 @@
                     this.$auth.logout();
                 }
             }));
-
-            await this.$axios.post('/api/visit', {
-                ip_address: 'No IP',
-                page_visited: 'cart',
-            })
         },
         
         methods: {
