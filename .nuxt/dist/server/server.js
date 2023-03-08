@@ -11965,7 +11965,7 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("modal",{att
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",[_vm._ssrNode('<div class="d-none d-md-flex"><img loading="lazy"'+_vm._ssrAttr("src",__webpack_require__(/*! @/static/campain/diamujer.svg */ "./static/campain/diamujer.svg"))+' alt="banner"></div> '),_vm._ssrNode('<div class="d-md-none">',"</div>",[_c("n-link",{staticClass:"cursor-pointer",attrs:{to:"/shop"}},[_c("img",{staticStyle:{width:"100%"},attrs:{loading:"lazy",src:__webpack_require__(/*! @/static/campain/diamujer_mobile.svg */ "./static/campain/diamujer_mobile.svg"),alt:"banner_movil"}})])],1)],2);};var staticRenderFns=[];render._withStripped=true;
+var render=function render(){var _vm=this,_c=_vm._self._c;return _c("div",[_vm._ssrNode('<div class="d-none d-md-flex"><img loading="lazy"'+_vm._ssrAttr("src",__webpack_require__(/*! @/static/campain/diamujer.jpeg */ "./static/campain/diamujer.jpeg"))+' alt="banner"></div> '),_vm._ssrNode('<div class="d-md-none">',"</div>",[_c("n-link",{staticClass:"cursor-pointer",attrs:{to:"/shop"}},[_c("img",{staticStyle:{width:"100%"},attrs:{loading:"lazy",src:__webpack_require__(/*! @/static/campain/diamujer_mobile.jpeg */ "./static/campain/diamujer_mobile.jpeg"),alt:"banner_movil"}})])],1)],2);};var staticRenderFns=[];render._withStripped=true;
 
 /***/ }),
 
@@ -16184,25 +16184,25 @@ module.exports = __webpack_require__.p + "static/campain/TriviCare_byn Vertical 
 
 /***/ }),
 
-/***/ "./static/campain/diamujer.svg":
-/*!*************************************!*\
-  !*** ./static/campain/diamujer.svg ***!
-  \*************************************/
+/***/ "./static/campain/diamujer.jpeg":
+/*!**************************************!*\
+  !*** ./static/campain/diamujer.jpeg ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "static/campain/diamujer.svg";
+module.exports = __webpack_require__.p + "static/campain/diamujer.jpeg";
 
 /***/ }),
 
-/***/ "./static/campain/diamujer_mobile.svg":
-/*!********************************************!*\
-  !*** ./static/campain/diamujer_mobile.svg ***!
-  \********************************************/
+/***/ "./static/campain/diamujer_mobile.jpeg":
+/*!*********************************************!*\
+  !*** ./static/campain/diamujer_mobile.jpeg ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "static/campain/diamujer_mobile.svg";
+module.exports = __webpack_require__.p + "static/campain/diamujer_mobile.jpeg";
 
 /***/ }),
 
