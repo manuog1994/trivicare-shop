@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="d-none d-md-flex">
-            <img loading="lazy" src="@/static/campain/banner.webp" alt="banner">
+            <img loading="lazy" src="@/static/campain/diamujer.svg" alt="banner">
         </div>
         <div class="d-md-none">
             <n-link to="/shop" class="cursor-pointer">
-                <img loading="lazy" src="@/static/campain/banner600x550.webp" alt="banner_movil" style="width: 100%;">
+                <img loading="lazy" src="@/static/campain/diamujer_mobile.svg" alt="banner_movil" style="width: 100%;">
             </n-link>
         </div>
     </div>
