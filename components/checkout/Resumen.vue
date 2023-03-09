@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-2">
+            <div class="mt-2 mb-2">
                 <button @click="onClick" id="end-select" class="btn btn-theme rounded-0" disabled>Hacer Pedido</button>
                 <div class="text-center">
                     <p class="mt-3">¿Tienes problemas para hacer tu pedido?</p>

@@ -73,15 +73,6 @@
                     <input name="dni" type="text" required>
                 </div>
             </div>
-            <div class="form-check ms-3 mb-4">
-                <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
-                <label class="form-check-label" for="flexCheckDefault">
-                    He leído y acepto la <a href="#" title="Ver política de privacidad">política de privacidad</a>.
-                </label>
-            </div>
-            <div class="billing-btn">
-                <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
-            </div>
         </form>
     </div>
 </template>

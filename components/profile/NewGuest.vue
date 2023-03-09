@@ -76,14 +76,8 @@
                     <input name="dni" type="text" v-model="guest.dni" required>
                 </div>
             </div>
-            <div class="form-check ms-3 mb-4">
-                <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" v-model="checked">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Acepto los <n-link class="text-info" to="/terms-conditions">términos y condiciones</n-link>.
-                </label>
-            </div>
-            <div class="billing-btn">
-                <button class="btn btn-form" :class="{'disabled': checked ? false : true}" type="submit" title="Guardar">Guardar</button>
+            <div class="billing-btn" style="text-align: end;">
+                <button class="btn text-info" type="submit" title="Seleccionar método de pago">Seleccionar método de pago</button>
             </div>
         </form>
         <div class="row" :class="{'hidden': formHidden ? true : false}">

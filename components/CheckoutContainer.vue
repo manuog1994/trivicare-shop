@@ -8,53 +8,9 @@
             </div>
             <div class="container-fluid">
                 <div class="row" v-if="products.length > 0">
-                    <!-- Auth user -->
-                    <div v-if="$auth.loggedIn == true" class="col-lg-7">
-                        <!-- select profile -->
-                        <div v-if="$auth.user.user_profile.length > 0" class="col-12">
-                            <h3 class="text-center mb-2">Estas a punto de terminar tu compra</h3>
-                            <p class="text-center">Seleccione una de sus direcciones de envío, un método de pago, un tipo de envío y pulse en el botón "Hacer pedido".</p>
-                            <div class="panel panel-default single-my-account mt-2">
-                                <!-- Select profile -->
-                                <SelectAddress @userIdProfile="handleUserIdProfile" />
-                                <!-- Payment -->
-                                <PaymentMethods @payment="handlePayment" />
-                                <!-- Shipping -->
-                                <ShippingMethods :total="total" @shippingMethod="handleShippingMethod"/>
-                                <!-- Order notes -->
-                                <OrderNotes @note="handleNote" @invoicePaper="handleInvoicePaper" />
-                            </div>
-                        </div>
-                        <!-- create profile -->
-                        <div v-else class="col-12">
-                            <div>
-                                <h4>Introduzca sus datos de envío</h4>
-                            </div>
-                            <div class="p-3">
-                                <NewProfile />
-                            </div>
-                        </div>
-                    </div>
                     <!-- Guest user -->
-                    <div v-else class="col-lg-7">
-                        <div class="text-center" :class="{'hidden': btnGuest ? false : true}">
-                            <div class="mb-2">
-                                <h3>Si estas registrado</h3>                        
-                            </div>
-                            <div class="p-3 p-md-5">
-                                <button class="btn btn-theme rounded-0 w-50 m-auto" @click.prevent="openLoginModal" title="Iniciar sesión">Iniciar sesión</button>
-                            </div>
-                            <div class="p-3">
-                                <p class="text-middle-p"><span class="text-middle-span">de lo contrario</span></p>
-                            </div>
-                            <div class="p-3 p-md-5">
-                                <h3>Puedes realizar tu pedido como invitado</h3>
-                            </div>
-                            <div>
-                                <a @click="btnGuest = false" class="btn btn-theme rounded-0 w-50" title="Realizar pedido como invitado">Como invitado</a>
-                            </div>
-                        </div>
-                        <div class="" :class="{'hidden': btnGuest ? true : false}">
+                    <div class="col-lg-7">
+                        <div class="">
                             <h4 class="mb-4">Introduzca sus datos, seleccione un método de pago y uno de envío.</h4>
                             <div class="panel panel-default single-my-account mt-2">
                                 <!-- Create guest profile -->
