@@ -12,6 +12,11 @@
                     <div class="col-lg-7">
                         <div class="">
                             <h4 class="mb-4">Introduzca sus datos, seleccione un método de pago y uno de envío.</h4>
+                            <div style="text-align: end;">
+                                <p>¿Esta registrado?
+                                    <a class="text-info" @click.prevent="openLoginModal()">Inicia sesión</a>
+                                </p>
+                            </div>
                             <div class="panel panel-default single-my-account mt-2">
                                 <!-- Create guest profile -->
                                 <GuestCreate />
