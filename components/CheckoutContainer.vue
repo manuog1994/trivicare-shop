@@ -12,25 +12,27 @@
                     <div class="col-lg-7">
                         <div class="">
                             <h4 class="mb-4">Introduzca sus datos, seleccione un método de pago y uno de envío.</h4>
-                            <div style="text-align: end;">
+                            <div v-if="!$auth.user" style="text-align: end;">
                                 <p>¿Esta registrado?
                                     <a class="text-info" @click.prevent="openLoginModal()">Inicia sesión</a>
                                 </p>
                             </div>
                             <div class="panel panel-default single-my-account mt-2">
+                                <!-- Select Address -->
+                                <SelectAddress @userIdProfile="handleUserIdProfile"/>
                                 <!-- Create guest profile -->
-                                <GuestCreate />
+                                <GuestCreate v-if="!$auth.user" />
                                 <!-- Payment -->
                                 <PaymentMethods @payment="handlePayment" />
                                 <!-- Shipping -->
                                 <ShippingMethods :total="total" @shippingMethod="handleShippingMethod"/>
                                 <!-- Order notes -->
-                                <OrderNotes @note="handleNote" @invoicePaper="handleInvoicePaper" />
+                                <OrderNotes @note="handleNote" @invoicePaper="handleInvoicePaper" @pay_tramit="handlePay"/>
                             </div>
                         </div>
                     </div>
                     <!-- Resumen del pedido -->
-                    <Resumen :total="total" :shippingMethod="shippingMethod" :userIdProfile="userIdProfile" :invoice_paper="invoice_paper" :payment="payment" :pickupId="pickupId"/>
+                    <Resumen :total="total" :shippingMethod="shippingMethod" :userIdProfile="userIdProfile" :invoice_paper="invoice_paper" :payment="payment" :pickupId="pickupId" :tramit="tramit"/>
                 </div>
                 <div v-else>
                     <div class="text-center p-5">
@@ -90,6 +92,7 @@
                 cancelOrder: false,
                 duration: 0,
                 url: process.env.url,
+                tramit: false,
             }
         },
 
@@ -186,18 +189,17 @@
             handleInvoicePaper(invoice_paper) {
                 this.invoice_paper = invoice_paper;
             },
+
+            handlePay(res) {
+                this.tramit = res;
+            },
        },
 
         head() {
             return {
                 script: [
-                    {
-                        src: "https://js.stripe.com/v3/",
-                        async: true,
-                    },
-
                     { 
-                        src: 'https://www.paypal.com/sdk/js?client-id=' + process.env.PAYPAL_CLIENT_ID + '&currency=EUR',
+                        src: 'https://www.paypal.com/sdk/js?client-id=' + process.env.PAYPAL_CLIENT_ID + '&currency=EUR&disable-funding=sofort&enable-funding=paylater&locale=es_ES',
                         async: true, 
                     }
                 ]

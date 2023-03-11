@@ -17,8 +17,12 @@
                             <label class="form-check-label" for="invoice">
                                 Incluir factura en papel
                             </label>
-                            </div>
+                        </div>
                     </div>
+                    <div class="d-flex justify-content-center">
+                        <button @click="pay_tramit = true" id="end-select" class="btn btn-theme rounded-0" disabled>Hacer Pedido</button>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -30,7 +34,8 @@ export default {
     data() {
         return {
             note: '',
-            invoice_paper: false
+            invoice_paper: false,
+            pay_tramit: false
         }
     },
 
@@ -41,6 +46,10 @@ export default {
 
         invoice_paper() {
             this.$emit('invoicePaper', this.invoice_paper);
+        },
+
+        pay_tramit() {
+            this.$emit('pay_tramit', this.pay_tramit);
         }
     },
 }

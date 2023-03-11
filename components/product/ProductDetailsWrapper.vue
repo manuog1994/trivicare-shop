@@ -46,7 +46,7 @@
                         <div>
                             <p>{{ product.specifications }}</p>
                         </div>
-                        <!-- <div class="pro-details-size-color" v-if="product.variation">
+                        <div class="pro-details-size-color" v-if="product.variation">
                             <div class="pro-details-color-wrap">
                                 <h6 class="label">Color</h6>
                                 <div class="pro-details-color-content">
@@ -56,7 +56,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="pro-details-size-wrap">
+                            <!-- <div class="pro-details-size-wrap">
                                 <h6 class="label">Size</h6>
                                 <div class="pro-details-size-content">
                                     <label class="radio" v-for="(item, index) in product.variation.sizes" :key="index">
@@ -64,8 +64,8 @@
                                         <span class="check-mark">{{ item }}</span>
                                     </label>
                                 </div>
-                            </div>
-                        </div> -->
+                            </div> -->
+                        </div>
                         <div v-if="product.stock > 0" class="pro-details-quality">
                             <div class="cart-plus-minus">
                                 <button @click="decreaseQuantity()" class="dec qtybutton" title="Quitar">-</button>

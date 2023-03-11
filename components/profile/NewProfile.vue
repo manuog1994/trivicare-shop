@@ -74,6 +74,9 @@
                 </div>
             </div>
         </form>
+        <div class="d-flex justify-content-end mt-3">
+            <button @click="createProfile" class="btn rounded-0 text-info">Guardar</button>
+        </div>
     </div>
 </template>
 

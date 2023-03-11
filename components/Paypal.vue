@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div id="paypal-button-container"></div>
+    <div class="m-auto">
+        <div class="d-flex justify-content-center" id="paypal-button-container"></div>
     </div>
 </template>
 

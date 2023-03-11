@@ -1,18 +1,32 @@
 <template>
     <div>
-        <div class="panel-heading my-account-title">
-            <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-1">Elige una dirección </a></h3>
-        </div>
-        <div id="my-account-1" class="panel-collapse" data-bs-parent="#faq">
-            <div class="panel-body">
-                <div class="form-group p-4 p-md-5">
-                    <select class="form-select rounded-0" v-model="selected" @change="enableButton" ref="userIdProfile">
-                        <option v-if="selected == 'Seleccione una dirección' " selected disabled>{{ selected }}</option>
-                        <option v-else selected disabled>Seleccione una dirección</option>
-                        <client-only>
-                            <option v-for="profile in $auth.user.user_profile" :key="profile.id" :value="profile.id">{{ profile.name }} {{ profile.lastname }}, {{ profile.address }}, {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option>
-                        </client-only>
-                    </select>
+        <div v-if="$auth.user && $auth.user.user_profile.length > 0">
+            <div class="panel-heading my-account-title">
+                <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-1">Elige una dirección </a></h3>
+            </div>
+            <div id="my-account-1" class="panel-collapse" data-bs-parent="#faq">
+                <div class="panel-body">
+                    <div class="form-group p-4 p-md-5">
+                        <select class="form-select rounded-0" v-model="selected" @change="enableButton" ref="userIdProfile">
+                            <option v-if="selected == 'Seleccione una dirección' " selected disabled>{{ selected }}</option>
+                            <option v-else selected disabled>Seleccione una dirección</option>
+                            <client-only>
+                                <option v-for="profile in $auth.user.user_profile" :key="profile.id" :value="profile.id">{{ profile.name }} {{ profile.lastname }}, {{ profile.address }}, {{ profile.zipcode }} {{ profile.city }} ({{ profile.state }})</option>
+                            </client-only>
+                        </select>
+                    </div>
+                </div>
+            </div>
+         </div>
+        <div v-if="$auth.user && $auth.user.user_profile.length == 0">
+            <div class="panel-heading my-account-title">
+                <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-1">Añada una dirección </a></h3>
+            </div>
+            <div id="my-account-1" class="panel-collapse" data-bs-parent="#faq">
+                <div class="panel-body">
+                    <div class="form-group p-4 p-md-5">
+                        <NewProfile />
+                    </div>
                 </div>
             </div>
         </div>
@@ -26,6 +40,10 @@ export default {
             selected: 'Seleccione una dirección',
             userIdProfile: '',
         }
+    },
+
+    components: {
+        NewProfile: () => import("@/components/profile/NewProfile"),
     },
 
     watch: {
