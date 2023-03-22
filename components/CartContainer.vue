@@ -203,13 +203,13 @@
 
             newReserve() {
                 //this.getProducts();
-                // let products = this.products;
-                // let stock = products.map((item) => {
-                //     if(item.stock == '0'){
-                //         this.errorStock = true;
-                //         this.errorStockMessage = 'Uno o varios de los productos que tienes en carrito no esta disponible, por favor, elimínalo del carrito y vuelve a intentarlo si deseas realizar el pedido.'
-                //     }
-                // })
+                let products = this.products;
+                let stock = products.map((item) => {
+                    if(item.stock == '0'){
+                        this.errorStock = true;
+                        this.errorStockMessage = 'Uno o varios de los productos que tienes en carrito no esta disponible, por favor, elimínalo del carrito y vuelve a intentarlo si deseas realizar el pedido.'
+                    }
+                })
                 if(this.errorStock == false){
                     document.cookie = "duration=900; expires=" + new Date(Date.now() + 630000).toUTCString();
 
@@ -254,7 +254,7 @@
                 }else{
                     this.$notify({ title: 'No hay más stock disponible' })
                 }
-                this.getProducts();
+                //this.getProducts();
             },
 
             decrementProduct(product) {
@@ -262,7 +262,7 @@
                 if (product.cartQuantity > 1) {
                     this.$store.dispatch('decreaseProduct', prod)
                 }
-                this.getProducts();
+                //this.getProducts();
             },
 
             removeProduct(product) {
@@ -270,7 +270,7 @@
                 this.$notify({ title: 'Producto eliminado del carrito!'})
 
                 this.$store.dispatch('removeProductFromCart', product)
-                this.getProducts();
+                //this.getProducts();
             },
 
             discountedPrice(product) {
