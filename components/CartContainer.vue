@@ -202,7 +202,7 @@
             },
 
             newReserve() {
-                this.getProducts();
+                //this.getProducts();
                 let products = this.products;
                 let stock = products.map((item) => {
                     if(item.stock == '0'){
