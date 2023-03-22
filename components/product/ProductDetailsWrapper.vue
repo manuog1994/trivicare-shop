@@ -201,7 +201,7 @@
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
                     this.$notify({ title: 'Se ha actualizado la cantidad del producto' })
                 } else {
-                    this.$root.$emit('addToCart', true);
+                    this.$notify({ title: 'Añadido al carrito' })
                 }
                 this.$store.dispatch('addToCartItem', prod)
             },

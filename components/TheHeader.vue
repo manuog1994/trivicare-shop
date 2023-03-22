@@ -120,10 +120,6 @@
                 this.navOpen = data;
                 document.getElementById('searchMobile').classList.add('hidden');
             });
-
-            this.$root.$on('addToCart', data => {
-                this.openCart = data;
-            });
         },
 
         mounted(){
