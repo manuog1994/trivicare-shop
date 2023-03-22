@@ -95,7 +95,7 @@
                     </button>
                 </div>
             </modal>
-            <modal name="pay" :width="'auto'" :height="'auto'" :scrollable="true" :adaptative="true" :clickToClose="false">
+            <modal style="top: 100px" name="pay" :width="'auto'" :height="'auto'" :scrollable="true" :adaptative="true" :clickToClose="false">
                 <Paypal :load="initPaypal" />
                 <div class="mt-4 d-flex justify-content-center">
                     <button class="fs-6 btn bg-trivi-red text-white" @click="cancelPayPal">

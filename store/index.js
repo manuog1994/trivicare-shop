@@ -33,6 +33,7 @@ export const state = () => ({
     order_id: '',
     invoice_paper: false,
     note: '',
+    newUserAddress: false,
 })
 
 
@@ -142,6 +143,10 @@ export const getters = {
         return state.compare
     },
 
+    getNewUserAddress: state => {
+        return state.newUserAddress
+    },
+
     wishlistItemCount: state => {
         return state.wishlist.length
     },
@@ -221,6 +226,10 @@ export const mutations = {
 
     SET_NOTE (state, note) {
         state.note = note
+    },
+
+    SET_NEW_USER_ADDRESS (state, newUserAddress) {
+        state.newUserAddress = newUserAddress
     },
 
     UPDATE_CART(state, payload) {

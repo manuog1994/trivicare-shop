@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="fixed-bottom bg-warning text-center p-3">
+        <!-- <div class="fixed-bottom bg-warning text-center p-3">
             <h2>La web se encuentra en mantenimiento. Vuelva más tarde</h2>
-        </div>
+        </div> -->
 
         <footer class="footer-area bg-gray pt-5 d-none d-md-block">
             <div class="container-fluid ps-lg-5 pe-lg-5">

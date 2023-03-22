@@ -14,7 +14,6 @@
 <style>
     p.img-mobile {
         width: 100%;
-        background: url('@/static/campain/aloegranada.webp');
         padding: 5rem 0;
         font-size: 22px;
         text-align: center;

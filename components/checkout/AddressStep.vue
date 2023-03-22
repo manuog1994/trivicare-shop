@@ -41,7 +41,7 @@
 
             </div>
         </div>
-        <div v-if="newUserAddress == true" class="ms-md-5 me-md-5">
+        <div v-if="newUserAddress == true && $auth.loggedIn == true" class="ms-md-5 me-md-5">
             <div class="text-center">
                 <h3>Introduzca su dirección</h3>
             </div>
@@ -54,8 +54,8 @@
             <NewGuest :saveGuest="saveGuest" @savGuest="handleSaveGuest"/>
         </div>
         <div class="ms-md-5 me-md-5 mt-5 d-flex justify-content-center">
-            <button v-if="newUserAddress == false" @click="nextStep" class="btn btn-theme">Continuar</button>
-            <button v-if="newUserAddress == true" @click="newUserAddress = false" class="btn bg-trivi-red">Cancelar</button>
+            <button v-if="newUserAddress == false || $auth.loggedIn == false" @click="nextStep" class="btn btn-theme">Continuar</button>
+            <button v-if="newUserAddress == true && $auth.loggedIn == true" @click="newUserAddress = false" class="btn bg-trivi-red">Cancelar</button>
         </div>
     </div>
 </template>
@@ -120,8 +120,11 @@ export default {
     },
 
     mounted() {
-        if (!this.$auth.user.user_profile) {
-            this.newUserAddress = true;
+        //comprobar si el usuario esta logueado
+        if (this.$auth.loggedIn == true) {
+            if(this.$auth.user.user_profile.length == 0) {
+                this.newUserAddress = true;
+            }
         }
         const url = new URLSearchParams(window.location.search).get('step');
         this.url = url;
@@ -148,13 +151,13 @@ export default {
             if (this.emailStore) {
                 this.saveGuest = true;
             }
-
-            this.$refs.userProfileId.forEach((element) => {
+            if(this.$auth.loggedIn == true) {
+                this.$refs.userProfileId.find((element) => {
                 if (element.checked) {
                     this.userProfileId = element.value;
                 }
             });
-            console.log(this.userProfileId)
+            }
             if (this.userProfileId) {
                 this.$store.commit('SET_USER_PROFILE_ID', this.userProfileId);
                 this.$store.commit('SET_NOTE', this.note);
