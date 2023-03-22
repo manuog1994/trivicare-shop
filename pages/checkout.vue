@@ -1,13 +1,9 @@
 <template>
     <client-only>
         <div class="cart-page-wrapper">
-            <HeaderWithTopbar containerClass="container-fluid" />
-            <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
-            <div id="post-nav" class="" @click="closeMenus">
-                <NavBottom/>
-                <CheckoutContainer />
-                <TheFooter />
-            </div>
+            <HeaderCheckout containerClass="container-fluid" />
+            <CheckoutContainer />
+            <TheFooter />
         </div>
     </client-only>
 </template>
@@ -15,21 +11,11 @@
 <script>
     export default {
         auth: false,
-        
-        pageTransition: 'slide-fade',
-
-        data() {
-            return {
-                searchChildren: '',
-            }
-        },
 
         components: {
-            HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
-            TheHeader: () => import("@/components/TheHeader"),
-            NavBottom: () => import("@/components/NavBottom"),
             CheckoutContainer: () => import("@/components/CheckoutContainer"),
             TheFooter: () => import("@/components/TheFooter"),
+            HeaderCheckout: () => import("@/components/header/HeaderCheckout"),
         },
 
         async mounted() {
@@ -57,27 +43,15 @@
 
         },
 
-        methods: {
-            closeMenus() {
-                this.searchOpacity(false);
-                this.$root.$emit('closeMenu', this.closeMenu);
-            },
-
-            searchOpacity(searchFather) {
-                if (searchFather == true) {
-                    document.getElementById("post-nav").classList.add("search-screen");
-                } else {
-                    document.getElementById("post-nav").classList.remove("search-screen");
-                }
-            }
-        },
-
         head() {
             return {
                 titleTemplate: "Resumen de tu Pedido | TriviCare Natural Cosmetics",
-                // link: [
-                //     { rel: 'cannonical', href: 'https://trivicare.com/checkout' }
-                // ],
+                script: [
+                    { 
+                        src: 'https://www.paypal.com/sdk/js?client-id=' + process.env.PAYPAL_CLIENT_ID + '&currency=EUR&disable-funding=sofort,card&enable-funding=paylater&locale=es_ES',
+                        async: true, 
+                    }
+                ]
             }
         },
     };

@@ -6,32 +6,32 @@
         <form @submit.prevent="createProfile" class="row" ref="newprofile">
             <div class="col-lg-6 col-md-6">
                 <div class="billing-info">
-                    <label>Nombre</label>
-                    <input name="name" type="text" required>
+                    <label>Nombre*</label>
+                    <input class="form-control" name="name" type="text" required>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="billing-info">
-                    <label>Apellidos</label>
-                    <input name="lastname" type="text" required>
+                    <label>Apellidos*</label>
+                    <input class="form-control" name="lastname" type="text" required>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12">
                 <div class="billing-info">
-                    <label>Dirección</label>
-                    <input name="address" type="text" required>
+                    <label>Dirección*</label>
+                    <input class="form-control" name="address" type="text" required>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12">
                 <div class="billing-info">
                     <label>Opcional</label>
-                    <input name="optional_address" type="text">
+                    <input class="form-control" name="optional_address" type="text">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="billing-info">
-                    <label for="">País</label>
-                    <select class="form-select rounded-0" aria-label="Default select example" name="country" @change="getStates" required>
+                    <label for="">País*</label>
+                    <select class="form-select" aria-label="Default select example" name="country" @change="getStates" v-model="country" required>
                         <option disabled selected>Seleccione su país</option>
                         <option v-for="country in paises" :key="country.id" :value="country.name">{{ country.name }}</option>
                     </select>
@@ -39,8 +39,8 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="billing-info">
-                    <label for="">Provincia</label>
-                    <select class="form-select rounded-0" aria-label="Default select example" name="state" @change="getCities" required>
+                    <label for="">Provincia*</label>
+                    <select class="form-select" aria-label="Default select example" name="state" @change="getCities" v-model="state" required>
                         <option disabled selected>Seleccione su provincia</option>
                         <option v-for="state in provincias" :key="'state'+state.id" :value="state.name">{{ state.name }}</option>
                     </select>
@@ -48,8 +48,8 @@
             </div>
             <div class="col-lg-8 col-md-8">
                 <div class="billing-info">
-                    <label for="">Ciudad</label>
-                    <select class="form-select rounded-0" aria-label="Default select example" name="city" required>
+                    <label for="">Ciudad*</label>
+                    <select class="form-select" aria-label="Default select example" name="city" v-model="city" required>
                         <option disabled selected>Seleccione su ciudad</option>
                         <option v-for="city in cities" :key="'city'+city.name" :value="city.name">{{ city.name }}</option>
                     </select>
@@ -57,20 +57,20 @@
             </div>
             <div class="col-lg-4 col-md-4">
                 <div class="billing-info">
-                    <label>Código Postal</label>
-                    <input name="zipcode" type="number" required>
+                    <label>Código Postal*</label>
+                    <input class="form-control" name="zipcode" type="number" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5">
                 <div class="billing-info">
-                    <label>Teléfono</label>
-                    <input name="phone" type="number" required>
+                    <label>Teléfono*</label>
+                    <input class="form-control" name="phone" type="number" required>
                 </div>
             </div>
             <div class="col-lg-7 col-md-7">
                 <div class="billing-info">
-                    <label>DNI</label>
-                    <input name="dni" type="text" required>
+                    <label>DNI/NIE/NIF*</label>
+                    <input class="form-control" name="dni" type="text" required>
                 </div>
             </div>
         </form>
@@ -94,7 +94,10 @@ export default {
             ciudades,
             provincias,
             cities: [],
-            error: null,           
+            error: null,
+            country: '',
+            state: '',
+            city: ''           
         }
     },
 
@@ -115,18 +118,24 @@ export default {
         },
 
         async createProfile() {
-            const form = this.$refs.newprofile
-            const formData = new FormData(form)
-            formData.append('user_id', this.$auth.user.id)
-            await this.$axios.post('/api/register-profile', formData)
-            .then(res => {
-                this.$refs.newprofile.reset()
-                this.$notify({ type: 'success', text: 'Dirección creada correctamente' })
-                this.$auth.fetchUser()
-                this.error = null
-            }).catch(err => {
-                this.error = err.response.data.message;
-            })
+            if(this.$refs.newprofile.checkValidity()){
+                this.$refs.newprofile.classList.remove('was-validated')
+                const form = this.$refs.newprofile
+                const formData = new FormData(form)
+                formData.append('user_id', this.$auth.user.id)
+                await this.$axios.post('/api/register-profile', formData)
+                .then(res => {
+                    this.$refs.newprofile.reset()
+                    this.$notify({ type: 'success', text: 'Dirección creada correctamente' })
+                    this.$auth.fetchUser()
+                    this.error = null
+                }).catch(err => {
+                    this.error = err.response.data.message;
+                })
+                this.$root.$emit('newUserAddress', false)
+            }else{
+                this.$refs.newprofile.classList.add('was-validated')
+            }
         },
     }
 }

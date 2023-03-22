@@ -1,38 +1,17 @@
 <template>
     <div>
-        <div v-if="!cancelOrder" class="checkout-area mt-5 pb-100">
-            <div class="text-center bg-blue-color p-2 fixed-bottom">
-                <p>
-                    <strong class="fs-5">Su pedido se cancelará en {{ countdown }}</strong>
-                </p>
-            </div>
+        <div class="mt-md-5 pb-100">
             <div class="container-fluid">
                 <div class="row" v-if="products.length > 0">
-                    <!-- Guest user -->
-                    <div class="col-lg-7">
-                        <div class="">
-                            <h4 class="mb-4">Introduzca sus datos, seleccione un método de pago y uno de envío.</h4>
-                            <div v-if="!$auth.user" style="text-align: end;">
-                                <p>¿Esta registrado?
-                                    <a class="text-info" @click.prevent="openLoginModal()">Inicia sesión</a>
-                                </p>
-                            </div>
-                            <div class="panel panel-default single-my-account mt-2">
-                                <!-- Select Address -->
-                                <SelectAddress @userIdProfile="handleUserIdProfile"/>
-                                <!-- Create guest profile -->
-                                <GuestCreate v-if="!$auth.user" />
-                                <!-- Payment -->
-                                <PaymentMethods @payment="handlePayment" />
-                                <!-- Shipping -->
-                                <ShippingMethods :total="total" @shippingMethod="handleShippingMethod"/>
-                                <!-- Order notes -->
-                                <OrderNotes @note="handleNote" @invoicePaper="handleInvoicePaper" @pay_tramit="handlePay"/>
-                            </div>
-                        </div>
+                    <div class="col-12 order-2 col-lg-8 order-lg-1">
+                        <NewProgressBar :email="email"/>
+                        <EmailStep @stepEmail="handleEmail"/>
+                        <AddressStep />
+                        <SendStep />
+                        <PayStep @payment="handlePayment" />
                     </div>
                     <!-- Resumen del pedido -->
-                    <Resumen :total="total" :shippingMethod="shippingMethod" :userIdProfile="userIdProfile" :invoice_paper="invoice_paper" :payment="payment" :pickupId="pickupId" :tramit="tramit"/>
+                    <Resumen/>
                 </div>
                 <div v-else>
                     <div class="text-center p-5">
@@ -42,21 +21,6 @@
                 </div>
             </div>
         </div>
-        <div v-if="cancelOrder == true" class="mt-100 pb-100">
-            <div class="card rounded-0 p-2 m-2 p-md-5 m-md-5">
-                <div class="d-flex justify-content-center mb-5">
-                    <img loading="lazy" src="/payment/error.webp" alt="success.webp" width="60">
-                </div>
-                <div class="text-center">
-                    <h2>Su pedido ha sido cancelado</h2>
-                    <p>El tiempo de reserva de su pedido, se ha agotado por lo tanto el nuestro sistema lo ha vuelto a reponer. Si desea volver a crear el pedido, comience de nuevo pulsado el botón.</p>
-                </div>
-                <div class="mt-4 d-flex justify-content-center">
-                    <a class="btn btn-theme rounded-0 w-50 m-auto" :href="url + '/cart'">Comenzar de nuevo</a>
-                </div>
-            </div>
-        </div>
-        <LoginModal />
     </div>
 </template>
 
@@ -66,13 +30,12 @@
         components: {
             NewProfile: () => import("@/components/profile/NewProfile"),
             NewGuest: () => import("@/components/profile/NewGuest"),
-            LoginModal: () => import("@/components/LoginModal"),
-            ShippingMethods: () => import("@/components/checkout/ShippingMethods"),
-            PaymentMethods: () => import("@/components/checkout/PaymentMethods"),
-            OrderNotes: () => import("@/components/checkout/OrderNotes"),
-            SelectAddress: () => import("@/components/checkout/SelectAddress"),
             Resumen: () => import("@/components/checkout/Resumen"),
-            GuestCreate: () => import("@/components/checkout/GuestCreate"),
+            NewProgressBar: () => import("@/components/checkout/NewProgressBar"),
+            EmailStep: () => import("@/components/checkout/EmailStep"),
+            AddressStep : () => import("@/components/checkout/AddressStep"),
+            SendStep : () => import("@/components/checkout/SendStep"),
+            PayStep : () => import("@/components/checkout/PayStep"),
         },
 
         data() {
@@ -80,19 +43,13 @@
                 disabled: true,
                 token_id: '',
 
-                userIdProfile: '',
-                payment: '',
-                shippingMethod: '',
-                note: '',
-                invoice_paper: false,
                 pickupId: '',
 
                 btnGuest: true,
-                countdown: '',
-                cancelOrder: false,
-                duration: 0,
                 url: process.env.url,
-                tramit: false,
+
+                reserve: '',
+                email: '',
             }
         },
 
@@ -108,17 +65,10 @@
             guestStore() {
                 return this.$store.getters.getGuest
             },
-        },
 
-        beforeMount() {
-            this.$root.$on('duration', data => {
-                this.duration = data;
-            })
-        },
-
-        async mounted() {
-            const duration = this.$store.getters.getDuration;
-            this.startTimer(duration);
+            getReserve() {
+                return this.$store.getters.getReserve
+            },
         },
 
         methods: {
@@ -135,38 +85,6 @@
                 }).catch((error) => {
                     this.errors = Object.values(error.response.data).flat();
                 })
-            },
-
-            // countdown of 10 minutes
-            startTimer(duration) {
-                if (duration == null || duration == undefined) {
-                    this.cancelOrder = true;
-                }
-                let timer = duration, minutes, seconds;
-                this.interval = setInterval(() => {
-                    minutes = parseInt(timer / 60, 10);
-                    seconds = parseInt(timer % 60, 10);
-
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                    let count = minutes + ":" + seconds;
-
-                    this.countdown = count;
-
-                    let store = this.$store.commit('SET_DURATION', timer);
-
-                    if (--timer < 0) {
-                        timer = 0;
-                        this.cancelOrder = true;
-                        //this.$store.commit('CLEAR_CART');
-                        //this.$router.push('/cart');
-                    }
-                }, 1000);
-            },
-
-            openLoginModal() {
-                this.$modal.show('loginModal');
             },
 
             handleUserIdProfile(id) {
@@ -193,18 +111,14 @@
             handlePay(res) {
                 this.tramit = res;
             },
+
+            // Funciones nueva pasarela de pago
+
+            handleEmail(stepEmail) {
+                console.log(stepEmail);
+            },
        },
 
-        head() {
-            return {
-                script: [
-                    { 
-                        src: 'https://www.paypal.com/sdk/js?client-id=' + process.env.PAYPAL_CLIENT_ID + '&currency=EUR&disable-funding=sofort&enable-funding=paylater&locale=es_ES',
-                        async: true, 
-                    }
-                ]
-            }
-        },
     };
 </script>
 

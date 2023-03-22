@@ -21853,6 +21853,21 @@ Copyright (c) 2015 Daniel Eden
 .my-lauouts-leave-active {
   opacity: 0;
 }
+.bg-trivi-blue {
+  background-color: #2AB5B2;
+}
+.bg-trivi-red {
+  background-color: #E94B4C;
+}
+.bg-trivi-green {
+  background-color: #C6D42E;
+}
+.bg-trivi-orange {
+  background-color: #F9B34C;
+}
+.bg-trivi-purple {
+  background-color: #DD88B8;
+}
 
 .form-pass {
     background-color: #2AB5B2;
@@ -22712,38 +22727,96 @@ form[data-v-19098524] {
 .login-form form .btn-form[data-v-08b0c08b]:hover {
   background-color: #2AB5B2;
 }
-
-p.img-mobile {
-    width: 100%;
-    background: url(/_nuxt/static/campain/aloegranada.webp);
-    padding: 5rem 0;
-    font-size: 22px;
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: column;
+.btn-theme-green {
+  background-color: #C6D42E;
+  width: 100%;
+  color: white;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 14px 30px 13px;
 }
-.bg-span {
-    background-color: #ffffffdc;
-    color: rgb(73, 73, 73);
-    font-size: 24px;
-    padding: 3rem 0;
-    margin: 15px;
+.btn-theme-green:hover {
+  background-color: #333333;
 }
-.btn-mobile {
-    background-color: white;
-    padding: 10px 10px;
-    margin: 25px;
-}
-.bg-slider-img {
-    padding: 8rem 5rem;
-}
-
-
-.policy-icons{
-    width: 80px;
-    height: auto;
+@media only screen and (max-width: 400px) {
+.btn-theme-green {
+    width: 80%;
     margin: auto;
+    padding: 13px 15px 13px;
+}
+}
+.stepper-wrapper[data-v-4d9677f8] {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.stepper-item[data-v-4d9677f8] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+@media (max-width: 768px) {
+.stepper-item[data-v-4d9677f8] {
+    font-size: 12px;
+}
+}
+.stepper-item[data-v-4d9677f8]::before {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 20px;
+  left: -50%;
+  z-index: 2;
+}
+.stepper-item[data-v-4d9677f8]::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 2;
+}
+.stepper-item .step-counter[data-v-4d9677f8] {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ccc;
+  margin-bottom: 6px;
+}
+.stepper-item.active[data-v-4d9677f8] {
+  font-weight: bold;
+}
+.stepper-item.completed .step-counter[data-v-4d9677f8] {
+  background-color: #C6D42E;
+}
+.stepper-item.completed[data-v-4d9677f8]::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #C6D42E;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 3;
+}
+.stepper-item[data-v-4d9677f8]:first-child::before {
+  content: none;
+}
+.stepper-item[data-v-4d9677f8]:last-child::after {
+  content: none;
+}
+
+.bg-color-resumen {
+    background-color: #F6F6F6;
 }
 
 
@@ -22845,6 +22918,40 @@ p.img-mobile {
         opacity: 0
 }
 
+
+p.img-mobile {
+    width: 100%;
+    background: url(/_nuxt/static/campain/aloegranada.webp);
+    padding: 5rem 0;
+    font-size: 22px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.bg-span {
+    background-color: #ffffffdc;
+    color: rgb(73, 73, 73);
+    font-size: 24px;
+    padding: 3rem 0;
+    margin: 15px;
+}
+.btn-mobile {
+    background-color: white;
+    padding: 10px 10px;
+    margin: 25px;
+}
+.bg-slider-img {
+    padding: 8rem 5rem;
+}
+
+
+.policy-icons{
+    width: 80px;
+    height: auto;
+    margin: auto;
+}
+
 .tag-block {
   display: inline-flex;
   padding: 1rem, 1rem;
@@ -22868,3 +22975,12 @@ p.img-mobile {
     margin-bottom: 0.5rem;
 }
 
+.nav-timer[data-v-5347162a] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: -moz-min-content;
+  width: min-content;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

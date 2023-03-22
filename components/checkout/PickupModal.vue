@@ -78,11 +78,16 @@ export default {
         },
 
         values(e) {
-            this.pickupId = e.target.id;
+            //convertir en number
+            const number = parseInt(e.target.id);
+            this.pickupId = number;
         },
 
         sendOption() {
-            this.$emit('pickupId', this.pickupId);
+            this.$store.commit('SET_PICKUP_ID', this.pickupId);
+            this.$store.commit('SET_SHIPPING_METHOD', 'pickup-point');
+            this.$store.commit('SET_STEP4', true)
+            this.$router.push({ query: { reserve: this.$route.query.reserve, step: 4 } })
             this.$modal.hide('pickup-point');
         }
     }

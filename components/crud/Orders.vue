@@ -19,14 +19,20 @@
                     <tbody v-if="orders.length > 0">
                         <tr v-for="order in orders" :key="order.id">
                             <td>{{ order.order_date }}</td>
-                            <td v-if="order.paid == 'PENDIENTE'">Pendiente</td>
+                            <td v-if="order.paid == 'PENDIENTE'">
+                                <select :value="order.paid" @change="updatePaid" @click="loadOrder(order)">
+                                    <option value="PENDIENTE">Pendiente</option>
+                                    <option value="PAGADO">Pagado</option>
+                                    <option value="RECHAZADO">Rechazado</option>
+                                </select>
+                            </td>
                             <td v-if="order.paid == 'PROCESANDO'">Procesando</td>
                             <td v-if="order.paid == 'PAGADO'">Pagado</td>
                             <td v-if="order.paid == 'RECHAZADO'">Rechazado</td>
                             <td v-if="order.paid == 'CONTRAREEMBOLSO'">Contra reembolso</td>
                             <td v-if="order.paid == 'TRANSFERENCIA'">Transferencia</td>
                             <td>
-                                <select class="form-select" :value="order.status" @change="updateStatus" @click="loadOrder(order)">
+                                <select :value="order.status" @change="updateStatus" @click="loadOrder(order)">
                                     <option value="1">Recibido</option>
                                     <option value="2">Preparando</option>
                                     <option value="3">Enviado</option>
@@ -169,7 +175,6 @@ export default {
 
         async updateStatus(e) {
             const status = e.target.value;
-            console.log(status);
             if (status == 3) {
                 this.$modal.show('modal-track', this.order.id);
             } else {
@@ -177,6 +182,14 @@ export default {
                     status: status
                 }).then(() => this.$notify({ title: 'El estado del pedido ha sido actualizado'}));
             }
+        },
+
+        async updatePaid(e) {
+            const paid = e.target.value;
+            await this.$axios.put('/api/orders/paid/' + this.order.id, {
+                paid: paid
+            }).then(() => this.$notify({ title: 'El estado del pedido ha sido actualizado'}));
+            
         },
 
         changePage(url) {

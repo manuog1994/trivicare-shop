@@ -59,9 +59,6 @@
   "Login": {
     "description": "Auto imported from components/Login.vue"
   },
-  "LoginModal": {
-    "description": "Auto imported from components/LoginModal.vue"
-  },
   "MiniCart": {
     "description": "Auto imported from components/MiniCart.vue"
   },
@@ -100,9 +97,6 @@
   },
   "OrdersProfileCom": {
     "description": "Auto imported from components/OrdersProfileCom.vue"
-  },
-  "Paypal": {
-    "description": "Auto imported from components/Paypal.vue"
   },
   "ProductDetailsDescriptionReview": {
     "description": "Auto imported from components/ProductDetailsDescriptionReview.vue"
@@ -173,11 +167,41 @@
   "BannerStyleOne": {
     "description": "Auto imported from components/banner/BannerStyleOne.vue"
   },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  "CheckoutAddressStep": {
+    "description": "Auto imported from components/checkout/AddressStep.vue"
   },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  "CheckoutCouponForm": {
+    "description": "Auto imported from components/checkout/CouponForm.vue"
+  },
+  "CheckoutEmailStep": {
+    "description": "Auto imported from components/checkout/EmailStep.vue"
+  },
+  "CheckoutLoginModal": {
+    "description": "Auto imported from components/checkout/LoginModal.vue"
+  },
+  "CheckoutNewProgressBar": {
+    "description": "Auto imported from components/checkout/NewProgressBar.vue"
+  },
+  "CheckoutPayStep": {
+    "description": "Auto imported from components/checkout/PayStep.vue"
+  },
+  "CheckoutPaypal": {
+    "description": "Auto imported from components/checkout/Paypal.vue"
+  },
+  "CheckoutPickupModal": {
+    "description": "Auto imported from components/checkout/PickupModal.vue"
+  },
+  "CheckoutRedsysPay": {
+    "description": "Auto imported from components/checkout/RedsysPay.vue"
+  },
+  "CheckoutResumen": {
+    "description": "Auto imported from components/checkout/Resumen.vue"
+  },
+  "CheckoutSendStep": {
+    "description": "Auto imported from components/checkout/SendStep.vue"
+  },
+  "CheckoutTimerNav": {
+    "description": "Auto imported from components/checkout/TimerNav.vue"
   },
   "CrudAll": {
     "description": "Auto imported from components/crud/All.vue"
@@ -221,6 +245,12 @@
   "CrudSuccessInvoiceModal": {
     "description": "Auto imported from components/crud/SuccessInvoiceModal.vue"
   },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
   },
@@ -242,28 +272,7 @@
   "ProfileNewProfile": {
     "description": "Auto imported from components/profile/NewProfile.vue"
   },
-  "CheckoutGuestCreate": {
-    "description": "Auto imported from components/checkout/GuestCreate.vue"
-  },
-  "CheckoutNewAddressModal": {
-    "description": "Auto imported from components/checkout/NewAddressModal.vue"
-  },
-  "CheckoutOrderNotes": {
-    "description": "Auto imported from components/checkout/OrderNotes.vue"
-  },
-  "CheckoutPaymentMethods": {
-    "description": "Auto imported from components/checkout/PaymentMethods.vue"
-  },
-  "CheckoutPickupModal": {
-    "description": "Auto imported from components/checkout/PickupModal.vue"
-  },
-  "CheckoutResumen": {
-    "description": "Auto imported from components/checkout/Resumen.vue"
-  },
-  "CheckoutSelectAddress": {
-    "description": "Auto imported from components/checkout/SelectAddress.vue"
-  },
-  "CheckoutShippingMethods": {
-    "description": "Auto imported from components/checkout/ShippingMethods.vue"
+  "HeaderCheckout": {
+    "description": "Auto imported from components/header/HeaderCheckout.vue"
   }
 }

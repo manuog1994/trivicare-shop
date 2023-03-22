@@ -12,7 +12,7 @@ exports.modules = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only",[_c("div",{staticClass:"cart-page-wrapper"},[_c("HeaderWithTopbar",{attrs:{containerClass:"container-fluid"}}),_vm._v(" "),_c("TheHeader",{attrs:{searchFather:_vm.searchChildren},on:{opacity:_vm.searchOpacity}}),_vm._v(" "),_c("div",{attrs:{id:"post-nav"},on:{click:_vm.closeMenus}},[_c("NavBottom"),_vm._v(" "),_c("CheckoutContainer"),_vm._v(" "),_c("TheFooter")],1)],1)]);};var staticRenderFns=[];render._withStripped=true;
+var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only",[_c("div",{staticClass:"cart-page-wrapper"},[_c("HeaderCheckout",{attrs:{containerClass:"container-fluid"}}),_vm._v(" "),_c("CheckoutContainer"),_vm._v(" "),_c("TheFooter")],1)]);};var staticRenderFns=[];render._withStripped=true;
 
 /***/ }),
 
@@ -25,14 +25,11 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({auth:false,pageTransition:'slide-fade',data(){return{searchChildren:''};},components:{HeaderWithTopbar:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/HeaderWithTopbar */ "./components/HeaderWithTopbar.vue")),TheHeader:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/TheHeader */ "./components/TheHeader.vue")),NavBottom:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/NavBottom */ "./components/NavBottom.vue")),CheckoutContainer:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/CheckoutContainer */ "./components/CheckoutContainer.vue")),TheFooter:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/TheFooter */ "./components/TheFooter.vue"))},async mounted(){this.$nextTick(()=>{this.$nuxt.$loading.start();setTimeout(()=>{this.$nuxt.$loading.finish();},1000);});var tituloOriginal=document.title;// Lo guardamos para restablecerlo
+/* harmony default export */ __webpack_exports__["default"] = ({auth:false,components:{CheckoutContainer:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/CheckoutContainer */ "./components/CheckoutContainer.vue")),TheFooter:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/TheFooter */ "./components/TheFooter.vue")),HeaderCheckout:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/header/HeaderCheckout */ "./components/header/HeaderCheckout.vue"))},async mounted(){this.$nextTick(()=>{this.$nuxt.$loading.start();setTimeout(()=>{this.$nuxt.$loading.finish();},1000);});var tituloOriginal=document.title;// Lo guardamos para restablecerlo
 window.onblur=function(){// Si el usuario se va a otro lado...
 document.title="Ey, vuelve aquí!";// Cambiamos el título
 };window.onfocus=function(){document.title=tituloOriginal;// Si el usuario vuelve restablecemos el título
-};if(this.$axios.onError(error=>{const code=error.response.status;if(code==401){this.$auth.logout();}}));},methods:{closeMenus(){this.searchOpacity(false);this.$root.$emit('closeMenu',this.closeMenu);},searchOpacity(searchFather){if(searchFather==true){document.getElementById("post-nav").classList.add("search-screen");}else{document.getElementById("post-nav").classList.remove("search-screen");}}},head(){return{titleTemplate:"Resumen de tu Pedido | TriviCare Natural Cosmetics"// link: [
-//     { rel: 'cannonical', href: 'https://trivicare.com/checkout' }
-// ],
-};}});
+};if(this.$axios.onError(error=>{const code=error.response.status;if(code==401){this.$auth.logout();}}));},head(){return{titleTemplate:"Resumen de tu Pedido | TriviCare Natural Cosmetics",script:[{src:'https://www.paypal.com/sdk/js?client-id='+"AezG3YQ0iS0ugtoBRA05497Vkyj9B26Qf4sIrSJoxWrEk5Y9EXn2mDhACSAX1UgIQQxAmAwV_MvZttp6"+'&currency=EUR&disable-funding=sofort,card&enable-funding=paylater&locale=es_ES',async:true}]};}});
 
 /***/ }),
 
@@ -62,7 +59,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "43ceb3cb"
+  "a613bb0c"
   
 )
 

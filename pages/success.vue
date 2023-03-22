@@ -63,11 +63,6 @@ export default {
         if(this.paymentIntent != null) {
             this.orderPaid();
         }
-
-        await this.$axios.post('/api/visit', {
-            ip_address: 'No IP',
-            page_visited: 'success',
-        })
     },
 
     methods: {
@@ -80,6 +75,25 @@ export default {
                     this.$store.commit('CLEAR_GUEST');
                     this.$store.commit('CLEAR_CART');
                     this.$store.commit('CLEAR_CUPON');
+                    this.$store.commit('SET_STEP2', false);
+                    this.$store.commit('SET_STEP3', false);
+                    this.$store.commit('SET_STEP4', false);
+                    this.$store.commit('CLEAR_GUEST', {});
+                    this.$store.commit('SET_PAYMENT_METHOD', '');
+                    this.$store.commit('SET_SHIPPING_METHOD', '');
+                    this.$store.commit('SET_PICKUP_ID', '');
+                    this.$store.commit('SET_DURATION', 900);
+                    this.$store.commit('SET_USER_PROFILE_ID', '');
+                    this.$store.commit('SET_RESERVE', '');
+                    this.$store.commit('CLEAR_CUPON', {});
+                    this.$store.commit('SET_ORDER_ID', '');
+                    this.$store.commit('SET_PAYMENT_METHOD', '');
+                    this.$store.commit('SET_SHIPPING_METHOD', '');
+                    this.$store.commit('SET_SHIPPING_AMOUNT', 0);
+                    this.$store.commit('SET_CONDITIONS_STORE', false);
+                    this.$store.commit('SET_NEWSLETTER_STORE', false);
+                    this.$store.commit('SET_INVOICE_PAPER', false);
+                    this.$store.commit('SET_NOTE', '');
                 }).catch((err) => {
                     console.log(err.response.data)
                     this.loading = false;
@@ -92,7 +106,7 @@ export default {
                 });
         },
 
-        // countdown of 10 seconds to redirect to my-orders
+        //countdown of 10 seconds to redirect to my-orders
         countdown(counter) {
             const interval = setInterval(() => {
                 this.counter = true;

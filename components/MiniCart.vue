@@ -152,9 +152,26 @@
                         products: JSON.stringify(products),
                         token_reserve: this.token_reserve,
                     }).then(res => {
-                        const duration = 900;
-                        this.$store.commit('SET_DURATION', duration);
-                        this.$router.push('/checkout' + '?reserve=' + this.token_reserve);
+                        this.$store.commit('SET_STEP2', false);
+                        this.$store.commit('SET_STEP3', false);
+                        this.$store.commit('SET_STEP4', false);
+                        this.$store.commit('CLEAR_GUEST', {});
+                        this.$store.commit('SET_PAYMENT_METHOD', '');
+                        this.$store.commit('SET_SHIPPING_METHOD', '');
+                        this.$store.commit('SET_PICKUP_ID', '');
+                        this.$store.commit('SET_DURATION', 900);
+                        this.$store.commit('SET_USER_PROFILE_ID', '');
+                        this.$store.commit('CLEAR_CUPON', {});
+                        this.$store.commit('SET_ORDER_ID', '');
+                        this.$store.commit('SET_PAYMENT_METHOD', '');
+                        this.$store.commit('SET_SHIPPING_METHOD', '');
+                        this.$store.commit('SET_SHIPPING_AMOUNT', 0);
+                        this.$store.commit('SET_CONDITIONS_STORE', false);
+                        this.$store.commit('SET_NEWSLETTER_STORE', false);
+                        this.$store.commit('SET_INVOICE_PAPER', false);
+                        this.$store.commit('SET_NOTE', '');
+                        this.$store.commit('SET_RESERVE', this.token_reserve);
+                        this.$router.push('/checkout' + '?reserve=' + this.token_reserve + '&step=1');
                         //console.log(res.data);
                     }).catch(err => {
                         //console.log(err)

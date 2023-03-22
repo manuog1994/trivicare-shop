@@ -19,6 +19,20 @@ export const state = () => ({
     guest: [],
     duration: '',
     notifications: [],
+    reserve: '',
+    step2: false,
+    step3: false,
+    step4: false,
+    shippingMethod: '',
+    shippingAmount: 0,
+    pickUpId: 0,
+    paymentMethod: '',
+    userProfileId: '',
+    conditionsStore: false,
+    newsletterStore: false,
+    order_id: '',
+    invoice_paper: false,
+    note: '',
 })
 
 
@@ -58,6 +72,62 @@ export const getters = {
 
     getCart: state => {
         return state.cart
+    },
+
+    getReserve: state => {
+        return state.reserve
+    },
+
+    getStep2: state => {
+        return state.step2
+    },
+
+    getStep3: state => {
+        return state.step3
+    },
+
+    getStep4: state => {
+        return state.step4
+    },
+
+    getShippingMethod: state => {
+        return state.shippingMethod
+    },
+
+    getShippingAmount: state => {
+        return state.shippingAmount
+    },
+
+    getPickUpId: state => {
+        return state.pickUpId
+    },
+
+    getPaymentMethod: state => {
+        return state.paymentMethod
+    },
+
+    getUserProfileId: state => {
+        return state.userProfileId
+    },
+
+    getConditionsStore: state => {
+        return state.conditionsStore
+    },
+
+    getNewsletterStore: state => {
+        return state.newsletterStore
+    },
+
+    getOrderId: state => {
+        return state.order_id
+    },
+
+    getInvoicePaper: state => {
+        return state.invoice_paper
+    },
+
+    getNote: state => {
+        return state.note
     },
 
     cartItemCount: state => {
@@ -141,6 +211,18 @@ export const mutations = {
         state.duration = duration
     },
 
+    SET_ORDER_ID(state, order_id) {
+        state.order_id = order_id
+    },
+
+    SET_INVOICE_PAPER(state, invoice_paper) {
+        state.invoice_paper = invoice_paper
+    },
+
+    SET_NOTE (state, note) {
+        state.note = note
+    },
+
     UPDATE_CART(state, payload) {
         const item = state.cart.find(el => payload.id === el.id)
         if (item) {
@@ -173,6 +255,50 @@ export const mutations = {
                 return item;
             }
         }
+    },
+
+    SET_RESERVE(state, reserve) {
+        state.reserve = reserve
+    },
+
+    SET_STEP2(state, step2) {
+        state.step2 = step2
+    },
+
+    SET_STEP3(state, step3) {
+        state.step3 = step3
+    },
+
+    SET_STEP4(state, step4) {
+        state.step4 = step4
+    },
+
+    SET_SHIPPING_METHOD(state, shippingMethod) {
+        state.shippingMethod = shippingMethod
+    },
+
+    SET_SHIPPING_AMOUNT(state, shippingAmount) {
+        state.shippingAmount = shippingAmount
+    },
+
+    SET_PICKUP_ID(state, pickUpId) {
+        state.pickUpId = pickUpId
+    },
+
+    SET_PAYMENT_METHOD(state, paymentMethod) {
+        state.paymentMethod = paymentMethod
+    },
+
+    SET_USER_PROFILE_ID(state, userProfileId) {
+        state.userProfileId = userProfileId
+    },
+
+    SET_CONDITIONS_STORE(state, conditionsStore) {
+        state.conditionsStore = conditionsStore
+    },
+
+    SET_NEWSLETTER_STORE(state, newsletterStore) {
+        state.newsletterStore = newsletterStore
     },
 
     REMOVE_PRODUCT_FROM_CART(state, product) {

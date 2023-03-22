@@ -1,35 +1,5 @@
 <template>
     <div>
-        <div class="row d-flex justify-content-around m-3">
-            <div class="card col-lg-1 bg-aqua">
-                <p>Ayer</p>
-                <p>{{ yesterday.length }}</p>
-            </div>
-            <div class="card col-lg-1 bg-warning">
-                <p>Hoy</p>
-                <p>{{ today.length }}</p>
-            </div>
-            <div class="card col-lg-1 bg-gray">
-                <p>Inicio</p>
-                <p>{{ index.length }}</p>
-            </div>
-            <div class="card col-lg-1 bg-pink">
-                <p>Tienda</p>
-                <p>{{ store.length }}</p>
-            </div>
-            <div class="card col-lg-1 bg-danger">
-                <p>Productos</p>
-                <p>{{ products.length }}</p>
-            </div>
-            <div class="card col-lg-1 bg-info">
-                <p>Carrito</p>
-                <p>{{ cart.length }}</p>
-            </div>
-            <div class="card col-lg-1 bg-purple">
-                <p>Compras</p>
-                <p>{{ checkout.length }}</p>
-            </div>
-        </div>
         <div class=" overflow-auto">
             <table class="table">
                 <thead>

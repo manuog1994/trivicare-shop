@@ -116,6 +116,7 @@
                 categoryFilter: '',
                 role: '',
                 notifications: 0,
+                addToCart: false,
             }
         },
 
@@ -141,6 +142,10 @@
 
             categoryFilter() {
                 this.$emit("categoryFilter", this.categoryFilter)
+            },
+
+            addToCart() {
+                this.openCart = !this.openCart
             }
         },
 
