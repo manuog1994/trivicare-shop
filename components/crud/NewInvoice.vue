@@ -163,7 +163,7 @@ export default {
                 slug: '',
                 sort: '',
                 tag: '',
-                status: 2
+                status: '',
             })
             const products = this.$store.getters.getProducts
             this.products = products.data

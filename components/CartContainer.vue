@@ -150,7 +150,7 @@
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
 
-            this.getProducts();
+            //this.getProducts();
         },
         
 
