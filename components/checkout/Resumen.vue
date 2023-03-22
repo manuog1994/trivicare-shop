@@ -216,7 +216,7 @@ export default {
     },
 
     async mounted() {
-        await this.getProducts();
+        //await this.getProducts();
 
         // si la pantalla es menor a 768px se colapsa el carrito
         if (window.innerWidth < 768) {
