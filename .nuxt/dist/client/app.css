@@ -22820,6 +22820,105 @@ form[data-v-19098524] {
 }
 
 
+.box-quantity {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 5px;
+}
+.button-quantity {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid rgb(0, 0, 0);
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: rgb(59, 59, 59) transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+
+.w-10 {
+        width: 10px;
+}
+.pagination-custom {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+.page-link-custom {
+    position: relative;
+    font-size: 18px;
+    display: flex;
+    padding: 0 .75rem;
+    color: #686868;
+    text-decoration: none;
+    background-color: #fff;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+.page-link-custom {
+        transition: none;
+}
+}
+.page-link-custom:hover {
+    z-index: 2;
+    color: orange;
+}
+.page-link-custom:focus {
+    z-index: 3;
+    color: orange;
+    outline: 0;
+}
+.page-link-custom.active {
+        color: orange;
+}
+.page-link-custom.disabled {
+    color: #a0a0a0;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1.5s ease;
+}
+.fade-enter, .fade-leave-active {
+        opacity: 0
+}
+
+
 p.img-mobile {
     width: 100%;
     padding: 5rem 0;
@@ -22938,105 +23037,6 @@ p.img-mobile {
     display: flex;
     justify-content: center;
     margin-bottom: 0.5rem;
-}
-
-
-.box-quantity {
-    width: 50px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 0 5px;
-}
-.button-quantity {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-
-.lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid rgb(0, 0, 0);
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: rgb(59, 59, 59) transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-0% {
-    transform: rotate(0deg);
-}
-100% {
-    transform: rotate(360deg);
-}
-}
-
-.w-10 {
-        width: 10px;
-}
-.pagination-custom {
-    display: flex;
-    padding-left: 0;
-    list-style: none;
-}
-.page-link-custom {
-    position: relative;
-    font-size: 18px;
-    display: flex;
-    padding: 0 .75rem;
-    color: #686868;
-    text-decoration: none;
-    background-color: #fff;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-@media (prefers-reduced-motion: reduce) {
-.page-link-custom {
-        transition: none;
-}
-}
-.page-link-custom:hover {
-    z-index: 2;
-    color: orange;
-}
-.page-link-custom:focus {
-    z-index: 3;
-    color: orange;
-    outline: 0;
-}
-.page-link-custom.active {
-        color: orange;
-}
-.page-link-custom.disabled {
-    color: #a0a0a0;
-}
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 1.5s ease;
-}
-.fade-enter, .fade-leave-active {
-        opacity: 0
 }
 
 .nav-timer[data-v-5347162a] {

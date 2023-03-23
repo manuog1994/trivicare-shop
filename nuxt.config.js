@@ -79,6 +79,7 @@ export default defineNuxtConfig({
     buildModules: [
         '@nuxtjs/fontawesome',
         '@nuxtjs/dotenv',
+        'nuxt-compress'
     ],
 
     fontawesome: {

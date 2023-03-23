@@ -58,6 +58,7 @@
         "defu": "^5.0.1",
         "fibers": "^5.0.3",
         "jsdom": "^20.0.3",
+        "nuxt-compress": "^5.0.0",
         "postcss": "^8.4.19",
         "sass": "^1.49.9",
         "sass-loader": "^10.3.1",
