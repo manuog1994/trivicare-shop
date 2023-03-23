@@ -7,10 +7,10 @@
                         <img src="/img/TriviCare_byn Negativo.png" alt="logo" style="width: 30vw; max-width: 180px; height: auto;">
                     </div>
                     <div class="col-6 d-flex justify-content-end">
-                        <button class="btn btn-sm text-white me-4" style="background-color: #03C100;">
+                        <a href="https://api.whatsapp.com/send?phone=34613036942&text=Hola,%20quisiera%20informaci%C3%B3n..." class="btn btn-sm text-white me-4" style="background-color: #03C100;" target="_blank">
                             <i class="fa fa-whatsapp"></i>
                             WhatsApp
-                        </button>
+                        </a>
                         <nuxt-link to="/" class="btn btn-sm bg-trivi-blue text-white" :class="{'hidden': orderComplete ? false : true}">
                             <i class="fa fa-sign-out"></i>
                             Salir

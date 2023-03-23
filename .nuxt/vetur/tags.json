@@ -8,9 +8,6 @@
   "BrandLogoCarousel": {
     "description": "Auto imported from components/BrandLogoCarousel.vue"
   },
-  "Breadcrumb": {
-    "description": "Auto imported from components/Breadcrumb.vue"
-  },
   "CartContainer": {
     "description": "Auto imported from components/CartContainer.vue"
   },
@@ -158,15 +155,6 @@
   "WishListContainer": {
     "description": "Auto imported from components/WishListContainer.vue"
   },
-  "BannerItem": {
-    "description": "Auto imported from components/banner/BannerItem.vue"
-  },
-  "BannerStyleFour": {
-    "description": "Auto imported from components/banner/BannerStyleFour.vue"
-  },
-  "BannerStyleOne": {
-    "description": "Auto imported from components/banner/BannerStyleOne.vue"
-  },
   "CheckoutAddressStep": {
     "description": "Auto imported from components/checkout/AddressStep.vue"
   },
@@ -175,9 +163,6 @@
   },
   "CheckoutEmailStep": {
     "description": "Auto imported from components/checkout/EmailStep.vue"
-  },
-  "CheckoutLoginModal": {
-    "description": "Auto imported from components/checkout/LoginModal.vue"
   },
   "CheckoutNewProgressBar": {
     "description": "Auto imported from components/checkout/NewProgressBar.vue"
@@ -248,17 +233,11 @@
   "CrudSuccessInvoiceModal": {
     "description": "Auto imported from components/crud/SuccessInvoiceModal.vue"
   },
+  "HeaderCheckout": {
+    "description": "Auto imported from components/header/HeaderCheckout.vue"
+  },
   "HeroSliderSix": {
     "description": "Auto imported from components/hero/HeroSliderSix.vue"
-  },
-  "LoadersBigLoader": {
-    "description": "Auto imported from components/loaders/BigLoader.vue"
-  },
-  "LoadersSmallLoading": {
-    "description": "Auto imported from components/loaders/SmallLoading.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
@@ -275,13 +254,19 @@
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
   },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
   "ProfileNewGuest": {
     "description": "Auto imported from components/profile/NewGuest.vue"
   },
   "ProfileNewProfile": {
     "description": "Auto imported from components/profile/NewProfile.vue"
   },
-  "HeaderCheckout": {
-    "description": "Auto imported from components/header/HeaderCheckout.vue"
+  "LoadersBigLoader": {
+    "description": "Auto imported from components/loaders/BigLoader.vue"
+  },
+  "LoadersSmallLoading": {
+    "description": "Auto imported from components/loaders/SmallLoading.vue"
   }
 }

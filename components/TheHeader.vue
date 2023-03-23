@@ -131,7 +131,6 @@
                     this.isSticky = false
                 }
             });
-            this.getRoles();             
         }, 
 
         watch: {
@@ -154,28 +153,7 @@
                 this.$notify({ title: 'Has cerrado sesión!'})
 
             },
-            getRoles() {
-                if(this.$auth.user) {
-                    const roles = this.$auth.user.roles;
-                    if(roles != null) {
-                        roles.map(role => {
-                            this.role = role.name;
-                        });
-                    }else {
-                        this.role = '';
-                    }
-                }
-            },
 
-            getName() {
-                if(this.$auth.user) {
-                    const space = ' ';
-                    const name = this.$auth.user.name;
-                    const arr = name.split(space);
-
-                    return arr[0];
-                }
-            }
         }
     };
 </script>

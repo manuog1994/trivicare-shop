@@ -32,7 +32,9 @@
                             </div>
                             <p class="text-center">Utilizamos seguridad SSL encriptada para asegurar que tus datos están 100% seguros.</p>
                             <div class="text-center">
-                                <img class="ms-2" src="/payment/metodosdepago.webp" alt="metodos-de-pago.webp" width="250px"/>
+                                <img class="ms-2" src="/payment/tarjetas.webp" alt="tarjetas.webp" width="100px" height="auto"/>
+                                <img class="ms-2" src="/payment/bizum.webp" alt="bizum.webp" width="100px" height="auto"/>
+                                <img class="ms-2" src="/payment/transfer_bank.webp" alt="transfer_bank.webp" width="80px" height="auto"/>
                                 <img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100px" height="auto"/>
                             </div>
                         </div>
@@ -157,7 +159,9 @@
                             </div>
                             <p>Utilizamos seguridad SSL encriptada para asegurar que tus datos están 100% seguros.</p>
                             <div>
-                                <img class="ms-2" src="/payment/metodosdepago.webp" alt="metodos-de-pago.webp" width="250px"/>
+                                <img class="ms-2" src="/payment/tarjetas.webp" alt="tarjetas.webp" width="100px" height="auto"/>
+                                <img class="ms-2" src="/payment/bizum.webp" alt="bizum.webp" width="100px" height="auto"/>
+                                <img class="ms-2" src="/payment/transfer_bank.webp" alt="transfer_bank.webp" width="80px" height="auto"/>
                                 <img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100px" height="auto"/>
                             </div>
                         </div>
