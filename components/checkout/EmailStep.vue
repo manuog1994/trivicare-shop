@@ -129,6 +129,9 @@ export default {
             const verifyEmail = await this.$axios.post('/api/verify-email', {
                 email: this.$refs.emailGuest.value,
             }).then((response) => {
+                this.conditionsMsg = false;
+                this.emptlyEmail = false;
+                this.emailError = false;
                 if (response.data.success == true) {
                     this.emailError = true
                 } else {
@@ -151,6 +154,7 @@ export default {
                         this.$store.commit('SET_CONDITIONS_STORE', this.$refs.conditionsGuest?.checked);
                         this.$store.commit('SET_NEWSLETTER_STORE', this.$refs.newsletterGuest?.checked);
                         this.$store.commit('SET_STEP2', true);
+                        window.scrollTo(0, 0);
                         this.$router.push({ query: { reserve: this.reserveStore, step: 2 } });
                     }
                 }
@@ -168,6 +172,7 @@ export default {
                     this.errors = [];
                     this.$store.commit('SET_RESERVE', this.reserve)
                     this.$store.commit('SET_STEP2', true);
+                    window.scrollTo(0, 0);
                     this.$router.push({ query: { reserve: this.reserve, step: 2 } }); 
                 });
             } catch (error) {
@@ -181,7 +186,7 @@ export default {
         async logout() {
             this.loginView = false;
             await this.$auth.logout();
-            window.location.reload();
+            window.scrollTo(0, 0);
             this.$notify({ title: 'Has cerrado sesión!'})
 
         },
@@ -196,6 +201,7 @@ export default {
 
         nextStep() {
             this.$store.commit('SET_STEP2', true);
+            window.scrollTo(0, 0);
             this.$router.push({ query: { reserve: this.reserveStore, step: 2 } });
         }
     }

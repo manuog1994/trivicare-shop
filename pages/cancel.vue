@@ -36,7 +36,7 @@ export default {
         this.$store.commit('SET_PAYMENT_METHOD', '');
         this.$store.commit('SET_SHIPPING_METHOD', '');
         this.$store.commit('SET_PICKUP_ID', '');
-        this.$store.commit('SET_DURATION', 900);
+        this.$store.commit('SET_DURATION', 0);
         this.$store.commit('SET_USER_PROFILE_ID', '');
         this.$store.commit('SET_RESERVE', '');
         this.$store.commit('CLEAR_CUPON', {});

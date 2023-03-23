@@ -17,7 +17,7 @@ export const state = () => ({
     tags: [],
     cupon: [],
     guest: [],
-    duration: '',
+    duration: 0,
     notifications: [],
     reserve: '',
     step2: false,
@@ -34,6 +34,9 @@ export const state = () => ({
     invoice_paper: false,
     note: '',
     newUserAddress: false,
+    bizumPage: false,
+    paypalPage: false,
+    transferBankPage: false,
 })
 
 
@@ -145,6 +148,18 @@ export const getters = {
 
     getNewUserAddress: state => {
         return state.newUserAddress
+    },
+
+    getBizumPage: state => {
+        return state.bizumPage
+    },
+
+    getPaypalPage: state => {
+        return state.paypalPage
+    },
+
+    getTransferBankPage: state => {
+        return state.transferBankPage
     },
 
     wishlistItemCount: state => {
@@ -308,6 +323,18 @@ export const mutations = {
 
     SET_NEWSLETTER_STORE(state, newsletterStore) {
         state.newsletterStore = newsletterStore
+    },
+
+    SET_BIZUM_PAGE(state, bizumPage) {
+        state.bizumPage = bizumPage
+    },
+
+    SET_PAYPAL_PAGE(state, paypalPage) {
+        state.paypalPage = paypalPage
+    },
+
+    SET_TRANSFER_BANK_PAGE(state, transferBankPage) {
+        state.transferBankPage = transferBankPage
     },
 
     REMOVE_PRODUCT_FROM_CART(state, product) {

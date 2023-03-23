@@ -23,6 +23,9 @@ const _84f265a6 = () => interopDefault(import('../pages/success.vue' /* webpackC
 const _17fe1af8 = () => interopDefault(import('../pages/terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
 const _d809700a = () => interopDefault(import('../pages/unsubscribe.vue' /* webpackChunkName: "pages/unsubscribe" */))
 const _0b31ec0b = () => interopDefault(import('../pages/wishlist.vue' /* webpackChunkName: "pages/wishlist" */))
+const _8ef98468 = () => interopDefault(import('../pages/payment/bizum.vue' /* webpackChunkName: "pages/payment/bizum" */))
+const _df98993c = () => interopDefault(import('../pages/payment/paypal.vue' /* webpackChunkName: "pages/payment/paypal" */))
+const _491c4b3f = () => interopDefault(import('../pages/payment/transfer-bank.vue' /* webpackChunkName: "pages/payment/transfer-bank" */))
 const _a2cd1a0a = () => interopDefault(import('../pages/my-orders/_id.vue' /* webpackChunkName: "pages/my-orders/_id" */))
 const _76d36db2 = () => interopDefault(import('../pages/orders-profiles/_id.vue' /* webpackChunkName: "pages/orders-profiles/_id" */))
 const _213fbcd6 = () => interopDefault(import('../pages/orders/_id.vue' /* webpackChunkName: "pages/orders/_id" */))
@@ -116,6 +119,18 @@ export const routerOptions = {
     path: "/wishlist",
     component: _0b31ec0b,
     name: "wishlist"
+  }, {
+    path: "/payment/bizum",
+    component: _8ef98468,
+    name: "payment-bizum"
+  }, {
+    path: "/payment/paypal",
+    component: _df98993c,
+    name: "payment-paypal"
+  }, {
+    path: "/payment/transfer-bank",
+    component: _491c4b3f,
+    name: "payment-transfer-bank"
   }, {
     path: "/my-orders/:id?",
     component: _a2cd1a0a,

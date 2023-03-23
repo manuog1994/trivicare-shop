@@ -149,6 +149,7 @@ export default {
                 this.$modal.show('pickup-point');
             } else if (!this.shippingMethod == '') {
                 this.$store.commit('SET_STEP4', true);
+                window.scrollTo(0, 0);
                 this.$router.push({ query: { reserve: this.$route.query.reserve, step: 4 } });
             } else {
                 this.error = true;

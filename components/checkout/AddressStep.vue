@@ -1,11 +1,11 @@
 <template>
     <div v-if="url == 2 && step2 == true">
         <div v-if="newUserAddress == false">
-            <div class="text-center">
+            <div v-if="$auth.loggedIn == true && $auth.user.user_profile?.length > 0" class="text-center">
                 <h3>Seleccione una dirección de envio</h3>
             </div>
             <div v-if="$auth.loggedIn == true">
-                <div v-for="profile in $auth?.user?.user_profile" :key="profile.id" class="border bg-gray-2 mt-2">
+                <div v-for="profile in $auth.user?.user_profile" :key="profile.id" class="border bg-gray-2 mt-2">
                     <div class="form-check text-center ms-3 ms-md-5 p-3 align-items-center">
                         <input class="form-check-input" type="radio" :value="profile.id" ref="userProfileId" name="address" :id="'flexRadio' + profile.id">
                         <label class="form-check-label" :for="'flexRadio' + profile.id">
@@ -19,18 +19,18 @@
                         </label> 
                     </div>
                 </div>
-                <div class="text-decoration-underline mt-3 text-center">
+                <div v-if="$auth.user.user_profile?.length > 0" class="text-decoration-underline mt-3 text-center">
                     <a @click="newUserAddress = true">Deseo enviarlo a otra dirección</a>
                 </div>
 
-                <div class="mt-3">
+                <div v-if="$auth.user.user_profile?.length > 0" class="mt-3">
                     <div class="w-100">
                         <label>Nota para el pedido (Opcional)</label>
                         <textarea class="form-control" name="note" v-model="note" rows="3"></textarea>
                     </div>
                 </div>
 
-                <div class="mt-3">
+                <div v-if="$auth.user.user_profile?.length > 0" class="mt-3">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="true" id="invoice_paper" v-model="invoice_paper">
                         <label class="form-check-label" for="flexCheckDefault">
@@ -41,21 +41,24 @@
 
             </div>
         </div>
-        <div v-if="newUserAddress == true && $auth.loggedIn == true" class="ms-md-5 me-md-5">
+        <div v-if="$auth.user.user_profile?.length == 0 && $auth.loggedIn == true" class="ms-md-5 me-md-5">
             <div class="text-center">
                 <h3>Introduzca su dirección</h3>
             </div>
             <NewProfile />
         </div>
         <div v-if="$auth.loggedIn == false">
-            <div class="text-center">
+            <div class="text-center" :class="{'hidden': this.$store.state.guest.address ? true : false}">
                 <h3>Introduzca su dirección</h3>
             </div>
             <NewGuest :saveGuest="saveGuest" @savGuest="handleSaveGuest"/>
         </div>
+        <div v-if="errorSelect == true" class="d-flex justify-content-center mt-3">
+            <span class="text-danger text-center">Debe seleccionar una dirección para continuar</span>
+        </div>
         <div class="ms-md-5 me-md-5 mt-5 d-flex justify-content-center">
-            <button v-if="newUserAddress == false || $auth.loggedIn == false" @click="nextStep" class="btn btn-theme">Continuar</button>
-            <button v-if="newUserAddress == true && $auth.loggedIn == true" @click="newUserAddress = false" class="btn bg-trivi-red">Cancelar</button>
+            <button v-if="$auth.user.user_profile?.length > 0 || this.$store.state.guest?.email?.length > 0" @click="nextStep" class="btn btn-theme">Continuar</button>
+            <button v-if="$auth.user.user_profile?.length == 0 && $auth.loggedIn == true" @click="newUserAddress = false" class="btn bg-trivi-red">Cancelar</button>
         </div>
     </div>
 </template>
@@ -79,6 +82,7 @@ export default {
             userProfileId: '',
             note: '',
             invoice_paper: false,
+            errorSelect: false,
         }
     },
 
@@ -153,19 +157,31 @@ export default {
             }
             if(this.$auth.loggedIn == true) {
                 this.$refs.userProfileId.find((element) => {
-                if (element.checked) {
-                    this.userProfileId = element.value;
-                }
-            });
+                    if (element.checked) {
+                        this.userProfileId = element.value;
+                    }
+                });
             }
-            if (this.userProfileId) {
-                this.$store.commit('SET_USER_PROFILE_ID', this.userProfileId);
-                this.$store.commit('SET_NOTE', this.note);
-                this.$store.commit('SET_INVOICE_PAPER', this.invoice_paper);
+            
+            if (this.$auth.loggedIn == true) {
+                if (this.userProfileId == '') {
+                    this.errorSelect = true;
+                } else {
+                    this.errorSelect = false;
+                    this.$store.commit('SET_USER_PROFILE_ID', this.userProfileId);
+                    this.$store.commit('SET_NOTE', this.note);
+                    this.$store.commit('SET_INVOICE_PAPER', this.invoice_paper);
+                    this.$store.commit('SET_STEP3', true);
+                    this.$router.push({ query: { reserve: this.reserve, step: 3 } });
+                    window.scrollTo(0, 0);
+                }
+            } else {
+                if (this.$store.state.step3 == true) {
+                    window.scrollTo(0, 0);
+                    this.$router.push({ query: { reserve: this.reserve, step: 3 } });
+                }
             }
 
-            this.$store.commit('SET_STEP3', true);
-            this.$router.push({ query: { reserve: this.reserve, step: 3 } });
         },
 
         handleSaveGuest(saveGuest) {

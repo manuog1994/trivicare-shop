@@ -20,6 +20,9 @@
                 </div>
             </div>
         </div>
+        <div v-if="error == true" class="d-flex justify-content-center">
+            <span class="text-danger text-center"><i>Seleccione un método de pago</i></span>
+        </div>
         <div class="ms-md-5 me-md-5 mt-2 d-flex justify-content-center">
             <button @click="nextStep" class="btn btn-theme">Hacer pedido</button>
         </div>
@@ -32,6 +35,7 @@ export default {
         return {
             payment: '',
             url: '',
+            error: false,
             methods: [
                 {
                     name: 'Tarjeta de débito o crédito',
@@ -99,9 +103,15 @@ export default {
                     this.payment = element.value;
                 }
             });
-           
-            this.$store.commit('SET_PAYMENT_METHOD', this.payment);
-            this.$root.$emit('payment', this.$store.getters.getPaymentMethod);
+            
+            if (this.payment == '') {
+                this.error = true;
+            } else {
+                this.error = false;
+                this.$store.commit('SET_PAYMENT_METHOD', this.payment);
+                window.scrollTo(0, 0);
+                this.$root.$emit('payment', this.$store.getters.getPaymentMethod);
+            }
         }
     }
 }

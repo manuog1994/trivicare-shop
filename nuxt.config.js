@@ -162,6 +162,7 @@ export default defineNuxtConfig({
         url: process.env.URL || 'http://localhost:3000',
         googleClientId: process.env.GOOGLE_CLIENT_ID,
         universalToken: process.env.UNIVERSAL_TOKEN,
+        url_getnet: process.env.URL_GETNET,
     },
 
     image: {

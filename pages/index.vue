@@ -13,6 +13,7 @@
                 <Info />
                 <TheFooter />
             </div>
+            <BigLoader v-if="loaderPage" />
          </div>
     </client-only>
 </template>
@@ -36,7 +37,7 @@
             ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
             TheFooter: () => import("@/components/TheFooter"),
             Intro: () => import("@/components/Intro"),
-
+            BigLoader: () => import("@/components/loaders/BigLoader"),
         },
 
         data() {
@@ -45,6 +46,7 @@
                 test: '',
                 searchChildren: '',
                 closeMenu: false,
+                loaderPage: false,
             }
         },
 

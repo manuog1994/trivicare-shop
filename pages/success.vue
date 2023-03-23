@@ -1,7 +1,7 @@
 <template>
     <client-only>
         <div>
-            <Loading v-if="loading" />
+            <BigLoader v-if="loading" />
             <div v-if="paymentIntent != null" class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh;">
                 <div v-if="loading == false" class="card p-5 text-center shadow">
                     <div class="d-flex justify-content-center mb-5">
@@ -35,7 +35,7 @@ export default {
     auth: false,
 
     components: {
-        Loading: () => import('~/components/Loading.vue'),
+        BigLoader: () => import('@/components/loaders/BigLoader.vue'),
     },
 
     beforeCreate() {
@@ -82,7 +82,7 @@ export default {
                     this.$store.commit('SET_PAYMENT_METHOD', '');
                     this.$store.commit('SET_SHIPPING_METHOD', '');
                     this.$store.commit('SET_PICKUP_ID', '');
-                    this.$store.commit('SET_DURATION', 900);
+                    this.$store.commit('SET_DURATION', 0);
                     this.$store.commit('SET_USER_PROFILE_ID', '');
                     this.$store.commit('SET_RESERVE', '');
                     this.$store.commit('CLEAR_CUPON', {});

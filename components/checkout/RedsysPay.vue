@@ -1,11 +1,12 @@
 <template>
-    
-<form ref="formRedsys" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
-	<input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1"/>
-	<input type="hidden" name="Ds_MerchantParameters" :value="parameters"/>
-	<input type="hidden" name="Ds_Signature" :value="signature"/>	
-</form>
-          
+    <div class="total-page">
+        <form ref="formRedsys" :action="url" method="POST">
+            <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1"/>
+            <input type="hidden" name="Ds_MerchantParameters" :value="parameters"/>
+            <input type="hidden" name="Ds_Signature" :value="signature"/>	
+        </form>
+        <BigLoader v-if="loading == true" />
+    </div>
 </template>
 
 <script>
@@ -17,6 +18,8 @@ export default {
             signature: '',
             token_id: '',
             orderId: 0,
+            url: process.env.url_getnet,
+            loading: false,
         }        
     },
 
@@ -27,6 +30,7 @@ export default {
 
         orderId() {
             if (this.orderId !== 0) {
+                this.loading = true;
                 this.makeToken(20);
             }
         }
@@ -46,9 +50,13 @@ export default {
         }
     },
 
+    components: {
+        BigLoader: () => import('@/components/loaders/BigLoader.vue'),
+    },
+
     methods: {
         async pay() {
-            console.log(this.orderId)
+            this.loading = true;
             await this.$axios.post('/api/redsys', { 
                 amount: (this.total + this.shipping).toFixed(2) * 100,
                 order_id: this.orderId,
@@ -57,11 +65,12 @@ export default {
                     this.parameters = response.data.parameters;
                     this.signature = response.data.signature;
                     setTimeout(() => {
+                        this.loading = false;
                         this.sendForm();
                     }, 1000);
                 })
                 .catch(error => {
-                    console.log(error)
+                    this.loading = false;
                 })
         },
 

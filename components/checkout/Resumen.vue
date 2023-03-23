@@ -59,57 +59,13 @@
                     </div>
                 </div>
             </div>
-            <modal style="top: 60px" name="bizum" :width="'auto'" :height="'auto'" :scrollable="true" :adaptative="true" :clickToClose="false">
-                <div class="mt-3 d-flex justify-content-center">
-                    <img src="/payment/bizum.webp" alt="logo de bizum" width="200">
-                </div>
-                <div>
-                    <p class="text-center mt-3">Su pedido se ha relizado correctamente. Para realizar el pago por Bizum, envíe el importe de <strong class="fs-5">{{ (total + shippingAmount).toFixed(2) }} &euro;</strong> al siguiente número:</p>
-                    <p class="text-center mt-3 fs-5"><strong>+34 613 03 69 42</strong></p>
-                    <p class="text-center mt-3">Indicando en el concepto el número de pedido: <strong class="fs-5">#{{ $store.getters.getOrderId }}</strong></p>
-                    <p class="text-center mt-3">En unos minutos recibirá un correo con la información de pago y de su pedido, por si quiere realizar el pago después. Tras verificar su pago en un plazo máximo de 24h, recibira la confirmación de su pedido en el correo indicado en el pedido.</p>
-                    <p class="text-center mt-3 fs-6">Gracias por su confianza.</p>
-                </div>
-                <div class="mt-4 d-flex justify-content-center">
-                    <button class="fs-6 btn bg-trivi-green text-white" @click="orderComplete">
-                        Terminar
-                    </button>
-                </div>
-            </modal>
-            <modal style="top: 60px" name="transfer_bank" :width="'auto'" :height="'auto'" :scrollable="true" :adaptative="true" :clickToClose="false">
-                <div>
-                    <div class="d-flex justify-content-center mb-3">
-                        <img src="/payment/success.webp" alt="icono de success" width="50">
-                    </div>
-                    <div class="text-center">
-                        <h3>Su pedido se ha realizado correctamente</h3>
-                    </div>                        
-                    <div class="text-center">
-                        <p>Vaya a la bandeja de entrada de su correo y siga las instrucciones, sino encuentra el correo en la bandeja de entrada, revise la bandeja de correo no deseado (SPAM).</p>
-                        <p class="fs-5">Gracias por su confianza.</p>
-                    </div>
-                </div>
-                <div class="mt-4 d-flex justify-content-center">
-                    <button class="fs-6 btn bg-trivi-green text-white btn-hover" @click="orderComplete">
-                        Terminar
-                    </button>
-                </div>
-            </modal>
-            <modal style="top: 100px" name="pay" :width="'auto'" :height="'auto'" :scrollable="true" :adaptative="true" :clickToClose="false">
-                <Paypal :load="initPaypal" />
-                <div class="mt-4 d-flex justify-content-center">
-                    <button class="fs-6 btn bg-trivi-red text-white" @click="cancelPayPal">
-                        Cancelar
-                    </button>
-                </div>
-            </modal>
-            
             <RedsysPay v-if="initRedsys == true" /> 
         </div>
     </div>
 </template>
 
 <script>
+
 export default {
     components: {
         RedsysPay : () => import("@/components/checkout/RedsysPay"),
@@ -149,17 +105,17 @@ export default {
             //console.log('ha cambiado el metodo de pago')
             if (this.payment == 'paypal') {
                 this.createOrder();
-                this.$modal.show('pay');
             } else if (this.payment == 'paylater') {
                 this.createOrder();
-                this.$modal.show('pay');
             } else if (this.payment == 'redsys') {
                 this.createOrder();
                 this.initRedsys = true;
             } else if (this.payment == 'bizum') {
-                this.createOrder();
+                this.$store.commit('SET_BIZUM_PAGE', true);
+                this.$router.push({ path: '/payment/bizum', query: { reserve: this.$store.getters.getReserve }});
             } else if (this.payment == 'transfer_bank') {
-                this.createOrder();
+                this.$store.commit('SET_TRANSFER_BANK_PAGE', true);
+                this.$router.push({ path: '/payment/transfer-bank', query: { reserve: this.$store.getters.getReserve }});
             }
         }
 
@@ -290,15 +246,17 @@ export default {
                         this.$store.commit('SET_ORDER_ID', res.data.order.id);
                         if(this.$store.getters.getPaymentMethod == 'redsys') {
                             this.$root.$emit('order_id', res.data.order.id);
+                            window.onbeforeunload = null;
+                            window.history.pushState(null, '', window.location.href);
                             this.initRedsys = true;
                         }else if(this.$store.getters.getPaymentMethod == 'paypal') {
-                            this.initPaypal = true;
+                            this.$store.commit('SET_PAYPAL_PAGE', true);
+                            this.$root.$emit('loadPaypal', true);
+                            this.$router.push({ path: '/payment/paypal', query: { reserve: this.$store.getters.getReserve }});
                         }else if(this.$store.getters.getPaymentMethod == 'paylater') {
-                            this.initPaypal = true;
-                        }else if(this.$store.getters.getPaymentMethod == 'transfer_bank') {
-                            this.$modal.show('transfer_bank');
-                        }else if(this.$store.getters.getPaymentMethod == 'bizum') {
-                            this.$modal.show('bizum');
+                            this.$store.commit('SET_PAYPAL_PAGE', true);
+                            this.$root.$emit('loadPaypal', true);
+                            this.$router.push({ path: '/payment/paypal', query: { reserve: this.$store.getters.getReserve }});
                         }
                     }).catch((err) => {
                         //console.log(err);
@@ -333,22 +291,21 @@ export default {
                     payment_method: this.$store.getters.getPaymentMethod,
                     pickup_point: this.pickupPointer,
                 }).then((res) => {
+                    this.$store.commit('SET_ORDER_ID', res.data.order.id);
                     if(this.$store.getters.getPaymentMethod == 'redsys') {
-                        this.$store.commit('SET_ORDER_ID', res.data.order.id);
+                        // eliminar bloqueo boton recarga y atras
+                        window.onbeforeunload = null;
+                        window.history.pushState(null, '', window.location.href);
                         this.$root.$emit('order_id', res.data.order.id);
                         this.initRedsys = true;
                     }else if(this.$store.getters.getPaymentMethod == 'paypal') {
-                        this.$store.commit('SET_ORDER_ID', res.data.order.id);
-                        this.initPaypal = true;
+                        this.$store.commit('SET_PAYPAL_PAGE', true);
+                        this.$root.$emit('loadPaypal', true);
+                        this.$router.push({ path: '/payment/paypal', query: { reserve: this.$store.getters.getReserve }});
                     }else if(this.$store.getters.getPaymentMethod == 'paylater') {
-                        this.$store.commit('SET_ORDER_ID', res.data.order.id);
-                        this.initPaypal = true;
-                    }else if(this.$store.getters.getPaymentMethod == 'transfer_bank') {
-                        this.$store.commit('SET_ORDER_ID', res.data.order.id);
-                        this.$modal.show('transfer_bank');
-                    }else if(this.$store.getters.getPaymentMethod == 'bizum') {
-                        this.$store.commit('SET_ORDER_ID', res.data.order.id);
-                        this.$modal.show('bizum');
+                        this.$store.commit('SET_PAYPAL_PAGE', true);
+                        this.$root.$emit('loadPaypal', true);
+                        this.$router.push({ path: '/payment/paypal', query: { reserve: this.$store.getters.getReserve }});
                     }
                 }).catch((err) => {
                     //console.log(err)
@@ -397,6 +354,8 @@ export default {
             this.$store.commit('SET_NOTE', '');
             this.$modal.hide('transfer_bank');
             this.$modal.hide('bizum');
+            window.onbeforeunload = null;
+            window.history.pushState(null, '', window.location.href);
             this.$router.push({path: '/'});
         }
     }

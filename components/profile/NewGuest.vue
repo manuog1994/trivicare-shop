@@ -87,6 +87,9 @@
                 </div>
             </div>
         </form>
+        <div v-if="errorForm == true" class="d-flex justify-content-center">
+            <span class="text-danger text-center"><i>Para seguir con la compra, debe completar todos los campos requeridos en el formulario.</i></span>
+        </div>
         <div :class="{'hidden': !guestStore.address ? true : false }" class="">
             <div class="card w-50 m-auto">
                 <div class="card-body">
@@ -148,7 +151,8 @@ export default {
             guest: {},
             formHidden: true,
             invoice_paper: false,
-            note: ''
+            note: '',
+            errorForm: false,
         }
     },
 
@@ -173,16 +177,29 @@ export default {
     methods: {
         createUser() {
             // validar formulario con $refs y guardar en store
-            if (this.$refs.guestform.checkValidity()) {
-                this.$refs.guestform.classList.remove('was-validated')
-                this.guest.email = this.$store.getters.getGuest.email;
-                this.$store.commit('SET_GUEST', this.guest);
-                this.$store.commit('SET_STEP3', true);
-                this.$store.commit('SET_INVOICE_PAPER', this.invoice_paper);
-                this.$store.commit('SET_NOTE', this.note);
+            if (!this.guestStore.name && !this.guestStore.lastname && !this.guestStore.address && !this.guestStore.state && !this.guestStore.city && !this.guestStore.zipcode && !this.guestStore.phone && !this.guestStore.dni) {
+                if (this.$refs.guestform.checkValidity()) {
+                    this.errorForm = false;
+                    this.$refs.guestform.classList.remove('was-validated')
+                    this.guest.email = this.$store.getters.getGuest.email;
+                    if (this.guest.name != '' && this.guest.lastname != '' && this.guest.address != '' && this.guest.state != '' && this.guest.city != '' && this.guest.zipcode != '' && this.guest.phone != '' && this.guest.dni != '') {
+                        this.$store.commit('SET_GUEST', this.guest);
+                        this.$store.commit('SET_STEP3', true);
+                        this.$store.commit('SET_INVOICE_PAPER', this.invoice_paper);
+                        this.$store.commit('SET_NOTE', this.note);
+                        window.scrollTo(0, 0);
+                    } else {
+                        this.errorForm = true;
+                    }
+                } else {
+                    this.errorForm = true;
+                    this.$refs.guestform.classList.add('was-validated')
+                    this.$emit('savGuest', false)
+                    window.scrollTo(0, 0);
+                }
             } else {
-                this.$refs.guestform.classList.add('was-validated')
-                this.$emit('savGuest', false)
+                this.$store.commit('SET_STEP3', true);
+                window.scrollTo(0, 0);
             }
 
         },

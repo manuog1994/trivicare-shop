@@ -11,7 +11,11 @@
                             <i class="fa fa-whatsapp"></i>
                             WhatsApp
                         </button>
-                        <button @click="cancelOrder" class="btn btn-sm bg-trivi-purple text-white">
+                        <nuxt-link to="/" class="btn btn-sm bg-trivi-blue text-white" :class="{'hidden': orderComplete ? false : true}">
+                            <i class="fa fa-sign-out"></i>
+                            Salir
+                        </nuxt-link>
+                        <button @click="cancelOrder" class="btn btn-sm bg-trivi-purple text-white" :class="{'hidden': orderComplete ? true : false}">
                             <i class="fa fa-times-circle"></i>
                             Cancelar
                         </button>
@@ -41,8 +45,21 @@
     export default {
         auth: false,
 
+        data() {
+            return {
+                orderComplete: false,
+            }
+        },
+
         components: {
             TimerNav: () => import('@/components/checkout/TimerNav.vue'),
+        },
+
+
+        beforeMount() {
+            this.$root.$on('orderComplete', (data) => {
+                this.orderComplete = data;
+            });
         },
 
         methods: {
@@ -79,6 +96,8 @@
                         this.$store.commit('SET_NEWSLETTER_STORE', false);
                         this.$store.commit('SET_INVOICE_PAPER', false);
                         this.$store.commit('SET_NOTE', '');
+                        window.onbeforeunload = null;
+                        window.history.pushState(null, '', window.location.href);
                         this.$router.push('/');
                     }
                 })

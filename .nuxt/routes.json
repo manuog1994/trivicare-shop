@@ -133,6 +133,27 @@
     "_name": "_0b31ec0b"
   },
   {
+    "name": "payment-bizum",
+    "path": "/payment/bizum",
+    "component": "/Users/manuel/wa/trivicare-shop/pages/payment/bizum.vue",
+    "chunkName": "pages/payment/bizum",
+    "_name": "_8ef98468"
+  },
+  {
+    "name": "payment-paypal",
+    "path": "/payment/paypal",
+    "component": "/Users/manuel/wa/trivicare-shop/pages/payment/paypal.vue",
+    "chunkName": "pages/payment/paypal",
+    "_name": "_df98993c"
+  },
+  {
+    "name": "payment-transfer-bank",
+    "path": "/payment/transfer-bank",
+    "component": "/Users/manuel/wa/trivicare-shop/pages/payment/transfer-bank.vue",
+    "chunkName": "pages/payment/transfer-bank",
+    "_name": "_491c4b3f"
+  },
+  {
     "name": "my-orders-id",
     "path": "/my-orders/:id?",
     "component": "/Users/manuel/wa/trivicare-shop/pages/my-orders/_id.vue",

@@ -1,7 +1,8 @@
 <template>
     <div class="container-fluid bg-dark">
         <div class="text-white text-center p-2">
-            <span>Su pedido será cancelado en {{ countdown }}</span>
+            <span v-if="orderComplete == false">Su pedido será cancelado en {{ countdown }}</span>
+            <span v-if="orderComplete == true">Gracias por su confianza</span>
         </div>
     </div>
 </template>
@@ -13,6 +14,7 @@ export default {
             countdown: '',
             interval: '',
             duration: 0,
+            orderComplete: false,
         }
     },
 
@@ -20,12 +22,27 @@ export default {
         this.$root.$on('duration', data => {
             this.duration = data;
         })
+
+        this.$root.$on('orderComplete', data => {
+            this.orderComplete = data;
+        })
     },
 
 
     async mounted() {
         const duration = this.$store.getters.getDuration;
         this.startTimer(duration);
+    },
+
+    watch: {
+        orderComplete() {
+            if (this.orderComplete == true) {
+                // parar el startTimer
+                clearInterval(this.interval);
+                this.interval = null;
+                this.$store.commit('SET_DURATION', 0);
+            }
+        }
     },
 
     methods: {
@@ -46,6 +63,10 @@ export default {
 
                 this.countdown = count;
 
+                if (this.orderComplete == true) {
+                    this.timer = 0;
+                }
+
                 let store = this.$store.commit('SET_DURATION', timer);
 
                 if (--timer < 0) {
@@ -57,7 +78,7 @@ export default {
                     this.$store.commit('SET_PAYMENT_METHOD', '');
                     this.$store.commit('SET_SHIPPING_METHOD', '');
                     this.$store.commit('SET_PICKUP_ID', '');
-                    this.$store.commit('SET_DURATION', 900);
+                    this.$store.commit('SET_DURATION', 0);
                     this.$store.commit('SET_USER_PROFILE_ID', '');
                     this.$store.commit('SET_RESERVE', '');
                     this.$store.commit('CLEAR_CUPON', {});
@@ -69,7 +90,7 @@ export default {
                     this.$store.commit('SET_NEWSLETTER_STORE', false);
                     this.$store.commit('SET_INVOICE_PAPER', false);
                     this.$store.commit('SET_NOTE', '');
-                    window.location.href = '/cart';
+                    this.$root.$emit('cancelOrder', true);
                 }
             }, 1000);
         },

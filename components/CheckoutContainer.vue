@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="mt-md-5 pb-100">
-            <div class="container-fluid">
+            <div class="container-fluid" v-if="cancelOrder == false">
                 <div class="row" v-if="products.length > 0">
                     <div class="col-12 order-2 col-lg-8 order-lg-1">
                         <NewProgressBar :email="email"/>
@@ -17,6 +17,28 @@
                     <div class="text-center p-5">
                         <h2>No tienes elementos para efectuar tu compra, vuelve a la tienda y agrega los productos al carrito.</h2>
                         <n-link class="btn btn-theme" to="/shop">Ir a la tienda</n-link>
+                    </div>
+                </div>
+            </div>
+            <div class="container" v-if="cancelOrder == true">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center mt-4">
+                                    <img src="/payment/error.webp" alt="icono de cancelado" width="50">
+                                </div>
+                                <div>
+                                    <h3 class="text-center mt-3">Su pedido ha sido cancelado.</h3>
+                                    <p class="text-center mt-3">Si quiere volver a empezar pulse en el botón.</p>
+                                </div>
+                                <div class="mt-4 d-flex justify-content-center">
+                                    <n-link class="fs-6 btn bg-trivi-green text-white" to="/cart">
+                                        Volver a empezar
+                                    </n-link>
+                                </div>    
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,6 +72,8 @@
 
                 reserve: '',
                 email: '',
+
+                cancelOrder: false,
             }
         },
 
@@ -69,6 +93,12 @@
             getReserve() {
                 return this.$store.getters.getReserve
             },
+        },
+
+        beforeMount() {
+            this.$root.$on('cancelOrder', (cancelOrder) => {
+                this.cancelOrder = cancelOrder;
+            });
         },
 
         methods: {

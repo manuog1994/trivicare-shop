@@ -29,8 +29,10 @@ export default {
         },
 
         order_id() {
-            return this.$store.getters.getOrderId;}
+            return this.$store.getters.getOrderId;
         },
+    },
+
 
     watch: {
         load() {
@@ -80,18 +82,13 @@ export default {
                             token_id: token_id
                         });
                         actions.redirect( process.env.url + '/success?payment_intent_client_secret=' + transaction.id);
-                });
-            }
+                    });
+                }
             
-        }).render('#paypal-button-container');
-        },
-
-    },
-
-    head() {
-        return {
-
+            }).render('#paypal-button-container');
         }
+
+
     },
 
 }
