@@ -65,7 +65,6 @@ declare global {
   const useMeta: typeof import('../meta')['useMeta']
   const useNuxt2Meta: typeof import('../../node_modules/@nuxt/bridge/dist/runtime/index')['useNuxt2Meta']
   const useNuxtApp: typeof import('../../node_modules/@nuxt/bridge/dist/runtime/index')['useNuxtApp']
-  const usePinia: typeof import('../../node_modules/@pinia/nuxt/dist/runtime/composables')['usePinia']
   const useRequestEvent: typeof import('../../node_modules/@nuxt/bridge/dist/runtime/index')['useRequestEvent']
   const useRequestHeaders: typeof import('../../node_modules/@nuxt/bridge/dist/runtime/index')['useRequestHeaders']
   const useRoute: typeof import('vue-router/composables')['useRoute']

@@ -14,7 +14,6 @@ import { createStore } from './store.js'
 /* Plugins */
 
 import nuxt_plugin_plugin_ee2777e8 from 'nuxt_plugin_plugin_ee2777e8' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_plugin_2cd51653 from 'nuxt_plugin_plugin_2cd51653' // Source: ../node_modules/@pinia/nuxt/dist/runtime/plugin.vue2 (mode: 'all')
 import nuxt_plugin_appplugin_2cee79e0 from 'nuxt_plugin_appplugin_2cee79e0' // Source: ../node_modules/@nuxt/bridge/dist/runtime/app.plugin.mjs (mode: 'all')
 import nuxt_plugin_configplugin_0a4cc27f from 'nuxt_plugin_configplugin_0a4cc27f' // Source: ../node_modules/@nuxt/bridge/dist/runtime/config.plugin.mjs (mode: 'all')
 import nuxt_plugin_nitrobridgeserver_05999f58 from 'nuxt_plugin_nitrobridgeserver_05999f58' // Source: ./nitro-bridge.server.mjs (mode: 'server')
@@ -235,10 +234,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_plugin_ee2777e8 === 'function') {
     await nuxt_plugin_plugin_ee2777e8(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_plugin_2cd51653 === 'function') {
-    await nuxt_plugin_plugin_2cd51653(app.context, inject)
   }
 
   if (typeof nuxt_plugin_appplugin_2cee79e0 === 'function') {
