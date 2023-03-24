@@ -13,7 +13,7 @@
                             <th scope="col">Leído</th>
                         </tr>
                     </thead>
-                    <tbody v-if="notifications.length > 0">
+                    <tbody v-if="notifications?.length > 0">
                         <tr v-for="notification in paginatedItems" :key="notification.id" class="btn-hover-table" @click="openNotification(notification.id)">
                             <td>
                                 <i v-if="notification.type == 'send'" class="fa fa-truck me-2"></i>
@@ -33,8 +33,8 @@
                     </tbody>
                 </table>
             </div>
-            <div v-if="notification_id == 0 && notifications.length > 10" class="d-flex justify-content-center">
-                <pagination v-model="page" :records="notifications.length" :perPage="perPage" @paginate="myCallBack" />
+            <div v-if="notification_id == 0 && notifications?.length > 10" class="d-flex justify-content-center">
+                <pagination v-model="page" :records="notifications?.length" :perPage="perPage" @paginate="myCallBack" />
             </div>
             <div class="p-2" v-if="notification_id != 0">
                 <div class="card rounded-0">
@@ -139,7 +139,7 @@ export default {
                 let page = (this.page - 1) * 10;
                 //console.log(page)
                 setTimeout(() => {
-                    if(this.notifications.length == page) {
+                    if(this.notifications?.length == page) {
                         this.page = this.page - 1;
                         this.myCallBack(this.page);
                     }

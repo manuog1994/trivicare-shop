@@ -10,7 +10,7 @@
                                 <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
-                                <div v-if="product.images.length == 0" class="swiper-slide text-center">
+                                <div v-if="product.images?.length == 0" class="swiper-slide text-center">
                                     <nuxt-img loading="lazy" class="principal" provider="customProvider" src="nuxt/default.webp" alt="default" />
                                     <p class="fst-italic">Haz doble click sobre la imagen para zoom</p>
                                 </div>
@@ -20,7 +20,7 @@
                                 </div>
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
-                                <div v-if="product.images.length == 0" class="thumb-img swiper-slide">
+                                <div v-if="product.images?.length == 0" class="thumb-img swiper-slide">
                                     <nuxt-img loading="lazy" provider="customProvider" src="nuxt/default.webp" alt="default" width="100%" height="100%"/>
                                 </div>
                                 <div v-else class="thumb-img swiper-slide" v-for="image in product.images" :key="'imagetwo-' + image.id">

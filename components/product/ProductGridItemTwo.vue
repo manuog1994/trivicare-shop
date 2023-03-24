@@ -2,7 +2,7 @@
     <div v-if="product.status == 'Publicado'" class="product-wrap-2 mb-25">
         <div class="product-img">
             <n-link :to="`/product/${product.slug}`">
-                <div v-if="product.images.length == 0 || product.images.length == 1">
+                <div v-if="product.images?.length == 0 || product.images?.length == 1">
                     <nuxt-img loading="lazy" class="default-img" provider="customProvider" src="nuxt/default.webp" :alt="product.name" width="100%" height="100%"/>
                     <nuxt-img loading="lazy" class="hover-img" provider="customProvider" src="nuxt/default.webp" :alt="product.name" width="100%" height="100%"/>
                 </div>

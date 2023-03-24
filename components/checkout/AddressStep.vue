@@ -126,7 +126,7 @@ export default {
     mounted() {
         //comprobar si el usuario esta logueado
         if (this.$auth.loggedIn == true) {
-            if(this.$auth.user.user_profile.length == 0) {
+            if(this.$auth.user.user_profile?.length == 0) {
                 this.newUserAddress = true;
             }
         }

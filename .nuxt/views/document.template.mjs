@@ -11,9 +11,6 @@ export default (params) => `<!DOCTYPE html>
     ${params.HEAD}
     <!-- add cache control con max-age-->
     <meta http-equiv="Cache-Control" content="max-age=3600" />
-    <link rel="preload" as="image" href="/campain/diamujer_mobile.webp" />
-    <link rel="preload" as="image" href="/campain/diamujer.webp" />
-
   </head>
   <body ${params.BODY_ATTRS}>
     <!-- Google Tag Manager (noscript) -->

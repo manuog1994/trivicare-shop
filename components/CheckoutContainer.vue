@@ -2,7 +2,7 @@
     <div>
         <div class="mt-md-5 pb-100">
             <div class="container-fluid" v-if="cancelOrder == false">
-                <div class="row" v-if="products.length > 0">
+                <div class="row" v-if="products?.length > 0">
                     <div class="col-12 order-2 col-lg-8 order-lg-1">
                         <NewProgressBar :email="email"/>
                         <EmailStep @stepEmail="handleEmail"/>
@@ -105,7 +105,7 @@
             getCookie(name) {
                 var value = "; " + document.cookie;
                 var parts = value.split("; " + name + "=");
-                if (parts.length == 2) return parts.pop().split(";").shift();
+                if (parts?.length == 2) return parts.pop().split(";").shift();
             },
 
             async resendEmail() {

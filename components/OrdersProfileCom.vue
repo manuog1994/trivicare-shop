@@ -13,7 +13,7 @@
                         <th scope="col">Acciones</th>
                         </tr>
                     </thead>
-                    <tbody v-if="orders.length > 0">
+                    <tbody v-if="orders?.length > 0">
                         <tr v-for="order in orders" :key="order.id">
                             <th scope="row">{{ order.id }}</th>
                             <td>{{ getName(order) }}</td>

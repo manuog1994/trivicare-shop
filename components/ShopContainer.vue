@@ -50,7 +50,7 @@
                     </div>
                     <!-- end shop product -->
 
-                    <div class="d-flex justify-content-center" v-if="products.length >= perPage || page >= 2">
+                    <div class="d-flex justify-content-center" v-if="products?.length >= perPage || page >= 2">
                         <nav aria-label="...">
                             <ul class="pagination-custom">
                                 <client-only>

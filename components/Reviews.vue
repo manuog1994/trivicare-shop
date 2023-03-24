@@ -6,7 +6,7 @@
             </div>
             <div v-for="product in products" :key="product.id">
                 <div class="row p-2" :id="'product-' + product.id">
-                    <div v-if="product.images.length == 0 || product.images.length == 1" class="col-4">
+                    <div v-if="product.images?.length == 0 || product.images?.length == 1" class="col-4">
                         <nuxt-img provider="customProvider" src="nuxt/default.webp" :alt="product.name" width="100%" height="100%"/>
                     </div>
                     <div v-else class="col-4">
@@ -66,7 +66,7 @@ export default {
 
     watch: {
         products_reviews() {
-            if (this.products_reviews == this.products.length) {
+            if (this.products_reviews == this.products?.length) {
                 this.$notify({ text: '¡Gracias por valorar los productos!', type: 'success' })
                 let url = '/review?token=' + this.token;
                 this.$axios.post('/api/notification-delete', {

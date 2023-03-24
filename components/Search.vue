@@ -15,7 +15,7 @@
                         <div id="search-box" class="search-box" :class="{'active' : hidden == false}">
                             <div class="box-products" v-for="product in products" :key="product.id">
                                 <a :href="url + '/product/' + product.slug" class="single-product">
-                                    <div v-if="product.images.length == 0">
+                                    <div v-if="product.images?.length == 0">
                                         <nuxt-img provider="customProvider" src="nuxt/default.webp" alt="default" width="100px" />
                                     </div>
                                     <div v-else>

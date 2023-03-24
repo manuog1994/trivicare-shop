@@ -1,7 +1,7 @@
 <template>
     <div class="cart-main-area pt-90 pb-100">
         <div class="container-fluid">
-            <div class="row" v-if="products.length > 0">
+            <div class="row" v-if="products?.length > 0">
                 <div class="col-12 col-md-8">
                     <div>
                         <h3 class="cart-page-title">Productos añadidos al carrito</h3>
@@ -19,7 +19,7 @@
                             <div class="row d-md-flex line-cart mt-md-4 mt-2" v-for="product in products" :key="product.id">
                                 <div class="col-4 col-md-2 p-2 ms-4">
                                     <n-link :to="`/product/${product.slug}`">
-                                        <nuxt-img loading="lazy" v-if="product.images.length > 0" provider="customProvider" :src="product.images[0].path" :alt="product.name"/> 
+                                        <nuxt-img loading="lazy" v-if="product.images?.length > 0" provider="customProvider" :src="product.images[0].path" :alt="product.name"/> 
                                         <nuxt-img loading="lazy" v-else provider="customProvider" src="nuxt/default.webp" :alt="product.name"/>
                                     </n-link>
                                 </div>

@@ -193,7 +193,7 @@
                 if(this.$auth.loggedIn == true) {
                     const notifications = this.$auth.user.notifications;
                     if (notifications.read == false) {
-                        this.notifications = notifications.length;
+                        this.notifications = notifications?.length;
                     }
                 }
             }

@@ -115,7 +115,7 @@
                 
                 bestProducts.sort((a, b) => b.sold - a.sold);
                 
-                if(bestProducts.length > 4) {
+                if(bestProducts?.length > 4) {
                     this.bestSold = this.newsProducts;
                 } else {
                     this.bestSold = bestProducts;

@@ -188,7 +188,7 @@
                     const space = ' ';
                     const name = this.$auth.user.name;
                     //console.log(name);
-                    const arr = name.split(space);
+                    const arr = name?.split(space);
 
                     return arr[0];
                 }
@@ -199,7 +199,7 @@
                     let notifications = this.$auth.user.notifications;
                     //console.log(notifications)
                     if(notifications != null) {
-                        const noti = notifications.filter(notification => notification.read == 0).length;
+                        const noti = notifications.filter(notification => notification.read == 0)?.length;
                         //console.log(noti)
                         this.notifications = noti;
                     }else {

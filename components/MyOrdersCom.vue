@@ -10,7 +10,7 @@
                         <th scope="col">Fecha</th>
                         </tr>
                     </thead>
-                    <tbody v-if="orders.length != 0">
+                    <tbody v-if="orders?.length != 0">
                         <tr v-for="order in orders" :key="order.id">
                             <template v-if="order.invoice != null">
                                 <td><a :href="'/orders/' + order.id">{{ getInvoiceNumber(order) }}</a></td>
@@ -25,7 +25,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div v-if="orders.length > 0" class="d-flex justify-content-center mt-5">
+                <div v-if="orders?.length > 0" class="d-flex justify-content-center mt-5">
                     <nav aria-label="...">
                         <ul class="pagination-custom">
                             <client-only>

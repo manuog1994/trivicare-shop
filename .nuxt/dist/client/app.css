@@ -22290,22 +22290,6 @@ p.img-mobile {
 }
 
 
-.policy-icons{
-    width: 80px;
-    height: auto;
-    margin: auto;
-}
-
-.nav-timer[data-v-5347162a] {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: -moz-min-content;
-  width: min-content;
-  z-index: 999;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 .spinner-overlay {
     position: fixed;
   top: 0;
@@ -22370,6 +22354,13 @@ p.img-mobile {
 }
 } 
 
+
+.policy-icons{
+    width: 80px;
+    height: auto;
+    margin: auto;
+}
+
 .tag-block {
   display: inline-flex;
   padding: 1rem, 1rem;
@@ -22393,3 +22384,12 @@ p.img-mobile {
     margin-bottom: 0.5rem;
 }
 
+.nav-timer[data-v-5347162a] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: -moz-min-content;
+  width: min-content;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

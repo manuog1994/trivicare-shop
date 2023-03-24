@@ -36,7 +36,6 @@ export default {
 
     watch: {
         load() {
-            console.log(this.load)
             if(this.load === true) {
                 this.loadPaypal();
             }

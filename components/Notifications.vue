@@ -51,7 +51,7 @@ export default {
                 let notifications = this.$auth.user?.notifications;
                 //console.log(notifications)
                 if(notifications != null) {
-                    const noti = notifications.filter(notification => notification.read == 0).length;
+                    const noti = notifications.filter(notification => notification.read == 0)?.length;
                     this.notificationsItems = noti;
                 }else {
                     this.notificationsItems = 0;

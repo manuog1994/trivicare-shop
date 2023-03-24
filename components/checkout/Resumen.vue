@@ -218,7 +218,7 @@ export default {
         },
 
         async createOrder() {
-            if(this.guestStore.length != 0) {
+            if(this.guestStore?.length != 0) {
                 await this.$axios.post('/api/guest-store', this.guestStore)
                 .then(res => {
                     const resp = res.data.data;

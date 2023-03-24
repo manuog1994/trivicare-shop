@@ -2,7 +2,7 @@
     <!-- wishlist section start -->
     <div class="cart-main-area pt-90 pb-100">
         <div class="container">
-            <div class="row" v-if="products.length > 0">
+            <div class="row" v-if="products?.length > 0">
                 <div class="col-12">
                     <h3 class="cart-page-title">Tu lista de deseos</h3>
                     <div class="table-content table-responsive cart-table-content">

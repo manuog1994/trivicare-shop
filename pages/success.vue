@@ -7,7 +7,7 @@
                     <div class="d-flex justify-content-center mb-5">
                         <img src="/payment/success.webp" alt="success.webp" width="60">
                     </div>
-                    <h1 v-if="paymentIntent.length == 23">Hemos recibido su pedido. Gracias por confiar en nosotros.</h1>
+                    <h1 v-if="paymentIntent?.length == 23">Hemos recibido su pedido. Gracias por confiar en nosotros.</h1>
                     <h1 v-else>Ha realizado su pago con éxito, Gracias por su pedido</h1>
                     <p class="mt-2">En unos minutos recibirá la factura y confirmación de su pedido, en el correo electrónico indicado en su cuenta.</p>
                     <p>Revise su bandeja de entrada y si no la ve dirijase a su carpeta de Spam.</p>
