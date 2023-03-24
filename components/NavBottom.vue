@@ -4,7 +4,7 @@
             <div>
                 <div class="">
                     <div class="custom-banner">
-                        <vue-typer class="custom-two" text="Envío gratis a Península y Baleares partir de 50 €" :repeat="0"></vue-typer>
+                        <span>Envío gratis a Península y Baleares partir de 40 €</span>
                     </div>
                 </div>
             </div>
@@ -25,34 +25,9 @@ export default {
     align-items: center;
     height: 40px;
     font-size: 14px;
-    color: #ff0000;
+    color: white;
 }
 
-.vue-typer {
-  /* Styles for the vue-typer container
-     e.g. font-family, font-size  */
- 
-    .custom.char {
-    /* Styles for each character
-        e.g. color, background-color */
-        color: white;
-
-        &.typed {
-            /* Styles specific to typed characters
-                i.e. characters to the left of the caret */
-        }
-        &.selected {
-            /* Styles specific to selected characters
-                i.e. characters to the right of the caret while VueTyper's
-                    'eraseStyle' is set to a selection-based style */
-        }
-        &.erased {
-            /* Styles specific to erased characters
-                i.e. characters to the right of the caret while VueTyper's
-                    'eraseStyle' is set to a non-selection-based style */
-        }
-    }
-}
 
 .bg-banner {
     background-color: #dd88b8df;

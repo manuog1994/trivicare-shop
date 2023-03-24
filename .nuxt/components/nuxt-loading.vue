@@ -31,6 +31,7 @@ export default {
     clear () {
       clearInterval(this._timer)
       clearTimeout(this._throttle)
+      clearTimeout(this._hide)
       this._timer = null
     },
     start () {
@@ -79,7 +80,7 @@ export default {
     },
     hide () {
       this.clear()
-      setTimeout(() => {
+      this._hide = setTimeout(() => {
         this.show = false
         this.$nextTick(() => {
           this.percent = 0
@@ -159,11 +160,11 @@ export default {
   top: 0px;
   left: 0px;
   right: 0px;
-  height: 5px;
+  height: 2px;
   width: 0%;
   opacity: 1;
   transition: width 0.1s, opacity 0.4s;
-  background-color: #2AB5B2;
+  background-color: black;
   z-index: 999999;
 }
 

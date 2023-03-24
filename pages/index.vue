@@ -10,7 +10,6 @@
                 <ServicePolicyFour />
                 <ProductWrapperCosmetics />
                 <BrandLogoCarousel />
-                <Info />
                 <TheFooter />
             </div>
             <BigLoader v-if="loaderPage" />
@@ -33,7 +32,6 @@
             HeroSliderSix: () => import("@/components/hero/HeroSliderSix"),
             ProductWrapperCosmetics: () => import("@/components/product/ProductWrapperCosmetics"),
             BrandLogoCarousel: () => import("@/components/BrandLogoCarousel"),
-            Info: () => import("@/components/Info"),
             ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
             TheFooter: () => import("@/components/TheFooter"),
             Intro: () => import("@/components/Intro"),
@@ -133,26 +131,6 @@
 .slide-fade-leave-to {
   transform: translateX(20px);
   opacity: 0;
-}
-.cookie-consent {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgb(255, 255, 255);
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-    border-top: 1px solid rgb(69, 69, 69);
-    color: rgb(0, 0, 0);
-}
-.cookie-consent button {
-    border: 1px solid rgb(57, 57, 57);
-    padding: 10px;
-    margin-left: 20px;
-    min-width: 140px;
 }
 </style>
 

@@ -1,9 +1,5 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 export default defineNuxtConfig({
-    loading: {
-        color: '#2AB5B2',
-        height: '5px',
-    },
     generate: {
         fallback: true
     },
@@ -48,10 +44,6 @@ export default defineNuxtConfig({
         '~/plugins/vue-progress-path.js',
         { 
             src: '~/plugins/bootstrap-vue',
-            mode: 'client'
-        },
-        {
-            src: '~/plugins/vue-type.js',
             mode: 'client'
         },
         {
@@ -131,10 +123,10 @@ export default defineNuxtConfig({
         middleware: ['auth', 'role'],
     },
       
-    pageTransition: {
-        name: 'slide-fade',
-        mode: 'out-in',
-    },
+    // pageTransition: {
+    //     name: 'slide-fade',
+    //     mode: 'out-in',
+    // },
 
 
 
@@ -187,6 +179,8 @@ export default defineNuxtConfig({
             },
         }
     },
+
+    devServer: {},
 
       
 })

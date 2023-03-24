@@ -96,10 +96,8 @@
 </style>
 
 <script>
-import Nav from './crud/Nav.vue';
-    export default {
-  components: { Nav },
 
+    export default {
         data() {
             return {
                 categoryId : '',

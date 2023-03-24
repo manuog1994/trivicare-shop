@@ -9,7 +9,6 @@
 /// <reference types="@nuxtjs/auth-next" />
 /// <reference types="cookie-universal-nuxt" />
 /// <reference types="@nuxt/components" />
-/// <reference types="@nuxt/telemetry" />
 /// <reference path="types/components.d.ts" />
 /// <reference path="types/schema.d.ts" />
 /// <reference types="@pinia/nuxt" />

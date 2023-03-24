@@ -1,8 +1,8 @@
 <template>
     <div class="position-absolute box-notify" :class="{'d-none': openNotifications ? false : true}" style="right:0;background-color: white; border: 0.5px solid gray; border-radius: 5px; width: 260px;">
         <div class="d-block">
-            <ul v-if="$auth.user.notifications.length > 0">
-                <div v-for="notification in $auth.user.notifications" :key="notification.id">
+            <ul v-if="$auth.user?.notifications?.length > 0">
+                <div v-for="notification in $auth.user?.notifications" :key="notification.id">
                     <a v-if="notification.read == 0" @click.prevent="read(notification.id)">
                         <li class="notify-list p-2 d-flex align-items-center">
                             <i v-if="notification.type == 'send'" class="fa fa-truck me-2"></i>
@@ -48,7 +48,7 @@ export default {
 
         countNotifications() {
             if(this.$auth.loggedIn == true) {
-                let notifications = this.$auth.user.notifications;
+                let notifications = this.$auth.user?.notifications;
                 //console.log(notifications)
                 if(notifications != null) {
                     const noti = notifications.filter(notification => notification.read == 0).length;
