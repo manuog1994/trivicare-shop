@@ -91,7 +91,10 @@ export default {
                     this.$store.commit('SET_INVOICE_PAPER', false);
                     this.$store.commit('SET_NOTE', '');
                     this.$root.$emit('cancelOrder', true);
-                }
+                    window.onbeforeunload = null;
+                    window.history.pushState(null, '', window.location.href);
+                    window.location.href = '/cart';
+                    }
             }, 1000);
         },
 

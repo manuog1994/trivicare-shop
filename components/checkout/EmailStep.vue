@@ -63,10 +63,16 @@
                 <div v-if="$auth.loggedIn == true" class="mt-3 text-center">
                     <h4>Has iniciado sesión con el email {{ $auth.user.email }}</h4>
                 </div>
-                <div class="ms-md-5 me-md-5 mt-4 ms-5">
-                    <button class="btn btn-theme" type="submit" v-if="$auth.loggedIn == false">Iniciar sesión y continuar</button>
-                    <button class="btn btn-theme" @click="nextStep" v-if="$auth.loggedIn == true">Continuar</button>
-                    <button @click="logout" class="btn btn-theme-green">Hacer pedido como invitado</button>
+                <div class="ms-md-5 me-md-5 mt-4 row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <button class="btn btn-theme mb-2 ms-auto" type="submit" v-if="$auth.loggedIn == false">Iniciar sesión y continuar</button>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <button class="btn btn-theme mb-2" @click="nextStep" v-if="$auth.loggedIn == true">Continuar</button>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <button @click="logout" class="btn btn-theme-green">Hacer pedido como invitado</button>
+                    </div>
                 </div>
             </form>
         </div>

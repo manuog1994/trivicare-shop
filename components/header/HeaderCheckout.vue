@@ -7,18 +7,15 @@
                         <img src="/img/TriviCare_byn Negativo.png" alt="logo" style="width: 30vw; max-width: 180px; height: auto;">
                     </div>
                     <div class="col-6 d-flex justify-content-end">
-                        <a href="https://api.whatsapp.com/send?phone=34613036942&text=Hola,%20quisiera%20informaci%C3%B3n..." class="btn btn-sm text-white me-4" style="background-color: #03C100;" target="_blank">
-                            <i class="fa fa-whatsapp"></i>
-                            WhatsApp
+                        <a href="https://api.whatsapp.com/send?phone=+34613036942&text=Hola,%20estoy%20en%20la%20web%20y%20quisiera%20m%C3%A1s%20informacion%20sobre..." class="whatsapp" target="_blank" title="Enlace a conversación de WhatsApp">
+                            <i class="fa fa-whatsapp whatsapp-icon"></i>
                         </a>
-                        <nuxt-link to="/" class="btn btn-sm bg-trivi-blue text-white" :class="{'hidden': orderComplete ? false : true}">
-                            <i class="fa fa-sign-out"></i>
-                            Salir
+                        <nuxt-link to="/" class="out-link" :class="{'hidden': orderComplete ? false : true}" title="Salir al menú principal">
+                            <i class="fa fa-sign-out out-icon"></i>
                         </nuxt-link>
-                        <button @click="cancelOrder" class="btn btn-sm bg-trivi-purple text-white" :class="{'hidden': orderComplete ? true : false}">
-                            <i class="fa fa-times-circle"></i>
-                            Cancelar
-                        </button>
+                        <a @click="cancelOrder" class="cancel" :class="{'hidden': orderComplete ? true : false}" title="Cancelar pedido">
+                            <i class="fa fa-times-circle cancel-icon"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -36,6 +33,51 @@
     width: min-content;
     z-index: 999;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.whatsapp {
+  width:50px;
+  height:50px;
+  background-color:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  display: block;
+  text-align: center;
+  font-size:30px;
+  padding-top: 1px;
+}
+
+.cancel {
+  width:50px;
+  height:50px;
+  background-color: #DD88B8;
+  color:#FFF;
+  border-radius:50px;
+  text-align: center;
+  font-size:30px;
+  margin-left: 1rem;
+}
+
+.out-link {
+  width:50px;
+  height:50px;
+  background-color: #2AB5B2;
+  color:#FFF;
+  border-radius:50px;
+  text-align: center;
+  font-size:30px;
+  margin-left: 1rem;
+}
+
+.whatsapp-icon {
+  margin-top:9px;
+}
+.cancel-icon {
+  margin-top: 10px;
+}
+.out-icon {
+  margin-top: 11px;
+  margin-left: 5px;
 }
 
 </style>
@@ -98,7 +140,7 @@
                         this.$store.commit('SET_NOTE', '');
                         window.onbeforeunload = null;
                         window.history.pushState(null, '', window.location.href);
-                        this.$router.push('/');
+                        this.$router.push({ path: '/' });
                     }
                 })
             }

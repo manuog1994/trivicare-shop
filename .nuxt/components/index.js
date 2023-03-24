@@ -58,13 +58,13 @@ export { default as HeroSliderSix } from '../../components/hero/HeroSliderSix.vu
 export { default as LoadersBigLoader } from '../../components/loaders/BigLoader.vue'
 export { default as LoadersSmallLoading } from '../../components/loaders/SmallLoading.vue'
 export { default as PolicyServicePolicyFour } from '../../components/policy/ServicePolicyFour.vue'
+export { default as ProfileNewGuest } from '../../components/profile/NewGuest.vue'
+export { default as ProfileNewProfile } from '../../components/profile/NewProfile.vue'
 export { default as ProductDetailsWrapper } from '../../components/product/ProductDetailsWrapper.vue'
 export { default as ProductGridItem } from '../../components/product/ProductGridItem.vue'
 export { default as ProductGridItemTwo } from '../../components/product/ProductGridItemTwo.vue'
 export { default as ProductGridStyleThree } from '../../components/product/ProductGridStyleThree.vue'
 export { default as ProductWrapperCosmetics } from '../../components/product/ProductWrapperCosmetics.vue'
-export { default as ProfileNewGuest } from '../../components/profile/NewGuest.vue'
-export { default as ProfileNewProfile } from '../../components/profile/NewProfile.vue'
 export { default as HeaderCheckout } from '../../components/header/HeaderCheckout.vue'
 
 // nuxt/nuxt.js#8607
