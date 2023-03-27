@@ -22263,6 +22263,63 @@ a.link-nav{
     background-color: #F6F6F6;
 }
 
+.nav-timer[data-v-5347162a] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: -moz-min-content;
+  width: min-content;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.whatsapp[data-v-5347162a] {
+  width: 50px;
+  height: 50px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 1px;
+}
+.cancel[data-v-5347162a] {
+  width: 50px;
+  height: 50px;
+  background-color: #DD88B8;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  margin-left: 1rem;
+}
+.out-link[data-v-5347162a] {
+  width: 50px;
+  height: 50px;
+  background-color: #2AB5B2;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  margin-left: 1rem;
+}
+.whatsapp-icon[data-v-5347162a] {
+  margin-top: 9px;
+}
+.cancel-icon[data-v-5347162a] {
+  margin-top: 10px;
+}
+.out-icon[data-v-5347162a] {
+  margin-top: 11px;
+  margin-left: 5px;
+}
+
+.policy-icons{
+    width: 80px;
+    height: auto;
+    margin: auto;
+}
+
 
 p.img-mobile {
     width: 100%;
@@ -22354,13 +22411,6 @@ p.img-mobile {
 }
 } 
 
-
-.policy-icons{
-    width: 80px;
-    height: auto;
-    margin: auto;
-}
-
 .tag-block {
   display: inline-flex;
   padding: 1rem, 1rem;
@@ -22384,53 +22434,3 @@ p.img-mobile {
     margin-bottom: 0.5rem;
 }
 
-.nav-timer[data-v-5347162a] {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: -moz-min-content;
-  width: min-content;
-  z-index: 999;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.whatsapp[data-v-5347162a] {
-  width: 50px;
-  height: 50px;
-  background-color: #25d366;
-  color: #FFF;
-  border-radius: 50px;
-  display: block;
-  text-align: center;
-  font-size: 30px;
-  padding-top: 1px;
-}
-.cancel[data-v-5347162a] {
-  width: 50px;
-  height: 50px;
-  background-color: #DD88B8;
-  color: #FFF;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 30px;
-  margin-left: 1rem;
-}
-.out-link[data-v-5347162a] {
-  width: 50px;
-  height: 50px;
-  background-color: #2AB5B2;
-  color: #FFF;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 30px;
-  margin-left: 1rem;
-}
-.whatsapp-icon[data-v-5347162a] {
-  margin-top: 9px;
-}
-.cancel-icon[data-v-5347162a] {
-  margin-top: 10px;
-}
-.out-icon[data-v-5347162a] {
-  margin-top: 11px;
-  margin-left: 5px;
-}

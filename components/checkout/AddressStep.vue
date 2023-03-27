@@ -19,18 +19,18 @@
                         </label> 
                     </div>
                 </div>
-                <div v-if="$auth.user.user_profile?.length > 0" class="text-decoration-underline mt-3 text-center">
+                <div v-if="$auth?.user?.user_profile?.length > 0" class="text-decoration-underline mt-3 text-center">
                     <a @click="newUserAddress = true">Deseo enviarlo a otra dirección</a>
                 </div>
 
-                <div v-if="$auth.user.user_profile?.length > 0" class="mt-3">
+                <div v-if="$auth?.user?.user_profile?.length > 0" class="mt-3">
                     <div class="w-100">
                         <label>Nota para el pedido (Opcional)</label>
                         <textarea class="form-control" name="note" v-model="note" rows="3"></textarea>
                     </div>
                 </div>
 
-                <div v-if="$auth.user.user_profile?.length > 0" class="mt-3">
+                <div v-if="$auth?.user?.user_profile?.length > 0" class="mt-3">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="true" id="invoice_paper" v-model="invoice_paper">
                         <label class="form-check-label" for="flexCheckDefault">
@@ -41,7 +41,7 @@
 
             </div>
         </div>
-        <div v-if="$auth.user.user_profile?.length == 0 && $auth.loggedIn == true" class="ms-md-5 me-md-5">
+        <div v-if="$auth?.user?.user_profile?.length == 0 && $auth.loggedIn == true" class="ms-md-5 me-md-5">
             <div class="text-center">
                 <h3>Introduzca su dirección</h3>
             </div>
@@ -57,8 +57,8 @@
             <span class="text-danger text-center">Debe seleccionar una dirección para continuar</span>
         </div>
         <div class="ms-md-5 me-md-5 mt-5 d-flex justify-content-center">
-            <button v-if="$auth.user.user_profile?.length > 0 || this.$store.state.guest?.email?.length > 0" @click="nextStep" class="btn btn-theme">Continuar</button>
-            <button v-if="$auth.user.user_profile?.length == 0 && $auth.loggedIn == true" @click="newUserAddress = false" class="btn bg-trivi-red">Cancelar</button>
+            <button v-if="$auth.user?.user_profile?.length > 0 || this.$store.state.guest?.email?.length > 0" @click="nextStep" class="btn btn-theme">Continuar</button>
+            <button v-if="$auth.user?.user_profile?.length == 0 && $auth.loggedIn == true" @click="newUserAddress = false" class="btn bg-trivi-red">Cancelar</button>
         </div>
     </div>
 </template>

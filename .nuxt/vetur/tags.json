@@ -167,6 +167,12 @@
   "CheckoutTimerNav": {
     "description": "Auto imported from components/checkout/TimerNav.vue"
   },
+  "HeaderCheckout": {
+    "description": "Auto imported from components/header/HeaderCheckout.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
   "HeroSliderSix": {
     "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
@@ -175,15 +181,6 @@
   },
   "LoadersSmallLoading": {
     "description": "Auto imported from components/loaders/SmallLoading.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
-  "ProfileNewGuest": {
-    "description": "Auto imported from components/profile/NewGuest.vue"
-  },
-  "ProfileNewProfile": {
-    "description": "Auto imported from components/profile/NewProfile.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
@@ -200,7 +197,10 @@
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
   },
-  "HeaderCheckout": {
-    "description": "Auto imported from components/header/HeaderCheckout.vue"
+  "ProfileNewGuest": {
+    "description": "Auto imported from components/profile/NewGuest.vue"
+  },
+  "ProfileNewProfile": {
+    "description": "Auto imported from components/profile/NewProfile.vue"
   }
 }
