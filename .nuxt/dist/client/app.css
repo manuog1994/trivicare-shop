@@ -21798,6 +21798,12 @@ input[data-v-fd950674] {
 
 
 
+.bg-whatsapp {
+    background-color: #25d366;
+}
+
+
+
 .form-pass[data-v-a11d418a] {
     background-color: #2AB5B2;
     width: 40px;
@@ -22314,39 +22320,6 @@ a.link-nav{
   margin-left: 5px;
 }
 
-.policy-icons{
-    width: 80px;
-    height: auto;
-    margin: auto;
-}
-
-
-p.img-mobile {
-    width: 100%;
-    padding: 5rem 0;
-    font-size: 22px;
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: column;
-}
-.bg-span {
-    background-color: rgba(255,255,255,0.86275);
-    color: rgb(73, 73, 73);
-    font-size: 24px;
-    padding: 3rem 0;
-    margin: 15px;
-}
-.btn-mobile {
-    background-color: white;
-    padding: 10px 10px;
-    margin: 25px;
-}
-.bg-slider-img {
-    padding: 8rem 5rem;
-}
-
-
 .spinner-overlay {
     position: fixed;
   top: 0;
@@ -22432,5 +22405,38 @@ p.img-mobile {
     display: flex;
     justify-content: center;
     margin-bottom: 0.5rem;
+}
+
+
+.policy-icons{
+    width: 80px;
+    height: auto;
+    margin: auto;
+}
+
+
+p.img-mobile {
+    width: 100%;
+    padding: 5rem 0;
+    font-size: 22px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.bg-span {
+    background-color: rgba(255,255,255,0.86275);
+    color: rgb(73, 73, 73);
+    font-size: 24px;
+    padding: 3rem 0;
+    margin: 15px;
+}
+.btn-mobile {
+    background-color: white;
+    padding: 10px 10px;
+    margin: 25px;
+}
+.bg-slider-img {
+    padding: 8rem 5rem;
 }
 

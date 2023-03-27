@@ -50,6 +50,9 @@
   "MobileBar": {
     "description": "Auto imported from components/MobileBar.vue"
   },
+  "ModalError": {
+    "description": "Auto imported from components/ModalError.vue"
+  },
   "MyAccountContainer": {
     "description": "Auto imported from components/MyAccountContainer.vue"
   },
@@ -170,12 +173,6 @@
   "HeaderCheckout": {
     "description": "Auto imported from components/header/HeaderCheckout.vue"
   },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
-  },
   "LoadersBigLoader": {
     "description": "Auto imported from components/loaders/BigLoader.vue"
   },
@@ -202,5 +199,11 @@
   },
   "ProfileNewProfile": {
     "description": "Auto imported from components/profile/NewProfile.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   }
 }

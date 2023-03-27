@@ -9,7 +9,7 @@
         <button class="scroll-top" @click="scrollToTop" :class="{ 'show': isVisible }">
             <i class="fa fa-angle-double-up"></i>
         </button>
-    </div>
+     </div>
 </template>
 
 <script>
@@ -27,6 +27,9 @@
                     behavior: "smooth",
                 });
             },
+        },
+        components: {
+            ModalError: () => import('~/components/ModalError.vue'),
         },
         mounted() {
             window.addEventListener("scroll", () => {

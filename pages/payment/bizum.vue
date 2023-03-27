@@ -51,7 +51,7 @@ export default {
 
     computed: {
         total() {
-            return this.$store.getters.getTotal;
+            return this.$store.getters.getTotal * 1.21;
         },
         shippingAmount() {
             return this.$store.getters.getShippingAmount;

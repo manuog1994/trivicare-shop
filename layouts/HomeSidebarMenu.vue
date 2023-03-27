@@ -20,6 +20,9 @@
                 isVisible: false
             };
         },
+        components: {
+            ModalError: () => import('~/components/ModalError.vue'),
+        },
         methods: {
             scrollToTop() {
                 window.scroll({

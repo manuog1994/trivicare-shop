@@ -15,6 +15,7 @@ export { default as Location } from '../../components/Location.vue'
 export { default as Login } from '../../components/Login.vue'
 export { default as MiniCart } from '../../components/MiniCart.vue'
 export { default as MobileBar } from '../../components/MobileBar.vue'
+export { default as ModalError } from '../../components/ModalError.vue'
 export { default as MyAccountContainer } from '../../components/MyAccountContainer.vue'
 export { default as MyOrdersCom } from '../../components/MyOrdersCom.vue'
 export { default as NavBottom } from '../../components/NavBottom.vue'
@@ -55,8 +56,6 @@ export { default as CheckoutSendStep } from '../../components/checkout/SendStep.
 export { default as CheckoutSuccessOrder } from '../../components/checkout/SuccessOrder.vue'
 export { default as CheckoutTimerNav } from '../../components/checkout/TimerNav.vue'
 export { default as HeaderCheckout } from '../../components/header/HeaderCheckout.vue'
-export { default as PolicyServicePolicyFour } from '../../components/policy/ServicePolicyFour.vue'
-export { default as HeroSliderSix } from '../../components/hero/HeroSliderSix.vue'
 export { default as LoadersBigLoader } from '../../components/loaders/BigLoader.vue'
 export { default as LoadersSmallLoading } from '../../components/loaders/SmallLoading.vue'
 export { default as ProductDetailsWrapper } from '../../components/product/ProductDetailsWrapper.vue'
@@ -66,6 +65,8 @@ export { default as ProductGridStyleThree } from '../../components/product/Produ
 export { default as ProductWrapperCosmetics } from '../../components/product/ProductWrapperCosmetics.vue'
 export { default as ProfileNewGuest } from '../../components/profile/NewGuest.vue'
 export { default as ProfileNewProfile } from '../../components/profile/NewProfile.vue'
+export { default as PolicyServicePolicyFour } from '../../components/policy/ServicePolicyFour.vue'
+export { default as HeroSliderSix } from '../../components/hero/HeroSliderSix.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

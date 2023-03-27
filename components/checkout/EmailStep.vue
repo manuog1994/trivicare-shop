@@ -76,11 +76,15 @@
                 </div>
             </form>
         </div>
+        <ModalError />
     </div>
 </template>
 
 <script>
 export default {
+    components: {
+        ModalError: () => import('@/components/ModalError.vue'),
+    },
     data() {
         return {
             email: '',
@@ -160,8 +164,9 @@ export default {
                         this.$store.commit('SET_CONDITIONS_STORE', this.$refs.conditionsGuest?.checked);
                         this.$store.commit('SET_NEWSLETTER_STORE', this.$refs.newsletterGuest?.checked);
                         this.$store.commit('SET_STEP2', true);
-                        window.scrollTo(0, 0);
-                        this.$router.push({ query: { reserve: this.reserveStore, step: 2 } });
+                        this.$modal.show('errorModal');
+                        //window.scrollTo(0, 0);
+                        //this.$router.push({ query: { reserve: this.reserveStore, step: 2 } });
                     }
                 }
             })
