@@ -87,7 +87,7 @@ export default {
                         token_id: this.token_id,
                         token_reserve: this.$store.getters.getReserve,
                         payment_method: this.$store.getters.getPaymentMethod,
-                        pickup_point: this.pickupPointer,
+                        pickup_point: this.$store.getters.getPickUpId,
                     }).then((res) => {
                         this.orderComplete();
                         this.$root.$emit('orderComplete', true)
@@ -119,7 +119,7 @@ export default {
                     token_id: this.token_id,
                     token_reserve: this.$store.getters.getReserve,
                     payment_method: this.$store.getters.getPaymentMethod,
-                    pickup_point: this.pickupPointer,
+                    pickup_point: this.$store.getters.getPickUpId,
                 }).then((res) => {
                     this.orderComplete();
                     this.$root.$emit('orderComplete', true)
