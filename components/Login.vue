@@ -127,7 +127,7 @@
                     });
                 } catch (error) {
                     this.errors = ['El correo electrónico o la contraseña son incorrectos.']; 
-                    //console.log(error.response.data)
+                    console.log(error.response.data)
                     this.$axios.post('/api/error-message', {
                         message: error.response.data.message
                     })            

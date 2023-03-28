@@ -119,7 +119,7 @@ export default defineNuxtConfig({
 
 
     router: {
-        middleware: ['auth', 'role'],
+        middleware: ['authentication'],
     },
       
     // pageTransition: {

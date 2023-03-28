@@ -170,6 +170,12 @@
   "CheckoutTimerNav": {
     "description": "Auto imported from components/checkout/TimerNav.vue"
   },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
   "HeaderCheckout": {
     "description": "Auto imported from components/header/HeaderCheckout.vue"
   },
@@ -199,11 +205,5 @@
   },
   "ProfileNewProfile": {
     "description": "Auto imported from components/profile/NewProfile.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   }
 }

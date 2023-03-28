@@ -55,6 +55,8 @@ export { default as CheckoutResumen } from '../../components/checkout/Resumen.vu
 export { default as CheckoutSendStep } from '../../components/checkout/SendStep.vue'
 export { default as CheckoutSuccessOrder } from '../../components/checkout/SuccessOrder.vue'
 export { default as CheckoutTimerNav } from '../../components/checkout/TimerNav.vue'
+export { default as PolicyServicePolicyFour } from '../../components/policy/ServicePolicyFour.vue'
+export { default as HeroSliderSix } from '../../components/hero/HeroSliderSix.vue'
 export { default as HeaderCheckout } from '../../components/header/HeaderCheckout.vue'
 export { default as LoadersBigLoader } from '../../components/loaders/BigLoader.vue'
 export { default as LoadersSmallLoading } from '../../components/loaders/SmallLoading.vue'
@@ -65,8 +67,6 @@ export { default as ProductGridStyleThree } from '../../components/product/Produ
 export { default as ProductWrapperCosmetics } from '../../components/product/ProductWrapperCosmetics.vue'
 export { default as ProfileNewGuest } from '../../components/profile/NewGuest.vue'
 export { default as ProfileNewProfile } from '../../components/profile/NewProfile.vue'
-export { default as PolicyServicePolicyFour } from '../../components/policy/ServicePolicyFour.vue'
-export { default as HeroSliderSix } from '../../components/hero/HeroSliderSix.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

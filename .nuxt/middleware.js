@@ -1,5 +1,8 @@
 const middleware = {}
 
+middleware['authentication'] = require('../middleware/authentication.js')
+middleware['authentication'] = middleware['authentication'].default || middleware['authentication']
+
 middleware['bizum'] = require('../middleware/bizum.js')
 middleware['bizum'] = middleware['bizum'].default || middleware['bizum']
 

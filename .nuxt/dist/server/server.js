@@ -247,7 +247,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************!*\
   !*** ./.nuxt/components/index.js ***!
   \***********************************/
-/*! exports provided: AboutMission, Auth, BrandLogoCarousel, CartContainer, CheckoutContainer, ContactInfo, ContactModal, CookiesPolicyContent, ForgotPasswordContainer, HeaderWithTopbar, Intro, IntroMobile, LegalWarningProtectionDatesContainer, Location, Login, MiniCart, MobileBar, ModalError, MyAccountContainer, MyOrdersCom, NavBottom, Navigation, NewsletterModal, Notifications, NotificationsContent, OffCanvasMobileMenu, OrderConfirmation, OrdersCom, OrdersProfileCom, ProductDetailsDescriptionReview, QuestionsCont, QuickView, Register, ResponsiveMobileMenu, Reviews, Search, ShopContainer, ShopSidebar, SuggestionsModal, TermsConditionsContainer, TheFooter, TheHeader, UnsubscribeContainer, WelcomeMessage, WishListContainer, CheckoutAddressStep, CheckoutCouponForm, CheckoutEmailStep, CheckoutNewProgressBar, CheckoutPayStep, CheckoutPaypal, CheckoutPickupModal, CheckoutRedsysPay, CheckoutResumen, CheckoutSendStep, CheckoutSuccessOrder, CheckoutTimerNav, HeaderCheckout, LoadersBigLoader, LoadersSmallLoading, ProductDetailsWrapper, ProductGridItem, ProductGridItemTwo, ProductGridStyleThree, ProductWrapperCosmetics, ProfileNewGuest, ProfileNewProfile, PolicyServicePolicyFour, HeroSliderSix */
+/*! exports provided: AboutMission, Auth, BrandLogoCarousel, CartContainer, CheckoutContainer, ContactInfo, ContactModal, CookiesPolicyContent, ForgotPasswordContainer, HeaderWithTopbar, Intro, IntroMobile, LegalWarningProtectionDatesContainer, Location, Login, MiniCart, MobileBar, ModalError, MyAccountContainer, MyOrdersCom, NavBottom, Navigation, NewsletterModal, Notifications, NotificationsContent, OffCanvasMobileMenu, OrderConfirmation, OrdersCom, OrdersProfileCom, ProductDetailsDescriptionReview, QuestionsCont, QuickView, Register, ResponsiveMobileMenu, Reviews, Search, ShopContainer, ShopSidebar, SuggestionsModal, TermsConditionsContainer, TheFooter, TheHeader, UnsubscribeContainer, WelcomeMessage, WishListContainer, CheckoutAddressStep, CheckoutCouponForm, CheckoutEmailStep, CheckoutNewProgressBar, CheckoutPayStep, CheckoutPaypal, CheckoutPickupModal, CheckoutRedsysPay, CheckoutResumen, CheckoutSendStep, CheckoutSuccessOrder, CheckoutTimerNav, PolicyServicePolicyFour, HeroSliderSix, HeaderCheckout, LoadersBigLoader, LoadersSmallLoading, ProductDetailsWrapper, ProductGridItem, ProductGridItemTwo, ProductGridStyleThree, ProductWrapperCosmetics, ProfileNewGuest, ProfileNewProfile */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -424,41 +424,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_checkout_TimerNav_vue__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ../../components/checkout/TimerNav.vue */ "./components/checkout/TimerNav.vue");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckoutTimerNav", function() { return _components_checkout_TimerNav_vue__WEBPACK_IMPORTED_MODULE_57__["default"]; });
 
-/* harmony import */ var _components_header_HeaderCheckout_vue__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ../../components/header/HeaderCheckout.vue */ "./components/header/HeaderCheckout.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HeaderCheckout", function() { return _components_header_HeaderCheckout_vue__WEBPACK_IMPORTED_MODULE_58__["default"]; });
+/* harmony import */ var _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ../../components/policy/ServicePolicyFour.vue */ "./components/policy/ServicePolicyFour.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolicyServicePolicyFour", function() { return _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_58__["default"]; });
 
-/* harmony import */ var _components_loaders_BigLoader_vue__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ../../components/loaders/BigLoader.vue */ "./components/loaders/BigLoader.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadersBigLoader", function() { return _components_loaders_BigLoader_vue__WEBPACK_IMPORTED_MODULE_59__["default"]; });
+/* harmony import */ var _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ../../components/hero/HeroSliderSix.vue */ "./components/hero/HeroSliderSix.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HeroSliderSix", function() { return _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_59__["default"]; });
 
-/* harmony import */ var _components_loaders_SmallLoading_vue__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ../../components/loaders/SmallLoading.vue */ "./components/loaders/SmallLoading.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadersSmallLoading", function() { return _components_loaders_SmallLoading_vue__WEBPACK_IMPORTED_MODULE_60__["default"]; });
+/* harmony import */ var _components_header_HeaderCheckout_vue__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ../../components/header/HeaderCheckout.vue */ "./components/header/HeaderCheckout.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HeaderCheckout", function() { return _components_header_HeaderCheckout_vue__WEBPACK_IMPORTED_MODULE_60__["default"]; });
 
-/* harmony import */ var _components_product_ProductDetailsWrapper_vue__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ../../components/product/ProductDetailsWrapper.vue */ "./components/product/ProductDetailsWrapper.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductDetailsWrapper", function() { return _components_product_ProductDetailsWrapper_vue__WEBPACK_IMPORTED_MODULE_61__["default"]; });
+/* harmony import */ var _components_loaders_BigLoader_vue__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ../../components/loaders/BigLoader.vue */ "./components/loaders/BigLoader.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadersBigLoader", function() { return _components_loaders_BigLoader_vue__WEBPACK_IMPORTED_MODULE_61__["default"]; });
 
-/* harmony import */ var _components_product_ProductGridItem_vue__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ../../components/product/ProductGridItem.vue */ "./components/product/ProductGridItem.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridItem", function() { return _components_product_ProductGridItem_vue__WEBPACK_IMPORTED_MODULE_62__["default"]; });
+/* harmony import */ var _components_loaders_SmallLoading_vue__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ../../components/loaders/SmallLoading.vue */ "./components/loaders/SmallLoading.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadersSmallLoading", function() { return _components_loaders_SmallLoading_vue__WEBPACK_IMPORTED_MODULE_62__["default"]; });
 
-/* harmony import */ var _components_product_ProductGridItemTwo_vue__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ../../components/product/ProductGridItemTwo.vue */ "./components/product/ProductGridItemTwo.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridItemTwo", function() { return _components_product_ProductGridItemTwo_vue__WEBPACK_IMPORTED_MODULE_63__["default"]; });
+/* harmony import */ var _components_product_ProductDetailsWrapper_vue__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ../../components/product/ProductDetailsWrapper.vue */ "./components/product/ProductDetailsWrapper.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductDetailsWrapper", function() { return _components_product_ProductDetailsWrapper_vue__WEBPACK_IMPORTED_MODULE_63__["default"]; });
 
-/* harmony import */ var _components_product_ProductGridStyleThree_vue__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ../../components/product/ProductGridStyleThree.vue */ "./components/product/ProductGridStyleThree.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridStyleThree", function() { return _components_product_ProductGridStyleThree_vue__WEBPACK_IMPORTED_MODULE_64__["default"]; });
+/* harmony import */ var _components_product_ProductGridItem_vue__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ../../components/product/ProductGridItem.vue */ "./components/product/ProductGridItem.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridItem", function() { return _components_product_ProductGridItem_vue__WEBPACK_IMPORTED_MODULE_64__["default"]; });
 
-/* harmony import */ var _components_product_ProductWrapperCosmetics_vue__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ../../components/product/ProductWrapperCosmetics.vue */ "./components/product/ProductWrapperCosmetics.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductWrapperCosmetics", function() { return _components_product_ProductWrapperCosmetics_vue__WEBPACK_IMPORTED_MODULE_65__["default"]; });
+/* harmony import */ var _components_product_ProductGridItemTwo_vue__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ../../components/product/ProductGridItemTwo.vue */ "./components/product/ProductGridItemTwo.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridItemTwo", function() { return _components_product_ProductGridItemTwo_vue__WEBPACK_IMPORTED_MODULE_65__["default"]; });
 
-/* harmony import */ var _components_profile_NewGuest_vue__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ../../components/profile/NewGuest.vue */ "./components/profile/NewGuest.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProfileNewGuest", function() { return _components_profile_NewGuest_vue__WEBPACK_IMPORTED_MODULE_66__["default"]; });
+/* harmony import */ var _components_product_ProductGridStyleThree_vue__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ../../components/product/ProductGridStyleThree.vue */ "./components/product/ProductGridStyleThree.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductGridStyleThree", function() { return _components_product_ProductGridStyleThree_vue__WEBPACK_IMPORTED_MODULE_66__["default"]; });
 
-/* harmony import */ var _components_profile_NewProfile_vue__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ../../components/profile/NewProfile.vue */ "./components/profile/NewProfile.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProfileNewProfile", function() { return _components_profile_NewProfile_vue__WEBPACK_IMPORTED_MODULE_67__["default"]; });
+/* harmony import */ var _components_product_ProductWrapperCosmetics_vue__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ../../components/product/ProductWrapperCosmetics.vue */ "./components/product/ProductWrapperCosmetics.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProductWrapperCosmetics", function() { return _components_product_ProductWrapperCosmetics_vue__WEBPACK_IMPORTED_MODULE_67__["default"]; });
 
-/* harmony import */ var _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ../../components/policy/ServicePolicyFour.vue */ "./components/policy/ServicePolicyFour.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolicyServicePolicyFour", function() { return _components_policy_ServicePolicyFour_vue__WEBPACK_IMPORTED_MODULE_68__["default"]; });
+/* harmony import */ var _components_profile_NewGuest_vue__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ../../components/profile/NewGuest.vue */ "./components/profile/NewGuest.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProfileNewGuest", function() { return _components_profile_NewGuest_vue__WEBPACK_IMPORTED_MODULE_68__["default"]; });
 
-/* harmony import */ var _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ../../components/hero/HeroSliderSix.vue */ "./components/hero/HeroSliderSix.vue");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HeroSliderSix", function() { return _components_hero_HeroSliderSix_vue__WEBPACK_IMPORTED_MODULE_69__["default"]; });
+/* harmony import */ var _components_profile_NewProfile_vue__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ../../components/profile/NewProfile.vue */ "./components/profile/NewProfile.vue");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProfileNewProfile", function() { return _components_profile_NewProfile_vue__WEBPACK_IMPORTED_MODULE_69__["default"]; });
 
 
 // nuxt/nuxt.js#8607
@@ -783,7 +783,7 @@ const unregister=router.afterEach(async(to,from)=>{if( true&&ssrContext&&ssrCont
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const middleware={};middleware['bizum']=__webpack_require__(/*! ../middleware/bizum.js */ "./middleware/bizum.js");middleware['bizum']=middleware['bizum'].default||middleware['bizum'];middleware['paypal']=__webpack_require__(/*! ../middleware/paypal.js */ "./middleware/paypal.js");middleware['paypal']=middleware['paypal'].default||middleware['paypal'];middleware['role']=__webpack_require__(/*! ../middleware/role.js */ "./middleware/role.js");middleware['role']=middleware['role'].default||middleware['role'];middleware['token']=__webpack_require__(/*! ../middleware/token.js */ "./middleware/token.js");middleware['token']=middleware['token'].default||middleware['token'];middleware['transferBank']=__webpack_require__(/*! ../middleware/transferBank.js */ "./middleware/transferBank.js");middleware['transferBank']=middleware['transferBank'].default||middleware['transferBank'];/* harmony default export */ __webpack_exports__["default"] = (middleware);
+const middleware={};middleware['authentication']=__webpack_require__(/*! ../middleware/authentication.js */ "./middleware/authentication.js");middleware['authentication']=middleware['authentication'].default||middleware['authentication'];middleware['bizum']=__webpack_require__(/*! ../middleware/bizum.js */ "./middleware/bizum.js");middleware['bizum']=middleware['bizum'].default||middleware['bizum'];middleware['paypal']=__webpack_require__(/*! ../middleware/paypal.js */ "./middleware/paypal.js");middleware['paypal']=middleware['paypal'].default||middleware['paypal'];middleware['role']=__webpack_require__(/*! ../middleware/role.js */ "./middleware/role.js");middleware['role']=middleware['role'].default||middleware['role'];middleware['token']=__webpack_require__(/*! ../middleware/token.js */ "./middleware/token.js");middleware['token']=middleware['token'].default||middleware['token'];middleware['transferBank']=__webpack_require__(/*! ../middleware/transferBank.js */ "./middleware/transferBank.js");middleware['transferBank']=middleware['transferBank'].default||middleware['transferBank'];/* harmony default export */ __webpack_exports__["default"] = (middleware);
 
 /***/ }),
 
@@ -916,7 +916,7 @@ const Components=Object(_utils_js__WEBPACK_IMPORTED_MODULE_3__["getMatchedCompon
   */if(store._actions&&store._actions.nuxtServerInit){try{await store.dispatch('nuxtServerInit',app.context);}catch(err){console.debug('Error occurred when calling nuxtServerInit: ',err.message);throw err;}}// ...If there is a redirect or an error, stop the process
 if(ssrContext.redirected){return noopApp();}if(ssrContext.nuxt.error){return renderErrorPage();}/*
   ** Call global middleware (nuxt.config.js)
-  */let midd=["auth","role"];midd=midd.map(name=>{if(typeof name==='function'){return name;}if(typeof _middleware_js__WEBPACK_IMPORTED_MODULE_2__["default"][name]!=='function'){app.context.error({statusCode:500,message:'Unknown middleware '+name});}return _middleware_js__WEBPACK_IMPORTED_MODULE_2__["default"][name];});await Object(_utils_js__WEBPACK_IMPORTED_MODULE_3__["middlewareSeries"])(midd,app.context);// ...If there is a redirect or an error, stop the process
+  */let midd=["authentication"];midd=midd.map(name=>{if(typeof name==='function'){return name;}if(typeof _middleware_js__WEBPACK_IMPORTED_MODULE_2__["default"][name]!=='function'){app.context.error({statusCode:500,message:'Unknown middleware '+name});}return _middleware_js__WEBPACK_IMPORTED_MODULE_2__["default"][name];});await Object(_utils_js__WEBPACK_IMPORTED_MODULE_3__["middlewareSeries"])(midd,app.context);// ...If there is a redirect or an error, stop the process
 if(ssrContext.redirected){return noopApp();}if(ssrContext.nuxt.error){return renderErrorPage();}/*
   ** Set layout
   */let layout=Components.length?Components[0].options.layout:_index_js__WEBPACK_IMPORTED_MODULE_5__["NuxtError"].layout;if(typeof layout==='function'){layout=layout(app.context);}await _app.loadLayout(layout);if(ssrContext.nuxt.error){return renderErrorPage();}layout=_app.setLayout(layout);ssrContext.nuxt.layout=_app.layoutName;/*
@@ -6842,6 +6842,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./middleware/authentication.js":
+/*!**************************************!*\
+  !*** ./middleware/authentication.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function({app,store,redirect,route}){const cookies=app.$cookies.get('auth._token.laravelSanctum');if(cookies&&route.path==='/login'){redirect('/');}if(!cookies&&route.path=='/my-account'){redirect('/login');}});
+
+/***/ }),
+
 /***/ "./middleware/bizum.js":
 /*!*****************************!*\
   !*** ./middleware/bizum.js ***!
@@ -9940,8 +9953,7 @@ this.errors=['Hemos tenido un problema al iniciar sesión, por favor intenta de 
 this.errors=['Hemos tenido problemas al obtener sus datos de Google, por favor intenta de nuevo o inicia sesión con tu correo y contraseña.'];this.$axios.post('/api/error-message',{message:error.response.data.message});});}},methods:{async login(){try{const formData=new FormData(this.$refs.loginform);await this.$auth.loginWith('laravelSanctum',{data:formData}).then(res=>{//console.log(res);
 //window.location.reload();
 this.errors=[];this.$modal.hide('loginModal');//this.$notify({ title: 'Bienvenid@ de nuevo!'})
-});}catch(error){this.errors=['El correo electrónico o la contraseña son incorrectos.'];//console.log(error.response.data)
-this.$axios.post('/api/error-message',{message:error.response.data.message});}},async loginGoogle(){await this.$axios.get('/api/auth/url').then(res=>{//console.log(res.data);
+});}catch(error){this.errors=['El correo electrónico o la contraseña son incorrectos.'];console.log(error.response.data);this.$axios.post('/api/error-message',{message:error.response.data.message});}},async loginGoogle(){await this.$axios.get('/api/auth/url').then(res=>{//console.log(res.data);
 window.location.href=res.data;}).catch(err=>{//console.log(err);
 });},viewPass(id){var x=document.getElementById(id);if(x.type==="password"){x.type="text";}else{x.type="password";}}}});
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! url */ "url")["URLSearchParams"]))
@@ -10002,11 +10014,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony default export */ __webpack_exports__["default"] = ({data(){return{email:'',old_password:'',password:'',password_confirmation:'',errors:[],disabled:true,checked:false};},components:{NewProfile:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ~/components/profile/NewProfile.vue */ "./components/profile/NewProfile.vue"))},mounted(){this.$nextTick(()=>{this.$nuxt.$loading.start();setTimeout(()=>{this.$nuxt.$loading.finish();},2000);});var tituloOriginal=document.title;// Lo guardamos para restablecerlo
+/* harmony default export */ __webpack_exports__["default"] = ({auth:true,data(){return{email:'',old_password:'',password:'',password_confirmation:'',errors:[],disabled:true,checked:false};},components:{NewProfile:()=>Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ~/components/profile/NewProfile.vue */ "./components/profile/NewProfile.vue"))},mounted(){this.$nextTick(()=>{this.$nuxt.$loading.start();setTimeout(()=>{this.$nuxt.$loading.finish();},2000);});var tituloOriginal=document.title;// Lo guardamos para restablecerlo
 window.onblur=function(){// Si el usuario se va a otro lado...
 document.title="Ey, vuelve aquí!";// Cambiamos el título
 };window.onfocus=function(){document.title=tituloOriginal;// Si el usuario vuelve restablecemos el título
-};this.$auth.fetchUser();},methods:{async updateEmail(){sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({title:'¿Estas seguro de que quieres cambiar tu email?',showCancelButton:true,confirmButtonText:'Si, cambiar'}).then(result=>{/* Read more about isConfirmed, isDenied below */if(result.isConfirmed){this.$axios.post('/api/update-email/'+this.$auth.user.id,{email:this.email}).then(()=>{sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('¡Email actualizado!','','success');this.$auth.fetchUser();this.errors=[];this.email='';}).catch(error=>{this.errors=Object.values(error.response.data).flat();});}});},async updatePassword(){await this.$axios.post('/api/update-password/'+this.$auth.user.id,{old_password:this.old_password,password:this.password,password_confirmation:this.password_confirmation}).then(()=>{sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('¡Contraseña actualizada!','','success');this.old_password='';this.password='';this.password_confirmation='';this.errors=[];this.$auth.fetchUser();}).catch(error=>{this.errors=Object.values(error.response.data).flat();});},async deleteProfile(id){sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({title:'¿Estas seguro de que quieres eliminar esta dirección?',showCancelButton:true,confirmButtonText:'Si, eliminar'}).then(result=>{/* Read more about isConfirmed, isDenied below */if(result.isConfirmed){this.$axios.delete('/api/delete-profile/'+id);this.$auth.fetchUser();sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('Su dirección ha sido eliminada!','','success');}});},async deleteAccount(){sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({title:'¿Estas seguro de que quieres eliminar tu cuenta?',showCancelButton:true,confirmButtonText:'Si, eliminar'}).then(result=>{/* Read more about isConfirmed, isDenied below */if(result.isConfirmed){this.$axios.delete('/api/destroy/'+this.$auth.user.id);sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('Su cuenta ha sido eliminada!','','success');this.$auth.logout();this.$router.push('/');}});},async resendEmail(){await this.$axios.post('/api/resend-email/'+this.$auth.user.id).then(res=>{console.log(res);this.$notify({title:'Email reenviado'});}).catch(error=>{this.errors=Object.values(error.response.data).flat();});},viewPass(id){var x=document.getElementById(id);if(x.type==="password"){x.type="text";}else{x.type="password";}}},head(){return{title:"Mi Cuenta"};}});
+};//this.$auth.fetchUser();
+},methods:{async updateEmail(){sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({title:'¿Estas seguro de que quieres cambiar tu email?',showCancelButton:true,confirmButtonText:'Si, cambiar'}).then(result=>{/* Read more about isConfirmed, isDenied below */if(result.isConfirmed){this.$axios.post('/api/update-email/'+this.$auth.user.id,{email:this.email}).then(()=>{sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('¡Email actualizado!','','success');this.$auth.fetchUser();this.errors=[];this.email='';}).catch(error=>{this.errors=Object.values(error.response.data).flat();});}});},async updatePassword(){await this.$axios.post('/api/update-password/'+this.$auth.user.id,{old_password:this.old_password,password:this.password,password_confirmation:this.password_confirmation}).then(()=>{sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('¡Contraseña actualizada!','','success');this.old_password='';this.password='';this.password_confirmation='';this.errors=[];this.$auth.fetchUser();}).catch(error=>{this.errors=Object.values(error.response.data).flat();});},async deleteProfile(id){sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({title:'¿Estas seguro de que quieres eliminar esta dirección?',showCancelButton:true,confirmButtonText:'Si, eliminar'}).then(result=>{/* Read more about isConfirmed, isDenied below */if(result.isConfirmed){this.$axios.delete('/api/delete-profile/'+id);this.$auth.fetchUser();sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('Su dirección ha sido eliminada!','','success');}});},async deleteAccount(){sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({title:'¿Estas seguro de que quieres eliminar tu cuenta?',showCancelButton:true,confirmButtonText:'Si, eliminar'}).then(result=>{/* Read more about isConfirmed, isDenied below */if(result.isConfirmed){this.$axios.delete('/api/destroy/'+this.$auth.user.id);sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('Su cuenta ha sido eliminada!','','success');this.$auth.logout();this.$router.push('/');}});},async resendEmail(){await this.$axios.post('/api/resend-email/'+this.$auth.user.id).then(res=>{console.log(res);this.$notify({title:'Email reenviado'});}).catch(error=>{this.errors=Object.values(error.response.data).flat();});},viewPass(id){var x=document.getElementById(id);if(x.type==="password"){x.type="text";}else{x.type="password";}}},head(){return{title:"Mi Cuenta"};}});
 
 /***/ }),
 

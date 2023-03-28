@@ -22269,6 +22269,39 @@ a.link-nav{
     background-color: #F6F6F6;
 }
 
+
+.policy-icons{
+    width: 80px;
+    height: auto;
+    margin: auto;
+}
+
+
+p.img-mobile {
+    width: 100%;
+    padding: 5rem 0;
+    font-size: 22px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.bg-span {
+    background-color: rgba(255,255,255,0.86275);
+    color: rgb(73, 73, 73);
+    font-size: 24px;
+    padding: 3rem 0;
+    margin: 15px;
+}
+.btn-mobile {
+    background-color: white;
+    padding: 10px 10px;
+    margin: 25px;
+}
+.bg-slider-img {
+    padding: 8rem 5rem;
+}
+
 .nav-timer[data-v-5347162a] {
   position: fixed;
   top: 0;
@@ -22405,38 +22438,5 @@ a.link-nav{
     display: flex;
     justify-content: center;
     margin-bottom: 0.5rem;
-}
-
-
-.policy-icons{
-    width: 80px;
-    height: auto;
-    margin: auto;
-}
-
-
-p.img-mobile {
-    width: 100%;
-    padding: 5rem 0;
-    font-size: 22px;
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: column;
-}
-.bg-span {
-    background-color: rgba(255,255,255,0.86275);
-    color: rgb(73, 73, 73);
-    font-size: 24px;
-    padding: 3rem 0;
-    margin: 15px;
-}
-.btn-mobile {
-    background-color: white;
-    padding: 10px 10px;
-    margin: 25px;
-}
-.bg-slider-img {
-    padding: 8rem 5rem;
 }
 

@@ -182,7 +182,7 @@
 <script>
     import Swal from 'sweetalert2'
     export default {
- 
+        auth: true,
         data() {
             return {
                 email: '',
@@ -214,7 +214,7 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
-            this.$auth.fetchUser();
+            //this.$auth.fetchUser();
         },
 
         methods: {

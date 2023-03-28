@@ -34,7 +34,7 @@
                 });
                 const productDetails = store.getters.getProducts
                 return {
-                    productDetails: productDetails.data[0],
+                    productDetails: productDetails?.data[0],
                 }
 
 
@@ -45,7 +45,7 @@
 
         head() {
             return {
-                title: this.productDetails.name + ' | TriviCare Natural Cosmetics',
+                title: this.productDetails?.name + ' | TriviCare Natural Cosmetics',
                 link: [
                     { rel: 'cannonical', href: 'https://trivicare.com/product/'}
                 ],
@@ -55,7 +55,7 @@
                     {
                         hid: 'description',
                         name: 'description',
-                        content: this.productDetails.meta_description
+                        content: this.productDetails?.meta_description
                     }
                 ],
 
