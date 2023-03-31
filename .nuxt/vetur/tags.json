@@ -134,21 +134,6 @@
   "WishListContainer": {
     "description": "Auto imported from components/WishListContainer.vue"
   },
-  "LoadersBigLoader": {
-    "description": "Auto imported from components/loaders/BigLoader.vue"
-  },
-  "LoadersSmallLoading": {
-    "description": "Auto imported from components/loaders/SmallLoading.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
-  },
-  "HeaderCheckout": {
-    "description": "Auto imported from components/header/HeaderCheckout.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
   "CheckoutAddressStep": {
     "description": "Auto imported from components/checkout/AddressStep.vue"
   },
@@ -185,11 +170,17 @@
   "CheckoutTimerNav": {
     "description": "Auto imported from components/checkout/TimerNav.vue"
   },
-  "ProfileNewGuest": {
-    "description": "Auto imported from components/profile/NewGuest.vue"
+  "HeaderCheckout": {
+    "description": "Auto imported from components/header/HeaderCheckout.vue"
   },
-  "ProfileNewProfile": {
-    "description": "Auto imported from components/profile/NewProfile.vue"
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
+  "LoadersBigLoader": {
+    "description": "Auto imported from components/loaders/BigLoader.vue"
+  },
+  "LoadersSmallLoading": {
+    "description": "Auto imported from components/loaders/SmallLoading.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
@@ -205,5 +196,14 @@
   },
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
+  },
+  "ProfileNewGuest": {
+    "description": "Auto imported from components/profile/NewGuest.vue"
+  },
+  "ProfileNewProfile": {
+    "description": "Auto imported from components/profile/NewProfile.vue"
+  },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   }
 }
