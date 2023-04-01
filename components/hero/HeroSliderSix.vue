@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="d-none d-md-flex">
-            <n-link to="/shop"><img loading="lazy" src="@/static/campain/banner-trivicare.webp" alt="banner" width="100%" height="auto" style="cursor: pointer;"></n-link>
+            <n-link to="/shop"><img src="@/static/campain/banner-trivicare.webp" alt="banner" width="100%" height="auto" style="cursor: pointer;"></n-link>
         </div>
         <div class="d-md-none">
             <n-link to="/shop">
-                <img loading="lazy" src="@/static/campain/banner-trivicare-movil.webp" alt="banner_movil" width="100%" height="auto" style="cursor: pointer;">
+                <img src="@/static/campain/banner-trivicare-movil.webp" alt="banner_movil" width="100%" height="auto" style="cursor: pointer;">
             </n-link>
         </div>
     </div>
