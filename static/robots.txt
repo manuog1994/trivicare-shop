@@ -3,7 +3,6 @@ user-agent: *
 
 # PRIVATE URLS
 
-disallow: /crud
 disallow: /orders/*
 disallow: /my-account
 disallow: /my-orders
