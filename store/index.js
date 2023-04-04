@@ -37,6 +37,7 @@ export const state = () => ({
     bizumPage: false,
     paypalPage: false,
     transferBankPage: false,
+    lastUpdated: Date.now(),
 })
 
 
@@ -253,9 +254,11 @@ export const mutations = {
             const price = item.discount ? item.price_base - (item.price_base *(item.discount)/100) : item.price_base;
             item.cartQuantity = item.cartQuantity + payload.cartQuantity
             item.total = item.cartQuantity * price
+            state.lastUpdated = Date.now()
         } else {
             const price = payload.discount ? payload.price_base - (payload.price_base *(payload.discount)/100) : payload.price_base;
             state.cart.push({...payload, cartQuantity: payload.cartQuantity, total: price })
+            state.lastUpdated = Date.now()
         }
     },
 
@@ -352,6 +355,7 @@ export const mutations = {
 
     CLEAR_CART(state) {
         state.cart = []
+        state.lastUpdated = Date.now()
     },
 
     CLEAR_CUPON(state) {
@@ -467,7 +471,13 @@ export const actions = {
         context.commit("SET_TAG", data.data);
     },
 
-
+    clearCartIfExpired({ state, commit }) {
+        const currentTime = Date.now()
+        const timeSinceLastUpdate = currentTime - state.lastUpdated
+        if (timeSinceLastUpdate > 1 * 60 * 60 * 1000) {
+          commit('CLEAR_CART')
+        }
+      }
 
 }
 

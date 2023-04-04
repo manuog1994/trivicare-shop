@@ -74,10 +74,6 @@
             }
         },
 
-        mounted() {
-            //this.getProducts()
-        },
-
         methods: {
             async getProducts() {
                 await this.$store.dispatch('getProducts', {

@@ -69,20 +69,6 @@
             }
         },
 
-        async mounted() {
-            this.$nextTick(() => {
-                this.$nuxt.$loading.start()
-                setTimeout(() => {
-                    this.$nuxt.$loading.finish()
-                }, 2000);
-            });
-
-            await this.$axios.post('/api/visit', {
-                ip_address: 'No Ip',
-                page_visited: this.productDetails.name,
-            })
-         },
-
         methods: {
             closeMenus() {
                 this.searchOpacity(false);
