@@ -4,18 +4,21 @@
             <div class="header-padding-1 sticky-bar header-res-padding clearfix" :class="{'is-sticky': isSticky}">
                 <div :class="containerClass">
                     <div class="row">
-                        <div class="col-md-2 d-flex align-items-center">
-                            <div class="ms-lg-3 ms-xl-1">
-                                <n-link to="/">
-                                    <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo.svg" width="350" alt="logo"/>
-                                </n-link>
+                        <div class="col-4">
+                            <div class="">
+                                <Navigation />
                             </div>
                         </div>
-                        <div class="col-md-8 d-flex align-items-center">
-                            <Search />
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <n-link to="/">
+                                <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo.svg" width="200" alt="logo"/>
+                            </n-link>
                         </div>
-                        <div class="col-md-2 stiky-buttons">
+                        <div class="col-4 stiky-buttons">
                             <div class="header-right-wrap">
+                                <div class="same-style header-search me-2">
+                                    <button class="search-active" @click="searchOpen"><i class="pe-7s-search"></i></button>
+                                </div>
                                 <div class="same-style account-setting d-block me-1">
                                     <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menú de perfil"><i class="pe-7s-user-female"></i></button>
                                     <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
@@ -57,9 +60,11 @@
                             </div>
                         </div>
                     </div>
+                    <div id="searchMobile" class="col-12 hidden p-3">
+                        <Search />
+                    </div>
                 </div>
             </div>
-            <Navigation />
         </header>
         <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" />
 
@@ -206,7 +211,15 @@
                         this.notifications = 0;
                     }
                 }
-            }
+            },
+
+            searchOpen() {
+                if (document.getElementById('searchMobile').classList.contains('hidden')) {
+                    document.getElementById('searchMobile').classList.remove('hidden');
+                 } else {
+                    document.getElementById('searchMobile').classList.add('hidden');
+                }
+            },
         },
 
         beforeMount() {

@@ -34,9 +34,6 @@
         <div v-else class="mt-2">
             <p>Hola, <strong>{{ getName() }}</strong></p>
             <ul class="ms-2">
-                <li v-if="role == 'admin'">
-                    <a href="/crud">PDC</a>
-                </li>
                 <li>
                     <a href="/my-account">Mi cuenta</a>
                 </li>
@@ -74,7 +71,7 @@
                     },
                     {
                         url: '/shop',
-                        title: 'Ver Todo',
+                        title: 'Tienda',
 
                     },
                     {
@@ -130,8 +127,6 @@
                 return siblings;
             };
 
-            this.getRoles();
-
             const subMenuToggle = document.querySelectorAll('.submenu-toggle');
             subMenuToggle.forEach(function(btn) {
                 btn.addEventListener('click', function() {
@@ -166,23 +161,10 @@
 
             },
 
-            getRoles() {
-                if(this.$auth.loggedIn == true) {
-                    const roles = this.$auth.user.roles;
-                    if(roles != null) {
-                        roles.map(role => {
-                            this.role = role.name;
-                        });
-                    }else {
-                        this.role = '';
-                    }
-                }
-            },
-
             getName() {
                 if(this.$auth.loggedIn == true) {
                     const space = ' ';
-                    const name = this.$auth.user.name;
+                    const name = this.$auth.user?.name;
                     const arr = name.split(space);
 
                     return arr[0];
@@ -191,8 +173,8 @@
 
             countNotifications() {
                 if(this.$auth.loggedIn == true) {
-                    const notifications = this.$auth.user.notifications;
-                    if (notifications.read == false) {
+                    const notifications = this.$auth.user?.notifications;
+                    if (notifications?.read == false) {
                         this.notifications = notifications?.length;
                     }
                 }

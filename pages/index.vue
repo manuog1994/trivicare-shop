@@ -1,29 +1,25 @@
 <template>
     <client-only>
         <div class="home-cosmetics">
+            <NavBottom/>
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
-                <NavBottom/>
                 <HeroSliderSix />
-                <Intro />
-                <ServicePolicyFour />
+                <IconsActions />
                 <ProductWrapperCosmetics />
-                <BrandLogoCarousel />
+                <Testimonials />
+                <ServicePolicyFour />
                 <TheFooter />
             </div>
-            <BigLoader v-if="loaderPage" />
          </div>
     </client-only>
 </template>
 
 <script>
-
     export default {
         auth: false,
         role: false,
-
-        //pageTransition: 'slide-fade',
 
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
@@ -31,11 +27,10 @@
             NavBottom: () => import("@/components/NavBottom"),
             HeroSliderSix: () => import("@/components/hero/HeroSliderSix"),
             ProductWrapperCosmetics: () => import("@/components/product/ProductWrapperCosmetics"),
-            BrandLogoCarousel: () => import("@/components/BrandLogoCarousel"),
             ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
             TheFooter: () => import("@/components/TheFooter"),
-            Intro: () => import("@/components/Intro"),
-            BigLoader: () => import("@/components/loaders/BigLoader"),
+            IconsActions: () => import("@/components/IconsActions"),
+            Testimonials : () => import("@/components/Testimonials"),
         },
 
         data() {

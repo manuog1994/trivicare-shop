@@ -1,0 +1,57 @@
+<template>
+    <div class="container-fluid mb-5">
+        <div class="row">
+            <div class="col-12 col-md-6 p-0 bg-gray d-flex flex-column justify-content-center align-items-center">
+                <div class="text-center mt-5">
+                    <h2>Testimonios de nuestros clientes</h2>
+                </div>
+                <!-- Carrousel de bootstrap con autoplay -->
+                <div id="carouselExampleControls" class="carousel slide w-100 m-auto pb-4 pb-md-0" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item" v-for="(review, idx) in reviews" :key="review.id"  :class="{'active': idx === 0 }">
+                            <div class="text-center">
+                                <h4>{{ review.product?.name }}</h4>
+                                <p class="p-0 m-0">{{ review.user_name }} {{ review.user_lastname }}</p>
+                                <p class="p-0 m-0">{{ review.message }}</p>
+                                <div class="d-flex justify-content-center">
+                                    <vue-star-rating :star-size="20" :read-only="true" :show-rating="false" :rating="review.rating"></vue-star-rating>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon text-bg-dark" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon text-bg-dark" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 p-0">
+                <img src="/campain/modelo-con-crema-aplicada.webp" alt="Modelo con crema aplicada" width="100%" height="auto">
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            reviews: [],
+        }
+    },
+
+    async mounted() {
+        await this.$axios.get('/api/reviews').then(response => {
+            this.reviews = response.data.reviews;
+        });
+    },
+}
+</script>
+
+<style>
+
+</style>

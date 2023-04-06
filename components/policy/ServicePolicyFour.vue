@@ -1,10 +1,14 @@
 <template>
-    <div class="">
-        <div class="support-area pb-70 d-none d-lg-block">
-            <div class="container">
+    <div class="container bg-light shadow mb-5">
+        <div class="support-area">
+            <div class="pt-3 pb-3">
+                <div class="text-center">
+                    <h2>¿Necesita asesoramiento?</h2>
+                    <p class="lead m-0">Estamos siempre a su disposición, via email o WhatsApp</p>
+                </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6" v-for="(policy, index) in policies" :key="index">
-                        <div class="support-wrap-2 support-padding-2 support-shape-3 mb-30 text-center">
+                        <div class="support-wrap-2 support-padding-2 mb-30 text-center">
                             <div class="support-content-2">
                                 <div class="support-icon">
                                     <nuxt-img loading="lazy" class="animated" provider="customProvider" :src="'nuxt/' + policy.icon" :alt="policy.title"/>
@@ -16,14 +20,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-between justify-content-sm-around mt-4 mt-md-0 mb-4 mb-md-5 d-lg-none p-4 p-sm-4">
-            <div v-for="policy in policies" :key="policy.title" class="text-center">
-                <div class="policy-icons">
-                    <nuxt-img loading="lazy" class="animated" provider="customProvider" :src="'nuxt/' + policy.icon" :alt="policy.title" width="30px"/>
-                    <p class="display-min">{{ policy.title }}</p>
                 </div>
             </div>
         </div>
@@ -46,7 +42,7 @@
                 {
                         icon: "support-1.webp",
                         title: "Envío gratis",
-                        subTitle: "Envío gratis en pedidos superiores a 50€ (solo Península y Baleares)"
+                        subTitle: "Envío gratis en pedidos superiores a 40€ (Península y Baleares)"
                     },
                     {
                         icon: "support-2.webp",
@@ -55,8 +51,8 @@
                     },
                     {
                         icon: "support-4.webp",
-                        title: "10% de descuento",
-                        subTitle: "10% de descuento en tu primera compra"
+                        title: "Fabricados en España",
+                        subTitle: "Nuestros productos estan fabricados en España"
                     },
                 ]
             }

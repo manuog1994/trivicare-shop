@@ -71,7 +71,7 @@
                         <button class="btn btn-theme mb-2" @click="nextStep" v-if="$auth.loggedIn == true">Continuar</button>
                     </div>
                     <div class="col-12 d-flex justify-content-center">
-                        <button @click="logout" class="btn btn-theme-green">Hacer pedido como invitado</button>
+                        <button @click.prevent="logout" class="btn btn-theme-green">Hacer pedido como invitado</button>
                     </div>
                 </div>
             </form>

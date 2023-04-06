@@ -4,7 +4,8 @@
             <div>
                 <div class="">
                     <div class="custom-banner">
-                        <span>Envío gratis a Península y Baleares partir de 40 €</span>
+                        <i class="fa fa-truck me-2"></i>
+                        <span>Envío gratis a Península y Baleares a partir de 40 €</span>
                     </div>
                 </div>
             </div>

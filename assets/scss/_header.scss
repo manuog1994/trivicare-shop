@@ -25,15 +25,15 @@
     padding-right: 10px;
 }
 .header-padding-1 .container-fluid {
-    padding: 0 80px;
+    padding: 0 15px;
     @media #{$xl-layout, $xs-layout}{
 		padding: 0 15px;
 	}
     @media #{$lg-layout}{
-		padding: 0 30px;
+		padding: 0 15px;
 	}
     @media #{$md-layout}{
-		padding: 0 30px;
+		padding: 0 15px;
 	}
     @media #{$sm-layout}{
         padding: 0 15px;

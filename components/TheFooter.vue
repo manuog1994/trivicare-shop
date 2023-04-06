@@ -67,7 +67,7 @@
                             </p>
                             <p>
                                 <a href="https://api.whatsapp.com/send/?phone=34613036942&text=Hola%2C+quisiera%20informaci%C3%B3n..." title="Whatsapp">
-                                    <img src="/social/whatsapp.png" alt="whatsapp.png" width="90px" height="auto"/>
+                                    <img src="/social/whatsapp.webp" alt="Icono whatsapp" width="90px" height="auto"/>
                                 </a>
                             </p>
                             <p> 

@@ -121,11 +121,6 @@ export default defineNuxtConfig({
     router: {
         middleware: ['authentication'],
     },
-      
-    // pageTransition: {
-    //     name: 'slide-fade',
-    //     mode: 'out-in',
-    // },
 
 
 

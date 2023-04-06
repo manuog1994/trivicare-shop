@@ -1,8 +1,12 @@
 <template>
-    <div>
-        <div class="product-area pb-95 d-none d-md-block">
-            <div class="container">
-                <ul class="nav product-tab-list-2 pb-55">
+    <div class="container bg-light shadow mb-5">
+        <div class="product-area">
+            <div class="ps-5 pe-5 pb-5">
+                <div class="text-center pt-3">
+                    <h2>Cuídate naturalmente</h2>
+                    <p class=" lead m-0">Descubre nuestros productos con ingredientes naturales</p>
+                </div>
+                <ul class="nav product-tab-list-2 pb-55 mt-3">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#sale-product" role="tab" title="Vista previa">Más Vendidos</button>
                     </li>

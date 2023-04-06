@@ -1,32 +1,19 @@
 <template>
     <client-only>
-        <div class="d-flex justify-content-around">
-            <div class="d-flex col-7">
-                <nav>
-                    <ul class="d-flex justify-content-around">
-                        <li class="p-nav">
-                            <n-link to="/shop">Ver Todo</n-link>
-                         </li>
-                            <li v-for="category in categories" :key="category.id" class="p-nav">
-                                <n-link :to="`/shop?category=${category.slug}`">{{ category.name }}</n-link>
-                            </li>
-                         <li class="p-nav">
-                            <n-link to="/contact">Contacto</n-link>
-                        </li>
-                     </ul>
-                </nav>
-            </div>
-            <div class="col-5">
-                <div class="">
-                    <div class="d-flex justify-content-end">
-                        <p class="p-text">
-                            <i class="pe-7s-phone"></i>
-                             Atención al cliente 10:00 AM a 20:00 PM || 
-                            <a href="tel:+34613036942">613 036 942</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="">
+            <nav>
+                <ul class="d-flex justify-content-around">
+                    <li class="p-nav">
+                        <n-link to="/shop">Tienda</n-link>
+                    </li>
+                    <li class="p-nav">
+                        <n-link to="/about">Sobre nosotros</n-link>
+                    </li>
+                    <li class="p-nav">
+                        <n-link to="/contact">Contacto</n-link>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </client-only>
 </template>
@@ -38,7 +25,8 @@
 
     .p-nav{
         padding: 20px;
-        
+        font-size: 16px;
+        font-weight: 600;
     }
 
     .p-text{
