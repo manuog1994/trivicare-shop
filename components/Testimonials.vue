@@ -11,8 +11,8 @@
                         <div class="carousel-item" v-for="(review, idx) in reviews" :key="review.id"  :class="{'active': idx === 0 }">
                             <div class="text-center">
                                 <h4>{{ review.product?.name }}</h4>
-                                <p class="p-0 m-0">{{ review.user_name }} {{ review.user_lastname }}</p>
-                                <p class="p-0 m-0">{{ review.message }}</p>
+                                <p class="pt-0 mt-0 ps-5 pe-5"><strong>{{ review.user_name }} {{ review.user_lastname }}</strong></p>
+                                <p class="pt-0 mt-0 ps-5 pe-5">{{ review.message }}</p>
                                 <div class="d-flex justify-content-center">
                                     <vue-star-rating :star-size="20" :read-only="true" :show-rating="false" :rating="review.rating"></vue-star-rating>
                                 </div>
