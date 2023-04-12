@@ -25,6 +25,7 @@
         "bootstrap-vue": "^2.23.1",
         "cookie-universal-nuxt": "^2.2.2",
         "core-js": "^3.21.1",
+        "ipx": "^1.0.1",
         "js-file-download": "^0.4.12",
         "nuxi": "^3.3.1",
         "nuxt-edge": "latest",

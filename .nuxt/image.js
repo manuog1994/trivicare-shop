@@ -4,7 +4,6 @@ import NuxtImg from '~image/components/nuxt-img.vue'
 import NuxtPicture from '~image/components/nuxt-picture.vue'
 
 import * as staticRuntime$9781 from '/Users/manuelortegagaliano/wa/trivicare-shop/node_modules/@nuxt/image/dist/runtime/providers/static.js'
-import * as ipxRuntime$57ee from '/Users/manuelortegagaliano/wa/trivicare-shop/node_modules/@nuxt/image/dist/runtime/providers/ipx.js'
 import * as customProviderRuntime$35a3 from '/Users/manuelortegagaliano/wa/trivicare-shop/providers/custom.js'
 
 const imageOptions = {
@@ -18,14 +17,13 @@ const imageOptions = {
     "2xl": 1536
   },
   "presets": {},
-  "provider": "ipx",
+  "provider": "static",
   "domains": [],
   "alias": {}
 }
 
 imageOptions.providers = {
   ['static']: { provider: staticRuntime$9781, defaults: {} },
-  ['ipx']: { provider: ipxRuntime$57ee, defaults: {} },
   ['customProvider']: { provider: customProviderRuntime$35a3, defaults: {} }
 }
 

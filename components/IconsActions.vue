@@ -8,7 +8,7 @@
             <div class="col-6 col-md-3" v-for="(icon, index) in icons" :key="index">
                 <div class="text-center">
                     <div class="mb-2 mb-md-0">
-                        <nuxt-img :src="icon.src" :alt="icon.title" :title="icon.title" width="120" height="120"/>
+                        <nuxt-img provider="customProvider" :src="icon.src" :alt="icon.title" :title="icon.title" width="120" height="120"/>
                     </div>
                 </div>
             </div>
@@ -22,19 +22,19 @@ export default{
         return {
             icons: [
                 {
-                    src: '/icons/1.webp',
+                    src: 'icons/1.webp',
                     title: 'Cruelty Free',
                 },
                 {
-                    src: '/icons/2.webp',
+                    src: 'icons/2.webp',
                     title: 'Ecológicos',
                 },
                 {
-                    src: '/icons/3.webp',
+                    src: 'icons/3.webp',
                     title: 'Veganos',
                 },
                 {
-                    src: '/icons/4.webp',
+                    src: 'icons/4.webp',
                     title: 'Sin parabenos',
                 },
             ],
