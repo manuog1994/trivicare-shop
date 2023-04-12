@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 p-0">
-                <nuxt-img provider="customProvider" src="campain/modelo-con-crema-aplicada.webp" alt="Modelo con crema aplicada" width="612" height="408" />
+                <nuxt-img provider="customProvider" src="storage/campain/modelo-con-crema-aplicada.webp" alt="Modelo con crema aplicada" width="612" height="408" />
             </div>
         </div>
     </div>

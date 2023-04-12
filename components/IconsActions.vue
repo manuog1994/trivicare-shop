@@ -22,19 +22,19 @@ export default{
         return {
             icons: [
                 {
-                    src: 'icons/1.webp',
+                    src: 'storage/icons/1.webp',
                     title: 'Cruelty Free',
                 },
                 {
-                    src: 'icons/2.webp',
+                    src: 'storage/icons/2.webp',
                     title: 'Ecológicos',
                 },
                 {
-                    src: 'icons/3.webp',
+                    src: 'storage/icons/3.webp',
                     title: 'Veganos',
                 },
                 {
-                    src: 'icons/4.webp',
+                    src: 'storage/icons/4.webp',
                     title: 'Sin parabenos',
                 },
             ],

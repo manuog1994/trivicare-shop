@@ -32,10 +32,10 @@
                             </div>
                             <p class="text-center">Utilizamos seguridad SSL encriptada para asegurar que tus datos están 100% seguros.</p>
                             <div class="text-center">
-                                <nuxt-img class="ms-2" provider="customProvider" src="payment/tarjetas.webp" alt="tarjetas.webp" width="100" height="29"/>
-                                <nuxt-img class="ms-2" provider="customProvider" src="payment/bizum.webp" alt="bizum.webp" width="100" height="29"/>
-                                <nuxt-img class="ms-2" provider="customProvider" src="payment/transfer_bank.webp" alt="transfer_bank.webp" width="80" height="80"/>
-                                <nuxt-img class="ms-2" provider="customProvider" src="payment/paypal.svg" alt="paypal.svg" width="100" height="32.48"/>
+                                <nuxt-img class="ms-2" provider="customProvider" src="storage/payment/tarjetas.webp" alt="tarjetas.webp" width="100" height="29"/>
+                                <nuxt-img class="ms-2" provider="customProvider" src="storage/payment/bizum.webp" alt="bizum.webp" width="100" height="29"/>
+                                <nuxt-img class="ms-2" provider="customProvider" src="storage/payment/transfer_bank.webp" alt="transfer_bank.webp" width="80" height="80"/>
+                                <nuxt-img class="ms-2" provider="customProvider" src="storage/payment/paypal.svg" alt="paypal.svg" width="100" height="32.48"/>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             </p>
                             <p>
                                 <a href="https://api.whatsapp.com/send/?phone=34613036942&text=Hola%2C+quisiera%20informaci%C3%B3n..." title="Whatsapp">
-                                    <nuxt-img provider="customProvider" src="social/whatsapp.webp" alt="Icono whatsapp" width="90" height="32.7"/>
+                                    <nuxt-img provider="customProvider" src="storage/social/whatsapp.webp" alt="Icono whatsapp" width="90" height="32.7"/>
                                 </a>
                             </p>
                             <p> 
