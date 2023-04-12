@@ -32,10 +32,10 @@
                             </div>
                             <p class="text-center">Utilizamos seguridad SSL encriptada para asegurar que tus datos están 100% seguros.</p>
                             <div class="text-center">
-                                <img class="ms-2" src="/payment/tarjetas.webp" alt="tarjetas.webp" width="100px" height="auto"/>
-                                <img class="ms-2" src="/payment/bizum.webp" alt="bizum.webp" width="100px" height="auto"/>
-                                <img class="ms-2" src="/payment/transfer_bank.webp" alt="transfer_bank.webp" width="80px" height="auto"/>
-                                <img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100px" height="auto"/>
+                                <nuxt-img class="ms-2" src="/payment/tarjetas.webp" alt="tarjetas.webp" width="100" height="29"/>
+                                <nuxt-img class="ms-2" src="/payment/bizum.webp" alt="bizum.webp" width="100" height="29"/>
+                                <nuxt-img class="ms-2" src="/payment/transfer_bank.webp" alt="transfer_bank.webp" width="80" height="80"/>
+                                <nuxt-img class="ms-2" src="/payment/paypal.svg" alt="paypal.svg" width="100" height="32.48"/>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             </p>
                             <p>
                                 <a href="https://api.whatsapp.com/send/?phone=34613036942&text=Hola%2C+quisiera%20informaci%C3%B3n..." title="Whatsapp">
-                                    <img src="/social/whatsapp.webp" alt="Icono whatsapp" width="90px" height="auto"/>
+                                    <nuxt-img src="/social/whatsapp.webp" alt="Icono whatsapp" width="90" height="32.7"/>
                                 </a>
                             </p>
                             <p> 

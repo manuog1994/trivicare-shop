@@ -8,7 +8,7 @@
             <div class="col-6 col-md-3" v-for="(icon, index) in icons" :key="index">
                 <div class="text-center">
                     <div class="mb-2 mb-md-0">
-                        <img :src="icon.src" :alt="icon.title" :title="icon.title" width="120">
+                        <nuxt-img :src="icon.src" :alt="icon.title" :title="icon.title" width="120" height="120"/>
                     </div>
                 </div>
             </div>

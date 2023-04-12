@@ -20,7 +20,7 @@
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end align-items-center">
                         <div class="header-right-wrap">
                             <div class="same-style header-search me-2">
-                                <button class="search-active" @click="searchOpen"><i class="pe-7s-search"></i></button>
+                                <button class="search-active" @click="searchOpen" title="Abrir barra de búsqueda"><i class="pe-7s-search"></i></button>
                             </div>
                             <div class="same-style cart-wrap me-sm-3">
                                 <button class="icon-cart" @click="openCart = !openCart" title="Menu Carrito">

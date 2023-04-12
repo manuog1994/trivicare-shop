@@ -4,31 +4,31 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _121fb837 = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
-const _4fc4b5c0 = () => interopDefault(import('../pages/cancel.vue' /* webpackChunkName: "pages/cancel" */))
-const _4dced2e6 = () => interopDefault(import('../pages/cart.vue' /* webpackChunkName: "pages/cart" */))
-const _73ffdb0c = () => interopDefault(import('../pages/checkout.vue' /* webpackChunkName: "pages/checkout" */))
-const _0b8f5aca = () => interopDefault(import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */))
-const _559e6714 = () => interopDefault(import('../pages/cookies-policy.vue' /* webpackChunkName: "pages/cookies-policy" */))
-const _0e0bbc2f = () => interopDefault(import('../pages/forgot-password.vue' /* webpackChunkName: "pages/forgot-password" */))
-const _5225cc9c = () => interopDefault(import('../pages/legal-warning.vue' /* webpackChunkName: "pages/legal-warning" */))
-const _090193da = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
-const _3d75135c = () => interopDefault(import('../pages/my-account.vue' /* webpackChunkName: "pages/my-account" */))
-const _a140c8c0 = () => interopDefault(import('../pages/notifications-center.vue' /* webpackChunkName: "pages/notifications-center" */))
-const _42ec5cf7 = () => interopDefault(import('../pages/questions.vue' /* webpackChunkName: "pages/questions" */))
-const _6e2ddf9e = () => interopDefault(import('../pages/review.vue' /* webpackChunkName: "pages/review" */))
-const _38d657bc = () => interopDefault(import('../pages/shop.vue' /* webpackChunkName: "pages/shop" */))
-const _84f265a6 = () => interopDefault(import('../pages/success.vue' /* webpackChunkName: "pages/success" */))
-const _17fe1af8 = () => interopDefault(import('../pages/terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
-const _d809700a = () => interopDefault(import('../pages/unsubscribe.vue' /* webpackChunkName: "pages/unsubscribe" */))
-const _0b31ec0b = () => interopDefault(import('../pages/wishlist.vue' /* webpackChunkName: "pages/wishlist" */))
-const _8ef98468 = () => interopDefault(import('../pages/payment/bizum.vue' /* webpackChunkName: "pages/payment/bizum" */))
-const _df98993c = () => interopDefault(import('../pages/payment/paypal.vue' /* webpackChunkName: "pages/payment/paypal" */))
-const _491c4b3f = () => interopDefault(import('../pages/payment/transfer-bank.vue' /* webpackChunkName: "pages/payment/transfer-bank" */))
-const _a2cd1a0a = () => interopDefault(import('../pages/my-orders/_id.vue' /* webpackChunkName: "pages/my-orders/_id" */))
-const _213fbcd6 = () => interopDefault(import('../pages/orders/_id.vue' /* webpackChunkName: "pages/orders/_id" */))
-const _4075b294 = () => interopDefault(import('../pages/product/_slug.vue' /* webpackChunkName: "pages/product/_slug" */))
-const _31d792fc = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _b50bada0 = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
+const _27b863e7 = () => interopDefault(import('../pages/cancel.vue' /* webpackChunkName: "pages/cancel" */))
+const _6b55decd = () => interopDefault(import('../pages/cart.vue' /* webpackChunkName: "pages/cart" */))
+const _1dc09b73 = () => interopDefault(import('../pages/checkout.vue' /* webpackChunkName: "pages/checkout" */))
+const _32117183 = () => interopDefault(import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */))
+const _2403639d = () => interopDefault(import('../pages/cookies-policy.vue' /* webpackChunkName: "pages/cookies-policy" */))
+const _cce7ec30 = () => interopDefault(import('../pages/forgot-password.vue' /* webpackChunkName: "pages/forgot-password" */))
+const _d130fcaa = () => interopDefault(import('../pages/legal-warning.vue' /* webpackChunkName: "pages/legal-warning" */))
+const _e24cb1e8 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
+const _1dd7b8f9 = () => interopDefault(import('../pages/my-account.vue' /* webpackChunkName: "pages/my-account" */))
+const _16900cf2 = () => interopDefault(import('../pages/notifications-center.vue' /* webpackChunkName: "pages/notifications-center" */))
+const _5d78ad20 = () => interopDefault(import('../pages/questions.vue' /* webpackChunkName: "pages/questions" */))
+const _46218dc5 = () => interopDefault(import('../pages/review.vue' /* webpackChunkName: "pages/review" */))
+const _565d63a3 = () => interopDefault(import('../pages/shop.vue' /* webpackChunkName: "pages/shop" */))
+const _37ee3834 = () => interopDefault(import('../pages/success.vue' /* webpackChunkName: "pages/success" */))
+const _4eeb482a = () => interopDefault(import('../pages/terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
+const _2c9d4b98 = () => interopDefault(import('../pages/unsubscribe.vue' /* webpackChunkName: "pages/unsubscribe" */))
+const _961aa71c = () => interopDefault(import('../pages/wishlist.vue' /* webpackChunkName: "pages/wishlist" */))
+const _78fda5c5 = () => interopDefault(import('../pages/payment/bizum.vue' /* webpackChunkName: "pages/payment/bizum" */))
+const _41f36aee = () => interopDefault(import('../pages/payment/paypal.vue' /* webpackChunkName: "pages/payment/paypal" */))
+const _a260ab90 = () => interopDefault(import('../pages/payment/transfer-bank.vue' /* webpackChunkName: "pages/payment/transfer-bank" */))
+const _6f13daf4 = () => interopDefault(import('../pages/my-orders/_id.vue' /* webpackChunkName: "pages/my-orders/_id" */))
+const _5dd1ff7d = () => interopDefault(import('../pages/orders/_id.vue' /* webpackChunkName: "pages/orders/_id" */))
+const _00f01a8d = () => interopDefault(import('../pages/product/_slug.vue' /* webpackChunkName: "pages/product/_slug" */))
+const _759bf816 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -43,103 +43,103 @@ export const routerOptions = {
 
   routes: [{
     path: "/about",
-    component: _121fb837,
+    component: _b50bada0,
     name: "about"
   }, {
     path: "/cancel",
-    component: _4fc4b5c0,
+    component: _27b863e7,
     name: "cancel"
   }, {
     path: "/cart",
-    component: _4dced2e6,
+    component: _6b55decd,
     name: "cart"
   }, {
     path: "/checkout",
-    component: _73ffdb0c,
+    component: _1dc09b73,
     name: "checkout"
   }, {
     path: "/contact",
-    component: _0b8f5aca,
+    component: _32117183,
     name: "contact"
   }, {
     path: "/cookies-policy",
-    component: _559e6714,
+    component: _2403639d,
     name: "cookies-policy"
   }, {
     path: "/forgot-password",
-    component: _0e0bbc2f,
+    component: _cce7ec30,
     name: "forgot-password"
   }, {
     path: "/legal-warning",
-    component: _5225cc9c,
+    component: _d130fcaa,
     name: "legal-warning"
   }, {
     path: "/login",
-    component: _090193da,
+    component: _e24cb1e8,
     name: "login"
   }, {
     path: "/my-account",
-    component: _3d75135c,
+    component: _1dd7b8f9,
     name: "my-account"
   }, {
     path: "/notifications-center",
-    component: _a140c8c0,
+    component: _16900cf2,
     name: "notifications-center"
   }, {
     path: "/questions",
-    component: _42ec5cf7,
+    component: _5d78ad20,
     name: "questions"
   }, {
     path: "/review",
-    component: _6e2ddf9e,
+    component: _46218dc5,
     name: "review"
   }, {
     path: "/shop",
-    component: _38d657bc,
+    component: _565d63a3,
     name: "shop"
   }, {
     path: "/success",
-    component: _84f265a6,
+    component: _37ee3834,
     name: "success"
   }, {
     path: "/terms-conditions",
-    component: _17fe1af8,
+    component: _4eeb482a,
     name: "terms-conditions"
   }, {
     path: "/unsubscribe",
-    component: _d809700a,
+    component: _2c9d4b98,
     name: "unsubscribe"
   }, {
     path: "/wishlist",
-    component: _0b31ec0b,
+    component: _961aa71c,
     name: "wishlist"
   }, {
     path: "/payment/bizum",
-    component: _8ef98468,
+    component: _78fda5c5,
     name: "payment-bizum"
   }, {
     path: "/payment/paypal",
-    component: _df98993c,
+    component: _41f36aee,
     name: "payment-paypal"
   }, {
     path: "/payment/transfer-bank",
-    component: _491c4b3f,
+    component: _a260ab90,
     name: "payment-transfer-bank"
   }, {
     path: "/my-orders/:id?",
-    component: _a2cd1a0a,
+    component: _6f13daf4,
     name: "my-orders-id"
   }, {
     path: "/orders/:id?",
-    component: _213fbcd6,
+    component: _5dd1ff7d,
     name: "orders-id"
   }, {
     path: "/product/:slug?",
-    component: _4075b294,
+    component: _00f01a8d,
     name: "product-slug"
   }, {
     path: "/",
-    component: _31d792fc,
+    component: _759bf816,
     name: "index"
   }],
 

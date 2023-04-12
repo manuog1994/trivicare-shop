@@ -8960,6 +8960,13 @@ p.img-mobile {
 
 
 
+.policy-icons{
+    width: 80px;
+    height: auto;
+    margin: auto;
+}
+
+
 .spinner-overlay {
     position: fixed;
   top: 0;
@@ -9023,13 +9030,6 @@ p.img-mobile {
     transform: rotate(360deg);
 }
 } 
-
-
-.policy-icons{
-    width: 80px;
-    height: auto;
-    margin: auto;
-}
 
 .tag-block {
   display: inline-flex;

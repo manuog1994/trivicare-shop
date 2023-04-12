@@ -25,7 +25,8 @@ var render=function render(){var _vm=this,_c=_vm._self._c;return _c("client-only
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({auth:false,pageTransition:'slide-fade',async asyncData({store,params}){try{const productDispatch=await store.dispatch('getProducts',{page:'',category:'',search:'',slug:params.slug,sort:'',tag:'',status:2});const productDetails=store.getters.getProducts;return{productDetails:productDetails===null||productDetails===void 0?void 0:productDetails.data[0]};}catch(error){console.log(error);}},head(){var _this$productDetails,_this$productDetails2;return{title:((_this$productDetails=this.productDetails)===null||_this$productDetails===void 0?void 0:_this$productDetails.name)+' | TriviCare Natural Cosmetics',link:[{rel:'cannonical',href:'https://trivicare.com/product/'}],meta:[{charset:'utf-8'},{name:'viewport',content:'width=device-width, initial-scale=1'},{hid:'description',name:'description',content:(_this$productDetails2=this.productDetails)===null||_this$productDetails2===void 0?void 0:_this$productDetails2.meta_description}]};},data(){return{searchChildren:''};},methods:{closeMenus(){this.searchOpacity(false);this.$root.$emit('closeMenu',this.closeMenu);},searchOpacity(searchFather){if(searchFather==true){document.getElementById("post-nav").classList.add("search-screen");}else{document.getElementById("post-nav").classList.remove("search-screen");}}}});
+/* harmony default export */ __webpack_exports__["default"] = ({auth:false,pageTransition:'slide-fade',async asyncData({store,params}){try{const productDispatch=await store.dispatch('getProducts',{page:'',category:'',search:'',slug:params.slug,sort:'',tag:'',status:2});const productDetails=store.getters.getProducts;return{productDetails:productDetails===null||productDetails===void 0?void 0:productDetails.data[0]};}catch(error){//console.log(error)
+}},head(){var _this$productDetails,_this$productDetails2;return{title:((_this$productDetails=this.productDetails)===null||_this$productDetails===void 0?void 0:_this$productDetails.name)+' | TriviCare Natural Cosmetics',link:[{rel:'cannonical',href:'https://trivicare.com/product/'}],meta:[{charset:'utf-8'},{name:'viewport',content:'width=device-width, initial-scale=1'},{hid:'description',name:'description',content:(_this$productDetails2=this.productDetails)===null||_this$productDetails2===void 0?void 0:_this$productDetails2.meta_description}]};},data(){return{searchChildren:''};},methods:{closeMenus(){this.searchOpacity(false);this.$root.$emit('closeMenu',this.closeMenu);},searchOpacity(searchFather){if(searchFather==true){document.getElementById("post-nav").classList.add("search-screen");}else{document.getElementById("post-nav").classList.remove("search-screen");}}}});
 
 /***/ }),
 
@@ -55,7 +56,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "1508dfe6"
+  "03c90d96"
   
 )
 

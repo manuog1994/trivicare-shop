@@ -176,14 +176,14 @@
   "HeroSliderSix": {
     "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
   "LoadersBigLoader": {
     "description": "Auto imported from components/loaders/BigLoader.vue"
   },
   "LoadersSmallLoading": {
     "description": "Auto imported from components/loaders/SmallLoading.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
   },
   "ProfileNewGuest": {
     "description": "Auto imported from components/profile/NewGuest.vue"

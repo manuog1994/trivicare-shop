@@ -14,7 +14,7 @@
                                     <nuxt-img loading="lazy" class="animated" provider="customProvider" :src="'nuxt/' + policy.icon" :alt="policy.title"/>
                                 </div>
                                 <div class="support-content">
-                                    <h5>{{ policy.title }}</h5>
+                                    <h4>{{ policy.title }}</h4>
                                     <p>{{ policy.subTitle }}</p>
                                 </div>
                             </div>

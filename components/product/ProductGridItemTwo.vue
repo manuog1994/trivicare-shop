@@ -3,12 +3,12 @@
         <div class="product-img">
             <n-link :to="`/product/${product.slug}`">
                 <div v-if="product.images?.length == 0 || product.images?.length == 1">
-                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" src="nuxt/default.webp" :alt="product.name" width="100%" height="100%"/>
-                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" src="nuxt/default.webp" :alt="product.name" width="100%" height="100%"/>
+                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" src="nuxt/default.webp" :alt="product.name" width="246" height="246"/>
+                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" src="nuxt/default.webp" :alt="product.name" width="246" height="246"/>
                 </div>
                 <div v-else>
-                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" :src="product.images[0].path" :alt="product.name" width="100%" height="100%"/>
-                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" :src="product.images[1].path" :alt="product.name" width="100%" height="100%"/>
+                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" :src="product.images[0].path" :alt="product.name" width="246" height="246"/>
+                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" :src="product.images[1].path" :alt="product.name" width="246" height="246"/>
                 </div>
             </n-link>
             <div class="product-badges">
