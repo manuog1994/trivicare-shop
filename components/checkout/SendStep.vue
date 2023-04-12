@@ -124,7 +124,7 @@ export default {
 
     methods: {
         handlePickup(pickupId) {
-            console.log(pickupId);
+            //console.log(pickupId);
             this.$store.commit('setPickup', pickupId);
             this.$store.commit('setShippingMethod', this.shippingMethod);
         },

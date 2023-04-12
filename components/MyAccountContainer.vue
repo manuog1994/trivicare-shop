@@ -297,7 +297,7 @@
             async resendEmail() {
                 await this.$axios.post('/api/resend-email/' + this.$auth.user.id)
                 .then(res => {
-                    console.log(res);
+                    //console.log(res);
                     this.$notify({ title: 'Email reenviado'});
                 }).catch((error) => {
                     this.errors = Object.values(error.response.data).flat();

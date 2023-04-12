@@ -145,7 +145,7 @@
             // Funciones nueva pasarela de pago
 
             handleEmail(stepEmail) {
-                console.log(stepEmail);
+                //console.log(stepEmail);
             },
        },
 

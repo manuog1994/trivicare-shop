@@ -70,7 +70,7 @@ export default {
                     this.form = true;
                 }, 5000);
             }).catch((error) => {
-                console.log(error);
+                //console.log(error);
             });
         }
     }

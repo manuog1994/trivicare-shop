@@ -95,7 +95,7 @@ export default {
                     this.$store.commit('SET_INVOICE_PAPER', false);
                     this.$store.commit('SET_NOTE', '');
                 }).catch((err) => {
-                    console.log(err.response.data)
+                    //console.log(err.response.data)
                     this.loading = false;
                     this.countdown(20);
                     this.paymentIntent = null;
