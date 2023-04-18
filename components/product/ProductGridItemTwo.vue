@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
     export default {
         props: ["product"],
 
@@ -53,9 +54,17 @@
                 const prod = {...product, cartQuantity: 1}
                 // for notification
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Se ha actualizado la cantidad del producto' })
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Actualizado!',
+                        text: 'Se ha actualizado la cantidad del producto en el carrito',
+                    })
                 } else {
-                    this.$notify({ title: 'Añadido al carrito' })
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Añadido!',
+                        text: 'Se ha añadido el producto al carrito',
+                    })
                 }
 
                 this.$store.dispatch('addToCartItem', prod)
@@ -68,24 +77,21 @@
             addToWishlist(product) {
                 // for notification
                 if (this.$store.state.wishlist.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Ya estaba añadido a la lista de deseos!' })
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Ya está en la lista de deseos!',
+                        text: 'El producto ya está en la lista de deseos',
+                    })
                 } else {
-                    this.$notify({ title: 'Añadido a la lista de deseos!'})
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Añadido!',
+                        text: 'Se ha añadido el producto a la lista de deseos',
+                    })
                 }
 
                 this.$store.dispatch('addToWishlist', product)
             },
-
-            // addToCompare(product) {
-            //     // for notification
-            //     if (this.$store.state.compare.find(el => product.id === el.id)) {
-            //         this.$notify({ title: 'Already added to compare!' })
-            //     } else {
-            //         this.$notify({ title: 'Add to compare successfully!'})
-            //     }
-
-            //     this.$store.dispatch('addToCompare', product)
-            // },
 
             onClick(product) {
                 this.$modal.show('quickview', product);

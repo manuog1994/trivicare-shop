@@ -11,6 +11,8 @@ export default (params) => `<!DOCTYPE html>
     ${params.HEAD}
     <!-- add cache control con max-age-->
     <meta http-equiv="Cache-Control" content="max-age=3600" />
+    <link rel="preconnect" :href="process.env.baseUrl">
+
   </head>
   <body ${params.BODY_ATTRS}>
     <!-- Google Tag Manager (noscript) -->

@@ -1,7 +1,7 @@
 <template>
     <div v-if="product.status == 'Publicado'" class="product-wrap-3 mb-20">
         <div class="product-img">
-            <n-link :to="`/product/${slugify(product.title)}`">
+            <n-link :to="`/product/${product.slug}`">
                 <div v-if="product.images.lenght == 0">
                     <nuxt-img loading="lazy" class="default-img" provider="customProvider" src="nuxt/default.webp" :alt="product.title" width="269.99" height="269.99"/>
                     <nuxt-img loading="lazy" class="hover-img" provider="customProvider" src="nuxt/default.webp" :alt="product.title" width="269.99" height="269.99"/>
@@ -19,7 +19,7 @@
                 <div class="product-content-3">
                     <div class="product-title">
                         <h3>
-                            <n-link :to="`/product/${slugify(product.title)}`">{{ product.title }}</n-link>
+                            <n-link :to="`/product/${product.slug}`">{{ product.title }}</n-link>
                         </h3>
                     </div>
                     <div class="price-3">
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
     export default {
         props: ["product"],
 
@@ -55,9 +56,17 @@
                 const prod = {...product, cartQuantity: 1}
                 // for notification
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to cart update with one' })
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Actualizado!',
+                        text: 'Se ha actualizado la cantidad del producto en el carrito',
+                    })
                 } else {
-                    this.$notify({ title: 'Añadido al carrito' })
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Añadido!',
+                        text: 'Se ha añadido el producto al carrito',
+                    })
                 }
 
                 this.$store.dispatch('addToCartItem', prod)
@@ -70,39 +79,25 @@
             addToWishlist(product) {
                 // for notification
                 if (this.$store.state.wishlist.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to wishlist!' })
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Ya está en la lista de deseos!',
+                        text: 'El producto ya está en la lista de deseos',
+                    })
                 } else {
-                    this.$notify({ title: 'Add to wishlist successfully!'})
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Añadido!',
+                        text: 'Se ha añadido el producto a la lista de deseos',
+                    })
                 }
 
                 this.$store.dispatch('addToWishlist', product)
             },
 
-            addToCompare(product) {
-                // for notification
-                if (this.$store.state.compare.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to compare!' })
-                } else {
-                    this.$notify({ title: 'Add to compare successfully!'})
-                }
-
-                this.$store.dispatch('addToCompare', product)
-            },
-
             onClick(product) {
                 this.$modal.show('quickview', product);
             },
-
-            slugify(text) {
-                return text
-                    .toString()
-                    .toLowerCase()
-                    .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
-                    .replace(/--+/g, "-") // Replace multiple - with single -
-                    .replace(/^-+/, "") // Trim - from start of text
-                    .replace(/-+$/, ""); // Trim - from end of text
-            }
         },
     };
 </script>

@@ -56,7 +56,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: url("/campain/aloe-vera.webp") no-repeat center center;
+        background: url("/campain/fondo-lote.webp") no-repeat center center;
         background-size: cover;
         opacity: 0.5;
         animation: animate 25s linear infinite;
