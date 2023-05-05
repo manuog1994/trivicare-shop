@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="fixed-bottom bg-warning text-center p-3">
+        <!-- <div class="fixed-bottom bg-warning text-center p-3">
             <h2>Estamos teniendo dificultades técnicas debido a la cantidad de pedidos recibidos. Por favor si desea realizar un pedido hagaló por WhatsApp en el número 613 036 942, gracias por su confianza y perdonen las molestias.</h2>
-        </div>
+        </div> -->
 
         <footer class="footer-area bg-gray pt-5">
             <div class="container-fluid ps-lg-5 pe-lg-5">
