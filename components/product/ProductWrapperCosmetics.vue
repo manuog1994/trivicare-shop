@@ -36,8 +36,8 @@
             </div> -->
             <div class="ps-5 pe-5 pb-5">
                 <div class="text-center pt-3">
-                    <h2>Ofertas Semana del Día de la Madre</h2>
-                    <p class=" lead m-0">Descubre nuestros packs en oferta con un 20% de descuento.</p>
+                    <h2>Nuevos productos</h2>
+                    <p class=" lead m-0">Descubre nuestros nuevos productos para el cuidado de la piel.</p>
                 </div>
                 <div class="tab-content mt-5">
                     <div class="tab-pane fade active show" id="new-product" role="tabpanel">
@@ -106,7 +106,7 @@
                 });
                 idProducts.sort((a, b) => b - a);
 
-                const lastIdProducts = idProducts.slice(0, 6);
+                const lastIdProducts = idProducts.slice(0, 4);
 
                 const lastFourProducts = allProducts.filter((item) => {
                     return lastIdProducts.includes(item.id);
