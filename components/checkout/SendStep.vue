@@ -108,7 +108,7 @@ export default {
         const url = new URLSearchParams(window.location.search).get('step');
         this.url = url;
 
-        if (this.total > 40) {
+        if (this.total > 50) {
             this.shippings[0].hidden = true;
             this.shippings[4].hidden = false;
         } else {

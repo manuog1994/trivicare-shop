@@ -42,7 +42,7 @@
                 {
                         icon: "support-1.webp",
                         title: "Envío gratis",
-                        subTitle: "Envío gratis en pedidos superiores a 40€ (Península y Baleares)"
+                        subTitle: "Envío gratis en pedidos superiores a 50€ (Península y Baleares)"
                     },
                     {
                         icon: "support-2.webp",

@@ -39,7 +39,7 @@
                     <div class="your-order-bottom">
                         <ul v-if="$store.getters.getShippingMethod != ''">
                             <li class="your-order-shipping">Gastos de envío</li>
-                            <li v-if="total.toFixed(2) >= 40">Envio Gratis</li>
+                            <li v-if="total.toFixed(2) >= 50">Envio Gratis</li>
                             <li v-else-if="$store.getters.getShippingMethod == 'pickup-point'">Recogida</li>
                             <li v-else>{{ shippingAmount }} &euro;</li>
                         </ul>
@@ -53,7 +53,7 @@
                     <div class="your-order-total">
                         <ul>
                             <li class="order-total">Total</li>
-                            <li v-if="total < 40">{{ (total + shippingAmount).toFixed(2) }} &euro;</li>
+                            <li v-if="total < 50">{{ (total + shippingAmount).toFixed(2) }} &euro;</li>
                             <li v-else>{{ total.toFixed(2) }} &euro;</li>
                         </ul>
                     </div>

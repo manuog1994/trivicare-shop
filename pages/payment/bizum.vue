@@ -93,7 +93,7 @@ export default {
                         this.$root.$emit('orderComplete', true)
                         this.confirmed = true;
                     }).catch((err) => {
-
+                        console.log(err);
                     })
                 }).catch(err => {
 
