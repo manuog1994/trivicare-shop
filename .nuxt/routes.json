@@ -147,6 +147,13 @@
     "_name": "_a260ab90"
   },
   {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_759bf816"
+  },
+  {
     "name": "my-orders-id",
     "path": "/my-orders/:id?",
     "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/my-orders/_id.vue",
@@ -166,12 +173,5 @@
     "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/product/_slug.vue",
     "chunkName": "pages/product/_slug",
     "_name": "_00f01a8d"
-  },
-  {
-    "name": "index",
-    "path": "/",
-    "component": "/Users/manuelortegagaliano/wa/trivicare-shop/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_759bf816"
   }
 ]

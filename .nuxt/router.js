@@ -25,10 +25,10 @@ const _961aa71c = () => interopDefault(import('../pages/wishlist.vue' /* webpack
 const _78fda5c5 = () => interopDefault(import('../pages/payment/bizum.vue' /* webpackChunkName: "pages/payment/bizum" */))
 const _41f36aee = () => interopDefault(import('../pages/payment/paypal.vue' /* webpackChunkName: "pages/payment/paypal" */))
 const _a260ab90 = () => interopDefault(import('../pages/payment/transfer-bank.vue' /* webpackChunkName: "pages/payment/transfer-bank" */))
+const _759bf816 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 const _6f13daf4 = () => interopDefault(import('../pages/my-orders/_id.vue' /* webpackChunkName: "pages/my-orders/_id" */))
 const _5dd1ff7d = () => interopDefault(import('../pages/orders/_id.vue' /* webpackChunkName: "pages/orders/_id" */))
 const _00f01a8d = () => interopDefault(import('../pages/product/_slug.vue' /* webpackChunkName: "pages/product/_slug" */))
-const _759bf816 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -126,6 +126,10 @@ export const routerOptions = {
     component: _a260ab90,
     name: "payment-transfer-bank"
   }, {
+    path: "/",
+    component: _759bf816,
+    name: "index"
+  }, {
     path: "/my-orders/:id?",
     component: _6f13daf4,
     name: "my-orders-id"
@@ -137,10 +141,6 @@ export const routerOptions = {
     path: "/product/:slug?",
     component: _00f01a8d,
     name: "product-slug"
-  }, {
-    path: "/",
-    component: _759bf816,
-    name: "index"
   }],
 
   fallback: false
