@@ -117,6 +117,7 @@
                                 <ul>
                                     <li><n-link to="/my-account">Mi perfil</n-link></li>
                                     <li><n-link to="/my-orders">Mis pedidos</n-link></li>
+                                    <li><n-link to="/custom-cookies">Mis cookies</n-link></li>
                                 </ul>
                             </div>
                         </div>

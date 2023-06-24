@@ -38,6 +38,8 @@ export const state = () => ({
     paypalPage: false,
     transferBankPage: false,
     lastUpdated: Date.now(),
+    cookiesAccepted: false,
+    gtm: false,
 })
 
 
@@ -399,6 +401,14 @@ export const mutations = {
             return product.id !== item.id
         });
     },
+
+    acceptCookies(state, payload) {
+        state.cookiesAccepted = payload
+    },
+
+    acceptGtm(state, payload) {
+        state.gtm = payload
+    }
 }
 
 
@@ -477,7 +487,15 @@ export const actions = {
         if (timeSinceLastUpdate > 1 * 60 * 60 * 1000) {
           commit('CLEAR_CART')
         }
-      }
+    },
+
+    acceptCookies({ commit }, payload) {
+        commit('acceptCookies', payload)
+    },
+
+    acceptGtm({ commit }, payload) {
+        commit('acceptGtm', payload)
+    }
 
 }
 

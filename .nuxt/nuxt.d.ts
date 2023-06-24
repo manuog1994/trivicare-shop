@@ -8,6 +8,7 @@
 /// <reference types="@nuxtjs/axios" />
 /// <reference types="@nuxtjs/auth-next" />
 /// <reference types="cookie-universal-nuxt" />
+/// <reference types="@nuxtjs/gtm" />
 /// <reference types="@nuxt/components" />
 /// <reference path="types/components.d.ts" />
 /// <reference path="types/schema.d.ts" />
