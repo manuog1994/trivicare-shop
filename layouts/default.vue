@@ -22,8 +22,8 @@
         <!-- Pop Up alert -->
         <div class="fondo" v-if="popUpShow">
             <div id="pop-up" class="popup-absolute">
-                <div class="d-flex align-items-center align-self-center card pt-2 ps-1 pe-1 pb-2 pt-lg-5 ps-lg-4 pe-lg-4 pb-lg-3 text-center">
-                    <button class="close-btn" @click="close"><i class="fa fa-close"></i></button>
+                <div class="d-flex align-items-center align-self-center card p-3 p-lg-0 pt-lg-5 ps-lg-4 pe-lg-4 pb-lg-3 text-center">
+                    <button class="close-btn fs-1" @click="close"><i class="fa fa-close"></i></button>
                     <div class="row">
                         <div class="col-12 col-lg-6 d-none d-lg-block">
                             <img src="/img/newsletter.webp" alt="Imagen Pop Up" title="Imagen Pop Up" width="100%">
@@ -42,10 +42,10 @@
                                         <span class="text-danger">Este correo electrónico ya esta suscrito.</span>
                                     </div>
                                     <div>
-                                        <input class=" form-control" placeholder="Introduce tu correo electrónico" name="email"/>
+                                        <input class="form-control border-black" placeholder="Introduce tu correo electrónico" name="email"/>
                                     </div>
                                     <div class="form-check mt-1 d-flex">
-                                        <input class="form-check-input" type="checkbox" value="true" ref="checkAcceptConditions" @click="conditions = true">
+                                        <input class="form-check-input border-black" type="checkbox" value="true" ref="checkAcceptConditions" @click="conditions = true">
                                         <label class="form-check-label ms-1" for="checkAcceptConditions">Acepto los <n-link to="/terms-conditions" class="text-primary">términos y condiciones</n-link> de uso.</label>
                                     </div>
                                     <div>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="form-check ms-4 p-3 p-lg-1 d-none d-lg-flex">
-                            <input class="form-check-input" type="checkbox" @click="hiddenPopUp = true" ref="checkPopUp">
+                            <input class="form-check-input border-black" type="checkbox" @click="hiddenPopUp = true" ref="checkPopUp">
                             <label class="form-check-label ms-1" for="checkPopUp">No mostrar más esta ventana.</label>
                         </div>
                     </div>
