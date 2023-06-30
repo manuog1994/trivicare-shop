@@ -22,7 +22,7 @@
         <!-- Pop Up alert -->
         <div class="fondo" v-if="popUpShow">
             <div id="pop-up" class="popup-absolute">
-                <div class="d-flex align-items-center align-self-center card pt-5 ps-4 pe-4 pb-3 text-center">
+                <div class="d-flex align-items-center align-self-center card pt-2 ps-1 pe-1 pb-2 pt-lg-5 ps-lg-4 pe-lg-4 pb-lg-3 text-center">
                     <button class="close-btn" @click="close"><i class="fa fa-close"></i></button>
                     <div class="row">
                         <div class="col-12 col-lg-6 d-none d-lg-block">
