@@ -25,6 +25,8 @@
 </template>
 
 <script>
+    import Popup from '../components/Popup.vue';
+    
     export default {
         name: "default",
         data() {
@@ -36,8 +38,7 @@
         },
 
         components: {
-            ModalError: () => import('~/components/ModalError.vue'),
-            Popup: () => import('../components/Popup.vue')
+            Popup,
         },
 
         beforeMount() {
