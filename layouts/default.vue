@@ -37,7 +37,7 @@
 
         components: {
             ModalError: () => import('~/components/ModalError.vue'),
-            Popup: () => import('~/components/Popup.vue')
+            Popup: () => import('../components/Popup.vue')
         },
 
         beforeMount() {
