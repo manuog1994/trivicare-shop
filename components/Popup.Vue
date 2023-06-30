@@ -80,7 +80,7 @@
                     let formData = new FormData(form);
                     await this.$axios.post('/api/newsletter', formData
                     ).then(response => {
-                        console.log(response);
+                        //console.log(response);
                         this.$refs.suscribeFormPopUp.reset();
                         this.suscribed = true;
                         this.$store.dispatch('popUpState', false);
