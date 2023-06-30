@@ -4,12 +4,12 @@
 
         <client-only>
             <notifications position="bottom left" classes='vue-notification success' />
+            <Popup v-if="popUpShow" />
         </client-only>
 
         <button class="scroll-top" @click="scrollToTop" :class="{ 'show': isVisible }">
             <i class="fa fa-angle-double-up"></i>
         </button>
-        <Popup v-if="popUpShow" />
 
         <div id="cookiesConsent" class="d-none d-flex justify-content-center mt-5 h-100 cookie-absolute">
             <div class="d-flex align-items-center align-self-center card p-3 text-center cookies"><img src="https://i.imgur.com/Tl8ZBUe.png" width="50"><span class="mt-2">¡Hola!, nuestra web usa cookies tanto para su funcionamiento, como para el análisis del tráfico y anuncios personalizados.</span><router-link class="d-flex align-items-center" to="/cookies-policy">¿No sabes de que te hablamos? Pulsa en el enlace para saber más<i class="fa fa-angle-right ml-2"></i></router-link>
@@ -25,8 +25,8 @@
 </template>
 
 <script>
-    import Popup from '@/components/Popup.vue';
-
+    import Popup from '@/layouts/Popup.vue';
+    
     export default {
         name: "default",
         data() {
