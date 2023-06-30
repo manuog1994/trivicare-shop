@@ -25,8 +25,8 @@
 </template>
 
 <script>
-    import Popup from '../components/Popup.vue';
-    
+    import Popup from '@/components/Popup.vue';
+
     export default {
         name: "default",
         data() {
