@@ -9,6 +9,7 @@
         <button class="scroll-top" @click="scrollToTop" :class="{ 'show': isVisible }">
             <i class="fa fa-angle-double-up"></i>
         </button>
+        <Popup v-if="popUpShow" />
 
         <div id="cookiesConsent" class="d-none d-flex justify-content-center mt-5 h-100 cookie-absolute">
             <div class="d-flex align-items-center align-self-center card p-3 text-center cookies"><img src="https://i.imgur.com/Tl8ZBUe.png" width="50"><span class="mt-2">¡Hola!, nuestra web usa cookies tanto para su funcionamiento, como para el análisis del tráfico y anuncios personalizados.</span><router-link class="d-flex align-items-center" to="/cookies-policy">¿No sabes de que te hablamos? Pulsa en el enlace para saber más<i class="fa fa-angle-right ml-2"></i></router-link>
@@ -19,8 +20,85 @@
                 </div>
             </div>
         </div>
+
      </div>
 </template>
+
+<script>
+    export default {
+        name: "default",
+        data() {
+            return {
+                isVisible: false,
+                cookiesConsent: true,
+                popUpShow: false,
+            };
+        },
+
+        components: {
+            ModalError: () => import('~/components/ModalError.vue'),
+            Popup: () => import('~/components/Popup.vue')
+        },
+
+        beforeMount() {
+            this.$root.$on('closePopup', data => {
+                this.popUpShow = data;
+            })
+        },
+
+        mounted() {
+            window.addEventListener("scroll", () => {
+                let scroll = window.scrollY;
+                if (scroll >= 500) {
+                    this.isVisible = true;
+                }
+                else {
+                    this.isVisible = false;
+                }
+            });
+
+            setInterval(() => {
+                this.$store.dispatch('clearCartIfExpired')
+            }, 60 * 60 * 1000)
+
+            setTimeout(() => {
+                if(!this.$store.state.cookiesAccepted) {
+                    document.getElementById('cookiesConsent').classList.remove('d-none');
+                }
+            }, 1500);
+
+            setTimeout(() => {
+                this.popUpShow = this.$store.state.popUp;
+            }, 2000)
+
+        },
+
+        methods: {
+            scrollToTop() {
+                window.scroll({
+                    top: 0,
+                    behavior: "smooth",
+                });
+            },
+
+            acceptAll() {
+                this.$store.dispatch('acceptCookies', true)
+                this.$store.dispatch('acceptGtm', true)
+                window.location.reload()
+            },
+
+            hiddenCookiesConsent() {
+                document.getElementById('cookiesConsent').classList.add('d-none')
+            },
+            
+            customCookies() {
+                document.getElementById('cookiesConsent').classList.add('d-none')
+                this.$store.dispatch('acceptCookies', true)
+                this.$router.push('/custom-cookies')
+            },
+        },
+    };
+</script>
 
 <style>
 .cookie-absolute {
@@ -56,68 +134,4 @@
   color: #333;
 }
 </style>
-
-<script>
-    export default {
-        name: "default",
-        data() {
-            return {
-                isVisible: false,
-                cookiesConsent: true,
-            };
-        },
-
-        components: {
-            ModalError: () => import('~/components/ModalError.vue'),
-        },
-
-        mounted() {
-            window.addEventListener("scroll", () => {
-                let scroll = window.scrollY;
-                if (scroll >= 500) {
-                    this.isVisible = true;
-                }
-                else {
-                    this.isVisible = false;
-                }
-            });
-
-            setInterval(() => {
-                this.$store.dispatch('clearCartIfExpired')
-            }, 60 * 60 * 1000)
-
-            setTimeout(() => {
-                if(!this.$store.state.cookiesAccepted) {
-                    document.getElementById('cookiesConsent').classList.remove('d-none');
-                }
-            }, 1500);
-
-        },
-
-        methods: {
-            scrollToTop() {
-                window.scroll({
-                    top: 0,
-                    behavior: "smooth",
-                });
-            },
-
-            acceptAll() {
-                this.$store.dispatch('acceptCookies', true)
-                this.$store.dispatch('acceptGtm', true)
-                window.location.reload()
-            },
-
-            hiddenCookiesConsent() {
-                document.getElementById('cookiesConsent').classList.add('d-none')
-            },
-            
-            customCookies() {
-                document.getElementById('cookiesConsent').classList.add('d-none')
-                this.$store.dispatch('acceptCookies', true)
-                this.$router.push('/custom-cookies')
-            }
-        },
-    };
-</script>
 

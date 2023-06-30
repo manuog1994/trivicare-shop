@@ -16,7 +16,7 @@
                                 <p>Recibe ofertas, descuentos y las últimas novedades.</p>
                                 <div class="subscribe-form">
                                     <form class="mc-form" @submit.prevent="openNewsletterModal(email)" ref="form">
-                                        <input type="email" required placeholder="  Introduce tu email..." name="email" v-model="email">
+                                        <input id="input-suscribe-footer" type="email" required placeholder="  Introduce tu email..." name="email" v-model="email">
                                         <button id="subscribe" type="submit" class="button" name="subscribe" title="Suscribirse">
                                             <span>Suscríbeme</span>
                                         </button>

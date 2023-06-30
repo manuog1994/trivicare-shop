@@ -40,6 +40,7 @@ export const state = () => ({
     lastUpdated: Date.now(),
     cookiesAccepted: false,
     gtm: false,
+    popUp: true,
 })
 
 
@@ -408,6 +409,10 @@ export const mutations = {
 
     acceptGtm(state, payload) {
         state.gtm = payload
+    },
+
+    popUpState(state, payload) {
+        state.popUp = payload
     }
 }
 
@@ -495,7 +500,11 @@ export const actions = {
 
     acceptGtm({ commit }, payload) {
         commit('acceptGtm', payload)
-    }
+    },
+
+    popUpState({ commit }, payload) {
+        commit('popUpState', payload)
+    },
 
 }
 
