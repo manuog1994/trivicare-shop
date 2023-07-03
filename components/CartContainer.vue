@@ -19,8 +19,8 @@
                             <div class="row d-md-flex line-cart mt-md-4 mt-2" v-for="product in products" :key="product.id">
                                 <div class="col-4 col-md-2 p-2 ms-4">
                                     <n-link :to="`/product/${product.slug}`">
-                                        <nuxt-img loading="lazy" v-if="product.images?.length > 0" provider="customProvider" :src="product.images[0].path" :alt="product.name"/> 
-                                        <nuxt-img loading="lazy" v-else provider="customProvider" src="nuxt/default.webp" :alt="product.name"/>
+                                        <nuxt-img loading="lazy" v-if="product.images?.length > 0" provider="customProvider" :src="product.images[0].path + product.images[0].name + '280x280' + '.' + product.images[0].ext" :alt="product.name"/> 
+                                        <nuxt-img loading="lazy" v-else provider="customProvider" src="nuxt/default280x280.webp" :alt="product.name"/>
                                     </n-link>
                                 </div>
                                 <div class="col-7 col-md-9 mt-md-3 mt-1">

@@ -137,6 +137,12 @@
   "WishListContainer": {
     "description": "Auto imported from components/WishListContainer.vue"
   },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
+  "HeaderCheckout": {
+    "description": "Auto imported from components/header/HeaderCheckout.vue"
+  },
   "LoadersBigLoader": {
     "description": "Auto imported from components/loaders/BigLoader.vue"
   },
@@ -160,12 +166,6 @@
   },
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
-  },
-  "HeaderCheckout": {
-    "description": "Auto imported from components/header/HeaderCheckout.vue"
-  },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
   "ProfileNewGuest": {
     "description": "Auto imported from components/profile/NewGuest.vue"

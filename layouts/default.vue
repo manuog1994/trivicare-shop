@@ -12,7 +12,7 @@
         <!-- Cookies alert -->
         <div id="cookiesConsent" class="d-none d-flex justify-content-center mt-5 h-100 cookie-absolute">
             <div class="d-flex align-items-center align-self-center card p-3 text-center cookies"><img src="https://i.imgur.com/Tl8ZBUe.png" width="50"><span class="mt-2">¡Hola!, nuestra web usa cookies tanto para su funcionamiento, como para el análisis del tráfico y anuncios personalizados.</span><router-link class="d-flex align-items-center" to="/cookies-policy">¿No sabes de que te hablamos? Pulsa en el enlace para saber más<i class="fa fa-angle-right ml-2"></i></router-link>
-                <button class="close-btn" @click="hiddenCookiesConsent"><i class="fa fa-close"></i></button>
+                <button class="close-btn" @click="hiddenCookiesConsent" name="close-popup-top"><i class="fa fa-close"></i></button>
                 <div class="d-flex justify-content-around">
                     <button class="text-primary text-decoration-underline mt-4 px-4" @click="customCookies">Personalizar</button>
                     <button class="btn btn-dark mt-3 px-4" type="button" @click="acceptAll">Aceptar todas</button>
@@ -26,10 +26,10 @@
                     <button class="close-btn fs-1" @click="close"><i class="fa fa-close"></i></button>
                     <div class="row">
                         <div class="col-12 col-lg-6 d-none d-lg-block">
-                            <img src="/img/newsletter.webp" alt="Imagen Pop Up" title="Imagen Pop Up" width="100%">
+                            <img src="/img/newsletter.webp" alt="Imagen Pop Up" title="Imagen Pop Up" width="410" height="410" />
                         </div>
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-self-center" v-if="!suscribed">
-                            <img class="m-auto" src="/img/email.webp" alt="Icono de correo electrónico" title="Icono de correo electrónico" width="80">
+                            <img class="m-auto" src="/img/email.webp" alt="Icono de correo electrónico" title="Icono de correo electrónico" width="80" height="80"/>
                             <h2 class="mt-2 mt-xl-3">¡Suscríbete y obtén un 10% de descuento en tu compra!</h2>
                             <p>Descubre lo mejor de la naturaleza para cuidar tu belleza. Suscríbete a nuestra newsletter y recibe un 10% de descuento en tu compra. ¡No te pierdas nuestras promociones exclusivas, consejos de belleza y novedades! Únete a nuestra comunidad de amantes de la belleza natural hoy mismo.</p>
                             
@@ -49,23 +49,25 @@
                                         <label class="form-check-label ms-1" for="checkAcceptConditions">Acepto los <n-link to="/terms-conditions" class="text-primary">términos y condiciones</n-link> de uso.</label>
                                     </div>
                                     <div>
-                                        <button id="suscribe-popup" class="btn bg-trivi-green mt-3 px-4" type="submit">Suscribirme</button>
+                                        <button id="suscribe-popup" class="btn bg-trivi-green mt-3 px-4" type="submit" name="suscribe-on-popup">Suscribirme</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-self-center" v-if="suscribed">
-                            <img class="m-auto mt-2" src="/img/celebration.webp" alt="Icono de celebración" title="Icono de celebración" width="80">
+                            <img class="m-auto mt-2" src="/img/celebration.webp" alt="Icono de celebración" title="Icono de celebración" width="80" height="80" />
                             <h2 class="mt-2">¡Enhorabuena! ya eres parte de nuestra gran familia</h2>
                             <p>Gracias por tu suscripción, en unos minutos recibirás un correo electrónico con tu cupón de descuento. Puede que el correo sea desviado a tu bandeja de SPAM o correo no deseado, en muchos casos el servidor de correo no nos identifica correctamente.</p>
                             
                             <div class="d-flex flex-column">
-                                <button class="btn bg-trivi-red mt-3 px-4" type="button" @click="close">Cerrar</button>
+                                <button class="btn bg-trivi-red mt-3 px-4" type="button" @click="close" name="close-in-card">Cerrar</button>
                             </div>
                         </div>
                         <div class="form-check ms-4 p-3 p-lg-1 d-none d-lg-flex">
-                            <input class="form-check-input border-black" type="checkbox" @click="hiddenPopUp = true" ref="checkPopUp">
-                            <label class="form-check-label ms-1" for="checkPopUp">No mostrar más esta ventana.</label>
+                            <form>
+                                <input class="form-check-input border-black" type="checkbox" @click="hiddenPopUp = true" ref="checkPopUp">
+                                <label class="form-check-label ms-1" for="checkPopUp">No mostrar más esta ventana.</label>
+                            </form>
                         </div>
                     </div>
                 </div>

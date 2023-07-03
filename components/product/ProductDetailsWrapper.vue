@@ -15,7 +15,7 @@
                                     <p class="fst-italic">Haz doble click sobre la imagen para zoom</p>
                                 </div>
                                 <div v-else class="swiper-slide text-center" v-for="image in product.images" :key="'image-' + image.id">
-                                    <nuxt-img loading="lazy" class="principal" provider="customProvider" :src="image.path" alt="default" width="425" height="425" />
+                                    <nuxt-img loading="lazy" class="principal" provider="customProvider" :src="image.path + image.name + '.' + image.ext" alt="default" width="425" height="425" />
                                     <p class="fst-italic">Haz doble click sobre la imagen para zoom</p>
                                 </div>
                             </swiper>
@@ -24,7 +24,7 @@
                                     <nuxt-img loading="lazy" provider="customProvider" src="nuxt/default.webp" alt="default" width="106" height="106"/>
                                 </div>
                                 <div v-else class="thumb-img swiper-slide" v-for="image in product.images" :key="'imagetwo-' + image.id">
-                                    <nuxt-img loading="lazy" provider="customProvider" :src="image.path" alt="default" width="106" height="106"/>
+                                    <nuxt-img loading="lazy" provider="customProvider" :src="image.path + image.name + '280x280' + '.' + image.ext" alt="default" width="106" height="106"/>
                                 </div>
                             </swiper>
                         </div>
