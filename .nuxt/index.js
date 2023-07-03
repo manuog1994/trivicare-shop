@@ -34,8 +34,6 @@ import nuxt_plugin_gtm_63638066 from 'nuxt_plugin_gtm_63638066' // Source: ../pl
 import nuxt_plugin_bootstrapvue_928a4c1e from 'nuxt_plugin_bootstrapvue_928a4c1e' // Source: ../plugins/bootstrap-vue (mode: 'client')
 import nuxt_plugin_vuestarrating_daf07ac8 from 'nuxt_plugin_vuestarrating_daf07ac8' // Source: ../plugins/vue-star-rating.js (mode: 'client')
 import nuxt_plugin_vuejsmodal_f50827f4 from 'nuxt_plugin_vuejsmodal_f50827f4' // Source: ../plugins/vue-js-modal (mode: 'client')
-import nuxt_plugin_notificationsclient_f727f91e from 'nuxt_plugin_notificationsclient_f727f91e' // Source: ../plugins/notifications-client.js (mode: 'client')
-import nuxt_plugin_tinymce_6ee9c8fe from 'nuxt_plugin_tinymce_6ee9c8fe' // Source: ../plugins/tinymce.js (mode: 'client')
 import nuxt_plugin_auth_629edbce from 'nuxt_plugin_auth_629edbce' // Source: ./auth.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -316,14 +314,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (process.client && typeof nuxt_plugin_vuejsmodal_f50827f4 === 'function') {
     await nuxt_plugin_vuejsmodal_f50827f4(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_notificationsclient_f727f91e === 'function') {
-    await nuxt_plugin_notificationsclient_f727f91e(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_tinymce_6ee9c8fe === 'function') {
-    await nuxt_plugin_tinymce_6ee9c8fe(app.context, inject)
   }
 
   if (typeof nuxt_plugin_auth_629edbce === 'function') {
