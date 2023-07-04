@@ -117,11 +117,11 @@
                 if(!this.$store.state.cookiesAccepted) {
                     document.getElementById('cookiesConsent').classList.remove('d-none');
                 }
-            }, 1500);
+            }, 3000);
 
             setTimeout(() => {
                 this.popUpShow = this.$store.state.popUp;
-            }, 2000)
+            }, 5000)
 
         },
 

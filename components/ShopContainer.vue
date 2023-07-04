@@ -192,54 +192,8 @@ export default {
             if (this.unauthorized == true) {
                 this.$auth.logout();
             }
-        }
-    },
-
-    methods: {
-        async getProducts() {
-            await this.$store.dispatch('getProducts', {
-                perPage: this.perPage,
-                page: this.page,
-                category: this.category,
-                search: '',
-                slug: '',
-                sort: this.sortFilter,
-                tag: this.tag,
-                status: 2,
-            })
-            const products = this.$store.getters.getProducts
-            this.products = products.data
-            const paginations = this.$store.getters.getProducts
-            this.pagination = {
-                links: paginations['meta'].links,
-                current_page: paginations['meta'].current_page,
-                last_page: paginations['meta'].last_page,
-            }
         },
 
-        async getCategories() {
-            await this.$store.dispatch('getCategories')
-        },
-
-        async getTags() {
-            await this.$store.dispatch('getTags')
-        },
-
-        changePage(url) {
-            this.$router.replace({
-                query: {
-                    page : url.split('page=')[1]
-                }
-            });
-        },
-
-        discountedPrice(product) {
-            return product.price_base - (product.price_base * product.discount / 100)
-        },
-
-    },
-
-    watch: {
         page() {
             setTimeout(() => {
                 this.getProducts();
@@ -323,6 +277,50 @@ export default {
             this.tag_slug = '';
             this.tag_id = '';
         },
+    },
+
+    methods: {
+        async getProducts() {
+            await this.$store.dispatch('getProducts', {
+                perPage: this.perPage,
+                page: this.page,
+                category: this.category,
+                search: '',
+                slug: '',
+                sort: this.sortFilter,
+                tag: this.tag,
+                status: 2,
+            })
+            const products = this.$store.getters.getProducts
+            this.products = products.data
+            const paginations = this.$store.getters.getProducts
+            this.pagination = {
+                links: paginations['meta'].links,
+                current_page: paginations['meta'].current_page,
+                last_page: paginations['meta'].last_page,
+            }
+        },
+
+        async getCategories() {
+            await this.$store.dispatch('getCategories')
+        },
+
+        async getTags() {
+            await this.$store.dispatch('getTags')
+        },
+
+        changePage(url) {
+            this.$router.replace({
+                query: {
+                    page : url.split('page=')[1]
+                }
+            });
+        },
+
+        discountedPrice(product) {
+            return product.price_base - (product.price_base * product.discount / 100)
+        },
+
     },
 
     head() {
