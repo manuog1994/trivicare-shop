@@ -10,7 +10,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item" v-for="(review, idx) in reviews" :key="review.id"  :class="{'active': idx === 0 }">
                             <div class="text-center">
-                                <h4>{{ review.product?.name }}</h4>
+                                <h3>{{ review.product?.name }}</h3>
                                 <p class="pt-0 mt-0 ps-5 pe-5"><strong>{{ review.user_name }} {{ review.user_lastname }}</strong></p>
                                 <p class="pt-0 mt-0 ps-5 pe-5">{{ review.message }}</p>
                                 <div class="d-flex justify-content-center">

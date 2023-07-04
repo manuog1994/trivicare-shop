@@ -17,7 +17,7 @@
                         <div class="col-4 stiky-buttons">
                             <div class="header-right-wrap">
                                 <div class="same-style header-search me-2">
-                                    <button class="search-active" @click="searchOpen"><i class="pe-7s-search"></i></button>
+                                    <button class="search-active" @click="searchOpen" title="Abrir barra de búsqueda"><i class="pe-7s-search"></i></button>
                                 </div>
                                 <div class="same-style account-setting d-block me-1">
                                     <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menú de perfil"><i class="pe-7s-user-female"></i></button>
@@ -42,7 +42,7 @@
                                     <Notifications :openNotifications="openNotifications" @notificationsClose="openNotifications = !openNotifications" />
                                 </div>
                                 <div class="same-style header-wishlist">
-                                    <n-link to="/wishlist"><i class="pe-7s-like"></i></n-link>
+                                    <n-link to="/wishlist"><i class="pe-7s-like" title="Ir a lista de deseos"></i></n-link>
                                     <span class="count-style">{{ wishlistItemCount }}</span>
                                 </div>
                                 <div class="same-style cart-wrap me-lg-3 me-xl-1">

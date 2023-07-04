@@ -5,7 +5,7 @@
                 <div class="col-12">
                     <div class="input-group">
                         <input type="text" class="form-control rounded-0" placeholder="Encuentra tu lado más natural..." aria-label="Buscar..." aria-describedby="basic-addon1" @input="hidden = false" v-model="search">
-                        <span class="input-group-text rounded-0 bg-blue-color" id="basic-addon1">
+                        <span class="input-group-text rounded-0 bg-blue-color" id="basic-addon2">
                             <i class="fa fa-search"></i>
                         </span>
                     </div>
@@ -16,10 +16,10 @@
                             <div class="box-products" v-for="product in products" :key="product.id">
                                 <a :href="url + '/product/' + product.slug" class="single-product">
                                     <div v-if="product.images?.length == 0">
-                                        <nuxt-img provider="customProvider" src="nuxt/default.webp" alt="default" width="100px" />
+                                        <nuxt-img provider="customProvider" src="nuxt/default280x280.webp" alt="default" width="100px" />
                                     </div>
                                     <div v-else>
-                                        <nuxt-img provider="customProvider" :src="product.images[0].path" :alt="product.name" width="100px" />
+                                        <nuxt-img provider="customProvider" :src="product.images[0].path + product.images[0].name + '280x280' + '.' + product.images[0].ext" :alt="product.name" width="100px" />
                                     </div>
                                     <div class="ms-5">
                                         <p>{{ product.name }}</p>

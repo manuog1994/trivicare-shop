@@ -11,8 +11,8 @@
         </button>
         <!-- Cookies alert -->
         <div id="cookiesConsent" class="d-none d-flex justify-content-center mt-5 h-100 cookie-absolute">
-            <div class="d-flex align-items-center align-self-center card p-3 text-center cookies"><img src="https://i.imgur.com/Tl8ZBUe.png" width="50"><span class="mt-2">¡Hola!, nuestra web usa cookies tanto para su funcionamiento, como para el análisis del tráfico y anuncios personalizados.</span><router-link class="d-flex align-items-center" to="/cookies-policy">¿No sabes de que te hablamos? Pulsa en el enlace para saber más<i class="fa fa-angle-right ml-2"></i></router-link>
-                <button class="close-btn" @click="hiddenCookiesConsent" name="close-popup-top"><i class="fa fa-close"></i></button>
+            <div class="d-flex align-items-center align-self-center card p-3 text-center cookies"><img src="https://i.imgur.com/Tl8ZBUe.png" width="50" height="50" alt="Imagen de galletas"><span class="mt-2">¡Hola!, nuestra web usa cookies tanto para su funcionamiento, como para el análisis del tráfico y anuncios personalizados.</span><router-link class="d-flex align-items-center" to="/cookies-policy">¿No sabes de que te hablamos? Pulsa en el enlace para saber más<i class="fa fa-angle-right ml-2"></i></router-link>
+                <button class="close-btn" @click="hiddenCookiesConsent" name="close-popup-top" title="Botón de cerrar cookies"><i class="fa fa-close"></i></button>
                 <div class="d-flex justify-content-around">
                     <button class="text-primary text-decoration-underline mt-4 px-4" @click="customCookies">Personalizar</button>
                     <button class="btn btn-dark mt-3 px-4" type="button" @click="acceptAll">Aceptar todas</button>
@@ -23,7 +23,7 @@
         <div class="fondo" v-if="popUpShow">
             <div id="pop-up" class="popup-absolute">
                 <div class="d-flex align-items-center align-self-center card p-3 p-lg-0 pt-lg-5 ps-lg-4 pe-lg-4 pb-lg-3 text-center">
-                    <button class="close-btn fs-1" @click="close"><i class="fa fa-close"></i></button>
+                    <button class="close-btn fs-1" @click="close" title="Botón de cerrar" name="Botón de cerrar pop up"><i class="fa fa-close"></i></button>
                     <div class="row">
                         <div class="col-12 col-lg-6 d-none d-lg-block">
                             <img src="/img/newsletter.webp" alt="Imagen Pop Up" title="Imagen Pop Up" width="410" height="410" />
