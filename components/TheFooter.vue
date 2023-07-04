@@ -13,7 +13,7 @@
                                 <h3 class="text-white">¿Quieres estar a la última?</h3>
                             </div>
                             <div class="subscribe-style">
-                                <p>Recibe ofertas, descuentos y las últimas novedades.</p>
+                                <p class="text-white">Recibe ofertas, descuentos y las últimas novedades.</p>
                                 <div class="subscribe-form">
                                     <form class="mc-form" @submit.prevent="openNewsletterModal(email)" ref="form">
                                         <input id="input-suscribe-footer" type="email" required placeholder="  Introduce tu email..." name="email" v-model="email">
@@ -30,7 +30,7 @@
                             <div class="footer-title text-center">
                                 <h3 class="text-white">Pago Seguro</h3>
                             </div>
-                            <p class="text-center text-gray">Utilizamos seguridad SSL encriptada para asegurar que tus datos están 100% seguros.</p>
+                            <p class="text-center text-white">Utilizamos seguridad SSL encriptada para asegurar que tus datos están 100% seguros.</p>
                             <div class="text-center">
                                 <nuxt-img class="ms-2" provider="customProvider" src="storage/payment/tarjetas.webp" alt="tarjetas.webp" width="100" height="29" loading="lazy"/>
                                 <nuxt-img class="ms-2" provider="customProvider" src="storage/payment/bizum.webp" alt="bizum.webp" width="100" height="29" loading="lazy"/>
@@ -45,9 +45,9 @@
                             </div>
                             <div class="footer-list d-flex justify-content-around">
                                 <ul>
-                                    <li><a href="https://www.facebook.com/trivicare" target="_blank" title="Facebook"><fa-icon icon="fa-brands fa-facebook-f" class="me-2 text-gray" />Facebook</a></li>
-                                    <li><a href="https://www.instagram.com/trivicare" target="_blank" title="Instagram"><fa-icon icon="fa-brands fa-instagram" class="me-2 text-gray" />Instagram</a></li>
-                                    <li><a href="https://www.tiktok.com/@trivicare" target="_blank" title="TikTok"><fa-icon icon="fa-brands fa-tiktok" class="me-2 text-gray"/>TikTok</a></li>
+                                    <li><a href="https://www.facebook.com/trivicare" target="_blank" title="Facebook" class="text-white"><fa-icon icon="fa-brands fa-facebook-f" class="me-2 text-white" />Facebook</a></li>
+                                    <li><a href="https://www.instagram.com/trivicare" target="_blank" title="Instagram" class="text-white"><fa-icon icon="fa-brands fa-instagram" class="me-2 text-white" />Instagram</a></li>
+                                    <li><a href="https://www.tiktok.com/@trivicare" target="_blank" title="TikTok" class="text-white"><fa-icon icon="fa-brands fa-tiktok" class="me-2 text-white"/>TikTok</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -57,9 +57,9 @@
                             <div class="footer-title">
                                 <h3 class="text-white">¿Tienes dudas sobre tu pedido? ¡Llámanos!</h3>
                             </div>
-                            <p class="text-gray">De Lunes a Viernes de 10:00 AM a 20:00 PM</p>
+                            <p class="text-white">De Lunes a Viernes de 10:00 AM a 20:00 PM</p>
                             <p>
-                                <a href="tel:+34613036942" title="Teléfono" class="text-gray"> 
+                                <a href="tel:+34613036942" title="Teléfono" class="text-white"> 
                                     <i class="pe-7s-phone"></i>
                                     613 036 942
                                 </a>
@@ -70,7 +70,7 @@
                                 </a>
                             </p>
                             <p> 
-                                <a href="mailto:info@trivicare.com" title="Email" class="text-gray">
+                                <a href="mailto:info@trivicare.com" title="Email" class="text-white">
                                     <i class="pe-7s-mail"></i>
                                     info@trivicare.com
                                 </a>
@@ -84,10 +84,10 @@
                             </div>
                             <div class="footer-list">
                                 <ul>
-                                    <li><n-link to="/about" class="text-gray">Sobre nosotros</n-link></li>
-                                    <li><n-link to="/contact" class="text-gray">Puntos de venta</n-link></li>
-                                    <li><n-link to="/contact" class="text-gray">Contacto</n-link></li>
-                                    <li><button @click="openSuggestionsModal" title="Abrir Buzón de sugerencias" class="text-gray">Buzón de Sugerencias</button></li>
+                                    <li><n-link to="/about" class="text-white">Sobre nosotros</n-link></li>
+                                    <li><n-link to="/contact" class="text-white">Puntos de venta</n-link></li>
+                                    <li><n-link to="/contact" class="text-white">Contacto</n-link></li>
+                                    <li><button @click="openSuggestionsModal" title="Abrir Buzón de sugerencias" class="text-white">Buzón de Sugerencias</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -99,10 +99,10 @@
                             </div>
                             <div class="footer-list">
                                 <ul>
-                                    <li><n-link to="/terms-conditions" class="text-gray">Términos y Condiciones</n-link></li>
-                                    <li><n-link to="/cookies-policy" class="text-gray">Política de Cookies</n-link></li>
-                                    <li><n-link to="/legal-warning" class="text-gray">Aviso Legal y Protección de Datos</n-link></li>
-                                    <li><n-link to="/questions" class="text-gray">Preguntas Frecuentes</n-link></li>
+                                    <li><n-link to="/terms-conditions" class="text-white">Términos y Condiciones</n-link></li>
+                                    <li><n-link to="/cookies-policy" class="text-white">Política de Cookies</n-link></li>
+                                    <li><n-link to="/legal-warning" class="text-white">Aviso Legal y Protección de Datos</n-link></li>
+                                    <li><n-link to="/questions" class="text-white">Preguntas Frecuentes</n-link></li>
                                 </ul>
                             </div>
                         </div>
@@ -114,9 +114,9 @@
                             </div>
                             <div class="footer-list">
                                 <ul>
-                                    <li><n-link to="/my-account" class="text-gray">Mi perfil</n-link></li>
-                                    <li><n-link to="/my-orders" class="text-gray">Mis pedidos</n-link></li>
-                                    <li><n-link to="/custom-cookies" class="text-gray">Mis cookies</n-link></li>
+                                    <li><n-link to="/my-account" class="text-white">Mi perfil</n-link></li>
+                                    <li><n-link to="/my-orders" class="text-white">Mis pedidos</n-link></li>
+                                    <li><n-link to="/custom-cookies" class="text-white">Mis cookies</n-link></li>
                                 </ul>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
         }
     }
 
-    .text-gray {
+    .text-white {
         color: #7a7a7a;
     }
 
