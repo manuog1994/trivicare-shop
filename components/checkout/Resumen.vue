@@ -22,7 +22,7 @@
                         <ul>
                             <client-only>
                                 <li v-for="(product, index) in products" :key="index">
-                                    <span class="order-middle-left">{{ product.name }}  x {{ product.cartQuantity }} unid(s)</span> <span class="order-price">{{ ((discountedPrice(product) * product.cartQuantity) * 1.21).toFixed(2) }} &euro;</span>
+                                    <span class="order-middle-left">{{ product.name }} {{ product.variation != undefined ? `-- ${product.variation}` : '' }}  x {{ product.cartQuantity }} unid(s)</span> <span class="order-price">{{ ((discountedPrice(product) * product.cartQuantity) * 1.21).toFixed(2) }} &euro;</span>
                                 </li>
                             </client-only>
                         </ul>

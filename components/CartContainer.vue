@@ -16,17 +16,18 @@
                             </div>
                         </div>
                         <client-only>
-                            <div class="row d-md-flex line-cart mt-md-4 mt-2" v-for="product in products" :key="product.id">
+                            <div class="row d-md-flex line-cart mt-md-4 mt-2" v-for="product, index in products" :key="product.id + index">
                                 <div class="col-4 col-md-2 p-2 ms-4">
                                     <n-link :to="`/product/${product.slug}`">
-                                        <nuxt-img loading="lazy" v-if="product.images?.length > 0" provider="customProvider" :src="product.images[0].path + product.images[0].name + '280x280' + '.' + product.images[0].ext" :alt="product.name"/> 
+                                        <nuxt-img loading="lazy" v-if="product.images?.length > 0 && product.variation == null" provider="customProvider" :src="product.images[0].path + product.images[0].name + '280x280' + '.' + product.images[0].ext" :alt="product.name"/> 
+                                        <nuxt-img loading="lazy" v-else-if="product.images?.length > 0 && product.variation != null" provider="customProvider" :src="getImageVariations(product)" /> 
                                         <nuxt-img loading="lazy" v-else provider="customProvider" src="nuxt/default280x280.webp" :alt="product.name"/>
                                     </n-link>
                                 </div>
                                 <div class="col-7 col-md-9 mt-md-3 mt-1">
                                     <div class="d-md-flex justify-content-md-between">
                                         <div class="d-flex">
-                                            <n-link class="fs-5" :to="`/product/${product.slug}`">{{ product.name }}</n-link>
+                                            <n-link class="fs-5" :to="`/product/${product.slug}`">{{ product.name }} {{ product.variation != undefined ? `-- ${product.variation}` : '' }}</n-link>
                                         </div>
                                         <div class="d-md-flex justify-content-md-end">
                                             <span class="d-none d-md-block" style="font-size:14px;color:#cfcfcf;margin-right:5px;padding-right:5px;text-decoration:line-through;" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
@@ -109,6 +110,8 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
+
     export default {
         auth: false,
 
@@ -121,6 +124,7 @@
                 errorStockMessage: '',
                 token_reserve: '',
                 duration: 900,
+                imageVariation: [],
             }
         },
 
@@ -149,47 +153,10 @@
             window.onfocus = function(){
             document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
             }
-
-            //this.getProducts();
         },
         
 
         methods: {
-            async getProducts() {
-                await this.$store.dispatch('getProducts', {
-                    perPage: '',
-                    page: '',
-                    category: '',
-                    search: '',
-                    slug: '',
-                    sort: '',
-                    tag: '',
-                    status: 2,
-                })
-                let prod = this.$store.getters.getProducts;
-                let response = prod.data;
-                let cart = this.products;
-                let cartProducts = cart.map((item) => {
-                    return item.id
-                }).toString();
-
-                let products = response.filter((item) => {
-                    if (cartProducts.includes(item.id)) {
-                        return item
-                    }
-                })
-
-                cart.forEach((item) => {
-                    products.forEach((product) => {
-                        if (item.id == product.id) {
-                            product.cartQuantity = item.cartQuantity
-                        }
-                    })
-                })
-
-                this.$store.dispatch('refreshCart', products)
-
-            },
 
             makeid(length) {
                 let result = '';
@@ -238,7 +205,6 @@
                         this.$store.commit('SET_NOTE', '');
                         this.$store.commit('SET_RESERVE', this.token_reserve);
                         this.$router.push('/checkout' + '?reserve=' + this.token_reserve + '&step=1');
-                        //console.log(res.data);
                     }).catch(err => {
                         this.$axios.post('/api/error-message', {
                             message: error.response.data.message
@@ -252,9 +218,11 @@
                 if (product.cartQuantity < product.stock) {
                     this.$store.dispatch('addToCartItem', prod)
                 }else{
-                    this.$notify({ title: 'No hay más stock disponible' })
+                    Swal.fire({
+                    title: 'Falta de stock!',
+                    text: 'En estos momentos no disponemos de más stock',
+                })
                 }
-                //this.getProducts();
             },
 
             decrementProduct(product) {
@@ -262,15 +230,17 @@
                 if (product.cartQuantity > 1) {
                     this.$store.dispatch('decreaseProduct', prod)
                 }
-                //this.getProducts();
             },
 
             removeProduct(product) {
                 // for notification
-                this.$notify({ title: 'Producto eliminado del carrito!'})
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Eliminado!',
+                    text: 'Se ha eliminado correctamente',
+                })
 
                 this.$store.dispatch('removeProductFromCart', product)
-                //this.getProducts();
             },
 
             discountedPrice(product) {
@@ -278,13 +248,27 @@
             },
 
             clearCart() {
-                if (confirm("¿Estás seguro de que quieres vaciar el carrito?")) {
-                    // for notification
-                    this.$notify({ title: 'Carrito vaciado!'})
-                    
+                if (confirm("¿Estás seguro de que quieres vaciar el carrito?")) { 
+                    Swal.fire({
+                    icon: 'success',
+                    title: 'Vaciado!',
+                    text: 'El carrito se ha vaciado correctamente',
+                })                   
                     this.$store.commit('CLEAR_CART')
                 }
             },
+
+            getImageVariations(product) {
+                const image = product.variations.map(item => {
+                    if(item.model == product.variation || item.color == product.variation || item.size == product.variation){
+                        return item.image.path + item.image.name + '280x280' + '.' + item.image.ext;
+                    }
+                }).filter(item => {
+                    return item != undefined;
+                }).toString();
+
+                return image;
+            }
         },
 
     };

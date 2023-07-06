@@ -42,28 +42,15 @@
                     <div class="shop-bottom-area mt-35">
                         <div class="row product-layout" :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
                             <client-only>
-                                <div class="col-xl-4 col-sm-6" v-for="product in products" :key="'product-' + product.id" >
+                                <div class="col-xl-4 col-sm-6" v-for="product in paginatedItems" :key="'product-' + product.id" >
                                     <ProductGridItem :product="product" :layout="layout"/> 
                                 </div>
                             </client-only>
                         </div>
                     </div>
                     <!-- end shop product -->
-
-                    <div class="d-flex justify-content-center" v-if="products?.length >= perPage || page >= 2">
-                        <nav aria-label="...">
-                            <ul class="pagination-custom">
-                                <client-only>
-                                    <li v-for="pagination_link in pagination.links" :key=" 'pagination_link-' + pagination_link.label" class="page-link-custom"
-                                    :class="{
-                                        'disabled' : pagination_link.url == null,
-                                        'active' : pagination_link.active == true
-                                    }">
-                                        <a class="page-link" v-html="pagination_link.label" style="cursor: pointer;" @click.prevent="changePage(pagination_link.url)"></a>
-                                    </li>
-                                </client-only>
-                            </ul>
-                        </nav>
+                    <div class="d-flex justify-content-center mt-2">
+                        <pagination v-model="page" :records="products.length" :perPage="perPage" @paginate="myCallback"></pagination>
                     </div>
                 </div>
                 <div class="col-lg-3 d-none d-md-block">
@@ -111,7 +98,6 @@ export default {
             layout: "list",
             selectedPrice: 'default',
             selectedQuantity: 'default',
-            pagination: {},
             products: [],
             searchResult: '',
             sortFilter: '',
@@ -119,26 +105,16 @@ export default {
             category_id: '',
             tag_slug: '',
             tag_id: '',
-            perPage: 5,
             unauthorized: false,
+            page: 1,
+            perPage: 5,
         }
     },
 
     computed: {
-        page() {
-            let page = this.$route.query.page ?? 1;
-
-            if(page > this.pagination.last_page){
-                this.$router.replace({
-                    query: {
-                        page: this.pagination.last_page
-                    }
-                })
-                this.$router.push();
-                return this.pagination.last_page;
-            }
-
-            return page;
+        paginatedItems () {
+            const start = (this.page - 1) * this.perPage
+            return this.products.slice(start, start + this.perPage)
         },
 
         categories() {
@@ -192,12 +168,6 @@ export default {
             if (this.unauthorized == true) {
                 this.$auth.logout();
             }
-        },
-
-        page() {
-            setTimeout(() => {
-                this.getProducts();
-            }, 500);
         },
 
         category() {
@@ -277,13 +247,18 @@ export default {
             this.tag_slug = '';
             this.tag_id = '';
         },
+
+        //si page cambia, subimos el scroll
+        page() {
+            window.scrollTo(0, 0);
+        }
     },
 
     methods: {
         async getProducts() {
             await this.$store.dispatch('getProducts', {
-                perPage: this.perPage,
-                page: this.page,
+                perPage: '',
+                page: '',
                 category: this.category,
                 search: '',
                 slug: '',
@@ -292,13 +267,7 @@ export default {
                 status: 2,
             })
             const products = this.$store.getters.getProducts
-            this.products = products.data
-            const paginations = this.$store.getters.getProducts
-            this.pagination = {
-                links: paginations['meta'].links,
-                current_page: paginations['meta'].current_page,
-                last_page: paginations['meta'].last_page,
-            }
+            this.products = products.data;
         },
 
         async getCategories() {
@@ -309,17 +278,13 @@ export default {
             await this.$store.dispatch('getTags')
         },
 
-        changePage(url) {
-            this.$router.replace({
-                query: {
-                    page : url.split('page=')[1]
-                }
-            });
-        },
-
         discountedPrice(product) {
             return product.price_base - (product.price_base * product.discount / 100)
         },
+
+        myCallback(page) {
+            this.page = page;
+        }
 
     },
 

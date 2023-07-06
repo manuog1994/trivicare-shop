@@ -19,7 +19,7 @@
                 <!-- <button class="btn" title="Compare" @click="addToCompare(product)"> 
                     <i class="pe-7s-shuffle"></i>
                 </button> -->
-                <button v-if="product.stock > 0" class="btn" title="Añadir al carrito" @click="addToCart(product)">
+                <button v-if="product.stock > 0 && product.varitions?.length == 0" class="btn" title="Añadir al carrito" @click="addToCart(product)">
                     <i class="pe-7s-cart"></i>
                 </button>
                 <button class="btn" title="Vista previa" @click="onClick(product)">
@@ -94,7 +94,7 @@ import Swal from 'sweetalert2';
             },
 
             onClick(product) {
-                this.$modal.show('quickview', product);
+                this.$router.push(`/product/${product.slug}`)
             },
         },
     };

@@ -18,11 +18,11 @@
                             </thead>
                             <tbody>
                                 <client-only>
-                                    <tr v-for="product in products" :key="product.id">
+                                    <tr v-for="product in products" :key="product.id + 'product'">
                                         <td class="product-thumbnail">
                                             <n-link :to="`/product/${product.slug}`">
-                                                <nuxt-img v-if="product.images > 0" provider="customProvider" :src="product.images[0].path" :alt="product.name"/>
-                                                <nuxt-img v-else provider="customProvider" src="nuxt/default.webp" :alt="product.name"/> 
+                                                <nuxt-img v-if="product.images > 0" provider="customProvider" :src="product.images[0].path + product.images[0].name + '280x280' + '.' + product.images[0].ext" :alt="product.name"/>
+                                                <nuxt-img v-else provider="customProvider" src="nuxt/default280x280.webp" :alt="product.name"/> 
                                             </n-link>
                                         </td>
                                         <td class="product-name">

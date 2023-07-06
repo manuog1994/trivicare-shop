@@ -252,12 +252,25 @@ export const mutations = {
     },
 
     UPDATE_CART(state, payload) {
-        const item = state.cart.find(el => payload.id === el.id)
-        if (item) {
+        const item = state.cart.find(el => {
+            if (payload.id === el.id && payload.variation === el.variation) {
+                return el
+            }
+        })
+        if (item && item.variation === '') {
             const price = item.discount ? item.price_base - (item.price_base *(item.discount)/100) : item.price_base;
             item.cartQuantity = item.cartQuantity + payload.cartQuantity
             item.total = item.cartQuantity * price
             state.lastUpdated = Date.now()
+        }else if (item && item.variation !== '' && item.variation === payload.variation) {
+            
+            if (item.variation === payload.variation) {
+                const price = item.discount ? item.price_base - (item.price_base *(item.discount)/100) : item.price_base;
+                item.cartQuantity = item.cartQuantity + payload.cartQuantity
+                item.total = item.cartQuantity * price
+                state.lastUpdated = Date.now()
+            }
+            
         } else {
             const price = payload.discount ? payload.price_base - (payload.price_base *(payload.discount)/100) : payload.price_base;
             state.cart.push({...payload, cartQuantity: payload.cartQuantity, total: price })
@@ -344,9 +357,16 @@ export const mutations = {
     },
 
     REMOVE_PRODUCT_FROM_CART(state, product) {
-        state.cart = state.cart.filter(item => {
-            return product.id !== item.id
-        });
+        const cart = state.cart;
+        cart.filter(item => {
+            if(product.variation === item.variation) {
+                //borrar el producto
+                const index = cart.indexOf(item);
+                cart.splice(index, 1);
+            } else {
+                return product.id !== item.id
+            }
+        })
     },
 
     DECREASE_PRODUCT(state, payload) {

@@ -3,16 +3,17 @@
         <div class="minicart-wrapper" :class="miniCart">
             <div class="shopping-cart-content" v-if="products?.length > 0">
                 <ul>
-                    <li class="single-shopping-cart" v-for="product in products" :key="product.id">
+                    <li class="single-shopping-cart" v-for="product, index in products" :key="product.id + index">
                         <div class="shopping-cart-img">
                             <n-link :to="`/product/${product.slug}`">
-                                <nuxt-img v-if="product.images?.length != 0" provider="customProvider" :src="product.images[0].path + product.images[0].name + '280x280' + '.' + product.images[0].ext" :alt="product.name"/>
+                                <nuxt-img loading="lazy" v-if="product.images?.length > 0 && product.variation == null" provider="customProvider" :src="product.images[0].path + product.images[0].name + '280x280' + '.' + product.images[0].ext" :alt="product.name"/> 
+                                <nuxt-img loading="lazy" v-else-if="product.images?.length > 0 && product.variation != null" provider="customProvider" :src="getImageVariations(product)" /> 
                                 <nuxt-img loading="lazy" v-else provider="customProvider" src="nuxt/default280x280.webp" :alt="product.name"/>
                             </n-link>
                         </div>
                         <div class="shopping-cart-title">
                             <h4>
-                                <n-link :to="`/product/${product.slug}`">{{ product.name}}</n-link>
+                                <n-link :to="`/product/${product.slug}`">{{ product.name }} {{ product.variation != undefined ? `-- ${product.variation}` : '' }}</n-link>
                             </h4>
                             <div v-if="product.stock > 0">
                                 <h6>Cant: {{ product.cartQuantity }}</h6>
@@ -46,6 +47,7 @@
 </template>
 
 <script>
+    import Swal from 'sweetalert2';
     export default {
         props: ["miniCart"],
 
@@ -67,45 +69,13 @@
         },
 
         methods: {
-            // async getProducts() {
-            //     await this.$store.dispatch('getProducts', {
-            //         perPage: '',
-            //         page: '',
-            //         category: '',
-            //         search: '',
-            //         slug: '',
-            //         sort: '',
-            //         tag: '',
-            //         status: 2,
-            //     })
-            //     let prod = this.$store.getters.getProducts;
-            //     let response = prod.data;
-            //     // let cart = this.products;
-            //     // let cartProducts = cart.map((item) => {
-            //     //     return item.id
-            //     // }).toString();
-
-            //     // let products = response.filter((item) => {
-            //     //     if (cartProducts.includes(item.id)) {
-            //     //         return item
-            //     //     }
-            //     // })
-
-            //     // cart.forEach((item) => {
-            //     //     products.forEach((product) => {
-            //     //         if (item.id == product.id) {
-            //     //             product.cartQuantity = item.cartQuantity
-            //     //         }
-            //     //     })
-            //     // })
-
-            //     // this.$store.dispatch('refreshCart', products)
-
-            // },
-
             removeProduct(product) {
                 // for notification
-                this.$notify({ title: 'Producto eliminado'})
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Eliminado!',
+                    text: 'Se ha eliminado correctamente',
+                })
                 this.$store.dispatch('removeProductFromCart', product)
             },
 
@@ -160,12 +130,22 @@
                         this.$store.commit('SET_NOTE', '');
                         this.$store.commit('SET_RESERVE', this.token_reserve);
                         this.$router.push('/checkout' + '?reserve=' + this.token_reserve + '&step=1');
-                        //console.log(res.data);
-                    }).catch(err => {
-                        //console.log(err)
+                     }).catch(err => {
                     })
                 }
             },
+
+            getImageVariations(product) {
+                const image = product.variations.map(item => {
+                    if(item.model == product.variation || item.color == product.variation || item.size == product.variation){
+                        return item.image.path + item.image.name + '280x280' + '.' + item.image.ext;
+                    }
+                }).filter(item => {
+                    return item != undefined;
+                }).toString();
+
+                return image;
+            }
         }
     };
 </script>

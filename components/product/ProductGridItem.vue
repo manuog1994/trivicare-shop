@@ -54,10 +54,13 @@
                 <!-- <p class="">{{ (product.description).substring(0,100)+"..." }}</p> -->
                 <div class="pro-action d-flex align-items-center" >
                     <div class="pro-cart btn-hover">
-                        <button class="btn" title="Añadir al carrito" @click="addToCart(product)" v-if="product.stock > 0">
+                        <button class="btn" title="Añadir al carrito" @click="addToCart(product)" v-if="product.stock > 0 && product.variations.length == 0">
                             <i class="pe-7s-cart"></i> 
                             Añadir al carrito
                         </button>
+                        <n-link class="btn" title="Seleccionar" :to="'product/' + product.slug" v-else-if="product.variations?.length > 0">
+                            Seleccione una opción
+                        </n-link>
                         <button v-else class="btn disabled" title="No hay stock">
                             <i class="pe-7s-attention"></i>
                              No hay Stock
