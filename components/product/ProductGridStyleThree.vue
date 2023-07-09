@@ -7,8 +7,8 @@
                     <nuxt-img loading="lazy" class="hover-img" provider="customProvider" src="nuxt/default.webp" :alt="product.title" width="269.99" height="269.99"/>
                 </div>
                 <div v-else>
-                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" :src="product.images[0].path + '400x400/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="100%" height="100%"/>
-                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" :src="product.images[1].path + '400x400/' + product.images[1].name + '.' + product.images[1].ext" :alt="product.name" width="100%" height="100%"/>
+                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" :src="product.images[0].path + '800x800/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="100%" height="100%"/>
+                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" :src="product.images[1].path + '800x800/' + product.images[1].name + '.' + product.images[1].ext" :alt="product.name" width="100%" height="100%"/>
                 </div>
             </n-link>
             <div class="product-badges">

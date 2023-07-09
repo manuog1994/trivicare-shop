@@ -13,7 +13,6 @@
 </template>
 
 <script>
-    import WishListContainer from '../components/WishListContainer.vue';
     export default {
         auth: false,
         
@@ -23,7 +22,6 @@
             NavBottom: () => import("@/components/NavBottom"),
             WishListContainer: () => import("@/components/WishListContainer"),
             TheFooter: () => import("@/components/TheFooter"),
-            WishListContainer
         },
 
         data() {
