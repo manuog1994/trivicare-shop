@@ -6,7 +6,6 @@
             <div id="post-nav" class="" @click="closeMenus">
                 <NavBottom/>
                 <ShopContainer />
-                <QuickView />
                 <TheFooter />
             </div>
         </div>
@@ -24,7 +23,6 @@
             TheHeader: () => import("@/components/TheHeader"),
             NavBottom: () => import("@/components/NavBottom"),
             ShopContainer: () => import("@/components/ShopContainer"),
-            QuickView: () => import("@/components/QuickView"),
             TheFooter: () => import("@/components/TheFooter"),
         },
 

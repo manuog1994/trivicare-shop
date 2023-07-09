@@ -3,12 +3,12 @@
          <div class="product-img">
             <n-link :to="`/product/${product.slug}`">
                 <div v-if="product.images?.length == 0 || product.images?.length == 1">
-                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" src="nuxt/default280x280.webp" :alt="product.name" width="100%" height="100%"/>
-                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" src="nuxt/default280x280.webp" :alt="product.name" width="100%" height="100%"/>
+                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" src="nuxt/default400x400.webp" :alt="product.name" width="100%" height="100%"/>
+                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" src="nuxt/default400x400.webp" :alt="product.name" width="100%" height="100%"/>
                 </div>
                 <div v-else>
-                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" :src="product.images[0].path + product.images[0].name + '280x280' + '.' + product.images[0].ext" :alt="product.name" width="100%" height="100%"/>
-                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" :src="product.images[1].path + product.images[1].name + '280x280' + '.' + product.images[1].ext" :alt="product.name" width="100%" height="100%"/>
+                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" :src="product.images[0].path + '400x400/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="100%" height="100%"/>
+                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" :src="product.images[1].path + '400x400/' + product.images[1].name + '.' + product.images[1].ext" :alt="product.name" width="100%" height="100%"/>
                 </div>
             </n-link>
             <div class="product-badges">
@@ -147,7 +147,7 @@ import Swal from 'sweetalert2'
             },
 
             onClick(product) {
-                this.$modal.show('quickview', product);
+                this.$router.push(`/product/${product.slug}`)
             },
 
         },

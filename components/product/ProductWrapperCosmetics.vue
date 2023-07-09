@@ -50,7 +50,6 @@
                 </div>
             </div>
         </div>
-        <QuickView />
     </div>
 
 </template>
@@ -59,7 +58,6 @@
     export default {
         components: {
             ProductGridItemTwo: () => import('@/components/product/ProductGridItemTwo'),
-            QuickView: () => import('@/components/QuickView'),
         },
 
         data() {

@@ -19,7 +19,7 @@
                             <div class="row d-md-flex line-cart mt-md-4 mt-2" v-for="product, index in products" :key="product.id + index">
                                 <div class="col-4 col-md-2 p-2 ms-4">
                                     <n-link :to="`/product/${product.slug}`">
-                                        <nuxt-img loading="lazy" v-if="product.images?.length > 0 && product.variation == null" provider="customProvider" :src="product.images[0].path + product.images[0].name + '280x280' + '.' + product.images[0].ext" :alt="product.name"/> 
+                                        <nuxt-img loading="lazy" v-if="product.images?.length > 0 && product.variation == null" provider="customProvider" :src="product.images[0].path + '280x280/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name"/> 
                                         <nuxt-img loading="lazy" v-else-if="product.images?.length > 0 && product.variation != null" provider="customProvider" :src="getImageVariations(product)" /> 
                                         <nuxt-img loading="lazy" v-else provider="customProvider" src="nuxt/default280x280.webp" :alt="product.name"/>
                                     </n-link>
@@ -261,7 +261,7 @@ import Swal from 'sweetalert2';
             getImageVariations(product) {
                 const image = product.variations.map(item => {
                     if(item.model == product.variation || item.color == product.variation || item.size == product.variation){
-                        return item.image.path + item.image.name + '280x280' + '.' + item.image.ext;
+                        return item.image.path + '280x280/' + item.image.name + '.' + item.image.ext;
                     }
                 }).filter(item => {
                     return item != undefined;

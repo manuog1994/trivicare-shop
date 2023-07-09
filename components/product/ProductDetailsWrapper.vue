@@ -22,7 +22,7 @@
                                     <nuxt-img loading="lazy" provider="customProvider" src="nuxt/default.webp" alt="default" width="106" height="106"/>
                                 </div>
                                 <div v-else class="thumb-img swiper-slide" v-for="image in product.images" :key="'imagetwo-' + image.id">
-                                    <nuxt-img loading="lazy" provider="customProvider" :src="image.path + image.name + '280x280' + '.' + image.ext" alt="default" width="106" height="106"/>
+                                    <nuxt-img loading="lazy" provider="customProvider" :src="image.path + '280x280/' + image.name + '.' + image.ext" alt="default" width="106" height="106"/>
                                 </div>
                             </swiper>
                         </div>
