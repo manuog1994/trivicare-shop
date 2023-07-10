@@ -117,19 +117,18 @@
                         <div class="pro-details-social">
                             <span class="label me-2">Compartir:</span>
                             <ul class="mt-2">
-                                <!-- Compartir en Facebook -->
                                 <li>
-                                    <a :href="`https://www.facebook.com/sharer/sharer.php?u=${ urlProduct }`" title="Compartir en Facebook">
+                                    <a :href="`https://www.facebook.com/sharer/sharer.php?u=${ urlProduct }`" target="_blank" title="Compartir en Facebook">
                                         <fa-icon icon="fa-brands fa-facebook-f" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a :href="`https://www.pinterest.com/pin/create/button/?url=${ urlProduct }&media=${ urlLogo }&description=¡Mira este producto es increíble!`" title="Compartir en Pinterest">
+                                    <a :href="`https://www.pinterest.com/pin/create/button/?url=${ urlProduct }&media=${ urlLogo }&description=¡Mira este producto es increíble!`" target="_blank" title="Compartir en Pinterest">
                                         <fa-icon icon="fa-brands fa-pinterest" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a :href="`https://api.whatsapp.com/send?text=¡Echa un vistazo a este enlace!&url=${ urlProduct }`" title="Compartir en Whatsapp">
+                                    <a :href="`https://api.whatsapp.com/send?text=¡Echa un vistazo a este enlace! ${ urlProduct }`" target="_blank" title="Compartir en Whatsapp">
                                         <fa-icon icon="fa-brands fa-whatsapp" />
                                     </a>
                                 </li>
