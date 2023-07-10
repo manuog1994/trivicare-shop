@@ -1,5 +1,5 @@
 <template>
-    <div class="container bg-light pt-3 pb-3 mb-5 shadow">
+    <div class="container bg-light pt-3 pb-3 mb-5 mt-5 shadow">
         <div class="text-center mb-4">
             <h2>Cada día más sostenibles 🌱</h2>
             <p class="lead">Trabajamos cada día para ofrecer los mejores productos con los ingredientes más ecológicos y sostenibles</p>

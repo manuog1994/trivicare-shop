@@ -4,8 +4,8 @@
             <NavBottom/>
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
+            <HeroSliderSix />
             <div id="post-nav" class="" @click="closeMenus">
-                <HeroSliderSix />
                 <IconsActions />
                 <ProductWrapperCosmetics />
                 <Testimonials />

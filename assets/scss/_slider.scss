@@ -4,7 +4,7 @@
 }
 
 .slider-height-1 {
-    height: auto;
+    height: 800px;
     @media #{$xl-layout}{
         height: auto;
     }
@@ -33,7 +33,7 @@
                 height: 100%;
                 content: "";
                 background-color: $white;
-                opacity: .5;
+                opacity: .1;
             }
         }
     }
@@ -301,9 +301,9 @@
 .slider-btn {
     a {
         font-size: 16px;
-        color: #010101;
+        color: white;
         display: inline-block;
-        border: 1px solid #333;
+        border: 1px solid white;
         text-transform: uppercase;
         line-height: 1;
         padding: 19px 50px 21px;
@@ -768,9 +768,10 @@
     .slider-btn {
         a {
             font-size: 16px;
-            color: $black;
+            color: white;
             display: inline-block;
-            border: 1px solid $dark;
+            border: 1px solid white;
+            background-color: turquoise;
             text-transform: uppercase;
             line-height: 1;
             padding: 19px 50px 19px;
@@ -860,9 +861,9 @@
     }
 }
 .slider-height-18 {
-    height: 460px;
+    height: 500px;
     @media #{$md-layout}{
-        height: 350px;
+        height: 500px;
         background-position: 85%;
     }
     @media #{$xs-layout}{

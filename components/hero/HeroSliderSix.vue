@@ -1,78 +1,64 @@
 <template>
-    <div class="container-fluid mb-5">
-        <div class="row">
-            <div class="col-12 p-0">
-                <div class="newBanner d-flex flex-column justify-content-center align-items-center p-5 text-center">
-                    <h1>
-                        <strong>Cosmética natural hecha en España</strong>
-                    </h1>
-                    <p>Con los mejores ingredientes procedentes de agricultura ecológica</p>
-                    <n-link to="/shop" class="btn bg-trivi-green" title="Ir a la tienda">Ir a la tienda</n-link>
+    <div class="slider-area nav-style-1">
+        <swiper :options="swiperOption">
+            <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="single-slider-2 slider-height-1 d-flex align-items-center slider-height-res hm-13-slider bg-img pt-0" :style="{ backgroundImage:`url(${slider.backgroundImage})` }">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="slider-content-13 slider-animation-1 p-4 p-xl-0">
+                                <h5 class="text-white">{{ slider.subTitle }}</h5>
+                                <h1 class="text-white" v-html="slider.title"></h1>
+                                <div class="slider-btn btn-hover">
+                                    <n-link to="/shop">Ver ahora</n-link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </swiper-slide>
+            
+            <!-- Swiper Navigation Start -->
+            <div class="hero-slider-nav swiper-button-prev">
+                <i class="pe-7s-angle-left"></i>
             </div>
-        </div>
+            <div class="hero-slider-nav swiper-button-next">
+                <i class="pe-7s-angle-right"></i>
+            </div>
+            <!-- Swiper Navigation End -->
+        </swiper>
     </div>
 </template>
 
-<style>
-    p.img-mobile {
-        width: 100%;
-        padding: 5rem 0;
-        font-size: 22px;
-        text-align: center;
-        color: white;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .bg-span {
-        background-color: #ffffffdc;
-        color: rgb(73, 73, 73);
-        font-size: 24px;
-        padding: 3rem 0;
-        margin: 15px;
-    }
-
-    .btn-mobile {
-        background-color: white;
-        padding: 10px 10px;
-        margin: 25px;
-    }
-    
-    .bg-slider-img {
-        padding: 8rem 5rem;
-    }
-
-    .newBanner {
-        width: 100%;
-        height: 500px;
-        max-height: 800px;
-    }
-    /* Animar newBanner añadiendo pequeñas estrellas que se iluminan cada cierto tiempo */
-    .newBanner::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url("/campain/fondo-lote.webp") no-repeat center center;
-        background-size: cover;
-        opacity: 0.5;
-        animation: animate 25s linear infinite;
-        z-index: -1;
-    }
-    
-    .img-banner {
-        width: 100%;
-        height: 100%;
-
-    }
-
-
-</style>
-
 <script>
     export default {
+        data() {
+            return {
+                swiperOption: {
+                    loop: true,
+                    speed: 750,
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    autoplay: {
+                        delay: 6000
+                    },
+                    effect: "fade",
+                    fadeEffect: { 
+                        crossFade: true 
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                },
+
+                sliderData: [
+                    {
+                        subTitle: "Este verano",
+                        title: "Cuidate <br> con TriviCare",
+                        backgroundImage: "/img/banner-summer.webp"
+                    },
+                ]
+            }
+        },
     };
 </script>
