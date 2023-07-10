@@ -9,6 +9,7 @@
                 <IconsActions />
                 <ProductWrapperCosmetics />
                 <Testimonials />
+                <ProductWrapperCosmeticsTwo />
                 <ServicePolicyFour />
                 <TheFooter />
             </div>
@@ -27,6 +28,7 @@
             NavBottom: () => import("@/components/NavBottom"),
             HeroSliderSix: () => import("@/components/hero/HeroSliderSix"),
             ProductWrapperCosmetics: () => import("@/components/product/ProductWrapperCosmetics"),
+            ProductWrapperCosmeticsTwo: () => import("@/components/product/ProductWrapperCosmeticsTwo"),
             ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
             TheFooter: () => import("@/components/TheFooter"),
             IconsActions: () => import("@/components/IconsActions"),

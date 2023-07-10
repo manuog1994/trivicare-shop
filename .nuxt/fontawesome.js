@@ -9,13 +9,31 @@ import {
 import {
   faTiktok as freeFabFaTiktok,
   faFacebookF as freeFabFaFacebookF,
-  faInstagram as freeFabFaInstagram
+  faInstagram as freeFabFaInstagram,
+  faYoutube as freeFabFaYoutube,
+  faTwitter as freeFabFaTwitter,
+  faWhatsapp as freeFabFaWhatsapp,
+  faGoogle as freeFabFaGoogle,
+  faGooglePlay as freeFabFaGooglePlay,
+  faApple as freeFabFaApple,
+  faPinterest as freeFabFaPinterest,
+  faLinkedinIn as freeFabFaLinkedinIn,
+  faTelegram as freeFabFaTelegram
 } from '@fortawesome/free-brands-svg-icons'
 
 library.add(
   freeFabFaTiktok,
   freeFabFaFacebookF,
-  freeFabFaInstagram
+  freeFabFaInstagram,
+  freeFabFaYoutube,
+  freeFabFaTwitter,
+  freeFabFaWhatsapp,
+  freeFabFaGoogle,
+  freeFabFaGooglePlay,
+  freeFabFaApple,
+  freeFabFaPinterest,
+  freeFabFaLinkedinIn,
+  freeFabFaTelegram
 )
 
 config.autoAddCss = false

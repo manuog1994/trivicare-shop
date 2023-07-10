@@ -11,18 +11,18 @@
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
                                 <div v-if="product.images?.length == 0" class="swiper-slide text-center">
-                                    <nuxt-img loading="lazy" class="principal" provider="customProvider" src="nuxt/default.webp" alt="default" width="425" height="425" />
+                                    <nuxt-img loading="lazy" class="principal" provider="customProvider" src="nuxt/default.webp" alt="default" width="500" height="500" />
                                 </div>
                                 <div v-else class="swiper-slide text-center" v-for="image in product.images" :key="'image-' + image.id">
-                                    <nuxt-img id="image-principal" loading="lazy" class="principal" provider="customProvider" :src="image.path + image.name + '.' + image.ext" alt="default" width="425" height="425" />
+                                    <nuxt-img id="image-principal" loading="lazy" class="principal" provider="customProvider" :src="image.path + image.name + '.' + image.ext" alt="default" width="500" height="500" />
                                 </div>
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
                                 <div v-if="product.images?.length == 0" class="thumb-img swiper-slide">
-                                    <nuxt-img loading="lazy" provider="customProvider" src="nuxt/default.webp" alt="default" width="106" height="106"/>
+                                    <nuxt-img loading="lazy" provider="customProvider" src="nuxt/default280x280.webp" alt="default" width="106" height="auto"/>
                                 </div>
                                 <div v-else class="thumb-img swiper-slide" v-for="image in product.images" :key="'imagetwo-' + image.id">
-                                    <nuxt-img loading="lazy" provider="customProvider" :src="image.path + '280x280/' + image.name + '.' + image.ext" alt="default" width="106" height="106"/>
+                                    <nuxt-img loading="lazy" provider="customProvider" :src="image.path + '280x280/' + image.name + '.' + image.ext" alt="default" width="106" height="auto"/>
                                 </div>
                             </swiper>
                         </div>
@@ -110,25 +110,27 @@
                             <span class="label me-2">Tag:</span>
                             <ul>
                                 <li v-for="taggy in product.tags" :key="'tag-' +  taggy.id">
-                                    <n-link class="tag-block" :style="`background-color:${taggy.color}`" :to="`/shop?tag=${taggy.slug}`" title="Etiqueta">#{{ taggy.tag }}</n-link>
+                                    <n-link class="tag-block" :style="`color:${taggy.color}`" :to="`/shop?tag=${taggy.slug}`" title="Etiqueta">{{ taggy.tag }}</n-link>
                                 </li>
                             </ul>
                         </div>
                         <div class="pro-details-social">
-                            <ul>
+                            <span class="label me-2">Compartir:</span>
+                            <ul class="mt-2">
+                                <!-- Compartir en Facebook -->
                                 <li>
-                                    <a href="https://www.facebook.com/trivicare" target="_blank" title="Facebook">
+                                    <a :href="`https://www.facebook.com/sharer/sharer.php?u=${ urlProduct }`" title="Compartir en Facebook">
                                         <fa-icon icon="fa-brands fa-facebook-f" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.instagram.com/trivicare" target="_blank" title="Instagram">
-                                        <fa-icon icon="fa-brands fa-instagram" />
+                                    <a :href="`https://www.pinterest.com/pin/create/button/?url=${ urlProduct }&media=${ urlLogo }&description=¡Mira este producto es increíble!`" title="Compartir en Pinterest">
+                                        <fa-icon icon="fa-brands fa-pinterest" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.tiktok.com/@trivicare" target="_blank" title="TikTok">
-                                        <fa-icon icon="fa-brands fa-tiktok" />
+                                    <a :href="`https://api.whatsapp.com/send?text=¡Echa un vistazo a este enlace!&url=${ urlProduct }`" title="Compartir en Whatsapp">
+                                        <fa-icon icon="fa-brands fa-whatsapp" />
                                     </a>
                                 </li>
                             </ul>
@@ -143,9 +145,7 @@
 <style lang="scss">
     .tag-block {
         display: inline-flex;
-        padding: 1rem, 1rem;
-        border-radius: 5px;
-        border: 1px solid #a8a8a8;    
+        padding: 1rem, 1rem;   
     }
 
     .principal {
@@ -183,6 +183,8 @@ import Swal from 'sweetalert2'
                 selectVariation: false,
                 idButtonVariation: '',
                 imageVariation: [],
+                urlProduct: process.env.url + '/product/' + this.product.slug,
+                urlLogo: process.env.baseUrl + '/nuxt/TriviCare_byn%20Positivo.svg',
 
                 swiperOptionTop: {
                     loop: true,

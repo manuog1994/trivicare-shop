@@ -48,14 +48,6 @@ declare module 'vue' {
     'WishListContainer': typeof import("../components/WishListContainer.vue")['default'],
     'LoadersBigLoader': typeof import("../components/loaders/BigLoader.vue")['default'],
     'LoadersSmallLoading': typeof import("../components/loaders/SmallLoading.vue")['default'],
-    'PolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
-    'ProductDetailsWrapper': typeof import("../components/product/ProductDetailsWrapper.vue")['default'],
-    'ProductGridItem': typeof import("../components/product/ProductGridItem.vue")['default'],
-    'ProductGridItemTwo': typeof import("../components/product/ProductGridItemTwo.vue")['default'],
-    'ProductGridStyleThree': typeof import("../components/product/ProductGridStyleThree.vue")['default'],
-    'ProductWrapperCosmetics': typeof import("../components/product/ProductWrapperCosmetics.vue")['default'],
-    'ProfileNewGuest': typeof import("../components/profile/NewGuest.vue")['default'],
-    'ProfileNewProfile': typeof import("../components/profile/NewProfile.vue")['default'],
     'CheckoutAddressStep': typeof import("../components/checkout/AddressStep.vue")['default'],
     'CheckoutCouponForm': typeof import("../components/checkout/CouponForm.vue")['default'],
     'CheckoutEmailStep': typeof import("../components/checkout/EmailStep.vue")['default'],
@@ -68,8 +60,17 @@ declare module 'vue' {
     'CheckoutSendStep': typeof import("../components/checkout/SendStep.vue")['default'],
     'CheckoutSuccessOrder': typeof import("../components/checkout/SuccessOrder.vue")['default'],
     'CheckoutTimerNav': typeof import("../components/checkout/TimerNav.vue")['default'],
+    'PolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
+    'ProductDetailsWrapper': typeof import("../components/product/ProductDetailsWrapper.vue")['default'],
+    'ProductGridItem': typeof import("../components/product/ProductGridItem.vue")['default'],
+    'ProductGridItemTwo': typeof import("../components/product/ProductGridItemTwo.vue")['default'],
+    'ProductGridStyleThree': typeof import("../components/product/ProductGridStyleThree.vue")['default'],
+    'ProductWrapperCosmetics': typeof import("../components/product/ProductWrapperCosmetics.vue")['default'],
+    'ProductWrapperCosmeticsTwo': typeof import("../components/product/ProductWrapperCosmeticsTwo.vue")['default'],
+    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'HeaderCheckout': typeof import("../components/header/HeaderCheckout.vue")['default'],
-    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default']
+    'ProfileNewGuest': typeof import("../components/profile/NewGuest.vue")['default'],
+    'ProfileNewProfile': typeof import("../components/profile/NewProfile.vue")['default']
     'LazyAboutMission': typeof import("../components/AboutMission.vue")['default'],
     'LazyAuth': typeof import("../components/Auth.vue")['default'],
     'LazyCartContainer': typeof import("../components/CartContainer.vue")['default'],
@@ -117,14 +118,6 @@ declare module 'vue' {
     'LazyWishListContainer': typeof import("../components/WishListContainer.vue")['default'],
     'LazyLoadersBigLoader': typeof import("../components/loaders/BigLoader.vue")['default'],
     'LazyLoadersSmallLoading': typeof import("../components/loaders/SmallLoading.vue")['default'],
-    'LazyPolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
-    'LazyProductDetailsWrapper': typeof import("../components/product/ProductDetailsWrapper.vue")['default'],
-    'LazyProductGridItem': typeof import("../components/product/ProductGridItem.vue")['default'],
-    'LazyProductGridItemTwo': typeof import("../components/product/ProductGridItemTwo.vue")['default'],
-    'LazyProductGridStyleThree': typeof import("../components/product/ProductGridStyleThree.vue")['default'],
-    'LazyProductWrapperCosmetics': typeof import("../components/product/ProductWrapperCosmetics.vue")['default'],
-    'LazyProfileNewGuest': typeof import("../components/profile/NewGuest.vue")['default'],
-    'LazyProfileNewProfile': typeof import("../components/profile/NewProfile.vue")['default'],
     'LazyCheckoutAddressStep': typeof import("../components/checkout/AddressStep.vue")['default'],
     'LazyCheckoutCouponForm': typeof import("../components/checkout/CouponForm.vue")['default'],
     'LazyCheckoutEmailStep': typeof import("../components/checkout/EmailStep.vue")['default'],
@@ -137,8 +130,17 @@ declare module 'vue' {
     'LazyCheckoutSendStep': typeof import("../components/checkout/SendStep.vue")['default'],
     'LazyCheckoutSuccessOrder': typeof import("../components/checkout/SuccessOrder.vue")['default'],
     'LazyCheckoutTimerNav': typeof import("../components/checkout/TimerNav.vue")['default'],
+    'LazyPolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
+    'LazyProductDetailsWrapper': typeof import("../components/product/ProductDetailsWrapper.vue")['default'],
+    'LazyProductGridItem': typeof import("../components/product/ProductGridItem.vue")['default'],
+    'LazyProductGridItemTwo': typeof import("../components/product/ProductGridItemTwo.vue")['default'],
+    'LazyProductGridStyleThree': typeof import("../components/product/ProductGridStyleThree.vue")['default'],
+    'LazyProductWrapperCosmetics': typeof import("../components/product/ProductWrapperCosmetics.vue")['default'],
+    'LazyProductWrapperCosmeticsTwo': typeof import("../components/product/ProductWrapperCosmeticsTwo.vue")['default'],
+    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'LazyHeaderCheckout': typeof import("../components/header/HeaderCheckout.vue")['default'],
-    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default']
+    'LazyProfileNewGuest': typeof import("../components/profile/NewGuest.vue")['default'],
+    'LazyProfileNewProfile': typeof import("../components/profile/NewProfile.vue")['default']
   }
 }
 export const AboutMission: typeof import("../components/AboutMission.vue")['default']
@@ -188,14 +190,6 @@ export const WelcomeMessage: typeof import("../components/WelcomeMessage.vue")['
 export const WishListContainer: typeof import("../components/WishListContainer.vue")['default']
 export const LoadersBigLoader: typeof import("../components/loaders/BigLoader.vue")['default']
 export const LoadersSmallLoading: typeof import("../components/loaders/SmallLoading.vue")['default']
-export const PolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
-export const ProductDetailsWrapper: typeof import("../components/product/ProductDetailsWrapper.vue")['default']
-export const ProductGridItem: typeof import("../components/product/ProductGridItem.vue")['default']
-export const ProductGridItemTwo: typeof import("../components/product/ProductGridItemTwo.vue")['default']
-export const ProductGridStyleThree: typeof import("../components/product/ProductGridStyleThree.vue")['default']
-export const ProductWrapperCosmetics: typeof import("../components/product/ProductWrapperCosmetics.vue")['default']
-export const ProfileNewGuest: typeof import("../components/profile/NewGuest.vue")['default']
-export const ProfileNewProfile: typeof import("../components/profile/NewProfile.vue")['default']
 export const CheckoutAddressStep: typeof import("../components/checkout/AddressStep.vue")['default']
 export const CheckoutCouponForm: typeof import("../components/checkout/CouponForm.vue")['default']
 export const CheckoutEmailStep: typeof import("../components/checkout/EmailStep.vue")['default']
@@ -208,8 +202,17 @@ export const CheckoutResumen: typeof import("../components/checkout/Resumen.vue"
 export const CheckoutSendStep: typeof import("../components/checkout/SendStep.vue")['default']
 export const CheckoutSuccessOrder: typeof import("../components/checkout/SuccessOrder.vue")['default']
 export const CheckoutTimerNav: typeof import("../components/checkout/TimerNav.vue")['default']
-export const HeaderCheckout: typeof import("../components/header/HeaderCheckout.vue")['default']
+export const PolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
+export const ProductDetailsWrapper: typeof import("../components/product/ProductDetailsWrapper.vue")['default']
+export const ProductGridItem: typeof import("../components/product/ProductGridItem.vue")['default']
+export const ProductGridItemTwo: typeof import("../components/product/ProductGridItemTwo.vue")['default']
+export const ProductGridStyleThree: typeof import("../components/product/ProductGridStyleThree.vue")['default']
+export const ProductWrapperCosmetics: typeof import("../components/product/ProductWrapperCosmetics.vue")['default']
+export const ProductWrapperCosmeticsTwo: typeof import("../components/product/ProductWrapperCosmeticsTwo.vue")['default']
 export const HeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
+export const HeaderCheckout: typeof import("../components/header/HeaderCheckout.vue")['default']
+export const ProfileNewGuest: typeof import("../components/profile/NewGuest.vue")['default']
+export const ProfileNewProfile: typeof import("../components/profile/NewProfile.vue")['default']
 export const LazyAboutMission: typeof import("../components/AboutMission.vue")['default']
 export const LazyAuth: typeof import("../components/Auth.vue")['default']
 export const LazyCartContainer: typeof import("../components/CartContainer.vue")['default']
@@ -257,14 +260,6 @@ export const LazyWelcomeMessage: typeof import("../components/WelcomeMessage.vue
 export const LazyWishListContainer: typeof import("../components/WishListContainer.vue")['default']
 export const LazyLoadersBigLoader: typeof import("../components/loaders/BigLoader.vue")['default']
 export const LazyLoadersSmallLoading: typeof import("../components/loaders/SmallLoading.vue")['default']
-export const LazyPolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
-export const LazyProductDetailsWrapper: typeof import("../components/product/ProductDetailsWrapper.vue")['default']
-export const LazyProductGridItem: typeof import("../components/product/ProductGridItem.vue")['default']
-export const LazyProductGridItemTwo: typeof import("../components/product/ProductGridItemTwo.vue")['default']
-export const LazyProductGridStyleThree: typeof import("../components/product/ProductGridStyleThree.vue")['default']
-export const LazyProductWrapperCosmetics: typeof import("../components/product/ProductWrapperCosmetics.vue")['default']
-export const LazyProfileNewGuest: typeof import("../components/profile/NewGuest.vue")['default']
-export const LazyProfileNewProfile: typeof import("../components/profile/NewProfile.vue")['default']
 export const LazyCheckoutAddressStep: typeof import("../components/checkout/AddressStep.vue")['default']
 export const LazyCheckoutCouponForm: typeof import("../components/checkout/CouponForm.vue")['default']
 export const LazyCheckoutEmailStep: typeof import("../components/checkout/EmailStep.vue")['default']
@@ -277,6 +272,15 @@ export const LazyCheckoutResumen: typeof import("../components/checkout/Resumen.
 export const LazyCheckoutSendStep: typeof import("../components/checkout/SendStep.vue")['default']
 export const LazyCheckoutSuccessOrder: typeof import("../components/checkout/SuccessOrder.vue")['default']
 export const LazyCheckoutTimerNav: typeof import("../components/checkout/TimerNav.vue")['default']
-export const LazyHeaderCheckout: typeof import("../components/header/HeaderCheckout.vue")['default']
+export const LazyPolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
+export const LazyProductDetailsWrapper: typeof import("../components/product/ProductDetailsWrapper.vue")['default']
+export const LazyProductGridItem: typeof import("../components/product/ProductGridItem.vue")['default']
+export const LazyProductGridItemTwo: typeof import("../components/product/ProductGridItemTwo.vue")['default']
+export const LazyProductGridStyleThree: typeof import("../components/product/ProductGridStyleThree.vue")['default']
+export const LazyProductWrapperCosmetics: typeof import("../components/product/ProductWrapperCosmetics.vue")['default']
+export const LazyProductWrapperCosmeticsTwo: typeof import("../components/product/ProductWrapperCosmeticsTwo.vue")['default']
 export const LazyHeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
+export const LazyHeaderCheckout: typeof import("../components/header/HeaderCheckout.vue")['default']
+export const LazyProfileNewGuest: typeof import("../components/profile/NewGuest.vue")['default']
+export const LazyProfileNewProfile: typeof import("../components/profile/NewProfile.vue")['default']
 export const componentNames: string[]

@@ -3,13 +3,13 @@
         <div class="product-area">
             <div class="ps-5 pe-5 pb-5">
                 <div class="text-center pt-3">
-                    <h2>Más Vendidos 🔥</h2>
-                    <p class=" lead m-0">Los best sellers de la marca.</p>
+                    <h2>Nuevos productos 🆕</h2>
+                    <p class=" lead m-0">Descubre nuestros nuevos productos para el cuidado de la piel.</p>
                 </div>
                 <div class="tab-content mt-5">
                     <div class="tab-pane fade active show" id="new-product" role="tabpanel">
                         <div class="row">
-                            <div class="col-xl-3 col-lg-4 col-sm-6 m-auto" v-for="(product, index) in bestSold" :key="index">
+                            <div class="col-xl-3 col-lg-4 col-sm-6 m-auto" v-for="(product, index) in newsProducts" :key="index">
                                 <ProductGridItemTwo :product="product" />
                             </div>
                         </div>
