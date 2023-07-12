@@ -172,8 +172,6 @@ import Swal from 'sweetalert2'
         data() {
             return {
                 singleQuantity: 1,
-                categories: [],
-                tags: [],
                 model: [],
                 color: [],
                 size: [],

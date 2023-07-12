@@ -1,122 +1,115 @@
 <template>
-    <div class="sidebar-style" :class="classes">
+    <div id="filterMobile" class="sidebar-style mobile-filter p-5" :class="classes">
+        <!-- Botón de cerrar para mobile -->
+        <div class="d-lg-none button-filter-close">
+            <button class="close-btn-2 fa-3x" @click="closeFilter">
+                <i class="pe-7s-close"></i>
+            </button>
+        </div>
+
         <!-- category widget  -->
         <div class="sidebar-widget">
-            <h4 class="pro-sidebar-title">Categorías</h4>
-            <client-only>
-                <ul class="sidebar-widget-list mt-20">
-                    <li class="sidebar-widget-list-left" v-for="category in categories" :key="category.id">
-                        <a :class="{ 'nuxt-link-exact-active': category.slug == categorySlug}" @click.prevent="categorySlug = category.slug">
-                            <span class="check-mark"></span>
-                            {{ category.name }}
-                        </a>
-                    </li>
-                </ul>
-            </client-only>
+            <h4 class="pro-sidebar-title">Categoría</h4>
+            <ul class="sidebar-widget-list mt-20">
+                <li class="sidebar-widget-list-left" v-for="(category, index) in categoryList" :key="index">
+                    <n-link :to="`?category=${slugify(category)}`">
+                        <span class="check-mark"></span>
+                        {{ category }}
+                    </n-link>
+                </li>
+            </ul>
+        </div>
+
+        <!-- color widget  -->
+        <div class="sidebar-widget mt-50" v-if="colorList?.length > 1">
+            <h4 class="pro-sidebar-title">Color</h4>
+            <ul class="sidebar-widget-list mt-20">
+                <li class="sidebar-widget-list-left" v-for="(color, index) in colorList" :key="index" >
+                    <n-link :to="`?color=${slugify(color)}`">
+                        <span class="check-mark"></span>
+                        {{ color }}
+                    </n-link>
+                </li>
+            </ul>
+        </div>
+        <!-- size widget  -->
+        <div class="sidebar-widget mt-50" v-if="sizeList?.length > 1">
+            <h4 class="pro-sidebar-title">Tamaño</h4>
+            <ul class="sidebar-widget-list mt-20">
+                <li class="sidebar-widget-list-left" v-for="(size, index) in sizeList" :key="index" >
+                    <n-link :to="`?size=${slugify(size)}`">
+                        <span class="check-mark"></span>
+                        {{ size }}
+                    </n-link>
+                </li>
+            </ul>
+        </div>
+
+        <!-- model widget  -->
+        <div class="sidebar-widget mt-50" v-if="modelList?.length > 1">
+            <h4 class="pro-sidebar-title">Modelo</h4>
+            <ul class="sidebar-widget-list mt-20">
+                <li class="sidebar-widget-list-left" v-for="(model, index) in modelList" :key="index" >
+                    <n-link :to="`?size=${slugify(model)}`">
+                        <span class="check-mark"></span>
+                        {{ model }}
+                    </n-link>
+                </li>
+            </ul>
         </div>
 
         <!-- tag widget  -->
-        <div class="sidebar-widget mt-5">
-            <h4 class="pro-sidebar-title">Activos</h4>
-            <client-only>
-                <ul class="sidebar-widget-list mt-20">
-                    <li class="sidebar-widget-list-left" v-for="tag in tags" :key="tag.id">
-                        <a :class="{ 'nuxt-link-exact-active': tag.slug == tagSlug}" @click.prevent="tagSlug = tag.slug">
-                            <span class="check-mark"></span>
-                            {{ tag.name }}
-                        </a>
+        <div class="sidebar-widget sidebar-widget__tag mt-60">
+            <h4 class="pro-sidebar-title">Tags</h4>
+            <div class="sidebar-widget-tag mt-30">
+                <ul>
+                    <li v-for="(tag, index) in tagList" :key="index">
+                        <n-link :to="`?tag=${slugify(tag)}`">
+                            {{ tag }}
+                        </n-link>
                     </li>
                 </ul>
-            </client-only>
-            <div class="d-flex justify-content-center mt-2">
-                <a @click.prevent="tagShow = 20" class="btn p-2" v-if="tagShow == 4">Ver más</a>
-                <a @click.prevent="tagShow = 4" class="btn p-2" v-if="tagShow > 4">Ver menos</a>
-            </div>
-        </div>
-        <div class="pro-action d-flex justify-content-center mt-4">
-            <div class="pro-cart btn-hover">
-                <a class="clear_filters" @click.prevent="clearFilters">
-                    <i class="fa fa-trash"></i> 
-                        LIMPIAR FILTROS
-                </a>
             </div>
         </div>
     </div>
 </template>
 
-<style scoped>
-    .clear_filters {
-        background: #343538; 
-        padding: 0.5rem 1.5rem; 
-        color: white;
-    }
-</style>
-
 <script>
     export default {
-        props: ["classes", "msg"],
-
-        data() {
-            return {
-                hidden: false,
-                categoryFilter: '',
-                categorySlug: '',
-                tagSlug: [],
-                tags: [],
-                tagShow: 4,
-            }
-        },
-        mounted() {
-            this.getTags();
-            this.getCategories();
-        },
-
+        props: ["classes"],
         computed: {
-            categories() {
-                return this.$store.getters.getCategories
+            categoryList() {
+                return this.$store.getters.categoryList
             },
-        },
-
-        
-        watch: {
-            categorySlug() {
-                //this.tagSlug = '';
-                this.$router.push({ path: '/shop', query: { category: this.categorySlug, tag: this.tagSlug } })
+            sizeList() {
+                return this.$store.getters.sizeList
             },
-
-            tagSlug() {
-                //this.categorySlug = '';
-                this.$router.push({ path: '/shop', query: { category: this.categorySlug, tag: this.tagSlug } })
+            colorList() {
+                return this.$store.getters.colorList
             },
-
-            tagShow() {
-                this.getTags();
+            modelList() {
+                return this.$store.getters.modelList
+            },
+            tagList() {
+                return this.$store.getters.tagList
             }
         },
 
         methods: {
-            async getTags() {
-                await this.$store.dispatch('getTags')
-                const tags = this.$store.getters.getTags
-                const filter = tags.filter(item => {
-                    if (item.id <= this.tagShow) {
-                        return item
-                    }
-                })
-                 this.tags = filter
+            slugify(text) {
+                return text
+                    .toString()
+                    .toLowerCase()
+                    .replace(/\s+/g, "-") // Replace spaces with -
+                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
+                    .replace(/--+/g, "-") // Replace multiple - with single -
+                    .replace(/^-+/, "") // Trim - from start of text
+                    .replace(/-+$/, ""); // Trim - from end of text
             },
 
-            async getCategories() {
-                await this.$store.dispatch('getCategories')
-            },
-
-            clearFilters() {
-                this.categorySlug = '';
-                this.tagSlug = '';
-                this.$router.push({ path: '/shop'})
-            },
-
-        },
-
+            closeFilter() {
+                document.getElementById("filterMobile").classList.remove("active");
+            }
+        }
     };
 </script>

@@ -88,38 +88,9 @@
     export default {
         data() {
             return {
-                categoryId : '',
                 url: process.env.url,
             }
         },
-
-        computed: {
-            categories() {
-                return this.$store.getters.getCategories
-            },
-        },
-
-        created() {
-            this.getCategories();
-        },
-
-        methods: {
-            getCategories() {
-                this.$store.dispatch('getCategories')
-            },
-        
-            redirectHome() {
-                this.categoryId = '';
-                this.$router.push({ path: '/shop' })
-            },
-        },
-
-        watch: {
-            categoryId() {
-                this.$router.push({ path: '/shop', query: { category: this.categoryId } })
-            },
-
-        }
         
 
     }

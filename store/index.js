@@ -9,12 +9,10 @@ Vue.use(Vuex);
 
 export const state = () => ({
     products: [],
-    categories: [],
     cart: [],
     wishlist: [],
     compare: [],
     pagination: [],
-    tags: [],
     cupon: [],
     guest: [],
     duration: 0,
@@ -48,14 +46,6 @@ export const state = () => ({
 export const getters = {
     getProducts(state) {
         return state.products
-    },
-
-    getCategories(state) {
-        return state.categories
-    },
-
-    getTags(state) {
-        return state.tags
     },
 
     getCupon(state) {
@@ -198,7 +188,24 @@ export const getters = {
         }
 
         return total;
-    }
+    },
+
+    categoryList: state => {
+        return ["todas",...new Set(state.products.data.map((list) => list.category.name).flat())]
+    },
+    tagList: state => {
+
+        return [...new Set(state.products.data.map((list) => list.tags).map((list) => list.map((list) => list.slug)).flat())]
+    },
+    sizeList: state => {
+        return ["Todos",...new Set(state.products.data.map((list) => list?.variations.map((list) => list.size)).flat())].filter(Boolean)
+    },
+    colorList: state => {
+        return ["Todos",...new Set(state.products.data.map((list) => list?.variations.map((list) => list.color)).flat())].filter(Boolean)
+    },
+    modelList: state => {
+        return ["Todos",...new Set(state.products.data.map((list) => list?.variations.map((list) => list.model)).flat())].filter(Boolean)
+    },
 }
 
 // contains your mutations
@@ -207,16 +214,8 @@ export const mutations = {
         state.products = product
     },
 
-    SET_CATEGORY(state, category) {
-        state.categories = category
-    },
-
     SET_PAGINATION(state, pagination) {
         state.pagination = pagination
-    },
-
-    SET_TAG(state, tag) {
-        state.tags = tag
     },
 
     SET_CUPON(state, cupon) {
@@ -490,20 +489,6 @@ export const actions = {
         );
         context.commit("SET_PRODUCT", data);
         context.commit("SET_PAGINATION", data.meta);
-    },
-
-    async getCategories(context) {
-        const { data } = await axios.get(
-          process.env.baseUrl + '/api/categories'
-        );
-        context.commit("SET_CATEGORY", data.data);
-    },
-
-    async getTags(context) {
-        const { data } = await axios.get(
-          process.env.baseUrl + '/api/tags'
-        );
-        context.commit("SET_TAG", data.data);
     },
 
     clearCartIfExpired({ state, commit }) {

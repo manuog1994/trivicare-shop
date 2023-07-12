@@ -1,48 +1,48 @@
 <template>
     <!-- product items wrapper -->
     <div class="shop-area pt-100 pb-100">
-        <div class="container">
+        <div class="container-fluid">
                 <div class="row flex-row-reverse">
                 <div class="col-lg-9">
                     <!-- shop top bar -->
-                    <div class="shop-top-bar">
-                        <div class="select-showing-wrap">
-                            <div class="shop-select">
-                                <select v-model="selectedPrice">
-                                    <option value="default">Por defecto</option>
-                                    <option value="low2high">Precio de menor a mayor</option>
-                                    <option value="high2low">Precio de mayor a menor</option>
-                                </select>
-                            </div>
-                            <div class="shop-select-2">
-                                <p>Mostrando
-                                <select class="ms-2 me-2 w-auto" v-model="selectedQuantity">
-                                    <option value="default">5</option>
-                                    <option value="teen">10</option>
-                                    <option value="fiveteen">15</option>
-                                </select>
-                                resultados por página</p>
-                            </div>
+                    <div class="d-flex flex-column">
+                        <div class="d-flex justify-content-end mb-3 d-lg-none">
+                            <button class="btn border-dark" @click="openFilter">
+                                Filtrar
+                                <i class="fa fa-sliders"></i>
+                            </button>
                         </div>
-                        <div class="shop-tab d-none d-md-block">
-                            <button @click="layout = 'twoColumn'" :class="{ active : layout === 'twoColumn' }" title="Ver dos productos por fila">
-                                <i class="fa fa-th-large"></i>
-                            </button>
-                            <button @click="layout = 'threeColumn'" :class="{ active : layout === 'threeColumn' }" title="Ver tres productos por fila">
-                                <i class="fa fa-th"></i>
-                            </button>
-                            <button @click="layout = 'list'" :class="{ active : layout === 'list' }" title="Ver un solo producto por fila">
-                                <i class="fa fa-list-ul"></i>
-                            </button>
+                        <div class="shop-top-bar">
+                            <div class="select-showing-wrap">
+                                <div class="me-4">
+                                    <select class="form-select" v-model="selectedPrice">
+                                        <option value="default">Por defecto</option>
+                                        <option value="low2high">Precio de menor a mayor</option>
+                                        <option value="high2low">Precio de mayor a menor</option>
+                                    </select>
+                                </div>
+                                <p>Mostrando {{perPage * currentPage - perPage + 1}} página con {{perPage * currentPage > filterItems.length ? filterItems.length : perPage * currentPage}} de {{filterItems.length}} resultados</p>
+                            </div>
+                            <div class="shop-tab d-none d-md-block">
+                                <button @click="layout = 'twoColumn'" :class="{ active : layout === 'twoColumn' }" title="Ver dos productos por fila">
+                                    <i class="fa fa-th-large"></i>
+                                </button>
+                                <button @click="layout = 'threeColumn'" :class="{ active : layout === 'threeColumn' }" title="Ver tres productos por fila">
+                                    <i class="fa fa-th"></i>
+                                </button>
+                                <button @click="layout = 'list'" :class="{ active : layout === 'list' }" title="Ver un solo producto por fila">
+                                    <i class="fa fa-list-ul"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- end shop top bar -->
 
                     <!-- shop product -->
-                    <div class="shop-bottom-area mt-35">
+                    <div class="shop-bottom-area mt-35 p-5">
                         <div class="row product-layout" :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
                             <client-only>
-                                <div class="col-xl-4 col-sm-6" v-for="product in paginatedItems" :key="'product-' + product.id" >
+                                <div class="col-xl-4 col-sm-6" v-for="product in getItems" :key="'product-' + product.id" >
                                     <ProductGridItem :product="product" :layout="layout"/> 
                                 </div>
                             </client-only>
@@ -50,10 +50,10 @@
                     </div>
                     <!-- end shop product -->
                     <div class="d-flex justify-content-center mt-2">
-                        <pagination v-model="page" :records="products.length" :perPage="perPage" @paginate="myCallback"></pagination>
+                        <pagination class="pro-pagination-style shop-pagination mt-30" v-model="currentPage" :per-page="perPage" :records="filterItems.length" @paginate="paginateClickCallback" :page-count="getPaginateCount" />
                     </div>
                 </div>
-                <div class="col-lg-3 d-none d-md-block">
+                <div class="col-lg-3">
                     <ShopSidebar classes="mr-30"/>
                 </div>
             </div>
@@ -70,8 +70,46 @@ export default {
         ProductGridItem: () => import('@/components/product/ProductGridItem'),
     },
 
+    data() {
+        return {
+            layout: "list",
+            selectedPrice: 'default',
+            products: [],
+            searchResult: '',
+            sortFilter: '',
+            unauthorized: false,
+            perPage: 10,
+            currentPage: 1,
+            filterItems: [],
+            prevSelectedCategoryName: '',
+            prevSelectedTagName: '',
+            prevSelectedSizeName: '',
+            prevSelectedColorName: '',
+            prevSelectedModelName: '',
+        }
+    },
+
+    computed: {
+        paginatedItems () {
+            const start = (this.page - 1) * this.perPage
+            return this.products.slice(start, start + this.perPage)
+        },
+
+        getItems() {
+            let start = (this.currentPage - 1) * this.perPage;
+            let end = this.currentPage * this.perPage;
+            return this.filterItems.slice(start, end);
+        },
+
+        getPaginateCount() {
+            return Math.ceil(this.filterItems.length / this.perPage);
+        },
+    },
+
+
     async mounted() {
         await this.getProducts();
+
         if (this.$route.query.search) {
             this.searchResult = this.$route.query.search;
         }
@@ -91,75 +129,8 @@ export default {
                 this.unauthorized = true;
             }
         }));
-    },
 
-    data() {
-        return {
-            layout: "list",
-            selectedPrice: 'default',
-            selectedQuantity: 'default',
-            products: [],
-            searchResult: '',
-            sortFilter: '',
-            category_slug: '',
-            category_id: '',
-            tag_slug: '',
-            tag_id: '',
-            unauthorized: false,
-            page: 1,
-            perPage: 5,
-        }
-    },
-
-    computed: {
-        paginatedItems () {
-            const start = (this.page - 1) * this.perPage
-            return this.products.slice(start, start + this.perPage)
-        },
-
-        categories() {
-            return this.$store.getters.getCategories;
-        },
-
-        tags() {
-            return this.$store.getters.getTags;
-        },
-
-        tag() {
-            let tagSlug = this.$route.query.tag;
-
-            this.tags.forEach(tag => {
-                if(tag.slug == tagSlug){
-                    this.tag_slug = tag.slug;
-                    this.tag_id = tag.id;
-                }
-            });
-            
-            if(tagSlug == this.tag_slug){
-                return this.tag_id;
-            }
-            
-            return '';
-            
-        },
-
-        category() {
-            let categorySlug = this.$route.query.category;
-
-            this.categories.forEach(category => {
-                if(category.slug == categorySlug){
-                    this.category_slug = category.slug;
-                    this.category_id = category.id;
-                }
-            });
-            
-            if(categorySlug == this.category_slug){
-                return this.category_id;
-            }
-            
-            return '';
-            
-        },
+        await this.updateProductData();
 
     },
 
@@ -168,18 +139,6 @@ export default {
             if (this.unauthorized == true) {
                 this.$auth.logout();
             }
-        },
-
-        category() {
-            setTimeout(() => {
-                this.getProducts();
-            }, 500);
-        },
-
-        tag() {
-            setTimeout(() => {
-                this.getProducts();
-            }, 500);
         },
 
         selectedPrice(){
@@ -198,60 +157,40 @@ export default {
             }
         },
 
-        selectedQuantity(){
-            switch (this.selectedQuantity) {
-                case "fiveteen":
-                    this.perPage = 15;
-                    this.$nextTick(() => {
-                        this.$nuxt.$loading.start()
-                        setTimeout(() => {
-                            this.$nuxt.$loading.finish()
-                        }, 500);
-                    });
-                    setTimeout(() => {
-                        this.getProducts();
-                    }, 500);
-                    break;
-                case "teen":
-                    this.perPage = 10;
-                    this.$nextTick(() => {
-                        this.$nuxt.$loading.start()
-                        setTimeout(() => {
-                            this.$nuxt.$loading.finish()
-                        }, 500);
-                    });
-                    setTimeout(() => {
-                        this.getProducts();
-                    }, 500);
-                    break;
-                default:
-                this.perPage = 5;
-                this.$nextTick(() => {
-                        this.$nuxt.$loading.start()
-                        setTimeout(() => {
-                            this.$nuxt.$loading.finish()
-                        }, 500);
-                    });
-                    setTimeout(() => {
-                        this.getProducts();
-                    }, 500);
-            }
+        '$route.query.category': {
+            handler: function (val, oldVal) {
+                this.updateProductData()
+            },
+            deep: true
         },
 
-        '$route.query.category'() {
-            this.category_slug = '';
-            this.category_id = '';
+        '$route.query.tag': {
+            handler: function (val, oldVal) {
+                this.updateProductData()
+            },
+            deep: true
         },
 
-        '$route.query.tag'() {
-            this.tag_slug = '';
-            this.tag_id = '';
+        '$route.query.color': {
+            handler: function (val, oldVal) {
+                this.updateProductData()
+            },
+            deep: true
         },
 
-        //si page cambia, subimos el scroll
-        page() {
-            window.scrollTo(0, 0);
-        }
+        '$route.query.size': {
+            handler: function (val, oldVal) {
+                this.updateProductData()
+            },
+            deep: true
+        },
+
+        '$route.query.model': {
+            handler: function (val, oldVal) {
+                this.updateProductData()
+            },
+            deep: true
+        },
     },
 
     methods: {
@@ -259,32 +198,118 @@ export default {
             await this.$store.dispatch('getProducts', {
                 perPage: '',
                 page: '',
-                category: this.category,
+                category: '',
                 search: '',
                 slug: '',
-                sort: this.sortFilter,
-                tag: this.tag,
+                sort: '',
+                tag: '',
                 status: 2,
             })
             const products = this.$store.getters.getProducts
             this.products = products.data;
         },
 
-        async getCategories() {
-            await this.$store.dispatch('getCategories')
-        },
+        updateProductData(){
+                this.paginateClickCallback(1);
 
-        async getTags() {
-            await this.$store.dispatch('getTags')
-        },
+                const categoryName = this.$route.query.category;
+                const sizeName = this.$route.query.size;
+                const colorName = this.$route.query.color;
+                const tagName = this.$route.query.tag;
+                const modelName = this.$route.query.model;
+                
+                if( Object.keys(this.$route.query).length === 0){
+                    this.filterItems = [...this.products]
+                }
+                
+                if(categoryName && this.prevSelectedCategoryName !== categoryName){
+                    if(Boolean(categoryName) === false || categoryName === this.slugify("todas")){
+                        this.filterItems = [...this.products]
+                    }
+                    else {
+                        const resultData = this.products?.filter((item) => this.slugify(item.category.name).includes(categoryName));
+                        this.filterItems = [];
+                        this.filterItems.push(...resultData);
+                    }
+                }
+        
+                if(colorName && this.prevSelectedColorName !== colorName){
+                    if(Boolean(colorName) === false || colorName === this.slugify("todos")){
+                        this.filterItems = [...this.products]
+                    }
+                    else {
+                        const resultData = this.products?.filter((item) => item.variations?.some((variation) => this.slugify(variation.color).includes(colorName)));
+                        this.filterItems = [];
+                        this.filterItems.push(...resultData);
+                    }
+                }
+
+                if(sizeName && this.prevSelectedSizeName !== sizeName){
+                    if(Boolean(sizeName) === false || sizeName === this.slugify("all sizes")){
+                        this.filterItems = [...this.products]
+                    }
+                    else {
+                        const resultData = this.products?.filter((item) => item.variations?.some((variation) => this.slugify(variation.size).includes(sizeName)));
+                        this.filterItems = [];
+                        this.filterItems.push(...resultData);
+                    }
+                }
+            
+                if(tagName && this.prevSelectedTagName !== tagName){
+                    if(tagName){
+                        const resultData = this.products?.filter((item) => {
+                            return item.tags?.some((tag) => this.slugify(tag.name).includes(tagName))
+                        });
+                        this.filterItems = [];
+                        this.filterItems.push(...resultData);
+                    }
+                    else {
+                        this.filterItems = [...this.products]
+                    } 
+                }
+
+                if(modelName && this.prevSelectedModelName !== modelName){
+                    if(modelName){
+                        const resultData = this.products?.filter((item) => item.variations?.some((variation) => this.slugify(variation.model).includes(modelName)));
+                        this.filterItems = [];
+                        this.filterItems.push(...resultData);
+                    }
+                    else {
+                        this.filterItems = [...this.products]
+                    } 
+                }
+                
+                this.prevSelectedCategoryName = categoryName;
+                this.prevSelectedColorName = colorName;
+                this.prevSelectedSizeName = sizeName;
+                this.prevSelectedTagName = tagName;
+                this.prevSelectedModelName = modelName;
+
+                this.getProducts();
+            },
 
         discountedPrice(product) {
             return product.price_base - (product.price_base * product.discount / 100)
         },
 
-        myCallback(page) {
-            this.page = page;
-        }
+        paginateClickCallback(page) {
+            this.currentPage = Number(page);
+        },
+
+        slugify(text) {
+            return text
+                .toString()
+                .toLowerCase()
+                .replace(/\s+/g, "-") // Replace spaces with -
+                .replace(/[^\w-]+/g, "") // Remove all non-word chars
+                .replace(/--+/g, "-") // Replace multiple - with single -
+                .replace(/^-+/, "") // Trim - from start of text
+                .replace(/-+$/, ""); // Trim - from end of text
+        },
+
+        openFilter() {
+            document.getElementById('filterMobile').classList.toggle('active');
+        },
 
     },
 
@@ -292,9 +317,6 @@ export default {
         if (this.category) {
             return {
                 titleTemplate: this.$route.query.category.charAt(0).toUpperCase()+ this.$route.query.category.slice(1) + ' | TriviCare Natural Cosmetics',
-                // link: [
-                //     { rel: 'cannonical', href: 'https://trivicare.com/shop' }
-                // ],
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
