@@ -3,9 +3,9 @@
         <div class="home-cosmetics">
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
+            <NavBottom/>
             <HeroSliderSix />
             <div id="post-nav" class="" @click="closeMenus">
-                <NavBottom/>
                 <IconsActions />
                 <ProductWrapperCosmetics />
                 <Testimonials />

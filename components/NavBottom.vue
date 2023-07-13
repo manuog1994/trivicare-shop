@@ -3,8 +3,8 @@
         <div class="d-block bg-trivi-blue">
             <div>
                 <div class="">
-                    <div class="custom-banner">
-                        <i class="fa fa-truck me-2"></i>
+                    <div class="custom-banner text-center">
+                        <i class="fa fa-truck me-md-2 d-none d-md-block"></i>
                         <span>Envío gratis a Península y Baleares a partir de 50 €</span>
                     </div>
                 </div>

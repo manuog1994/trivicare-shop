@@ -50,14 +50,15 @@ export default{
                 // Responsive breakpoints
                 breakpoints: {
                     320: {
-                        slidesPerView: 1
+                        slidesPerView: 4,
+                        spaceBetween: 10,
                     },
                     480: {
-                        slidesPerView: 3,
+                        slidesPerView: 4,
                         spaceBetween: 10,
                     },
                     768: {
-                        slidesPerView: 3
+                        slidesPerView: 4
                     },
                     1300: {
                         slidesPerView: 4,
