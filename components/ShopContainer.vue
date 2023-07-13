@@ -265,7 +265,7 @@ export default {
                 if(tagName && this.prevSelectedTagName !== tagName){
                     if(tagName){
                         const resultData = this.products?.filter((item) => {
-                            return item.tags?.some((tag) => this.slugify(tag.name).includes(tagName))
+                            return item.tags?.some((tag) => this.slugify(tag.slug).includes(tagName))
                         });
                         this.filterItems = [];
                         this.filterItems.push(...resultData);
