@@ -19,11 +19,14 @@
                                         <nuxt-img provider="customProvider" src="nuxt/default280x280.webp" alt="default" width="100px" />
                                     </div>
                                     <div v-else>
-                                        <nuxt-img provider="customProvider" :src="product.images[0].path + product.images[0].name + '280x280' + '.' + product.images[0].ext" :alt="product.name" width="100px" />
+                                        <nuxt-img provider="customProvider" :src="product.images[0].path + '280x280/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="100px" />
                                     </div>
                                     <div class="ms-5">
                                         <p>{{ product.name }}</p>
-                                        <p>
+                                        <p v-if="product.discount">
+                                            <strong class="text-danger">{{ discountedPrice(product).toFixed(2) }} &euro;</strong>
+                                        </p>
+                                        <p v-if="!product.discount">
                                             <strong>{{ product.price }} &euro;</strong>
                                         </p>
                                     </div>
@@ -48,7 +51,7 @@
     }
 
     .search-box {
-        position: fixed;
+        position: absolute;
         top: 45%;
         left: 0;
         width: 100%;
@@ -119,20 +122,24 @@ export default {
 
     methods: {
         async getProducts() {
-                await this.$store.dispatch('getProducts', {
-                    perPage: '',
-                    page: '',
-                    category: '',
-                    search: this.search,
-                    slug: '',
-                    sort: '',
-                    tag: '',
-                    status: 2,
-                })
-                const products = this.$store.getters.getProducts
-                this.products = products.data
-                //console.log(this.products)
-            },
+            await this.$store.dispatch('getProducts', {
+                perPage: '',
+                page: '',
+                category: '',
+                search: this.search,
+                slug: '',
+                sort: '',
+                tag: '',
+                status: 2,
+            })
+            const products = this.$store.getters.getProducts
+            this.products = products.data
+            //console.log(this.products)
+        },
+
+        discountedPrice(product) {
+            return product.price_base - (product.price_base * product.discount / 100)
+        },
     }
 
 }

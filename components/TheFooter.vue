@@ -4,7 +4,7 @@
             <h2>Estamos teniendo dificultades técnicas debido a la cantidad de pedidos recibidos. Por favor si desea realizar un pedido hagaló por WhatsApp en el número 613 036 942, gracias por su confianza y perdonen las molestias.</h2>
         </div> -->
 
-        <footer class="footer-area bg-dark pt-5">
+        <footer class="footer-area bg-trivi-blue pt-5">
             <div class="container-fluid ps-lg-5 pe-lg-5">
                 <div class="row">
                     <div class="col-md-6 col-12">

@@ -1,11 +1,11 @@
 <template>
     <client-only>
         <div class="home-cosmetics">
-            <NavBottom/>
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <HeroSliderSix />
             <div id="post-nav" class="" @click="closeMenus">
+                <NavBottom/>
                 <IconsActions />
                 <ProductWrapperCosmetics />
                 <Testimonials />

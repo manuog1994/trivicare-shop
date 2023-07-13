@@ -1,6 +1,6 @@
 <template>
     <client-only>
-        <div class="d-block bg-dark">
+        <div class="d-block bg-trivi-blue">
             <div>
                 <div class="">
                     <div class="custom-banner">
