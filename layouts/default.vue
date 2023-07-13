@@ -6,9 +6,13 @@
             <notifications position="bottom left" classes='vue-notification success' />
         </client-only>
 
-        <button class="scroll-top" @click="scrollToTop" :class="{ 'show': isVisible }">
-            <i class="fa fa-angle-double-up"></i>
-        </button>
+        <!-- Botón WhatsApp -->
+        <div class="scroll-top" :class="{ 'show': isVisible }">
+            <a href="https://api.whatsapp.com/send?phone=34613036942&text=Hola,%20necesito%20ayuda%20con%20mi%20pedido" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-whatsapp text-white"></i>
+            </a>
+        </div>
+
         <!-- Cookies alert -->
         <div id="cookiesConsent" class="d-none d-flex justify-content-center mt-5 h-100 cookie-absolute">
             <div class="d-flex align-items-center align-self-center card p-3 text-center cookies"><img src="https://i.imgur.com/Tl8ZBUe.png" width="50" height="50" alt="Imagen de galletas"><span class="mt-2">¡Hola!, nuestra web usa cookies tanto para su funcionamiento, como para el análisis del tráfico y anuncios personalizados.</span><router-link class="d-flex align-items-center" to="/cookies-policy">¿No sabes de que te hablamos? Pulsa en el enlace para saber más<i class="fa fa-angle-right ml-2"></i></router-link>
