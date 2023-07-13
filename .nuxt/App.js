@@ -14,9 +14,8 @@ import '../assets/css/animation.css'
 import '../assets/css/my-layout.css'
 
 import _6f6c098b from '../layouts/default.vue'
-import _602e6cb4 from '../layouts/HomeSidebarMenu.vue'
 
-const layouts = { "_default": sanitizeComponent(_6f6c098b),"_HomeSidebarMenu": sanitizeComponent(_602e6cb4) }
+const layouts = { "_default": sanitizeComponent(_6f6c098b) }
 
 export default {
   render (h, props) {
