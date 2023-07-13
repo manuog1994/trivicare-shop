@@ -1,5 +1,5 @@
 <template>
-    <div class="container bg-light shadow mb-5">
+    <div class="container-fluid mb-5">
         <div class="product-area">
             <div class="ps-5 pe-5 pb-5">
                 <div class="text-center pt-3">

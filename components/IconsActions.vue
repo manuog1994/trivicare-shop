@@ -1,16 +1,18 @@
 <template>
-    <div class="container bg-light pt-3 pb-3 mb-5 mt-5 shadow">
-        <div class="text-center mb-4">
-            <h2>Cada día más sostenibles 🌱</h2>
-            <p class="lead">Trabajamos cada día para ofrecer los mejores productos con los ingredientes más ecológicos y sostenibles</p>
-        </div>
-        <div class="row">
-            <div class="col-6 col-md-3" v-for="(icon, index) in icons" :key="index">
-                <div class="text-center">
-                    <div class="mb-2 mb-md-0">
-                        <nuxt-img provider="customProvider" :src="icon.src" :alt="icon.title" :title="icon.title" width="120" height="120"/>
+    <div class="container-fluid">
+        <div class="mt-5 mt-lg-0 mb-5 mb-lg-0 p-lg-3 m-lg-5">
+            <div class="text-center mb-2">
+                <h2>Cada día más sostenibles 🌱</h2>
+            </div>
+            <div class="text-center mb-4">
+                <p class="lead">Trabajamos cada día para ofrecer los mejores productos con los ingredientes más ecológicos y sostenibles</p>
+            </div>
+            <div class="brand-logo-active">
+                <swiper :options="brandLogoCarousel">
+                    <div class="single-brand-logo swiper-slide" v-for="icon in icons">
+                        <nuxt-img provider="customProvider" :src="icon.src" :alt="icon.title"/>
                     </div>
-                </div>
+                </swiper>
             </div>
         </div>
     </div>
@@ -38,6 +40,31 @@ export default{
                     title: 'Sin parabenos',
                 },
             ],
+
+            brandLogoCarousel: {
+                loop: true,
+                speed: 750,
+                slidesPerView: 4,
+                autoplay: true,
+
+                // Responsive breakpoints
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1
+                    },
+                    480: {
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                    },
+                    768: {
+                        slidesPerView: 3
+                    },
+                    1300: {
+                        slidesPerView: 4,
+                        spaceBetween: 250,
+                    }
+                }
+            }
         };
     },
 }

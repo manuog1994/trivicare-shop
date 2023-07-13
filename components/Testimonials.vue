@@ -1,5 +1,5 @@
 <template>
-    <div class="container mb-5">
+    <div class="container-fluid mb-5">
         <div class="row">
             <div class="col-12 col-md-6 p-0 bg-gray d-flex flex-column justify-content-center align-items-center">
                 <div class="text-center mt-5">
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 p-0">
-                <nuxt-img provider="customProvider" src="storage/campain/modelo-con-crema-aplicada.webp" alt="Modelo con crema aplicada" width="100%" height="100%" loading="lazy" />
+                <nuxt-img provider="customProvider" src="storage/campain/foto-modelo-testimonios.webp" alt="Modelo con crema aplicada" width="100%" height="100%" loading="lazy" />
             </div>
         </div>
     </div>

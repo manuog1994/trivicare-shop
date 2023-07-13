@@ -20,7 +20,7 @@
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end align-items-center">
                         <div class="header-right-wrap">
                             <div class="same-style header-search me-2">
-                                <button class="search-active" @click="searchOpen" title="Abrir barra de búsqueda"><i class="pe-7s-search"></i></button>
+                                <button class="search-active" @click="searchShow" title="Abrir barra de búsqueda"><i class="pe-7s-search"></i></button>
                             </div>
                             <div class="same-style cart-wrap me-sm-3">
                                 <button class="icon-cart" @click="openCart = !openCart" title="Menu Carrito">
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="searchMobile" class="col-12 hidden mt-3">
+                    <div id="searchShow" class="col-12 mt-3 d-none">
                         <Search />
                     </div>
                 </div>
@@ -118,7 +118,7 @@
                 this.isOpenAccountSettings = data;
                 this.openCart = data;
                 this.navOpen = data;
-                document.getElementById('searchMobile').classList.add('hidden');
+                document.getElementById('searchShow').classList.add('d-none');
             });
         },
 
@@ -140,18 +140,16 @@
         },
 
         methods: {
-            searchOpen() {
-                if (document.getElementById('searchMobile').classList.contains('hidden')) {
-                    document.getElementById('searchMobile').classList.remove('hidden');
+            searchShow() {
+                if (document.getElementById('searchShow').classList.contains('d-none')) {
+                    document.getElementById('searchShow').classList.remove('d-none');
                  } else {
-                    document.getElementById('searchMobile').classList.add('hidden');
+                    document.getElementById('searchShow').classList.add('d-none');
                 }
             },
             async logout() {
                 await this.$auth.logout();
                 window.location.reload();
-                this.$notify({ title: 'Has cerrado sesión!'})
-
             },
 
         }

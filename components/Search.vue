@@ -48,7 +48,7 @@
     }
 
     .search-box {
-        position: absolute;
+        position: fixed;
         top: 45%;
         left: 0;
         width: 100%;
