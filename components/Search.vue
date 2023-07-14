@@ -21,14 +21,12 @@
                                     <div v-else>
                                         <nuxt-img provider="customProvider" :src="product.images[0].path + '280x280/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="100px" />
                                     </div>
-                                    <div class="ms-5">
+                                    <div class="product-details-search ms-5">
                                         <p>{{ product.name }}</p>
-                                        <p v-if="product.discount">
-                                            <strong class="text-danger">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</strong>
-                                        </p>
-                                        <p v-if="!product.discount">
-                                            <strong>{{ product.price }} &euro;</strong>
-                                        </p>
+                                        <div class="product-details-price">
+                                            <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                                            <span class="old" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
+                                        </div>
                                     </div>
                                 </a>
                             </div>
