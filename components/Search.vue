@@ -24,7 +24,7 @@
                                     <div class="ms-5">
                                         <p>{{ product.name }}</p>
                                         <p v-if="product.discount">
-                                            <strong class="text-danger">{{ discountedPrice(product).toFixed(2) }} &euro;</strong>
+                                            <strong class="text-danger">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</strong>
                                         </p>
                                         <p v-if="!product.discount">
                                             <strong>{{ product.price }} &euro;</strong>
