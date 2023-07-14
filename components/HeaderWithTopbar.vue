@@ -5,8 +5,10 @@
                 <div :class="containerClass">
                     <div class="row">
                         <div class="col-4">
-                            <div class="">
-                                <Navigation />
+                            <div class="main-menu">
+                                <nav>
+                                    <Navigation />
+                                </nav>
                             </div>
                         </div>
                         <div class="col-4 d-flex justify-content-center align-items-center">
@@ -14,7 +16,7 @@
                                 <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo.svg" width="200" alt="logo"/>
                             </n-link>
                         </div>
-                        <div class="col-4 stiky-buttons">
+                        <div class="col-4 stiky-buttons p-3">
                             <div class="header-right-wrap">
                                 <div class="same-style header-search me-2">
                                     <button class="search-active" @click="searchOpen" title="Abrir barra de búsqueda"><i class="pe-7s-search"></i></button>

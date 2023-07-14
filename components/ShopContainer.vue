@@ -1,6 +1,6 @@
 <template>
     <!-- product items wrapper -->
-    <div class="shop-area pt-100 pb-100">
+    <div class="shop-area pt-3 pt-lg-5 pb-100">
         <div class="container-fluid">
                 <div class="row flex-row-reverse">
                 <div class="col-lg-9">
@@ -144,16 +144,13 @@ export default {
         selectedPrice(){
             switch (this.selectedPrice) {
                 case "low2high":
-                    this.sortFilter = 'price_discount';
-                    this.getProducts();
-                    break;
-                case "high2low":
-                    this.sortFilter = '-price_discount';
-                    this.getProducts();
-                    break;
-                default:
-                    this.sortFilter = ''
-                    this.getProducts();
+                        this.filterItems =  this.filterItems.sort((a, b)=> this.discountedPrice(a) - this.discountedPrice(b))
+                        break;
+                    case "high2low":
+                        this.filterItems =  this.filterItems.sort((a, b)=> this.discountedPrice(b) -  this.discountedPrice(a))
+                        break;
+                    default:
+                        this.filterItems = [...this.products]
             }
         },
 

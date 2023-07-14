@@ -71,6 +71,27 @@
                 </ul>
             </div>
         </div>
+        
+        <!-- Others
+        <div class="sidebar-widget sidebar-widget__tag mt-60">
+            <h4 class="pro-sidebar-title">Otros</h4>
+            <ul class="sidebar-widget-list mt-20">
+                <li class="sidebar-widget-list-left">
+                    <n-link to="">
+                        <span class="check-mark"></span>
+                        Nuevo
+                    </n-link>
+                </li>
+            </ul>
+            <ul class="sidebar-widget-list mt-20">
+                <li class="sidebar-widget-list-left">
+                    <n-link to="">
+                        <span class="check-mark"></span>
+                        Más vendidos
+                    </n-link>
+                </li>
+            </ul>
+        </div> -->
     </div>
 </template>
 
@@ -92,6 +113,13 @@
             },
             tagList() {
                 return this.$store.getters.tagList
+            },
+            bestSeller: state => {
+                return state.products.data.filter((list) => list.sold.sort((a, b) => b - a)).slice(0, 4)
+            },
+
+            newArrivals: state => {
+                return state.products.data.filter((list) => list.new === 1)
             }
         },
 

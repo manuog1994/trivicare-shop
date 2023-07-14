@@ -206,6 +206,7 @@ export const getters = {
     modelList: state => {
         return ["Todos",...new Set(state.products.data.map((list) => list?.variations.map((list) => list.model)).flat())].filter(Boolean)
     },
+
 }
 
 // contains your mutations
