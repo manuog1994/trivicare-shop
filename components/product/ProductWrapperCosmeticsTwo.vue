@@ -6,14 +6,12 @@
                     <h2>Nuevos productos 🆕</h2>
                     <p class=" lead m-0">Descubre nuestros nuevos productos para el cuidado de la piel.</p>
                 </div>
-                <div class="tab-content mt-5">
-                    <div class="tab-pane fade active show" id="new-product" role="tabpanel">
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-4 col-sm-6 m-auto" v-for="(product, index) in newsProducts" :key="index">
-                                <ProductGridItemTwo :product="product" />
-                            </div>
+                <div class="brand-logo-active mt-5">
+                    <swiper :options="brandLogoCarousel">
+                        <div class="single-brand-logo swiper-slide" v-for="(product, index) in newsProducts" :key="index">
+                            <ProductGridItemTwo :product="product" />
                         </div>
-                    </div>
+                    </swiper>
                 </div>
             </div>
         </div>
@@ -32,6 +30,33 @@
                 products: [],
                 bestSold: [],
                 newsProducts: [],
+
+                brandLogoCarousel: {
+                    loop: true,
+                    speed: 750,
+                    slidesPerView: 4,
+                    autoplay: true,
+
+                    // Responsive breakpoints
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },
+                        480: {
+                            slidesPerView: 2,
+                            spaceBetween: 10,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 20,
+                        },
+                        1300: {
+                            slidesPerView: 4,
+                            spaceBetween: 150,
+                        }
+                    }
+                },
             };
         },
 

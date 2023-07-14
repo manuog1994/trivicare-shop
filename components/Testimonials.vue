@@ -2,7 +2,7 @@
     <div class="container-fluid mb-5">
         <div class="row">
             <div class="col-12 col-md-6 p-0 bg-gray d-flex flex-column justify-content-center align-items-center">
-                <div class="text-center mt-5">
+                <div class="text-center mt-5 p-2">
                     <h2>Testimonios de nuestros clientes</h2>
                 </div>
                 <!-- Carrousel de bootstrap con autoplay -->
@@ -51,7 +51,3 @@ export default {
     },
 }
 </script>
-
-<style>
-
-</style>
