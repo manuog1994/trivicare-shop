@@ -35,10 +35,13 @@
                                 <n-link to="">Destacados</n-link>
                             </li>
                             <li>
-                                <n-link to="/shop">Más Vendidos 🔥</n-link>
+                                <n-link to="/shop?bestsellers=todos">Más Vendidos 🔥</n-link>
                             </li>
                             <li>
-                                <n-link to="/shop">Nuevos 🆕</n-link>
+                                <n-link to="/shop?news=todos">Nuevos 🆕</n-link>
+                            </li>
+                            <li>
+                                <n-link to="/shop?offers=todos">Ofertas 🛍️</n-link>
                             </li>
                         </ul>
                     </li>

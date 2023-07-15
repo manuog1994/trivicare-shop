@@ -189,6 +189,27 @@ export default {
             deep: true
         },
 
+        '$route.query.bestsellers': {
+            handler: function (val, oldVal) {
+                this.updateProductData()
+            },
+            deep: true
+        },
+
+        '$route.query.news': {
+            handler: function (val, oldVal) {
+                this.updateProductData()
+            },
+            deep: true
+        },
+
+        '$route.query.offers': {
+            handler: function (val, oldVal) {
+                this.updateProductData()
+            },
+            deep: true
+        },
+
         currentPage() {
             window.scrollTo({
                 top: 0,
@@ -221,6 +242,9 @@ export default {
                 const colorName = this.$route.query.color;
                 const tagName = this.$route.query.tag;
                 const modelName = this.$route.query.model;
+                const bestsellersName = this.$route.query.bestsellers;
+                const newproductsName = this.$route.query.news;
+                const discountproductsName = this.$route.query.offers;
                 
                 if( Object.keys(this.$route.query).length === 0){
                     this.filterItems = [...this.products]
@@ -282,12 +306,49 @@ export default {
                         this.filterItems = [...this.products]
                     } 
                 }
+
+
+                if(bestsellersName && this.prevSelectedTagName !== bestsellersName){
+                    if(bestsellersName){
+                        const resultData = this.products?.filter((item) => item.best_seller === 1);
+                        this.filterItems = [];
+                        this.filterItems.push(...resultData);
+                    }
+                    else {
+                        this.filterItems = [...this.products]
+                    } 
+                }
+
+                if(newproductsName && this.prevSelectedTagName !== newproductsName){
+                    if(newproductsName){
+                        const resultData = this.products?.filter((item) => item.new === 'Nuevo');
+                        this.filterItems = [];
+                        this.filterItems.push(...resultData);
+                    }
+                    else {
+                        this.filterItems = [...this.products]
+                    } 
+                }
+
+                if(discountproductsName && this.prevSelectedTagName !== discountproductsName){
+                    if(discountproductsName){
+                        const resultData = this.products?.filter((item) => item.discount > 0);
+                        this.filterItems = [];
+                        this.filterItems.push(...resultData);
+                    }
+                    else {
+                        this.filterItems = [...this.products]
+                    } 
+                }
                 
                 this.prevSelectedCategoryName = categoryName;
                 this.prevSelectedColorName = colorName;
                 this.prevSelectedSizeName = sizeName;
                 this.prevSelectedTagName = tagName;
                 this.prevSelectedModelName = modelName;
+                this.prevSelectedBestsellersName = bestsellersName;
+                this.prevSelectedNewproductsName = newproductsName;
+                this.prevSelectedDiscountproductsName = discountproductsName;
 
                 this.getProducts();
             },

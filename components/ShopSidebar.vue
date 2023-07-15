@@ -72,12 +72,20 @@
             </div>
         </div>
         
-        <!-- Others
+        <!-- Others -->
         <div class="sidebar-widget sidebar-widget__tag mt-60">
             <h4 class="pro-sidebar-title">Otros</h4>
             <ul class="sidebar-widget-list mt-20">
                 <li class="sidebar-widget-list-left">
-                    <n-link to="">
+                    <n-link to="?bestsellers=todos">
+                        <span class="check-mark"></span>
+                        Más vendidos
+                    </n-link>
+                </li>
+            </ul>
+            <ul class="sidebar-widget-list mt-20">
+                <li class="sidebar-widget-list-left">
+                    <n-link to="?news=todos">
                         <span class="check-mark"></span>
                         Nuevo
                     </n-link>
@@ -85,13 +93,13 @@
             </ul>
             <ul class="sidebar-widget-list mt-20">
                 <li class="sidebar-widget-list-left">
-                    <n-link to="">
+                    <n-link to="?offers=todos">
                         <span class="check-mark"></span>
-                        Más vendidos
+                        Ofertas
                     </n-link>
                 </li>
             </ul>
-        </div> -->
+        </div>
     </div>
 </template>
 
@@ -114,13 +122,15 @@
             tagList() {
                 return this.$store.getters.tagList
             },
-            bestSeller: state => {
-                return state.products.data.filter((list) => list.sold.sort((a, b) => b - a)).slice(0, 4)
+            getBestSeller() {
+                return this.$store.getters.getBestSeller
             },
-
-            newArrivals: state => {
-                return state.products.data.filter((list) => list.new === 1)
-            }
+            getNewProducts() {
+                return this.$store.getters.getNewProducts
+            },
+            getDiscountProducts() {
+                return this.$store.getters.getDiscountProducts
+            },
         },
 
         methods: {

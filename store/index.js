@@ -207,6 +207,22 @@ export const getters = {
         return ["Todos",...new Set(state.products.data.map((list) => list?.variations.map((list) => list.model)).flat())].filter(Boolean)
     },
 
+    //filtrar los productos por la columna sold y retornar los cuatro más vendidos en una lista
+    getBestSellers: state => {
+        return ["Todos",...new Set(state.products.data.filter((item) => item.best_seller === 1).map((list) => list.name))]
+    },
+
+    //filtrar los productos por la columna new con valor 1 y retornarlos en una lista
+    getNewProducts: state => {
+        return ["Todos",...new Set(state.products.data.filter((item) => item.new === 1).map((list) => list.name))]
+    },
+
+    //filtrar los productos por la columna discount que sea mayor a 0 y retornarlos en una lista
+    getDiscountProducts: state => {
+        return ["Todos",...new Set(state.products.data.filter((item) => item.discount > 0).map((list) => list.name))]
+    }
+
+
 }
 
 // contains your mutations
