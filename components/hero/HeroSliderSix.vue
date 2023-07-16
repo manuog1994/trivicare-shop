@@ -6,10 +6,10 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="slider-content-13 slider-animation-1 p-4 p-xl-0">
-                                <h5 class="text-white">{{ slider.subTitle }}</h5>
-                                <h1 class="text-white" v-html="slider.title"></h1>
+                                <h5 :class="slider.textColor">{{ slider.subTitle }}</h5>
+                                <h1 :class="slider.textColor" v-html="slider.title"></h1>
                                 <div class="slider-btn btn-hover">
-                                    <n-link to="/shop">Ver ahora</n-link>
+                                    <n-link :to="slider.link">Ver ahora</n-link>
                                 </div>
                             </div>
                         </div>
@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import { link } from 'fs';
+
     export default {
         data() {
             return {
@@ -53,9 +55,18 @@
 
                 sliderData: [
                     {
+                        subTitle: "Hasta el 31 de Agosto",
+                        title: "Aprovecha <br> nuestras ofertas",
+                        backgroundImage: "/img/ofertas-verano.webp",
+                        link: "/shop?offers=todas",
+                        textColor: "text-dark"
+                    },
+                    {
                         subTitle: "Este verano",
                         title: "Cuidate <br> con TriviCare",
-                        backgroundImage: "/img/banner-summer.webp"
+                        backgroundImage: "/img/banner-summer.webp",
+                        link: "/shop",
+                        textColor: "text-dark"
                     },
                 ]
             }

@@ -25,7 +25,7 @@
                     <n-link :to="`/product/${product.slug}`" class="btn" v-if="product.variation">
                         selecciona una opción
                     </n-link>
-                    <button class="btn bg-trivi-blue" title="Añadir al carrito" @click="addToCart(product)" v-else>
+                    <button class="btn pro-cart" title="Añadir al carrito" @click="addToCart(product)" v-else>
                         <i class="pe-7s-cart"></i> 
                         Añadir al carrito
                     </button>

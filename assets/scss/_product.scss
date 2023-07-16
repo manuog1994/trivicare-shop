@@ -109,10 +109,11 @@
                 justify-content: center;
                 height: 48px;
                 transform: translateY(20px);
-                background-color: $theme-color;
+                background-color: #2AB5B2;
                 transition: all 0.5s ease;
                 &:hover {
-                    background-color: $black;
+                    background-color: white;
+                    color: black;
                 }
             }
             .pro-wishlist {
@@ -139,7 +140,7 @@
                     width: 100%;
                     text-align: center;
                     text-transform: capitalize;
-                    background-color: transparent;
+                    background-color: #2AB5B2;
                     border: none;
                     &:focus {
                         box-shadow: none;
@@ -274,7 +275,7 @@
         span {
             a {
                font-size: 15px;
-                color: $theme-color;
+                color: #2AB5B2;
                 &:hover {
                     color: $black;
                 }

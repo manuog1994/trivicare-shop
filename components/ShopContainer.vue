@@ -210,12 +210,12 @@ export default {
             deep: true
         },
 
-        currentPage() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            })
-        },
+        // currentPage() {
+        //     window.scrollTo({
+        //         top: 0,
+        //         behavior: 'smooth'
+        //     })
+        // },
     },
 
     methods: {
@@ -359,6 +359,10 @@ export default {
 
         paginateClickCallback(page) {
             this.currentPage = Number(page);
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
         },
 
         slugify(text) {
