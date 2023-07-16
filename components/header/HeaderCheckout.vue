@@ -1,10 +1,12 @@
 <template>
     <header class="sticky-top">
-        <nav class="bg-trivi-red pt-2 pb-2 pt-md-4 pb-md-4">
+        <nav class="bg-light pt-2 pb-2 pt-md-4 pb-md-4">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-6 d-flex align-items-center">
-                        <img src="/img/TriviCare_byn Negativo.png" alt="logo" style="width: 30vw; max-width: 180px; height: auto;">
+                        <n-link to="/">
+                            <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo.svg" width="200" alt="logo"/>
+                        </n-link>
                     </div>
                     <div class="col-6 d-flex justify-content-end">
                         <a href="https://api.whatsapp.com/send?phone=+34613036942&text=Hola,%20estoy%20en%20la%20web%20y%20quisiera%20m%C3%A1s%20informacion%20sobre..." class="whatsapp" target="_blank" title="Enlace a conversación de WhatsApp">

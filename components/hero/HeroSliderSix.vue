@@ -66,7 +66,7 @@ import { link } from 'fs';
                         title: "Cuidate <br> con TriviCare",
                         backgroundImage: "/img/banner-summer.webp",
                         link: "/shop",
-                        textColor: "text-dark"
+                        textColor: "text-white"
                     },
                 ]
             }
