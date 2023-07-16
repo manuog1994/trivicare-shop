@@ -75,19 +75,21 @@
 
                 brandLogoCarousel: {
                     loop: true,
-                    speed: 750,
-                    slidesPerView: 4,
-                    autoplay: true,
+                    slidesPerView: 3,
 
                     // Responsive breakpoints
                     breakpoints: {
                         320: {
                             slidesPerView: 1,
                             spaceBetween: 10,
+                            speed: 750,
+                            autoplay: true,
                         },
                         480: {
                             slidesPerView: 1,
                             spaceBetween: 10,
+                            speed: 750,
+                            autoplay: true,
                         },
                         768: {
                             slidesPerView: 3,

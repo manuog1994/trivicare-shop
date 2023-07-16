@@ -65,7 +65,7 @@
                                 </a>
                             </p>
                             <p>
-                                <a href="https://api.whatsapp.com/send/?phone=34613036942&text=Hola%2C+quisiera%20informaci%C3%B3n..." title="Whatsapp">
+                                <a href="https://api.whatsapp.com/send/?phone=34613036942&text=Hola%2C+quisiera%20informaci%C3%B3n..." target="_blank" title="Whatsapp">
                                     <nuxt-img provider="customProvider" src="storage/social/whatsapp.webp" alt="Icono whatsapp" width="90" height="33" loading="lazy"/>
                                 </a>
                             </p>

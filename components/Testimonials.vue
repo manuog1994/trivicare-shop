@@ -14,19 +14,19 @@
                                 <p class="pt-0 mt-0 ps-5 pe-5"><strong>{{ review.user_name }} {{ review.user_lastname }}</strong></p>
                                 <p class="pt-0 mt-0 ps-5 pe-5">{{ review.message }}</p>
                                 <div class="d-flex justify-content-center">
-                                    <vue-star-rating :star-size="20" :read-only="true" :show-rating="false" :rating="review.rating"></vue-star-rating>
+                                    <vue-star-rating :star-size="60" :read-only="true" :show-rating="false" :rating="review.rating"></vue-star-rating>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon text-bg-dark" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                         <span class="carousel-control-next-icon text-bg-dark" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <div class="col-12 col-md-6 p-0">

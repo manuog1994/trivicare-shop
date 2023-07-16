@@ -1,6 +1,6 @@
 <template>
     <modal name="suggestionsModal" width="800px" :scrollable="true" height=auto>
-        <div v-if="form == true" >
+        <div v-if="form == true" class="container p-5">
             <div class="text-center">
                 <h4>Nos gusta escuchar a nuestros clientes, ¿Qué nos quieres sugerir?</h4>
             </div>

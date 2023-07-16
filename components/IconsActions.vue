@@ -43,9 +43,7 @@ export default{
 
             brandLogoCarousel: {
                 loop: true,
-                speed: 750,
                 slidesPerView: 4,
-                autoplay: true,
 
                 // Responsive breakpoints
                 breakpoints: {

@@ -1,7 +1,7 @@
 <template>
     <client-only>
         <div class="about-page-wrapper">
-            <HeaderWithTopbar containerClass="container" />
+            <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div class="container mt-5 mb-5">
                 <div class="text-center">
