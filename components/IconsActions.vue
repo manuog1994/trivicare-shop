@@ -1,11 +1,11 @@
 <template>
     <div class="container-fluid">
         <div class="mt-5 mt-lg-0 mb-5 mb-lg-0 p-lg-3 m-lg-5">
-            <div class="text-center mb-2">
+            <div class="text-center mt-3 mb-2">
                 <h2>Cada día más sostenibles 🌱</h2>
             </div>
             <div class="text-center mb-4">
-                <p class="lead">Trabajamos cada día para ofrecer los mejores productos con los ingredientes más ecológicos y sostenibles</p>
+                <p class="lead">Productos de cosmética natural con ingredientes ecológicos y sostenibles</p>
             </div>
             <div class="brand-logo-active">
                 <swiper :options="brandLogoCarousel">

@@ -4,7 +4,7 @@
             <div class="ps-5 pe-5 pb-5">
                 <div class="text-center pt-3">
                     <h2>Más Vendidos 🔥</h2>
-                    <p class=" lead m-0">Los best sellers de la marca.</p>
+                    <p class=" lead m-0">Los productos bestsellers en cosmética natural.</p>
                 </div>
                 <div class="brand-logo-active mt-5">
                     <swiper :options="brandLogoCarousel">
@@ -12,6 +12,10 @@
                             <ProductGridItemTwo :product="product" />
                         </div>
                     </swiper>
+                    <!-- Boton ver más -->
+                    <div class="d-flex justify-content-center">
+                        <n-link class="btn-more" to="/shop?bestsellers=todos">VER MÁS</n-link>
+                    </div>
                 </div>
             </div>
         </div>

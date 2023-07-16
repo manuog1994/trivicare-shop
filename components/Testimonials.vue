@@ -1,12 +1,13 @@
 <template>
     <div class="container-fluid mb-5">
         <div class="row">
-            <div class="col-12 col-md-6 p-0 bg-gray d-flex flex-column justify-content-center align-items-center">
-                <div class="text-center mt-5 p-2">
-                    <h2>Testimonios de nuestros clientes</h2>
+            <div class="col-12 col-md-6 bg-gray d-flex flex-column justify-content-center">
+                <div class="text-center mb-5">
+                    <h2>Valoraciones de nuestros clientes</h2>
+                    <p class="lead">Aquí os mostramos las opiniones que nos dan nuestros clientes.</p>
                 </div>
                 <!-- Carrousel de bootstrap con autoplay -->
-                <div id="carouselExampleControls" class="carousel slide w-100 m-auto pb-4 pb-md-0" data-bs-ride="carousel">
+                <div id="carouselExampleControls" class="carousel slide pb-4 pb-md-0" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item" v-for="(review, idx) in reviews" :key="review.id"  :class="{'active': idx === 0 }">
                             <div class="text-center">

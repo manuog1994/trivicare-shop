@@ -3,8 +3,8 @@
         <div class="product-area">
             <div class="ps-5 pe-5 pb-5">
                 <div class="text-center pt-3">
-                    <h2>Nuevos productos 🆕</h2>
-                    <p class=" lead m-0">Descubre nuestros nuevos productos para el cuidado de la piel.</p>
+                    <h2>Novedades 🆕</h2>
+                    <p class=" lead m-0">Descubre nuestras novedades en productos de cosmética natural y ecológica.</p>
                 </div>
                 <div class="brand-logo-active mt-5">
                     <swiper :options="brandLogoCarousel">
@@ -12,6 +12,10 @@
                             <ProductGridItemTwo :product="product" />
                         </div>
                     </swiper>
+                    <!-- Boton ver más -->
+                    <div class="d-flex justify-content-center">
+                        <n-link class="btn-more" to="/shop?news=todos">VER MÁS</n-link>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1469,3 +1469,15 @@
 	flex-wrap: wrap;
 }
 
+.btn-more{
+    padding: 10px 30px;
+    background-color: #010101;
+    color: #fff;
+    font-size: 18px;
+
+    &:hover{
+        background-color: $theme-color;
+        color: $white;
+    }
+}
+
