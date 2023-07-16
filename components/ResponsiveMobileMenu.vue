@@ -1,9 +1,35 @@
 <template>
 <div>    
-    <ul class='mobile-menu mb-2 border-bottom-1'>
+    <ul class='mobile-menu mb-2'>
         <client-only>
+            <li>
+                <n-link to="/">
+                    <i class="me-3 pe-7s-home"></i>
+                    Inicio
+                </n-link>
+            </li>
+            <li>
+                <n-link to="/shop">
+                    <i class="me-3 pe-7s-shopbag"></i>
+                    Tienda
+                </n-link>
+            </li>
+            <li>
+                <n-link to="/about">
+                    <i class="me-3 pe-7s-info"></i>
+                    Nosotros
+                </n-link>
+            </li>
+            <li>
+                <n-link to="/contact">
+                    <i class="me-3 pe-7s-mail"></i>
+                    Contacto
+                </n-link>
+            </li>
+            <h4 class="mt-4 mb-2">Categorías</h4>
             <li v-for='(link, i) in menus' :key='i'>
                 <n-link :to="link.url">
+                    <i class="me-2 fa fa-circle-o"></i>
                     {{ link.title }}
                 </n-link>
                 <span class='submenu-toggle' v-if="link.submenu">
@@ -12,7 +38,9 @@
                 <ul class="submenu" v-if="link.submenu">
                     <client-only>
                         <li v-for='(link, i) in link.submenu' :key='i' class="title">
-                            <n-link :to="link.url"> {{ link.title }} </n-link>
+                            <n-link :to="link.url">
+                                {{ link.title }}
+                            </n-link>
                             <span class='submenu-toggle' v-if="link.submenu">
                                 <i class="pe-7s-angle-down"></i>
                             </span> 
@@ -29,16 +57,45 @@
             </li>
         </client-only>
     </ul>
+
+    <h4 class="mt-4 mb-2">Destacados</h4>
+    <ul class='mobile-menu mb-2'>
+        <li>
+            <n-link to="/shop?bestsellers=todos">
+                🔥 Más vendidos
+            </n-link>
+        </li>
+        <li>
+            <n-link to="/shop?news=todos">
+                🆕 Nuevo
+            </n-link>
+        </li>
+        <li>
+            <n-link to="/shop?offers=todos">
+                🛍️ Ofertas
+            </n-link>
+        </li>
+    </ul>
+    <h4 class="mt-4 mb-2">Cuenta</h4>
     <div class="mt-4">
-        <a v-if="$auth.loggedIn == false" class="text-center" href="/login">Iniciar sesión</a>
+        <a v-if="$auth.loggedIn == false" class="text-center" href="/login">
+            <i class="me-2 pe-7s-user"></i>
+            Iniciar sesión
+        </a>
         <div v-else class="mt-2">
             <p>Hola, <strong>{{ getName() }}</strong></p>
             <ul class="ms-2">
                 <li>
-                    <a href="/my-account">Mi cuenta</a>
+                    <n-link to="/my-account">
+                        <i class="me-2 pe-7s-user"></i>
+                        Mi cuenta
+                    </n-link>
                 </li>
                 <li>
-                    <a href="/my-orders">Mis pedidos</a>
+                    <n-link to="/my-orders">
+                        <i class="me-2 pe-7s-note2"></i>
+                        Mis pedidos
+                    </n-link>
                 </li>
                 <li>
                     <a @click="logout">Cerrar sesión</a>
@@ -47,11 +104,14 @@
         </div>
     </div>
     <div class="mt-4">
-        <n-link to="/wishlist">Lista de deseos</n-link>
-        <span class="ms-2 bg-blue-color p-2 rounded-5">{{ wishlistItemCount }}</span>
+        <n-link to="/wishlist">
+            <i class="me-2 pe-7s-like"></i>
+            Lista de deseos
+        </n-link>
     </div>
     <div v-if="$auth.loggedIn == true" class="mt-4">
         <n-link to="/notifications-center">
+            <i class="me-2 pe-7s-bell"></i>
             Notificaciones
         </n-link>
         <span class="ms-2 bg-blue-color p-2 rounded-5">{{ notifications }}</span>
@@ -64,16 +124,6 @@
         data() {
             return {
                 menus: [
-                    {
-                        url: '/',
-                        title: 'Inicio',
-
-                    },
-                    {
-                        url: '/shop',
-                        title: 'Tienda',
-
-                    },
                     {
                         url: '/shop?category=facial',
                         title: 'Facial',
@@ -89,6 +139,7 @@
                         title: 'Corporal',
 
                     },
+
                     {
                         url: '/shop?category=accesorios',
                         title: 'Accesorios',
@@ -96,9 +147,11 @@
                     },
 
                     {
-                        url: '/contact',
-                        title: 'Contacto',
-                    }
+                        url: '/shop?category=pack',
+                        title: 'Packs',
+
+                    },
+                    
                 ],
                 role: '',
                 notifications: 0
@@ -152,6 +205,15 @@
             this.countNotifications();
         },
 
+        watch: {
+            '$route.query.category': {
+                handler: function() {
+                    document.getElementById('off-canvas-mobile').classList.remove('show-mobile-menu');
+                },
+                deep: true
+            },
+        },
+
         methods: {
             
             async logout() {
@@ -186,6 +248,19 @@
 
 
 <style lang='scss' scoped>
+    //circle icon of color
+    .fa-circle-o {
+        font-size: 10px;
+        color: white;
+        background-color: #2AB5B2;
+        border-radius: 50%;
+    }
+
+    div h4 {
+        font-weight: 400;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
     .mobile-menu {
         li:not(:last-child) {
             margin-bottom: 5px;
@@ -193,7 +268,7 @@
         li {
             position: relative;
             a {
-                font-weight: 600;
+                //font-weight: 600;
                 line-height: 35px;
                 text-transform: capitalize;
             }

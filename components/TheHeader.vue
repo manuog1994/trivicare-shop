@@ -37,7 +37,7 @@
                 </div>
             </div>
         </header>
-        <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" />
+        <OffCanvasMobileMenu id="off-canvas-mobile" :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" />
     </div>
 </template>
 

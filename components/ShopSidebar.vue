@@ -133,6 +133,65 @@
             },
         },
 
+        watch: {
+            '$route.query.category': {
+                handler: function (query) {
+                    this.closeFilter();
+                },
+                deep: true
+            },
+
+            '$route.query.tag': {
+                handler: function (query) {
+                    this.closeFilter();
+                },
+                deep: true
+            },
+
+            '$route.query.color': {
+                handler: function (query) {
+                    this.closeFilter();
+                },
+                deep: true
+            },
+
+            '$route.query.size': {
+                handler: function (query) {
+                    this.closeFilter();
+                },
+                deep: true
+            },
+
+            '$route.query.model': {
+                handler: function (query) {
+                    this.closeFilter();
+                },
+                deep: true
+            },
+
+            '$route.query.bestsellers': {
+                handler: function (query) {
+                    this.closeFilter();
+                },
+                deep: true
+            },
+
+            '$route.query.news': {
+                handler: function (query) {
+                    this.closeFilter();
+                },
+                deep: true
+            },
+
+            '$route.query.offers': {
+                handler: function (query) {
+                    this.closeFilter();
+                },
+                deep: true
+            },
+
+        },
+
         methods: {
             slugify(text) {
                 return text
