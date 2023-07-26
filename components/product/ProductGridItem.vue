@@ -12,6 +12,7 @@
                 </div>
             </n-link>
             <div class="product-badges">
+                <CountdownShop v-show="product.discount?.discount > 0" :targetDate="product.discount?.end_date"/>
                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
                 <span class="product-label purple" v-if="product?.discount !== null">-{{ getDiscount(product) }}%</span>
             </div>
@@ -52,7 +53,9 @@
                 <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
             </div>
             <div class="product-content__list-view" v-if="layout === 'list'">
-                <!-- <p class="">{{ (product.description).substring(0,100)+"..." }}</p> -->
+                <div>
+                    <p class="mb-1">{{ (product.specifications) }}</p>
+                </div>
                 <div class="pro-action d-flex align-items-center" >
                     <div class="pro-cart btn-hover">
                         <button class="btn" title="Añadir al carrito" @click="addToCart(product)" v-if="product.stock > 0 && product.variations.length == 0">
@@ -96,6 +99,10 @@ import Swal from 'sweetalert2'
     export default {
         auth: false,
         props: ["layout", "product"],
+
+        components: {
+            CountdownShop: () => import('@/components/CountdownShop.vue'),
+        },
 
         data() {
             return {

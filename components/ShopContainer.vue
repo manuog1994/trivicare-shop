@@ -332,7 +332,7 @@ export default {
 
                 if(discountproductsName && this.prevSelectedTagName !== discountproductsName){
                     if(discountproductsName){
-                        const resultData = this.products?.filter((item) => item.discount > 0);
+                        const resultData = this.products?.filter((item) => item.discount?.discount > 0);
                         this.filterItems = [];
                         this.filterItems.push(...resultData);
                     }

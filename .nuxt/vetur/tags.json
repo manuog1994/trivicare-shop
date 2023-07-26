@@ -20,6 +20,15 @@
   "CookiesPolicyContent": {
     "description": "Auto imported from components/CookiesPolicyContent.vue"
   },
+  "Countdown": {
+    "description": "Auto imported from components/Countdown.vue"
+  },
+  "CountdownMini": {
+    "description": "Auto imported from components/CountdownMini.vue"
+  },
+  "CountdownShop": {
+    "description": "Auto imported from components/CountdownShop.vue"
+  },
   "ForgotPasswordContainer": {
     "description": "Auto imported from components/ForgotPasswordContainer.vue"
   },
@@ -170,8 +179,11 @@
   "CheckoutTimerNav": {
     "description": "Auto imported from components/checkout/TimerNav.vue"
   },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  "HeaderCheckout": {
+    "description": "Auto imported from components/header/HeaderCheckout.vue"
+  },
+  "HeroSliderSix": {
+    "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
   "LoadersBigLoader": {
     "description": "Auto imported from components/loaders/BigLoader.vue"
@@ -179,11 +191,8 @@
   "LoadersSmallLoading": {
     "description": "Auto imported from components/loaders/SmallLoading.vue"
   },
-  "ProfileNewGuest": {
-    "description": "Auto imported from components/profile/NewGuest.vue"
-  },
-  "ProfileNewProfile": {
-    "description": "Auto imported from components/profile/NewProfile.vue"
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
@@ -203,10 +212,10 @@
   "ProductWrapperCosmeticsTwo": {
     "description": "Auto imported from components/product/ProductWrapperCosmeticsTwo.vue"
   },
-  "HeaderCheckout": {
-    "description": "Auto imported from components/header/HeaderCheckout.vue"
+  "ProfileNewGuest": {
+    "description": "Auto imported from components/profile/NewGuest.vue"
   },
-  "HeroSliderSix": {
-    "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  "ProfileNewProfile": {
+    "description": "Auto imported from components/profile/NewProfile.vue"
   }
 }

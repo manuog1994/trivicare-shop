@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="slider-content-13 slider-animation-1 p-4 p-xl-0">
-                                <h5 :class="slider.textColor">{{ slider.subTitle }}</h5>
+                                <span :class="slider.textColor">{{ slider.subTitle }}</span>
                                 <h1 :class="slider.textColor" v-html="slider.title"></h1>
                                 <div class="slider-btn btn-hover">
                                     <n-link :to="slider.link">Ver ahora</n-link>
@@ -26,13 +26,17 @@
             </div>
             <!-- Swiper Navigation End -->
         </swiper>
+        <CountDown />
     </div>
 </template>
 
 <script>
-import { link } from 'fs';
-
     export default {
+
+        components: {
+            CountDown: () => import("@/components/Countdown.vue"),
+        },
+
         data() {
             return {
                 swiperOption: {
@@ -69,8 +73,8 @@ import { link } from 'fs';
                         link: "/shop",
                         textColor: "text-white"
                     },
-                ]
-            }
+                ],
+            };
         },
     };
 </script>

@@ -46,6 +46,9 @@
                             <p>{{ product.specifications }}</p>
                         </div>
                         <div class="pro-details-size-color" v-if="product.variations">
+                            <div v-if="product.discount?.discount > 0">
+                                <CountdownMini :targetDate="product.discount?.end_date" />
+                            </div>
                             <div v-if="errorVariation">
                                 <p class="text-danger">
                                     <i>Debes seleccionar el modelo, color o tamaño antes de añadirlo al carrito.</i>
@@ -169,6 +172,10 @@ import Swal from 'sweetalert2'
     export default {
         auth: false,
         props: ['product'],
+
+        components: {
+            CountdownMini: () => import('@/components/CountdownMini.vue'),
+        },
 
         data() {
             return {

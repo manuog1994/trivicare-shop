@@ -219,7 +219,7 @@ export const getters = {
 
     //filtrar los productos por la columna discount que sea mayor a 0 y retornarlos en una lista
     getDiscountProducts: state => {
-        return ["Todos",...new Set(state.products.data.filter((item) => item.discount > 0).map((list) => list.name))]
+        return ["Todos",...new Set(state.products.data.filter((item) => item.discount?.discount > 0).map((list) => list.name))]
     }
 
 

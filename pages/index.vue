@@ -18,7 +18,7 @@
 </template>
 
 <script>
-    function delayImport(importPromise, delay = 2000) {
+    function delayImport(importPromise, delay) {
         return new Promise((resolve) => {
             setTimeout(() => resolve(importPromise), delay);
         });
@@ -32,13 +32,13 @@
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             TheHeader: () => import("@/components/TheHeader"),
             NavBottom: () => import("@/components/NavBottom"),
-            HeroSliderSix: () => import("@/components/hero/HeroSliderSix"),
-            IconsActions: () => import("@/components/IconsActions"),
-            ProductWrapperCosmetics: () => delayImport(import("@/components/product/ProductWrapperCosmetics")),
-            ProductWrapperCosmeticsTwo: () => delayImport(import("@/components/product/ProductWrapperCosmeticsTwo")),
-            Testimonials : () => import("@/components/Testimonials"),
-            ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
-            TheFooter: () => import("@/components/TheFooter"),
+            HeroSliderSix: () => delayImport(import("@/components/hero/HeroSliderSix"), 500),
+            IconsActions: () => delayImport(import("@/components/IconsActions"), 1000),
+            ProductWrapperCosmetics: () => delayImport(import("@/components/product/ProductWrapperCosmetics"), 1500),
+            ProductWrapperCosmeticsTwo: () => delayImport(import("@/components/product/ProductWrapperCosmeticsTwo"), 2000),
+            Testimonials : () => delayImport(import("@/components/Testimonials"), 2500),
+            ServicePolicyFour: () => delayImport(import("@/components/policy/ServicePolicyFour"), 3000),
+            TheFooter: () => delayImport(import("@/components/TheFooter"), 3200),
         },
 
         data() {
