@@ -171,7 +171,7 @@ export const getters = {
     getSubTotal: state => {
         let subTotal = 0;
         state.cart.forEach(item => {
-            let price = item.discount ? item.price_base - (item.price_base *(item.discount)/100) : item.price_base;
+            let price = item.discount !== null ? item.price_base - (item.price_base *(item.discount.discount)/100) : item.price_base;
             subTotal += price * item.cartQuantity
         })
         return subTotal;
@@ -180,7 +180,7 @@ export const getters = {
     getTotal: state => {
         let total = 0;
         state.cart.forEach(item => {
-            let price = item.discount ? item.price_base - (item.price_base *(item.discount)/100) : item.price_base;
+            let price = item.discount !== null ? item.price_base - (item.price_base *(item.discount.discount)/100) : item.price_base;
             total += price * item.cartQuantity
         })
         if (state.cupon.id) {

@@ -17,7 +17,8 @@
                             </h4>
                             <div v-if="product.stock > 0">
                                 <h6>Cant: {{ product.cartQuantity }}</h6>
-                                <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                                <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
+                                <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
                             </div>
                             <div v-else>
                                 <h6 class="text-danger">No hay stock</h6>
@@ -80,7 +81,7 @@
             },
 
             discountedPrice(product) {
-                return product.price_base - (product.price_base * product.discount / 100)
+                return product.price_base - (product.price_base * product.discount.discount / 100)
             },
 
             makeid(length) {

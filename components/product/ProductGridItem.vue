@@ -13,7 +13,7 @@
             </n-link>
             <div class="product-badges">
                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
-                <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
+                <span class="product-label purple" v-if="product?.discount !== null">-{{ getDiscount(product) }}%</span>
             </div>
              <div class="product-action" v-if="layout === 'twoColumn' || layout === 'threeColumn'">
                 <div class="pro-same-action pro-wishlist">
@@ -47,8 +47,9 @@
                 </client-only>
             </div>
             <div class="product-price">
-                <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
-                <span class="old" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
+                <span v-if="product?.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
+                <span v-if="product?.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
             </div>
             <div class="product-content__list-view" v-if="layout === 'list'">
                 <!-- <p class="">{{ (product.description).substring(0,100)+"..." }}</p> -->
@@ -124,7 +125,7 @@ import Swal from 'sweetalert2'
             },
 
             discountedPrice(product) {
-                return product.price_base - (product.price_base * product.discount / 100)
+                return product.price_base - (product.price_base * product.discount?.discount / 100)
             },
 
             addToWishlist(product) {
@@ -148,6 +149,11 @@ import Swal from 'sweetalert2'
 
             onClick(product) {
                 this.$router.push(`/product/${product.slug}`)
+            },
+
+            getDiscount(product) {
+                const discount = product.discount
+                return discount.discount
             },
 
         },

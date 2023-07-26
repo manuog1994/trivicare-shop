@@ -22,7 +22,7 @@
                         <ul>
                             <client-only>
                                 <li v-for="(product, index) in products" :key="index">
-                                    <span class="order-middle-left">{{ product.name }} {{ product.variation != undefined ? `-- ${product.variation}` : '' }}  x {{ product.cartQuantity }} unid(s)</span> <span class="order-price">{{ ((discountedPrice(product) * product.cartQuantity) * 1.21).toFixed(2) }} &euro;</span>
+                                    <span class="order-middle-left">{{ product.name }} {{ product.variation != undefined ? `-- ${product.variation}` : '' }}  x {{ product.cartQuantity }} unid(s)</span> <span class="order-price">{{ (( product.discount !== null ? discountedPrice(product) : product.price_base * product.cartQuantity) * 1.21).toFixed(2) }} &euro;</span>
                                 </li>
                             </client-only>
                         </ul>
@@ -318,7 +318,7 @@ export default {
         },
 
         discountedPrice(product) {
-            return product.price_base - (product.price_base * product.discount / 100)
+            return product.price_base - (product.price_base * product.discount.discount / 100)
         },
 
         cancelPayPal() {

@@ -13,7 +13,7 @@
             </n-link>
             <div class="product-badges">
                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
-                <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
+                <span class="product-label purple" v-if="product.discount !== null">-{{ product.discount?.discount }}%</span>
             </div>
             <div class="product-action-2">
                 <!-- <button class="btn" title="Compare" @click="addToCompare(product)"> 
@@ -33,8 +33,9 @@
                     <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
                 </h3>
                 <div class="price-2">
-                    <span>{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
-                    <span class="old" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
+                    <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
+                    <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                    <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
                 </div>
             </div>
             <div class="pro-wishlist-2">
@@ -71,7 +72,7 @@ import Swal from 'sweetalert2';
             },
 
             discountedPrice(product) {
-                return product.price_base - (product.price_base * product.discount / 100)
+                return product.price_base - (product.price_base * product.discount.discount / 100)
             },
 
             addToWishlist(product) {
