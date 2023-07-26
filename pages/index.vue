@@ -18,6 +18,12 @@
 </template>
 
 <script>
+    function delayImport(importPromise, delay = 2000) {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(importPromise), delay);
+        });
+    }
+
     export default {
         auth: false,
         role: false,
@@ -27,12 +33,12 @@
             TheHeader: () => import("@/components/TheHeader"),
             NavBottom: () => import("@/components/NavBottom"),
             HeroSliderSix: () => import("@/components/hero/HeroSliderSix"),
-            ProductWrapperCosmetics: () => import("@/components/product/ProductWrapperCosmetics"),
-            ProductWrapperCosmeticsTwo: () => import("@/components/product/ProductWrapperCosmeticsTwo"),
+            IconsActions: () => import("@/components/IconsActions"),
+            ProductWrapperCosmetics: () => delayImport(import("@/components/product/ProductWrapperCosmetics")),
+            ProductWrapperCosmeticsTwo: () => delayImport(import("@/components/product/ProductWrapperCosmeticsTwo")),
+            Testimonials : () => import("@/components/Testimonials"),
             ServicePolicyFour: () => import("@/components/policy/ServicePolicyFour"),
             TheFooter: () => import("@/components/TheFooter"),
-            IconsActions: () => import("@/components/IconsActions"),
-            Testimonials : () => import("@/components/Testimonials"),
         },
 
         data() {

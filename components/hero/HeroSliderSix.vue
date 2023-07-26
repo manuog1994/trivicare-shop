@@ -40,6 +40,7 @@ import { link } from 'fs';
                     speed: 750,
                     slidesPerView: 1,
                     spaceBetween: 10,
+                    lazy: true,
                     autoplay: {
                         delay: 6000
                     },
