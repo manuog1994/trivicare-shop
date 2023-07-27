@@ -1,51 +1,116 @@
 <template>
     <client-only>
-        <div class="minicart-wrapper" :class="miniCart">
-            <div class="shopping-cart-content" v-if="products?.length > 0">
-                <ul>
-                    <li class="single-shopping-cart" v-for="product, index in products" :key="product.id + index">
-                        <div class="shopping-cart-img">
-                            <n-link :to="`/product/${product.slug}`">
-                                <nuxt-img loading="lazy" v-if="product.images?.length > 0 && product.variation == null" provider="customProvider" :src="product.images[0].path + '280x280/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name"/> 
-                                <nuxt-img loading="lazy" v-else-if="product.images?.length > 0 && product.variation != null" provider="customProvider" :src="getImageVariations(product)" /> 
-                                <nuxt-img loading="lazy" v-else provider="customProvider" src="nuxt/default280x280.webp" :alt="product.name"/>
-                            </n-link>
-                        </div>
-                        <div class="shopping-cart-title">
-                            <h4>
-                                <n-link :to="`/product/${product.slug}`">{{ product.name }} {{ product.variation != undefined ? `-- ${product.variation}` : '' }}</n-link>
-                            </h4>
-                            <div v-if="product.stock > 0">
-                                <h6>Cant: {{ product.cartQuantity }}</h6>
-                                <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
-                                <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
-                            </div>
-                            <div v-else>
-                                <h6 class="text-danger">No hay stock</h6>
-                            </div>
-                        </div>
-                        <div class="shopping-cart-delete">
-                            <button @click="removeProduct(product)" title="Eliminar producto">
-                                <i class="fa fa-times-circle"></i>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-                <div class="shopping-cart-total">
-                    <h4>Total : <span class="shop-total">{{ (total * 1.21).toFixed(2) }} &euro;</span></h4>
-                </div>
-                <div class="shopping-cart-btn btn-hover text-center" @click="$emit('minicartClose')">
-                    <n-link to="/cart" class="default-btn">ver carrito</n-link>
-                    <a v-if="!errorStock" class="default-btn" @click="newReserve">Comprar Ahora</a>
-                    <p class="text-danger" v-else>{{ errorStockMessage }}</p>
-                </div>
+        <div id="cart-sidebar" class="cart-sidebar bg-light" :class="miniCart">
+            <div class="cart-sidebar-header">
+
+                    <button id="hide-cart-btn" type="button" class="btn-close" @click="miniCart = !miniCart">
+                    </button>
+
+                    <h4 class="cart-title">
+                        <i class="fa fa-cart-plus"></i>
+                        Carrito
+                    </h4>
+
             </div>
-            <div class="shopping-cart-content text-center" v-else>
-                <p>No hay productos en el carrito</p>
+            <div class="cart-sidebar-body">
+                <div class="shopping-cart-content" v-if="products?.length > 0">
+                    <ul>
+                        <li class="single-shopping-cart" v-for="product, index in products" :key="product.id + index">
+                            <div class="shopping-cart-img">
+                                <n-link :to="`/product/${product.slug}`">
+                                    <nuxt-img loading="lazy" v-if="product.images?.length > 0 && product.variation == null" provider="customProvider" :src="product.images[0].path + '280x280/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name"/> 
+                                    <nuxt-img loading="lazy" v-else-if="product.images?.length > 0 && product.variation != null" provider="customProvider" :src="getImageVariations(product)" /> 
+                                    <nuxt-img loading="lazy" v-else provider="customProvider" src="nuxt/default280x280.webp" :alt="product.name"/>
+                                </n-link>
+                            </div>
+                            <div class="shopping-cart-title">
+                                <h4>
+                                    <n-link :to="`/product/${product.slug}`">{{ product.name }} {{ product.variation != undefined ? `-- ${product.variation}` : '' }}</n-link>
+                                </h4>
+                                <div v-if="product.stock > 0">
+                                    <h6>Cant: {{ product.cartQuantity }}</h6>
+                                    <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
+                                    <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                                </div>
+                                <div v-else>
+                                    <h6 class="text-danger">No hay stock</h6>
+                                </div>
+                            </div>
+                            <div class="shopping-cart-delete">
+                                <button @click="removeProduct(product)" title="Eliminar producto">
+                                    <i class="fa fa-times-circle"></i>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="shopping-cart-total">
+                        <h4>Subtotal : <span class="shop-total">{{ (total * 1.21).toFixed(2) }} &euro;</span></h4>
+                    </div>
+                    <div class="shopping-cart-btn btn-hover text-center" @click="$emit('minicartClose')">
+                        <n-link to="/cart" class="default-btn">ver carrito</n-link>
+                        <a v-if="!errorStock" class="default-btn" @click="newReserve">Comprar Ahora</a>
+                        <p class="text-danger" v-else>{{ errorStockMessage }}</p>
+                    </div>
+                </div>
+                <div class="shopping-cart-content text-center" v-else>
+                    <p>No hay productos en el carrito</p>
+                </div>
             </div>
         </div>
     </client-only>
 </template>
+
+<style lang="scss" scoped>
+.cart-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 320px; /* Ajusta el ancho según tus necesidades */
+  height: 100vh; /* 100vh cubre la altura completa de la pantalla */
+  overflow: auto;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(100%); /* Inicialmente, el carrito está oculto */
+  z-index: 9999; /* Para asegurar que el carrito esté por encima de los demás elementos */
+  border: 1px solid #ebebeb;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transform-origin: center top;
+  transition: 0.2s;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+
+.cart-sidebar-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  border-bottom: 1px solid #ebebeb;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-sidebar-body {
+  padding: 10px;
+}
+
+.btn-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.cart-title {
+  padding: 20px;
+  text-align: center;
+}
+
+</style>
 
 <script>
     import Swal from 'sweetalert2';

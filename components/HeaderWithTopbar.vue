@@ -52,7 +52,6 @@
                                         <i class="pe-7s-shopbag"></i>
                                         <span class="count-style">{{ cartItemCount }}</span>
                                     </button>
-                                    <MiniCart :miniCart="{ visible:openCart }" @minicartClose="openCart = !openCart" />
                                 </div>
                                 <div class="same-style mobile-menu-toggler d-block d-lg-none">
                                     <button class="mobile-aside-button" @click="navOpen = !navOpen" title="Menu">
@@ -67,9 +66,9 @@
                     </div>
                 </div>
             </div>
+            <MiniCart :miniCart="{ visible:openCart }" @minicartClose="openCart = !openCart" />
         </header>
-        <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" />
-
+        
     </div>
 </template>
 

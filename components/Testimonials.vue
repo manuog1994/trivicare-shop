@@ -1,13 +1,13 @@
 <template>
     <div class="container-fluid mb-5">
         <div class="row">
-            <div class="col-12 col-md-6 bg-gray d-flex flex-column justify-content-center">
+            <div class="col-12 col-md-6 bg-gray d-flex flex-column justify-content-center p-3 p-lg-0">
                 <div class="text-center mb-5">
                     <h2>Valoraciones de nuestros clientes</h2>
                     <p class="lead">Aquí os mostramos las opiniones que nos dan nuestros clientes.</p>
                 </div>
                 <!-- Carrousel de bootstrap con autoplay -->
-                <div id="carouselExampleControls" class="carousel slide pb-4 pb-md-0" data-bs-ride="carousel">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item" v-for="(review, idx) in reviews" :key="review.id"  :class="{'active': idx === 0 }">
                             <div class="text-center">
@@ -15,7 +15,7 @@
                                 <p class="pt-0 mt-0 ps-5 pe-5"><strong>{{ review.user_name }} {{ review.user_lastname }}</strong></p>
                                 <p class="pt-0 mt-0 ps-5 pe-5">{{ review.message }}</p>
                                 <div class="d-flex justify-content-center">
-                                    <vue-star-rating :star-size="60" :read-only="true" :show-rating="false" :rating="review.rating"></vue-star-rating>
+                                    <vue-star-rating :star-size="50" :read-only="true" :show-rating="false" :rating="review.rating"></vue-star-rating>
                                 </div>
                             </div>
                         </div>

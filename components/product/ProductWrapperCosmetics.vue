@@ -84,55 +84,11 @@
                 })
                 const products = this.$store.getters.getProducts
                 this.products = products.data
-                this.lastProducts();
                 this.bestSales();
             },
 
-
-            lastProducts() {
-                const allProducts = this.products.map((item) => {
-                    return item;
-                });
-                const idProducts = this.products.map((item) => {
-                    if (item.status === 'Publicado'){
-                        return item.id;
-                    }
-                });
-                idProducts.sort((a, b) => b - a);
-
-                const lastIdProducts = idProducts.slice(0, 4);
-
-                const lastFourProducts = allProducts.filter((item) => {
-                    return lastIdProducts.includes(item.id);
-                });
-
-                lastFourProducts.sort((a, b) => b.id - a.id);
-                this.newsProducts = lastFourProducts;
-
-            },
-
             bestSales() {
-                const best = this.products.map((item) => {
-                    return item.sold;
-                });
-                best.sort((a, b) => b - a);
-                const bestSold = best.slice(0, 4);
-
-                const allProducts = this.products.map((item) => {
-                    return item;
-                });
-
-                const bestProducts = allProducts.filter((item) => {
-                    return bestSold.includes(item.sold);
-                });
-                
-                bestProducts.sort((a, b) => b.sold - a.sold);
-                
-                if(bestProducts?.length > 4) {
-                    this.bestSold = this.newsProducts;
-                } else {
-                    this.bestSold = bestProducts;
-                }
+                const best = this.products.filter((item) => this.bestSold.push(item));
             }
         }
     };

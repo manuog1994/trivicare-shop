@@ -6,7 +6,7 @@
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-start align-items-center">
                         <div class="same-style mobile-menu-toggler d-flex d-lg-none ms-sm-3">
                             <button class="mobile-aside-button fs-2" @click="navOpen = !navOpen" title="Menu">
-                                <i class="pe-7s-menu"></i>
+                                <i class="fa fa-bars"></i>
                             </button>
                         </div>
                     </div>
@@ -27,7 +27,6 @@
                                     <i class="pe-7s-shopbag"></i>
                                     <span class="count-style">{{ cartItemCount }}</span>
                                 </button>
-                                <MiniCart :miniCart="{ visible:openCart }" @minicartClose="openCart = !openCart" />
                             </div>
                         </div>
                     </div>
@@ -38,6 +37,7 @@
             </div>
         </header>
         <OffCanvasMobileMenu id="off-canvas-mobile" :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" />
+        <MiniCart :miniCart="{ visible:openCart }" @minicartClose="openCart = !openCart" />
     </div>
 </template>
 
@@ -84,6 +84,7 @@
         components: {
             MiniCart: () => import("@/components/MiniCart"),
             Search: () => import("@/components/Search"),
+            OffCanvasMobileMenu: () => import("@/components/OffCanvasMobileMenu"),
         },
 
         computed: {
