@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            <MiniCart :miniCart="{ visible:openCart }" @minicartClose="openCart = !openCart" />
+            <MiniCart :miniCart="{ visible:openCart }" @minicartClose="openCart = !openCart" @minicartRight="handleMiniCartChange" />
         </header>
         
     </div>
@@ -220,6 +220,10 @@
                  } else {
                     document.getElementById('searchMobile').classList.add('hidden');
                 }
+            },
+
+            handleMiniCartChange(value) {
+                this.openCart = value
             },
         },
 

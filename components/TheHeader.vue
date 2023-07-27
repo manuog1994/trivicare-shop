@@ -37,7 +37,7 @@
             </div>
         </header>
         <OffCanvasMobileMenu id="off-canvas-mobile" :class="{'show-mobile-menu' : navOpen}" @toggleAsideMenu="navOpen = !navOpen" />
-        <MiniCart :miniCart="{ visible:openCart }" @minicartClose="openCart = !openCart" />
+        <MiniCart :miniCart="{ visible:openCart }" @minicartClose="openCart = !openCart" @minicartRight="handleMiniCartChange"/>
     </div>
 </template>
 
@@ -151,6 +151,10 @@
             async logout() {
                 await this.$auth.logout();
                 window.location.reload();
+            },
+
+            handleMiniCartChange(value) {
+                this.openCart = value
             },
 
         }

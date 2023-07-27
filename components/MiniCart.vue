@@ -215,6 +215,7 @@
 
             closeMiniCart() {
                 document.getElementById('cart-sidebar').classList.remove('visible');
+                this.$emit('minicartRight', false);
             }
         }
     };
