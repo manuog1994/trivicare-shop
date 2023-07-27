@@ -3,7 +3,7 @@
         <div id="cart-sidebar" class="cart-sidebar bg-light" :class="miniCart">
             <div class="cart-sidebar-header">
 
-                    <button id="hide-cart-btn" type="button" class="btn-close" @click="miniCart = false">
+                    <button id="hide-cart-btn" type="button" class="btn-close" @click="closeMiniCart">
                     </button>
 
                     <h4 class="cart-title">
@@ -211,6 +211,10 @@
                 }).toString();
 
                 return image;
+            },
+
+            closeMiniCart() {
+                document.getElementById('cart-sidebar').classList.remove('visible');
             }
         }
     };
