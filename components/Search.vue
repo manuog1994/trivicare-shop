@@ -14,7 +14,7 @@
                     <div class="position-relative">
                         <div id="search-box" class="search-box" :class="{'active' : hidden == false}">
                             <div class="box-products" v-for="product in products" :key="product.id">
-                                <a :href="url + '/product/' + product.slug" class="single-product">
+                                <n-link :to="url + '/product/' + product.slug" class="single-product">
                                     <div v-if="product.images?.length == 0">
                                         <nuxt-img provider="customProvider" src="nuxt/default280x280.webp" alt="default" width="100px" />
                                     </div>
@@ -29,7 +29,7 @@
                                             <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
                                         </div>
                                     </div>
-                                </a>
+                                </n-link>
                             </div>
                         </div>
                     </div>
