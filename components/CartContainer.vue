@@ -276,7 +276,7 @@ import Swal from 'sweetalert2';
     };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
     .text-green {
         color: #28a745;
     }

@@ -7,6 +7,7 @@
                 <NavBottom />
                 <ProductDetailsWrapper :product="productDetails" v-if="productDetails" />
                 <ProductDetailsDescriptionReview :product="productDetails" :reviews="productDetails.reviews" v-if="productDetails" />
+                <ProductWrapperCosmeticsTwoDetail />
                 <TheFooter />
             </div>
         </div>
@@ -67,6 +68,16 @@
             return {
                 searchChildren: '',
             }
+        },
+
+        components: {
+            HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
+            TheHeader: () => import('@/components/TheHeader'),
+            NavBottom: () => import('@/components/NavBottom'),
+            ProductDetailsWrapper: () => import('@/components/product/ProductDetailsWrapper'),
+            ProductDetailsDescriptionReview: () => import('@/components/ProductDetailsDescriptionReview'),
+            ProductWrapperCosmeticsTwoDetail: () => import('@/components/product/ProductWrapperCosmeticsTwoDetail'),
+            TheFooter: () => import('@/components/TheFooter'),
         },
 
         methods: {

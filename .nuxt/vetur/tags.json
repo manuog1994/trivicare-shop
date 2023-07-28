@@ -32,6 +32,9 @@
   "ForgotPasswordContainer": {
     "description": "Auto imported from components/ForgotPasswordContainer.vue"
   },
+  "GiftModal": {
+    "description": "Auto imported from components/GiftModal.vue"
+  },
   "HeaderWithTopbar": {
     "description": "Auto imported from components/HeaderWithTopbar.vue"
   },
@@ -143,6 +146,15 @@
   "WishListContainer": {
     "description": "Auto imported from components/WishListContainer.vue"
   },
+  "LoadersBigLoader": {
+    "description": "Auto imported from components/loaders/BigLoader.vue"
+  },
+  "LoadersSmallLoading": {
+    "description": "Auto imported from components/loaders/SmallLoading.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
   "CheckoutAddressStep": {
     "description": "Auto imported from components/checkout/AddressStep.vue"
   },
@@ -185,14 +197,11 @@
   "HeroSliderSix": {
     "description": "Auto imported from components/hero/HeroSliderSix.vue"
   },
-  "LoadersBigLoader": {
-    "description": "Auto imported from components/loaders/BigLoader.vue"
+  "ProfileNewGuest": {
+    "description": "Auto imported from components/profile/NewGuest.vue"
   },
-  "LoadersSmallLoading": {
-    "description": "Auto imported from components/loaders/SmallLoading.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  "ProfileNewProfile": {
+    "description": "Auto imported from components/profile/NewProfile.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
@@ -209,13 +218,13 @@
   "ProductWrapperCosmetics": {
     "description": "Auto imported from components/product/ProductWrapperCosmetics.vue"
   },
+  "ProductWrapperCosmeticsCart": {
+    "description": "Auto imported from components/product/ProductWrapperCosmeticsCart.vue"
+  },
   "ProductWrapperCosmeticsTwo": {
     "description": "Auto imported from components/product/ProductWrapperCosmeticsTwo.vue"
   },
-  "ProfileNewGuest": {
-    "description": "Auto imported from components/profile/NewGuest.vue"
-  },
-  "ProfileNewProfile": {
-    "description": "Auto imported from components/profile/NewProfile.vue"
+  "ProductWrapperCosmeticsTwoDetail": {
+    "description": "Auto imported from components/product/ProductWrapperCosmeticsTwoDetail.vue"
   }
 }

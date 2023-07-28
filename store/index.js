@@ -273,7 +273,11 @@ export const mutations = {
                 return el
             }
         })
-        if (item && item.variation === '') {
+        if (payload?.price_base === 0 && payload?.price_base !== item?.price_base) {
+            const price = payload.discount ? payload.price_base - (payload.price_base *(payload.discount)/100) : payload.price_base;
+            state.cart.push({...payload, cartQuantity: payload.cartQuantity, total: price })
+            state.lastUpdated = Date.now()
+        }else if (item && item.variation === '') {
             const price = item.discount ? item.price_base - (item.price_base *(item.discount)/100) : item.price_base;
             item.cartQuantity = item.cartQuantity + payload.cartQuantity
             item.total = item.cartQuantity * price
@@ -372,17 +376,11 @@ export const mutations = {
         state.transferBankPage = transferBankPage
     },
 
-    REMOVE_PRODUCT_FROM_CART(state, product) {
-        const cart = state.cart;
-        cart.filter(item => {
-            if(product.variation === item.variation) {
-                //borrar el producto
-                const index = cart.indexOf(item);
-                cart.splice(index, 1);
-            } else {
-                return product.id !== item.id
-            }
+    REMOVE_PRODUCT_FROM_CART(state, {product, variation}) {
+        state.cart = state.cart.filter(item => {
+            return variation !== item?.variation || product?.id !== item?.id
         })
+
     },
 
     DECREASE_PRODUCT(state, payload) {
@@ -475,8 +473,8 @@ export const actions = {
         commit('UPDATE_CART', payload)
     },
 
-    removeProductFromCart({commit}, product) {
-        commit('REMOVE_PRODUCT_FROM_CART', product)
+    removeProductFromCart({commit}, product, variation) {
+        commit('REMOVE_PRODUCT_FROM_CART', product, variation)
     },
 
     decreaseProduct({ commit }, product) {

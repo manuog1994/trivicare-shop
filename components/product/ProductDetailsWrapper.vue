@@ -13,7 +13,7 @@
                                 <div v-if="product.images?.length == 0" class="swiper-slide text-center">
                                     <nuxt-img loading="lazy" class="principal" provider="customProvider" src="nuxt/default.webp" alt="default" width="500" height="500" />
                                 </div>
-                                <div v-else class="swiper-slide text-center" v-for="image in product.images" :key="'image-' + image.id">
+                                <div v-else id="product-single" class="swiper-slide text-center" v-for="image in product.images" :key="'image-' + image.id">
                                     <nuxt-img id="image-principal" loading="lazy" class="principal" provider="customProvider" :src="image.path + image.name + '.' + image.ext" alt="default" width="500" height="500" />
                                 </div>
                             </swiper>
@@ -59,7 +59,7 @@
                                    <h6 class="label">Modelo</h6>
                                     <div class="d-flex mb-4">
                                         <div class="d-flex justify-content-around" v-for="modelo, index in model">
-                                            <button :id="'button-model' + index" class="btn btn-hover-blue border-black rounded-0 ms-2" :title="modelo" @click="setVariation">{{ modelo }}</button>
+                                            <button :id="index" class="btn btn-hover-blue border-black rounded-0 ms-2" :title="modelo" @click="setVariation">{{ modelo }}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                    <h6 class="label">Color</h6>
                                     <div class="d-flex mb-4">
                                         <div class="d-flex justify-content-around" v-for="colores, index in color">
-                                            <button :id="'button-color' + index" class="btn btn-hover-blue border-black rounded-0 ms-2" :title="colores" @click="setVariation">{{ colores }}</button>
+                                            <button :id="index" class="btn btn-hover-blue border-black rounded-0 ms-2" :title="colores" @click="setVariation">{{ colores }}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                                    <h6 class="label">Tamaño</h6>
                                     <div class="d-flex mb-4">
                                         <div class="d-flex justify-content-around" v-for="tamanos, index in size">
-                                            <button :id="'button-size' + index" class="btn btn-hover-blue border-black rounded-0 ms-2" :title="tamanos" @click="setVariation">{{ tamanos }}</button>
+                                            <button :id="index" class="btn btn-hover-blue border-black rounded-0 ms-2" :title="tamanos" @click="setVariation">{{ tamanos }}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -354,10 +354,9 @@ import Swal from 'sweetalert2'
                             let response = res.data.data;
                             response.map(element => {
                                 let imageVariation = element.image;
-                                let slide = document.querySelector('.swiper-slide-active');
+                                let slide = document.querySelector('#product-single.swiper-slide-active');
                                 let imagen = slide.querySelector('img');
-                                imagen.src = process.env.baseUrl + '/' + imageVariation.path + imageVariation.name + '.' + imageVariation.ext;
-                            })
+                                imagen.src = process.env.baseUrl + '/' + imageVariation.path + '800x800/' + imageVariation.name + '.' + imageVariation.ext;                            })
                         })
                     }
                 })
