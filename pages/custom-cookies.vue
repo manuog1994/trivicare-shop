@@ -42,6 +42,7 @@
                 </div>
             </div>
             <NavBottom />
+            <Breadcrumb pageTitle="Mis cookies" />
             <TheFooter />
         </div>
     </client-only>
@@ -85,6 +86,7 @@
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             TheHeader: () => import('@/components/TheHeader'),
             NavBottom: () => import('@/components/NavBottom'), 
+            Breadcrumb: () => import('@/components/Breadcrumb'),
             TheFooter: () => import('@/components/TheFooter'),
         },
 

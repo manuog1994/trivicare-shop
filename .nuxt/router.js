@@ -5,8 +5,8 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _121fb837 = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
+const _69a08eeb = () => interopDefault(import('../pages/blog/index.vue' /* webpackChunkName: "pages/blog/index" */))
 const _4fc4b5c0 = () => interopDefault(import('../pages/cancel.vue' /* webpackChunkName: "pages/cancel" */))
-const _4dced2e6 = () => interopDefault(import('../pages/cart.vue' /* webpackChunkName: "pages/cart" */))
 const _73ffdb0c = () => interopDefault(import('../pages/checkout.vue' /* webpackChunkName: "pages/checkout" */))
 const _0b8f5aca = () => interopDefault(import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */))
 const _559e6714 = () => interopDefault(import('../pages/cookies-policy.vue' /* webpackChunkName: "pages/cookies-policy" */))
@@ -23,10 +23,13 @@ const _84f265a6 = () => interopDefault(import('../pages/success.vue' /* webpackC
 const _17fe1af8 = () => interopDefault(import('../pages/terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
 const _d809700a = () => interopDefault(import('../pages/unsubscribe.vue' /* webpackChunkName: "pages/unsubscribe" */))
 const _0b31ec0b = () => interopDefault(import('../pages/wishlist.vue' /* webpackChunkName: "pages/wishlist" */))
+const _5c461d12 = () => interopDefault(import('../pages/blog/blog-right-sidebar.vue' /* webpackChunkName: "pages/blog/blog-right-sidebar" */))
+const _2c377123 = () => interopDefault(import('../pages/blog/blog-without-sidebar.vue' /* webpackChunkName: "pages/blog/blog-without-sidebar" */))
 const _8ef98468 = () => interopDefault(import('../pages/payment/bizum.vue' /* webpackChunkName: "pages/payment/bizum" */))
 const _df98993c = () => interopDefault(import('../pages/payment/paypal.vue' /* webpackChunkName: "pages/payment/paypal" */))
 const _491c4b3f = () => interopDefault(import('../pages/payment/transfer-bank.vue' /* webpackChunkName: "pages/payment/transfer-bank" */))
 const _31d792fc = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _67e9eda3 = () => interopDefault(import('../pages/blog/_slug.vue' /* webpackChunkName: "pages/blog/_slug" */))
 const _a2cd1a0a = () => interopDefault(import('../pages/my-orders/_id.vue' /* webpackChunkName: "pages/my-orders/_id" */))
 const _213fbcd6 = () => interopDefault(import('../pages/orders/_id.vue' /* webpackChunkName: "pages/orders/_id" */))
 const _4075b294 = () => interopDefault(import('../pages/product/_slug.vue' /* webpackChunkName: "pages/product/_slug" */))
@@ -47,13 +50,13 @@ export const routerOptions = {
     component: _121fb837,
     name: "about"
   }, {
+    path: "/blog",
+    component: _69a08eeb,
+    name: "blog"
+  }, {
     path: "/cancel",
     component: _4fc4b5c0,
     name: "cancel"
-  }, {
-    path: "/cart",
-    component: _4dced2e6,
-    name: "cart"
   }, {
     path: "/checkout",
     component: _73ffdb0c,
@@ -119,6 +122,14 @@ export const routerOptions = {
     component: _0b31ec0b,
     name: "wishlist"
   }, {
+    path: "/blog/blog-right-sidebar",
+    component: _5c461d12,
+    name: "blog-blog-right-sidebar"
+  }, {
+    path: "/blog/blog-without-sidebar",
+    component: _2c377123,
+    name: "blog-blog-without-sidebar"
+  }, {
     path: "/payment/bizum",
     component: _8ef98468,
     name: "payment-bizum"
@@ -134,6 +145,10 @@ export const routerOptions = {
     path: "/",
     component: _31d792fc,
     name: "index"
+  }, {
+    path: "/blog/:slug",
+    component: _67e9eda3,
+    name: "blog-slug"
   }, {
     path: "/my-orders/:id?",
     component: _a2cd1a0a,

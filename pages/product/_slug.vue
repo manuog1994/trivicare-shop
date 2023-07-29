@@ -5,6 +5,7 @@
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
                 <NavBottom />
+                <Breadcrumb :pageTitle="productDetails?.name" />
                 <ProductDetailsWrapper :product="productDetails" v-if="productDetails" />
                 <ProductDetailsDescriptionReview :product="productDetails" :reviews="productDetails.reviews" v-if="productDetails" />
                 <ProductWrapperCosmeticsTwoDetail />
@@ -74,6 +75,7 @@
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             TheHeader: () => import('@/components/TheHeader'),
             NavBottom: () => import('@/components/NavBottom'),
+            Breadcrumb: () => import('@/components/Breadcrumb'),
             ProductDetailsWrapper: () => import('@/components/product/ProductDetailsWrapper'),
             ProductDetailsDescriptionReview: () => import('@/components/ProductDetailsDescriptionReview'),
             ProductWrapperCosmeticsTwoDetail: () => import('@/components/product/ProductWrapperCosmeticsTwoDetail'),

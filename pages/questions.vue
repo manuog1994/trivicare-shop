@@ -5,6 +5,7 @@
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
                 <NavBottom />
+                <Breadcrumb pageTitle="Preguntas frecuentes" />
                 <QuestionCont />
                 <TheFooter />
             </div>
@@ -20,6 +21,7 @@
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             TheHeader: () => import('@/components/TheHeader'),
             NavBottom: () => import('@/components/NavBottom'),
+            Breadcrumb: () => import('@/components/Breadcrumb'),
             QuestionCont: () => import('@/components/QuestionsCont'),
             TheFooter: () => import('@/components/TheFooter'),
         },

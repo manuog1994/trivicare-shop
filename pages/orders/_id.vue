@@ -5,6 +5,7 @@
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity" />
             <div id="post-nav" class="" @click="closeMenus">
                 <NavBottom />
+                <Breadcrumb pageTitle="Mis Pedidos" />
                 <OrdersCom />
                 <TheFooter />
             </div>
@@ -22,6 +23,7 @@ export default {
         HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
         OrdersCom: () => import('@/components/OrdersCom'),
         NavBottom: () => import('@/components/NavBottom'),
+        Breadcrumb: () => import('@/components/Breadcrumb'),
         TheFooter: () => import('@/components/TheFooter'),
     },
 

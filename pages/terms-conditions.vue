@@ -5,6 +5,7 @@
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
                 <NavBottom/>
+                <Breadcrumb pageTitle="Términos y Condiciones" />
                 <TermsConditionsContainer />
                 <TheFooter />       
             </div>
@@ -19,6 +20,7 @@
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             TheHeader: () => import('@/components/TheHeader'),
             NavBottom: () => import('@/components/NavBottom'),
+            Breadcrumb: () => import('@/components/Breadcrumb'),
             TermsConditionsContainer: () => import('@/components/TermsConditionsContainer'),
             TheFooter: () => import('@/components/TheFooter'),
         },

@@ -5,8 +5,20 @@
   "Auth": {
     "description": "Auto imported from components/Auth.vue"
   },
-  "CartContainer": {
-    "description": "Auto imported from components/CartContainer.vue"
+  "BlogItem": {
+    "description": "Auto imported from components/BlogItem.vue"
+  },
+  "BlogItemStyleTwo": {
+    "description": "Auto imported from components/BlogItemStyleTwo.vue"
+  },
+  "BlogSidebar": {
+    "description": "Auto imported from components/BlogSidebar.vue"
+  },
+  "BlogWrapper": {
+    "description": "Auto imported from components/BlogWrapper.vue"
+  },
+  "Breadcrumb": {
+    "description": "Auto imported from components/Breadcrumb.vue"
   },
   "CheckoutContainer": {
     "description": "Auto imported from components/CheckoutContainer.vue"
@@ -146,15 +158,6 @@
   "WishListContainer": {
     "description": "Auto imported from components/WishListContainer.vue"
   },
-  "LoadersBigLoader": {
-    "description": "Auto imported from components/loaders/BigLoader.vue"
-  },
-  "LoadersSmallLoading": {
-    "description": "Auto imported from components/loaders/SmallLoading.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
   "CheckoutAddressStep": {
     "description": "Auto imported from components/checkout/AddressStep.vue"
   },
@@ -196,6 +199,15 @@
   },
   "HeroSliderSix": {
     "description": "Auto imported from components/hero/HeroSliderSix.vue"
+  },
+  "LoadersBigLoader": {
+    "description": "Auto imported from components/loaders/BigLoader.vue"
+  },
+  "LoadersSmallLoading": {
+    "description": "Auto imported from components/loaders/SmallLoading.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
   },
   "ProfileNewGuest": {
     "description": "Auto imported from components/profile/NewGuest.vue"

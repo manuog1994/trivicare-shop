@@ -5,6 +5,7 @@
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
                 <NavBottom/>
+                <Breadcrumb pageTitle="Políticas de cookies" />
                 <CookiesPolicyContent />
                 <TheFooter />       
             </div>
@@ -19,6 +20,7 @@
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             TheHeader: () => import('@/components/TheHeader'),
             NavBottom: () => import('@/components/NavBottom'),
+            Breadcrumb: () => import('@/components/Breadcrumb'),
             CookiesPolicyContent: () => import('@/components/CookiesPolicyContent'),
             TheFooter: () => import('@/components/TheFooter'),
         },

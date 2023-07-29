@@ -5,6 +5,7 @@
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
                 <NavBottom />
+                <Breadcrumb pageTitle="Aviso Legal" />
                 <LegalWarningProtectionDatesContainer />
                 <TheFooter />
             </div>
