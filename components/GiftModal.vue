@@ -161,17 +161,9 @@ export default {
 //     overflow: hidden;
 // }
 
-// .vm--overlay {
-//     position: fixed;
-//     box-sizing: border-box;
-//     left: 0;
-//     top: 0;
-//     width: 100%;
-//     height: 250vh;
-//     background: rgba(0, 0, 0, 0.2);
-//     /* z-index: 999; */
-//     opacity: 1;
-// }
+.vm--overlay {
+    height: 250vh;
+}
 
 .banner-var-gift {
   background-color: #f3e395;
