@@ -274,7 +274,7 @@ export const mutations = {
             }
         })
         if (payload?.price_base === 0 && payload?.price_base !== item?.price_base) {
-            const price = payload.discount ? payload.price_base - (payload.price_base *(payload.discount)/100) : payload.price_base;
+            const price = 0;
             state.cart.push({...payload, cartQuantity: payload.cartQuantity, total: price })
             state.lastUpdated = Date.now()
         }else if (item && item.variation === '') {

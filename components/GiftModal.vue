@@ -10,27 +10,25 @@
             <div class="mb-2">
                 <h3>Elige uno de los siguientes regalos 🎁</h3>
             </div>
-            <!-- Mostrar un listado con los productos que incluya una miniatura de las imágenes -->
+            <!-- Mostrar un listado con los giftos que incluya una miniatura de las imágenes -->
 
             <ul class="p-1 p-lg-3 mt-lg-3">
-                <li v-for="product in gifts" :key="'gifts' + product.id">
+                <li v-for="gift in gifts" :key="'gifts' + gift.id">
                     <div class="row">
                         <div class="col-4">
                             <div class="p-2">
-                                <div v-if="product.images?.length == 0 || product.images?.length == 1">
-                                    <nuxt-img loading="lazy" class="default-img m-auto" provider="customProvider" src="nuxt/default400x400.webp" :alt="product.name" width="200" height="auto"/>
-                                </div>
-                                <div v-else>
-                                    <nuxt-img loading="lazy" class="default-img m-auto" provider="customProvider" :src="product.images[0].path + '280x280/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="200" height="auto"/>
+                                <div>
+                                    <nuxt-img loading="lazy" class="default-img m-auto" provider="customProvider" :src="gift.image_path" :alt="gift.name" width="200" height="auto"/>
                                 </div>
                             </div>
                         </div>
                         <div class="col-8 p-3 d-flex flex-column align-content-center">
                             <div class="mt-2">
-                                <h4>{{ product.name }} {{ product.variations?.length > 0 ? ' -- (Aleatorio)' : '' }}</h4>
+                                <h4>{{ gift.name }}</h4>
                             </div>
                             <div>
-                                <button class="btn bg-trivi-blue p-2 rounded-0" @click="addToCart(product)">Elegir</button>
+                                <button v-if="gift.stock > 0" class="btn bg-trivi-blue p-2 rounded-0" @click="addToCart(gift)">Elegir</button>
+                                <button v-else class="btn bg-trivi-blue p-2 rounded-0" disabled>No hay stock</button>
                             </div>
                         </div>
                     </div>
@@ -54,10 +52,6 @@ export default {
     },
 
     computed: {
-        products() {
-            return this.$store.getters.getProducts.data
-        },
-        
         total() {
             return this.$store.getters.getTotal * 1.21
         },
@@ -66,45 +60,38 @@ export default {
     watch: {
         total() {
             this.giftVar();
-            this.filterProducts();
+            this.getGifts();
         }
     },
-
-    mounted() {
-        this.giftVar();
-    },
-
+    
     methods: {
         beforeOpen () {
-            this.filterProducts();
+            this.getGifts();
+            this.giftVar();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             })
         },
 
-        filterProducts() {
-            //filtra todos los productos que tengan un precio inferior a 14 euros
-            if (this.total >= 200) {
-                const gifts = this.products.filter(product => product.price < 15);
-                this.gifts = gifts;
-            }else if (this.total >= 150) {
-                const gifts = this.products.filter(product => product.price < 10);
-                this.gifts = gifts;
-            }else if (this.total >= 120) {
-                const gifts = this.products.filter(product => product.price < 7);
-                this.gifts = gifts;
-            }else if (this.total >= 100) {
-                const gifts = this.products.filter(product => product.price < 5);
-                this.gifts = gifts;
-            }else if(this.total >= 75) {
-                const gifts = this.products.filter(product => product.price < 3);
-                this.gifts = gifts;
-            }
+        async getGifts() {
+            await this.$axios.get('/api/gifts')
+            .then(res => {
+                const gifts = res.data.data;
+                //filtrar los regalos con precio menor o igual al total
+                this.gifts = gifts.filter(gift => gift.for_total <= this.total);
+            })
         },
 
         closeModalGift() {
             this.$modal.hide('giftModal');
+        },
+
+        addToCart(gift) {
+            //modificar el gifto para poner precio base a 0
+            const prod = {...gift, price_base: 0, price: 0, cartQuantity: 1, discount: null}
+            this.$emit('deleteButton');
+            this.$store.dispatch('addToCartItem', prod);
         },
 
         giftVar() {
@@ -117,13 +104,6 @@ export default {
             }else if (this.total < 200) {
                 this.rest = (200 - this.total).toFixed(2);
             } 
-        },
-
-        addToCart(product) {
-            //modificar el producto para poner precio base a 0
-            const prod = {...product, price_base: 0, cartQuantity: 1}
-            this.$emit('deleteButton');
-            this.$store.dispatch('addToCartItem', prod);
         },
     }
 }

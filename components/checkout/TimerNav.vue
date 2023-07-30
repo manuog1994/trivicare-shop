@@ -93,7 +93,7 @@ export default {
                     this.$root.$emit('cancelOrder', true);
                     window.onbeforeunload = null;
                     window.history.pushState(null, '', window.location.href);
-                    window.location.href = '/cart';
+                    window.location.href = '/';
                     }
             }, 1000);
         },
