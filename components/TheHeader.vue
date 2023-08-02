@@ -13,7 +13,7 @@
                     <div class="col-md-4 col-sm-4 col-4">
                         <div class="lgo">
                             <n-link to="/">
-                                <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Round Positivo.svg" style="width:50px; margin:auto;" alt="logo"/>
+                                <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo.svg" alt="logo"/>
                             </n-link>
                         </div>
                     </div>
@@ -50,8 +50,7 @@
         justify-content: center;
         align-self: center;
         img {
-            width: 100%;
-            height: 100%;
+            width: 200px;
         }
     }
 }

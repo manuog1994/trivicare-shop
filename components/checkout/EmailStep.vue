@@ -6,8 +6,8 @@
         <div v-if="loginView == false && $auth.loggedIn == false">
             <div v-if="!emailStore">
                 <div class="ms-md-5 me-md-5">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" class="form-control" id="email" placeholder="Introduzca su correo electrónico" :value="emailStore" ref="emailGuest" required>
+                    <label for="email" class="font-size">Correo electrónico</label>
+                    <input type="email" class="form-control border-black" id="email" placeholder="Introduzca su correo electrónico" :value="emailStore" ref="emailGuest" required>
                 </div>
                 <div class="ms-md-5 me-md-5">
                     <span :class="{'hidden': emailError ? false : true}" class="text-danger"><i>El correo que has introducido ya existe. Por favor haga click en el botón "Ya tengo cuenta" para iniciar sesión.</i></span>
@@ -16,15 +16,15 @@
                 </div>
                 <div class="ms-md-5 me-md-5 mt-2">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="conditions" ref="conditionsGuest">
-                        <label class="form-check-label" for="conditions">
+                        <input class="form-check-input border-black font-size" type="checkbox" id="conditions" ref="conditionsGuest">
+                        <label class="form-check-label font-size" for="conditions">
                             Acepto los <a class="text-decoration-underline" href="/terms-conditions">Términos y condiciones</a> y la <a class="text-decoration-underline" href="/legal-warning">Política de Protección de Datos</a>.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="newsletter" ref="newsletterGuest">
-                        <label class="form-check-label" for="newsletter">
-                            Deseo recibir información sobre productos y servicios a través de correo electrónico. <i>Aceptando la <a class="text-decoration-underline" href="/legal-warning">Política de Protección de Datos</a>. Puede darse de baja en cualquier momento.</i>
+                        <input class="form-check-input border-black font-size" type="checkbox" id="newsletter" ref="newsletterGuest">
+                        <label class="form-check-label font-size" for="newsletter">
+                            Acepto suscribirme a la newsletter de TriviCare <i>(Puedes darte de baja en cualquier momento)</i>.
                         </label>
                     </div>
                 </div>
@@ -235,6 +235,14 @@ export default {
             width: 80%;
             margin: auto;
             padding: 13px 15px 13px;
+        }
+    }
+
+    .font-size{
+        font-size: 16px;
+        
+        @media only screen and (max-width: 400px) {
+            font-size: 18px;
         }
     }
 

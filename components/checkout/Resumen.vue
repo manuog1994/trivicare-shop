@@ -39,7 +39,8 @@
                     <div class="your-order-bottom">
                         <ul v-if="$store.getters.getShippingMethod != ''">
                             <li class="your-order-shipping">Gastos de envío</li>
-                            <li v-if="$store.state.shippingAmount === 0">Envio Gratis</li>
+                            <li v-if="$store.state.shippingAmount === 0 && pickupId == ''">Envio Gratis</li>
+                            <li v-if="$store.state.shippingAmount === 0 && pickupId != ''">Punto de Recogida</li>
                             <li v-else-if="$store.getters.getShippingMethod == 'pickup-point'">Recogida</li>
                             <li v-else>{{ shippingAmount }} &euro;</li>
                         </ul>
@@ -53,7 +54,8 @@
                     <div class="your-order-total">
                         <ul>
                             <li class="order-total">Total</li>
-                            <li v-if="total >= 50 && shippingAmount !== 0">{{ (total + shippingAmount).toFixed(2) }} &euro;</li>
+                            <li v-if="total <= 50">{{ (total + $store.state.shippingAmount).toFixed(2) }} &euro;</li>
+                            <li v-else-if="total >= 50 && $store.state.shippingAmount > 0">{{ (total + $store.state.shippingAmount).toFixed(2) }} &euro;</li>
                             <li v-else>{{ total.toFixed(2) }} &euro;</li>
                         </ul>
                     </div>

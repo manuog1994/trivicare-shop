@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid mb-5">
         <div class="product-area">
-            <div class="ps-5 pe-5 pb-5">
+            <div class="ps-lg-5 pe-lg-5 pb-5">
                 <div class="text-center pt-3">
                     <h2>Más Vendidos 🔥</h2>
                     <p class=" lead m-0">Los productos bestsellers en cosmética natural.</p>

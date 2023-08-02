@@ -4,21 +4,20 @@
             <h3>Seleccione un método de envío</h3>
         </div>
         <div class="p-4 p-md-4">
-            <div v-for="shipping in shippings" :key="shipping.value" class="border bg-gray p-3 mb-2" :class="{'hidden': shipping.hidden ? true : false}">
-                <div class="row">
+            <div v-for="shipping in shippings" :key="shipping.value" class="border bg-gray p-3 mb-2 cursor-pointer" :class="{'hidden': shipping.hidden ? true : false, 'active': shippingSelect?.value == shipping.value}">
+                <div class="row" @click="shippingSelect = shipping">
                     <div class="col-6 d-flex justify-content-start align-items-center">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="shipping" ref="shipping" :id="'flex' + shipping.name" :value="shipping.value">
-                            <label class="form-check-label" :for="'flex' + shipping.name">
+                            <p class="form-check-label" :for="'flex' + shipping.name">
                                 {{ shipping.name }}
-                            </label>
+                            </p>
                         </div>
                     </div>
                     <div class="col-6 text-end">
                         <p v-if="shipping.price > 0"><strong>{{ shipping.price }} &euro;</strong></p>
                         <p v-if="shipping.price == 0"><strong>Gratis</strong></p>
                     </div>
-                </div>
+                 </div>
             </div>
         </div>
 
@@ -29,7 +28,7 @@
         <div class="ms-md-5 me-md-5 mt-2 d-flex justify-content-center">
             <button @click="nextStep" class="btn btn-theme">Continuar</button>
         </div>
-        <PickupModal @pickupId="handlePickup"/>
+        <PickupModal :size="size" @pickupId="handlePickup"/>
     </div>
 </template>
 
@@ -42,6 +41,8 @@ export default {
             url: '',
             error: false,
             errorMsg: '',
+            shippingSelect: '',
+            size: 0,
             shippings: [
                 {
                     name: 'Envío estándar (3-5 días)',
@@ -114,6 +115,12 @@ export default {
         } else {
             this.shippings[4].hidden = true;
         }
+
+        if(window.innerWidth < 780){
+            this.size = 350
+        }else{
+            this.size = 800
+        }
     },
 
     watch: {
@@ -131,16 +138,8 @@ export default {
 
         nextStep() {
             this.error = false;
-            this.$refs.shipping.forEach((el) => {
-                if (el.checked) {
-                    this.shippingMethod = el.value;
-                }
-            });
-            this.shippings.forEach((el) => {
-                if (el.value == this.shippingMethod) {
-                    this.shippingAmount = el.price;
-                }
-            });
+            this.shippingMethod = this.shippingSelect.value;
+            this.shippingAmount = this.shippingSelect.price;
             
             this.$store.commit('SET_SHIPPING_METHOD', this.shippingMethod);
             this.$store.commit('SET_SHIPPING_AMOUNT', this.shippingAmount);
@@ -160,6 +159,16 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.cursor-pointer {
+    cursor: pointer;
 
+    &:hover {
+        background-color: #2AB5B2;
+    }
+}
+
+.active {
+    background-color: #2AB5B2;
+}
 </style>

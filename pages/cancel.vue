@@ -1,15 +1,20 @@
 <template>
     <client-only>
         <div>
-            <div class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh;">
-                <div class="card p-5 text-center shadow">
-                    <div class="d-flex justify-content-center mb-5">
-                        <img src="/payment/error.webp" alt="success.webp" width="60">
+            <HeaderWithTopbar containerClass="container-fluid" />
+            <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
+            <NavBottom/>
+            <div id="post-nav" class="" @click="closeMenus">
+                <div class="container-fluid">
+                    <div class="p-5 text-center">
+                        <div class="d-flex justify-content-center">
+                            <img src="/payment/osotriste.webp" alt="success.webp" width="250">
+                        </div>
+                        <h1>Se ha cancelado su pedido.</h1>
+                        <p class=" fs-5">Sentimos que hayas decidido cancelar tu pedido, lo bueno es que siempre podrás hacer uno nuevo 😌 </p>
                     </div>
-                    <h1>Ha ocurrido un problema al procesar su pedido.</h1>
-                    <p class="mt-2">Si has recibido el correo de confirmación, puede ignorar esta pantalla. De lo contrario es posible que se le haya hecho el cobro, pero no se le haya mandado la confirmación, si es así un técnico se pondrá en contacto usted en la mayor brevedad posible, ya que este problema manda una incidencia automáticamente.</p>
-                    <p v-if="counter">La página se redireccionará en {{ countdownNumbers }} segundo(s), si no es así <n-link class="text-primary text-decoration-underline" to="/">pulse aquí</n-link>.</p>
                 </div>
+                <TheFooter/>
             </div>
         </div>
     </client-only>
@@ -22,13 +27,20 @@ export default {
 
     data() {
         return {
-            counter: false,
-            countdownNumbers: '',
+            loading: false,
+            searchChildren: '',
+            closeMenu: false,
         }
     },
 
+    components: {
+        HeaderWithTopbar: () => import('@/components/HeaderWithTopbar.vue'),
+        TheHeader: () => import('@/components/TheHeader.vue'),
+        NavBottom: () => import('@/components/NavBottom.vue'),
+        TheFooter: () => import('@/components/TheFooter.vue'),
+    },
+
     mounted() {
-        this.countdown(10);
         this.$store.commit('SET_STEP2', false);
         this.$store.commit('SET_STEP3', false);
         this.$store.commit('SET_STEP4', false);
@@ -51,29 +63,27 @@ export default {
     },
 
     methods: {
-        // countdown of 10 seconds to redirect to my-orders
-        countdown(counter) {
-            const interval = setInterval(() => {
-                this.counter = true;
-                this.countdownNumbers = counter;
-                counter--;
-                if (counter === 0) {
-                    clearInterval(interval);
-                    this.$router.push('/');
-                }
-            }, 1000);
+        closeMenus() {
+            this.searchOpacity(false);
+            this.$root.$emit('closeMenu', this.closeMenu);
         },
 
-        head() {
-            return {
-                titleTemplate: 'Su pedido ha sido cancelado | TriviCare Natural Cosmetics',
-                // link: [
-                //     { rel: 'cannonical', href: 'https://trivicare.com/success' }
-                // ],
+        searchOpacity(searchFather) {
+            if (searchFather == true) {
+                document.getElementById("post-nav").classList.add("search-screen");
+            } else {
+                document.getElementById("post-nav").classList.remove("search-screen");
             }
         }
 
     },
+
+    head() {
+        return {
+            titleTemplate: 'Su pedido ha sido cancelado | TriviCare Natural Cosmetics',
+        }
+    }
+
 }
 </script>
 

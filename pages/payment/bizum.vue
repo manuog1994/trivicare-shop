@@ -89,7 +89,6 @@ export default {
                         payment_method: this.$store.getters.getPaymentMethod,
                         pickup_point: this.$store.getters.getPickUpId,
                     }).then(() => {
-                        this.orderComplete();
                         this.$root.$emit('orderComplete', true)
                         this.confirmed = true;
                     }).catch((err) => {
@@ -119,7 +118,6 @@ export default {
                     payment_method: this.$store.getters.getPaymentMethod,
                     pickup_point: this.$store.getters.getPickUpId,
                 }).then(() => {
-                    this.orderComplete();
                     this.$root.$emit('orderComplete', true)
                     this.confirmed = true;
                     window.onbeforeunload = null;
@@ -130,32 +128,7 @@ export default {
             }
 
         },
-        orderComplete() {
-            this.$store.commit('CLEAR_GUEST');
-            this.$store.commit('CLEAR_CART');
-            this.$store.commit('CLEAR_CUPON');
-            this.$store.commit('SET_STEP2', false);
-            this.$store.commit('SET_STEP3', false);
-            this.$store.commit('SET_STEP4', false);
-            this.$store.commit('CLEAR_GUEST', {});
-            this.$store.commit('SET_PAYMENT_METHOD', '');
-            this.$store.commit('SET_SHIPPING_METHOD', '');
-            this.$store.commit('SET_PICKUP_ID', '');
-            this.$store.commit('SET_DURATION', 0);
-            this.$store.commit('SET_USER_PROFILE_ID', '');
-            this.$store.commit('SET_RESERVE', '');
-            this.$store.commit('CLEAR_CUPON', {});
-            this.$store.commit('SET_ORDER_ID', '');
-            this.$store.commit('SET_PAYMENT_METHOD', '');
-            this.$store.commit('SET_SHIPPING_METHOD', '');
-            this.$store.commit('SET_SHIPPING_AMOUNT', 0);
-            this.$store.commit('SET_CONDITIONS_STORE', false);
-            this.$store.commit('SET_NEWSLETTER_STORE', false);
-            this.$store.commit('SET_INVOICE_PAPER', false);
-            this.$store.commit('SET_NOTE', '');
-            this.$store.commit('SET_BIZUM_PAGE', false);
 
-        }
     }
 }
 </script>

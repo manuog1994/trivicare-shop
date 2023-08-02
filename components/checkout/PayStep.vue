@@ -4,14 +4,13 @@
             <h3>Seleccione un método de pago</h3>
         </div>
         <div class="p-4 p-md-4">
-            <div v-for="method in methods" :key="method.name" class="border bg-gray-2 p-3 mb-2">
+            <div v-for="method in methods" :key="method.name" class="border bg-gray-2 p-3 mb-2 cursor-pointer" @click="paySelect = method" :class="{'active': paySelect?.value == method.value}">
                 <div class="row">
                     <div class="col-6">
                         <div class="form-check d-flex align-items-center">
-                            <input class="form-check-input mb-1" type="radio" name="payment" ref="payment" :id="'pay' + method.value" :value="method.value">
-                            <label class="form-check-label ms-2" :for="'pay' + method.value">
+                            <p class="form-check-label ms-2" :for="'pay' + method.value">
                                 {{ method.name }}
-                            </label>
+                            </p>
                         </div>
                     </div>
                     <div class="col-6 d-flex justify-content-center align-items-center">
@@ -35,6 +34,7 @@ export default {
         return {
             payment: '',
             url: '',
+            paySelect: '',
             error: false,
             methods: [
                 {
@@ -98,11 +98,7 @@ export default {
 
     methods: {
         nextStep() {
-            this.$refs.payment.forEach((element) => {
-                if(element.checked) {
-                    this.payment = element.value;
-                }
-            });
+            this.payment = this.paySelect.value;
             
             if (this.payment == '') {
                 this.error = true;
@@ -117,8 +113,19 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .bg-color-resumen {
     background-color: #F6F6F6;
+}
+.cursor-pointer {
+    cursor: pointer;
+
+    &:hover {
+        background-color: #2AB5B2;
+    }
+}
+
+.active {
+    background-color: #2AB5B2;
 }
 </style>

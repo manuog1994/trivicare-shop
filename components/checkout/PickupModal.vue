@@ -1,8 +1,8 @@
 <template>
-    <modal name="pickup-point" width="800px" height="auto" :scrollable="true">
-        <div class="p-md-5">
-            <div class="p-2">
-                <h2>Puntos de Recogida</h2>
+    <modal name="pickup-point" :width="size" height="auto" :scrollable="true">
+        <div class="p-3 p-md-5">
+            <div class="p-3">
+                <h2 class="text-center">Puntos de Recogida</h2>
             </div>
             <div class="p-2">
                 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" @change="selectedLocation">
@@ -12,28 +12,28 @@
                     </option>
                 </select>
             </div>
-            <div v-for="pickup in location.pickup_points" :key="pickup.id" class="p-2 border d-flex justify-content-md-evenly align-items-center">
-                <input class="form-check-input me-2 m-md-0" type="radio" :name="pickup + pickup.id" :id="pickup.id" @click="values">
-                <label class="form-check-label" :for="pickup + pickup.id">
-                    <p>
+            <div v-for="pickup in location.pickup_points" :key="pickup.id" class="p-3 border d-flex align-items-center cursor-pointer mb-2" @click="sendOption(pickup)">
+                <p class="form-check-label" :for="pickup + pickup.id">
+                    <span>
                         <strong>{{ pickup.name }}</strong>
-                    </p>
-                    <p>
+                    </span>
+                    <br/>
+                    <span>
                         {{ pickup.address }}
-                    </p>
-                    <p>
+                    </span>
+                    <br/>
+                    <span>
                         {{ location.city }}, {{ location.state }}
-                    </p>
-                    <p>
+                    </span>
+                    <br/>
+                    <span>
                         <strong>Horario:</strong> {{ pickup.hours }}
-                    </p>
-                    <p>
+                    </span>
+                    <br/>
+                    <span>
                         <strong>Teléfono:</strong> {{ pickup.phone }}
-                    </p>
-                </label>
-            </div>
-            <div class="d-flex justify-content-end p-2">
-                <a @click.prevent="sendOption" class="btn btn-primary rounded-0" :class="{'disabled' : disabled ? true : false}">Enviar selección</a>
+                    </span>
+                </p>
             </div>
         </div>
     </modal>
@@ -41,12 +41,15 @@
 
 <script>
 export default {
+    props: ['size'],
+
     data() {
         return {
             locations: [],
             location: '',
             pickupId: 0,
             disabled: true,
+            pickupSelected: '',
         }
     },
 
@@ -77,14 +80,8 @@ export default {
             this.location = this.locations.states.find(location => location.id == locationId);
         },
 
-        values(e) {
-            //convertir en number
-            const number = parseInt(e.target.id);
-            this.pickupId = number;
-        },
-
-        sendOption() {
-            this.$store.commit('SET_PICKUP_ID', this.pickupId);
+        sendOption(pickup) {
+            this.$store.commit('SET_PICKUP_ID', pickup.id);
             this.$store.commit('SET_SHIPPING_METHOD', 'pickup-point');
             this.$store.commit('SET_STEP4', true)
             this.$router.push({ query: { reserve: this.$route.query.reserve, step: 4 } })
@@ -94,6 +91,16 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.cursor-pointer {
+    cursor: pointer;
 
+    &:hover {
+        background-color: #2AB5B2;
+    }
+}
+
+.active {
+    background-color: #2AB5B2;
+}
 </style>

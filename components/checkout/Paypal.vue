@@ -80,7 +80,7 @@ export default {
                             order_id: order_id,
                             token_id: token_id
                         });
-                        actions.redirect( process.env.url + '/success?payment_intent_client_secret=' + transaction.id);
+                        actions.redirect( process.env.baseUrl + '/success-paypal?order_id=' + order_id);
                     });
                 }
             

@@ -2,7 +2,7 @@
     <div class="container-fluid bg-dark">
         <div class="text-white text-center p-2">
             <span v-if="orderComplete == false">Su pedido será cancelado en {{ countdown }}</span>
-            <span v-if="orderComplete == true">Gracias por su confianza</span>
+            <span v-if="orderComplete == true">Gracias por la confianza</span>
         </div>
     </div>
 </template>

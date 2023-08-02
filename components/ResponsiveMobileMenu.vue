@@ -77,45 +77,44 @@
         </li>
     </ul>
     <h4 class="mt-4 mb-2">Cuenta</h4>
-    <div class="mt-4">
-        <a v-if="$auth.loggedIn == false" class="text-center" href="/login">
-            <i class="me-2 pe-7s-user"></i>
-            Iniciar sesión
-        </a>
-        <div v-else class="mt-2">
-            <p>Hola, <strong>{{ getName() }}</strong></p>
-            <ul class="ms-2">
-                <li>
-                    <n-link to="/my-account">
-                        <i class="me-2 pe-7s-user"></i>
-                        Mi cuenta
-                    </n-link>
-                </li>
-                <li>
-                    <n-link to="/my-orders">
-                        <i class="me-2 pe-7s-note2"></i>
-                        Mis pedidos
-                    </n-link>
-                </li>
-                <li>
-                    <a @click="logout">Cerrar sesión</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="mt-4">
-        <n-link to="/wishlist">
-            <i class="me-2 pe-7s-like"></i>
-            Lista de deseos
-        </n-link>
-    </div>
-    <div v-if="$auth.loggedIn == true" class="mt-4">
-        <n-link to="/notifications-center">
-            <i class="me-2 pe-7s-bell"></i>
-            Notificaciones
-        </n-link>
-        <span class="ms-2 bg-blue-color p-2 rounded-5">{{ notifications }}</span>
-    </div>
+
+    <ul class="mobile-menu mt-2">
+        <li v-if="$auth.loggedIn == false">
+            <n-link class="text-center" to="/login">
+                <i class="me-2 pe-7s-user"></i>
+                Iniciar sesión
+            </n-link>
+        </li>
+        <p v-if="$auth.loggedIn">Hola, <strong>{{ getName() }}</strong></p>
+        <li v-if="$auth.loggedIn">
+            <n-link to="/my-account">
+                <i class="me-2 pe-7s-user"></i>
+                Mi cuenta
+            </n-link>
+        </li>
+        <li v-if="$auth.loggedIn">
+            <n-link to="/my-orders">
+                <i class="me-2 pe-7s-note2"></i>
+                Mis pedidos
+            </n-link>
+        </li>
+        <li v-if="$auth.loggedIn">
+            <a @click="logout">Cerrar sesión</a>
+        </li>
+        <li>
+            <n-link to="/wishlist">
+                <i class="me-2 pe-7s-like"></i>
+                Lista de deseos
+            </n-link>
+        </li>
+        <li v-if="$auth.loggedIn">
+            <n-link to="/notifications-center">
+                <i class="me-2 pe-7s-bell"></i>
+                Notificaciones
+            </n-link>
+            <span class="ms-2 bg-blue-color p-2 rounded-5">{{ notifications }}</span>
+        </li>
+    </ul>
 </div>
 </template>
 
@@ -268,10 +267,18 @@
         li {
             position: relative;
             a {
-                //font-weight: 600;
+                font-size: 16px;
                 line-height: 35px;
                 text-transform: capitalize;
+
             }
+            &:hover {
+                color: black !important;
+                background-color: #2AB5B2;
+                padding-left: 10px;
+                border-radius: 5px;
+            }
+
         }
         .submenu {
             display: none;
@@ -295,6 +302,13 @@
                             font-weight: 400;
                         }
                     }
+                }
+
+                &:hover {
+                    color: black !important;
+                    background-color: #2AB5B2;
+                    padding-left: 10px;
+                    border-radius: 5px;
                 }
             }
         }

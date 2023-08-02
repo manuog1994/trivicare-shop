@@ -91,7 +91,7 @@
             <span class="text-danger text-center"><i>Para seguir con la compra, debe completar todos los campos requeridos en el formulario.</i></span>
         </div>
         <div :class="{'hidden': !guestStore.address ? true : false }" class="">
-            <div class="card w-50 m-auto">
+            <div class="card w-75 m-auto">
                 <div class="card-body">
                     <div class="text-center">
                         <span>
