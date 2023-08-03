@@ -15,6 +15,7 @@ disallow: /cart
 disallow: /compare
 disallow: /success
 disallow: /notifications-center
+disallow: /manual-review
 
 # SITEMAP
 Sitemap: https://trivicare.com/sitemap.xml

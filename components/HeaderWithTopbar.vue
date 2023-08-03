@@ -1,5 +1,5 @@
 <template>
-    <div class="d-none d-lg-block">
+    <div class="d-none d-xl-block">
         <header class="header-area">
             <div class="header-padding-1 sticky-bar header-res-padding clearfix" :class="{'is-sticky': isSticky}">
                 <div :class="containerClass">

@@ -1,10 +1,10 @@
 <template>
-    <div class="d-lg-none menu-mobile">
+    <div class="d-xl-none menu-mobile">
         <header class="header-area header-padding-1 sticky-bar header-res-padding clearfix" :class="{'is-sticky': isSticky}">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-start align-items-center">
-                        <div class="same-style mobile-menu-toggler d-flex d-lg-none ms-sm-3">
+                        <div class="same-style mobile-menu-toggler d-flex d-xl-none ms-sm-3">
                             <button class="mobile-aside-button fs-2" @click="navOpen = !navOpen" title="Menu">
                                 <i class="fa fa-bars"></i>
                             </button>

@@ -14,6 +14,7 @@ const _1c0a24f9 = () => interopDefault(import('../pages/custom-cookies.vue' /* w
 const _0e0bbc2f = () => interopDefault(import('../pages/forgot-password.vue' /* webpackChunkName: "pages/forgot-password" */))
 const _5225cc9c = () => interopDefault(import('../pages/legal-warning.vue' /* webpackChunkName: "pages/legal-warning" */))
 const _090193da = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
+const _389408e9 = () => interopDefault(import('../pages/manual-review.vue' /* webpackChunkName: "pages/manual-review" */))
 const _3d75135c = () => interopDefault(import('../pages/my-account.vue' /* webpackChunkName: "pages/my-account" */))
 const _a140c8c0 = () => interopDefault(import('../pages/notifications-center.vue' /* webpackChunkName: "pages/notifications-center" */))
 const _42ec5cf7 = () => interopDefault(import('../pages/questions.vue' /* webpackChunkName: "pages/questions" */))
@@ -23,6 +24,7 @@ const _84f265a6 = () => interopDefault(import('../pages/success.vue' /* webpackC
 const _17fe1af8 = () => interopDefault(import('../pages/terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
 const _d809700a = () => interopDefault(import('../pages/unsubscribe.vue' /* webpackChunkName: "pages/unsubscribe" */))
 const _0b31ec0b = () => interopDefault(import('../pages/wishlist.vue' /* webpackChunkName: "pages/wishlist" */))
+const _4b64d300 = () => interopDefault(import('../pages/working-us.vue' /* webpackChunkName: "pages/working-us" */))
 const _5c461d12 = () => interopDefault(import('../pages/blog/blog-right-sidebar.vue' /* webpackChunkName: "pages/blog/blog-right-sidebar" */))
 const _2c377123 = () => interopDefault(import('../pages/blog/blog-without-sidebar.vue' /* webpackChunkName: "pages/blog/blog-without-sidebar" */))
 const _8ef98468 = () => interopDefault(import('../pages/payment/bizum.vue' /* webpackChunkName: "pages/payment/bizum" */))
@@ -86,6 +88,10 @@ export const routerOptions = {
     component: _090193da,
     name: "login"
   }, {
+    path: "/manual-review",
+    component: _389408e9,
+    name: "manual-review"
+  }, {
     path: "/my-account",
     component: _3d75135c,
     name: "my-account"
@@ -121,6 +127,10 @@ export const routerOptions = {
     path: "/wishlist",
     component: _0b31ec0b,
     name: "wishlist"
+  }, {
+    path: "/working-us",
+    component: _4b64d300,
+    name: "working-us"
   }, {
     path: "/blog/blog-right-sidebar",
     component: _5c461d12,

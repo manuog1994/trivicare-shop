@@ -70,6 +70,13 @@
     "_name": "_090193da"
   },
   {
+    "name": "manual-review",
+    "path": "/manual-review",
+    "component": "/Users/manuel/wa/trivicare-shop/pages/manual-review.vue",
+    "chunkName": "pages/manual-review",
+    "_name": "_389408e9"
+  },
+  {
     "name": "my-account",
     "path": "/my-account",
     "component": "/Users/manuel/wa/trivicare-shop/pages/my-account.vue",
@@ -131,6 +138,13 @@
     "component": "/Users/manuel/wa/trivicare-shop/pages/wishlist.vue",
     "chunkName": "pages/wishlist",
     "_name": "_0b31ec0b"
+  },
+  {
+    "name": "working-us",
+    "path": "/working-us",
+    "component": "/Users/manuel/wa/trivicare-shop/pages/working-us.vue",
+    "chunkName": "pages/working-us",
+    "_name": "_4b64d300"
   },
   {
     "name": "blog-blog-right-sidebar",

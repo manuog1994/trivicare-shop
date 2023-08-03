@@ -2,6 +2,7 @@
     <client-only>
         <div class="product-details-page-wrapper">
             <HeaderWithTopbar containerClass="container-fluid" />
+            <TheHeader />
             <Breadcrumb :pageTitle="blog.title" />
     
             <div class="Blog-details-inner pt-100 pb-100">
@@ -17,42 +18,43 @@
                                         <div class="blog-meta-2">
                                             <ul>
                                                 <li>{{ blog.date }}</li>
-                                                <li>
+                                                <!-- <li>
                                                     <a href="#"><i class="fa fa-comments-o"></i> {{ blog.comment }}</a>
-                                                </li>
+                                                </li> -->
                                             </ul>
                                         </div>
-                                        <h3>{{ blog.title }}</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprhendit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qei officia deser mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p>
-                                        <blockquote>Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt labo dolor magna aliqua. Ut enim ad minim veniam quis nostrud.</blockquote> 
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehendrit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                        <div class="article" v-html="blog.content"></div>
                                     </div>
                                 </div>
                                 <div class="tag-share">
-                                    <div class="dec-tag">
-                                        <ul>
-                                            <li><a href="#">lifestyle ,</a></li>
-                                            <li><a href="#">interior ,</a></li>
-                                            <li><a href="#">outdoor</a></li>
+                                    <div class="dec-tag d-flex">
+                                        <ul v-for="tag in blog.minTags" :key="'tag'+tag">
+                                            <li><a href="#">{{ tag }},</a></li>
                                         </ul>
                                     </div>
                                     <div class="blog-share">
-                                        <span>share:</span>
+                                        <span>Compartir:</span>
                                         <div class="share-social">
                                             <ul>
                                                 <li>
-                                                    <a class="facebook" href="#">
-                                                        <i class="fa fa-facebook"></i>
+                                                    <a class="text-primary fs-3" :href="`https://www.facebook.com/sharer/sharer.php?u=${ url }`" target="_blank" title="Compartir en Facebook">
+                                                        <fa-icon icon="fa-brands fa-facebook-f" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a class="twitter" href="#">
-                                                    <i class="fa fa-twitter"></i>
+                                                    <a class="text-danger fs-3" :href="`https://www.pinterest.com/pin/create/button/?url=${ url }&media=${ urlLogo }&description=¡Mira este producto es increíble!`" target="_blank" title="Compartir en Pinterest">
+                                                        <fa-icon icon="fa-brands fa-pinterest" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a class="instagram" href="#">
-                                                        <i class="fa fa-instagram"></i>
+                                                    <a class="text-success fs-3" :href="`https://api.whatsapp.com/send?text=¡Echa un vistazo a este enlace! ${ url }`" target="_blank" title="Compartir en Whatsapp">
+                                                        <fa-icon icon="fa-brands fa-whatsapp" />
+                                                    </a>
+                                                </li>
+                                                <!-- Linkedin -->
+                                                <li>
+                                                    <a class="text-primary fs-3" :href="`https://www.linkedin.com/shareArticle?mini=true&url=${ url }&title=${ blog.title }&summary=${ blog.metaDesc }&source=${ url }`" target="_blank" title="Compartir en Linkedin">
+                                                        <fa-icon icon="fa-brands fa-linkedin-in" />
                                                     </a>
                                                 </li>
                                             </ul>
@@ -63,7 +65,7 @@
                                     <a href="#"> <i class="fa fa-angle-left"></i> prev post</a>
                                     <a href="#">next post <i class="fa fa-angle-right"></i></a>
                                 </div>
-                                <div class="blog-comment-wrapper mt-55">
+                                <!-- <div class="blog-comment-wrapper mt-55">
                                     <h4 class="blog-dec-title">comments : 02</h4>
                                     <div class="single-comment-wrapper mt-35">
                                         <div class="blog-comment-img">
@@ -110,11 +112,11 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <BlogSidebar />
+                            <BlogSidebar :blogData="blogData" />
                         </div>
                     </div>
                 </div>
@@ -126,17 +128,32 @@
 
 <script>
     import blog from "@/data/blog.json";
+    import blogData from "@/data/blog.json";
 
     export default {
         data() {
             return {
+                blogData,
                 blog,
-                slug: this.$route.params.slug
+                slug: this.$route.params.slug,
+                url: '',
+                urlLogo: '',
             }
         },
 
+        components: {
+            HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
+            TheHeader: () => import("@/components/TheHeader"),
+            Breadcrumb: () => import("@/components/Breadcrumb"),
+            BlogSidebar: () => import("@/components/BlogSidebar"),
+            TheFooter: () => import("@/components/TheFooter")
+        },
+
+
         mounted () {
-            this.blog = blog.find(blog => this.slugify(blog.title) === this.slug);
+            this.blog = blog.find(blog => blog.slug === this.slug);
+            this.url = process.env.url + this.$route.fullPath;
+            this.urlLogo = process.env.baseUrl + '/nuxt/TriviCare_byn%20Positivo.svg';
         },
 
         methods: {
@@ -154,8 +171,19 @@
 
         head() {
             return {
-                title: this.blog.title
+                title: this.blog.title,
+                meta: [
+                    { charset: 'utf-8' },
+                    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: this.blog.metaDesc,
+                        keywords: this.blog.keywords
+                    }
+                ], 
             }
         },
     };
 </script>
+

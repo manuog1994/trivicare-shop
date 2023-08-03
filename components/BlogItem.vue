@@ -1,7 +1,7 @@
 <template>
     <div class="blog-wrap mb-25">
         <div class="blog-img">
-            <n-link :to="`/blog/${slugify(blog.title)}`">
+            <n-link :to="`/blog/${blog.slug}`">
                 <img :src="blog.imgSrc" :alt="blog.title">
             </n-link>
             <span>{{ blog.category[0]}}</span>

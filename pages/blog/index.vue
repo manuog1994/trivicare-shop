@@ -2,11 +2,12 @@
     <client-only>
         <div class="blog-page-wrapper">
             <HeaderWithTopbar containerClass="container-fluid" />
+            <TheHeader />
             <Breadcrumb pageTitle="blog" />
             
-            <div class="blog-area pb-100">
+            <div class="blog-area mt-5 pb-100">
                 <div class="container">
-                    <!-- <div class="row flex-row-reverse">
+                    <div class="row flex-row-reverse">
                         <div class="col-lg-9">
                             <div class="ml-20">
                                 <div class="row">
@@ -20,11 +21,8 @@
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <BlogSidebar />
+                            <BlogSidebar :blogData="blogData" />
                         </div>
-                    </div> -->
-                    <div class="text-center">
-                        <img src="https://suproye.com/pagina-en-construccion.png" alt="Imagen no disponible">
                     </div>
                 </div>
             </div>
@@ -38,6 +36,7 @@
     export default {
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
+            TheHeader: () => import("@/components/TheHeader"),
             Breadcrumb: () => import("@/components/Breadcrumb"),
             BlogItemStyleTwo: () => import("@/components/BlogItemStyleTwo"),
             BlogSidebar: () => import("@/components/BlogSidebar"),
@@ -67,7 +66,17 @@
         },
         head() {
             return {
-                title: "Blog Standard"
+                title: "Blog | Tips & Consejos | Cuidado de la piel | TriviCare",
+                meta: [
+                    { charset: 'utf-8' },
+                    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: 'Conoce los mejores tips y consejos para el cuidado de la piel, el cabello y el cuerpo. En TriviCare Natural Cosmetics te ayudamos a cuidar de ti y de la naturaleza.',
+                        keywords: 'retinol, que es el retinol, porque es tan demandado el retinol, secreto de la juventud, rejuvenece, cosmetica natural y ecologica, cremas, crema hidratante natural, serum natural, crema ultrahidratante natural, crema corporal natural, leche facial natural'
+                    }
+                ], 
             }
         }
     };

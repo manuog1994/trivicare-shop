@@ -1,92 +1,18 @@
 [
     {
         "id": 1,
-        "title": "A guide to latest trends product",
-        "desc": "Aenean sollicitudin, lorem quis on endum uctor nisi elitod the cona sequat ipsum, necas sagittis sem natoque nibh id penatibus",
-        "imgSrc": "/img/blog/blog-1.jpg",
-        "category": ["women", "lifestyle"],
-        "author": "Admin",
-        "date": "15 April, 2021",
-        "comment": 12
-    },
-    {
-        "id": 2,
-        "title": "Five ways to lead a happy life",
-        "desc": "Aenean sollicitudin, lorem quis on endum uctor nisi elitod the cona sequat ipsum, necas sagittis sem natoque nibh id penatibus",
-        "imgSrc": "/img/blog/blog-2.jpg",
-        "category": ["lifestyle", "men"],
-        "author": "admin",
-        "date": "22 March, 2021",
-        "comment": 45
-    },
-    {
-        "id": 3,
-        "title": "Tips on having a happy life forever",
-        "desc": "Aenean sollicitudin, lorem quis on endum uctor nisi elitod the cona sequat ipsum, necas sagittis sem natoque nibh id penatibus",
-        "imgSrc": "/img/blog/blog-3.jpg",
-        "category": ["women", "men"],
-        "author": "admin",
-        "date": "10 May, 2021",
-        "comment": 30
-    },
-    {
-        "id": 4,
-        "title": "New winter collection with discount",
-        "desc": "Aenean sollicitudin, lorem quis on endum uctor nisi elitod the cona sequat ipsum, necas sagittis sem natoque nibh id penatibus",
-        "imgSrc": "/img/blog/blog-4.jpg",
-        "category": ["women", "lifestyle"],
-        "author": "Admin",
-        "date": "15 June, 2021",
-        "comment": 52
-    },
-    {
-        "id": 5,
-        "title": "New collection for this winter",
-        "desc": "Aenean sollicitudin, lorem quis on endum uctor nisi elitod the cona sequat ipsum, necas sagittis sem natoque nibh id penatibus",
-        "imgSrc": "/img/blog/blog-5.jpg",
-        "category": ["lifestyle", "men"],
-        "author": "admin",
-        "date": "10 July, 2021",
-        "comment": 35
-    },
-    {
-        "id": 6,
-        "title": "Our best collection this winter",
-        "desc": "Aenean sollicitudin, lorem quis on endum uctor nisi elitod the cona sequat ipsum, necas sagittis sem natoque nibh id penatibus",
-        "imgSrc": "/img/blog/blog-6.jpg",
-        "category": ["women", "men"],
-        "author": "admin",
-        "date": "18 January, 2021",
-        "comment": 40
-    },
-    {
-        "id": 7,
-        "title": "Tempor incididunt labo dolor magna",
-        "desc": "Aenean sollicitudin, lorem quis on endum uctor nisi elitod the cona sequat ipsum, necas sagittis sem natoque nibh id penatibus",
-        "imgSrc": "/img/blog/blog-7.jpg",
-        "category": ["women", "lifestyle"],
-        "author": "Admin",
-        "date": "15 April, 2021",
-        "comment": 12
-    },
-    {
-        "id": 8,
-        "title": "Lorem ipsum dolor sit amet consectetur",
-        "desc": "Aenean sollicitudin, lorem quis on endum uctor nisi elitod the cona sequat ipsum, necas sagittis sem natoque nibh id penatibus",
-        "imgSrc": "/img/blog/blog-8.jpg",
-        "category": ["lifestyle", "men"],
-        "author": "admin",
-        "date": "22 March, 2021",
-        "comment": 45
-    },
-    {
-        "id": 9,
-        "title": "Reprehendrit in voluptate velit cillum",
-        "desc": "Aenean sollicitudin, lorem quis on endum uctor nisi elitod the cona sequat ipsum, necas sagittis sem natoque nibh id penatibus",
-        "imgSrc": "/img/blog/blog-9.jpg",
-        "category": ["women", "men"],
-        "author": "admin",
-        "date": "10 May, 2021",
-        "comment": 30
+        "title": "¡Ácido Hialurónico: La Fórmula Mágica de la Juventud!",
+        "desc": "¿Has oído hablar del ácido hialurónico pero no tienes idea de lo que es? ¡No te preocupes, amigo! Estás en el lugar correcto. 🎉",
+        "content": "<h1 style='margin-top: 20px; margin-bottom: 20px;'>¡Ácido Hialurónico: La Fórmula Mágica de la Juventud!</h1>\n  <p style='margin-bottom: 20px;'>¿Has oído hablar del <strong>ácido hialurónico</strong> pero no tienes idea de lo que es? ¡No te preocupes, amigo! Estás en el lugar correcto. 🎉</p>\n  <h2 style='margin-bottom: 20px;'>¿Qué es el Ácido Hialurónico?</h2>\n  <p style='margin-bottom: 20px;'>Es un carbohidrato que ya está presente en nuestro cuerpo. Sí, lo leíste bien, ¡tu cuerpo ya es un poco mágico! 🎩 Se encuentra principalmente en nuestra piel, ojos y articulaciones.</p>\n  <h2 style='margin-bottom: 20px;'>¿Por Qué Es Tan Demandado?</h2>\n  <p style='margin-bottom: 20px;'>¡Esta es la gran pregunta! El ácido hialurónico es como un <em>superhéroe</em> en el mundo de la belleza porque:</p>\n  <ul style='padding-left: 20px; margin-bottom: 20px;'>\n    <li><strong>1. Hidratación:</strong> Es como darle un trago de agua fresca a tu piel. ¡Ahora entiendo por qué la gente lo llama el elixir de la juventud! 💧</li>\n    <li><strong>2. Relleno:</strong> ¿Arrugas? ¿Qué arrugas? Este ácido maravilloso puede llenar esas líneas y hacer que tu piel se vea más joven. 🧖‍♀️</li>\n    <li><strong>3. Salud articular:</strong> Además, puede ayudar a tus articulaciones a sentirse bien. ¡Es como una poción mágica para tu cuerpo entero! 🏃</li>\n  </ul>\n  <h2 style='margin-bottom: 20px;'>Conclusión</h2>\n  <p style='margin-bottom: 20px;'>El ácido hialurónico no es solo un término de moda. Es una herramienta poderosa en el cuidado de la piel y la salud en general. ¡Si quieres un poco de magia en tu vida, este ácido podría ser la respuesta! ✨</p>\n  <footer>\n    <p style='margin-bottom: 20px;'>Si quieres que la mágia inunde tu rutina, te recomendamos que eches un vistazo a nuestra gama de productos con <a class='text-info' href='/shop?tag=acido-hialuronico'>ácido hialurónico</a>.</p>\n  </footer>",
+        "imgSrc": "/img/blog/acido-hialuronico.webp",
+        "category": ["Mujer", "lifestyle"],
+        "mod": "LIFESTYLE",
+        "author": "Cristina Triviño",
+        "date": "03 Agosto 2023",
+        "slug": "acido-hialuronico-formula-magica-juventud",
+        "keywords": "acido hialuronico, hidratacion, antiarrugas, antiedad, piel joven, piel sana, piel limpia, piel radiante, piel suave, piel tersa, piel hidratada",
+        "metaDesc": "¡Ácido Hialurónico: La Fórmula Mágica de la Juventud!",
+        "tags": ["acido hialuronico", "hidratacion", "antiarrugas", "antiedad", "piel joven", "piel sana", "piel limpia", "piel radiante", "piel suave", "piel tersa", "piel hidratada"],
+        "minTags": ["acido hialuronico", "hidratacion", "antiarrugas", "antiedad", "piel joven"]
     }
 ]

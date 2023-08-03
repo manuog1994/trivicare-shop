@@ -88,6 +88,7 @@
                                     <li><n-link to="/contact" class="text-white">Puntos de venta</n-link></li>
                                     <li><n-link to="/contact" class="text-white">Contacto</n-link></li>
                                     <li><button @click="openSuggestionsModal" title="Abrir Buzón de sugerencias" class="text-white">Buzón de Sugerencias</button></li>
+                                    <li><n-link to="/working-us" class="text-white">Trabaja con Nosotros</n-link></li>
                                 </ul>
                             </div>
                         </div>

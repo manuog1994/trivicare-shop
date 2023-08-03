@@ -1,6 +1,6 @@
 <template>
     <div class="blog-sidebar">
-        <div class="sidebar-widget">
+        <!-- <div class="sidebar-widget">
             <h4 class="pro-sidebar-title">Search</h4>
             <div class="pro-sidebar-search mb-55 mt-25">
                 <form class="pro-sidebar-search-form">
@@ -10,93 +10,33 @@
                     </button>
                 </form>
             </div>
-        </div>
+        </div> -->
         <div class="sidebar-widget">
-            <h4 class="pro-sidebar-title">Recent Projects</h4>
-            <div class="sidebar-project-wrap mt-30">
+            <h4 class="pro-sidebar-title">Entradas recientes</h4>
+            <div class="sidebar-project-wrap mt-30" v-for="blog in blogRecents" :key="'blog-recent'+blog.id">
                 <div class="single-sidebar-blog">
                     <div class="sidebar-blog-img">
-                        <n-link to="/blog/a-guide-to-latest-trends-product">
-                            <img src="/img/blog/sidebar-1.jpg" alt="">
+                        <n-link :to="`/blog/${blog.slug}`">
+                            <img :src="blog.imgSrc" alt="imagen no disponible">
                         </n-link>
                     </div>
                     <div class="sidebar-blog-content">
-                        <span>Photography</span>
+                        <span>{{ blog.mod }}</span>
                         <h4>
-                            <n-link to="/blog/a-guide-to-latest-trends-product">A guide to latest trends product</n-link>
-                        </h4>
-                    </div>
-                </div>
-                <div class="single-sidebar-blog">
-                    <div class="sidebar-blog-img">
-                        <n-link to="/blog/a-guide-to-latest-trends-product">
-                            <img src="/img/blog/sidebar-2.jpg" alt="">
-                        </n-link>
-                    </div>
-                    <div class="sidebar-blog-content">
-                        <span>Branding</span>
-                        <h4>
-                            <n-link to="/blog/a-guide-to-latest-trends-product">Five ways to lead a happy life</n-link>
-                        </h4>
-                    </div>
-                </div>
-                <div class="single-sidebar-blog">
-                    <div class="sidebar-blog-img">
-                        <n-link to="/blog/a-guide-to-latest-trends-product">
-                            <img src="/img/blog/sidebar-3.jpg" alt="">
-                        </n-link>
-                    </div>
-                    <div class="sidebar-blog-content">
-                        <span>Design</span>
-                        <h4>
-                            <n-link to="/blog/a-guide-to-latest-trends-product">Tips on having a happy life</n-link>
-                        </h4>
-                    </div>
-                </div>
-                <div class="single-sidebar-blog">
-                    <div class="sidebar-blog-img">
-                        <n-link to="/blog/a-guide-to-latest-trends-product">
-                            <img src="/img/blog/sidebar-1.jpg" alt="">
-                        </n-link>
-                    </div>
-                    <div class="sidebar-blog-content">
-                        <span>Photography</span>
-                        <h4>
-                            <n-link to="/blog/a-guide-to-latest-trends-product">New collection for this winter/blog</n-link>
+                            <n-link :to="`/blog/${blog.slug}`">{{ blog.title }}</n-link>
                         </h4>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="sidebar-widget mt-35">
-            <h4 class="pro-sidebar-title">Categories</h4>
-            <ul class="sidebar-widget-list mt-20">
+        <!-- <div class="sidebar-widget mt-35">
+            <h4 class="pro-sidebar-title">Categorías</h4>
+            <ul class="sidebar-widget-list mt-20" v-for="category in categories" :key="'category'+category">
                 <li class="sidebar-widget-list-left">
                     <n-link to="/blog/blog-without-sidebar">
                         <span class="check-mark"></span>
-                        women
-                        <span>8</span>
-                    </n-link>
-                </li>
-                <li class="sidebar-widget-list-left">
-                    <n-link to="/blog/blog-without-sidebar">
-                        <span class="check-mark"></span>
-                        men
-                        <span>5</span>
-                    </n-link>
-                </li>
-                <li class="sidebar-widget-list-left">
-                    <n-link to="/blog/blog-without-sidebar">
-                        <span class="check-mark"></span>
-                        lifestyle
-                        <span>10</span>
-                    </n-link>
-                </li>
-                <li class="sidebar-widget-list-left">
-                    <n-link to="/blog/blog-without-sidebar">
-                        <span class="check-mark"></span>
-                        fashion
-                        <span>15</span>
+                        {{ category }}
+                        <span>{{ categories.length }}</span>
                     </n-link>
                 </li>
             </ul>
@@ -104,30 +44,52 @@
         <div class="sidebar-widget mt-50">
             <h4 class="pro-sidebar-title">Tag</h4>
             <div class="sidebar-widget-tag mt-25">
-                <ul>
+                <ul v-for="tag in tags" :key="'tag'+tag">
                     <li>
-                        <n-link to="/blog/blog-without-sidebar">Clothing</n-link>
-                    </li>
-                    <li>
-                        <n-link to="/blog/blog-without-sidebar">Accessories</n-link>
-                    </li>
-                    <li>
-                        <n-link to="/blog/blog-without-sidebar">For Men</n-link>
-                    </li>
-                    <li>
-                        <n-link to="/blog/blog-without-sidebar">Women</n-link>
-                    </li>
-                    <li>
-                        <n-link to="/blog/blog-without-sidebar">Fashion</n-link>
+                        <n-link to="/blog">{{ tag }}</n-link>
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
     export default {
+        props: ["blogData"],
+        data() {
+            return {
+                blogRecents: [],
+                categories: [],
+                tags: []
+            }
+        },
 
+        mounted() {
+            this.getRecentBlogs();
+        },
+
+        methods: {
+            getRecentBlogs() {
+                this.blogRecents = this.blogData?.slice(0, 4);
+                //filtrar categorias y que no se repitan
+                this.blogRecents?.map(blog => {
+                    blog.category?.map(category => {
+                        if (!this.categories?.includes(category)) {
+                            this.categories?.push(category);
+                        }
+                    })
+                });
+
+                //filtrar tags y que no se repitan
+                this.blogRecents?.map(blog => {
+                    blog.tags?.map(tag => {
+                        if (!this.tags?.includes(tag)) {
+                            this.tags?.push(tag);
+                        }
+                    })
+                });
+            }
+        },
     };
 </script>

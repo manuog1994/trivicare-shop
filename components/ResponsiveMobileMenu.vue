@@ -15,6 +15,12 @@
                 </n-link>
             </li>
             <li>
+                <n-link to="/blog">
+                    <i class="me-3 pe-7s-news-paper"></i>
+                    Blog
+                </n-link>
+            </li>
+            <li>
                 <n-link to="/about">
                     <i class="me-3 pe-7s-info"></i>
                     Nosotros
