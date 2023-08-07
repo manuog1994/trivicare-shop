@@ -56,6 +56,9 @@
                                         <button id="suscribe-popup" class="btn bg-trivi-green mt-3 px-4" type="submit" name="suscribe-on-popup">Suscribirme</button>
                                     </div>
                                 </form>
+                                <div class="form-check p-3 p-lg-1 d-flex d-lg-none justify-content-center">
+                                    <button class="btn bg-trivi-blue" @click="hiddenPopUpAllow" >No mostrar más esta ventana</button>
+                                </div>
                             </div>
                         </div>
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-self-center" v-if="suscribed">
@@ -159,6 +162,12 @@
                 this.$root.$emit('closePopup', false);
             },
 
+            hiddenPopUpAllow() {
+                this.hiddenPopUp = true;
+                this.$store.dispatch('popUpState', false)
+                this.$root.$emit('closePopup', false);
+            },
+
             async subscribeForm() {
                 this.errorConditions = false;
                 this.exist = false;
@@ -190,6 +199,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 999;
+
+    @media #{$xs-layout} {
+        width: 95%;
+    }
 }
 .cookies a {
   text-decoration: none;
