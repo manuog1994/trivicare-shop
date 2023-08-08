@@ -316,7 +316,7 @@ import Swal from 'sweetalert2'
 
             getModels() {
                 this.product.variations.map(el => {
-                    if(el.model !== '') {
+                    if(el.model) {
                         this.model.push(el.model);
                     }
                 })
@@ -324,7 +324,7 @@ import Swal from 'sweetalert2'
 
             getColors() {
                 this.product.variations.map(el => {
-                    if(el.color !== ''){
+                    if(el.color){
                         this.color.push(el.color);
                     }
                 })
