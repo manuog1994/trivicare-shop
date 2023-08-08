@@ -86,16 +86,25 @@
             return {
                 searchChildren: '',
                 unauthorized: '',
+                products: [],
             }
         },
 
-        computed: {
-            products() {
-                return this.$store.getters.getProducts.data;
-            },
+        mounted() {
+            this.getProducts();
         },
 
         methods: {
+            async getProducts() {
+                await this.$axios.get('/api/products')
+                .then((response) => {
+                    this.products = response.data.data;
+                })
+                .catch((error) => {
+                    //console.log(error);
+                });
+            },
+
             closeMenus() {
                 this.searchOpacity(false);
                 this.$root.$emit('closeMenu', this.closeMenu);
