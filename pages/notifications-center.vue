@@ -30,17 +30,6 @@ export default {
         NotificationsContent: () => import("@/components/NotificationsContent"),
     },
 
-    mounted() {
-        this.$auth.fetchUser();
-
-        if(this.$axios.onError(error => {
-            const code = error.response.status;
-            if (code === 401) {
-                this.unauthorized = true;
-            }
-        }));
-    },
-
     watch: {
         unauthorized() {
             if (this.unauthorized == true) {

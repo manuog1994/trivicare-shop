@@ -22,7 +22,6 @@
     opacity: 0;
     transition: all .3s cubic-bezier(.645,.045,.355,1);
     z-index: 99999;
-    
     .mobile-menu-overlay {
         top: 0;
         left: 0;
@@ -64,7 +63,7 @@
 }
 .mobile-menu-inner-wrapper {
     height: 100%;
-    overflow-y: auto;
+    overflow: auto;
 }
 
 .mobile-search-inner {

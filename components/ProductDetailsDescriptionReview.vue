@@ -34,7 +34,7 @@
                                                 <div class="review-top-wrap">
                                                     <div class="review-left">
                                                         <div class="review-name">
-                                                            <h4>{{ review.user_name }} {{ review.user_lastname  }}</h4>
+                                                            <span class="h4-span">{{ review.user_name }} {{ review.user_lastname  }}</span>
                                                         </div>
                                                         <div class="review-rating">
                                                             <client-only>
@@ -67,9 +67,14 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     .review-delete {
         text-align: right;
+    }
+
+    .span-span {
+        font-size: 1.5rem;
+        font-weight: 600;
     }
 </style>
 

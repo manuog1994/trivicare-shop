@@ -51,30 +51,6 @@
             }
         },
 
-        async mounted() {
-            var tituloOriginal = document.title; // Lo guardamos para restablecerlo
-            window.onblur = function(){ // Si el usuario se va a otro lado...
-            document.title = "Ey, vuelve aquí!";// Cambiamos el título
-            }
-
-            window.onfocus = function(){
-            document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
-            }
-            
-            if(this.$axios.onError(error => {
-                const code = error.response.status;
-                if (code == 401) {
-                    this.$auth.logout();
-                }
-            }));
-
-            if(this.$auth.loggedIn == true) {
-                this.$auth.fetchUser();
-
-            }
- 
-        },
-
         methods: {
             closeMenus() {
                 this.searchOpacity(false);
@@ -92,14 +68,29 @@
 
         head() {
             return {
-                titleTemplate: 'Cosmética Natural 🧴, ECO 🌱, y Cruelty Free 🐷| Queremos cuidar de ti y de la naturaleza |TriviCare Natural Cosmetics',
+                titleTemplate: 'Cosmética Natural, ECO y Cruelty Free | Cremas y Serums Naturales',
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
                     {
                         hid: 'description',
                         name: 'description',
-                        content: 'En TriviCare Natural Cosmetics ofrecemos una selección única de productos de cosmética natural y orgánica para tu cuidado diario de la piel.'
+                        content: 'En TriviCare Natural Cosmetics ofrecemos una selección única de cremas naturales y serums naturales ecológicos y con ingredientes procedentes de agricultura ecológica.',
+                    },
+                    {
+                        hid: 'keywords',
+                        name: 'keywords',
+                        content: 'cosmética natural y ecológica, cremas naturales, serums naturales, cosmética ecológica, cosmética cruelty free, cosmética vegana, cosmética sin tóxicos, cosmética sin parabenos, cosmética sin siliconas, cosmética sin sulfatos, cosmética sin aceites minerales, cosmética sin ftalatos, cosmética sin colorantes, cosmética sin perfumes sintéticos, cosmética sin alcohol, cosmética sin parafina'
+                    },
+                    {
+                        hid: 'author',
+                        name: 'author',
+                        content: 'Manuel Galiano'
+                    },
+                    {
+                        hid: 'robots',
+                        name: 'robots',
+                        content: 'index, follow'
                     }
                 ],            
             }

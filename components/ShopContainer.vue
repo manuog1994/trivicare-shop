@@ -2,6 +2,10 @@
     <!-- product items wrapper -->
     <div class="shop-area pt-3 pt-lg-5 pb-100">
         <div class="container-fluid">
+            <div class="text-center p-lg-2">
+                <h1>Las mejores productos en cosmética natural, ecológica y cruelty free</h1>
+                <h2 class="text-leader">Te ofrecemos las mejores cremas y serum naturales para tu rutina diaria</h2>
+            </div>
                 <div class="row flex-row-reverse">
                 <div class="col-lg-9">
                     <!-- shop top bar -->
@@ -113,22 +117,6 @@ export default {
         if (this.$route.query.search) {
             this.searchResult = this.$route.query.search;
         }
-
-        var tituloOriginal = document.title; // Lo guardamos para restablecerlo
-        window.onblur = function(){ // Si el usuario se va a otro lado...
-            document.title = "Ey, vuelve aquí!";// Cambiamos el título
-        }
-
-        window.onfocus = function(){
-            document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
-        }
-        
-        if(this.$axios.onError(error => {
-            const code = error.response.status;
-            if (code === 401) {
-                this.unauthorized = true;
-            }
-        }));
 
         await this.updateProductData();
 
@@ -411,7 +399,7 @@ export default {
             }
         } else {
             return {
-                titleTemplate: 'Todos los Productos | TriviCare Natural Cosmetics',
+                titleTemplate: 'Las mejores cremas y serums naturales y ecológicos | TriviCare',
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -419,6 +407,21 @@ export default {
                         hid: 'description',
                         name: 'description',
                         content: 'Tenemos una gran variedad de productos naturales y ecológicos para ti, elige el que más te guste y disfruta de la mejor calidad.'
+                    },
+                    {
+                        hid: 'keywords',
+                        name: 'keywords',
+                        content: 'cosmética natural y ecológica, cremas naturales, serums naturales, cosmética ecológica, cosmética cruelty free, cosmética vegana, cosmética sin tóxicos, cosmética sin parabenos, cosmética sin siliconas, cosmética sin sulfatos, cosmética sin aceites minerales, cosmética sin ftalatos, cosmética sin colorantes, cosmética sin perfumes sintéticos, cosmética sin alcohol, cosmética sin parafina'
+                    },
+                    {
+                        hid: 'author',
+                        name: 'author',
+                        content: 'Manuel Galiano'
+                    },
+                    {
+                        hid: 'robots',
+                        name: 'robots',
+                        content: 'index, follow'
                     }
                 ],
             }
@@ -430,5 +433,10 @@ export default {
 </script>
 
 <style>
-
+.text-leader{
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #6c757d;
+}
 </style>

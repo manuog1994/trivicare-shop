@@ -4,11 +4,10 @@
             <div class="cart-sidebar-header">
                     <button id="hide-cart-btn" type="button" class="btn-close" @click="closeMiniCart">
                     </button>
-
-                    <h4 class="cart-title">
-                        <i class="fa fa-cart-arrow-down"></i>
+                    <span class="cart-title">
+                        <i class="fa fa-cart-arrow-down me-2"></i>
                         Carrito
-                    </h4>
+                    </span>
             </div>
             <div class="cart-sidebar-body">
                 <div class="cart-main-area pt-90">
@@ -139,7 +138,7 @@
                                     <div class="icon">
                                         <i class="pe-7s-cart"></i>
                                     </div>
-                                    <h4>No tienes productos en el carrito</h4>
+                                    <p class="text-center">No tienes productos en el carrito</p>
                                     <n-link to="/shop" class="empty-cart__button">Comprar ahora</n-link>
                                 </div>
                             </div>
@@ -203,6 +202,16 @@
 .cart-title {
   padding: 20px;
   text-align: center;
+  // propiedades de un h4 de bootstrap
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .btn-inc-qty, 

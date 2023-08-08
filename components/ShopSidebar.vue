@@ -9,7 +9,7 @@
 
         <!-- category widget  -->
         <div class="sidebar-widget">
-            <h4 class="pro-sidebar-title">Categoría</h4>
+            <span class="pro-sidebar-title">Categoría</span>
             <ul class="sidebar-widget-list mt-20">
                 <li class="sidebar-widget-list-left" v-for="(category, index) in categoryList" :key="index">
                     <n-link :to="`?category=${slugify(category)}`">
@@ -22,7 +22,7 @@
 
         <!-- color widget  -->
         <div class="sidebar-widget mt-50" v-if="colorList?.length > 1">
-            <h4 class="pro-sidebar-title">Color</h4>
+            <span class="pro-sidebar-title">Color</span>
             <ul class="sidebar-widget-list mt-20">
                 <li class="sidebar-widget-list-left" v-for="(color, index) in colorList" :key="index" >
                     <n-link :to="`?color=${slugify(color)}`">
@@ -34,7 +34,7 @@
         </div>
         <!-- size widget  -->
         <div class="sidebar-widget mt-50" v-if="sizeList?.length > 1">
-            <h4 class="pro-sidebar-title">Tamaño</h4>
+            <span class="pro-sidebar-title">Tamaño</span>
             <ul class="sidebar-widget-list mt-20">
                 <li class="sidebar-widget-list-left" v-for="(size, index) in sizeList" :key="index" >
                     <n-link :to="`?size=${slugify(size)}`">
@@ -47,7 +47,7 @@
 
         <!-- model widget  -->
         <div class="sidebar-widget mt-50" v-if="modelList?.length > 1">
-            <h4 class="pro-sidebar-title">Modelo</h4>
+            <span class="pro-sidebar-title">Modelo</span>
             <ul class="sidebar-widget-list mt-20">
                 <li class="sidebar-widget-list-left" v-for="(model, index) in modelList" :key="index" >
                     <n-link :to="`?size=${slugify(model)}`">
@@ -60,7 +60,7 @@
 
         <!-- tag widget  -->
         <div class="sidebar-widget sidebar-widget__tag mt-60">
-            <h4 class="pro-sidebar-title">Tags</h4>
+            <span class="pro-sidebar-title">Tags</span>
             <div class="sidebar-widget-tag mt-30">
                 <ul>
                     <li v-for="(tag, index) in tagList" :key="index">
@@ -74,7 +74,7 @@
         
         <!-- Others -->
         <div class="sidebar-widget sidebar-widget__tag mt-60">
-            <h4 class="pro-sidebar-title">Otros</h4>
+            <span class="pro-sidebar-title">Otros</span>
             <ul class="sidebar-widget-list mt-20">
                 <li class="sidebar-widget-list-left">
                     <n-link to="?bestsellers=todos">
@@ -210,3 +210,13 @@
         }
     };
 </script>
+
+<style scoped>
+/* Dar a span los valores de h4 en bootstrap */
+span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #333;
+}
+</style>

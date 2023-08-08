@@ -7,6 +7,10 @@
             
             <div class="blog-area mt-5 pb-100">
                 <div class="container">
+                    <div class="text-center mb-2">
+                        <h1>Tips sobre cuidado facial y corporal usando cosmética natural</h1>
+                        <h2 class="text-leader">Te ayudamos a cuidarte con los mejores consejos</h2>
+                    </div>
                     <div class="row flex-row-reverse">
                         <div class="col-lg-9">
                             <div class="ml-20">
@@ -66,7 +70,7 @@
         },
         head() {
             return {
-                title: "Blog | Tips & Consejos | Cuidado de la piel | TriviCare",
+                title: "Tips para el cuidado de la piel y el cuerpo | TriviCare",
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -74,7 +78,21 @@
                         hid: 'description',
                         name: 'description',
                         content: 'Conoce los mejores tips y consejos para el cuidado de la piel, el cabello y el cuerpo. En TriviCare Natural Cosmetics te ayudamos a cuidar de ti y de la naturaleza.',
-                        keywords: 'retinol, que es el retinol, porque es tan demandado el retinol, secreto de la juventud, rejuvenece, cosmetica natural y ecologica, cremas, crema hidratante natural, serum natural, crema ultrahidratante natural, crema corporal natural, leche facial natural'
+                    },
+                    {
+                        hid: 'keywords',
+                        name: 'keywords',
+                        content: 'tips para el cuidado de la piel, tips para el cuidado del cabello, tips para el cuidado del cuerpo, consejos para el cuidado de la piel, consejos para el cuidado del cabello, consejos para el cuidado del cuerpo, cuidado de la piel, cuidado del cabello, cuidado del cuerpo, tips para el cuidado de la piel natural, tips para el cuidado del cabello natural, tips para el cuidado del cuerpo natural, consejos para el cuidado de la piel natural, consejos para el cuidado del cabello natural, consejos para el cuidado del cuerpo natural, cuidado de la piel natural, cuidado del cabello natural, cuidado del cuerpo natural, tips para el cuidado de la piel natural, tips para el cuidado del cabello natural, tips para el cuidado del cuerpo natural, consejos para el cuidado de la piel natural, consejos para el cuidado del cabello natural, consejos para el cuidado del cuerpo natural, cuidado de la piel natural, cuidado del cabello natural, cuidado del cuerpo natural, tips para el cuidado de la piel natural, tips para el cuidado del cabello natural, tips para el cuidado del cuerpo natural, consejos para el cuidado de la piel natural, consejos para el cuidado del cabello natural, consejos para el cuidado del cuerpo natural, cuidado de la piel natural, cuidado del cabello natural, cuidado del cuerpo natural, tips para el cuidado de la piel natural, tips para el cuidado del cabello natural, tips para el cuidado del cuerpo natural, consejos para el cuidado de la piel natural, consejos para el cuidado del cabello natural, consejos para el cuidado del cuerpo natural, cuidado de la piel natural, cuidado del cabello natural, cuidado del cuerpo natural, tips para el cuidado de la piel natural, tips para el cuidado del cabello natural, tips para el cuidado del cuerpo natural, consejos para el cuidado de la piel natural, consejos para el cuidado del cabello natural, consejos para el cuidado del cuerpo natural, cuidado de la piel natural, cuidado del cabello natural, cuidado del cuerpo natural, tips para el cuidado de la piel natural, tips para el cuidado del cabello natural, tips para'
+                    },
+                    {
+                        hid: 'author',
+                        name: 'author',
+                        content: 'Manuel Galiano'
+                    },
+                    {
+                        hid: 'robots',
+                        name: 'robots',
+                        content: 'index, follow'
                     }
                 ], 
             }

@@ -32,30 +32,6 @@
             }
         },
 
-        mounted() {
-            this.$nextTick(() => {
-                this.$nuxt.$loading.start()
-                setTimeout(() => {
-                    this.$nuxt.$loading.finish()
-                }, 2000);
-            });
-            var tituloOriginal = document.title; // Lo guardamos para restablecerlo
-            window.onblur = function(){ // Si el usuario se va a otro lado...
-            document.title = "Ey, vuelve aquí!";// Cambiamos el título
-            }
-
-            window.onfocus = function(){
-            document.title = tituloOriginal; // Si el usuario vuelve restablecemos el título
-            }
-            if(this.$axios.onError(error => {
-                const code = error.response.status;
-                if (code === 401) {
-                    this.$router.push('/login');
-                    this.$notify({ title: 'Su sesión ha caducado', message: 'Por favor, vuelva a iniciar sesión', type: 'error', duration: 5000, position: 'top-right', icon: 'mdi mdi-alert-circle'})
-                }
-            }));
-        },
-
         methods: {
             closeMenus() {
                 this.searchOpacity(false);

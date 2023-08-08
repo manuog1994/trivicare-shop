@@ -32,7 +32,7 @@
                     Contacto
                 </n-link>
             </li>
-            <h4 class="mt-4 mb-2">Categorías</h4>
+            <span class="mt-4 mb-2">Categorías</span>
             <li v-for='(link, i) in menus' :key='i'>
                 <n-link :to="link.url">
                     <i class="me-2 fa fa-circle-o"></i>
@@ -64,7 +64,7 @@
         </client-only>
     </ul>
 
-    <h4 class="mt-4 mb-2">Destacados</h4>
+    <span class="mt-4 mb-2">Destacados</span>
     <ul class='mobile-menu mb-2'>
         <li>
             <n-link to="/shop?bestsellers=todos">
@@ -82,7 +82,7 @@
             </n-link>
         </li>
     </ul>
-    <h4 class="mt-4 mb-2">Cuenta</h4>
+    <span class="mt-4 mb-2">Cuenta</span>
 
     <ul class="mobile-menu mt-2">
         <li v-if="$auth.loggedIn == false">
@@ -261,7 +261,7 @@
         border-radius: 50%;
     }
 
-    div h4 {
+    div span {
         font-weight: 400;
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
@@ -271,7 +271,6 @@
             margin-bottom: 5px;
         }
         li {
-            position: relative;
             a {
                 font-size: 16px;
                 line-height: 35px;

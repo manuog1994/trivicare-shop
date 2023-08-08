@@ -58,8 +58,25 @@
                         hid: 'description',
                         name: 'description',
                         content: this.productDetails?.meta_description
+                    },
+                    {
+                        hid: 'keywords',
+                        name: 'keywords',
+                        content: 'serum facial, crema hidratante ultrahidratante, crema hidratante, crema hidratante facial, crema natural, serum natural, crema hidratante natural, serum hidratante, serum hidratante natural, serum hidratante facial, serum hidratante, crema con acido hialuronico, serum con acido hialuronico, crema con acido hialuronico natural, serum con acido hialuronico natural, crema con acido hialuronico facial, serum con acido hialuronico facial, crema con acido hialuronico natural facial, serum con acido hialuronico'
+                    },
+                    {
+                        hid: 'author',
+                        name: 'author',
+                        content: 'Manuel Galiano'
+                    },
+                    {
+                        hid: 'robots',
+                        name: 'robots',
+                        content: 'index, follow'
                     }
                 ],
+
+
 
             }
         },

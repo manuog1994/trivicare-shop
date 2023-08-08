@@ -2,10 +2,10 @@
     <div class="container-fluid">
         <div class="mt-5 mt-lg-0 mb-5 mb-lg-0 p-lg-3 m-lg-5">
             <div class="text-center mt-3 mb-2">
-                <h2>Cada día más sostenibles 🌱</h2>
+                <h1 class="h2-style">Cosmética natural con ingredientes ecológicos y sostenibles 🌱</h1>
             </div>
             <div class="text-center mb-4">
-                <p class="lead">Productos de cosmética natural con ingredientes ecológicos y sostenibles</p>
+                <p class="lead">Las mejores cremas y serums naturales para el cuidado de tu piel</p>
             </div>
             <div class="brand-logo-active">
                 <swiper :options="brandLogoCarousel">
@@ -69,6 +69,12 @@ export default{
 }
 </script>
 
-<style>
-
+<style scoped>
+.h2-style{
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #000;
+    margin-bottom: 0;
+}
 </style>

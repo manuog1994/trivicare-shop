@@ -30,7 +30,7 @@
                 </div>
                 <div v-if="product" class="col-lg-6 col-md-6">
                     <div class="product-details-content ml-70">
-                        <h2>{{ product.name }}</h2>
+                        <h1 class="h2-h1">{{ product.name }}</h1>
                         <div class="product-details-price">
                             <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
                             <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
@@ -163,6 +163,12 @@
 
     .btn-hover-blue:hover {
         background-color: #2AB5B2;
+    }
+
+    // Copiar estilo de h2 de bootstrap
+    .h2-h1 {
+        font-size: 1.5rem;
+        margin-bottom: .5rem;
     }
 
 </style>

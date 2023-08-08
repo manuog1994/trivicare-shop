@@ -7,7 +7,7 @@
                         <div class="col-12">
                             <div class="slider-content-13 slider-animation-1 p-4 p-xl-0">
                                 <span :class="slider.textColor">{{ slider.subTitle }}</span>
-                                <h1 :class="slider.textColor" v-html="slider.title"></h1>
+                                <p class="h1-style" :class="slider.textColor" v-html="slider.title"></p>
                                 <div class="slider-btn btn-hover">
                                     <n-link :to="slider.link">Ver ahora</n-link>
                                 </div>
@@ -61,14 +61,14 @@
                 sliderData: [
                     {
                         subTitle: "Hasta el 31 de Agosto",
-                        title: "Aprovecha <br> nuestras ofertas",
+                        title: "Aprovecha <br> nuestras ofertas <br>",
                         backgroundImage: "/img/ofertas-verano.webp",
                         link: "/shop?offers=todas",
                         textColor: "text-dark"
                     },
                     {
                         subTitle: "Este verano",
-                        title: "Cuidate <br> con TriviCare",
+                        title: "Cuida tu piel <br> con TriviCare",
                         backgroundImage: "/img/banner-summer.webp",
                         link: "/shop",
                         textColor: "text-white"
