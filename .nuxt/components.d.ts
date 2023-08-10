@@ -54,9 +54,6 @@ declare module 'vue' {
     'UnsubscribeContainer': typeof import("../components/UnsubscribeContainer.vue")['default'],
     'WelcomeMessage': typeof import("../components/WelcomeMessage.vue")['default'],
     'WishListContainer': typeof import("../components/WishListContainer.vue")['default'],
-    'LoadersBigLoader': typeof import("../components/loaders/BigLoader.vue")['default'],
-    'LoadersSmallLoading': typeof import("../components/loaders/SmallLoading.vue")['default'],
-    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'CheckoutAddressStep': typeof import("../components/checkout/AddressStep.vue")['default'],
     'CheckoutCouponForm': typeof import("../components/checkout/CouponForm.vue")['default'],
     'CheckoutEmailStep': typeof import("../components/checkout/EmailStep.vue")['default'],
@@ -70,7 +67,10 @@ declare module 'vue' {
     'CheckoutSuccessOrder': typeof import("../components/checkout/SuccessOrder.vue")['default'],
     'CheckoutTimerNav': typeof import("../components/checkout/TimerNav.vue")['default'],
     'HeaderCheckout': typeof import("../components/header/HeaderCheckout.vue")['default'],
+    'HeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'PolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
+    'LoadersBigLoader': typeof import("../components/loaders/BigLoader.vue")['default'],
+    'LoadersSmallLoading': typeof import("../components/loaders/SmallLoading.vue")['default'],
     'ProfileNewGuest': typeof import("../components/profile/NewGuest.vue")['default'],
     'ProfileNewProfile': typeof import("../components/profile/NewProfile.vue")['default'],
     'ProductDetailsWrapper': typeof import("../components/product/ProductDetailsWrapper.vue")['default'],
@@ -134,9 +134,6 @@ declare module 'vue' {
     'LazyUnsubscribeContainer': typeof import("../components/UnsubscribeContainer.vue")['default'],
     'LazyWelcomeMessage': typeof import("../components/WelcomeMessage.vue")['default'],
     'LazyWishListContainer': typeof import("../components/WishListContainer.vue")['default'],
-    'LazyLoadersBigLoader': typeof import("../components/loaders/BigLoader.vue")['default'],
-    'LazyLoadersSmallLoading': typeof import("../components/loaders/SmallLoading.vue")['default'],
-    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'LazyCheckoutAddressStep': typeof import("../components/checkout/AddressStep.vue")['default'],
     'LazyCheckoutCouponForm': typeof import("../components/checkout/CouponForm.vue")['default'],
     'LazyCheckoutEmailStep': typeof import("../components/checkout/EmailStep.vue")['default'],
@@ -150,7 +147,10 @@ declare module 'vue' {
     'LazyCheckoutSuccessOrder': typeof import("../components/checkout/SuccessOrder.vue")['default'],
     'LazyCheckoutTimerNav': typeof import("../components/checkout/TimerNav.vue")['default'],
     'LazyHeaderCheckout': typeof import("../components/header/HeaderCheckout.vue")['default'],
+    'LazyHeroSliderSix': typeof import("../components/hero/HeroSliderSix.vue")['default'],
     'LazyPolicyServicePolicyFour': typeof import("../components/policy/ServicePolicyFour.vue")['default'],
+    'LazyLoadersBigLoader': typeof import("../components/loaders/BigLoader.vue")['default'],
+    'LazyLoadersSmallLoading': typeof import("../components/loaders/SmallLoading.vue")['default'],
     'LazyProfileNewGuest': typeof import("../components/profile/NewGuest.vue")['default'],
     'LazyProfileNewProfile': typeof import("../components/profile/NewProfile.vue")['default'],
     'LazyProductDetailsWrapper': typeof import("../components/product/ProductDetailsWrapper.vue")['default'],
@@ -216,9 +216,6 @@ export const TheHeader: typeof import("../components/TheHeader.vue")['default']
 export const UnsubscribeContainer: typeof import("../components/UnsubscribeContainer.vue")['default']
 export const WelcomeMessage: typeof import("../components/WelcomeMessage.vue")['default']
 export const WishListContainer: typeof import("../components/WishListContainer.vue")['default']
-export const LoadersBigLoader: typeof import("../components/loaders/BigLoader.vue")['default']
-export const LoadersSmallLoading: typeof import("../components/loaders/SmallLoading.vue")['default']
-export const HeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const CheckoutAddressStep: typeof import("../components/checkout/AddressStep.vue")['default']
 export const CheckoutCouponForm: typeof import("../components/checkout/CouponForm.vue")['default']
 export const CheckoutEmailStep: typeof import("../components/checkout/EmailStep.vue")['default']
@@ -232,7 +229,10 @@ export const CheckoutSendStep: typeof import("../components/checkout/SendStep.vu
 export const CheckoutSuccessOrder: typeof import("../components/checkout/SuccessOrder.vue")['default']
 export const CheckoutTimerNav: typeof import("../components/checkout/TimerNav.vue")['default']
 export const HeaderCheckout: typeof import("../components/header/HeaderCheckout.vue")['default']
+export const HeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const PolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
+export const LoadersBigLoader: typeof import("../components/loaders/BigLoader.vue")['default']
+export const LoadersSmallLoading: typeof import("../components/loaders/SmallLoading.vue")['default']
 export const ProfileNewGuest: typeof import("../components/profile/NewGuest.vue")['default']
 export const ProfileNewProfile: typeof import("../components/profile/NewProfile.vue")['default']
 export const ProductDetailsWrapper: typeof import("../components/product/ProductDetailsWrapper.vue")['default']
@@ -296,9 +296,6 @@ export const LazyTheHeader: typeof import("../components/TheHeader.vue")['defaul
 export const LazyUnsubscribeContainer: typeof import("../components/UnsubscribeContainer.vue")['default']
 export const LazyWelcomeMessage: typeof import("../components/WelcomeMessage.vue")['default']
 export const LazyWishListContainer: typeof import("../components/WishListContainer.vue")['default']
-export const LazyLoadersBigLoader: typeof import("../components/loaders/BigLoader.vue")['default']
-export const LazyLoadersSmallLoading: typeof import("../components/loaders/SmallLoading.vue")['default']
-export const LazyHeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const LazyCheckoutAddressStep: typeof import("../components/checkout/AddressStep.vue")['default']
 export const LazyCheckoutCouponForm: typeof import("../components/checkout/CouponForm.vue")['default']
 export const LazyCheckoutEmailStep: typeof import("../components/checkout/EmailStep.vue")['default']
@@ -312,7 +309,10 @@ export const LazyCheckoutSendStep: typeof import("../components/checkout/SendSte
 export const LazyCheckoutSuccessOrder: typeof import("../components/checkout/SuccessOrder.vue")['default']
 export const LazyCheckoutTimerNav: typeof import("../components/checkout/TimerNav.vue")['default']
 export const LazyHeaderCheckout: typeof import("../components/header/HeaderCheckout.vue")['default']
+export const LazyHeroSliderSix: typeof import("../components/hero/HeroSliderSix.vue")['default']
 export const LazyPolicyServicePolicyFour: typeof import("../components/policy/ServicePolicyFour.vue")['default']
+export const LazyLoadersBigLoader: typeof import("../components/loaders/BigLoader.vue")['default']
+export const LazyLoadersSmallLoading: typeof import("../components/loaders/SmallLoading.vue")['default']
 export const LazyProfileNewGuest: typeof import("../components/profile/NewGuest.vue")['default']
 export const LazyProfileNewProfile: typeof import("../components/profile/NewProfile.vue")['default']
 export const LazyProductDetailsWrapper: typeof import("../components/product/ProductDetailsWrapper.vue")['default']
