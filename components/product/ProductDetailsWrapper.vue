@@ -54,7 +54,7 @@
                                     <i>Debes seleccionar el modelo, color o tamaño antes de añadirlo al carrito.</i>
                                 </p>
                             </div>
-                            <div class="pro-details-color-wrap">
+                            <div class="pro-details-color-wrap mt-2">
                                 <div v-if="model?.length > 0">
                                    <h6 class="label">Modelo</h6>
                                     <div class="d-flex mb-4">
@@ -97,8 +97,31 @@
                                 <button @click="addToCompare(product)" title="compare"><i class="pe-7s-shuffle"></i></button>
                             </div> -->
                         </div>
-                        <div v-else>
+                        <div v-else-if="product.stock == 0 && product.presale == 'Si'" class="pro-details-quality">
+                            <div class="cart-plus-minus">
+                                <button @click="decreaseQuantity()" class="dec qtybutton" title="Quitar">-</button>
+                                <input class="cart-plus-minus-box" type="text" :value="singleQuantity" readonly>
+                                <button @click="increaseQuantity()" class="inc qtybutton" title="Añadir">+</button>
+                            </div>
+                            <div class="pro-details-cart btn-hover">
+                                <button @click="addToCart(product)" title="Añadir al Carrito">Preventa</button>
+                            </div>
+                            <div class="pro-details-wishlist">
+                                <button @click="addToWishlist(product)" title="Añadir a la lista de deseos"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                            <!-- <div class="pro-details-compare">
+                                <button @click="addToCompare(product)" title="compare"><i class="pe-7s-shuffle"></i></button>
+                            </div> -->
+                        </div>
+                        <div v-else-if="product.stock == 0 && product.presale == 'No'">
                             <p class="text-danger fst-italic">En estos momento no tenemos stock del producto.</p>
+                        </div>
+                        <div v-if="product.stock == 0 && product.presale == 'Si'" class="mb-2">
+                            <p class="text-danger">
+                                <i>
+                                    Los productos en preventa se enviarán en la medida que vayamos recibiendo stock, el plazo de entrega es de un máximo de 20 días.
+                                </i>
+                            </p>
                         </div>
                         <div class="pro-details-meta">
                             <span class="label">Categoría: </span>

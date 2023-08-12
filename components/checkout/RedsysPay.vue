@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
 export default {
 
     data() {
@@ -54,24 +55,42 @@ export default {
         BigLoader: () => import('@/components/loaders/BigLoader.vue'),
     },
 
+    mounted() {
+        this.loading = false;
+    },
+
     methods: {
         async pay() {
-            this.loading = true;
-            await this.$axios.post('/api/redsys', { 
-                amount: (this.total + this.shipping).toFixed(2) * 100,
-                order_id: this.orderId,
-                token_id: this.token_id,
-            }).then(response => {
-                    this.parameters = response.data.parameters;
-                    this.signature = response.data.signature;
-                    setTimeout(() => {
+            this.loading = false;
+            Swal.fire({
+            title: 'Atención',
+            text: "Para realizar el pedido correctamente, después de realizar el pago, debes de volver a la web para finalizar el pedido pulsando el botón de 'Continuar' en la pasarela de pagos.",
+            imageUrl: '/img/message-redsys.webp',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Lo he entendido',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.loading = true;
+                this.$axios.post('/api/redsys', { 
+                    amount: (this.total + this.shipping).toFixed(2) * 100,
+                    order_id: this.orderId,
+                    token_id: this.token_id,
+                }).then(response => {
+                        this.parameters = response.data.parameters;
+                        this.signature = response.data.signature;
+                        setTimeout(() => {
+                            this.loading = false;
+                            this.sendForm();
+                        }, 1000);
+                    })
+                    .catch(error => {
                         this.loading = false;
-                        this.sendForm();
-                    }, 1000);
-                })
-                .catch(error => {
-                    this.loading = false;
-                })
+                    })
+            } 
+        })
         },
 
         sendForm() {

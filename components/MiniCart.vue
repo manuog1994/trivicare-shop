@@ -55,12 +55,13 @@
                                                 </div>
                                                 <div class="d-md-flex justify-content-md-start mb-2 mt-md-1">
                                                     <p v-if="product.stock == 2 || product.stock == 1" class="p-0 text-danger fst-italic ms-md-2">{{ product.stock }} unidades disponibles en stock.</p>
-                                                    <p v-else-if="product.stock === 0" class="p-0 text-danger fst-italic ms-md-2">No hay stock</p>
+                                                    <p v-else-if="product.stock === 0 && product.presale == 'No'" class="p-0 text-danger fst-italic ms-md-2">No hay stock</p>
+                                                    <p v-else-if="product.stock === 0 && product.presale == 'Si'" class="p-0 text-warning fst-italic ms-md-2">Preventa</p>
                                                     <p v-else class="p-0 m-0 text-success ms-md-2">En stock</p>
                                                 </div>
                                                 <div class="product-qty">
                                                     <div class="row">
-                                                        <div v-if="product.stock != 0 && product.price_base !== 0" class="col-12 d-flex align-items-center">
+                                                        <div v-if="product.stock != 0 && product.price_base !== 0 || product.stock == 0 && product.presale == 'Si'" class="col-12 d-flex align-items-center">
                                                             <div class="me-3">
                                                                 <h5>Cantidad: </h5>
                                                             </div>
@@ -375,7 +376,7 @@
             newReserve() {
                 let products = this.products;
                 let stock = products.map((item) => {
-                    if(item.stock == '0'){
+                    if(item.stock == '0' && item.presale == 'No'){
                         this.errorStock = true;
                         this.errorStockMessage = 'Uno o varios de los productos que tienes en carrito no esta disponible, por favor, elimínalo del carrito y vuelve a intentarlo si deseas realizar el pedido.'
                     }
