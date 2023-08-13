@@ -26,12 +26,12 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="rating-form-style form-submit">
-                                                    <input type="text" name="name" placeholder="Introduce tu nombre" required>
+                                                    <input type="text" name="name" v-model="name" placeholder="Introduce tu nombre" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="rating-form-style form-submit">
-                                                    <input type="text" name="lastname" placeholder="Introduce tus apellidos" required>
+                                                    <input type="text" name="lastname" v-model="lastname" placeholder="Introduce tus apellidos" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,6 +87,8 @@
                 searchChildren: '',
                 unauthorized: '',
                 products: [],
+                name: '',
+                lastname: '',
             }
         },
 
@@ -129,8 +131,8 @@
                     product_id: id,
                     rating: review,
                     message: message,
-                    user_name: this.$refs.formreview[0].name.value,
-                    user_lastname: this.$refs.formreview[0].lastname.value,
+                    user_name: this.name,
+                    user_lastname: this.lastname,
                 })
                 .then((response) => {
                     document.getElementById('product-' + id).classList.add('hidden');
