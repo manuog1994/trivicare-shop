@@ -20,6 +20,7 @@
                             </div>
                             <div class="col-8 mt-3">
                                 <h3>{{ product.name }}</h3>
+                                <p class="text-danger">{{ errorMessage }}</p>
                                 <div class="ratting-form">
                                     <form @submit.prevent="createReview(product.id)" ref="formreview">
                                         <!-- input para nombre y apellido -->
@@ -87,6 +88,7 @@
                 searchChildren: '',
                 unauthorized: '',
                 products: [],
+                errorMessage: '',
             }
         },
 
@@ -123,14 +125,20 @@
                 const message = this.$refs[mes][0].value;
                 const rev = 'review-' + id;
                 const review = this.$refs[rev][0]._data.selectedRating
+                const name = this.$refs.formreview[0].name.value;
+                const lastname = this.$refs.formreview[0].lastname.value;
+                if (name == '' || lastname == '' || message == '' || review == '') {
+                    this.errorMessage = 'Debes rellenar todos los campos';
+                    return;
+                }
                 await this.$axios.post('/api/reviews', {
                     user_id: 3,
                     user_profile_id: 1,
                     product_id: id,
                     rating: review,
                     message: message,
-                    user_name: this.$refs.formreview[0].name.value,
-                    user_lastname: this.$refs.formreview[0].lastname.value,
+                    user_name: name,
+                    user_lastname: lastname,
                 })
                 .then((response) => {
                     document.getElementById('product-' + id).classList.add('hidden');
