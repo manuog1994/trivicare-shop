@@ -14,7 +14,7 @@
                     <div class="position-relative">
                         <div id="search-box" class="search-box" :class="{'active' : hidden == false}">
                             <div class="box-products" v-for="product in products" :key="product.id">
-                                <n-link :to="url + '/product/' + product.slug" class="single-product">
+                                <n-link :to="'/product/' + product.slug" class="single-product">
                                     <div v-if="product.images?.length == 0">
                                         <nuxt-img provider="customProvider" src="nuxt/default280x280.webp" alt="default" width="100px" />
                                     </div>
