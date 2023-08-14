@@ -122,9 +122,10 @@ export default {
 
     },
 
-    mounted() {
+    async mounted() {
         const url = new URLSearchParams(window.location.search).get('step');
         this.url = url;
+        await this.$axios.get('/sanctum/csrf-cookie');
     },
 
     watch: {
@@ -199,8 +200,6 @@ export default {
             this.loginView = false;
             await this.$auth.logout();
             window.scrollTo(0, 0);
-            this.$notify({ title: 'Has cerrado sesión!'})
-
         },
 
         clearEmail() {

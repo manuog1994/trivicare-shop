@@ -88,6 +88,17 @@
             }
         },
 
+        async mounted() {
+            try {
+            const page = this.$route.path; // Obtiene la ruta actual
+            const response = await this.$axios.post('/api/visit', { page });
+            } catch (error) {
+                await this.$axios.post('/api/error-message', { 
+                    message: error 
+                });
+            }
+        },
+
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
             TheHeader: () => import('@/components/TheHeader'),

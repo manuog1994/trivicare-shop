@@ -220,102 +220,59 @@ export default {
         },
 
         async createOrder() {
-            if(this.guestStore?.length != 0) {
-                await this.$axios.post('/api/guest-store', this.guestStore)
-                .then(res => {
-                    const resp = res.data.data;
-                    const guest = { ...this.guestStore, id: resp.id}
-                    this.$store.dispatch('addIdToGuest', guest);
-                    const products = JSON.stringify(this.$store.getters.getCart);
-                    const cupon = this.$store.getters.getCupon;
-                    this.$axios.post('/api/orders', {
-                        guest_id: this.guestStore.id,
-                        user_id: this.guestStore.user_id,
-                        user_profile_id: this.guestStore.user_profile_id,
-                        products: products,
-                        subTotal: this.$store.getters.getSubTotal,
-                        total: this.$store.getters.getTotal,
-                        coupon: cupon.code,
-                        shipping: this.$store.getters.getShippingAmount,
-                        shipping_method: this.$store.getters.getShippingMethod,
-                        note: this.$store.getters.getNote,
-                        invoice_paper: this.$store.getters.getInvoicePaper,
-                        token_id: this.token_id,
-                        token_reserve: this.$store.getters.getReserve,
-                        payment_method: this.$store.getters.getPaymentMethod,
-                        pickup_point: this.$store.getters.getPickUpId,
-                    }).then((res) => {
-                        this.$store.commit('SET_ORDER_ID', res.data.order.id);
-                        if(this.$store.getters.getPaymentMethod == 'redsys') {
-                            this.$root.$emit('order_id', res.data.order.id);
-                            window.onbeforeunload = null;
-                            window.history.pushState(null, '', window.location.href);
-                            this.initRedsys = true;
-                        }else if(this.$store.getters.getPaymentMethod == 'paypal') {
-                            this.$store.commit('SET_PAYPAL_PAGE', true);
-                            this.$root.$emit('loadPaypal', true);
-                            this.$router.push({ path: '/payment/paypal', query: { reserve: this.$store.getters.getReserve }});
-                        }else if(this.$store.getters.getPaymentMethod == 'paylater') {
-                            this.$store.commit('SET_PAYPAL_PAGE', true);
-                            this.$root.$emit('loadPaypal', true);
-                            this.$router.push({ path: '/payment/paypal', query: { reserve: this.$store.getters.getReserve }});
-                        }
-                    }).catch((err) => {
-                        //console.log(err);
-                        this.$axios.post('/api/error-message', {
-                            message: error.response.data.message
-                        })
-                    })
-                }).catch(err => {
-                    //console.log(err);
-                    this.$axios.post('/api/error-message', {
-                        message: error.response.data.message
-                    })
-                });
-            } else {
-
-                const products = JSON.stringify(this.$store.getters.getCart);
-                const cupon = this.$store.getters.getCupon;
-                await this.$axios.post('/api/orders', {
-                    guest_id: null,
-                    user_id: this.$auth.user.id,
-                    user_profile_id: this.$store.getters.getUserProfileId,
-                    products: products,
-                    subTotal: this.$store.getters.getSubTotal,
-                    total: this.$store.getters.getTotal,
-                    coupon: cupon.code,
-                    shipping: this.$store.getters.getShippingAmount,
-                    shipping_method: this.$store.getters.getShippingMethod,
-                    note: this.$store.getters.getNote,
-                    invoice_paper: this.$store.getters.getInvoicePaper,
-                    token_id: this.token_id,
-                    token_reserve: this.$store.getters.getReserve,
-                    payment_method: this.$store.getters.getPaymentMethod,
-                    pickup_point: this.$store.getters.getPickUpId,
-                }).then((res) => {
-                    this.$store.commit('SET_ORDER_ID', res.data.order.id);
-                    if(this.$store.getters.getPaymentMethod == 'redsys') {
-                        // eliminar bloqueo boton recarga y atras
-                        window.onbeforeunload = null;
-                        window.history.pushState(null, '', window.location.href);
-                        this.$root.$emit('order_id', res.data.order.id);
-                        this.initRedsys = true;
-                    }else if(this.$store.getters.getPaymentMethod == 'paypal') {
-                        this.$store.commit('SET_PAYPAL_PAGE', true);
-                        this.$root.$emit('loadPaypal', true);
-                        this.$router.push({ path: '/payment/paypal', query: { reserve: this.$store.getters.getReserve }});
-                    }else if(this.$store.getters.getPaymentMethod == 'paylater') {
-                        this.$store.commit('SET_PAYPAL_PAGE', true);
-                        this.$root.$emit('loadPaypal', true);
-                        this.$router.push({ path: '/payment/paypal', query: { reserve: this.$store.getters.getReserve }});
-                    }
-                }).catch((err) => {
-                    //console.log(err)
-                    this.$axios.post('/api/error-message', {
-                        message: error.response.data.message
-                    })
+            const products = JSON.stringify(this.$store.getters.getCart);
+            const cupon = this.$store.getters.getCupon;
+            await this.$axios.post('/api/orders', {
+                name: this.guestStore.name,
+                lastname: this.guestStore.lastname,
+                email: this.guestStore.email,
+                phone: this.guestStore.phone,
+                address: this.guestStore.address,
+                city: this.guestStore.city,
+                state: this.guestStore.state,
+                country: this.guestStore.country,
+                zipcode: this.guestStore.zipcode,
+                dni: this.guestStore.dni,
+                guest_id: null,
+                user_id: this.$auth.user?.id || null,
+                user_profile_id: this.$store.getters?.getUserProfileId || null,
+                products: products,
+                subTotal: this.$store.getters.getSubTotal,
+                total: this.$store.getters.getTotal,
+                coupon: cupon.code,
+                shipping: this.$store.getters.getShippingAmount,
+                shipping_method: this.$store.getters.getShippingMethod,
+                note: this.$store.getters.getNote,
+                invoice_paper: this.$store.getters.getInvoicePaper,
+                token_id: this.token_id,
+                token_reserve: this.$store.getters.getReserve,
+                payment_method: this.$store.getters.getPaymentMethod,
+                pickup_point: this.$store.getters.getPickUpId,
+            }).then((res) => {
+                console.log(res);
+                this.$store.commit('SET_ORDER_ID', res.data.order.id);
+                if(this.$store.getters.getPaymentMethod == 'redsys') {
+                    // eliminar bloqueo boton recarga y atras
+                    window.onbeforeunload = null;
+                    window.history.pushState(null, '', window.location.href);
+                    this.$root.$emit('order_id', res.data.order.id);
+                    this.initRedsys = true;
+                }else if(this.$store.getters.getPaymentMethod == 'paypal') {
+                    this.$store.commit('SET_PAYPAL_PAGE', true);
+                    this.$root.$emit('loadPaypal', true);
+                    this.$router.push({ path: '/payment/paypal', query: { reserve: this.$store.getters.getReserve }});
+                }else if(this.$store.getters.getPaymentMethod == 'paylater') {
+                    this.$store.commit('SET_PAYPAL_PAGE', true);
+                    this.$root.$emit('loadPaypal', true);
+                    this.$router.push({ path: '/payment/paypal', query: { reserve: this.$store.getters.getReserve }});
+                }
+            }).catch((err) => {
+                //console.log(err)
+                this.$axios.post('/api/error-message', {
+                    message: err.response
                 })
-            }
+            })
+            
 
         },
 

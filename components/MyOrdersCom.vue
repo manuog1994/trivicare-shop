@@ -55,8 +55,8 @@ export default {
         }
     },
 
-    mounted() {
-        this.getOrder()
+    async mounted() {
+        await this.getOrder()
     },
 
     computed: {
@@ -95,6 +95,7 @@ export default {
         async getOrder() {
             await this.$axios.get('/api/orders?perPage=10&page=' + this.page + '&sort=-id&filter[user_id]=' + this.$auth.user.id)
                 .then(response => {
+                    console.log(response.data)
                     this.orders = response.data.data
                     const paginations = response.data
                     this.pagination = {

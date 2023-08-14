@@ -51,6 +51,17 @@
             }
         },
 
+        async mounted() {
+            try {
+            const page = this.$route.path; // Obtiene la ruta actual
+            const response = await this.$axios.post('/api/visit', { page });
+            } catch (error) {
+                await this.$axios.post('/api/error-message', { 
+                    message: error 
+                });
+            }
+        },
+
         methods: {
             closeMenus() {
                 this.searchOpacity(false);

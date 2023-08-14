@@ -15,8 +15,6 @@
 
 
 <script>
-import MyOrdersCom from '../../components/MyOrdersCom.vue';
-
     export default {
         auth: true,
 
@@ -24,37 +22,13 @@ import MyOrdersCom from '../../components/MyOrdersCom.vue';
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             TheHeader: () => import("@/components/TheHeader"),
             TheFooter: () => import("@/components/TheFooter"),
-            MyOrdersCom
+            MyOrdersCom: () => import("@/components/MyOrdersCom"),
         },
 
         data() {
             return {
                 searchChildren: '',
                 unauthorized: '',
-            }
-        },
-
-        mounted() {
-            this.$nextTick(() => {
-                this.$nuxt.$loading.start()
-                setTimeout(() => {
-                    this.$nuxt.$loading.finish()
-                }, 2000);
-            });
-
-            if(this.$axios.onError(error => {
-                const code = error.response.status;
-                if (code === 401) {
-                    this.unauthorized = true;
-                }
-            }));
-        },
-
-        watch: {
-            unauthorized() {
-                if (this.unauthorized == true) {
-                    this.$auth.logout();
-                }
             }
         },
 

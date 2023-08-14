@@ -64,68 +64,41 @@ export default {
 
     methods: {
         async createOrder() {
-            if(this.guestStore?.length != 0) {
-                await this.$axios.post('/api/guest-store', this.guestStore)
-                .then(res => {
-                    const resp = res.data.data;
-                    const guest = { ...this.guestStore, id: resp.id}
-                    this.$store.dispatch('addIdToGuest', guest);
-                    const products = JSON.stringify(this.$store.getters.getCart);
-                    const cupon = this.$store.getters.getCupon;
-                    this.$axios.post('/api/orders', {
-                        guest_id: this.guestStore.id,
-                        user_id: this.guestStore.user_id,
-                        user_profile_id: this.guestStore.user_profile_id,
-                        products: products,
-                        subTotal: this.$store.getters.getSubTotal,
-                        total: this.$store.getters.getTotal,
-                        coupon: cupon.code,
-                        shipping: this.$store.getters.getShippingAmount,
-                        shipping_method: this.$store.getters.getShippingMethod,
-                        note: this.$store.getters.getNote,
-                        invoice_paper: this.$store.getters.getInvoicePaper,
-                        token_id: this.token_id,
-                        token_reserve: this.$store.getters.getReserve,
-                        payment_method: this.$store.getters.getPaymentMethod,
-                        pickup_point: this.$store.getters.getPickUpId,
-                    }).then((res) => {
-                        this.$root.$emit('orderComplete', true)
-                        this.confirmed = true;
-                        window.onbeforeunload = null;
-                        window.history.pushState(null, '', window.location.href);
-                    }).catch((err) => {
-
-                    })
-                }).catch(err => {
-
-                });
-            } else {
-
-                const products = JSON.stringify(this.$store.getters.getCart);
-                const cupon = this.$store.getters.getCupon;
-                await this.$axios.post('/api/orders', {
-                    guest_id: null,
-                    user_id: this.$auth.user.id,
-                    user_profile_id: this.$store.getters.getUserProfileId,
-                    products: products,
-                    subTotal: this.$store.getters.getSubTotal,
-                    total: this.$store.getters.getTotal,
-                    coupon: cupon.code,
-                    shipping: this.$store.getters.getShippingAmount,
-                    shipping_method: this.$store.getters.getShippingMethod,
-                    note: this.$store.getters.getNote,
-                    invoice_paper: this.$store.getters.getInvoicePaper,
-                    token_id: this.token_id,
-                    token_reserve: this.$store.getters.getReserve,
-                    payment_method: this.$store.getters.getPaymentMethod,
-                    pickup_point: this.$store.getters.getPickUpId,
-                }).then((res) => {
-                    this.$root.$emit('orderComplete', true)
-                    this.confirmed = true;
-                }).catch((err) => {
-
-                })
-            }
+            const products = JSON.stringify(this.$store.getters.getCart);
+            const cupon = this.$store.getters.getCupon;
+            await this.$axios.post('/api/orders', {
+                name: this.guestStore.name,
+                lastname: this.guestStore.lastname,
+                email: this.guestStore.email,
+                phone: this.guestStore.phone,
+                address: this.guestStore.address,
+                city: this.guestStore.city,
+                state: this.guestStore.state,
+                zipcode: this.guestStore.zipcode,
+                country: this.guestStore.country,
+                dni: this.guestStore.dni,
+                user_id: this.$auth?.user?.id || null,
+                user_profile_id: this.$store.getters?.getUserProfileId || null,
+                products: products,
+                subTotal: this.$store.getters.getSubTotal,
+                total: this.$store.getters.getTotal,
+                coupon: cupon.code,
+                shipping: this.$store.getters.getShippingAmount,
+                shipping_method: this.$store.getters.getShippingMethod,
+                note: this.$store.getters.getNote,
+                invoice_paper: this.$store.getters.getInvoicePaper,
+                token_id: this.token_id,
+                token_reserve: this.$store.getters.getReserve,
+                payment_method: this.$store.getters.getPaymentMethod,
+                pickup_point: this.$store.getters.getPickUpId,
+            }).then(() => {
+                this.$root.$emit('orderComplete', true)
+                this.confirmed = true;
+                window.onbeforeunload = null;
+                window.history.pushState(null, '', window.location.href);
+            }).catch((err) => {
+                console.log(err);
+            })
 
         },
     }
