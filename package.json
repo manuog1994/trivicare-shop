@@ -29,6 +29,7 @@
         "fs": "^0.0.1-security",
         "ipx": "^1.0.1",
         "js-file-download": "^0.4.12",
+        "moment": "^2.29.4",
         "nuxi": "^3.3.1",
         "nuxt-edge": "latest",
         "spdy": "^4.0.2",

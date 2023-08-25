@@ -13,11 +13,11 @@
         </div> -->
         <div class="sidebar-widget">
             <h4 class="pro-sidebar-title">Entradas recientes</h4>
-            <div class="sidebar-project-wrap mt-30" v-for="blog in blogRecents" :key="'blog-recent'+blog.id">
+            <div v-if="blogsData" class="sidebar-project-wrap mt-30" v-for="blog in filteredPost" :key="'blog-recent'+blog.id">
                 <div class="single-sidebar-blog">
                     <div class="sidebar-blog-img">
                         <n-link :to="`/blog/${blog.slug}`">
-                            <img :src="blog.imgSrc" alt="imagen no disponible">
+                            <img :src="blog.imageUrl" alt="imagen no disponible">
                         </n-link>
                     </div>
                     <div class="sidebar-blog-content">
@@ -28,6 +28,10 @@
                     </div>
                 </div>
             </div>
+            <div v-else class="sidebar-project-wrap mt-30">
+                <p>Cargando datos...</p>
+                {{ blogsData }}
+            </div> 
         </div>
         <!-- <div class="sidebar-widget mt-35">
             <h4 class="pro-sidebar-title">Categorías</h4>
@@ -56,41 +60,27 @@
 
 <script>
     export default {
-        props: ["blogs"],
+        props: {
+            blogsData: {
+                type: Array,
+                required: true
+            }
+        },
+
         data() {
             return {
-                blogRecents: [],
-                categories: [],
-                tags: []
+                baseUrl: process.env.baseUrl + '/',
             }
         },
 
-        mounted() {
-            this.getRecentBlogs();
-        },
+        computed: {
+            filteredPost() {
+                const posts = this.blogsData;
 
-        methods: {
-            getRecentBlogs() {
-                this.blogRecents = this.blogs?.slice(0, 4);
-                console.log(this.blogs);
-                //filtrar categorias y que no se repitan
-                this.blogRecents?.map(blog => {
-                    blog.category?.map(category => {
-                        if (!this.categories?.includes(category)) {
-                            this.categories?.push(category);
-                        }
-                    })
-                });
+                posts.sort((a, b) => new Date(b.date) - new Date(a.date))
 
-                //filtrar tags y que no se repitan
-                this.blogRecents?.map(blog => {
-                    blog.tags?.map(tag => {
-                        if (!this.tags?.includes(tag)) {
-                            this.tags?.push(tag);
-                        }
-                    })
-                });
+                return posts.slice(0, 4);
             }
-        },
+        }
     };
 </script>

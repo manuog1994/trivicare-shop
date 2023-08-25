@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <BlogSidebar :blogs="blogs" />
+                            <BlogSidebar :blogsData="this.blogs" />
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,8 @@
             async getBlogs() {
                 try {
                     const response = await this.$axios.get("/api/blogs");
-                    this.blogs = response.data.data
+                    const post = response.data.data;
+                    this.blogs = post.filter((blog) => blog.status == 'Publicado');
                 } catch (error) {
                     console.log(error);
                 }

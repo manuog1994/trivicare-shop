@@ -12,12 +12,12 @@
                             <div class="blog-details-wrapper ml-20">
                                 <div class="blog-details-top">
                                     <div class="blog-details-img">
-                                        <img :src="blog.imgSrc" :alt="blog.title">
+                                        <img :src="blog.imageUrl" :alt="blog.title">
                                     </div>
                                     <div class="blog-details-content">
                                         <div class="blog-meta-2">
                                             <ul>
-                                                <li>{{ blog.date }}</li>
+                                                <li>{{ moment(blog.date).locale('es').format('LL') }}</li>
                                                 <!-- <li>
                                                     <a href="#"><i class="fa fa-comments-o"></i> {{ blog.comment }}</a>
                                                 </li> -->
@@ -28,8 +28,8 @@
                                 </div>
                                 <div class="tag-share">
                                     <div class="dec-tag d-flex">
-                                        <ul v-for="tag in blog.minTags" :key="'tag'+tag">
-                                            <li><a href="#">{{ tag }},</a></li>
+                                        <ul>
+                                            <li><a href="#">{{ blog !== null ? (blog?.minTags) : 'Tags' }},</a></li>
                                         </ul>
                                     </div>
                                     <div class="blog-share">
@@ -62,8 +62,10 @@
                                     </div>
                                 </div>
                                 <div class="next-previous-post">
-                                    <a href="#"> <i class="fa fa-angle-left"></i> prev post</a>
-                                    <a href="#">next post <i class="fa fa-angle-right"></i></a>
+                                    <n-link v-if="previousPost" :to="previousPost.slug"> <i class="fa fa-angle-left"></i> post anterior</n-link>
+                                    <span v-else href="#" class="text-disable"> <i class="fa fa-angle-left"></i> Post Anterior</span>
+                                    <n-link v-if="nextPost" :to="nextPost.slug"> <i class="fa fa-angle-right"></i> Siguente Post</n-link>
+                                    <span v-else href="#" class="text-disable"> <i class="fa fa-angle-right"></i> Siguente Post</span>
                                 </div>
                                 <!-- <div class="blog-comment-wrapper mt-55">
                                     <h4 class="blog-dec-title">comments : 02</h4>
@@ -116,7 +118,7 @@
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <BlogSidebar :blogData="blogData" />
+                            <BlogSidebar :blogsData="blogsData" />
                         </div>
                     </div>
                 </div>
@@ -127,15 +129,19 @@
 </template>
 
 <script>
+    import moment from "moment";
     export default {
         auth: false,
         data() {
             return {
-                blogData: [],
+                blogsData: [],
                 blog: [],
                 slug: this.$route.params.slug,
                 url: '',
                 urlLogo: '',
+                moment: moment,
+                nextPost: '',
+                previousPost: ''
             }
         },
 
@@ -157,8 +163,17 @@
         methods: {
             async getBlogData() {
                 const { data } = await this.$axios.get('/api/blogs');
-                this.blogData = data.data;
+                this.blogsData = data.data.filter(blog => blog.status === 'Publicado');
+                const post = data.data.filter(blog => blog.slug === this.slug && blog.status === 'Publicado');
+                this.blog = post[0];
+                //buscar si existe un post anterior
+                const previousPost = data.data.filter(blog => blog.id === this.blog.id + 1 && blog.status === 'Publicado');
+                this.previousPost = previousPost[0];
+                //buscar si existe un post siguiente
+                const nextPost = data.data.filter(blog => blog.id === this.blog.id - 1 && blog.status === 'Publicado');
+                this.nextPost = nextPost[0];
             },
+
             slugify(text) {
                 return text
                     .toString()
@@ -168,7 +183,7 @@
                     .replace(/--+/g, "-") // Replace multiple - with single -
                     .replace(/^-+/, "") // Trim - from start of text
                     .replace(/-+$/, ""); // Trim - from end of text
-            }
+            },
         },
 
         head() {
@@ -188,4 +203,12 @@
         },
     };
 </script>
+
+<style>
+.text-disable {
+    color: #ccc;
+    font-size: medium;
+    cursor: not-allowed;
+}
+</style>
 

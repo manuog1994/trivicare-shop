@@ -8,7 +8,7 @@
         <div class="blog-content-2">
             <div class="blog-meta-2">
                 <ul>
-                    <li>{{ blog.date }}</li>
+                    <li>{{ moment(blog.date).locale('es').format('L') }}</li>
                     <!-- <li>
                         <a href="#"><i class="fa fa-comments-o"></i> {{ blog.comment }} </a>
                     </li> -->
@@ -17,7 +17,7 @@
             <h4>
                 <n-link :to="`/blog/${blog.slug}`">{{ blog.title }}</n-link>
             </h4>
-            <p>{{ blog.desc }}</p>
+            <p>{{ blog.description }}</p>
             <div class="blog-share-comment">
                 <div class="blog-btn-2">
                     <n-link :to="`/blog/${blog.slug}`">Leer más</n-link>
@@ -55,6 +55,7 @@
 </template>
 
 <script>
+    import moment from "moment";
     export default {
         props: ["blog"],
 
@@ -62,6 +63,7 @@
             return {
                 url: '',
                 urlLogo: '',
+                moment: moment
             }
         },
 

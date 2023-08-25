@@ -1,25 +1,25 @@
-globalThis._importMeta_={url:import.meta.url,env:process.env};import 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/node-fetch-native/dist/polyfill.mjs';
+globalThis._importMeta_={url:import.meta.url,env:process.env};import 'file:///Users/manuel/wa/trivicare-shop/node_modules/node-fetch-native/dist/polyfill.mjs';
 import { Server } from 'http';
 import { tmpdir } from 'os';
 import { join } from 'path';
 import { mkdirSync } from 'fs';
 import { parentPort, threadId } from 'worker_threads';
-import { provider, isWindows } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/std-env/dist/index.mjs';
-import { createRenderer as createRenderer$1 } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { eventHandler, defineEventHandler, handleCacheHeaders, createEvent, createApp, createRouter, lazyEventHandler, getQuery } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/h3/dist/index.mjs';
-import devalue from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/@nuxt/devalue/dist/devalue.mjs';
-import { parseURL, withQuery, joinURL } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/@nuxt/utils-edge/node_modules/ufo/dist/index.mjs';
-import destr from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/destr/dist/index.mjs';
-import { snakeCase } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/scule/dist/index.mjs';
-import htmlTemplate from '/Users/manuelortegagaliano/wa/trivicare-shop/.nuxt/views/document.template.mjs';
-import { createRenderer } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/vue-server-renderer/build.dev.js';
-import { createFetch as createFetch$1, Headers } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/ohmyfetch/dist/node.mjs';
-import { createRouter as createRouter$1 } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/radix3/dist/index.mjs';
-import { createCall, createFetch } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/hookable/dist/index.mjs';
-import { hash } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/ohash/dist/index.mjs';
-import { createStorage } from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/manuelortegagaliano/wa/trivicare-shop/node_modules/unstorage/dist/drivers/fs.mjs';
+import { provider, isWindows } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/std-env/dist/index.mjs';
+import { createRenderer as createRenderer$1 } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { eventHandler, defineEventHandler, handleCacheHeaders, createEvent, createApp, createRouter, lazyEventHandler, getQuery } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/h3/dist/index.mjs';
+import devalue from 'file:///Users/manuel/wa/trivicare-shop/node_modules/@nuxt/devalue/dist/devalue.mjs';
+import { parseURL, withQuery, joinURL } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/@nuxt/utils-edge/node_modules/ufo/dist/index.mjs';
+import destr from 'file:///Users/manuel/wa/trivicare-shop/node_modules/destr/dist/index.mjs';
+import { snakeCase } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/scule/dist/index.mjs';
+import htmlTemplate from '/Users/manuel/wa/trivicare-shop/.nuxt/views/document.template.mjs';
+import { createRenderer } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/vue-server-renderer/build.dev.js';
+import { createFetch as createFetch$1, Headers } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/ohmyfetch/dist/node.mjs';
+import { createRouter as createRouter$1 } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/radix3/dist/index.mjs';
+import { createCall, createFetch } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/unenv/runtime/fetch/index.mjs';
+import { createHooks } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/hookable/dist/index.mjs';
+import { hash } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/ohash/dist/index.mjs';
+import { createStorage } from 'file:///Users/manuel/wa/trivicare-shop/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/manuel/wa/trivicare-shop/node_modules/unstorage/dist/drivers/fs.mjs';
 
 const _runtimeConfig = {"app":{"baseURL":"/","basePath":"/","assetsPath":"/_nuxt/","cdnURL":"","buildAssetsDir":"/_nuxt/"},"nitro":{"routes":{},"envPrefix":"NUXT_"},"public":{}};
 const ENV_PREFIX = "NITRO_";
@@ -78,7 +78,7 @@ function timingMiddleware(_req, res, next) {
   next();
 }
 
-const serverAssets = [{"baseName":"server","dir":"/Users/manuelortegagaliano/wa/trivicare-shop/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/manuel/wa/trivicare-shop/server/assets"}];
 
 const assets = createStorage();
 
@@ -92,10 +92,10 @@ const useStorage = () => storage;
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/manuelortegagaliano/wa/trivicare-shop","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/manuelortegagaliano/wa/trivicare-shop/server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/manuelortegagaliano/wa/trivicare-shop/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/manuelortegagaliano/wa/trivicare-shop/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/manuel/wa/trivicare-shop","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/manuel/wa/trivicare-shop/server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/manuel/wa/trivicare-shop/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/manuel/wa/trivicare-shop/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function defineRenderHandler(handler) {
   return eventHandler(async (event) => {
@@ -353,11 +353,11 @@ const errorHandler = (async function errorhandler(_error, event) {
   event.res.end(html);
 });
 
-const _lazy_mDdGmo = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_KH0MCw = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_mDdGmo, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_mDdGmo, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_KH0MCw, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_KH0MCw, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -467,8 +467,8 @@ function renderToString(component, context) {
 
 const STATIC_ASSETS_BASE = process.env.NUXT_STATIC_BASE + "/" + process.env.NUXT_STATIC_VERSION;
 const PAYLOAD_JS = "/payload.js";
-const getClientManifest = () => import('/Users/manuelortegagaliano/wa/trivicare-shop/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('/Users/manuelortegagaliano/wa/trivicare-shop/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('/Users/manuel/wa/trivicare-shop/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('/Users/manuel/wa/trivicare-shop/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   if (!manifest) {

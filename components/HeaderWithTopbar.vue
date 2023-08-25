@@ -4,19 +4,19 @@
             <div class="header-padding-1 sticky-bar header-res-padding clearfix" :class="{'is-sticky': isSticky}">
                 <div :class="containerClass">
                     <div class="row">
-                        <div class="col-4">
-                            <div class="main-menu">
+                        <div class="col-3 d-flex align-items-center">
+                            <n-link to="/">
+                                <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo.svg" width="200" alt="logo"/>
+                            </n-link>
+                        </div>
+                        <div class="col-6">
+                            <div class="main-menu text-center">
                                 <nav>
                                     <Navigation />
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-4 d-flex justify-content-center align-items-center">
-                            <n-link to="/">
-                                <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo.svg" width="200" alt="logo"/>
-                            </n-link>
-                        </div>
-                        <div class="col-4 stiky-buttons p-3">
+                        <div class="col-3 stiky-buttons p-3">
                             <div class="header-right-wrap">
                                 <div class="same-style header-search me-2">
                                     <button class="search-active" @click="searchOpen" title="Abrir barra de búsqueda"><i class="pe-7s-search"></i></button>
