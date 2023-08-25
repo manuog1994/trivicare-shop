@@ -2,7 +2,7 @@
     <div class="blog-wrap-2 mb-30">
         <div class="blog-img-2">
             <n-link :to="`/blog/${blog.slug}`">
-                <img :src="blog.imgSrc" :alt="blog.title">
+                <img :src="blog.imageUrl" :alt="blog.title">
             </n-link>
         </div>
         <div class="blog-content-2">

@@ -12,8 +12,6 @@
 </template>
 
 <script>
-    import blogData from "@/data/blog.json";
-
     export default {
         components: {
             BlogItem: () => import('@/components/BlogItem')
@@ -21,8 +19,23 @@
 
         data() {
             return {
-                blogData
+                blogData: []
             }
         },
+
+        async mounted() {
+            await this.getBlogData();
+        },
+
+        methods: {
+            async getBlogData() {
+                try {
+                    const response = await this.$axios.get("/api/blogs");
+                    this.blogData = response.data.data;
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        }
     };
 </script>

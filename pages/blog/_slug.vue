@@ -127,14 +127,12 @@
 </template>
 
 <script>
-    import blog from "@/data/blog.json";
-    import blogData from "@/data/blog.json";
-
     export default {
+        auth: false,
         data() {
             return {
-                blogData,
-                blog,
+                blogData: [],
+                blog: [],
                 slug: this.$route.params.slug,
                 url: '',
                 urlLogo: '',
@@ -150,13 +148,17 @@
         },
 
 
-        mounted () {
-            this.blog = blog.find(blog => blog.slug === this.slug);
+        async mounted () {
+            await this.getBlogData();
             this.url = process.env.url + this.$route.fullPath;
             this.urlLogo = process.env.baseUrl + '/nuxt/TriviCare_byn%20Positivo.svg';
         },
 
         methods: {
+            async getBlogData() {
+                const { data } = await this.$axios.get('/api/blogs');
+                this.blogData = data.data;
+            },
             slugify(text) {
                 return text
                     .toString()
@@ -171,15 +173,15 @@
 
         head() {
             return {
-                title: this.blog.title,
+                title: this.blog?.title,
                 meta: [
                     { charset: 'utf-8' },
                     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
                     {
                         hid: 'description',
                         name: 'description',
-                        content: this.blog.metaDesc,
-                        keywords: this.blog.keywords
+                        content: this.blog?.metaDescripcion,
+                        keywords: this.blog?.keywords
                     }
                 ], 
             }

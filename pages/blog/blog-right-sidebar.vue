@@ -30,7 +30,6 @@
 </template>
 
 <script>
-    import blogData from "@/data/blog.json";
     export default {
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
@@ -40,7 +39,7 @@
         },
         data() {
             return {
-                blogData,
+                blogData: [],
                 currentPage: 1,
                 perPage: 6
             }
@@ -55,7 +54,18 @@
                 return Math.ceil(this.blogData.length / this.perPage);
             },
         },
+        async mounted() {
+            await this.getBlogData();
+        },
         methods: {
+            async getBlogData() {
+                try {
+                    const response = await this.$axios.get("/api/blogs");
+                    this.blogData = response.data.data;
+                } catch (error) {
+                    console.log(error);
+                }
+            },
             paginateClickCallback(page) {
                 this.currentPage = Number(page);
             },

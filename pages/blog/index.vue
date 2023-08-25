@@ -21,11 +21,11 @@
                                 </div>
                             </div>
                             <div v-if="getPaginateCount > 1">
-                                <pagination class="pro-pagination-style shop-pagination mt-30" v-model="currentPage" :per-page="perPage" :records="blogData.length" @paginate="paginateClickCallback" :page-count="getPaginateCount" />
+                                <pagination class="pro-pagination-style shop-pagination mt-30" v-model="currentPage" :per-page="perPage" :records="blogs.length" @paginate="paginateClickCallback" :page-count="getPaginateCount" />
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <BlogSidebar :blogData="blogData" />
+                            <BlogSidebar :blogs="blogs" />
                         </div>
                     </div>
                 </div>
@@ -36,8 +36,8 @@
 </template>
 
 <script>
-    import blogData from "@/data/blog.json";
     export default {
+        auth: false,
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
             TheHeader: () => import("@/components/TheHeader"),
@@ -48,7 +48,7 @@
         },
         data() {
             return {
-                blogData,
+                blogs: [],
                 currentPage: 1,
                 perPage: 6
             }
@@ -57,13 +57,24 @@
             getItems() {
                 let start = (this.currentPage - 1) * this.perPage;
                 let end = this.currentPage * this.perPage;
-                return this.blogData.slice(start, end);
+                return this.blogs.slice(start, end);
             },
             getPaginateCount() {
-                return Math.ceil(this.blogData.length / this.perPage);
+                return Math.ceil(this.blogs.length / this.perPage);
             },
         },
+        async mounted() {
+            await this.getBlogs();
+        },
         methods: {
+            async getBlogs() {
+                try {
+                    const response = await this.$axios.get("/api/blogs");
+                    this.blogs = response.data.data
+                } catch (error) {
+                    console.log(error);
+                }
+            },
             paginateClickCallback(page) {
                 this.currentPage = Number(page);
             },

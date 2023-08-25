@@ -56,7 +56,7 @@
 
 <script>
     export default {
-        props: ["blogData"],
+        props: ["blogs"],
         data() {
             return {
                 blogRecents: [],
@@ -71,7 +71,8 @@
 
         methods: {
             getRecentBlogs() {
-                this.blogRecents = this.blogData?.slice(0, 4);
+                this.blogRecents = this.blogs?.slice(0, 4);
+                console.log(this.blogs);
                 //filtrar categorias y que no se repitan
                 this.blogRecents?.map(blog => {
                     blog.category?.map(category => {
