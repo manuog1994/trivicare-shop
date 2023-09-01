@@ -26,16 +26,12 @@
             </div>
             <!-- Swiper Navigation End -->
         </swiper>
-        <CountDown />
+
     </div>
 </template>
 
 <script>
     export default {
-
-        components: {
-            CountDown: () => import("@/components/Countdown.vue"),
-        },
 
         data() {
             return {
@@ -59,13 +55,6 @@
                 },
 
                 sliderData: [
-                    {
-                        subTitle: "Hasta el 31 de Agosto",
-                        title: "Aprovecha <br> nuestras ofertas <br>",
-                        backgroundImage: "/img/ofertas-verano.webp",
-                        link: "/shop?offers=todas",
-                        textColor: "text-dark"
-                    },
                     {
                         subTitle: "Este verano",
                         title: "Cuida tu piel <br> con TriviCare",

@@ -4,7 +4,7 @@ node_modules
 
 # Ignorar la carpeta dist (a menos que desees alojar el sitio en GitHub Pages)
 
-.nuxt/dist
+.nuxt
 
 # Ignorar el archivo .env
 .env
