@@ -1,6 +1,6 @@
 <template>
-    <div class="d-xl-none menu-mobile">
-        <header class="header-area header-padding-1 sticky-bar header-res-padding clearfix" :class="{'is-sticky': isSticky}">
+    <div class="d-xl-none menu-mobile" :class="{'position-absolute': $router.currentRoute.path === '/' ? true : false}">
+        <header class="header-area sticky-bar p-3" :class="{'is-sticky': isSticky}">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-start align-items-center">
@@ -13,7 +13,7 @@
                     <div class="col-md-4 col-sm-4 col-4">
                         <div class="lgo">
                             <n-link to="/">
-                                <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo.svg" alt="logo"/>
+                                <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo_solo.svg" alt="logo" style="width: 150px; margin: auto;" />
                             </n-link>
                         </div>
                     </div>
@@ -71,6 +71,11 @@
             color: $theme-color;
         }
     }
+}
+
+.menu-mobile{
+    width: 100%;
+    z-index: 998;
 }
 
 </style>

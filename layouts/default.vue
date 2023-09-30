@@ -32,7 +32,7 @@
                         <div class="col-12 col-lg-6 d-none d-lg-block">
                             <img src="/img/newsletter-lucia.jpg" alt="Imagen Pop Up" title="Imagen Pop Up" width="380" />
                         </div>
-                        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-self-center" v-if="!suscribed">
+                        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-self-center pop-up-newsletter" v-if="!suscribed">
                             <img class="m-auto" src="/img/email.webp" alt="Icono de correo electrónico" title="Icono de correo electrónico" width="80" height="80"/>
                             <h2 class="mt-2 mt-xl-3">¡Suscríbete y entra en el sorteo de un cheque de 100€!</h2>
                             <p>Descubre lo mejor de la naturaleza para cuidar tu belleza. Suscríbete a nuestra newsletter y entra en el sorteo de un cheque regalo de 100€ para gastar en nuestra tienda.</p>
@@ -255,7 +255,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 999;
+    z-index: 12000;
 
     @media (max-width: 990px) {
         max-width: 400px;

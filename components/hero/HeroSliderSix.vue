@@ -1,11 +1,11 @@
 <template>
     <div class="slider-area nav-style-1">
         <swiper :options="swiperOption">
-            <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="single-slider-2 slider-height-1 d-flex align-items-center slider-height-res hm-13-slider bg-img pt-0" :style="{ backgroundImage:`url(${slider.backgroundImage})` }">
+            <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="slider-height-1 d-md-flex align-items-md-center pt-0 image-back">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <div class="slider-content-13 p-4 p-xl-0">
+                            <div class="slider-content-13 p-xl-0">
                                 <p class="h1-style" :class="slider.textColor" v-html="slider.title"></p>
                                 <p class="subtitle-index" :class="slider.textColor" v-html="slider.subTitle"></p>
                                 <!-- <div class="slider-btn btn-hover">
@@ -29,6 +29,31 @@
 
     </div>
 </template>
+
+<style lang="scss" scoped>
+.image-back{
+    background-image: url("/img/banner-lorena-2.webp");
+    
+    @media #{$xx-layout}{
+        background-image: url("/img/banner-lorena-2-1500.webp");
+    }
+    @media #{$xl-layout}{
+        background-image: url("/img/banner-lorena-2-1500.webp");
+    }
+    @media #{$lg-layout}{
+        background-image: url("/img/banner-lorena-2-1500.webp");
+    }
+    @media #{$md-layout}{
+        background-image: url("/img/banner-lorena-2-1000.webp");
+    }
+    @media #{$xs-layout}{
+        background-image: url("/img/banner-lorena-2-700.webp");
+    }
+    @media #{$xxs-layout}{
+        background-image: url("/img/banner-lorena-2-700.webp");
+    }
+}
+</style>
 
 <script>
     export default {
@@ -58,7 +83,6 @@
                     {
                         title: "Cosmética Natural sin complicaciones",
                         subTitle: "Te ayudamos con una rutina facial y corporal sencilla y efectiva",
-                        backgroundImage: "/img/banner-lorena-2.webp",
                         link: "/shop",
                         textColor: "text-center"
                     },
