@@ -1,10 +1,10 @@
 <template>
     <client-only>
         <div>
+            <NavBottom />
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
-                <NavBottom />
                 <NotificationsContent />
                 <TheFooter />
             </div>

@@ -1,6 +1,7 @@
 <template>
     <client-only>
         <div class="product-details-page-wrapper">
+            <NavBottom />
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader />
             <Breadcrumb :pageTitle="blog.title" />
@@ -150,7 +151,8 @@
             TheHeader: () => import("@/components/TheHeader"),
             Breadcrumb: () => import("@/components/Breadcrumb"),
             BlogSidebar: () => import("@/components/BlogSidebar"),
-            TheFooter: () => import("@/components/TheFooter")
+            TheFooter: () => import("@/components/TheFooter"),
+            NavBottom: () => import("@/components/NavBottom"),
         },
 
 

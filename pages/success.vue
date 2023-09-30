@@ -1,10 +1,10 @@
 <template>
     <client-only>
         <div>
+            <NavBottom/>
             <BigLoader v-if="loading" />
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
-            <NavBottom/>
             <div id="post-nav" class="" @click="closeMenus">
                 <div class="container mt-3 mt-lg-5 pb-100">
                     <div class="row">

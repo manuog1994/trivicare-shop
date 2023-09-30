@@ -1,9 +1,9 @@
 <template>
     <client-only>
         <div>
+            <NavBottom/>
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
-            <NavBottom/>
             <div id="post-nav" class="" @click="closeMenus">
                 <div class="container-fluid">
                     <div class="p-5 text-center">

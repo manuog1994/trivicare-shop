@@ -1,10 +1,10 @@
 <template>
     <client-only>
         <div class="product-details-page-wrapper">
+            <NavBottom />
             <HeaderWithTopbar containerClass="container-fluid"/>
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
-                <NavBottom />
                 <Breadcrumb :pageTitle="productDetails?.name" />
                 <ProductDetailsWrapper :product="productDetails" v-if="productDetails" />
                 <ProductDetailsDescriptionReview :product="productDetails" :reviews="productDetails.reviews" v-if="productDetails" />

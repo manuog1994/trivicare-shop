@@ -6,25 +6,24 @@
 .slider-height-1 {
     height: 800px;
     @media #{$xl-layout}{
-        height: auto;
+        height: 600px;
     }
     @media #{$lg-layout}{
-        height: auto;
+        height: 500px;
     }
     @media #{$md-layout}{
-        height: auto;
+        height: 400px;
     }
     @media #{$xs-layout}{
-        height: auto;
-        padding: 50px 0 0;
+        height: 300px;
     }
-    @media #{$sm-layout}{
-        padding: 38px 0 0
+    @media #{$xxs-layout}{
+        height: 200px;
     }
     &.slider-height-res{
         @media #{$xs-layout}{
-            height: auto;
-            position: relative;
+            // height: auto;
+            // position: relative;
             &:before {
                 position: absolute;
                 left: 0;
@@ -733,7 +732,7 @@
 
 /* home cosmetics */
 .slider-content-13 {
-    span {
+    .subtitle-index {
         letter-spacing: 1px;
         font-size: 24px;
         font-weight: 500;
@@ -747,22 +746,24 @@
         font-size: 120px;
         font-weight: 600;
         line-height: 120px;
-        margin: 34px 0 55px;
+        margin: 4px 0 10px;
         font-display: swap;
-        @media #{$lg-layout}{
+        @media #{$xl-layout}{
             font-size: 90px;
             line-height: 90px;
+        }
+        @media #{$lg-layout}{
+            font-size: 70px;
+            line-height: 70px;
             margin: 24px 0 35px;
         }
         @media #{$md-layout}{
-            font-size: 80px;
-            line-height: 90px;
-            margin: 20px 0 30px;
+            font-size: 50px;
+            line-height: 50px;
         }
         @media #{$xs-layout}{
             font-size: 40px;
-            line-height: 50px;
-            margin: 15px 0 20px;
+            line-height: 40px;
         }
     }
     .slider-btn {

@@ -30,14 +30,14 @@
                     <button class="close-btn fs-1" @click="close" title="Botón de cerrar" name="Botón de cerrar pop up"><i class="fa fa-close"></i></button>
                     <div class="row">
                         <div class="col-12 col-lg-6 d-none d-lg-block">
-                            <img src="/img/newsletter.webp" alt="Imagen Pop Up" title="Imagen Pop Up" width="410" height="410" />
+                            <img src="/img/newsletter-lucia.jpg" alt="Imagen Pop Up" title="Imagen Pop Up" width="380" />
                         </div>
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-self-center" v-if="!suscribed">
                             <img class="m-auto" src="/img/email.webp" alt="Icono de correo electrónico" title="Icono de correo electrónico" width="80" height="80"/>
-                            <h2 class="mt-2 mt-xl-3">¡Suscríbete y obtén un 10% de descuento en tu compra!</h2>
-                            <p>Descubre lo mejor de la naturaleza para cuidar tu belleza. Suscríbete a nuestra newsletter y recibe un 10% de descuento en tu compra. ¡No te pierdas nuestras promociones exclusivas, consejos de belleza y novedades! Únete a nuestra comunidad de amantes de la belleza natural hoy mismo.</p>
+                            <h2 class="mt-2 mt-xl-3">¡Suscríbete y entra en el sorteo de un cheque de 100€!</h2>
+                            <p>Descubre lo mejor de la naturaleza para cuidar tu belleza. Suscríbete a nuestra newsletter y entra en el sorteo de un cheque regalo de 100€ para gastar en nuestra tienda.</p>
                             
-                            <div class="d-flex flex-column">
+                            <div class="">
                                 <form @submit.prevent="subscribeForm" ref="suscribeFormPopUp" method="post">
                                     <div v-if="errorConditions" style="text-align: left;">
                                         <span class="text-danger">Debes aceptar los términos y condiciones.</span>
@@ -46,14 +46,22 @@
                                         <span class="text-danger">Este correo electrónico ya esta suscrito.</span>
                                     </div>
                                     <div>
-                                        <input class="form-control border-black" placeholder="Introduce tu correo electrónico" name="email"/>
-                                    </div>
-                                    <div class="form-check mt-1 d-flex">
-                                        <input class="form-check-input border-black" type="checkbox" value="true" ref="checkAcceptConditions" @click="conditions = true">
-                                        <label class="form-check-label ms-1" for="checkAcceptConditions">Acepto los <n-link to="/terms-conditions" class="text-primary">términos y condiciones</n-link> de uso.</label>
-                                    </div>
-                                    <div>
-                                        <button id="suscribe-popup" class="btn bg-trivi-green mt-3 px-4" type="submit" name="suscribe-on-popup">Suscribirme</button>
+                                        <div class="mb-2">
+                                            <input id="fullname" class="form-control border-black" type="text" placeholder="Introduce tu nombre y apellidos" name="fullname" required/>
+                                        </div>
+                                        <div class="mb-2">
+                                            <input class="form-control border-black" type="email" placeholder="Introduce tu correo electrónico" name="email" required/>
+                                        </div>
+                                        <div class="mb-2">
+                                            <input class="form-control border-black" type="tel" placeholder="Introduce tu número de teléfono" name="phone" required/>
+                                        </div>
+                                        <div class="form-check mt-1 d-flex">
+                                            <input class="form-check-input border-black" type="checkbox" value="true" ref="checkAcceptConditions" @click="conditions = true">
+                                            <label class="form-check-label ms-1" for="checkAcceptConditions">Acepto los <n-link to="/terms-conditions" class="text-primary">términos y condiciones</n-link> de uso.</label>
+                                        </div>
+                                        <div>
+                                            <button id="suscribe-popup" class="btn bg-trivi-green mt-3 px-4" type="submit" name="suscribe-on-popup">Suscribirme</button>
+                                        </div>
                                     </div>
                                 </form>
                                 <div class="form-check p-3 p-lg-1 d-flex d-lg-none justify-content-center">

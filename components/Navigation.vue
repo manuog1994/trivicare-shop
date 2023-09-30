@@ -2,10 +2,7 @@
     <client-only>
         <ul>
             <li>
-                <n-link to="/">Inicio</n-link>
-            </li>
-            <li>
-                <n-link to="/shop"> Tienda <i class="fa fa-angle-down"></i></n-link>
+                <n-link style="color: black; font-size: 1.2rem; font-weight: 500;" to="/shop"> Productos <i class="fa fa-angle-down"></i></n-link>
                 <ul class="mega-menu">
                     <li>
                         <ul>
@@ -57,21 +54,21 @@
                 </ul>
             </li>
             <li>
-                <n-link to="/blog">Blog</n-link>
+                <n-link style="color: black; font-size: 1.2rem; font-weight: 500;" to="/blog">Tips</n-link>
             </li>
             <li>
-                <n-link to="/about">Nosotros </n-link>
+                <n-link style="color: black; font-size: 1.2rem; font-weight: 500;" to="/about">Nosotros </n-link>
             </li>
             <li>
-                <n-link to="/contact">Contacto </n-link>
+                <n-link style="color: black; font-size: 1.2rem; font-weight: 500;" to="/shop?bestsellers=todos">Bestseller 🔥</n-link>
             </li>
         </ul>
     </client-only>
 </template>
 
 <style>
-    a.link-nav{
-        color: #666666;
+    .link-nav{
+        color: black;
     }
 
     .p-nav{

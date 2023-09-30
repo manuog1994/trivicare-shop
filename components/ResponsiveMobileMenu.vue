@@ -3,21 +3,15 @@
     <ul class='mobile-menu mb-2'>
         <client-only>
             <li>
-                <n-link to="/">
-                    <i class="me-3 pe-7s-home"></i>
-                    Inicio
-                </n-link>
-            </li>
-            <li>
                 <n-link to="/shop">
                     <i class="me-3 pe-7s-shopbag"></i>
-                    Tienda
+                    Productos
                 </n-link>
             </li>
             <li>
                 <n-link to="/blog">
                     <i class="me-3 pe-7s-news-paper"></i>
-                    Blog
+                    Tips
                 </n-link>
             </li>
             <li>
@@ -27,13 +21,31 @@
                 </n-link>
             </li>
             <li>
+            <n-link to="/shop?bestsellers=todos">
+                <span class="me-2 fs-6">🔥</span>
+                Más vendidos
+            </n-link>
+        </li>
+        <li>
+            <n-link to="/shop?news=todos">
+                <span class="me-2 fs-6">🆕</span>
+                Nuevo
+            </n-link>
+        </li>
+        <li>
+            <n-link to="/shop?offers=todos">
+                <span class="me-2 fs-6">🛍️</span>
+                Ofertas
+            </n-link>
+        </li>
+            <!-- <li>
                 <n-link to="/contact">
                     <i class="me-3 pe-7s-mail"></i>
                     Contacto
                 </n-link>
-            </li>
-            <span class="mt-4 mb-2">Categorías</span>
-            <li v-for='(link, i) in menus' :key='i'>
+            </li> -->
+            <span class="mt-4 mb-4">Categorías</span>
+            <li class="ms-3" v-for='(link, i) in menus' :key='i'>
                 <n-link :to="link.url">
                     <i class="me-2 fa fa-circle-o"></i>
                     {{ link.title }}
@@ -52,7 +64,7 @@
                             </span> 
                             <ul class="submenu" v-if="link.submenu">
                                 <client-only>
-                                    <li v-for='(link, i) in link.submenu' :key='i'>
+                                    <li class="" v-for='(link, i) in link.submenu' :key='i'>
                                         <n-link :to="link.url"> {{ link.title }} </n-link>
                                     </li>
                                 </client-only>
@@ -64,28 +76,10 @@
         </client-only>
     </ul>
 
-    <span class="mt-4 mb-2">Destacados</span>
-    <ul class='mobile-menu mb-2'>
-        <li>
-            <n-link to="/shop?bestsellers=todos">
-                🔥 Más vendidos
-            </n-link>
-        </li>
-        <li>
-            <n-link to="/shop?news=todos">
-                🆕 Nuevo
-            </n-link>
-        </li>
-        <li>
-            <n-link to="/shop?offers=todos">
-                🛍️ Ofertas
-            </n-link>
-        </li>
-    </ul>
-    <span class="mt-4 mb-2">Cuenta</span>
+    <span class="mt-4 mb-2">Fav</span>
 
     <ul class="mobile-menu mt-2">
-        <li v-if="$auth.loggedIn == false">
+        <!-- <li v-if="$auth.loggedIn == false">
             <n-link class="text-center" to="/login">
                 <i class="me-2 pe-7s-user"></i>
                 Iniciar sesión
@@ -106,20 +100,20 @@
         </li>
         <li v-if="$auth.loggedIn">
             <a @click="logout">Cerrar sesión</a>
-        </li>
+        </li> -->
         <li>
             <n-link to="/wishlist">
                 <i class="me-2 pe-7s-like"></i>
                 Lista de deseos
             </n-link>
         </li>
-        <li v-if="$auth.loggedIn">
+        <!-- <li v-if="$auth.loggedIn">
             <n-link to="/notifications-center">
                 <i class="me-2 pe-7s-bell"></i>
                 Notificaciones
             </n-link>
             <span class="ms-2 bg-blue-color p-2 rounded-5">{{ notifications }}</span>
-        </li>
+        </li> -->
     </ul>
 </div>
 </template>

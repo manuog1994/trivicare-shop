@@ -1,10 +1,10 @@
 <template>
     <client-only>
         <div class="about-page-wrapper">
+            <NavBottom />
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
-                <NavBottom />
                 <Breadcrumb pageTitle="Nosotros" />
                 <WelcomeMessage class="pt-100 pb-95" />
                 <TheFooter />

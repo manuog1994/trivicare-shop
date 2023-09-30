@@ -1,10 +1,10 @@
 <template>
     <client-only>
         <div class="privacy-policy-wrapper">
+            <NavBottom />
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
-                <NavBottom />
                 <Breadcrumb pageTitle="Trabaja con nosotros" />
                 <div class="container mt-5 mb-5">
                     <h1 class="text-center mb-4">Trabaja con Nosotros</h1>

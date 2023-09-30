@@ -1,7 +1,7 @@
 /*----- 2. Header style ----*/
 .header-area {
-    position: relative;
-    margin-top: 15px;
+    z-index: 1000;
+    width: 100%;
     //margin-bottom: 15px;
     @media #{$md-layout, $xs-layout} {
         margin-top: 0px;
@@ -100,7 +100,7 @@
                     padding: 0 15px;
                     position: relative;
                     ul.submenu {
-                        background-color: $white;
+                        background-color: transparent;
                         box-shadow: 0 0 7px 0.5px rgba(0, 0, 0, 0.15);
                         display: block;
                         left: 0;
@@ -181,7 +181,7 @@
                                     float: inherit;
                                     width: 100%;
                                     a {
-                                        color: #242424;
+                                        color: black;
                                         margin: 0 0 10px;
                                         text-transform: uppercase;
                                         font-size: 14px;
@@ -371,7 +371,7 @@
             color: $theme-color;
         }
         .account-dropdown {
-            background-color: $white;
+            background-color: transparent;
             box-shadow: 0 1px 7px -2px rgba(0, 0, 0, 0.3);
             right: 0;
             padding: 8px 12px 10px;

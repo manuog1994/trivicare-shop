@@ -1,8 +1,10 @@
 <template>
     <client-only>
         <div class="about-page-wrapper">
+            <NavBottom />
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
+            <Breadcrumb pageTitle="Mis cookies" />
             <div class="container mt-5 mb-5">
                 <div class="text-center">
                     <h2>Personalizar Cookies <img src="https://i.imgur.com/Tl8ZBUe.png" width="50"></h2>
@@ -41,8 +43,6 @@
                     <p>Si no desea algunas de estas cookies podrá borrarlas sin ningún problema, en el caso de que use el navegador Google Chrome haga click derecho->Inspeccionar->Application->Storage->Cookies->https://trivicare.com y borre las que no desee. Las cookies funcionales aunque las borre volverán a aparecer, ya que sin ellas la web no podrían funcionar.</p>
                 </div>
             </div>
-            <NavBottom />
-            <Breadcrumb pageTitle="Mis cookies" />
             <TheFooter />
         </div>
     </client-only>

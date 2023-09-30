@@ -1,10 +1,10 @@
 <template>
     <client-only>
         <div class="shop-page-wrapper">
+            <NavBottom/>
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
-                <NavBottom/>
                 <Breadcrumb pageTitle="tienda" />
                 <ShopContainer />
                 <TheFooter />

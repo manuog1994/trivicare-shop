@@ -1,10 +1,10 @@
 <template>
     <client-only>
         <div class="privacy-policy-wrapper">
+            <NavBottom />
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
-                <NavBottom />
                 <Breadcrumb pageTitle="Preguntas frecuentes" />
                 <QuestionCont />
                 <TheFooter />
