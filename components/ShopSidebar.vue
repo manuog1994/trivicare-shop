@@ -1,5 +1,5 @@
 <template>
-    <div id="filterMobile" class="sidebar-style mobile-filter p-5" :class="classes">
+    <div id="filterMobile" class="sidebar-style mobile-filter p-3" :class="classes">
         <!-- Botón de cerrar para mobile -->
         <div class="d-lg-none button-filter-close">
             <button class="close-btn-2 fa-3x" @click="closeFilter">

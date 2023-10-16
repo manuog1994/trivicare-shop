@@ -740,8 +740,26 @@
         font-weight: 500;
         margin: 0;
         font-display: swap;
+        text-align: right;
+        @media #{$md-layout}{
+            font-size: 20px;
+            text-align: right;
+            padding-left: 40%;
+        }
         @media #{$xs-layout}{
-            font-size: 22px;
+            font-size: 18px;
+            text-align: right;
+            padding-left: 30%;
+        }
+        @media #{$xxs-layout}{
+            font-size: 20px;
+            text-align: right;
+            padding-left: 8rem;
+        }
+        @media #{$min-layout}{
+            font-size: 15px;
+            text-align: right;
+            padding-left: 5rem;
         }
     }
     .h1-style {
@@ -750,6 +768,7 @@
         line-height: 120px;
         margin: 4px 0 10px;
         font-display: swap;
+        text-align: right;
         @media #{$xl-layout}{
             font-size: 90px;
             line-height: 90px;
@@ -757,26 +776,33 @@
         @media #{$lg-layout}{
             font-size: 70px;
             line-height: 70px;
-            margin: 24px 0 0;
         }
         @media #{$md-layout}{
             font-size: 50px;
             line-height: 50px;
+            padding-left: 30%;
+            text-align: right;
         }
         @media #{$xs-layout}{
-            font-size: 50px;
+            font-size: 40px;
             line-height: 60px;
-            margin-top: 20px;
+            margin-top: 30%;
+            padding-left: 2rem;
+            text-align: right;
         }
         @media #{$xxs-layout}{
-            font-size: 40px;
+            font-size: 35px;
             line-height: 50px;
-            margin-top: 80px;
+            margin-top: 30%;
+            padding-left: 2rem;
+            text-align: right;
         }
         @media #{$min-layout}{
-            font-size: 40px;
+            font-size: 25px;
             line-height: 40px;
             margin-top: 80px;
+            padding-left: 2rem;
+            text-align: right;
         }
     }
     .slider-btn {

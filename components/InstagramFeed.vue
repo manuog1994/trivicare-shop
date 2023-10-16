@@ -1,3 +1,5 @@
 <template>
-    <div class="elfsight-app-32ddb28f-bf7c-427e-a450-0819fbb3be88 mb-5"></div>
+    <div class="container-fluid overflow-hidden">
+        <div class="elfsight-app-32ddb28f-bf7c-427e-a450-0819fbb3be88 mb-5"></div>
+    </div>
 </template>

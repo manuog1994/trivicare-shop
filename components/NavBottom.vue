@@ -1,6 +1,6 @@
 <template>
     <client-only>
-        <div class="d-block bg-trivi-blue">
+        <div class="d-block bg-gradient-blue">
             <div>
                 <div class="">
                     <div class="custom-banner text-center">
@@ -26,7 +26,7 @@ export default {
     align-items: center;
     height: 40px;
     font-size: 14px;
-    color: white;
+    color: #202020;
 }
 
 

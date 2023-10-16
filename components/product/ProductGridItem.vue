@@ -7,8 +7,8 @@
                     <nuxt-img loading="lazy" class="hover-img" provider="customProvider" src="nuxt/default400x400.webp" :alt="product.name" width="100%" height="100%"/>
                 </div>
                 <div v-else>
-                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" :src="product.images[0].path + '800x800/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="100%" height="100%"/>
-                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" :src="product.images[1].path + '800x800/' + product.images[1].name + '.' + product.images[1].ext" :alt="product.name" width="100%" height="100%"/>
+                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" :src="product.images[0].path + '450x600/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="100%"/>
+                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" :src="product.images[1].path + '450x600/' + product.images[1].name + '.' + product.images[1].ext" :alt="product.name" width="100%"/>
                 </div>
             </n-link>
             <div class="product-badges">
@@ -40,7 +40,7 @@
         </div>
         <div class="product-content text-center mt-4">
             <h3 class="mb-1">
-                <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
+                <n-link :to="`/product/${product.slug}`"><strong>{{ product.name }}</strong></n-link>
             </h3>
             <div :class="{ 'product-grid-change': layout === 'list' ? false : true }">
                 <client-only>
@@ -48,13 +48,13 @@
                 </client-only>
             </div>
             <div class="product-price">
-                <span v-if="product?.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
-                <span v-if="product?.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
-                <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
+                <span v-if="product?.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }}&euro;</span>
+                <span v-if="product?.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }}&euro;</span>
+                <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }}&euro;</span>
             </div>
             <div class="product-content__list-view" v-if="layout === 'list'">
                 <div>
-                    <p class="mb-1">{{ (product.specifications) }}</p>
+                    <p class="mb-1" v-html="truncateHTML(product.description, 100)"></p>
                 </div>
                 <div class="pro-action d-flex align-items-center" >
                     <div class="pro-cart btn-hover">
@@ -166,6 +166,18 @@ import Swal from 'sweetalert2'
                 const discount = product.discount
                 return discount.discount
             },
+
+            truncateHTML(html, maxLength) {
+                const div = document.createElement("div");
+                div.innerHTML = html;
+                let text = div.textContent || div.innerText || "";
+                if (text.length > maxLength) {
+                    text = text.substring(0, maxLength);
+                    text = text.substr(0, Math.min(text.length, text.lastIndexOf(" ")));
+                    return text + "...";
+                }
+                return html;
+            }
 
         },
     };

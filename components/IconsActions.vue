@@ -9,7 +9,7 @@
             </div>
             <div class="brand-logo-active">
                 <swiper :options="brandLogoCarousel">
-                    <div class="single-brand-logo swiper-slide" v-for="icon in icons">
+                    <div class="single-brand-logo swiper-slide" v-for="icon in icons" v-once>
                         <nuxt-img provider="customProvider" :src="icon.src" :alt="icon.title"/>
                     </div>
                 </swiper>

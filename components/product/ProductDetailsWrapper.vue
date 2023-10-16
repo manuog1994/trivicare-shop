@@ -11,10 +11,10 @@
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
                                 <div v-if="product.images?.length == 0" class="swiper-slide text-center">
-                                    <nuxt-img loading="lazy" class="principal" provider="customProvider" src="nuxt/default.webp" alt="default" width="500" height="500" />
+                                    <nuxt-img loading="lazy" class="principal" provider="customProvider" src="nuxt/default.webp" alt="default"  />
                                 </div>
                                 <div v-else id="product-single" class="swiper-slide text-center" v-for="image in product.images" :key="'image-' + image.id">
-                                    <nuxt-img id="image-principal" loading="lazy" class="principal" provider="customProvider" :src="image.path + image.name + '.' + image.ext" alt="default" width="500" height="500" />
+                                    <nuxt-img id="image-principal" loading="lazy" class="principal" provider="customProvider" :src="image.path + image.name + '.' + image.ext" alt="default" />
                                 </div>
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
@@ -22,7 +22,7 @@
                                     <nuxt-img loading="lazy" provider="customProvider" src="nuxt/default280x280.webp" alt="default" width="106" height="auto"/>
                                 </div>
                                 <div v-else class="thumb-img swiper-slide" v-for="image in product.images" :key="'imagetwo-' + image.id">
-                                    <nuxt-img loading="lazy" provider="customProvider" :src="image.path + '280x280/' + image.name + '.' + image.ext" alt="default" width="106" height="auto"/>
+                                    <nuxt-img loading="lazy" provider="customProvider" :src="image.path + '270x360/' + image.name + '.' + image.ext" alt="default" width="106" height="auto"/>
                                 </div>
                             </swiper>
                         </div>
@@ -42,8 +42,30 @@
                             </client-only> 
                             <span><a class="ms-2" href="#des-details3" title="Valoraciones">{{ product.total_reviews }} Valoraciones</a></span>
                         </div>
-                        <div>
-                            <p>{{ product.specifications }}</p>
+                        <div class="spects-menu">
+                            <div class="description-menu">
+                                <div class="title-menu">
+                                    <h4 class="text-menu">Descripción</h4>
+                                    <i class="fa fa-angle-down icon-move" :class="{'active': descriptionMenu ? true : false}" @click="descriptionMenu = !descriptionMenu"></i>
+                                </div>
+                                <div class="content-menu" :class="{'active': descriptionMenu ? true : false}">
+                                    <div v-html="product.description"></div>
+                                </div>
+                                <div class="title-menu">
+                                    <h4 class="text-menu">Ingredientes</h4>
+                                    <i class="fa fa-angle-down icon-move" :class="{'active': ingredientsMenu ? true : false}" @click="ingredientsMenu = !ingredientsMenu"></i>
+                                </div>
+                                <div class="content-menu" :class="{'active': ingredientsMenu ? true : false}">
+                                    <div v-html="product.ingredients"></div>
+                                </div>
+                                <div class="title-menu">
+                                    <h4 class="text-menu">Información adicional</h4>
+                                    <i class="fa fa-angle-down icon-move" :class="{'active': additionalInfoMenu ? true : false}" @click="additionalInfoMenu = !additionalInfoMenu"></i>
+                                </div>
+                                <div class="content-menu" :class="{'active': additionalInfoMenu ? true : false}">
+                                    <div v-html="product.specifications"></div>
+                                </div>
+                            </div>
                         </div>
                         <div class="pro-details-size-color" v-if="product.variations">
                             <div v-if="product.discount?.discount > 0">
@@ -141,26 +163,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="pro-details-social">
-                            <span class="label me-2">Compartir:</span>
-                            <ul class="mt-2">
-                                <li>
-                                    <a class="text-primary fs-3" :href="`https://www.facebook.com/sharer/sharer.php?u=${ urlProduct }`" target="_blank" title="Compartir en Facebook">
-                                        <fa-icon icon="fa-brands fa-facebook-f" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="text-danger fs-3" :href="`https://www.pinterest.com/pin/create/button/?url=${ urlProduct }&media=${ urlLogo }&description=¡Mira este producto es increíble!`" target="_blank" title="Compartir en Pinterest">
-                                        <fa-icon icon="fa-brands fa-pinterest" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="text-success fs-3" :href="`https://api.whatsapp.com/send?text=¡Echa un vistazo a este enlace! ${ urlProduct }`" target="_blank" title="Compartir en Whatsapp">
-                                        <fa-icon icon="fa-brands fa-whatsapp" />
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -175,13 +177,8 @@
     }
 
     .principal {
-        width: 425px;
-        height: 425px;
 
-        @media only screen and (max-width: 400px) {
-            width: 275px;
-            height: 275px;
-        }
+
     }
 
     .btn-hover-blue:hover {
@@ -192,6 +189,41 @@
     .h2-h1 {
         font-size: 1.5rem;
         margin-bottom: .5rem;
+    }
+
+    .description-menu{
+        
+        .title-menu{
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #cecdcd;
+
+            .text-menu{
+                margin: 0 0.5rem;
+            }
+
+            .icon-move{
+                cursor: pointer;
+                transform: rotate(90deg);
+                margin-right: 0.5rem;
+
+                &.active{
+                    transform: rotate(0deg);
+                }
+            }
+        }
+
+        .content-menu{
+            margin: 0.7rem 0;
+            display: none;
+
+            &.active{
+                display: block;
+            }
+        }
     }
 
 </style>
@@ -241,6 +273,10 @@ import Swal from 'sweetalert2'
                     slideToClickedSlide: true,
                     loopedSlides: 5, // looped slides should be the same
                 },
+
+                descriptionMenu: true,
+                ingredientsMenu: false,
+                additionalInfoMenu: false,
             }
         },
 

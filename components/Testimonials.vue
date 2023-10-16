@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid mb-5">
         <div class="row">
-            <div class="col-12 bg-gray d-flex flex-column justify-content-center p-5">
+            <div class="col-12 bg-gradient-blue d-flex flex-column justify-content-center p-5">
                 <div class="text-center mb-4">
                     <h2>
                         <i>¿Qué opinan nuestros clientes?</i>

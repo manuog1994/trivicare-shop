@@ -111,6 +111,10 @@
             this.$root.$on('closePopup', data => {
                 this.popUpShow = data;
             })
+
+            this.$root.$on('showPopup', data => {
+                this.popUpShow = data;
+            })
         },
 
         mounted() {

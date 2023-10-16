@@ -2,7 +2,7 @@
     <!-- product items wrapper -->
     <div class="shop-area pt-3 pt-lg-5 pb-100">
         <div class="container-fluid">
-            <div class="text-center p-lg-2">
+            <div class="text-center p-lg-2 d-none d-md-block">
                 <h1>Las mejores productos en cosmética natural, ecológica y cruelty free</h1>
                 <h2 class="text-leader">Te ofrecemos las mejores cremas y serum naturales para tu rutina diaria</h2>
             </div>
@@ -43,11 +43,11 @@
                     <!-- end shop top bar -->
 
                     <!-- shop product -->
-                    <div class="shop-bottom-area mt-35 p-5">
+                    <div class="shop-bottom-area mt-35 p-md-5">
                         <div class="row product-layout" :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
                             <client-only>
                                 <div class="col-xl-4 col-sm-6" v-for="product in getItems" :key="'product-' + product.id" >
-                                    <ProductGridItem :product="product" :layout="layout"/> 
+                                    <ProductGridItem :product="product" :layout="layout"/>
                                 </div>
                             </client-only>
                         </div>
@@ -76,7 +76,7 @@ export default {
 
     data() {
         return {
-            layout: "list",
+            layout: "threeColumn",
             selectedPrice: 'default',
             products: [],
             searchResult: '',

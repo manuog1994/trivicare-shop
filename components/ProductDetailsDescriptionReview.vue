@@ -2,31 +2,29 @@
     <div v-if="product" class="description-review-area pb-90">
 
         <!-- Información del producto -->
-        <div class="container">
+        <div class="container-fluid">
             <div class="description-review-wrapper">
                 <div class="description-review-topbar nav">
-                    <a data-bs-toggle="tab" href="#des-details1">Información adicional</a>
-                    <a class="active" data-bs-toggle="tab" href="#des-details2">Descripción</a>
-                    <a data-bs-toggle="tab" href="#des-details3">Valoraciones ( {{ product.reviews?.length }} )</a>
+                    <a data-bs-toggle="tab" href="#des-details1" class="active">
+                        Modo de empleo
+                        <i class="fa fa-file-text-o ms-2" aria-hidden="true"></i>
+                    </a>
+                    <a data-bs-toggle="tab" href="#des-details3">
+                        Valoraciones 
+                        <i class="fa fa-star ms-1" aria-hidden="true"></i>
+                    </a>
                 </div>
                 <div class="tab-content description-review-bottom">
-                    <div id="des-details2" class="tab-pane active">
-                        <div class="product-description-wrapper m-auto">
-                            <div v-html="product.description"></div>
-                        </div>
-                    </div>
-                    <div id="des-details1" class="tab-pane ">
-                        <div class="product-anotherinfo-wrapper">
-                            <ul>
-                                <li><span>Peso</span>{{ product.weight }} g</li>
-                                <li><span>Dimensiones</span>{{ product.dimensions }} mm </li>
-                                <li><span>Tamaño</span>{{ product.size }} ml</li>
-                            </ul>
+                    <div id="des-details1" class="tab-pane active">
+                        <div class="ms-5 me-5">
+                            <p class="fa-2x">
+                                <i>Aún no hay información disponible</i>
+                            </p>
                         </div>
                     </div>
                     <div id="des-details3" ref="review-div" class="tab-pane">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12" v-if="reviews?.length > 0">
                                 <div v-for="review in paginatedReviews" :key="review.id" class="review-wrapper">
                                     <div class="single-review p-5">
                                         <div class="d-flex justify-content-start">
@@ -57,6 +55,13 @@
                                 </div>
                                 <div v-if="reviews?.length > 10" class="d-flex justify-content-center">
                                     <pagination v-model="page" :records="reviews?.length" :perPage="perPage" @paginate="myCallBack" />
+                                </div>
+                            </div>
+                            <div class="col-12" v-else>
+                                <div class="ms-5 me-5">
+                                    <p class="fa-2x">
+                                        <i>Aún no hay valoraciones de este producto</i>
+                                    </p>
                                 </div>
                             </div>
                         </div>

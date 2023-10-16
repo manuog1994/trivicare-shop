@@ -23,7 +23,7 @@
                 </div> -->
                 <div class="brand-logo-active">
                     <swiper :options="brandLogoCarousel">
-                        <div class="single-brand-logo swiper-slide" v-for="(policy, index) in policies" :key="index">
+                        <div class="single-brand-logo swiper-slide" v-for="(policy, index) in policies" :key="index" v-once>
                             <div class="support-wrap-2 support-padding-2 mb-30 text-center">
                                 <div class="support-content-2">
                                     <div class="support-icon">

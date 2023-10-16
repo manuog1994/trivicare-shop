@@ -442,9 +442,9 @@
 
     // product details size and color
     .pro-details-size-color {
-        border-top: 1px solid #e5e5e5;
-        margin: 20px 0 34px;
-        padding: 37px 0 0;
+        // border-top: 1px solid #e5e5e5;
+        margin: 10px 0 34px;
+        padding: 27px 0 0;
         @media #{$xs-layout}{
             display: block;
         }

@@ -3,12 +3,12 @@
         <div class="product-img">
             <n-link :to="`/product/${product.slug}`">
                 <div v-if="product.images?.length == 0 || product.images?.length == 1">
-                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" src="nuxt/default.webp" :alt="product.name" width="100%" height="100%"/>
-                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" src="nuxt/default.webp" :alt="product.name" width="100%" height="100%"/>
+                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" src="nuxt/default.webp" :alt="product.name" width="100%"/>
+                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" src="nuxt/default.webp" :alt="product.name" width="100%"/>
                 </div>
                 <div v-else>
-                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" :src="product.images[0].path + '800x800/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="100%" height="100%"/>
-                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" :src="product.images[1].path + '800x800/' + product.images[1].name + '.' + product.images[1].ext" :alt="product.name" width="100%" height="100%"/>
+                    <nuxt-img loading="lazy" class="default-img" provider="customProvider" :src="product.images[0].path + '450x600/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="100%"/>
+                    <nuxt-img loading="lazy" class="hover-img" provider="customProvider" :src="product.images[1].path + '450x600/' + product.images[1].name + '.' + product.images[1].ext" :alt="product.name" width="100%"/>
                 </div>
             </n-link>
             <div class="product-badges">
@@ -30,12 +30,12 @@
          <div class="product-content-2">
             <div class="title-price-wrap-2">
                 <h3>
-                    <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
+                    <n-link :to="`/product/${product.slug}`"><strong>{{ product.name }}</strong></n-link>
                 </h3>
                 <div class="price-2">
-                    <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
-                    <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
-                    <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
+                    <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }}&euro;</span>
+                    <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }}&euro;</span>
+                    <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }}&euro;</span>
                 </div>
             </div>
             <div class="pro-wishlist-2">

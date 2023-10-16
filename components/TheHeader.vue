@@ -10,7 +10,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-4">
+                    <div class="col-md-4 col-sm-4 col-4 pt-2">
                         <div class="lgo">
                             <n-link to="/">
                                 <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo_solo.svg" alt="logo" style="width: 150px; margin: auto;" />
@@ -50,7 +50,7 @@
         justify-content: center;
         align-self: center;
         img {
-            width: 200px;
+            width: 200px !important;
         }
     }
 }

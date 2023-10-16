@@ -1,12 +1,14 @@
 /*------ 16. Breadcrumb style  --------*/
-
+.breadcrumb-area{
+    background-color: #2ab5b365;
+}
 .breadcrumb-content {
     ul{
         li{
             display: inline-block;
             font-size: 15px;
             font-weight: 500;
-            color: #5b5858;
+            color: #585b5b;
             margin-right: 18px;
             text-transform: uppercase;
             position: relative;

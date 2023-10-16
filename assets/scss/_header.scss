@@ -1246,3 +1246,8 @@
         }
     }
 }
+
+.bg-gradient-blue {
+background: rgb(42,181,178);
+background: radial-gradient(circle, #40c1bc 0%, #2ab5b2 42%, #6edad3 90%);
+}

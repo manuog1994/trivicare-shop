@@ -1,9 +1,9 @@
 <template>
     <client-only>
         <div class="home-cosmetics">
+            <NavBottom/>
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
-            <NavBottom/>
             <div class="error404">
                 <div class="container text-center">
                     <div class="error-image">
