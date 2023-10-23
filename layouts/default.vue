@@ -31,7 +31,7 @@
                 <div class="d-flex align-items-center text-center">
                     <div class="row">
                         <div class="col-12 col-lg-6 img-popup me-auto">
-                            <img src="/img/newsletter-lucia.jpg" alt="Imagen Pop Up" title="Imagen Pop Up" />
+                            <img src="/img/newsletter-lucia.webp" alt="Imagen Pop Up" title="Imagen Pop Up" />
                         </div>
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center pop-up-newsletter ps-5 pe-5 p-lg-5 m-auto" v-if="!suscribed">
                             <img class="m-auto d-none d-lg-flex" src="/img/email.webp" alt="Icono de correo electrónico" title="Icono de correo electrónico" width="80" height="80"/>
