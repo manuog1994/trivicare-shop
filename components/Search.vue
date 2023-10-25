@@ -19,7 +19,7 @@
                                         <nuxt-img provider="customProvider" src="nuxt/default280x280.webp" alt="default" width="100px" />
                                     </div>
                                     <div v-else>
-                                        <nuxt-img provider="customProvider" :src="product.images[0].path + '280x280/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="100px" />
+                                        <nuxt-img provider="customProvider" :src="product.images[0].path + '270x360/' + product.images[0].name + '.' + product.images[0].ext" :alt="product.name" width="100px" />
                                     </div>
                                     <div class="product-details-search ms-5">
                                         <p>{{ product.name }}</p>
