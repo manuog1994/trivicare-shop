@@ -23,17 +23,19 @@
                 </div>
             </div>
         </div>
+
         <!-- Pop Up alert -->
         <div class="fondo" v-if="popUpShow">
             <div id="pop-up" class="popup-absolute">
-                <div class="d-flex align-items-center align-self-center card p-3 p-lg-0 pt-lg-5 ps-lg-4 pe-lg-4 pb-lg-3 text-center">
-                    <button class="close-btn fs-1" @click="close" title="Botón de cerrar" name="Botón de cerrar pop up"><i class="fa fa-close"></i></button>
+                <button class="close-btn fs-1" @click="close" title="Botón de cerrar" name="Botón de cerrar pop up"><i class="fa fa-close"></i></button>
+                <div class="d-flex align-items-center text-center">
                     <div class="row">
-                        <div class="col-12 col-lg-6 d-none d-lg-block">
-                            <img src="/img/newsletter-lucia.jpg" alt="Imagen Pop Up" title="Imagen Pop Up" width="380" />
+                        <div class="col-12 col-lg-6 img-popup me-auto">
+                            <img class="d-none d-lg-block" src="/img/newsletter-lucia.webp" alt="Imagen Pop Up" title="Imagen Pop Up" />
+                            <img class="d-block d-lg-none" src="/img/newsletter-lucia-min-comp.webp" alt="Imagen Pop Up" title="Imagen Pop Up" />
                         </div>
-                        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-self-center pop-up-newsletter" v-if="!suscribed">
-                            <img class="m-auto" src="/img/email.webp" alt="Icono de correo electrónico" title="Icono de correo electrónico" width="80" height="80"/>
+                        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center pop-up-newsletter ps-5 pe-5 p-lg-5 m-auto" v-if="!suscribed">
+                            <img class="m-auto d-none d-lg-flex" src="/img/email.webp" alt="Icono de correo electrónico" title="Icono de correo electrónico" width="80" height="80"/>
                             <h2 class="mt-2 mt-xl-3">¡Suscríbete y entra en el sorteo de un cheque de 100€!</h2>
                             <p>Descubre lo mejor de la naturaleza para cuidar tu belleza. Suscríbete a nuestra newsletter y entra en el sorteo de un cheque regalo de 100€ para gastar en nuestra tienda.</p>
                             
@@ -64,8 +66,8 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div class="form-check p-3 p-lg-1 d-flex d-lg-none justify-content-center">
-                                    <button class="btn bg-trivi-blue" @click="hiddenPopUpAllow" >No mostrar más esta ventana</button>
+                                <div class="form-check p-3 d-flex justify-content-center">
+                                    <button class="btn text-primary text-decoration-underline" @click="hiddenPopUpAllow" >No mostrar más esta ventana</button>
                                 </div>
                             </div>
                         </div>
@@ -77,12 +79,6 @@
                             <div class="d-flex flex-column">
                                 <button class="btn bg-trivi-red mt-3 px-4" type="button" @click="close" name="close-in-card">Cerrar</button>
                             </div>
-                        </div>
-                        <div class="form-check ms-4 p-3 p-lg-1 d-none d-lg-flex">
-                            <form>
-                                <input class="form-check-input border-black" type="checkbox" @click="hiddenPopUp = true" ref="checkPopUp">
-                                <label class="form-check-label ms-1" for="checkPopUp">No mostrar más esta ventana.</label>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -247,23 +243,28 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-color: #00000063;
+    height: 100vh;
+    background-color: #ffffff;
     z-index: 999;
+    overflow: scroll;
+
+    @media (min-width: 992px) {
+        overflow: hidden;
+    }
 }
 
 .popup-absolute {
-    position: fixed;
-    width: 95%;
-    max-width: 900px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 12000;
+    // position: fixed;
+    // width: 95%;
+    // max-width: 900px;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // z-index: 12000;
 
-    @media (max-width: 990px) {
-        max-width: 400px;
-    }
+    // @media (max-width: 990px) {
+    //     max-width: 400px;
+    // }
 }
 
 
@@ -292,5 +293,71 @@
 .popup-close-btn i {
   color: #333;
 }
+
+.img-popup {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    img {
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 50%;
+        margin: 1rem auto;
+    }
+    
+    @media (min-width: 400px) {
+        img {
+            width: 250px;
+            height: 250px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        flex: 1;
+        position: relative;
+        width: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 0;
+            margin: 0;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        flex: 1;
+        position: relative;
+        width: 100%;
+        img {
+            width: 120%;
+            height: 800px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 0;
+            margin: 0; 
+        }
+    }
+
+    @media (min-width: 1600px) {
+        flex: 1;
+        position: relative;
+        width: 100%;
+        img {
+            width: 120%;
+            height: 1200px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 0;
+            margin: 0; 
+        }
+    }
+}
+
 </style>
 
