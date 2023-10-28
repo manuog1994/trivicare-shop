@@ -457,6 +457,14 @@ export const mutations = {
     SET_ORDER_HISTORY(state, orderHistory) {
         state.orderHistory = orderHistory
     },
+
+    SET_PRODUCT_PRICE(state, specialPrice) {
+        const item = state.products.data.find(el => specialPrice.product_id === el.id)
+        if(item) {
+            item.price_base = (item.price_base - (item.price_base *(specialPrice.discount)/100)).toFixed(2);
+        }
+        item.price = item.price_base * 1.21;
+    },
 }
 
 
@@ -537,6 +545,10 @@ export const actions = {
 
     setOrderHistory({ commit }, payload) {
         commit('SET_ORDER_HISTORY', payload)
+    },
+
+    setProductPrice({ commit }, payload) {
+        commit('SET_PRODUCT_PRICE', payload)
     }
 
 }

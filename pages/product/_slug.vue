@@ -85,10 +85,30 @@
         data() {
             return {
                 searchChildren: '',
+                exclusive: '',
             }
         },
 
         async mounted() {
+            //Si contiene un parametro de exclusive lo recuperamos
+            if (this.$route.query.exclusive) {
+                this.exclusive = this.$route.query.exclusive;
+
+                this.$axios.get('/api/special-link/' + this.exclusive)
+                    .then(response => {
+                        console.log(response);
+                        if (response.status == 200) {
+                            // Aplicamos el descuento al precio
+                            this.$store.dispatch('setProductPrice', response.data);
+
+
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            }
+
             try {
             const page = this.$route.path; // Obtiene la ruta actual
             const response = await this.$axios.post('/api/visit', { page });

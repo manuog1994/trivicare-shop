@@ -134,9 +134,12 @@
                 }
             }, 3000);
 
-            setTimeout(() => {
-                this.popUpShow = this.$store.state.popUp;
-            }, 5000)
+            // Si la fecha actual es menor que la fecha de expiración del pop up se muestra
+            if(new Date().toISOString().slice(0, 10) < '2023-11-01') {
+                setTimeout(() => {
+                    this.popUpShow = this.$store.state.popUp;                    
+                }, 5000)
+            }
 
         },
 
@@ -252,21 +255,6 @@
         overflow: hidden;
     }
 }
-
-.popup-absolute {
-    // position: fixed;
-    // width: 95%;
-    // max-width: 900px;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-    // z-index: 12000;
-
-    // @media (max-width: 990px) {
-    //     max-width: 400px;
-    // }
-}
-
 
 .popup a {
   text-decoration: none;
