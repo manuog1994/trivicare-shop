@@ -36,8 +36,14 @@
                         </div>
                         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center pop-up-newsletter ps-5 pe-5 p-lg-5 m-auto" v-if="!suscribed">
                             <img class="m-auto d-none d-lg-flex" src="/img/email.webp" alt="Icono de correo electrónico" title="Icono de correo electrónico" width="80" height="80"/>
-                            <h2 class="mt-2 mt-xl-3">¡Suscríbete y entra en el sorteo de un cheque de 100€!</h2>
-                            <p>Descubre lo mejor de la naturaleza para cuidar tu belleza. Suscríbete a nuestra newsletter y entra en el sorteo de un cheque regalo de 100€ para gastar en nuestra tienda.</p>
+                            <div v-if="new Date().toISOString().slice(0, 10) < '2023-11-01'">
+                                <h2 class="mt-2 mt-xl-3">¡Suscríbete y entra en el sorteo de un cheque de 100€!</h2>
+                                <p>Descubre lo mejor de la naturaleza para cuidar tu belleza. Suscríbete a nuestra newsletter y entra en el sorteo de un cheque regalo de 100€ para gastar en nuestra tienda.</p>
+                            </div>
+                            <div v-else>
+                                <h2 class="mt-2 mt-xl-3">¡Suscríbete y consigue un 15% de descuento en tu compra</h2>
+                                <p>Descubre lo mejor de la naturaleza para cuidar tu belleza. Suscríbete a nuestra newsletter y consigue un 15% de descuento para tu próxima compra.</p>
+                            </div>
                             
                             <div class="">
                                 <form @submit.prevent="subscribeForm" ref="suscribeFormPopUp" method="post">
@@ -134,12 +140,10 @@
                 }
             }, 3000);
 
-            // Si la fecha actual es menor que la fecha de expiración del pop up se muestra
-            if(new Date().toISOString().slice(0, 10) < '2023-11-01') {
-                setTimeout(() => {
-                    this.popUpShow = this.$store.state.popUp;                    
-                }, 5000)
-            }
+            setTimeout(() => {
+                this.popUpShow = this.$store.state.popUp;                    
+            }, 5000)
+
 
         },
 
