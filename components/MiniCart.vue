@@ -381,7 +381,56 @@
                         this.errorStockMessage = 'Uno o varios de los productos que tienes en carrito no esta disponible, por favor, elimínalo del carrito y vuelve a intentarlo si deseas realizar el pedido.'
                     }
                 })
-                if(this.errorStock == false){
+                // Si la fecha actual es superior a 2023-10-29
+                if(new Date() >= new Date('2023-11-01')){
+                    // Mostrar un sweetalert con un aviso de confirmación
+                    if(this.errorStock == false){
+                        this.closeMiniCart();
+                        Swal.fire({
+                            title: '¡Estamos de Vacaciones!',
+                            text: "Si continua con su pedido, este no será enviado hasta el Lunes 13 de Noviembre de 2023.",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Sí, continuar',
+                            cancelButtonText: 'No, cancelar'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // Si el usuario confirma, se crea la reserva
+                                document.cookie = "duration=900; expires=" + new Date(Date.now() + 630000).toUTCString();
+
+                                this.makeid(27);
+                                this.$axios.post('/api/reserve', {
+                                    products: JSON.stringify(products),
+                                    token_reserve: this.token_reserve,
+                                }).then(res => {
+                                    this.$store.commit('SET_STEP2', false);
+                                    this.$store.commit('SET_STEP3', false);
+                                    this.$store.commit('SET_STEP4', false);
+                                    this.$store.commit('CLEAR_GUEST', {});
+                                    this.$store.commit('SET_PAYMENT_METHOD', '');
+                                    this.$store.commit('SET_SHIPPING_METHOD', '');
+                                    this.$store.commit('SET_PICKUP_ID', '');
+                                    this.$store.commit('SET_DURATION', 900);
+                                    this.$store.commit('SET_USER_PROFILE_ID', '');
+                                    this.$store.commit('CLEAR_CUPON', {});
+                                    this.$store.commit('SET_ORDER_ID', '');
+                                    this.$store.commit('SET_PAYMENT_METHOD', '');
+                                    this.$store.commit('SET_SHIPPING_METHOD', '');
+                                    this.$store.commit('SET_SHIPPING_AMOUNT', 0);
+                                    this.$store.commit('SET_CONDITIONS_STORE', false);
+                                    this.$store.commit('SET_NEWSLETTER_STORE', false);
+                                    this.$store.commit('SET_INVOICE_PAPER', false);
+                                    this.$store.commit('SET_NOTE', '');
+                                    this.$store.commit('SET_RESERVE', this.token_reserve);
+                                    this.$router.push('/checkout' + '?reserve=' + this.token_reserve + '&step=1');
+                                }).catch(err => {
+                                })
+                            }
+                        })
+                    }
+                } else {
                     document.cookie = "duration=900; expires=" + new Date(Date.now() + 630000).toUTCString();
 
                     this.makeid(27);
@@ -409,7 +458,7 @@
                         this.$store.commit('SET_NOTE', '');
                         this.$store.commit('SET_RESERVE', this.token_reserve);
                         this.$router.push('/checkout' + '?reserve=' + this.token_reserve + '&step=1');
-                     }).catch(err => {
+                    }).catch(err => {
                     })
                 }
             },
