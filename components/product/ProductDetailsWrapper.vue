@@ -35,6 +35,8 @@
                             <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
                             <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
                             <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
+                            <span class="ms-2 fs-6" v-if="exclusive.max_uses >= 10"><i>Queda(n) 10 unidad(es) a este precio</i></span>
+                            <span class="ms-2 fs-6" v-else-if="exclusive.max_uses < 10"><i>Queda(n) {{ exclusive.max_uses }} unidad(es) a este precio</i></span>
                         </div>
                         <div class="pro-details-rating-wrap">
                             <client-only>
@@ -104,7 +106,7 @@
                             </div>
                         </div>
                         <div v-if="product.stock > 0" class="pro-details-quality">
-                            <div class="cart-plus-minus">
+                            <div class="cart-plus-minus" v-if="exclusive == 'NO'">
                                 <button @click="decreaseQuantity()" class="dec qtybutton" title="Quitar">-</button>
                                 <input class="cart-plus-minus-box" type="text" :value="singleQuantity" readonly>
                                 <button @click="increaseQuantity()" class="inc qtybutton" title="Añadir">+</button>
@@ -120,7 +122,7 @@
                             </div> -->
                         </div>
                         <div v-else-if="product.stock == 0 && product.presale == 'Si'" class="pro-details-quality">
-                            <div class="cart-plus-minus">
+                            <div class="cart-plus-minus" v-if="exclusive == 'NO'">
                                 <button @click="decreaseQuantity()" class="dec qtybutton" title="Quitar">-</button>
                                 <input class="cart-plus-minus-box" type="text" :value="singleQuantity" readonly>
                                 <button @click="increaseQuantity()" class="inc qtybutton" title="Añadir">+</button>
@@ -232,7 +234,7 @@
 import Swal from 'sweetalert2'
     export default {
         auth: false,
-        props: ['product'],
+        props: ['product', 'exclusive'],
 
         components: {
             CountdownMini: () => import('@/components/CountdownMini.vue'),
@@ -295,43 +297,96 @@ import Swal from 'sweetalert2'
 
         methods: {
             addToCart(product) {
-                if (product.variations.length > 0 && this.variation !== '') {
-                    const prod = {...product, cartQuantity: this.singleQuantity, variation: this.variation}
-                    // for notification
-                    if (this.$store.state.cart.find(el => product.id === el.id && product.variation == '')) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Actualizado!',
-                            text: 'Se ha actualizado la cantidad!',
-                        })
-                    } else {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Añadido!',
-                            text: 'Se ha añadido al carrito!',
-                        })
-                    }
-                    this.$store.dispatch('addToCartItem', prod)
-                } else if (product.variations.length == 0 && this.variation == '') {
-                    const prod = {...product, cartQuantity: this.singleQuantity}
-                    // for notification
-                    if (this.$store.state.cart.find(el => product.id === el.id)) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Actualizado!',
-                            text: 'Se ha actualizado la cantidad!',
-                        })
-                    } else {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Añadido!',
-                            text: 'Se ha añadido al carrito!',
-                        })
-                    }
-                    this.$store.dispatch('addToCartItem', prod)
+                if (this.exclusive == 'NO') {
+                    if (product.variations.length > 0 && this.variation !== '') {
+                        const prod = {...product, cartQuantity: this.singleQuantity, variation: this.variation}
+                        // for notification
+                        if (this.$store.state.cart.find(el => product.id === el.id && product.variation == '')) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Actualizado!',
+                                text: 'Se ha actualizado la cantidad!',
+                            })
+                        } else {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Añadido!',
+                                text: 'Se ha añadido al carrito!',
+                            })
+                        }
+                        this.$store.dispatch('addToCartItem', prod)
+                    } else if (product.variations.length == 0 && this.variation == '') {
+                        const prod = {...product, cartQuantity: this.singleQuantity}
+                        // for notification
+                        if (this.$store.state.cart.find(el => product.id === el.id)) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Actualizado!',
+                                text: 'Se ha actualizado la cantidad!',
+                            })
+                        } else {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Añadido!',
+                                text: 'Se ha añadido al carrito!',
+                            })
+                        }
+                        this.$store.dispatch('addToCartItem', prod)
 
-                }else {
-                    this.errorVariation = true; 
+                    }else {
+                        this.errorVariation = true; 
+                    }
+                } else {
+                    //Limitamos la unidades del carrito a un máximo de 1
+                    
+                    if (product.variations.length > 0 && this.variation !== '') {
+                        const prod = {...product, cartQuantity: 1, variation: this.variation, priceExclusive: 'Si'}
+                        // for notification
+                        if (this.$store.state.cart.find(el => product.id === el.id && product.variation == '')) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Solo puedes añadir 1!',
+                                text: 'No puedes añadir más de 1 producto con esta oferta!',
+                            })
+                            return;
+                        } else {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Añadido!',
+                                text: 'Se ha añadido al carrito!',
+                            })
+
+                            //Añadimos el id del producto a la lista de productos con oferta
+                            this.$store.dispatch('setExclusiveProducts', this.product.id)
+                        }
+                        this.$store.dispatch('addToCartItem', prod)
+                    } else if (product.variations.length == 0 && this.variation == '') {
+                        const prod = {...product, cartQuantity: 1, priceExclusive: 'Si'}
+                        // for notification
+                        if (this.$store.state.cart.find(el => product.id === el.id)) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Solo puedes añadir 1!',
+                                text: 'No puedes añadir más de 1 producto con esta oferta!',
+                            })
+                            return;
+                        } else {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Añadido!',
+                                text: 'Se ha añadido al carrito!',
+                            })
+
+                            //Subimos el id del producto al array de productos con oferta
+                            this.$store.dispatch('setExclusiveProducts', this.product.id)
+                        }
+                        this.$store.dispatch('addToCartItem', prod)
+
+                    }else {
+                        this.errorVariation = true; 
+                    }
+
+
                 }
             },
 

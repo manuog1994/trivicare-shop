@@ -248,6 +248,7 @@ export default {
                 token_reserve: this.$store.getters.getReserve,
                 payment_method: this.$store.getters.getPaymentMethod,
                 pickup_point: this.$store.getters.getPickUpId,
+                exclusiveProducts: JSON.stringify(this.$store.getters.getExclusiveProducts),
             }).then((res) => {
                 console.log(res);
                 this.$store.commit('SET_ORDER_ID', res.data.order.id);
@@ -287,36 +288,6 @@ export default {
         clearCoupon() {
             this.$store.commit('CLEAR_CUPON', {});
         },
-
-        orderComplete() {
-            this.$store.commit('CLEAR_GUEST');
-            this.$store.commit('CLEAR_CART');
-            this.$store.commit('CLEAR_CUPON');
-            this.$store.commit('SET_STEP2', false);
-            this.$store.commit('SET_STEP3', false);
-            this.$store.commit('SET_STEP4', false);
-            this.$store.commit('CLEAR_GUEST', {});
-            this.$store.commit('SET_PAYMENT_METHOD', '');
-            this.$store.commit('SET_SHIPPING_METHOD', '');
-            this.$store.commit('SET_PICKUP_ID', '');
-            this.$store.commit('SET_DURATION', 900);
-            this.$store.commit('SET_USER_PROFILE_ID', '');
-            this.$store.commit('SET_RESERVE', '');
-            this.$store.commit('CLEAR_CUPON', {});
-            this.$store.commit('SET_ORDER_ID', '');
-            this.$store.commit('SET_PAYMENT_METHOD', '');
-            this.$store.commit('SET_SHIPPING_METHOD', '');
-            this.$store.commit('SET_SHIPPING_AMOUNT', 0);
-            this.$store.commit('SET_CONDITIONS_STORE', false);
-            this.$store.commit('SET_NEWSLETTER_STORE', false);
-            this.$store.commit('SET_INVOICE_PAPER', false);
-            this.$store.commit('SET_NOTE', '');
-            this.$modal.hide('transfer_bank');
-            this.$modal.hide('bizum');
-            window.onbeforeunload = null;
-            window.history.pushState(null, '', window.location.href);
-            this.$router.push({path: '/'});
-        }
     }
 }
 </script>

@@ -6,7 +6,7 @@
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <div id="post-nav" class="" @click="closeMenus">
                 <Breadcrumb :pageTitle="productDetails?.name" />
-                <ProductDetailsWrapper :product="productDetails" v-if="productDetails" />
+                <ProductDetailsWrapper :product="productDetails" :exclusive="exclusive || null" v-if="productDetails" />
                 <ProductDetailsDescriptionReview :product="productDetails" :reviews="productDetails.reviews" v-if="productDetails" />
                 <ProductWrapperCosmeticsTwoDetail />
                 <TheFooter />
@@ -23,7 +23,7 @@
         pageTransition: 'slide-fade',
 
         
-        async asyncData({ store, params }) {
+        async asyncData({ store, params, query, $axios }) {
             try {
                 const productDispatch = await store.dispatch('getProducts', {
                     page: '',
@@ -35,7 +35,30 @@
                     status: 2
                 });
                 const productDetails = store.getters.getProducts
+                let exclusive = 'NO';
+
+                //Si la ruta contiene un parametro de exclusive lo recuperamos
+                if (query.exclusive) {
+                    try {
+                        //Hacemos una petición a la api para obtener el precio con descuento
+                        const response = await $axios.get('/api/special-link/' + query.exclusive, {
+                            product_id: productDetails?.data[0].id
+                        })
+                        // Aplicamos el descuento al precio
+                        store.dispatch('setProductPrice', response.data);
+                        
+                        exclusive = response?.data
+                    } catch (error) {
+                        //Si devuelve un error, mostramos el precio normal
+                        return {
+                            productDetails: productDetails?.data[0],
+                            exclusive: exclusive,
+                        }
+                    }
+                }
+                
                 return {
+                    exclusive: exclusive,
                     productDetails: productDetails?.data[0],
                 }
 
@@ -85,33 +108,13 @@
         data() {
             return {
                 searchChildren: '',
-                exclusive: '',
             }
         },
 
         async mounted() {
-            //Si contiene un parametro de exclusive lo recuperamos
-            if (this.$route.query.exclusive) {
-                this.exclusive = this.$route.query.exclusive;
-
-                this.$axios.get('/api/special-link/' + this.exclusive)
-                    .then(response => {
-                        console.log(response);
-                        if (response.status == 200) {
-                            // Aplicamos el descuento al precio
-                            this.$store.dispatch('setProductPrice', response.data);
-
-
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    })
-            }
-
             try {
-            const page = this.$route.path; // Obtiene la ruta actual
-            const response = await this.$axios.post('/api/visit', { page });
+                const page = this.$route.path; // Obtiene la ruta actual
+                const response = await this.$axios.post('/api/visit', { page });
             } catch (error) {
                 await this.$axios.post('/api/error-message', { 
                     message: error 

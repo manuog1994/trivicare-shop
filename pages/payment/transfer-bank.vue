@@ -91,6 +91,7 @@ export default {
                 token_reserve: this.$store.getters.getReserve,
                 payment_method: this.$store.getters.getPaymentMethod,
                 pickup_point: this.$store.getters.getPickUpId,
+                exclusiveProducts: JSON.stringify(this.$store.getters.getExclusiveProducts),
             }).then(() => {
                 this.$root.$emit('orderComplete', true)
                 this.confirmed = true;

@@ -61,7 +61,7 @@
                                                 </div>
                                                 <div class="product-qty">
                                                     <div class="row">
-                                                        <div v-if="product.stock != 0 && product.price_base !== 0 || product.stock == 0 && product.presale == 'Si'" class="col-12 d-flex align-items-center">
+                                                        <div v-if="product.stock != 0 && product.price_base !== 0 && product.priceExclusive != 'Si' || product.stock == 0 && product.presale == 'Si' && product.priceExclusive != 'Si'" class="col-12 d-flex align-items-center">
                                                             <div class="me-3">
                                                                 <h5>Cantidad: </h5>
                                                             </div>
@@ -355,6 +355,9 @@
             removeProduct(product, variation) {
                 if(product.price_base == 0){
                     this.freeProduct = 0;
+                }
+                if(product.priceExclusive == 'Si'){
+                    this.$store.dispatch('removeExclusiveProducts', product.id)
                 }
                 this.$store.dispatch('removeProductFromCart', {product, variation})
             },

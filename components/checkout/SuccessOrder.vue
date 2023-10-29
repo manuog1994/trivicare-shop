@@ -152,7 +152,7 @@ export default {
             this.$store.commit('SET_INVOICE_PAPER', false);
             this.$store.commit('SET_NOTE', '');
             this.$store.commit('SET_BIZUM_PAGE', false);
-
+            this.$store.commit('SET_EXCLUSIVE_PRODUCTS', []);
         },
     }
 }

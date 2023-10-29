@@ -40,6 +40,7 @@ export const state = () => ({
     gtm: false,
     popUp: true,
     orderHistory: [],
+    exclusiveProducts: [],
 })
 
 
@@ -225,9 +226,11 @@ export const getters = {
 
     getOrderHistory: state => {
         return state.orderHistory
+    },
+
+    getExclusiveProducts: state => {
+        return state.exclusiveProducts
     }
-
-
 }
 
 // contains your mutations
@@ -465,6 +468,22 @@ export const mutations = {
         }
         item.price = item.price_base * 1.21;
     },
+
+    SET_EXCLUSIVE_PRODUCTS(state, exclusiveProducts) {
+        if (exclusiveProducts == null || exclusiveProducts == undefined || exclusiveProducts == ''){
+            // Vaciar array de productos exclusivos
+            return state.exclusiveProducts = [];
+        }
+        // meter en el array de productos los productos exclusivos
+        return state.exclusiveProducts.push(exclusiveProducts);
+    },
+
+    REMOVE_EXCLUSIVE_PRODUCTS(state, exclusiveProducts) {
+        // sacar del array de productos los productos exclusivos
+        state.exclusiveProducts = state.exclusiveProducts.filter(item => {
+            return exclusiveProducts.id !== item.id
+        });
+    }
 }
 
 
@@ -549,7 +568,14 @@ export const actions = {
 
     setProductPrice({ commit }, payload) {
         commit('SET_PRODUCT_PRICE', payload)
-    }
+    },
 
+    setExclusiveProducts({ commit }, payload) {
+        commit('SET_EXCLUSIVE_PRODUCTS', payload)
+    },
+
+    removeExclusiveProducts({ commit }, payload) {
+        commit('REMOVE_EXCLUSIVE_PRODUCTS', payload)
+    }
 }
 
