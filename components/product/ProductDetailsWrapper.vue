@@ -7,7 +7,7 @@
                         <div class="product-details-img">
                             <div class="product-badges">
                                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
-                                <span class="product-label purple" v-if="product?.discount !== null">-{{ product?.discount?.discount }}%</span>
+                                <span class="product-label bg-danger text-white p-3 rounded-circle" v-if="product?.discount !== null">-{{ product?.discount?.discount }}%</span>
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
                                 <div v-if="product.images?.length == 0" class="swiper-slide text-center">
@@ -70,9 +70,9 @@
                             </div>
                         </div>
                         <div class="pro-details-size-color" v-if="product.variations">
-                            <div v-if="product.discount?.discount > 0">
+                            <!-- <div v-if="product.discount?.discount > 0">
                                 <CountdownMini :targetDate="product.discount?.end_date" />
-                            </div>
+                            </div> -->
                             <div v-if="errorVariation">
                                 <p class="text-danger">
                                     <i>Debes seleccionar el modelo, color o tamaño antes de añadirlo al carrito.</i>

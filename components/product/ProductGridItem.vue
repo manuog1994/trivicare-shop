@@ -12,9 +12,9 @@
                 </div>
             </n-link>
             <div class="product-badges">
-                <CountdownShop v-show="product.discount?.discount > 0" :targetDate="product.discount?.end_date"/>
+                <!-- <CountdownShop v-show="product.discount?.discount > 0" :targetDate="product.discount?.end_date"/> -->
                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
-                <span class="product-label purple" v-if="product?.discount !== null">-{{ getDiscount(product) }}%</span>
+                <span class="product-label bg-danger text-white rounded-circle p-2" v-if="product?.discount !== null">-{{ getDiscount(product) }}%</span>
             </div>
              <div class="product-action" v-if="layout === 'twoColumn' || layout === 'threeColumn'">
                 <div class="pro-same-action pro-wishlist">
@@ -50,7 +50,7 @@
             <div class="product-price">
                 <span v-if="product?.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }}&euro;</span>
                 <span v-if="product?.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }}&euro;</span>
-                <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }}&euro;</span>
+                <span class="old text-danger" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }}&euro;</span>
             </div>
             <div class="product-content__list-view" v-if="layout === 'list'">
                 <div>

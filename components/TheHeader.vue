@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-start align-items-center">
                         <div class="same-style mobile-menu-toggler d-flex d-xl-none ms-sm-3">
-                            <button class="mobile-aside-button fs-2" @click="navOpen = !navOpen" title="Menu">
+                            <button class="mobile-aside-button fs-2" @click="navOpen = !navOpen" title="Menu" style="color: white;">
                                 <i class="fa fa-bars"></i>
                             </button>
                         </div>
@@ -13,17 +13,17 @@
                     <div class="col-md-4 col-sm-4 col-4 pt-2">
                         <div class="lgo">
                             <n-link to="/">
-                                <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo_solo.svg" alt="logo" style="width: 150px; margin: auto;" />
+                                <nuxt-img loading="lazy" provider="customProvider" src="storage/campain/Trivicare-white.svg" alt="logo" style="width: 150px; margin: auto;" />
                             </n-link>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4 col-4 d-flex justify-content-end align-items-center">
                         <div class="header-right-wrap">
                             <div class="same-style header-search me-2">
-                                <button class="search-active" @click="searchShow" title="Abrir barra de búsqueda"><i class="pe-7s-search"></i></button>
+                                <button class="search-active" @click="searchShow" title="Abrir barra de búsqueda" style="color:white;"><i class="pe-7s-search"></i></button>
                             </div>
                             <div class="same-style cart-wrap me-sm-3">
-                                <button class="icon-cart" @click="openCart = !openCart" title="Menu Carrito">
+                                <button class="icon-cart" @click="openCart = !openCart" title="Menu Carrito" style="color: white;">
                                     <i class="pe-7s-shopbag"></i>
                                     <span class="count-style">{{ cartItemCount }}</span>
                                 </button>

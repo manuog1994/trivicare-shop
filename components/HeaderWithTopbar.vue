@@ -1,12 +1,12 @@
 <template>
     <div class="d-none d-xl-block">
-        <header class="header-area" :class="{'position-absolute': $router.currentRoute.path === '/' ? true : false}">
+        <header class="header-area" :class="{'position-absolute': $router.currentRoute.path === '/' ? true : false, 'bg-black':  $router.currentRoute.path === '/' ? false : true}">
             <div class="header-padding-1 sticky-bar" :class="{'is-sticky': isSticky}">
                 <div :class="containerClass">
                     <div class="row">
                         <div class="col-3 d-flex align-items-center justify-content-end">
                             <n-link to="/">
-                                <nuxt-img loading="lazy" provider="customProvider" src="nuxt/TriviCare_byn Positivo_solo.svg" width="180" alt="logo"/>
+                                <nuxt-img loading="lazy" provider="customProvider" src="storage/campain/Trivicare-white.svg" width="180" alt="logo"/>
                             </n-link>
                         </div>
                         <div class="col-6">
@@ -19,7 +19,7 @@
                         <div class="col-3 stiky-buttons p-3 d-flex justify-content-start">
                             <div class="header-right-wrap">
                                 <div class="same-style header-search">
-                                    <button class="search-active" @click="searchOpen" title="Abrir barra de búsqueda"><i class="pe-7s-search fs-3"></i></button>
+                                    <button class="search-active" @click="searchOpen" title="Abrir barra de búsqueda" style="color: white;"><i class="pe-7s-search fs-3"></i></button>
                                 </div>
                                 <!-- <div class="same-style account-setting d-block me-1">
                                     <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings" title="Menú de perfil"><i class="pe-7s-user-female"></i></button>
@@ -43,18 +43,18 @@
                                     </button>
                                     <Notifications :openNotifications="openNotifications" @notificationsClose="openNotifications = !openNotifications" />
                                 </div> -->
-                                <div class="same-style header-wishlist">
-                                    <n-link to="/wishlist"><i class="pe-7s-like fs-3" title="Ir a lista de deseos"></i></n-link>
+                                <div class="same-style header-wishlist" >
+                                    <n-link style="color: white;" to="/wishlist"><i class="pe-7s-like fs-3" title="Ir a lista de deseos"></i></n-link>
                                     <span class="count-style">{{ wishlistItemCount }}</span>
                                 </div>
                                 <div class="same-style cart-wrap me-lg-3 me-xl-1">
-                                    <button class="icon-cart" @click="openCart = !openCart" title="Desplegar carrito">
+                                    <button class="icon-cart" @click="openCart = !openCart" title="Desplegar carrito"  style="color: white;">
                                         <i class="pe-7s-shopbag fs-3"></i>
                                         <span class="count-style">{{ cartItemCount }}</span>
                                     </button>
                                 </div>
                                 <div class="same-style mobile-menu-toggler d-block d-lg-none">
-                                    <button class="mobile-aside-button" @click="navOpen = !navOpen" title="Menu">
+                                    <button class="mobile-aside-button" @click="navOpen = !navOpen" title="Menu"  style="color: white;">
                                         <i class="pe-7s-menu fs-3"></i>
                                     </button>
                                 </div>
