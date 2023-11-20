@@ -1,5 +1,5 @@
 <template>
-    <div class="d-xl-none menu-mobile" :class="{'position-absolute': $router.currentRoute.path === '/' ? true : false}">
+    <div class="d-xl-none menu-mobile" :class="{'position-absolute': $router.currentRoute.path === '/' ? true : false, 'bg-black':  $router.currentRoute.path === '/' ? false : true}">
         <header class="header-area sticky-bar p-3" :class="{'is-sticky': isSticky}">
             <div class="container-fluid">
                 <div class="row">
