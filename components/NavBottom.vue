@@ -1,9 +1,9 @@
 <template>
     <client-only>
-        <div class="d-block bg-gradient-blue">
+        <div class="d-block bg-dark">
             <div>
                 <div class="">
-                    <div class="custom-banner text-center">
+                    <div class="custom-banner text-center text-white">
                         <i class="fa fa-truck me-md-2 d-none d-md-block"></i>
                         <span>Envío gratis a Península y Baleares a partir de 50 €</span>
                     </div>

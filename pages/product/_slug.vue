@@ -1,6 +1,7 @@
 <template>
     <client-only>
         <div class="product-details-page-wrapper">
+            <Snow />
             <NavBottom />
             <HeaderWithTopbar containerClass="container-fluid"/>
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
@@ -131,6 +132,7 @@
             ProductDetailsDescriptionReview: () => import('@/components/ProductDetailsDescriptionReview'),
             ProductWrapperCosmeticsTwoDetail: () => import('@/components/product/ProductWrapperCosmeticsTwoDetail'),
             TheFooter: () => import('@/components/TheFooter'),
+            Snow: () => import('@/components/Snow'),
         },
 
         methods: {

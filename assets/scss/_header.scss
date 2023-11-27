@@ -2,6 +2,7 @@
 .header-area {
     z-index: 997;
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.107);
     //margin-bottom: 15px;
     @media #{$md-layout, $xs-layout} {
         margin-top: 0px;
@@ -11,8 +12,8 @@
 
 .sticky-bar.is-sticky {
 	animation: 700ms ease-in-out 0s normal none 1 running fadeInDown;
-    background: rgb(91,64,219);
-    background: radial-gradient(circle, rgba(91,64,219,1) 0%, rgba(82,78,229,1) 49%, rgba(71,93,237,1) 90%);
+    background: rgb(50,10,9);
+    background: linear-gradient(90deg, rgba(50,10,9,1) 0%, rgba(177,37,36,1) 49%, rgba(226,48,46,1) 100%);
 	border-bottom: 0 solid #4a90e2;
 	box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.06);
 	position: fixed;
@@ -1254,11 +1255,11 @@ background: radial-gradient(circle, #40c1bc 0%, #2ab5b2 42%, #6edad3 90%);
 }
 
 .bg-cybermonday {
-    background: rgb(91,64,219);
-    background: radial-gradient(circle, rgba(91,64,219,1) 0%, rgba(82,78,229,1) 49%, rgba(71,93,237,1) 90%);
+    background: rgb(50,10,9);
+    background: linear-gradient(90deg, rgba(50,10,9,1) 0%, rgba(177,37,36,1) 49%, rgba(226,48,46,1) 100%);
 }
 
 .bg-blue {
-    background: rgb(79,56,190);
-    background: radial-gradient(circle, rgba(79,56,190,1) 0%, rgba(68,65,191,1) 49%, rgba(57,75,191,1) 100%);
+    background: rgb(50,10,9);
+    background: linear-gradient(90deg, rgba(50,10,9,1) 0%, rgba(177,37,36,1) 49%, rgba(226,48,46,1) 100%);
 }

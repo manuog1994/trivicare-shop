@@ -1,6 +1,7 @@
 <template>
     <client-only>
         <div class="shop-page-wrapper">
+            <Snow />
             <NavBottom/>
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
@@ -26,6 +27,7 @@
             NavBottom: () => import("@/components/NavBottom"),
             ShopContainer: () => import("@/components/ShopContainer"),
             TheFooter: () => import("@/components/TheFooter"),
+            Snow: () => import("@/components/Snow"),
         },
 
         data() {

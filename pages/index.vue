@@ -1,12 +1,12 @@
 <template>
     <client-only>
         <div class="home-cosmetics">
+            <Snow />
             <NavBottom/>
             <HeaderWithTopbar containerClass="container-fluid" />
             <TheHeader :searchFather="searchChildren" @opacity="searchOpacity"/>
             <HeroSliderSix />
             <div id="post-nav" class="" @click="closeMenus">
-                <ProductWrapperCosmeticsBW />
                 <IconsActions />
                 <ProductWrapperCosmetics />
                 <Testimonials />
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-
     function delayImport(importPromise, delay) {
         return new Promise((resolve) => {
             setTimeout(() => resolve(importPromise), delay);
@@ -39,11 +38,11 @@
             IconsActions: () => delayImport(import("@/components/IconsActions"), 1000),
             ProductWrapperCosmetics: () => delayImport(import("@/components/product/ProductWrapperCosmetics"), 1500),
             ProductWrapperCosmeticsTwo: () => delayImport(import("@/components/product/ProductWrapperCosmeticsTwo"), 2000),
-            ProductWrapperCosmeticsBW: () => delayImport(import("@/components/product/ProductWrapperCosmeticsBW"), 1200),
             Testimonials: () => delayImport(import("@/components/Testimonials"), 2500),
             ServicePolicyFour: () => delayImport(import("@/components/policy/ServicePolicyFour"), 3000),
             TheFooter: () => delayImport(import("@/components/TheFooter"), 3200),
             InstagramFeed: () => delayImport(import("@/components/InstagramFeed"), 3500),
+            Snow: () => delayImport(import("@/components/Snow"), 2000),
         },
 
         data() {
