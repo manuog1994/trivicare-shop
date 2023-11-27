@@ -1,6 +1,6 @@
 <template>
     <div class="d-none d-xl-block">
-        <header class="header-area" :class="{'position-absolute': $router.currentRoute.path === '/' ? true : false, 'bg-black':  $router.currentRoute.path === '/' ? false : true}">
+        <header class="header-area" :class="{'position-absolute': $router.currentRoute.path === '/' ? true : false, 'bg-cybermonday':  $router.currentRoute.path === '/' ? false : true}">
             <div class="header-padding-1 sticky-bar" :class="{'is-sticky': isSticky}">
                 <div :class="containerClass">
                     <div class="row">

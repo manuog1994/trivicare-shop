@@ -11,7 +11,8 @@
 
 .sticky-bar.is-sticky {
 	animation: 700ms ease-in-out 0s normal none 1 running fadeInDown;
-	background-color: black;
+    background: rgb(91,64,219);
+    background: radial-gradient(circle, rgba(91,64,219,1) 0%, rgba(82,78,229,1) 49%, rgba(71,93,237,1) 90%);
 	border-bottom: 0 solid #4a90e2;
 	box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.06);
 	position: fixed;
@@ -1250,4 +1251,14 @@
 .bg-gradient-blue {
 background: rgb(42,181,178);
 background: radial-gradient(circle, #40c1bc 0%, #2ab5b2 42%, #6edad3 90%);
+}
+
+.bg-cybermonday {
+    background: rgb(91,64,219);
+    background: radial-gradient(circle, rgba(91,64,219,1) 0%, rgba(82,78,229,1) 49%, rgba(71,93,237,1) 90%);
+}
+
+.bg-blue {
+    background: rgb(79,56,190);
+    background: radial-gradient(circle, rgba(79,56,190,1) 0%, rgba(68,65,191,1) 49%, rgba(57,75,191,1) 100%);
 }

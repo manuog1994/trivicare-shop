@@ -1,10 +1,10 @@
 <template>
-    <div class="container-fluid mb-5 bg-dark">
+    <div class="container-fluid mb-5 bg-blue">
         <div class="product-area">
             <div class="ps-lg-5 pe-lg-5 pb-5">
                 <div class="text-center pt-3">
-                    <h2 class="text-white">OFERTAS BLACK WEEK 🔥</h2>
-                    <p class="text-white lead m-0">Los descuentos más esperados del año.</p>
+                    <h2 class="text-white">OFERTAS CYBERMONDAY 🔥</h2>
+                    <p class="text-white lead m-0">Aprovecha los descuentos solo por hoy.</p>
                 </div>
                 <div class="brand-logo-active mt-5">
                     <swiper :options="brandLogoCarousel">
@@ -14,7 +14,7 @@
                     </swiper>
                     <!-- Boton ver más -->
                     <div class="d-flex justify-content-center">
-                        <n-link class="btn-more bg-danger" to="/shop?tag=black-week">VER MÁS</n-link>
+                        <n-link class="btn-more bg-danger" to="/shop?tag=cyber-monday">VER MÁS</n-link>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
             blackWeek() {
                 const bw = this.products.filter((item) => {
                     // Si el item tiene el tag black-week se guarda en el array
-                    if (item.tags.find(tag => tag.name == 'Black Week')) {
+                    if (item.tags.find(tag => tag.name == 'Cyber Monday')) {
                         this.bW.push(item)
                     }
                 });
