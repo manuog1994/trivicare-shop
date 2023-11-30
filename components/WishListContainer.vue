@@ -29,7 +29,7 @@
                                             <n-link :to="`/product/${product.slug}`">{{ product.name }}</n-link>
                                         </td>
                                         <td class="product-price-cart">
-                                            <span class="amount">{{ discountedPrice(product).toFixed(2) }} &euro;</span>
+                                            <span class="amount">{{ discountedPrice(product) }} &euro;</span>
                                             <del class="old" v-if="product.discount !== null && product.discount?.is_active">{{ product.price }} &euro;</del>
                                         </td>
                                         <td class="product-wishlist-cart">
@@ -137,8 +137,8 @@ export default {
         },
 
         discountedPrice(product) {
-            if (product.discount.is_active){
-                return product.price_base - (product.price_base * product.discount.discount / 100)
+            if (product.discount?.is_active){
+                return (product.price_base - (product.price_base * product.discount.discount / 100)).toFixed(2)
             } else {
                 return product.price_base
             }
