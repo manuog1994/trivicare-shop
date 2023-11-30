@@ -13,7 +13,7 @@
             </n-link>
             <div class="product-badges">
                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
-                <span class="product-label purple" v-if="product.discount !== null">-{{ product.discount?.discount }}%</span>
+                <span class="product-label purple" v-if="product.discount !== null && product?.discount?.is_active">-{{ product.discount?.discount }}%</span>
             </div>
             <div class="product-content-3-wrap">
                 <div class="product-content-3">
@@ -23,9 +23,9 @@
                         </h3>
                     </div>
                     <div class="price-3">
-                        <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
-                        <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
-                        <span class="old" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
+                        <span v-if="product.discount === null || !product?.discount?.is_active">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
+                        <span v-if="product.discount !== null && product?.discount?.is_active">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                        <span class="old" v-if="product.discount !== null && product?.discount?.is_active">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
                     </div>
                     <div class="product-action-3">
                         <!-- <button class="btn" title="Compare" @click="addToCompare(product)"> 
@@ -51,6 +51,12 @@
 import Swal from 'sweetalert2'
     export default {
         props: ["product"],
+
+        data() {
+            return {
+                today: new Date().toISOString().slice(0, 10),
+            }
+        },
 
         methods: {
             addToCart(product) {

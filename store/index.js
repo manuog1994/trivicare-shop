@@ -173,8 +173,13 @@ export const getters = {
     getSubTotal: state => {
         let subTotal = 0;
         state.cart.forEach(item => {
-            let price = item.discount !== null ? item.price_base - (item.price_base *(item.discount.discount)/100) : item.price_base;
-            subTotal += price * item.cartQuantity
+            if (item.discount !== null && item.discount?.is_active) {
+                let price = item.price_base - (item.price_base * (item.discount.discount)/100);
+                subTotal += price * item.cartQuantity
+            } else {
+                let price = item.price_base;
+                subTotal += price * item.cartQuantity
+            }
         })
         return subTotal;
     },
@@ -182,9 +187,15 @@ export const getters = {
     getTotal: state => {
         let total = 0;
         state.cart.forEach(item => {
-            let price = item.discount !== null ? item.price_base - (item.price_base *(item.discount.discount)/100) : item.price_base;
-            total += price * item.cartQuantity
+            if (item.discount !== null && item.discount?.is_active) {
+                let price = item.price_base - (item.price_base * (item.discount.discount)/100);
+                total += price * item.cartQuantity
+            } else {
+                let price = item.price_base;
+                total += price * item.cartQuantity
+            }
         })
+
         if (state.cupon.id) {
             total = total - (total * (state.cupon.discount / 100))
         }

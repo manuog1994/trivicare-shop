@@ -30,7 +30,7 @@
                                         </td>
                                         <td class="product-price-cart">
                                             <span class="amount">{{ discountedPrice(product).toFixed(2) }} &euro;</span>
-                                            <del class="old" v-if="product.discount > 0">{{ product.price }} &euro;</del>
+                                            <del class="old" v-if="product.discount !== null && product.discount?.is_active">{{ product.price }} &euro;</del>
                                         </td>
                                         <td class="product-wishlist-cart">
                                             <button @click="addToCart(product)" title="Añadir al carrito">añadir al carrito</button>
@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 export default {
     computed: {
         products() {
@@ -110,27 +111,37 @@ export default {
 
             },
 
-        addToCart(product) {
-            const prod = {...product, cartQuantity: 1}
-            // for notification
-            if (this.$store.state.cart.find(el => product.id === el.id)) {
-                this.$notify({ title: 'Se ha actualizado la cantidad de producto' })
-            } else {
-                this.$notify({ title: 'Añadido al carrito!'})
-            }
+            addToCart(product) {
+                const prod = {...product, cartQuantity: 1}
+                // for notification
+                if (this.$store.state.cart.find(el => product.id === el.id)) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Actualizado!',
+                        text: 'Se ha actualizado la cantidad del producto en el carrito',
+                    })
+                } else {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Añadido!',
+                        text: 'Se ha añadido el producto al carrito',
+                    })
+                }
 
-            this.$store.dispatch('addToCartItem', prod)
-        },
+                this.$store.dispatch('addToCartItem', prod)
+            },
 
         removeProductFromWishlist(product) {
             // for notification
-            this.$notify({ title: 'Eliminado de la lista de deseos!'})
-            
             this.$store.dispatch('removeProductFromWishlist', product)
         },
 
         discountedPrice(product) {
-            return product.price - (product.price * product.discount / 100)
+            if (product.discount.is_active){
+                return product.price_base - (product.price_base * product.discount.discount / 100)
+            } else {
+                return product.price_base
+            }
         },
 
     },

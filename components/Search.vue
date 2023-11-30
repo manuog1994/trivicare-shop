@@ -24,9 +24,9 @@
                                     <div class="product-details-search ms-5">
                                         <p>{{ product.name }}</p>
                                         <div class="product-details-price">
-                                            <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
-                                            <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
-                                            <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
+                                            <span v-if="product.discount === null || !product.discount?.is_active">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
+                                            <span v-if="product.discount !== null && product.discount?.is_active">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                                            <span class="old" v-if="product.discount !== null && product.discount?.is_active">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
                                         </div>
                                     </div>
                                 </n-link>
@@ -137,7 +137,11 @@ export default {
         },
 
         discountedPrice(product) {
-            return product.price_base - (product.price_base * product.discount.discount / 100)
+            if (product.discount.is_active){
+                return product.price_base - (product.price_base * product.discount.discount / 100)
+            } else {
+                return product.price_base
+            }
         },
     }
 

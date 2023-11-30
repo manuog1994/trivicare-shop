@@ -13,7 +13,7 @@
             </n-link>
             <div class="product-badges">
                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
-                <span class="product-label purple" v-if="product.discount !== null">-{{ product.discount?.discount }}%</span>
+                <span class="product-label purple" v-if="product.discount !== null  && product?.discount?.is_active">-{{ product.discount?.discount }}%</span>
             </div>
             <div class="product-action-2">
                 <!-- <button class="btn" title="Compare" @click="addToCompare(product)"> 
@@ -33,9 +33,9 @@
                     <n-link :to="`/product/${product.slug}`"><strong>{{ product.name }}</strong></n-link>
                 </h3>
                 <div class="price-2">
-                    <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }}&euro;</span>
-                    <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }}&euro;</span>
-                    <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }}&euro;</span>
+                    <span v-if="product.discount === null || !product?.discount?.is_active">{{ ((product.price_base) * 1.21).toFixed(2) }}&euro;</span>
+                    <span v-if="product.discount !== null && product?.discount?.is_active">{{ (discountedPrice(product) * 1.21).toFixed(2) }}&euro;</span>
+                    <span class="old" v-if="product.discount !== null && product?.discount?.is_active">{{ (product.price_base * 1.21).toFixed(2) }}&euro;</span>
                 </div>
             </div>
             <div class="pro-wishlist-2">
@@ -49,6 +49,12 @@
 import Swal from 'sweetalert2';
     export default {
         props: ["product"],
+
+        data() {
+            return {
+                today: new Date().toISOString().slice(0, 10),
+            }
+        },
 
         methods: {
             addToCart(product) {
@@ -72,7 +78,11 @@ import Swal from 'sweetalert2';
             },
 
             discountedPrice(product) {
-                return product.price_base - (product.price_base * product.discount.discount / 100)
+                if (product.discount.is_active){
+                    return product.price_base - (product.price_base * product.discount.discount / 100)
+                } else {
+                    return product.price_base
+                }
             },
 
             addToWishlist(product) {

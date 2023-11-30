@@ -42,11 +42,11 @@
                                                         <n-link class="fs-5" :to="`/product/${product.slug}`">{{ product.name }} {{ product.variation != undefined ? `-- ${product.variation}` : '' }}</n-link>
                                                     </div>
                                                     <div class="d-md-flex justify-content-md-end">
-                                                        <span class="d-none d-md-block" style="font-size:14px;color:#cfcfcf;margin-right:5px;padding-right:5px;text-decoration:line-through;" v-if="product.discount > 0">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
-                                                        <p v-if="product.discount === null" class="p-0 m-0 d-md-none">Precio: <span class=" fw-semibold">{{ product.price_base === 0 ? 'Gratis' : ((product.price_base) * 1.21).toFixed(2) + ' &euro;' }}</span></p>
-                                                        <p v-if="product.discount !== null" class="p-0 m-0 d-md-none">Precio: <span class="text-danger fw-semibold">{{ (discountedPrice(product) * 1.21).toFixed(2) }} €</span> <span class="old fw-semibold">{{ ((product.price_base) * 1.21).toFixed(2) }} €</span></p>
-                                                        <p v-if="product.discount === null" class="text-price d-none d-md-block"><span class=" fw-semibold">{{ product.price_base === 0 ? 'Gratis' : ((product.price_base) * 1.21).toFixed(2) + ' &euro;'}}</span></p>
-                                                        <p v-if="product.discount !== null" class="text-price d-none d-md-block">
+                                                        <!-- <span class="d-none d-md-block" style="font-size:14px;color:#cfcfcf;margin-right:5px;padding-right:5px;text-decoration:line-through;" v-if="product.discount == null || !product?.discount?.is_active">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span> -->
+                                                        <p v-if="product.discount === null || !product?.discount.is_active" class="p-0 m-0 d-md-none">Precio: <span class=" fw-semibold">{{ product.price_base === 0 ? 'Gratis' : ((product.price_base) * 1.21).toFixed(2) + ' &euro;' }}</span></p>
+                                                        <p v-if="product.discount !== null && product?.discount.is_active" class="p-0 m-0 d-md-none">Precio: <span class="text-danger fw-semibold">{{ (discountedPrice(product) * 1.21).toFixed(2) }} €</span> <span class="old fw-semibold">{{ ((product.price_base) * 1.21).toFixed(2) }} €</span></p>
+                                                        <p v-if="product.discount === null || !product?.discount.is_active" class="text-price d-none d-md-block"><span class=" fw-semibold">{{ product.price_base === 0 ? 'Gratis' : ((product.price_base) * 1.21).toFixed(2) + ' &euro;'}}</span></p>
+                                                        <p v-if="product.discount !== null && product?.discount.is_active" class="text-price d-none d-md-block">
                                                             <span class="text-danger fw-semibold">{{ (discountedPrice(product) * 1.21).toFixed(2) }} €</span> 
                                                             <br/>
                                                             <span class="old fw-semibold">{{ ((product.price_base) * 1.21).toFixed(2) }} €</span>
@@ -287,6 +287,7 @@
                 size: 0,
                 freeProduct: 0,
                 isVisible: false,
+                today: new Date().toISOString().slice(0, 10),
             }
         },
 
@@ -363,7 +364,11 @@
             },
 
             discountedPrice(product) {
-                return product.price_base - (product.price_base * product.discount.discount / 100)
+                if (product.discount.is_active){
+                    return product.price_base - (product.price_base * product.discount.discount / 100)
+                } else {
+                    return product.price_base
+                }
             },
 
             makeid(length) {

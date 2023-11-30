@@ -14,7 +14,7 @@
             <div class="product-badges">
                 <!-- <CountdownShop v-show="product.discount?.discount > 0" :targetDate="product.discount?.end_date"/> -->
                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
-                <span class="product-label bg-danger text-white rounded-circle p-2" v-if="product?.discount !== null">-{{ getDiscount(product) }}%</span>
+                <span class="product-label bg-danger text-white rounded-circle p-2" v-if="product?.discount !== null && product?.discount.is_active">-{{ getDiscount(product) }}%</span>
             </div>
              <div class="product-action" v-if="layout === 'twoColumn' || layout === 'threeColumn'">
                 <div class="pro-same-action pro-wishlist">
@@ -48,9 +48,9 @@
                 </client-only>
             </div>
             <div class="product-price">
-                <span v-if="product?.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }}&euro;</span>
-                <span v-if="product?.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }}&euro;</span>
-                <span class="old text-danger" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }}&euro;</span>
+                <span v-if="product?.discount == null || !product?.discount.is_active">{{ ((product.price_base) * 1.21).toFixed(2) }}&euro;</span>
+                <span v-if="product?.discount !== null && product?.discount.is_active">{{ (discountedPrice(product) * 1.21).toFixed(2) }}&euro;</span>
+                <span class="old text-danger" v-if="product.discount !== null && product?.discount.is_active">{{ (product.price_base * 1.21).toFixed(2) }}&euro;</span>
             </div>
             <div class="product-content__list-view" v-if="layout === 'list'">
                 <div>
@@ -111,6 +111,7 @@ import Swal from 'sweetalert2'
         data() {
             return {
                 tag: Object.values(this.product.tags).flat(),
+                today: new Date().toISOString().slice(0, 10),
             }
         },
 
@@ -136,7 +137,11 @@ import Swal from 'sweetalert2'
             },
 
             discountedPrice(product) {
-                return product.price_base - (product.price_base * product.discount?.discount / 100)
+                if (product.discount.is_active){
+                    return product.price_base - (product.price_base * product.discount.discount / 100)
+                } else {
+                    return product.price_base
+                }
             },
 
             addToWishlist(product) {

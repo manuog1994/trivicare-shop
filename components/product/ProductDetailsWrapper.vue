@@ -7,7 +7,7 @@
                         <div class="product-details-img">
                             <div class="product-badges">
                                 <span class="product-label pink" v-if="product.new === 'Nuevo'">Nuevo</span>
-                                <span class="product-label bg-danger text-white p-3 rounded-circle" v-if="product?.discount !== null">-{{ product?.discount?.discount }}%</span>
+                                <span class="product-label bg-danger text-white p-3 rounded-circle" v-if="product?.discount !== null && product?.discount?.is_active">-{{ product?.discount?.discount }}%</span>
                              </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
                                 <div v-if="product.images?.length == 0" class="swiper-slide text-center">
@@ -32,9 +32,9 @@
                     <div class="product-details-content ml-70">
                         <h1 class="h2-h1">{{ product.name }}</h1>
                         <div class="product-details-price">
-                            <span v-if="product.discount === null">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
-                            <span v-if="product.discount !== null">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
-                            <span class="old" v-if="product.discount !== null">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
+                            <span v-if="product.discount === null || !product?.discount?.is_active">{{ ((product.price_base) * 1.21).toFixed(2) }} &euro;</span>
+                            <span v-if="product.discount !== null && product?.discount?.is_active">{{ (discountedPrice(product) * 1.21).toFixed(2) }} &euro;</span>
+                            <span class="old" v-if="product.discount !== null && product?.discount?.is_active">{{ (product.price_base * 1.21).toFixed(2) }} &euro;</span>
                             <span class="ms-2 fs-6" v-if="exclusive.max_uses >= 10"><i>Queda(n) 10 unidad(es) a este precio</i></span>
                             <span class="ms-2 fs-6" v-else-if="exclusive.max_uses < 10"><i>Queda(n) {{ exclusive.max_uses }} unidad(es) a este precio</i></span>
                         </div>
@@ -279,17 +279,11 @@ import Swal from 'sweetalert2'
                 descriptionMenu: true,
                 ingredientsMenu: false,
                 additionalInfoMenu: false,
+                today: new Date().toISOString().slice(0, 10),
             }
         },
 
         mounted() {
-            this.$nextTick(() => {
-                const swiperTop = this.$refs.swiperTop.$swiper
-                const swiperThumbs = this.$refs.swiperThumbs.$swiper
-                swiperTop.controller.control = swiperThumbs
-                swiperThumbs.controller.control = swiperTop
-            });
-            
             this.getModels();
             this.getColors();
             this.getSizes();
@@ -391,7 +385,11 @@ import Swal from 'sweetalert2'
             },
 
             discountedPrice(product) {
-                return product.price_base - (product.price_base * product.discount?.discount / 100)
+                if (product.discount.is_active){
+                    return product.price_base - (product.price_base * product.discount.discount / 100)
+                } else {
+                    return product.price_base
+                }
             },
 
             increaseQuantity(){

@@ -320,7 +320,11 @@ export default {
 
                 if(discountproductsName && this.prevSelectedTagName !== discountproductsName){
                     if(discountproductsName){
-                        const resultData = this.products?.filter((item) => item.discount?.discount > 0);
+                        const resultData = this.products?.filter((item) => {
+                            if (item.discount !== null && item.discount.is_active) {
+                                return item
+                            }
+                        });
                         this.filterItems = [];
                         this.filterItems.push(...resultData);
                     }
@@ -342,7 +346,11 @@ export default {
             },
 
         discountedPrice(product) {
-            return product.price_base - (product.price_base * product.discount / 100)
+            if (product.discount.is_active){
+                return product.price_base - (product.price_base * product.discount.discount / 100)
+            } else {
+                return product.price_base
+            }
         },
 
         paginateClickCallback(page) {
