@@ -138,9 +138,9 @@ export default {
 
         discountedPrice(product) {
             if (product.discount?.is_active){
-                return (product.price_base - (product.price_base * product.discount.discount / 100)).toFixed(2)
+                return (product.price_base - (product.price_base * product.discount.discount / 100) * 1.21 ).toFixed(2)
             } else {
-                return product.price_base
+                return (product.price_base * 1.21).toFixed(2);
             }
         },
 
