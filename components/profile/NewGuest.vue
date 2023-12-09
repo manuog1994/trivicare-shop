@@ -28,28 +28,19 @@
             <div class="col-lg-6 col-md-6">
                 <div class="billing-info">
                     <label for="">País*</label>
-                    <select class="form-select" aria-label="Default select example" name="country" v-model="guest.country" @change="getStates" required>
-                        <option disabled selected>Seleccione su país</option>
-                        <option v-for="country in paises" :key="country.id" :value="country.name">{{ country.name }}</option>
-                    </select>
+                    <input class="form-control" name="country" v-model="guest.country" type="text" required>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="billing-info">
                     <label for="">Provincia*</label>
-                    <select class="form-select" aria-label="Default select example" name="state" v-model="guest.state" @change="getCities" required>
-                        <option disabled selected>Seleccione su provincia</option>
-                        <option v-for="state in provincias" :key="'state'+state.id" :value="state.name">{{ state.name }}</option>
-                    </select>
+                    <input class="form-control" name="state" v-model="guest.state" type="text" required>
                 </div>
             </div>
             <div class="col-lg-8 col-md-8">
                 <div class="billing-info">
                     <label for="">Ciudad*</label>
-                    <select class="form-select" aria-label="Default select example" name="city" v-model="guest.city" required>
-                        <option disabled selected>Seleccione su ciudad</option>
-                        <option v-for="city in cities" :key="'city'+city.name" :value="city.name">{{ city.name }}</option>
-                    </select>
+                    <input class="form-control" name="city" v-model="guest.city" type="text" required>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4">
@@ -125,8 +116,6 @@
 </template>
 
 <script>
-import provincias from '@/data/provincias.json'
-import ciudades from '@/data/ciudades.json'
 export default {
     props: {
         saveGuest: {
@@ -139,15 +128,6 @@ export default {
         return {
             checked: false,
             disabled: true,
-            paises: [
-                {
-                    id: 28,
-                    name: 'España'
-                }
-            ],
-            provincias,
-            ciudades,
-            cities: [],
             guest: {},
             formHidden: true,
             invoice_paper: false,
@@ -202,17 +182,6 @@ export default {
                 window.scrollTo(0, 0);
             }
 
-        },
-
-        getStates(e) {
-            const country_name = e.target.value
-            const country_id = this.paises.find(country => country.name === country_name).id
-            this.provincias = this.provincias.data.filter(state => state.id_country === country_id)
-        },
-        getCities(e) {
-            const states_name = e.target.value
-            const state_id = this.provincias.find(state => state.name === states_name).id
-            this.cities = this.ciudades.data.filter(city => city.id_state === state_id)
         },
 
         deleteGuest() {
